@@ -16,12 +16,12 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>8715</WindowHeight>
-  <WindowWidth>21570</WindowWidth>
+  <WindowHeight>7230</WindowHeight>
+  <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <TabRatio>694</TabRatio>
-  <ActiveSheet>7</ActiveSheet>
+  <ActiveSheet>1</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -1029,6 +1029,13 @@
    <Borders/>
    <Interior/>
   </Style>
+  <Style ss:ID="s167" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s168">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
@@ -1207,13 +1214,6 @@
    </Borders>
    <Interior/>
   </Style>
-  <Style ss:ID="s195" ss:Parent="s62">
-   <Alignment ss:Vertical="Bottom"/>
-   <Borders/>
-   <Interior/>
-   <NumberFormat/>
-   <Protection/>
-  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1308,8 +1308,8 @@
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s74"><Data ss:Type="String">extension.uri</Data></Cell>
-    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/qicore/StructureDefinition/patient-"><Data
-      ss:Type="String">http://hl7.org/fhir/qicore/StructureDefinition/patient-</Data></Cell>
+    <Cell ss:StyleID="s80" ss:HRef="http://hl7.org/fhir/us/qicore/StructureDefinition/patient-"><Data
+      ss:Type="String">http://hl7.org/fhir/us/qicore/StructureDefinition/patient-</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s81"><Data ss:Type="String">introduction</Data></Cell>
@@ -1333,6 +1333,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5459,7 +5460,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">Ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s195" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-ethnicity"><Data
+    <Cell ss:StyleID="s167" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-ethnicity"><Data
       ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-ethnicity</Data></Cell>
     <Cell ss:StyleID="s150"><Data ss:Type="String">The ethnicity of the patient</Data></Cell>
     <Cell ss:StyleID="s150"/>
@@ -5605,7 +5606,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

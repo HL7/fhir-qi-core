@@ -6,13 +6,13 @@
 		"temp": "temp",
 		"output": "output",
 		"qa": "qa",
-		"specification": "http://hl7-fhir.github.io/"
+		"specification": "http://hl7.org/fhir/2017Jan/"
 	},
     "dependencyList" : [
 		{
-		  "name" : "DAF",
-		  "location" : "http://hl7.org/fhir/daf",
-		  "source" : "../daf2/output"
+			"name": "uscore",
+			"location": "http://hl7.org/fhir/us/core",
+			"source": "lib/uscore"
 		}
 	],
   	"defaults": {
@@ -25,7 +25,7 @@
     }
 	},
 	"sct-edition" : "http://snomed.info/sct/731000124108",
-	"canonicalBase": "http://hl7.org/fhir/qicore",
+	"canonicalBase": "http://hl7.org/fhir/us/qicore",
 	"source": "qicore.xml",
 	"spreadsheets": [
 		"allergyintolerance-profile-spreadsheet.xml",
