@@ -5,7 +5,7 @@ The implementation guide is based on [FHIR version 1.8 (STU3 candidate)](http://
 
 Commits to this repository will automatically trigger a new build of the IG, which will then be published to the following location:
 
-[http://build.fhir.org/cqframework/qi-core](http://build.fhir.org/cqframework/qi-core)
+[http://build.fhir.org/ig/cqframework/qi-core](http://build.fhir.org/ig/cqframework/qi-core)
 
 Build log is available here:
 
@@ -13,6 +13,6 @@ Build log is available here:
 
 Full debugging information is available here:
 
-[http://build.fhir.org/cqframework/qi-core/debug.tgz](http://build.fhir.org/cqframework/qi-core/debug.tgz)
+[http://build.fhir.org/ig/cqframework/qi-core/debug.tgz](http://build.fhir.org/ig/cqframework/qi-core/debug.tgz)
 
 
