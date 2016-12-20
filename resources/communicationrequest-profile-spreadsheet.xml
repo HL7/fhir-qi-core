@@ -20,8 +20,8 @@
   <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -929,9 +929,6 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
-  <Style ss:ID="s170" ss:Parent="s62">
-   <Alignment ss:Vertical="Bottom" ss:WrapText="1"/>
-  </Style>
   <Style ss:ID="s171">
    <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:WrapText="1"/>
   </Style>
@@ -1007,6 +1004,9 @@
     <Border ss:Position="Bottom" ss:LineStyle="Continuous" ss:Weight="3"/>
     <Border ss:Position="Right" ss:LineStyle="Continuous" ss:Weight="3"/>
    </Borders>
+   <Interior/>
+  </Style>
+  <Style ss:ID="s182">
    <Interior/>
   </Style>
  </Styles>
@@ -1129,7 +1129,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>87</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1316,7 +1315,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">CommunicationRequest.orderedBy</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">orderedBy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1346,7 +1345,7 @@
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"><Data ss:Type="String">CommunicationRequest.authorizedBy</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">authorizedBy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1375,7 +1374,7 @@
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">CommunicationRequest.reasonRejected</Data><NamedCell
+    <Cell ss:StyleID="s124"><Data ss:Type="String">reasonRejected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3262,7 +3261,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>14</ActiveRow>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5932,8 +5932,7 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">Reason communication request was not performed</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">example</Data></Cell>
-    <Cell ss:StyleID="s170" ss:HRef="http://hl7.org/fhir/qicore/ValueSet/qicore-communication-reason-not-performed"><Data
-      ss:Type="String">http://hl7.org/fhir/qicore/ValueSet/qicore-communication-reason-not-performed</Data></Cell>
+    <Cell ss:StyleID="s182"><Data ss:Type="String">valueset-qicore-communication-reason-not-performed</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"/>
@@ -6317,6 +6316,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6336,7 +6336,6 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

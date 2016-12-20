@@ -20,8 +20,8 @@
   <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -959,6 +959,9 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s175" ss:Parent="s62">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1078,7 +1081,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1265,7 +1267,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Goal.target</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">target</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1297,7 +1299,7 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Goal.target.measure</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">target-measure</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1328,7 +1330,7 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Goal.target.detail</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">target-detail</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1359,7 +1361,7 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">Goal.reasonRejected</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">reasonRejected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3167,7 +3169,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>5</LeftColumnRightPane>
+   <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3182,8 +3184,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>4</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>6</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5882,7 +5884,8 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC codes</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codes</Data></Cell>
+    <Cell ss:StyleID="s175" ss:HRef="http://hl7.org/fhir/ValueSet/observation-codes"><Data
+      ss:Type="String">http://hl7.org/fhir/ValueSet/observation-codes</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s163"/>
@@ -5897,7 +5900,7 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">SNOMED CT for coded results</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s138"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell><Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codedresults</Data></Cell>
+    <Cell><Data ss:Type="String">http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes</Data></Cell>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s138"/>
     <Cell ss:StyleID="s163"/>
@@ -6221,6 +6224,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6240,7 +6244,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
+     <ActiveRow>5</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationRequest xmlns="http://hl7.org/fhir"
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-  xsi:schemaLocation="http://hl7.org/fhir ..\..\..\schema\medicationrequest.xsd">
+  xsi:schemaLocation="http://hl7.org/fhir ..\schema\medicationrequest.xsd">
   <id value="medicationrequest-example-qicore"/>
 
   <text>
@@ -15,22 +15,23 @@
     </div>
   </text>
   <status value="active" />
-  <intent value="order"/>
+  <stage>
+    <coding>
+		<system value="http://hl7.org/fhir/request-stage"/>
+		<code value="original-order"/>
+		<display value="Original Order"/>
+    </coding>
+  </stage>
   <medicationReference>
     <reference value="Medication/example"/>
   </medicationReference>
-  <subject>
+  <patient>
     <reference value="Patient/example"/>
-  </subject>
-  <authoredOn value="2015-03-25T19:32:52-05:00"/>
+  </patient>
+  <dateWritten value="2015-03-25T19:32:52-05:00"/>
   <requester>
-    <agent>
-      <reference value="Practitioner/example"/>
-    </agent>
-    <onBehalfOf>
-      <reference value="Organization/example"/>
-    </onBehalfOf>
-  </requester>
+    <reference value="Practitioner/example"/>
+    </requester>
   <dosageInstruction>
     <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType" >
       <valueCodeableConcept>

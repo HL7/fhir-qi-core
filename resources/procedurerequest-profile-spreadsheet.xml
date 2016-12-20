@@ -20,8 +20,8 @@
   <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1200,7 +1200,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>96</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1391,7 +1390,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">ProcedureRequest.method</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">method</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1423,7 +1422,7 @@
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s114">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">ProcedureRequest.originationMode</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">originationMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1454,7 +1453,7 @@
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s114">
-    <Cell ss:StyleID="s116"><Data ss:Type="String">ProcedureRequest.priority</Data><NamedCell
+    <Cell ss:StyleID="s116"><Data ss:Type="String">priority</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1485,7 +1484,7 @@
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">ProcedureRequest.reasonRefused</Data><NamedCell
+    <Cell ss:StyleID="s124"><Data ss:Type="String">reasonRefused</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1518,7 +1517,7 @@
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">ProcedureRequest.approachBodySite</Data><NamedCell
+    <Cell ss:StyleID="s124"><Data ss:Type="String">approachBodySite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1550,7 +1549,7 @@
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">ProcedureRequest.authorizedBy</Data><NamedCell
+    <Cell ss:StyleID="s124"><Data ss:Type="String">authorizedBy</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1581,7 +1580,7 @@
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s124"><Data ss:Type="String">ProcedureRequest.appropriatenessScore</Data><NamedCell
+    <Cell ss:StyleID="s124"><Data ss:Type="String">appropriatenessScore</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3680,7 +3679,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>5</ActiveRow>
+     <ActiveRow>9</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6343,8 +6343,8 @@
     <Cell ss:StyleID="s127"><Data ss:Type="String">Codes describing the Procedure Type</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s182" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-procedure-type"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-procedure-type</Data></Cell>
+    <Cell ss:StyleID="s182" ss:HRef="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type"><Data
+      ss:Type="String">http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type</Data></Cell>
     <Cell ss:StyleID="s160"><Data ss:Type="String">This value set identifies a set of procedure types.</Data></Cell>
     <Cell ss:StyleID="s160"/>
     <Cell ss:StyleID="s160"/>
@@ -6728,6 +6728,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>

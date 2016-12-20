@@ -24,7 +24,8 @@
   <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1156,7 +1157,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>125</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1344,7 +1344,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticRequest.asNeeded</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">asNeeded</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1375,7 +1375,7 @@
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticRequest.originationMode</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">originationMode</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1406,7 +1406,7 @@
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticRequest.suspectedPathogen</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">suspectedPathogen</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1437,7 +1437,7 @@
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticRequest.reason</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">reason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1468,7 +1468,7 @@
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"><Data ss:Type="String">DiagnosticRequest.reasonRejected</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">reasonRejected</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1527,7 +1527,7 @@
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticRequest.item.method</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">item-method</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1559,7 +1559,7 @@
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s115"><Data ss:Type="String">DiagnosticRequest.item.precondition</Data><NamedCell
+    <Cell ss:StyleID="s115"><Data ss:Type="String">item-precondition</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3458,7 +3458,7 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>10</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3476,8 +3476,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>3</ActiveCol>
+     <ActiveRow>10</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -6092,8 +6092,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">The code for the condition</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s168" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-problem"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-problem</Data></Cell>
+    <Cell ss:StyleID="s168" ss:HRef="http://hl7.org/fhir/us/core/ValueSet/us-core-problem"><Data
+      ss:Type="String">http://hl7.org/fhir/us/core/ValueSet/us-core-problem</Data></Cell>
     <Cell ss:StyleID="s146"><Data ss:Type="String">Value set for encoding a condition (problem)</Data></Cell>
     <Cell ss:StyleID="s146"/>
     <Cell ss:StyleID="s146"/>
@@ -6123,7 +6123,7 @@
     <Cell ss:StyleID="s118"><Data ss:Type="String">LOINC codes for tests/services that can be performed by diagnostic services</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s149"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codes</Data></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-codes</Data></Cell>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s149"/>
     <Cell ss:StyleID="s170"/>
@@ -6477,6 +6477,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -6496,8 +6497,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveRow>11</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

@@ -3,6 +3,7 @@
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -12,6 +13,9 @@
   <LastSaved>2015-03-09T20:53:42Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
+ <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <WorkbookGuid dt:dt="string">e7e96693-f5f9-4e8a-ae51-97f77a0d2e12</WorkbookGuid>
+ </CustomDocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
@@ -20,8 +24,8 @@
   <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>2</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1038,7 +1042,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1746,7 +1749,7 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DAFBodySite</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DAFBodySite</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3080,12 +3083,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>4</LeftColumnRightPane>
+   <LeftColumnRightPane>8</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3097,10 +3101,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>9</ActiveRow>
+     <ActiveRow>21</ActiveRow>
+     <ActiveCol>9</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5746,8 +5752,8 @@
     <Cell ss:StyleID="s96"><Data ss:Type="String">This identifies the CVX code system</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s155" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-cvx"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-cvx</Data></Cell>
+    <Cell ss:StyleID="s155" ss:HRef="http://hl7.org/fhir/us/core/ValueSet/us-core-cvx"><Data
+      ss:Type="String">http://hl7.org/fhir/us/core/ValueSet/us-core-cvx</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">This value set binds to the CDC  Vaccines administered (CVX) 2.16.840.1.113883.12.292 code system.</Data></Cell>
     <Cell ss:StyleID="s134"><Data ss:Type="String">2.16.840.1.113883.3.88.12.80.22</Data></Cell>
     <Cell ss:StyleID="s134"/>
@@ -5758,7 +5764,7 @@
     <Cell ss:StyleID="s135"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">DAFBodySite</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">!DAFBodySite</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">This identifies the body site at which the substance was administered</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">preferred</Data></Cell>
@@ -6182,7 +6188,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>2</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>

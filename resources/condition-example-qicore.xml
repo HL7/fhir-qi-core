@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/condition.xsd">
+<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/condition.xsd">
   <id value="condition-example-qicore"/>
   <text>
    <status value="generated"/>
@@ -15,12 +15,13 @@
      </coding>
    </valueCodeableConcept>
  </extension>
+ <clinicalStatus value="active"/>
   <verificationStatus value="confirmed"/>
  <category>
    <coding>
     <system value="http://hl7.org/fhir/condition-category"/>
-    <code value="diagnosis"/>
-    <display value="Diagnosis"/>
+    <code value="problem-list-item"/>
+    <display value="Problem List Item"/>
    </coding>
    <!-- and also a SNOMED CT coding -->
    <coding>

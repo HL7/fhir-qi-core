@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/basic.xsd">
+<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/basic.xsd">
   <id value="basic-adverseevent-example"/>  
   <text>
     <status value="generated" />
     <div xmlns="http://www.w3.org/1999/xhtml">Generated narrative...</div>
   </text>
-  <extension url="http://hl7.org/fhir/qicore/StructureDefinition/adverseevent-cause">
-    <extension url="http://hl7.org/fhir/qicore/StructureDefinition/adverseevent-cause#item">
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/adverseevent-cause">
+    <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/adverseevent-cause#item">
       <valueReference>
         <reference value="Medication/qicore"/>
       </valueReference>
     </extension>	
-    <extension url="http://hl7.org/fhir/qicore/StructureDefinition/adverseevent-cause#certainty">
+    <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/adverseevent-cause#certainty">
       <valueCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>
@@ -21,16 +21,16 @@
       </valueCodeableConcept>
     </extension>
   </extension>
-  <extension url="http://hl7.org/fhir/qicore/StructureDefinition/adverseevent-type">
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/adverseevent-type">
     <valueCodeableConcept>
       <coding>
-        <system value="http://hl7.org/fhir/qicore-adverseevent-type"/>
+        <system value="http://hl7.org/fhir/us/qicore-adverseevent-type"/>
         <code value="unsafe"/>
         <display value="Eruption due to drug (disorder)"/>
       </coding>
     </valueCodeableConcept>
   </extension>
-  <extension url="http://hl7.org/fhir/qicore/StructureDefinition/adverseevent-period">
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/adverseevent-period">
     <valuePeriod>
       <start value="2014-01-14"/>
       <end value="2014-01-15"/>

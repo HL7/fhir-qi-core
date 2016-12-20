@@ -3,6 +3,7 @@
 <Workbook xmlns="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:o="urn:schemas-microsoft-com:office:office"
  xmlns:x="urn:schemas-microsoft-com:office:excel"
+ xmlns:dt="uuid:C2F41010-65B3-11d1-A29F-00AA00C14882"
  xmlns:ss="urn:schemas-microsoft-com:office:spreadsheet"
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -12,6 +13,9 @@
   <LastSaved>2015-03-30T15:27:25Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
+ <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
+  <WorkbookGuid dt:dt="string">e60e6d61-cdda-4dc6-8888-32ae3d5d57ba</WorkbookGuid>
+ </CustomDocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
@@ -20,8 +24,8 @@
   <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>7</ActiveSheet>
+  <FirstVisibleSheet>3</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -944,6 +948,13 @@
    <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#333399"/>
    <Interior/>
   </Style>
+  <Style ss:ID="s173" ss:Parent="s62">
+   <Alignment ss:Vertical="Bottom"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
   <Style ss:ID="s174" ss:Parent="s62">
    <Alignment ss:Vertical="Top" ss:WrapText="1"/>
    <Borders/>
@@ -1170,7 +1181,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>96</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -5872,7 +5882,8 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">LOINC codes</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codes</Data></Cell>
+    <Cell ss:StyleID="s173" ss:HRef="http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes"><Data
+      ss:Type="String"> http://hl7.org/fhir/ValueSet/observation-codes</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s174"/>
@@ -5887,7 +5898,8 @@
     <Cell ss:StyleID="s107"><Data ss:Type="String">SNOMED CT for coded results</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s155"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="Default"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/uslab-obs-codedresults</Data></Cell>
+    <Cell ss:StyleID="s173" ss:HRef="http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes"><Data
+      ss:Type="String">http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes</Data></Cell>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s155"/>
     <Cell ss:StyleID="s174"/>
@@ -6136,12 +6148,13 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>4</TopRowBottomPane>
    <SplitVertical>1</SplitVertical>
-   <LeftColumnRightPane>1</LeftColumnRightPane>
+   <LeftColumnRightPane>2</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -6149,13 +6162,15 @@
     </Pane>
     <Pane>
      <Number>1</Number>
+     <ActiveCol>1</ActiveCol>
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>7</ActiveRow>
+     <ActiveRow>6</ActiveRow>
      <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>

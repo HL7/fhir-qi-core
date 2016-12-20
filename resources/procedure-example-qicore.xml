@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/procedure.xsd">
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/procedure.xsd">
   <id value="procedure-example-qicore"/>
   <text>
     <status value="generated" />
@@ -13,9 +13,6 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/procedure-incisionDateTime">
     <valueDateTime value="2013-04-05T09:30:00-04:00"/>
   </extension>
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
   <status value="completed"/>
   <code>
     <coding>
@@ -25,13 +22,22 @@
     </coding>
     <text value="Appendectomy"/>
   </code>
-  <bodySite>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="66754008"/>
-        <display value="Appendix structure"/>
-      </coding>
-  </bodySite>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <performedPeriod>
+    <start value="2013-04-05T09:20:00-04:00"/>
+    <end value="2013-04-05T10:30:00-04:00"/>
+  </performedPeriod>
+  <performer>
+    <actor>
+      <reference value="Practitioner/example"/>
+      <display value="Dr Cecil Surgeon"/>
+    </actor>
+  </performer>
   <reasonCode>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -39,17 +45,11 @@
       <display value="On examination - abdominal pain - right iliac"/>
     </coding>
   </reasonCode>
-  <performer>
-    <actor>
-      <reference value="Practitioner/example"/>
-      <display value="Dr Cecil Surgeon"/>
-    </actor>
-  </performer>
-  <performedPeriod>
-    <start value="2013-04-05T09:20:00-04:00"/>
-    <end value="2013-04-05T10:30:00-04:00"/>
-  </performedPeriod>
-  <encounter>
-    <reference value="Encounter/example"/>
-  </encounter>
+  <bodySite>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="66754008"/>
+        <display value="Appendix structure"/>
+      </coding>
+  </bodySite>
 </Procedure>

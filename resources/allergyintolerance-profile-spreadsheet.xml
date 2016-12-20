@@ -24,8 +24,8 @@
   <WindowWidth>17100</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>1</ActiveSheet>
-  <FirstVisibleSheet>1</FirstVisibleSheet>
+  <ActiveSheet>2</ActiveSheet>
+  <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
@@ -1150,7 +1150,6 @@
     <VerticalResolution>600</VerticalResolution>
    </Print>
    <Zoom>150</Zoom>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -1182,9 +1181,9 @@
  <Worksheet ss:Name="QICore-AllergyIntolerance">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='QICore-AllergyIntolerance'!R1C1:R74C24" ss:Hidden="1"/>
+    ss:RefersTo="='QICore-AllergyIntolerance'!R1C1:R75C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="75" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="76" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="196.5"/>
@@ -1317,7 +1316,7 @@
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Resource</Data><NamedCell
+    <Cell ss:StyleID="s96"><Data ss:Type="String">AllergyIntolerance{http://hl7.org/fhir/us/core/us-core-allergyintolerance}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1338,7 +1337,7 @@
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">AllergyIntolerance.resolutionAge</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">resolutionAge</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1369,7 +1368,7 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">AllergyIntolerance.reasonRefuted</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">reasonRefuted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1405,7 +1404,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">AllergyIntolerance.attestedDate</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">AllergyIntolerance.assertedDate</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1521,7 +1520,7 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">AllergyIntolerance.status</Data><NamedCell
+    <Cell ss:StyleID="s106"><Data ss:Type="String">AllergyIntolerance.clinicalStatus</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1545,6 +1544,34 @@
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><Data ss:Type="String">negation rationale (when status=&quot;refuted&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:Height="44.0625">
+    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">AllergyIntolerance.verificationStatus</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s116"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1672,7 +1699,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">DAFManifestation</Data><NamedCell
+    <Cell ss:StyleID="s107"><Data ss:Type="String">!DAFManifestation</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1720,7 +1747,7 @@
     <Cell ss:StyleID="s115"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">AllergyIntolerance.reaction.duration</Data><NamedCell
+    <Cell ss:StyleID="s104"><Data ss:Type="String">reaction-duration</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3272,10 +3299,11 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>13</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
    <LeftColumnRightPane>4</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
@@ -3289,11 +3317,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>3</ActiveRow>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>17</ActiveRow>
+     <ActiveCol>0</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5961,7 +5990,7 @@
     <Cell ss:StyleID="s141"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s104"><Data ss:Type="String">DAFManifestation</Data></Cell>
+    <Cell ss:StyleID="s104"><Data ss:Type="String">!DAFManifestation</Data></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
@@ -5974,15 +6003,15 @@
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
-    <Cell ss:StyleID="s144"/>
+    <Cell ss:StyleID="s144"><Data ss:Type="String">This value set is no longer part of us-core?</Data></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><Data ss:Type="String">DAFSubstance</Data></Cell>
     <Cell ss:StyleID="s107"/>
     <Cell ss:StyleID="s143"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s143"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s173" ss:HRef="http://hl7.org/fhir/daf/ValueSet/daf-core-substance"><Data
-      ss:Type="String">http://hl7.org/fhir/daf/ValueSet/daf-core-substance</Data></Cell>
+    <Cell ss:StyleID="s173" ss:HRef="http://hl7.org/fhir/us/core/ValueSet/us-core-substance"><Data
+      ss:Type="String">http://hl7.org/fhir/us/core/ValueSet/us-core-substance</Data></Cell>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
     <Cell ss:StyleID="s143"/>
@@ -6341,7 +6370,7 @@
     <Pane>
      <Number>0</Number>
      <ActiveRow>5</ActiveRow>
-     <ActiveCol>4</ActiveCol>
+     <ActiveCol>12</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
