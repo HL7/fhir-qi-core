@@ -9,7 +9,7 @@ Commits to this repository will automatically trigger a new build of the IG, whi
 
 Build log is available here:
 
-[http://ig-build.fhir.org.s3-website-us-east-1.amazonaws/logs/cqframework/qi-core](http://ig-build.fhir.org.s3-website-us-east-1.amazonaws/logs/cqframework/qi-core)
+[http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/cqframework/qi-core/](http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/cqframework/qi-core/)
 
 Full debugging information is available here:
 
