@@ -62,17 +62,16 @@
 
  -- Row 7 -----------------------------------
   Element = DiagnosticReport.performer
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = BackboneElement
 
  -- Row 8 -----------------------------------
-  Element = DiagnosticReport.encounter
+  Element = DiagnosticReport.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
-
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter} | Reference(EpisodeOfCare){http://hl7.org/fhir/qicore/StructureDefinition/qicore-episodeofcare}
  -- Row 9 -----------------------------------
-  Element = DiagnosticReport.request
-  Type = Reference(DiagnosticOrder){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticorder} | Reference(ProcedureRequest){http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest} | Reference(ReferralRequest){http://hl7.org/fhir/StructureDefinition/qicore-referralrequest}
-  QDM Mapping = reason (DiagnosticReport.request.clinicalNotes)
+  Element = DiagnosticReport.basedOn
+  Type = Reference(CarePlan) | Reference(ImmunizationRecommendation){http://hl7.org/fhir/qicore/StructureDefinition/qicore-immunizationrec} | Reference(MedicationRequest) | Reference(NutritionOrder) | Reference(ProcedureRequest){http://hl7.org/fhir/qicore/StructureDefinition/qicore-procedurerequest} | Reference(ReferralRequest){http://hl7.org/fhir/qicore/StructureDefinition/qicore-referralrequest}
+  QDM Mapping = reason (DiagnosticReport.basedOn.clinicalNotes)
 
  -- Row 10 -----------------------------------
   Element = !DiagnosticReport.category

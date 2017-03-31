@@ -65,7 +65,7 @@
  -- Row 8 -----------------------------------
   Element = ReferralRequest.requester
   Must Support = Y
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = BackboneElement
 
  -- Row 9 -----------------------------------
   Element = ReferralRequest.recipient
@@ -94,7 +94,8 @@
   QDM Mapping = primary code
 
  -- Row 14 -----------------------------------
-  Element = ReferralRequest.fulfillmentTime
+  Element = ReferralRequest.occurrence[x]
   Must Support = Y
+  QDM Mapping = start datetime, stop datetime
 
 === Sheet Search =====================================

@@ -23,21 +23,22 @@
   Type = DomainResource
 
  -- Row 2 -----------------------------------
-  Element = Medication.product
+  Element = Medication.form
+  Type = CodeableConcept
 
  -- Row 3 -----------------------------------
-  Element = !Medication.product.extension
-  Profile Name = Medication.product.usualRoute
+  Element = !Medication.extension
+  Profile Name = Medication.usualRoute
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/medication-usualRoute}
   Binding = RouteOfAdministration
 
  -- Row 4 -----------------------------------
-  Element = Medication.product.ingredient
+  Element = Medication.ingredient
 
  -- Row 5 -----------------------------------
-  Element = Medication.product.ingredient.extension
-  Profile Name = Medication.product.ingredient.isActiveIngredient
+  Element = Medication.ingredient.extension
+  Profile Name = Medication.ingredient.isActiveIngredient
   Card. = 0..1
   Type = Extension{http://hl7.org/fhir/StructureDefinition/medication-isActiveIngredient}
   QIDAM Mapping = Not in QIDAM, but added because it was determined to be important for drug-allergy checking. For example, if the patient is allergic to Depakote\n(a trade name, and includes blue dye as an inactive ingredient), then when patient is prescribed warfarin, it shoots out a drug-allergy alert because warfarin also contains blue dye.  Providers hate this. We recently overcame this problem by having the drug-allergy alert interaction settings only check for allergies to active ingredients.
@@ -52,8 +53,8 @@
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
 
  -- Row 8 -----------------------------------
-  Element = Medication.product.ingredient.itemReference
-  Type = Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance} |Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Element = Medication.ingredient.item[x]
+  Type = CodeableConcept | Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance} |Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
 
  -- Row 9 -----------------------------------
   Element = Medication.package

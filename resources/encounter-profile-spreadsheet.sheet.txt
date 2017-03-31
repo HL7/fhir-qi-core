@@ -130,9 +130,9 @@
   QDM Mapping = primary code
 
  -- Row 15 -----------------------------------
-  Element = Encounter.patient
+  Element = Encounter.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group){http://hl7.org/fhir/StructureDefinition/qicore-group}
 
  -- Row 16 -----------------------------------
   Element = Encounter.incomingReferral
@@ -189,8 +189,9 @@
   QDM Mapping = discharge status
 
  -- Row 29 -----------------------------------
-  Element = Encounter.hospitalization.dischargeDiagnosis
+  Element = Encounter.diagnosis
   Must Support = Y
+  type = BackboneElement
 
  -- Row 30 -----------------------------------
   Element = Encounter.hospitalization.reAdmission

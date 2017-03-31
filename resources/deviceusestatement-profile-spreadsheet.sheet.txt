@@ -2,13 +2,6 @@
 === Sheet Bindings =====================================
 
  -- Row 1 -----------------------------------
-  Binding Name = QICoreBodySite
-  Binding = value set
-  Reference = http://hl7.org/fhir/ValueSet/body-site
-  Definition = Precoordinated body sites such as \'left ear\'
-  Conformance = example
-
- -- Row 2 -----------------------------------
   Binding Name = QICoreClinicalFinding
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/clinical-findings
@@ -23,10 +16,9 @@
   QDM Mapping = Device, Applied
 
  -- Row 2 -----------------------------------
-  Element = DeviceUseStatement.bodySite[x]
+  Element = DeviceUseStatement.bodySite
   Must Support = Y
-  Type = CodeableConcept | Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
-  Binding = QICoreBodySite
+  Type = CodeableConcept
   QDM Mapping = anatomical location site
 
  -- Row 3 -----------------------------------

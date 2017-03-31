@@ -165,9 +165,9 @@
   Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(DeviceMetric)
 
  -- Row 21 -----------------------------------
-  Element = Observation.encounter
+  Element = Observation.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter} | Reference(Group){http://hl7.org/fhir/qicore/StructureDefinition/qicore-group}
 
  -- Row 22 -----------------------------------
   Element = Observation.related

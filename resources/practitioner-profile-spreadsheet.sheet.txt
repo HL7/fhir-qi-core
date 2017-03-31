@@ -110,44 +110,13 @@
   Binding = QICoreQualificationSubType
 
  -- Row 12 -----------------------------------
-  Element = Practitioner.role
-
- -- Row 13 -----------------------------------
-  Element = Practitioner.role.organization
-  Must Support = Y
-  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
-
- -- Row 14 -----------------------------------
-  Element = Practitioner.role.period
-  Must Support = Y
-
- -- Row 15 -----------------------------------
-  Element = Practitioner.role.code
-  Must Support = Y
-
- -- Row 16 -----------------------------------
-  Element = Practitioner.role.specialty
-  Must Support = Y
-
- -- Row 17 -----------------------------------
-  Element = Practitioner.role.specialty.extension
-  Profile Name = Practitioner.role.specialty.primaryInd
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/practitioner-primaryInd}
-  QIDAM Mapping = Not in QIDAM, but recognized as important. The primary specialty could drive the order sets or order preferences that are provided as default in an order entry system.  Also, a population health management system may want to manage patients with heart failure who are managed by a provider whose primary specialty is cardiology.
-
- -- Row 18 -----------------------------------
-  Element = Practitioner.role.location
-  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
-
- -- Row 19 -----------------------------------
   Element = Practitioner.gender
   Must Support = Y
 
- -- Row 20 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Practitioner.qualification
 
- -- Row 21 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Practitioner.qualification.issuer
   Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
 
