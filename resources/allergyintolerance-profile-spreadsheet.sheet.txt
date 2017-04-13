@@ -72,12 +72,12 @@
 
  -- Row 5 -----------------------------------
   Element = AllergyIntolerance.recorder
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Practitioner) | Reference(Patient)
 
  -- Row 6 -----------------------------------
   Element = AllergyIntolerance.patient
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient)
 
  -- Row 7 -----------------------------------
   Element = AllergyIntolerance.substance

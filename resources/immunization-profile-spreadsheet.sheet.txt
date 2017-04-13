@@ -44,7 +44,7 @@
  -- Row 5 -----------------------------------
   Element = Immunization.patient
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient)
 
  -- Row 6 -----------------------------------
   Element = Immunization.notGiven
@@ -58,15 +58,15 @@
  -- Row 8 -----------------------------------
   Element = Immunization.encounter
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+  Type = Reference(Encounter)
 
  -- Row 9 -----------------------------------
   Element = Immunization.manufacturer
-  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Organization)
 
  -- Row 10 -----------------------------------
   Element = Immunization.location
-  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+  Type = Reference(Location)
 
  -- Row 11 -----------------------------------
   Element = Immunization.explanation
@@ -86,7 +86,7 @@
 
  -- Row 15 -----------------------------------
   Element = Immunization.reaction.detail
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = Reference(Observation)
 
  -- Row 16 -----------------------------------
   Element = Immunization.vaccinationProtocol
@@ -94,7 +94,7 @@
 
  -- Row 17 -----------------------------------
   Element = Immunization.vaccinationProtocol.authority
-  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Organization)
 
  -- Row 18 -----------------------------------
   Element = Immunization.doseQuantity

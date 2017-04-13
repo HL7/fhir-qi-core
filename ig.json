@@ -6,7 +6,7 @@
 		"temp": "temp",
 		"output": "output",
 		"qa": "qa",
-		"specification": "http://hl7.org/fhir/STU3/"
+		"specification": "http://hl7.org/fhir/"
 	},
     "dependencyList" : [
 		{
@@ -21,10 +21,15 @@
 			"template-base": "instance-template-base.html"
 		},
     "StructureDefinition" : {
-			"template-base": "instance-template-sd.html"
+			"template-base": "instance-template-sd.html",
+	    "template-mappings":"instance-template-sd-mappings.html",
+	    "template-defns":"instance-template-sd-definitions.html"
     }
 	},
 	"sct-edition" : "http://snomed.info/sct/731000124108",
+	"extraTemplates":[
+      "mappings"
+   ],
 	"canonicalBase": "http://hl7.org/fhir/us/qicore",
 	"source": "qicore.xml",
 	"spreadsheets": [
@@ -118,8 +123,8 @@
 		"ValueSet/qicore-patient-disability": { "base": "valueset-qicore-patient-disability.xml.html", "template-base": null },
 		"ValueSet/qicore-patient-military-service": { "base": "valueset-qicore-patient-military-service.xml.html", "template-base": null },
 		"ValueSet/qicore-priority": { "base": "valueset-qicore-priority.xml.html", "template-base": null },
-		"ValueSet/qicore-referralrequest-reason-rejected": { "base": "valueset-qicore-referralrequest-reason-rejected.xml.html", "template-base": null },
-		"AllergyIntolerance/allergyintolerance-example-qicore": { "base":  "AllergyIntolerance-allergyintolerance-example-qicore.html" },
+		"ValueSet/qicore-referralrequest-reason-rejected": { "base": "Valueset-qicore-referralrequest-reason-rejected.xml.html", "template-base": null },
+		"AllergyIntolerance/allergyintolerance-example-qicore": { "base": "AllergyIntolerance-allergyintolerance-example-qicore.html", "template-base": null },
 		"AllergyIntolerance/allergyintolerance-example-refuted": { "base": "AllergyIntolerance-allergyintolerance-example-refuted.html", "template-base": null },
 		"AdverseEvent/adverseevent-example-qicore": { "base": "AdverseEvent-adverseevent-example.html", "template-base": null },
 		"Communication/communication-example-qicore": { "base": "communication-example-qicore.xml", "template-base": null },

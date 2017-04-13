@@ -70,21 +70,21 @@
  -- Row 15 -----------------------------------
   Element = MedicationOrder.patient
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient)
 
  -- Row 16 -----------------------------------
   Element = MedicationOrder.prescriber
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Practitioner)
 
  -- Row 17 -----------------------------------
   Element = MedicationOrder.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter} | Reference(Group){http://hl7.org/fhir/StructureDefinition/qicore-group}
+  Type = Reference(Encounter) | Reference(Group)
 
  -- Row 18 -----------------------------------
   Element = MedicationOrder.medication[x]
   Must Support = Y
-  Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Type = CodeableConcept | Reference(Medication)
   Binding = QICoreMedicationCodes
   QDM Mapping = primary code
 

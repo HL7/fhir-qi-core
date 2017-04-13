@@ -87,12 +87,12 @@
 
  -- Row 11 -----------------------------------
   Element = !Procedure.bodySite.site[x]
-  Type = CodeableConcept|Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
+  Type = CodeableConcept|Reference(BodySite)
 
  -- Row 12 -----------------------------------
   Element = Procedure.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group)
+  Type = Reference(Patient) | Reference(Group)
 
  -- Row 13 -----------------------------------
   Element = Procedure.status
@@ -109,7 +109,7 @@
 
  -- Row 16 -----------------------------------
   Element = Procedure.performer.actor
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | \nReference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+  Type = Reference(Practitioner) | Reference(Organization) | \nReference(Patient) | Reference(RelatedPerson)
 
  -- Row 17 -----------------------------------
   Element = !Procedure.performer.role
@@ -123,16 +123,16 @@
  -- Row 19 -----------------------------------
   Element = Procedure.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter} | Reference(Group){http://hl7.org/fhir/StructureDefinition/qicore-group}
+  Type = Reference(Encounter) | Reference(Group)
 
  -- Row 20 -----------------------------------
   Element = Procedure.location
-  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+  Type = Reference(Location)
 
  -- Row 21 -----------------------------------
   Element = Procedure.report
   Must Support = Y
-  Type = Reference(DiagnosticReport){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticreport}
+  Type = Reference(DiagnosticReport)
   QDM Mapping = result
 
  -- Row 22 -----------------------------------
@@ -140,6 +140,6 @@
 
  -- Row 23 -----------------------------------
   Element = Procedure.focalDevice.manipulated
-  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
+  Type = Reference(Device)
 
 === Sheet Search =====================================

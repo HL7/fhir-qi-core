@@ -60,7 +60,7 @@
  -- Row 7 -----------------------------------
   Element = ReferralRequest.patient
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient)
 
  -- Row 8 -----------------------------------
   Element = ReferralRequest.requester
@@ -70,13 +70,13 @@
  -- Row 9 -----------------------------------
   Element = ReferralRequest.recipient
   Must Support = Y
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Practitioner) | Reference(Organization)
   QDM Mapping = facility location
 
  -- Row 10 -----------------------------------
   Element = ReferralRequest.encounter
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+  Type = Reference(Encounter)
 
  -- Row 11 -----------------------------------
   Element = ReferralRequest.dateSent

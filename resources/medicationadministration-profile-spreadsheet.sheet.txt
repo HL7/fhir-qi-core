@@ -50,7 +50,7 @@
  -- Row 8 -----------------------------------
   Element = MedicationAdministration.group
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group){http://hl7.org/fhir/StructureDefinition/qicore-group}
+  Type = Reference(Patient) | Reference(Group)
 
  -- Row 9 -----------------------------------
   Element = MedicationAdministration.performer
@@ -59,11 +59,11 @@
  -- Row 10 -----------------------------------
   Element = MedicationAdministration.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter} | Reference(EpisodeOfCare){http://hl7.org/fhir/qicore/StructureDefinition/qicore-episodeofcare}
+  Type = Reference(Encounter) | Reference(EpisodeOfCare)
 
  -- Row 11 -----------------------------------
   Element = MedicationAdministration.prescription
-  Type = Reference(MedicationOrder){http://hl7.org/fhir/StructureDefinition/qicore-medicationorder}
+  Type = Reference(MedicationOrder)
 
  -- Row 12 -----------------------------------
   Element = MedicationAdministration.notGiven
@@ -78,13 +78,13 @@
  -- Row 14 -----------------------------------
   Element = MedicationAdministration.medication[x]
   Must Support = Y
-  Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Type = CodeableConcept | Reference(Medication)
   Binding = QICoreMedicationCodes
   QDM Mapping = primary code
 
  -- Row 15 -----------------------------------
   Element = MedicationAdministration.device
-  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
+  Type = Reference(Device)
 
  -- Row 16 -----------------------------------
   Element = MedicationAdministration.dosage.route

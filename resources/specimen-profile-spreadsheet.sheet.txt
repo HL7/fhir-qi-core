@@ -64,12 +64,12 @@
 
  -- Row 12 -----------------------------------
   Element = Specimen.parent
-  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
+  Type = Reference(Specimen)
 
  -- Row 13 -----------------------------------
   Element = Specimen.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance} | Reference(Group)
+  Type = Reference(Patient) | Reference(Device) | Reference(Substance) | Reference(Group)
 
  -- Row 14 -----------------------------------
   Element = Specimen.receivedTime
@@ -77,7 +77,7 @@
 
  -- Row 15 -----------------------------------
   Element = Specimen.collection.collector
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Practitioner)
 
  -- Row 16 -----------------------------------
   Element = Specimen.collection.collected[x]
@@ -93,10 +93,10 @@
 
  -- Row 19 -----------------------------------
   Element = Specimen.processing.additive
-  Type = Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance}
+  Type = Reference(Substance)
 
  -- Row 20 -----------------------------------
   Element = Specimen.container.additive[x]
-  Type = CodeableConcept | Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance}
+  Type = CodeableConcept | Reference(Substance)
 
 === Sheet Search =====================================

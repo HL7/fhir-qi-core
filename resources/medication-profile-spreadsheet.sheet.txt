@@ -50,11 +50,11 @@
 
  -- Row 7 -----------------------------------
   Element = Medication.manufacturer
-  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Organization)
 
  -- Row 8 -----------------------------------
   Element = Medication.ingredient.item[x]
-  Type = CodeableConcept | Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance} |Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Type = CodeableConcept | Reference(Substance) |Reference(Medication)
 
  -- Row 9 -----------------------------------
   Element = Medication.package
@@ -64,6 +64,6 @@
 
  -- Row 11 -----------------------------------
   Element = Medication.package.content.itemReference
-  Type = Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Type = Reference(Medication)
 
 === Sheet Search =====================================

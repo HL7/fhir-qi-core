@@ -56,7 +56,7 @@
  -- Row 6 -----------------------------------
   Element = MedicationDispense.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group){http://hl7.org/fhir/StructureDefinition/qicore-group}
+  Type = Reference(Patient) | Reference(Group)
 
  -- Row 7 -----------------------------------
   Element = MedicationDispense.performer
@@ -64,7 +64,7 @@
 
  -- Row 8 -----------------------------------
   Element = MedicationDispense.authorizingPrescription
-  Type = Reference(MedicationOrder){http://hl7.org/fhir/StructureDefinition/qicore-medicationorder}
+  Type = Reference(MedicationOrder)
 
  -- Row 9 -----------------------------------
   Element = MedicationDispense.quantity
@@ -87,17 +87,17 @@
 
  -- Row 13 -----------------------------------
   Element = MedicationDispense.destination
-  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+  Type = Reference(Location)
 
  -- Row 14 -----------------------------------
   Element = MedicationDispense.receiver
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Patient) | Reference(Practitioner)
 
  -- Row 15 -----------------------------------
   Element = MedicationDispense.substitution
 
  -- Row 16 -----------------------------------
   Element = MedicationDispense.substitution.responsibleParty
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Practitioner)
 
 === Sheet Search =====================================

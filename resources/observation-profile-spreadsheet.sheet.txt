@@ -149,25 +149,25 @@
  -- Row 17 -----------------------------------
   Element = Observation.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group) | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+  Type = Reference(Patient) | Reference(Group) | Reference(Device) | Reference(Location)
 
  -- Row 18 -----------------------------------
   Element = Observation.specimen
   Must Support = Y
-  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
+  Type = Reference(Specimen)
 
  -- Row 19 -----------------------------------
   Element = Observation.performer
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+  Type = Reference(Practitioner) | Reference(Organization) | Reference(Patient) | Reference(RelatedPerson)
 
  -- Row 20 -----------------------------------
   Element = Observation.device
-  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(DeviceMetric)
+  Type = Reference(Device) | Reference(DeviceMetric)
 
  -- Row 21 -----------------------------------
   Element = Observation.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter} | Reference(Group){http://hl7.org/fhir/qicore/StructureDefinition/qicore-group}
+  Type = Reference(Encounter) | Reference(Group)
 
  -- Row 22 -----------------------------------
   Element = Observation.related
@@ -175,7 +175,7 @@
 
  -- Row 23 -----------------------------------
   Element = Observation.related.target
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation} | Reference(QuestionnaireResponse)
+  Type = Reference(Observation) | Reference(QuestionnaireResponse)
 
  -- Row 24 -----------------------------------
   Element = Observation.dataAbsentReason

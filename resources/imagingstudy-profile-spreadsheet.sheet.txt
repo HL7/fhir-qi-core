@@ -22,12 +22,12 @@
  -- Row 3 -----------------------------------
   Element = ImagingStudy.patient
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient)
 
  -- Row 4 -----------------------------------
   Element = ImagingStudy.order
   Must Support = Y
-  Type = Reference(DiagnosticOrder){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticorder}
+  Type = Reference(DiagnosticOrder)
 
  -- Row 5 -----------------------------------
   Element = ImagingStudy.modalityList
@@ -35,7 +35,7 @@
 
  -- Row 6 -----------------------------------
   Element = ImagingStudy.referrer
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Practitioner)
 
  -- Row 7 -----------------------------------
   Element = ImagingStudy.procedureReference
@@ -43,7 +43,7 @@
 
  -- Row 8 -----------------------------------
   Element = ImagingStudy.interpreter
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Practitioner)
 
  -- Row 9 -----------------------------------
   Element = !ImagingStudy.series
