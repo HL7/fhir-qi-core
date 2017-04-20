@@ -32,7 +32,7 @@
     <copy file="${dir.publish}/org.hl7.fhir.igpublisher.jar" todir="${basedir}"/>
   </target>
   <target name="travis-setup" depends="dir-setup" description="--> Installs Jekyll, grabs publisher from CI website">
-    <get src="http://hl7-fhir.github.io/org.hl7.fhir.igpublisher.jar" dest="${basedir}"/>
+    <get src="http://hl7.org/fhir/org.hl7.fhir.igpublisher.jar" dest="${basedir}"/>
   </target>
   <target name="publish-ig" depends="dir-setup"  description="--> Run the IG build">
     <java jar="${basedir}/org.hl7.fhir.igpublisher.jar" fork="true" failonerror="true" maxmemory="1024m">
