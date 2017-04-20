@@ -58,10 +58,10 @@
 <span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='author'>author</a>
+                      <a name='recorder'>recorder</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -70,43 +70,28 @@
                   <td class='colLast'>
                     <code><a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Practitioner.html'>Practitioner</a></code>
                     <blockquote>
-                      <div class='block'>Indicates who was responsible for creating the resource instance.</div>
+                      <div class='block'>Indicates who was responsible for recording the adverse event.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='category'>category</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..*</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Extension></code>
+                    <code>code</code>
                     <blockquote>
-                      <div class='block'>An Extension
-<p>Binding: <a title="The categories associated with the event or unsafe condition." href="http://hl7.org/fhir/qicore/ValueSet/qicore-adverseevent-category">value set</a> (Preferred)</p></div>
+                      <div class='block'>The type of event which is important to characterize what occurred and caused harm to the subject, or had the potential to cause harm to the subject.
+<p>Binding: <a title="Overall categorization of the event, e.g. real or potential" href="http://hl7.org/fhir/ValueSet/adverse-event-category">AdverseEventCategory</a></p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='cause'>cause</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..*</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>List&lt;Extension></code>
-                    <blockquote>
-                      <div class='block'>An Extension</div>
-                    </blockquote>
-                  </td>
-                </tr>
+
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -125,18 +110,18 @@
                   </td>
                 </tr>
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='clinicalStudy'>clinicalStudy</a>
+                      <a name='suspectEntity'>suspectEntity</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Extension></code>
+                    <code>List&lt;<a href='AdverseEvent.SuspectEntity.html'>SuspectEntity</a>&gt;</code>
                     <blockquote>
-                      <div class='block'>An Extension</div>
+                      <div class='block'>The suspected agent causing the adverse event.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -157,23 +142,8 @@
                     </blockquote>
                   </td>
                 </tr>
+
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='created'>created</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>DateTime</code>
-                    <blockquote>
-                      <div class='block'>Identifies when the resource was first created.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='didNotOccur'>didNotOccur</a>
@@ -189,23 +159,23 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='discoveryDateTime'>discoveryDateTime</a>
+                      <a name='date'>date</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..*</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Extension></code>
+                    <code>DateTime</code>
                     <blockquote>
-                      <div class='block'>An Extension</div>
+                      <div class='block'>The date (and perhaps time) when the adverse event occurred.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='identifier'>identifier</a>
@@ -221,35 +191,20 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='item'>item</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>1..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Extension</code>
-                    <blockquote>
-                      <div class='block'>An Extension</div>
-                    </blockquote>
-                  </td>
-                </tr>
+                
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='location'>location</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..*</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Extension></code>
+                    <code><a href='Location.html'>Location</a></code>
                     <blockquote>
-                      <div class='block'>An Extension</div>
+                      <div class='block'>The information about where the adverse event occurred.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -270,7 +225,7 @@
                   </td>
                 </tr>
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='reaction'>reaction</a>
                     </strong>
@@ -279,31 +234,31 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Extension></code>
+                    <code>List&lt;<a href='Condition.html'>Condition</a>&gt;</code>
                     <blockquote>
-                      <div class='block'>An Extension</div>
+                      <div class='block'>Includes information about the reaction that occurred as a result of exposure to a substance (for example, a drug or a chemical).</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='severity'>severity</a>
+                      <a name='seriousness'>seriousness</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..*</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Extension></code>
+                    <code>Concept</code>
                     <blockquote>
-                      <div class='block'>An Extension
-<p>Binding: <a title="A subjective assessment of the severity of the adverse event as evaluated by the clinician." href="http://hl7.org/fhir/ValueSet/condition-severity">Condition/Diagnosis Severity</a> (Example)</p></div>
+                      <div class='block'>Describes the seriousness or severity of the adverse event.
+<p>Binding: <a title="Overall seriousness of this event for the patient." href="http://hl7.org/fhir/ValueSet/adverse-event-seriousness">AdverseEvent Seriousness</a></p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='subject'>subject</a>
                     </strong>
@@ -312,29 +267,46 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a> | <a href='ResearchSubject.html'>ResearchSubject</a> | <a href='RelatedPerson.html'>RelatedPerson</a> </code>
                     <blockquote>
-                      <div class='block'>The person who has the adverse event.</div>
+                      <div class='block'>This subject or group impacted by the event. With a prospective adverse event, there will be no subject as the adverse event was prevented.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='type'>type</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>This element defines the specific type of event that occurred or that was prevented from occurring.
+<p>Binding: <a title="This value set includes all SNOMED CT Clinical Findings." href="http://hl7.org/fhir/ValueSet/adverse-event-type">SNOMED CT Clinical Findings</a> (Preferred)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='study'>study</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Extension></code>
+                    <code><a href='ResearchStudy.html'>ResearchStudy</a></code>
                     <blockquote>
-                      <div class='block'>An Extension
-<p>Binding: <a title="The type of adverse event: an incident, near-miss, or unsafe condition" href="http://hl7.org/fhir/qicore/ValueSet/qicore-adverseevent-type">value set</a> (Preferred)</p></div>
+                      <div class='block'>Relevant studies.</div>
                     </blockquote>
                   </td>
-                </tr></table>
+                </tr>
+              </table>
 <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
  class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
               </li>

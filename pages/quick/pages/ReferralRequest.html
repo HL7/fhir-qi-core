@@ -61,7 +61,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='authored'>authored</a>
+                      <a name='authoredOn'>authoredOn</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -84,7 +84,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ReferralRequest.html'>ReferralRequest</a> | <a href='CarePlan.html'>CarePlan</a> | <a href='DiagnosticRequest.html'>DiagnosticRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a>></code>
+                    <code>List&lt;<a href='ReferralRequest.html'>ReferralRequest</a> | <a href='CarePlan.html'>CarePlan</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a>></code>
                     <blockquote>
                       <div class='block'>Indicates any plans, proposals or orders that this request is intended to satisfy - in whole or in part.</div>
                     </blockquote>
@@ -93,7 +93,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
-                      <a name='category'>category</a>
+                      <a name='intent'>intent</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -103,7 +103,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Distinguishes the "level" of authorization/demand implicit in this request.
-<p>Binding: <a title="Identifies the degree of intention/authorization associated with the request" href="http://hl7.org/fhir/ValueSet/referralcategory">ReferralCategory</a> (Required)</p></div>
+<p>Binding: <a title="Codes indicating the degree of authority/intentionality associated with a request" href="http://hl7.org/fhir/ValueSet/request-intent">RequestIntent</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -117,9 +117,9 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Encounter.html'>Encounter</a></code>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
                     <blockquote>
-                      <div class='block'>An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.</div>
+                      <div class='block'>The encounter at which the request for referral or transfer of care is initiated.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -142,14 +142,14 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='fulfillmentTime'>fulfillmentTime</a>
+                      <a name='occurrence_x_'>occurrence[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>interval&lt;DateTime&gt;</code>
+                    <code>DateTime | interval&lt;DateTime&gt;</code>
                     <blockquote>
                       <div class='block'>The period of time within which the services identified in the referral/transfer of care is specified or required to occur.</div>
                     </blockquote>
@@ -174,7 +174,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='parent'>parent</a>
+                      <a name='groupIdentifier'>groupIdentifier</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -190,16 +190,16 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='patient'>patient</a>
+                      <a name='subject'>subject</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
                     <blockquote>
-                      <div class='block'>Demographics and other administrative information about an individual or animal receiving care or other health-related services.</div>
+                      <div class='block'>The patient who is the subject of a referral or transfer of care request.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -216,24 +216,24 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>An indication of the urgency of referral (or where applicable the type of transfer of care) request.
-<p>Binding: <a title="The priority of the referral (e.g., Urgent, Normal, etc.)" href="http://hl7.org/fhir/qicore/ValueSet/qicore-priority">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="The clinical priority of a diagnostic order." href="http://hl7.org/fhir/ValueSet/request-priority">RequestPriority</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='reason'>reason</a>
+                      <a name='reasonCode'>reasonCode</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>Description of clinical condition indicating why referral/transfer of care is requested.  For example:  Pathological Anomalies, Disabled (physical or mental),  Behavioral Management.
-<p> (Example)</p></div>
+<p>Binding: <a title="This value set includes all the 'Clinical finding' [SNOMED CT](http://snomed.info/sct) codes - concepts where concept is-a 404684003 (Clinical finding (finding))." href="http://hl7.org/fhir/ValueSet/clinical-findings">SNOMED CT Clinical Findings</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -280,9 +280,9 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a></code>
+                    <code><a href='ReferralRequest.Requester.html'>Requester</a></code>
                     <blockquote>
-                      <div class='block'>The healthcare provider or provider organization who/which initiated the referral/transfer of care request. Can also be  Patient (a self referral).</div>
+                      <div class='block'>The individual who initiated the request and has responsibility for its activation.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -333,7 +333,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the authorization/intention reflected by the referral request record.
-<p>Binding: <a title="The status of the referral." href="http://hl7.org/fhir/ValueSet/referralstatus">ReferralStatus</a> (Required)</p></div>
+<p>Binding: <a title="Codes identifying the stage lifecycle stage of a request" href="http://hl7.org/fhir/ValueSet/request-status">RequestStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -366,7 +366,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>An indication of the type of referral (or where applicable the type of transfer of care) request.
-<p> (Example)</p></div>
+<p>Binding: <a title="This value set includes all SNOMED CT Patient Referral." href="http://hl7.org/fhir/ValueSet/referral-type">SNOMED CT Patient Referral</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr></table>

@@ -94,7 +94,7 @@
                     <code>Code</code>
                     <blockquote>
                       <div class='block'>The type of channel to send notifications on.
-<p>Binding: <a title="The type of the subscription." href="http://hl7.org/fhir/ValueSet/subscription-channel-type">SubscriptionChannelType</a> (Extensible)</p></div>
+<p>Binding: <a title="This is an example value set defined by the FHIR project, that could be used to represent possible connection type profile values." href="http://hl7.org/fhir/ValueSet/endpoint-connection-type">Endpoint Connection Type</a> (Extensible)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -162,24 +162,8 @@
                     </blockquote>
                   </td>
                 </tr>
+
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='method'>method</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..*</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>List&lt;Code></code>
-                    <blockquote>
-                      <div class='block'>The http verb to be used when calling this endpoint.
-<p>Binding: <a title="HTTP verbs (in the HTTP command line)." href="http://hl7.org/fhir/ValueSet/http-verb">HTTPVerb</a> (Extensible)</p></div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='name'>name</a>
@@ -195,23 +179,24 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='payloadFormat'>payloadFormat</a>
+                      <a name='payloadMimeType'>payloadMimeType</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>String</code>
+                    <code>List&lt;code&gt;</code>
                     <blockquote>
-                      <div class='block'>The mime type to send the payload in - either application/fhir+xml, or application/fhir+json. If the mime type is blank, then there is no payload in the notification, just a notification.</div>
+                      <div class='block'>The mime type to send the payload in - e.g. application/fhir+xml, application/fhir+json. If the mime type is not specified, then the sender could send any content (including no content depending on the connectionType).
+<p>Binding: <a title="specifies IANA registration procedures for MIME external body access types and content-transfer-encodings." href="http://www.rfc-editor.org/bcp/bcp13.txt">Internet Mail Extensions (MIME)</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='payloadType'>payloadType</a>
@@ -228,7 +213,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='period'>period</a>
@@ -244,22 +229,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='publicKey'>publicKey</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>String</code>
-                    <blockquote>
-                      <div class='block'>The public part of the 'keys' allocated to an Organization by an accredited body to support secure exchange of data over the internet. To be provided by the Organization, where available.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+                
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>

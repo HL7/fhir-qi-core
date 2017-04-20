@@ -108,14 +108,30 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Decimal | interval&lt;Quantity&gt; | Concept</code>
+                    <code>Decimal | interval&lt;<a href="Quantity.html">Quantity</a>&gt;</code>
                     <blockquote>
-                      <div class='block'>How likely is the outcome (in the specified timeframe).
-<p>Binding: <a title="The likelihood of the occurrence of a specified outcome" href="http://hl7.org/fhir/ValueSet/risk-probability">Risk Probability</a> (Example)</p></div>
+                      <div class='block'>How likely is the outcome (in the specified timeframe).</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='qualitativeRisk'>qualitativeRisk</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>How likely is the outcome (in the specified timeframe), expressed as a qualitative value (e.g. low, medium, high).
+<p>Binding: <a title="The likelihood of the occurrence of a specified outcome" href="http://hl7.org/fhir/ValueSet/risk-probability">Risk Probability</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='rationale'>rationale</a>
@@ -131,7 +147,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='relativeRisk'>relativeRisk</a>
@@ -147,7 +163,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='when_x_'>when[x]</a>
@@ -157,12 +173,13 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>interval&lt;DateTime&gt; | interval&lt;Quantity&gt;</code>
+                    <code>interval&lt;DateTime&gt; | interval&lt;<a href="Quantity.html">Quantity</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Indicates the period of time or age range of the subject to which the specified probability applies.</div>
                     </blockquote>
                   </td>
-                </tr></table>
+                </tr>
+              </table>
 <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
  class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
               </li>

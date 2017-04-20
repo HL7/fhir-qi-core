@@ -80,23 +80,8 @@
                     </blockquote>
                   </td>
                 </tr>
+
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='display'>display</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>String</code>
-                    <blockquote>
-                      <div class='block'>Human-readable description of the entity.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='id'>id</a>
@@ -112,22 +97,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='reference'>reference</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>1..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Uri</code>
-                    <blockquote>
-                      <div class='block'>Identity of the  Entity used. May be a logical or physical uri and maybe absolute or relative.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+                
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -148,17 +118,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='type'>type</a>
+                      <a name='what_x_'>what[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Uri | <a href="Resource.html">Resource</a> | <a href="Identifier.html">Identifier</a></code>
                     <blockquote>
-                      <div class='block'>The type of the entity. If the entity is a resource, then this is a resource type.
-<p>Binding: <a title="The type of an entity used in an activity." href="http://hl7.org/fhir/ValueSet/resource-types">ResourceType</a> (Extensible)</p></div>
+                      <div class='block'>Identity of the Entity used. May be a logical or physical uri and maybe absolute or relative.</div>
                     </blockquote>
                   </td>
                 </tr></table>

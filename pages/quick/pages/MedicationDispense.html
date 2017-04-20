@@ -58,7 +58,7 @@
 <span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='authorizingPrescription'>authorizingPrescription</a>
@@ -68,13 +68,13 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='MedicationOrder.html'>MedicationOrder</a>></code>
+                    <code>List&lt;<a href='MedicationRequest.html'>MedicationRequest</a>></code>
                     <blockquote>
-                      <div class='block'>Indicates the medication order that is being dispensed against.</div>
+                      <div class='block'>Indicates the medication request that is being dispensed against.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='daysSupply'>daysSupply</a>
@@ -90,7 +90,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='destination'>destination</a>
@@ -106,38 +106,23 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='dispenser'>dispenser</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a></code>
-                    <blockquote>
-                      <div class='block'>The individual responsible for dispensing the medication.</div>
-                    </blockquote>
-                  </td>
-                </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='dispensingOrganization'>dispensingOrganization</a>
+                      <a name='performer'>performer</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Organization.html'>Organization</a></code>
+                    <code>List&lt;<a href='MedicationDispense.Performer.html'>Performer</a>&gt;</code>
                     <blockquote>
-                      <div class='block'>The organizaation responsible for the dispense of the medication.</div>
+                      <div class='block'>Indicates who or what performed the event. It should be assumed that the performer is the dispenser of the medication.</div>
                     </blockquote>
                   </td>
                 </tr>
+                
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -148,7 +133,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='MedicationDispense.DosageInstruction.html'>DosageInstruction</a>></code>
+                    <code>List&lt;<a href='Dosage.html'>Dosage</a>></code>
                     <blockquote>
                       <div class='block'>Indicates how the medication is to be used by the patient.  The pharmacist reviews the medication order prior to dispense and updates the dosageInstruction based on the actual product being dispensed.</div>
                     </blockquote>
@@ -164,7 +149,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='MedicationDispense.EventHistory.html'>EventHistory</a>></code>
+                    <code>List&lt;<a href='Provenance.html'>Provenance</a>></code>
                     <blockquote>
                       <div class='block'>A summary of the events of interest that have occurred, such as when the dispense was verified.</div>
                     </blockquote>
@@ -199,7 +184,7 @@
                     <code>Concept | <a href='Medication.html'>Medication</a></code>
                     <blockquote>
                       <div class='block'>Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.
-<p>Binding: <a title="The set of RxNorm codes to represent medications" href="http://hl7.org/fhir/daf/ValueSet/daf-medication-codes">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="This value set includes all drug or medicament substance codes and all pharmaceutical/biologic products from SNOMED CT - provided as an exemplar value set." href="http://hl7.org/fhir/ValueSet/medication-codes">SNOMED CT Medication Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -222,16 +207,16 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='patient'>patient</a>
+                      <a name='subject'>subject</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
                     <blockquote>
-                      <div class='block'>A link to a resource representing the person to whom the medication will be given.</div>
+                      <div class='block'>A link to a resource representing the person or the group to whom the medication will be given.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -329,7 +314,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Indicates the type of dispensing event that is performed. For example, Trial Fill, Completion of Trial, Partial Fill, Emergency Fill, Samples, etc.
-<p> (Example)</p></div>
+<p>Binding: <a title="Identifies types of dispensing events" href="http://hl7.org/fhir/ValueSet/v3-ActPharmacySupplyType">ActPharmacySupplyType</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>

@@ -82,23 +82,8 @@
                     </blockquote>
                   </td>
                 </tr>
+
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='admittingDiagnosis'>admittingDiagnosis</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..*</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>List&lt;<a href='Condition.html'>Condition</a>></code>
-                    <blockquote>
-                      <div class='block'>The admitting diagnosis field is used to record the diagnosis codes as reported by admitting practitioner. This could be different or in addition to the conditions reported as reason-condition(s) for the encounter.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='destination'>destination</a>
@@ -114,7 +99,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='dietPreference'>dietPreference</a>
@@ -124,29 +109,14 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>Diet preferences reported by the patient.
 <p>Binding: <a title="Medical, cultural or ethical food preferences to help with catering requirements." href="http://hl7.org/fhir/ValueSet/encounter-diet">Diet</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='dischargeDiagnosis'>dischargeDiagnosis</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..*</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>List&lt;<a href='Condition.html'>Condition</a>></code>
-                    <blockquote>
-                      <div class='block'>The final diagnosis given a patient before release from the hospital after all testing, surgery, and workup are complete.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+                
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -225,7 +195,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Whether this hospitalization is a readmission and why if known.
-<p>Binding: <a title="The reason for re-admission of this hospitalization encounter." href="http://hl7.org/fhir/STU3/v2/0092/index.html">value set</a> (Example)</p></div>
+<p>Binding: <a title="The reason for re-admission of this hospitalization encounter." href="http://hl7.org/fhir/STU3/v2/0092/index.html">v2 Re-Admission Indicator</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>

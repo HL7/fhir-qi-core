@@ -68,7 +68,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='date'>date</a>
+                      <a name='authoredOn'>authoredOn</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -100,7 +100,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='kind'>kind</a>
+                      <a name='category'>category</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -110,44 +110,28 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Category of supply, e.g.  central, non-stock, etc. This is used to support work flows associated with the supply process.
-<p>Binding: <a title="Category of supply request" href="http://hl7.org/fhir/ValueSet/supplyrequest-kind">Supply Type</a> (Required)</p></div>
+<p>Binding: <a title="Category of supply request" href="http://hl7.org/fhir/ValueSet/supplyrequest-status">Supply Type</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='orderedItem_x_'>orderedItem[x]</a>
+                      <a name='orderedItem'>orderedItem</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept | <a href='Medication.html'>Medication</a> | <a href='Substance.html'>Substance</a> | <a href='Device.html'>Device</a></code>
+                    <code><a href='SupplyRequest.OrderedItem.html'>OrderedItem</a></code>
                     <blockquote>
-                      <div class='block'>The item that is requested to be supplied. This is either a link to a resource representing the details of the item or a code that identifies the item from a known list.
-<p>Binding: <a title="The item that was requested" href="http://hl7.org/fhir/ValueSet/supply-item">SNOMED CT Supply Item</a> (Example)</p></div>
+                      <div class='block'>The item being requested.</div>
                     </blockquote>
                   </td>
                 </tr>
+                
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='patient'>patient</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
-                    <blockquote>
-                      <div class='block'>A link to a resource representing the person whom the ordered item is for.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='reason_x_'>reason[x]</a>
@@ -164,23 +148,23 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='source'>source</a>
+                      <a name='requester'>requester</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a></code>
+                    <code><a href='SupplyRequest.Requester.html'>Requester</a></code>
                     <blockquote>
-                      <div class='block'>The Practitioner , Organization or Patient who initiated this order for the supply.</div>
+                      <div class='block'>The individual who initiated the request and has responsibility for its activation.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='status'>status</a>
@@ -197,7 +181,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='supplier'>supplier</a>
@@ -213,17 +197,17 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='when'>when</a>
+                      <a name='occurrence_x_'>occurrence[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='SupplyRequest.When.html'>When</a></code>
+                    <code>DateTime | interval&lt;DateTime&gt; | <a href="Timing.html">Timing</a></code>
                     <blockquote>
                       <div class='block'>When the request should be fulfilled.</div>
                     </blockquote>

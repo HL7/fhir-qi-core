@@ -237,16 +237,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='performer'>performer</a>
+                      <a name='practitioner'>practitioner</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a></code>
+                    <code><a href='Immunization.Practitioner.html'>Practitioner</a></code>
                     <blockquote>
-                      <div class='block'>Clinician who administered the vaccine.</div>
+                      <div class='block'>Indicates who or what performed the event.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -266,38 +266,8 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='reported'>reported</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>1..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Boolean</code>
-                    <blockquote>
-                      <div class='block'>True if this administration was reported rather than directly administered.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='requester'>requester</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a></code>
-                    <blockquote>
-                      <div class='block'>Clinician who ordered the vaccination.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+
+                
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -328,7 +298,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Body site where vaccine was administered.
-<p>Binding: <a title="This identifies the body site at which the substance was administered" href="http://hl7.org/fhir/daf/ValueSet/daf-bodysite">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the body site where the vaccination occurred. This value set is provided as a suggestive example." href="http://hl7.org/fhir/ValueSet/immunization-site">Codes for Immunization Site of Administration</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -345,7 +315,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Indicates the current status of the vaccination event.
-<p>Binding: <a title="A set of codes indicating the current status of an Immunization" href="http://hl7.org/fhir/ValueSet/medication-admin-status">MedicationAdministrationStatus</a> (Required)</p></div>
+<p>Binding: <a title="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the current status of the administered dose of vaccine." href="http://hl7.org/fhir/ValueSet/immunization-status">Immunization Status Codes</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -378,14 +348,14 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Vaccine that was administered or was to be administered.
-<p>Binding: <a title="This identifies the CVX code system" href="http://hl7.org/fhir/daf/ValueSet/daf-cvx">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="This identifies the vaccine substance administered - CVX codes." href="http://hl7.org/fhir/ValueSet/vaccine-code">Vaccine Administered Value Set</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
-                      <a name='wasNotGiven'>wasNotGiven</a>
+                      <a name='notGiven'>notGiven</a>
                     </strong>
                   </td>
                   <td class='colMid'>

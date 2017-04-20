@@ -84,14 +84,14 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='coverage'>coverage</a>
+                      <a name='insurance'>insurance</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ClaimResponse.Coverage.html'>Coverage</a>></code>
+                    <code>List&lt;<a href='ClaimResponse.Insurance.html'>Insurance</a>></code>
                     <blockquote>
                       <div class='block'>Financial instrument by which payment information for health care.</div>
                     </blockquote>
@@ -155,7 +155,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>The form to be used for printing the content.
 <p>Binding: <a title="The forms codes." href="http://hl7.org/fhir/ValueSet/forms">Form Codes</a> (Required)</p></div>
@@ -197,14 +197,14 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='note'>note</a>
+                      <a name='processNote'>processNote</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ClaimResponse.Note.html'>Note</a>></code>
+                    <code>List&lt;<a href='ClaimResponse.ProcessNote.html'>ProcessNote</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Note text.</div>
                     </blockquote>
@@ -213,33 +213,21 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='organization_x_'>organization[x]</a>
+                      <a name='organization'>organization</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Organization.html'>Organization</a></code>
+                    <code><a href='Organization.html'>Organization</a></code>
                     <blockquote>
                       <div class='block'>The Insurer who produced this adjudicated response.</div>
                     </blockquote>
                   </td>
                 </tr>
+
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='originalRuleset'>originalRuleset</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Code</code>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='outcome'>outcome</a>
@@ -249,14 +237,14 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>Processing outcome errror, partial or complete processing.
 <p>Binding: <a title="The result of the claim processing" href="http://hl7.org/fhir/ValueSet/remittance-outcome">Claim Processing Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='payeeType'>payeeType</a>
@@ -266,14 +254,14 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>Party to be reimbursed: Subscriber, provider, other.
 <p>Binding: <a title="A code for the party to be reimbursed." href="http://hl7.org/fhir/ValueSet/payeetype">Payee Type Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='payment'>payment</a>
@@ -289,55 +277,55 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='requestOrganization_x_'>requestOrganization[x]</a>
+                      <a name='requestOrganization'>requestOrganization</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Organization.html'>Organization</a></code>
+                    <code><a href='Organization.html'>Organization</a></code>
                     <blockquote>
                       <div class='block'>The organization which is responsible for the services rendered to the patient.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='requestProvider_x_'>requestProvider[x]</a>
+                      <a name='requestProvider'>requestProvider</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                    <code><a href='Practitioner.html'>Practitioner</a></code>
                     <blockquote>
                       <div class='block'>The practitioner who is responsible for the services rendered to the patient.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='request_x_'>request[x]</a>
+                      <a name='request'>request</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Claim.html'>Claim</a></code>
+                    <code><a href='Claim.html'>Claim</a></code>
                     <blockquote>
                       <div class='block'>Original request resource referrence.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='reserved'>reserved</a>
@@ -354,19 +342,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='ruleset'>ruleset</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Code</code>
-                  </td>
-                </tr>
+                
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>

@@ -1,0 +1,47 @@
+---
+# jekyll header
+---
+
+<html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
+<!-- instance template base -->
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+<title>QICore - FHIR v3.0.0</title>
+
+{% include header.html %}
+
+</head>
+<body>
+
+{% include navbar.html %}
+
+<div id="segment-content" class="segment">  <!-- segment-content -->
+  <div class="container">  <!-- container -->
+    <div class="row">
+      <div class="inner-wrapper">
+        <!-- CONTENT CONTENT -->
+        <div class="col-9">
+          <h2>Valueset: {{[id]}}</h2>
+
+          {% include {{[type]}}-{{[id]}}-summary.xhtml %}
+
+          This value set is used by:
+
+          {% include {{[type]}}-{{[id]}}-xref.xhtml %}
+
+          {% include {{[type]}}-{{[id]}}-cld.xhtml %}
+
+          <h3>Expansion</h3>
+
+          {% include {{[type]}}-{{[id]}}-expansion.xhtml %}
+
+        </div>
+      </div>  <!-- /inner-wrapper -->
+    </div>  <!-- /row -->
+  </div>  <!-- /container -->
+</div>  <!-- /segment-content -->
+
+{% include footer.html %}
+
+</body>
+</html>

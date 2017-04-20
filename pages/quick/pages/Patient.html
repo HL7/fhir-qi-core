@@ -58,6 +58,22 @@
 <span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
+  <tr class='rowColor'>
+    <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+      <strong>
+        <a name='active'>animal</a>
+      </strong>
+    </td>
+    <td class='colMid'>
+      <code>0..1</code>
+    </td>
+    <td class='colLast'>
+      <code><a href="Patient.Animal.html">Animal</a></code>
+      <blockquote>
+        <div class='block'>Whether this patient record is in active use.</div>
+      </blockquote>
+    </td>
+  </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -100,7 +116,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Address.html'>Address</a>></code>
+                    <code>List&lt;<a href='Address.html'>Address</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Addresses for the individual.</div>
                     </blockquote>
@@ -264,7 +280,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>A code classifying the person into a named category of humans sharing a common real or presumed heritage.
-<p>Binding: <a title="Ethnicity of the patient" href="http://hl7.org/fhir/daf/ValueSet/daf-ethnicity">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="Ethnicity of the patient" href="http://hl7.org/fhir/ValueSet/v3-Ethnicity">v3 Code System Ethnicity</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -476,7 +492,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>A code classifying the person into a named category of humans sharing common history, traits, geographical origin or nationality.
-<p>Binding: <a title="Race of the patient" href="http://hl7.org/fhir/daf/ValueSet/daf-race">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="Race of the patient" href="http://hl7.org/fhir/ValueSet/v3-Race">v3 Code System Race</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -493,7 +509,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The indication or reason the patient is part of this trial.
-<p>Binding: <a title="The code for the condition" href="http://hl7.org/fhir/daf/ValueSet/daf-problem">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="The code for the condition" href="http://hl7.org/fhir/us/core/ValueSet/us-core-problem">Problem Value Set</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -524,7 +540,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ContactPoint.html'>ContactPoint</a>></code>
+                    <code>List&lt;<a href='ContactPoint.html'>ContactPoint</a>&gt;</code>
                     <blockquote>
                       <div class='block'>A contact detail (e.g. a telephone number or an email address) by which the individual may be contacted.</div>
                     </blockquote>

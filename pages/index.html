@@ -107,7 +107,7 @@
 <a name="harmonization"></a>
 <h3>Relationship to Other Initiatives</h3>
 
-<p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="{{site.data.fhir.path}}/daf/daf.html">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF, because they are needed for quality measures. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF, allowing QICore to be used outside the U.S. Realm. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
+<p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF, because they are needed for quality measures. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF, allowing QICore to be used outside the U.S. Realm. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
 
 <p>In general, where DAF defines its own value sets, QICore uses the same value sets. This assures the alignment of the two sets of profiles. The binding strengths may not be the same, however, and in many cases value sets that are required by DAF are only preferred in QICore. The weaker binding allows QICore to be used outside the U.S. Realm. In the U.S. Realm, compliance with QICore SHALL requires simultaneous compliance with DAF; therefore, any value set required by DAF SHALL be required by QICore.</p>
 
@@ -155,8 +155,8 @@
 			<td><a href="{{site.data.fhir.path}}/condition.html">Condition</a></td>
 		</tr>
 		<tr>
-			<td><a href="qicore-condition.html">QICoverage-Condition</a></td>
-			<td><a href="{{site.data.fhir.path}}/condition.html">Coverage</a></td>
+			<td><a href="qicore-coverage.html">QICore-Coverage</a></td>
+			<td><a href="{{site.data.fhir.path}}/coverage.html">Coverage</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-device.html">QICore-Device</a></td>
@@ -215,8 +215,8 @@
 			<td><a href="{{site.data.fhir.path}}/medicationdispense.html">MedicationDispense</a></td>
 		</tr>
 		<tr>
-			<td><a href="qicore-medicationorder.html">QICore-MedicationOrder</a></td>
-			<td><a href="{{site.data.fhir.path}}/medicationorder.html">MedicationOrder</a></td>
+			<td><a href="qicore-medicationrequest.html">QICore-MedicationRequest</a></td>
+			<td><a href="{{site.data.fhir.path}}/medicationrequest.html">MedicationRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-medicationstatement.html">QICore-MedicationStatement</a></td>

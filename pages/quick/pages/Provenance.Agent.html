@@ -65,22 +65,7 @@
 <span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='actor'>actor</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Patient.html'>Patient</a> | <a href='Device.html'>Device</a> | <a href='Organization.html'>Organization</a></code>
-                    <blockquote>
-                      <div class='block'>The individual, device or organization that participated in the event.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -100,20 +85,37 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='relatedAgent'>relatedAgent</a>
+                      <a name='onBehalfOf_x_'>onBehalfOf[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..*</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Provenance.Agent.RelatedAgent.html'>RelatedAgent</a>></code>
+                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Patient.html'>Patient</a> | <a href='Device.html'>Device</a> | <a href='Organization.html'>Organization</a> | Uri</code>
                     <blockquote>
-                      <div class='block'>A relationship between two the agents referenced in this resource. This is defined to allow for explicit description of the delegation between agents.  For example, this human author used this device, or one person acted on another's behest.</div>
+                      <div class='block'>The individual, device, or organization for whom the change was made.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='relatedAgentType'>relatedAgentType</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Concept&gt;</code>
+                    <blockquote>
+                      <div class='block'>The type of relationship between agents.
+<p>Binding: <a href="http://hl7.org/fhir/ValueSet/v3-RoleLinkType">v3 Code System RoleLinkType</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='role'>role</a>
@@ -126,26 +128,27 @@
                     <code>Code</code>
                     <blockquote>
                       <div class='block'>The function of the agent with respect to the activity.
-<p>Binding: <a title="The role that a provenance agent played with respect to the activity." href="http://hl7.org/fhir/ValueSet/provenance-agent-role">ProvenanceParticipantRole</a> (Extensible)</p></div>
+<p>Binding: <a title="This example FHIR value set is comprised of example Actor Type codes, which can be used to value FHIR agents, actors, and other role elements such as those specified in financial transactions." href="http://hl7.org/fhir/ValueSet/security-role-type">SecurityRoleType</a> (Extensible)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='userId'>userId</a>
+                      <a name='who_x_'>who[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a></code>
+                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Patient.html'>Patient</a> | <a href='Device.html'>Device</a> | <a href='Organization.html'>Organization</a> | Uri</code>
                     <blockquote>
-                      <div class='block'>The identity of the agent as known by the authorization system.</div>
+                      <div class='block'>The individual, device or organization that participated in the event.</div>
                     </blockquote>
                   </td>
-                </tr></table>
+                </tr>
+              </table>
 <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
  class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
               </li>

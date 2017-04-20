@@ -84,7 +84,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
                     <blockquote>
                       <div class='block'>Individual who is making the condition statement.</div>
                     </blockquote>
@@ -130,10 +130,10 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>A category assigned to the condition.
 <p>Binding: <a title="A category assigned to the condition." href="http://hl7.org/fhir/ValueSet/condition-category">Condition Category Codes</a> (Preferred)</p></div>
@@ -164,13 +164,13 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Identification of the condition, problem or diagnosis.
-<p>Binding: <a title="The code for the condition" href="http://hl7.org/fhir/daf/ValueSet/daf-problem">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="The code for the condition" href="http://hl7.org/fhir/ValueSet/condition-code">Condition/Problem/Diagnosis Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -184,7 +184,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Encounter.html'>Encounter</a></code>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
                     <blockquote>
                       <div class='block'>Encounter during which the condition was first asserted.</div>
                     </blockquote>
@@ -210,7 +210,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='dateRecorded'>dateRecorded</a>
+                      <a name='assertedDate'>assertedDate</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -330,7 +330,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
                     <blockquote>
                       <div class='block'>Indicates the patient or group who the condition record is associated with.</div>
                     </blockquote>
@@ -343,7 +343,7 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>code</code>

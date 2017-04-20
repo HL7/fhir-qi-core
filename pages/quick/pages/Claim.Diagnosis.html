@@ -68,14 +68,14 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='diagnosis'>diagnosis</a>
+                      <a name='diagnosis_x_'>diagnosis[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept | <a href="Condition.html">Condition</a></code>
                     <blockquote>
                       <div class='block'>The diagnosis.
 <p>Binding: <a title="ICD10 Diagnostic codes" href="http://hl7.org/fhir/ValueSet/icd-10">ICD-10 Codes</a> (Example)</p></div>
@@ -85,16 +85,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='drg'>drg</a>
+                      <a name='packageCode'>packageCode</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
-                      <div class='block'>The Diagnosis Related Group (DRG) code based on the assigned grouping code system.
+                      <div class='block'>The package billing code, for example DRG, based on the assigned grouping code system.
 <p>Binding: <a title="The DRG codes associated with the diagnosis" href="http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup">Example Diagnosis Related Group Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
@@ -138,10 +138,10 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>The type of the Diagnosis, for example: admitting,.
 <p>Binding: <a title="The type of the diagnosis: admitting, principal, discharge" href="http://hl7.org/fhir/ValueSet/ex-diagnosistype">Example Diagnosis Type Codes</a> (Example)</p></div>

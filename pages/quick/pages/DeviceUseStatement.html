@@ -61,14 +61,14 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='bodySite_x_'>bodySite[x]</a>
+                      <a name='bodySite'>bodySite</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept | <a href='BodySite.html'>BodySite</a></code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>Indicates the site on the subject's body where the device was used ( i.e. the target site).
 <p>Binding: <a title="Precoordinated body sites such as 'left ear'" href="http://hl7.org/fhir/ValueSet/body-site">SNOMED CT Body Structures</a> (Example)</p></div>
@@ -87,7 +87,7 @@
                   <td class='colLast'>
                     <code><a href='Device.html'>Device</a></code>
                     <blockquote>
-                      <div class='block'>This resource identifies an instance or a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.  Medical devices includes durable (reusable) medical equipment, implantable devices, as well as disposable equipment used for diagnostic, treatment, and research for healthcare and public health.  Non-medical devices may include items such as a machine, cellphone, computer, application, etc.</div>
+                      <div class='block'>The details of the device used.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -101,7 +101,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Identifier.html'>Identifier</a>></code>
+                    <code>List&lt;<a href='Identifier.html'>Identifier</a>&gt;</code>
                     <blockquote>
                       <div class='block'>An external identifier for this statement such as an IRI.</div>
                     </blockquote>
@@ -119,22 +119,21 @@
                   <td class='colLast'>
                     <code>List&lt;Concept></code>
                     <blockquote>
-                      <div class='block'>Reason or justification for the use of the device.
-<p>Binding: <a title="This value set includes all the &quot;Clinical finding&quot; SNOMED CT codes (i.e. codes with an is-a relationship with 404684003: Clinical finding)." href="http://hl7.org/fhir/ValueSet/clinical-findings">SNOMED CT Clinical Findings</a> (Preferred)</p></div>
+                      <div class='block'>Reason or justification for the use of the device.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='notes'>notes</a>
+                      <a name='note'>note</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;String></code>
+                    <code>List&lt;<a href="Annotation.html">Annotation</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Details about the device statement that were not represented at all or sufficiently in one of the attributes provided in a class. These may include for example a comment, an instruction, or a note associated with the statement.</div>
                     </blockquote>
@@ -166,7 +165,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
                     <blockquote>
                       <div class='block'>The patient who used the device.</div>
                     </blockquote>

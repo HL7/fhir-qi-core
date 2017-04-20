@@ -65,24 +65,8 @@
 <span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
+                
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='certainty'>certainty</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>code</code>
-                    <blockquote>
-                      <div class='block'>Statement about the degree of clinical certainty that the specific substance was the cause of the manifestation in this reaction event.
-<p>Binding: <a title="Statement about the degree of clinical certainty that a specific substance was the cause of the manifestation in an reaction event." href="http://hl7.org/fhir/ValueSet/reaction-event-certainty">AllergyIntoleranceCertainty</a> (Required)</p></div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='description'>description</a>
@@ -95,22 +79,6 @@
                     <code>String</code>
                     <blockquote>
                       <div class='block'>Text description about the reaction as a whole, including details of the manifestation if required.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='duration'>duration</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code><a href='Duration.html'>Duration</a></code>
-                    <blockquote>
-                      <div class='block'>The amount of time that the Adverse Reaction persisted.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -160,7 +128,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.
-<p>Binding: <a title="Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event" href="http://hl7.org/fhir/daf/ValueSet/daf-manifestation-ccda-codes">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="This value set includes all the 'Clinical finding' [SNOMED CT](http://snomed.info/sct) codes - concepts where concept is-a 404684003 (Clinical finding (finding))." href="http://hl7.org/fhir/ValueSet/clinical-findings">SNOMED CT Clinical Findings</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>

@@ -125,7 +125,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='PlanDefinition.html'>PlanDefinition</a> | <a href='Questionnaire.html'>Questionnaire</a></code>
+                    <code><a href='PlanDefinition.html'>PlanDefinition</a> | <a href='ActivityDefinition.html'>ActivityDefinition</a> | <a href='Questionnaire.html'>Questionnaire</a></code>
                     <blockquote>
                       <div class='block'>Identifies the protocol, questionnaire, guideline or other specification the planned activity should be conducted in accordance with.</div>
                     </blockquote>
@@ -205,7 +205,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Patient.html'>Patient</a>></code>
+                    <code>List&lt;<a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Patient.html'>Patient</a> | <a href='CareTeam.html'>CareTeam</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Identifies who's expected to be involved in the activity.</div>
                     </blockquote>
@@ -336,10 +336,9 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code>String</code>
                     <blockquote>
-                      <div class='block'>Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.
-<p>Binding: <a title="Describes why the current activity has the status it does; e.g. &quot;Recovering from injury&quot; as a reason for non-started or on-hold, &quot;Patient does not enjoy activity&quot; as a reason for cancelling a planned activity." href="http://hl7.org/fhir/ValueSet/goal-status-reason">GoalStatusReason</a> (Example)</p></div>
+                      <div class='block'>Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.</div>
                     </blockquote>
                   </td>
                 </tr></table>

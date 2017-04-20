@@ -65,22 +65,6 @@
 <span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='abatement_x_'>abatement[x]</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>DateTime | <a href='Age.html'>Age</a> | Boolean</code>
-                    <blockquote>
-                      <div class='block'>The approximate date, age, or flag indicating that the condition of the family member resolved. The abatement should only be specified if the condition is stated in the positive sense, i.e., the didNotHave flag is false.</div>
-                    </blockquote>
-                  </td>
-                </tr>
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -94,7 +78,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The actual condition specified. Could be a coded condition (like MI or Diabetes) or a less specific string like 'cancer' depending on how much is known about the condition and the capabilities of the creating system.
-<p>Binding: <a title="The code for the condition" href="http://hl7.org/fhir/daf/ValueSet/daf-problem">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="Example value set for Condition/Problem/Diagnosis codes" href="http://hl7.org/fhir/ValueSet/condition-code">Condition/Problem/Diagnosis Codes</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -121,10 +105,10 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Annotation.html'>Annotation</a></code>
+                    <code>List&lt;<a href='Annotation.html'>Annotation</a>&gt;</code>
                     <blockquote>
                       <div class='block'>An area where general notes can be placed about this specific condition.</div>
                     </blockquote>
@@ -162,24 +146,8 @@
 <p>Binding: <a title="The result of the condition for the patient; e.g. death, permanent disability, temporary disability, etc." href="http://hl7.org/fhir/ValueSet/condition-outcome">Condition Outcome Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
-                </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='severity'>severity</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Concept</code>
-                    <blockquote>
-                      <div class='block'>A qualification of the seriousness or impact on health of the family member condition.
-<p>Binding: <a title="Valueset to identify the severity of the problem" href="http://hl7.org/fhir/ValueSet/condition-severity">Condition/Diagnosis Severity</a> (Preferred)</p></div>
-                    </blockquote>
-                  </td>
-                </tr></table>
+                </tr>                
+              </table>
 <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
  class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
               </li>

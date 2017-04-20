@@ -72,7 +72,7 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>code</code>
@@ -181,33 +181,21 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='organization_x_'>organization[x]</a>
+                      <a name='organization'>organization</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Organization.html'>Organization</a></code>
+                    <code><a href='Organization.html'>Organization</a></code>
                     <blockquote>
                       <div class='block'>The organization which is responsible for the action speccified in this request.</div>
                     </blockquote>
                   </td>
                 </tr>
+
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='originalRuleset'>originalRuleset</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Code</code>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='period'>period</a>
@@ -223,23 +211,23 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='provider_x_'>provider[x]</a>
+                      <a name='provider'>provider</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                    <code><a href='Practitioner.html'>Practitioner</a></code>
                     <blockquote>
                       <div class='block'>The practitioner who is responsible for the action specified in this request.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='reference'>reference</a>
@@ -255,51 +243,39 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='request_x_'>request[x]</a>
+                      <a name='request'>request</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Resource.html'>Resource</a></code>
+                    <code><a href='Resource.html'>Resource</a></code>
                     <blockquote>
                       <div class='block'>Reference of resource which is the target or subject of this action.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='response_x_'>response[x]</a>
+                      <a name='response'>response</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Resource.html'>Resource</a></code>
+                    <code><a href='Resource.html'>Resource</a></code>
                     <blockquote>
                       <div class='block'>Reference of a prior response to resource which is the target or subject of this action.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='ruleset'>ruleset</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Code</code>
-                  </td>
-                </tr>
+                
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
@@ -307,27 +283,27 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the resource instance.
-<p>Binding: <a title="A code specifying the state of the resource instance." href="http://hl7.org/fhir/ValueSet/fm-status">ProcessRequestStatus</a> (Required)</p></div>
+<p>Binding: <a title="This value set includes Status codes." href="http://hl7.org/fhir/ValueSet/fm-status">Financial Resource Status Codes</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='target_x_'>target[x]</a>
+                      <a name='target'>target</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Organization.html'>Organization</a></code>
+                    <code><a href='Organization.html'>Organization</a></code>
                     <blockquote>
                       <div class='block'>The organization which is the target of the request.</div>
                     </blockquote>

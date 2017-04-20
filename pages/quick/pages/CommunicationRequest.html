@@ -65,29 +65,29 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>The type of message to be sent such as alert, notification, reminder, instruction, etc.
-<p> (Example)</p></div>
+<p>Binding: <a title="Codes for general categories of communications such as alerts, instruction, etc." href="http://hl7.org/fhir/ValueSet/communication-category">CommunicationCategory</a> (Example)</p></div></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='encounter'>encounter</a>
+                      <a name='context'>context</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Encounter.html'>Encounter</a></code>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
                     <blockquote>
-                      <div class='block'>The encounter within which the communication request was created.</div>
+                      <div class='block'>The encounter or episode of care within which the communication request was created.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -117,10 +117,10 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>A channel that was used for this communication (e.g. email, fax).
-<p>Binding: <a title="The type of channel used for the communication, for example, telephone, fax, email." href="http://hl7.org/fhir/qicore/ValueSet/qicore-communication-medium">value set</a> (Example)</p></div>
+<p>Binding: <a title="A set of codes specifying the modality by which the Entity playing the Role is participating in the Act." href="http://hl7.org/fhir/ValueSet/v3-ParticipationMode">v3 Code System ParticipationMode</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -150,7 +150,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code>code</code>
                     <blockquote>
                       <div class='block'>Characterizes how quickly the proposed act must be initiated. Includes concepts such as stat, urgent, routine.
 <p>Binding: <a title="Codes indicating the relative importance of a communication request." href="http://hl7.org/fhir/ValueSet/request-priority">RequestPriority</a> (Example)</p></div>
@@ -160,14 +160,14 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='reason'>reason</a>
+                      <a name='reasonCode'>reasonCode</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>The reason or justification for the communication request.
 <p> (Example)</p></div>
@@ -201,7 +201,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Practitioner.html'>Practitioner</a> | <a href='Patient.html'>Patient</a> | <a href='Device.html'>Device</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Organization.html'>Organization</a>></code>
+                    <code>List&lt;<a href='Practitioner.html'>Practitioner</a> | <a href='Patient.html'>Patient</a> | <a href='Device.html'>Device</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Organization.html'>Organization</a> | <a href='Group.html'>Group</a> | <a href='CareTeam.html'>CareTeam</a>&gt;</code>
                     <blockquote>
                       <div class='block'>The entity (e.g. person, organization, clinical information system, device, group, or care team) which is the intended target of the communication.</div>
                     </blockquote>
@@ -210,7 +210,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='requestedOn'>requestedOn</a>
+                      <a name='authoredOn'>authoredOn</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -233,16 +233,16 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
+                    <code><a href='CommunicationRequest.Requester.html'>Requester</a></code>
                     <blockquote>
-                      <div class='block'>The responsible person who authorizes this order, e.g. physician. This may be different than the author of the order statement, e.g. clerk, who may have entered the statement into the order entry application.</div>
+                      <div class='block'>The individual who initiated the request and has responsibility for its activation.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='scheduled_x_'>scheduled[x]</a>
+                      <a name='occurrence_x_'>occurrence[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -278,13 +278,13 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>1..1</code>
                   </td>
                   <td class='colLast'>
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the proposal or order.
-<p>Binding: <a title="The status of the communication." href="http://hl7.org/fhir/ValueSet/communication-request-status">CommunicationRequestStatus</a> (Required)</p></div>
+<p>Binding: <a title="Codes identifying the stage lifecycle stage of a request" href="http://hl7.org/fhir/ValueSet/request-status">RequestStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -298,7 +298,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
                     <blockquote>
                       <div class='block'>The patient who is the focus of this communication request.</div>
                     </blockquote>

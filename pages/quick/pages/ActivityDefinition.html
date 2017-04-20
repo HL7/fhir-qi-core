@@ -65,23 +65,6 @@
 <span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='category'>category</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>code</code>
-                    <blockquote>
-                      <div class='block'>High-level categorization of the type of activity.
-<p>Binding: <a title="High-level categorization of the type of activity in a protocol." href="http://hl7.org/fhir/ValueSet/activity-definition-category">ActivityDefinitionCategory</a> (Required)</p></div>
-                    </blockquote>
-                  </td>
-                </tr>
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -150,7 +133,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='coverage'>coverage</a>
+                      <a name='useContext'>useContext</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -159,7 +142,7 @@
                   <td class='colLast'>
                     <code>List&lt;UsageContext></code>
                     <blockquote>
-                      <div class='block'>Specifies various attributes of the patient population for whom and/or environment of care in which the knowledge asset is applicable.</div>
+                      <div class='block'>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate activity definition instances.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -310,14 +293,14 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='participantType'>participantType</a>
+                      <a name='participant'>participant</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;code></code>
+                    <code>List&lt;<a href="ActivityDefinition.Participant.html">Participant</a>&gt;</code>
                     <blockquote>
                       <div class='block'>The type of participant in the action.
 <p>Binding: <a title="The type of participant for an action in the orderset" href="http://hl7.org/fhir/ValueSet/action-participant-type">PlanActionParticipantType</a> (Required)</p></div>
@@ -344,7 +327,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='publicationDate'>publicationDate</a>
+                      <a name='date'>date</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -353,7 +336,7 @@
                   <td class='colLast'>
                     <code>DateTime</code>
                     <blockquote>
-                      <div class='block'>The date on which the asset was published.</div>
+                      <div class='block'>The date (and optionally time) when the activity definition was published.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -408,16 +391,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='relatedResource'>relatedResource</a>
+                      <a name='relatedArtifact'>relatedArtifact</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;RelatedResource></code>
+                    <code>List&lt;relatedArtifact></code>
                     <blockquote>
-                      <div class='block'>Related resources such as additional documentation, justification, or bibliographic references.</div>
+                      <div class='block'>Related artifacts such as additional documentation, justification, or bibliographic references.</div>
                     </blockquote>
                   </td>
                 </tr>

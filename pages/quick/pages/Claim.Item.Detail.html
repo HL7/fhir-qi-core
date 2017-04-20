@@ -75,7 +75,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>Health Care Service Type Codes  to identify the classification of service or benefits.
 <p>Binding: <a title="Benefit subcategories such as: oral-basic, major, glasses" href="http://hl7.org/fhir/ValueSet/benefit-subcategory">Benefit SubCategory Codes</a> (Example)</p></div>
@@ -124,7 +124,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Code></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
 <p>Binding: <a title="Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." href="http://hl7.org/fhir/ValueSet/claim-modifiers">Modifier type Codes</a> (Example)</p></div>
@@ -147,23 +147,8 @@
                     </blockquote>
                   </td>
                 </tr>
+                
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='points'>points</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Decimal</code>
-                    <blockquote>
-                      <div class='block'>An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='programCode'>programCode</a>
@@ -180,7 +165,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='quantity'>quantity</a>
@@ -196,7 +181,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='revenue'>revenue</a>
@@ -213,7 +198,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='sequence'>sequence</a>
@@ -229,7 +214,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='service'>service</a>
@@ -246,7 +231,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='subDetail'>subDetail</a>
@@ -256,13 +241,13 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Claim.Item.Detail.SubDetail.html'>SubDetail</a>></code>
+                    <code>List&lt;<a href='Claim.Item.Detail.SubDetail.html'>SubDetail</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Third tier of goods and services.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='udi'>udi</a>
@@ -272,13 +257,13 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Device.html'>Device</a>></code>
+                    <code>List&lt;<a href='Device.html'>Device</a>&gt;</code>
                     <blockquote>
                       <div class='block'>List of Unique Device Identifiers associated with this line item.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='unitPrice'>unitPrice</a>

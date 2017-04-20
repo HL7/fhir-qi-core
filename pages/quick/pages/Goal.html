@@ -68,7 +68,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Condition.html'>Condition</a> | <a href='Observation.html'>Observation</a> | <a href='MedicationStatement.html'>MedicationStatement</a> | <a href='NutritionRequest.html'>NutritionRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='RiskAssessment.html'>RiskAssessment</a>></code>
+                    <code>List&lt;<a href='Condition.html'>Condition</a> | <a href='Observation.html'>Observation</a> | <a href='MedicationStatement.html'>MedicationStatement</a> | <a href='NutritionOrder.html'>NutritionOrder</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='RiskAssessment.html'>RiskAssessment</a>></code>
                     <blockquote>
                       <div class='block'>The identified conditions and other health record elements that are intended to be addressed by the goal.</div>
                     </blockquote>
@@ -104,7 +104,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Code and/or human-readable description of a specific desired objective of care.
-<p> (Example)</p></div>
+<p>Binding: <a title="This value set includes all the 'Clinical finding' [SNOMED CT](http://snomed.info/sct) codes - concepts where concept is-a 404684003 (Clinical finding (finding))." href="http://hl7.org/fhir/ValueSet/clinical-findings">SNOMED CT Clinical Findings</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -159,20 +159,37 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='outcome'>outcome</a>
+                      <a name='outcomeCode'>outcomeCode</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Goal.Outcome.html'>Outcome</a>></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
-                      <div class='block'>Identifies the change (or lack of change) at the point where the goal was deemed to be cancelled or achieved.</div>
+                      <div class='block'>Identifies the change (or lack of change) at the point when the status of the goal is assessed.
+<p>Binding: <a title="This value set includes all the 'Clinical finding' [SNOMED CT](http://snomed.info/sct) codes - concepts where concept is-a 404684003 (Clinical finding (finding))." href="http://hl7.org/fhir/ValueSet/clinical-findings">SNOMED CT Clinical Findings</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='outcomeReference'>outcomeReference</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href="Observation.html">Observation</a>&gt;</code>
+                    <blockquote>
+                      <div class='block'>Details of what's changed (or not changed).</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='priority'>priority</a>
@@ -189,7 +206,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='reasonRejected'>reasonRejected</a>
@@ -206,7 +223,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='start_x_'>start[x]</a>
@@ -223,7 +240,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='status'>status</a>
@@ -240,7 +257,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='statusDate'>statusDate</a>
@@ -256,24 +273,23 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='statusReason'>statusReason</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..*</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>String</code>
                     <blockquote>
-                      <div class='block'>Captures the reason for the current status.
-<p>Binding: <a title="Codes to identify the reason for a goal's current status" href="http://hl7.org/fhir/ValueSet/goal-status-reason">GoalStatusReason</a> (Example)</p></div>
+                      <div class='block'>Captures the reason for the current status.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='subject'>subject</a>
@@ -289,7 +305,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-star fa-fw" title="QICore Extension"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='target'>target</a>
@@ -305,22 +321,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='target_x_'>target[x]</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>DateTime | <a href='Duration.html'>Duration</a></code>
-                    <blockquote>
-                      <div class='block'>Indicates either the date or the duration after start by which the goal should be met.</div>
-                    </blockquote>
-                  </td>
-                </tr></table>
+              </table>
 <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
  class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
               </li>

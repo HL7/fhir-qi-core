@@ -61,11 +61,11 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='beneficiaryReference'>beneficiaryReference</a>
+                      <a name='beneficiary'>beneficiary</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code><a href='Patient.html'>Patient</a></code>
@@ -74,38 +74,8 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='bin'>bin</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>String</code>
-                    <blockquote>
-                      <div class='block'>Business Identification Number (BIN number) used to identify the routing  of eClaims.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='class'>class</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>String</code>
-                    <blockquote>
-                      <div class='block'>Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+
+
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -132,25 +102,26 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>positiveInt</code>
+                    <code>String</code>
                     <blockquote>
                       <div class='block'>A unique identifier for a dependent under the coverage.</div>
                     </blockquote>
                   </td>
                 </tr>
+
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='group'>group</a>
+                      <a name='grouping'>grouping</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>String</code>
+                    <code><a href='Coverage.Grouping.html'>Grouping</a></code>
                     <blockquote>
-                      <div class='block'>Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.</div>
+                      <div class='block'>A suite of underwrite specific classifiers, for example may be used to identify a class of coverage or employer group, Policy, Plan.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -170,39 +141,24 @@
                     </blockquote>
                   </td>
                 </tr>
+
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='isAgreement'>isAgreement</a>
+                      <a name='payor'>payor</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>Boolean</code>
+                    <code>List&lt;<a href='Patient.html'>Patient</a> | <a href='Organization.html'>Organization</a> | <a href='RelatedPerson.html'>RelatedPerson</a>&gt;</code>
                     <blockquote>
-                      <div class='block'>A self, or other, payment agreement not an insurance policy.</div>
+                      <div class='block'>The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements. May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='issuer_x_'>issuer[x]</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>1..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a> | <a href='Organization.html'>Organization</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
-                    <blockquote>
-                      <div class='block'>The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='network'>network</a>
@@ -218,7 +174,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='period'>period</a>
@@ -234,33 +190,18 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='plan'>plan</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>String</code>
-                    <blockquote>
-                      <div class='block'>Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='planholder_x_'>planholder[x]</a>
+                      <a name='policyHolder'>policyHolder</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a> | <a href='Organization.html'>Organization</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Organization.html'>Organization</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
                     <blockquote>
                       <div class='block'>The party who 'owns' the insurance contractual relationship to the policy or to whom the benefit of the policy is due.</div>
                     </blockquote>
@@ -273,10 +214,10 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>The relationship of beneficiary (patient) (subscriber) to the the planholder.
 <p>Binding: <a title="The relationship between the Policyholder and the Beneficiary (insured/covered party/patient)." href="http://hl7.org/fhir/ValueSet/policyholder-relationship">Policyholder Relationship Codes</a> (Example)</p></div>
@@ -293,7 +234,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>positiveInt</code>
+                    <code>String</code>
                     <blockquote>
                       <div class='block'>An optional counter for a particular instance of the identified coverage which increments upon each renewal.</div>
                     </blockquote>
@@ -306,48 +247,17 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the resource instance.
-<p>Binding: <a title="A code specifying the state of the resource instance." href="http://hl7.org/fhir/ValueSet/coverage-status">CoverageStatus</a> (Required)</p></div>
+<p>Binding: <a title="This value set includes Status codes." href="http://hl7.org/fhir/ValueSet/fm-status">Financial Resource Status Codes</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='subGroup'>subGroup</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>String</code>
-                    <blockquote>
-                      <div class='block'>Identifies a style or collective of coverage issues by the underwriter, for example may be used to identify a class of coverage or employer group. May also be referred to as a Policy or Group ID.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='subPlan'>subPlan</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>String</code>
-                    <blockquote>
-                      <div class='block'>Identifies a sub-style or sub-collective of coverage issues by the underwriter, for example may be used to identify a specific employer group within a class of employers. May be referred to as a Section or Division ID.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+                
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -358,10 +268,10 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health.
-<p> (Example)</p></div>
+<p>Binding: <a title="This value set includes Coverage Type codes." href="http://hl7.org/fhir/ValueSet/coverage-type">Coverage Type and Self-Pay Codes</a> (Required)</p></div></div>
                     </blockquote>
                   </td>
                 </tr></table>

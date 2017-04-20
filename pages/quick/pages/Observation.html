@@ -122,7 +122,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Describes what was observed. Sometimes this is called the observation "name".
-<p> (Preferred)</p></div>
+<p>Binding: <a title="This value set includes all LOINC codes" href="http://hl7.org/fhir/ValueSet/observation-codes">LOINC Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -210,16 +210,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='encounter'>encounter</a>
+                      <a name='encounter'>context</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Encounter.html'>Encounter</a></code>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
                     <blockquote>
-                      <div class='block'>An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.</div>
+                      <div class='block'>The healthcare event (e.g. a patient and healthcare provider interaction) during which this observation is made.</div>
                     </blockquote>
                   </td>
                 </tr>

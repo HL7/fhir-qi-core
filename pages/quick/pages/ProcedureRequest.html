@@ -104,7 +104,7 @@
                     <code>Boolean | Concept</code>
                     <blockquote>
                       <div class='block'>If a CodeableConcept is present, it indicates the pre-condition for performing the procedure.
-<p> (Example)</p></div>
+<p>Binding: <a title="This value set includes all clinical findings from SNOMED CT - provided as an exemplar value set." href="http://hl7.org/fhir/ValueSet/medication-as-needed-reason">SNOMED CT Medication As Needed Reason Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -138,23 +138,23 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The specific procedure that is ordered. Use text if the exact nature of the procedure cannot be coded.
-<p>Binding: <a title="Codes describing the Procedure Type" href="http://hl7.org/fhir/daf/ValueSet/daf-procedure-type">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="Procedure Code: All SNOMED CT procedure codes." href="http://hl7.org/fhir/ValueSet/procedure-code">Procedure Codes (SNOMED CT)</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='encounter'>encounter</a>
+                      <a name='context'>context</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Encounter.html'>Encounter</a></code>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
                     <blockquote>
-                      <div class='block'>An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.</div>
+                      <div class='block'>An encounter or episode of care that provides additional information about the healthcare context in which this request is made.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -193,7 +193,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='orderedOn'>orderedOn</a>
+                      <a name='authoredOn'>authoredOn</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -202,23 +202,23 @@
                   <td class='colLast'>
                     <code>DateTime</code>
                     <blockquote>
-                      <div class='block'>The time when the request was made.</div>
+                      <div class='block'>When the request transitioned to being actionable.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='orderer'>orderer</a>
+                      <a name='requester'>requester</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Device.html'>Device</a></code>
+                    <code><a href='ProcedureRequest.Requester.html'>Requester</a></code>
                     <blockquote>
-                      <div class='block'>The healthcare professional responsible for proposing or ordering the procedure.</div>
+                      <div class='block'>The individual who initiated the request and has responsibility for its activation.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -232,9 +232,9 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
+                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a> | <a href='Device.html'>Device</a> | <a href='RelatedPerson.html'>RelatedPerson | <a href='HealthcareService.html'>HealthcareService</a></code>
                     <blockquote>
-                      <div class='block'>For example, the surgeon, anaethetist, endoscopist, etc.</div>
+                      <div class='block'>The desired perfomer for doing the diagnostic testing. For example, the surgeon, dermatopathologist, endoscopist, etc.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -251,7 +251,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The clinical priority associated with this order.
-<p>Binding: <a title="The priority of the request." href="http://hl7.org/fhir/ValueSet/procedure-request-priority">ProcedureRequestPriority</a> (Required)</p></div>
+<p>Binding: <a title="The clinical priority of a diagnostic order." href="http://hl7.org/fhir/ValueSet/request-priority">RequestPriority</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -275,16 +275,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='reason_x_'>reason[x]</a>
+                      <a name='reasonCode'>reasonCode</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept | <a href='Condition.html'>Condition</a></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
-                      <div class='block'>The reason why the procedure is being proposed or ordered. This procedure request may be motivated by a Condition for instance.
+                      <div class='block'>An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.
 <p>Binding: <a title="A code that explains the reason why a procedure is  required." href="http://hl7.org/fhir/ValueSet/procedure-reason">Procedure Reason Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
@@ -292,7 +292,23 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='scheduled_x_'>scheduled[x]</a>
+                      <a name='reasonReference'>reasonReference</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href="Condition.html">Condition</a> | <a href="Observation.html">Observation</a>&gt;</code>
+                    <blockquote>
+                      <div class='block'>Indicates another resource that provides a justification for why this diagnostic investigation is being requested.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='occurrence_x_'>occurrence[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -301,11 +317,11 @@
                   <td class='colLast'>
                     <code>DateTime | interval&lt;DateTime&gt; | <a href='Timing.html'>Timing</a></code>
                     <blockquote>
-                      <div class='block'>The timing schedule for the proposed or ordered procedure. The Schedule data type allows many different expressions.  E.g. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".</div>
+                      <div class='block'>The date/time at which the diagnostic testing should occur.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='status'>status</a>
@@ -318,11 +334,11 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the order.
-<p>Binding: <a title="The status of the request." href="http://hl7.org/fhir/ValueSet/procedure-request-status">ProcedureRequestStatus</a> (Required)</p></div>
+<p>Binding: <a title="Codes identifying the stage lifecycle stage of a request" href="http://hl7.org/fhir/ValueSet/request-status">RequestStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='subject'>subject</a>
@@ -332,9 +348,9 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a> | <a href='Location.html'>Location</a> | <a href='Device.html'>Device</a></code>
                     <blockquote>
-                      <div class='block'>The person, animal or group that should receive the procedure.</div>
+                      <div class='block'>On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).</div>
                     </blockquote>
                   </td>
                 </tr></table>

@@ -75,7 +75,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>Physical service site on the patient (limb, tooth, etc).
 <p>Binding: <a title="The code for the teeth, quadrant, sextant and arch" href="http://hl7.org/fhir/ValueSet/tooth">Oral Site Codes</a> (Example)</p></div>
@@ -85,16 +85,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='careTeam'>careTeam</a>
+                      <a name='careTeamLinkId'>careTeamLinkId</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Claim.Item.CareTeam.html'>CareTeam</a>></code>
+                    <code>List&lt;positiveInt&gt;</code>
                     <blockquote>
-                      <div class='block'>The members of the team who provided the overall service as well as their role and whether responsible and qualifications.</div>
+                      <div class='block'>CareTeam applicable for this service or product line.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -108,7 +108,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>Health Care Service Type Codes  to identify the classification of service or benefits.
 <p>Binding: <a title="Benefit subcategories such as: oral-basic, major, glasses" href="http://hl7.org/fhir/ValueSet/benefit-subcategory">Benefit SubCategory Codes</a> (Example)</p></div>
@@ -182,14 +182,14 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='locationReference'>locationReference</a>
+                      <a name='location_x_'>location[x]</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Location.html'>Location</a></code>
+                    <code><a href='Location.html'>Location</a> | <a href='Address.html'>Address</a> | Concept</code>
                     <blockquote>
                       <div class='block'>Where the service was provided.
 <p>Binding: <a title="Place of service: pharmcy,school, prison, etc." href="http://hl7.org/fhir/ValueSet/service-place">Example Service Place Codes</a> (Example)</p></div>
@@ -206,7 +206,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Code></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
 <p>Binding: <a title="Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." href="http://hl7.org/fhir/ValueSet/claim-modifiers">Modifier type Codes</a> (Example)</p></div>
@@ -229,23 +229,8 @@
                     </blockquote>
                   </td>
                 </tr>
+                
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='points'>points</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Decimal</code>
-                    <blockquote>
-                      <div class='block'>An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='programCode'>programCode</a>
@@ -259,22 +244,6 @@
                     <blockquote>
                       <div class='block'>For programs which require reason codes for the inclusion or covering of this billed item under the program or sub-program.
 <p>Binding: <a title="Program specific reason codes" href="http://hl7.org/fhir/ValueSet/ex-program-code">Example Program Reason Codes</a> (Example)</p></div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='prosthesis'>prosthesis</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code><a href='Claim.Item.Prosthesis.html'>Prosthesis</a></code>
-                    <blockquote>
-                      <div class='block'>The materials and placement date of prior fixed prosthesis.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -370,7 +339,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Code></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>A region or surface of the site, eg. limb region or tooth surface(s).
 <p>Binding: <a title="The code for the tooth surface and surface combinations" href="http://hl7.org/fhir/ValueSet/surface">Surface Codes</a> (Example)</p></div>
@@ -387,7 +356,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Device.html'>Device</a>></code>
+                    <code>List&lt;<a href='Device.html'>Device</a>&gt;</code>
                     <blockquote>
                       <div class='block'>List of Unique Device Identifiers associated with this line item.</div>
                     </blockquote>

@@ -107,7 +107,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Organization.html'>Organization</a>></code>
+                    <code>List&lt;<a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Organization.html'>Organization</a> | <a href='CareTeam.html'>CareTeam</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Identifies the individual(s) or ogranization who is responsible for the content of the care plan.</div>
                     </blockquote>
@@ -213,27 +213,11 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='modified'>modified</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>DateTime</code>
-                    <blockquote>
-                      <div class='block'>Identifies the most recent date on which the plan has been revised.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
                       <a name='note'>note</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
                     <code><a href='Annotation.html'>Annotation</a></code>
@@ -242,7 +226,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='period'>period</a>
@@ -258,23 +242,55 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='relatedPlan'>relatedPlan</a>
+                      <a name='basedOn'>basedOn</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='CarePlan.RelatedPlan.html'>RelatedPlan</a>></code>
+                    <code>List&lt;<a href='CarePlan.html'>CarePlan</a>></code>
                     <blockquote>
-                      <div class='block'>Identifies CarePlans with some sort of formal relationship to the current plan.</div>
+                      <div class='block'>A care plan that is fulfilled in whole or in part by this care plan.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='replaces'>replaces</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='CarePlan.html'>CarePlan</a>></code>
+                    <blockquote>
+                      <div class='block'>Completed or terminated care plan whose function is taken by this new care plan.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='partOf'>partOf</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='CarePlan.html'>CarePlan</a>></code>
+                    <blockquote>
+                      <div class='block'>A larger care plan of which this particular care plan is a component or step.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='status'>status</a>
@@ -291,7 +307,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='subject'>subject</a>
@@ -307,10 +323,10 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='support'>support</a>
+                      <a name='supportingInfo'>supportingInfo</a>
                     </strong>
                   </td>
                   <td class='colMid'>

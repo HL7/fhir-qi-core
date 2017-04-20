@@ -88,7 +88,7 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
                     <code><a href='Organization.html'>Organization</a></code>
@@ -155,9 +155,10 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code>code</code>
                     <blockquote>
-                      <div class='block'>Indicates whether the care team is currently active, suspended, inactive, or entered in error.</div>
+                      <div class='block'>Indicates the current state of the care team.
+<p>Binding: <a title="Indicates the status of the care team." href="http://hl7.org/fhir/ValueSet/care-team-status">CareTeamStatus</a> (Required)</p></div></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -180,7 +181,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='type'>type</a>
+                      <a name='category'>category</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -189,7 +190,8 @@
                   <td class='colLast'>
                     <code>List&lt;Concept></code>
                     <blockquote>
-                      <div class='block'>Identifies what kind of team.  This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.</div>
+                      <div class='block'>Identifies what kind of team. This is to support differentiation between multiple co-existing teams, such as care plan team, episode of care team, longitudinal care team.
+<p>Binding: <a title="Indicates the type of care team." href="http://hl7.org/fhir/ValueSet/care-team-category">CareTeamCategory</a> (Required)</p></div></div></div>
                     </blockquote>
                   </td>
                 </tr></table>
