@@ -7,7 +7,7 @@ tcode: {{[type]}}
 <html xml:lang="en" xmlns="http://www.w3.org/1999/xhtml" lang="en">
 <head>
    <meta charset="UTF-8"/>
-  <title>Profile: {{page.title}} - FHIR v1.8.0</title>
+  <title>Profile: {{page.title}} - FHIR v3.0.0</title>
 
   {% include header.html %}
 
@@ -33,10 +33,19 @@ tcode: {{[type]}}
 
 <div class="col-9">
 
-<ul class="nav nav-tabs"><li class="active"><a href="#">Content</a></li><li><a href="{{page.id}}-definitions.html">Detailed Descriptions</a></li><li><a href="{{page.id}}-mappings.html">Mappings</a></li><li><a href="StructureDefinition-{{page.id}}.xml.html">XML</a></li><li><a href="StructureDefinition-{{page.id}}.json.html">JSON</a></li></ul>
+<ul class="nav nav-tabs">
+  <li class="active"><a href="#">Content</a></li>
+  <li><a href="{{page.id}}-definitions.html">Detailed Descriptions</a></li>
+  <li><a href="StructureDefinition-{{page.id}}-mappings.html">Mappings</a></li>
+  <li><a href="StructureDefinition-{{page.id}}.xml.html">XML</a></li>
+  <li><a href="StructureDefinition-{{page.id}}.json.html">JSON</a></li>
+  <li><a href="StructureDefinition-{{page.id}}.ttl.html">Turtle</a></li>
+</ul>
 
-<h3><span class="sectioncount">D.4.1<a name="D.4.1"> </a></span> StructureDefinition: {{page.id}} <a title="link to here" class="self-link" href="{{page.id}}.html#D.4.1"><img src="target.png"/></a></h3>
-
+<h3>
+  <span class="sectioncount">D.4.1<a name="D.4.1"> </a></span> StructureDefinition: {{page.id}}
+  <a title="link to here" class="self-link" href="{{page.id}}.html#D.4.1"><img src="target.png"/></a>
+</h3>
 
 <!-- introductiontext here-->
 <a name="introduction"> </a>
@@ -53,7 +62,7 @@ Formal Views of Profile Content
 {%include StructureDefinition-{{page.id}}-header.xhtml%}
 <!-- uri -->
 <p>
-<a href="{{site.data.fhir.path}}profiling.html#representation">Description of Profiles, Differentials, Snapshots, and how the XML and JSON presentations work</a>.
+<a href="{{site.data.fhir.path}}profiling.html#representation">Description of Profiles, Differentials, and Snapshots</a>.
 </p>
 
 <div id="tabs">
@@ -61,8 +70,6 @@ Formal Views of Profile Content
   <li><a href="#tabs-summ">Text Summary</a></li>
   <li><a href="#tabs-diff">Differential Table</a></li>
   <li><a href="#tabs-snap">Snapshot Table</a></li>
-  <li><a href="#tabs-xml">XML Template</a></li>
-  <li><a href="#tabs-json">JSON Template</a></li>
   <li><a href="#tabs-all">All</a></li>
  </ul>
 
@@ -71,7 +78,7 @@ Formal Views of Profile Content
    <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a> </p>
    <div id="tbl-diff-inner">
      <a name="summary"> </a>
-     {%include StructureDefinition-{{page.id}}-summary.xhtml%} 
+     {%include StructureDefinition-{{page.id}}-summary.xhtml%}
    </div>
   </div>
  </div>
@@ -93,25 +100,9 @@ Formal Views of Profile Content
   </div>
  </div>
 
- <div id="tabs-xml">
-  <div id="xml">
-   <div id="xml-inner">
-   {%include StructureDefinition-{{page.id}}-pseudo-xml.xhtml%}
-   </div>
-  </div>
- </div>
-
- <div id="tabs-json">
-  <div id="json">
-   <div id="json-inner">
-   {%include StructureDefinition-{{page.id}}-pseudo-json.xhtml%}
-   </div>
-  </div>
- </div>
-
  <div id="tabs-all">
   <div id="tbl-summ">
-   <p>This structure is derived from <a href="{{site.data.fhir.path}}{{page.id}}.html">{{page.tcode}}</a>.</p>
+   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a>.</p>
    <div id="tbl-diff-inner">
      <a name="summary"> </a>
      {%include StructureDefinition-{{page.id}}-summary.xhtml%}
@@ -120,7 +111,7 @@ Formal Views of Profile Content
 
  <div id="all-tbl-diff">
    <p><b>Differential View</b></p>
-   <p>This structure is derived from <a href="{{site.data.fhir.path}}{{page.id}}.html">{{page.tcode}}</a>.</p>
+   <p>This structure is derived from <a href="{{site.data.structuredefinitions[page.id].basepath}}">{{site.data.structuredefinitions[page.id].basename}}</a>.</p>
    <div id="all-tbl-diff-inner">
    {%include StructureDefinition-{{page.id}}-diff.xhtml%}
    </div>

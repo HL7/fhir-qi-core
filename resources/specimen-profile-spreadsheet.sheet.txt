@@ -56,53 +56,47 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-isDryWeight}
 
  -- Row 10 -----------------------------------
-  Element = Specimen.treatment
+  Element = Specimen.processing
 
  -- Row 11 -----------------------------------
-  Element = !Specimen.treatment.extension
-  Profile Name = Specimen.treatment.treatmentTime
-  Card. = 0..1
-  Type = Extension{http://hl7.org/fhir/StructureDefinition/specimen-treatmentTime}
-
- -- Row 12 -----------------------------------
   Element = Specimen.type
   Must Support = Y
 
- -- Row 13 -----------------------------------
+ -- Row 12 -----------------------------------
   Element = Specimen.parent
-  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
+  Type = Reference(Specimen)
 
- -- Row 14 -----------------------------------
+ -- Row 13 -----------------------------------
   Element = Specimen.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance} | Reference(Group)
+  Type = Reference(Patient) | Reference(Device) | Reference(Substance) | Reference(Group)
 
- -- Row 15 -----------------------------------
+ -- Row 14 -----------------------------------
   Element = Specimen.receivedTime
   Must Support = Y
 
- -- Row 16 -----------------------------------
+ -- Row 15 -----------------------------------
   Element = Specimen.collection.collector
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Practitioner)
 
- -- Row 17 -----------------------------------
+ -- Row 16 -----------------------------------
   Element = Specimen.collection.collected[x]
   Must Support = Y
 
- -- Row 18 -----------------------------------
+ -- Row 17 -----------------------------------
   Element = Specimen.collection.bodySite
   Must Support = Y
 
- -- Row 19 -----------------------------------
-  Element = Specimen.treatment.procedure
+ -- Row 18 -----------------------------------
+  Element = Specimen.processing.procedure
   Must Support = Y
 
- -- Row 20 -----------------------------------
-  Element = Specimen.treatment.additive
-  Type = Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance}
+ -- Row 19 -----------------------------------
+  Element = Specimen.processing.additive
+  Type = Reference(Substance)
 
- -- Row 21 -----------------------------------
+ -- Row 20 -----------------------------------
   Element = Specimen.container.additive[x]
-  Type = CodeableConcept | Reference(Substance){http://hl7.org/fhir/StructureDefinition/qicore-substance}
+  Type = CodeableConcept | Reference(Substance)
 
 === Sheet Search =====================================

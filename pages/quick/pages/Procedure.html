@@ -55,7 +55,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -87,7 +87,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.
-<p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/STU3/valueset-body-site.html">SNOMED CT Body Structures</a> (Example)</p></div>
+<p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/ValueSet/body-site">SNOMED CT Body Structures</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -104,7 +104,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>A code that classifies the procedure for searching, sorting and display purposes (e.g. "Surgical Procedure").
-<p>Binding: <a title="A code that classifies a procedure for searching, sorting and display purposes." href="http://hl7.org/fhir/STU3/valueset-procedure-category.html">Procedure Category Codes (SNOMED CT)</a> (Example)</p></div>
+<p>Binding: <a title="A code that classifies a procedure for searching, sorting and display purposes." href="http://hl7.org/fhir/ValueSet/procedure-category">Procedure Category Codes (SNOMED CT)</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -121,7 +121,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. "Laparoscopic Appendectomy").
-<p>Binding: <a title="Codes describing the Procedure Type" href="http://hl7.org/fhir/daf/ValueSet/daf-procedure-type">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="Procedure Code: All SNOMED CT procedure codes." href="http://hl7.org/fhir/ValueSet/procedure-code">Procedure Codes (SNOMED CT)</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -138,14 +138,14 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.
-<p>Binding: <a title="Codes describing complications that resulted from a procedure." href="http://hl7.org/fhir/STU3/valueset-condition-code.html">Condition/Problem/Diagnosis Codes</a> (Example)</p></div>
+<p>Binding: <a title="Codes describing complications that resulted from a procedure." href="http://hl7.org/fhir/ValueSet/condition-code">Condition/Problem/Diagnosis Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='component'>component</a>
+                      <a name='partOf'>partOf</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -154,23 +154,23 @@
                   <td class='colLast'>
                     <code>List&lt;<a href='MedicationAdministration.html'>MedicationAdministration</a> | <a href='Procedure.html'>Procedure</a> | <a href='Observation.html'>Observation</a>></code>
                     <blockquote>
-                      <div class='block'>Identifies medication administrations, other procedures or observations that are related to this procedure.</div>
+                      <div class='block'>A larger event of which this particular procedure is a component or step.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='encounter'>encounter</a>
+                      <a name='context'>context</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Encounter.html'>Encounter</a></code>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
                     <blockquote>
-                      <div class='block'>An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.</div>
+                      <div class='block'>The encounter during which the procedure was performed.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -203,7 +203,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used.
-<p>Binding: <a title="Specific follow up required for a procedure e.g. removal of sutures." href="http://hl7.org/fhir/STU3/valueset-procedure-followup.html">Procedure Follow up Codes (SNOMED CT)</a> (Example)</p></div>
+<p>Binding: <a title="Specific follow up required for a procedure e.g. removal of sutures." href="http://hl7.org/fhir/ValueSet/procedure-followup">Procedure Follow up Codes (SNOMED CT)</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -258,7 +258,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
-                      <a name='notPerformed'>notPerformed</a>
+                      <a name='notDone'>notDone</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -300,7 +300,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The outcome of the procedure - did it resolve reasons for the procedure being performed?
-<p>Binding: <a title="An outcome of a procedure - whether it was resolved or otherwise." href="http://hl7.org/fhir/STU3/valueset-procedure-outcome.html">Procedure Outcome Codes (SNOMED CT)</a> (Example)</p></div>
+<p>Binding: <a title="An outcome of a procedure - whether it was resolved or otherwise." href="http://hl7.org/fhir/ValueSet/procedure-outcome">Procedure Outcome Codes (SNOMED CT)</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -349,14 +349,14 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.
-<p>Binding: <a title="A code that identifies the reason a procedure is  required." href="http://hl7.org/fhir/STU3/valueset-procedure-reason.html">Procedure Reason Codes</a> (Example)</p></div>
+<p>Binding: <a title="A code that identifies the reason a procedure is  required." href="http://hl7.org/fhir/ValueSet/procedure-reason">Procedure Reason Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='reasonNotPerformed'>reasonNotPerformed</a>
+                      <a name='notDoneReason'>notDoneReason</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -366,7 +366,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>A code indicating why the procedure was not performed.
-<p>Binding: <a title="A code that identifies the reason a procedure was not performed." href="http://hl7.org/fhir/STU3/valueset-procedure-not-performed-reason.html">Procedure Not Performed Reason (SNOMED-CT)</a> (Example)</p></div>
+<p>Binding: <a title="Situation codes describing the reason that a procedure, which might otherwise be expected, was not performed, or a procedure that was started and was not completed." href="http://hl7.org/fhir/ValueSet/procedure-not-performed-reason">Procedure Not Performed Reason (SNOMED-CT)</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -380,7 +380,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Condition.html'>Condition</a>></code>
+                    <code>List&lt;<a href='Condition.html'>Condition</a> | <a href='Observation.html'>Observation</a>&gt;</code>
                     <blockquote>
                       <div class='block'>The condition that is the reason why the procedure was performed.</div>
                     </blockquote>
@@ -405,14 +405,14 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='request'>request</a>
+                      <a name='basedOn'>basedOn</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='CarePlan.html'>CarePlan</a> | <a href='DiagnosticRequest.html'>DiagnosticRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='ReferralRequest.html'>ReferralRequest</a></code>
+                    <code><a href='CarePlan.html'>CarePlan</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='ReferralRequest.html'>ReferralRequest</a></code>
                     <blockquote>
                       <div class='block'>A reference to a resource that contains details of the request for this procedure.</div>
                     </blockquote>
@@ -431,7 +431,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>A code specifying the state of the procedure. Generally this will be in-progress or completed state.
-<p>Binding: <a title="A code specifying the state of the procedure." href="http://hl7.org/fhir/STU3/valueset-procedure-status.html">ProcedureStatus</a> (Required)</p></div>
+<p>Binding: <a title="Codes identifying the stage lifecycle stage of a event" href="http://hl7.org/fhir/ValueSet/event-status">EventStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -464,7 +464,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>Identifies coded items that were used as part of the procedure.
-<p> (Example)</p></div>
+<p>Binding: <a title="Codes used to identify medical devices. Include codes from [SNOMED CT](http://snomed.info/sct) where concept is-a 49062001 (Device) and is provided as a suggestive example." href="http://hl7.org/fhir/ValueSet/device-kind">FHIR Device Types</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>

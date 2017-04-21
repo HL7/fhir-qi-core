@@ -20,7 +20,7 @@
  -- Row 2 -----------------------------------
   Element = ImmunizationRecommendation.patient
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient)
 
  -- Row 3 -----------------------------------
   Element = ImmunizationRecommendation.recommendation
@@ -43,14 +43,14 @@
 
  -- Row 8 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.protocol.authority
-  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Organization)
 
  -- Row 9 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.supportingImmunization
-  Type = Reference(Immunization){http://hl7.org/fhir/StructureDefinition/qicore-immunization}
+  Type = Reference(Immunization)
 
  -- Row 10 -----------------------------------
   Element = ImmunizationRecommendation.recommendation.supportingPatientInformation
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation} | Reference(AllergyIntolerance){http://hl7.org/fhir/StructureDefinition/qicore-allergyintolerance}
+  Type = Reference(Observation) | Reference(AllergyIntolerance)
 
 === Sheet Search =====================================

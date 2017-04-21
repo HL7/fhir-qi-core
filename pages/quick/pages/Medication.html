@@ -55,7 +55,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -71,7 +71,41 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>A code (or set of codes) that specify this medication, or a textual description if no code is available. Usage note: This could be a standard medication code such as a code from RxNorm, SNOMED CT, IDMP etc. It could also be a national or local formulary code, optionally with translations to other code systems.
-<p>Binding: <a title="The set of RxNorm codes to represent medications" href="http://hl7.org/fhir/daf/ValueSet/daf-medication-codes">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="This value set includes all drug or medicament substance codes and all pharmaceutical/biologic products from SNOMED CT - provided as an exemplar value set." href="http://hl7.org/fhir/ValueSet/medication-codes">SNOMED CT Medication Codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='form'>form</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>Describes the form of the item. Powder; tablets; capsule.
+<p>Binding: <a title="This value set includes all dose form codes from SNOMED CT - provided as an exemplar." href="http://hl7.org/fhir/ValueSet/medication-form-codes">SNOMED CT Form Codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='ingredient'>ingredient</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href="Medication.Ingredient.html">Ingredient</a>&gt;</code>
+                    <blockquote>
+                      <div class='block'>Identifies a particular constituent of interest in the product.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -123,22 +157,8 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='product'>product</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code><a href='Medication.Product.html'>Product</a></code>
-                    <blockquote>
-                      <div class='block'>Information that only applies to products (not packages).</div>
-                    </blockquote>
-                  </td>
-                </tr></table>
+                
+              </table>
 <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
  class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
               </li>

@@ -9,20 +9,13 @@
   Conformance = preferred
 
  -- Row 2 -----------------------------------
-  Binding Name = !QICoreProcedureNotPerformedReason
-  Binding = value set
-  Reference = valueset-procedure-not-performed-reason
-  Definition = Situation codes describing the reason that a procedure which might otherwise be expected, or was started, was either not performed or not completed
-  Conformance = preferred
-
- -- Row 3 -----------------------------------
   Binding Name = !QICoreBodySite
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/body-site
   Definition = Precoordinated body sites such as \'left ear\'
   Conformance = example
 
- -- Row 4 -----------------------------------
+ -- Row 3 -----------------------------------
   Binding Name = !QICorePractitionerRole
   Binding = value set
   Reference = http://hl7.org/fhir/ValueSet/practitioner-role
@@ -71,11 +64,11 @@
   Type = Extension{http://hl7.org/fhir/StructureDefinition/procedure-causedBy}
 
  -- Row 7 -----------------------------------
-  Element = !Procedure.NotPerformed
+  Element = !Procedure.NotDone
   Card. = 0..1
 
  -- Row 8 -----------------------------------
-  Element = Procedure.reasonNotPerformed
+  Element = Procedure.reasonNotDone
   Card. = !0..1
   QDM Mapping = negation rationale
 
@@ -94,12 +87,12 @@
 
  -- Row 11 -----------------------------------
   Element = !Procedure.bodySite.site[x]
-  Type = CodeableConcept|Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
+  Type = CodeableConcept|Reference(BodySite)
 
  -- Row 12 -----------------------------------
   Element = Procedure.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group)
+  Type = Reference(Patient) | Reference(Group)
 
  -- Row 13 -----------------------------------
   Element = Procedure.status
@@ -116,7 +109,7 @@
 
  -- Row 16 -----------------------------------
   Element = Procedure.performer.actor
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | \nReference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+  Type = Reference(Practitioner) | Reference(Organization) | \nReference(Patient) | Reference(RelatedPerson)
 
  -- Row 17 -----------------------------------
   Element = !Procedure.performer.role
@@ -128,18 +121,18 @@
   QDM Mapping = start, stop datetime
 
  -- Row 19 -----------------------------------
-  Element = Procedure.encounter
+  Element = Procedure.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+  Type = Reference(Encounter) | Reference(Group)
 
  -- Row 20 -----------------------------------
   Element = Procedure.location
-  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+  Type = Reference(Location)
 
  -- Row 21 -----------------------------------
   Element = Procedure.report
   Must Support = Y
-  Type = Reference(DiagnosticReport){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticreport}
+  Type = Reference(DiagnosticReport)
   QDM Mapping = result
 
  -- Row 22 -----------------------------------
@@ -147,6 +140,6 @@
 
  -- Row 23 -----------------------------------
   Element = Procedure.focalDevice.manipulated
-  Type = Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
+  Type = Reference(Device)
 
 === Sheet Search =====================================

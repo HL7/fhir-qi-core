@@ -2,10 +2,11 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/implementationguide.xsd">
   <id value="qicore"/>
-  <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/qicore"/>
+  <!-- <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/qicore"/> -->
+  <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/ig"/>
   <name value="QICore Implementation Guide"/>
   <status value="draft"/>
-  <experimental value="false"/>
+  <experimental value="true"/>
   <publisher value="ONC"/>
   <dependency>
     <type value="reference"/>
@@ -13,17 +14,6 @@
   </dependency>
   <package>
     <name value="base"/>
-	<resource>
-      <example value="true"/>
-      <name value="QICore AdverseEvent"/>
-      <description value="Example of QICore AdverseEvent"/>
-      <sourceReference>
-		  <reference value="Basic/basic-adverseevent-example"/>
-      </sourceReference>
-      <exampleFor>
-        <reference value="StructureDefinition/qicore-adverseevent"/>
-      </exampleFor>
-    </resource>
     <resource>
       <example value="true"/>
       <name value="QICore AllergyIntolerance"/>
@@ -44,6 +34,17 @@
 	  </sourceReference>
       <exampleFor>
         <reference value="StructureDefinition/qicore-allergyintolerance"/>
+      </exampleFor>
+    </resource>
+    <resource>
+      <example value="true"/>
+      <name value="QICore AdverseEvent"/>
+      <description value="Example of QICore AdverseEvent"/>
+      <sourceReference>
+		  <reference value="AdverseEvent/adverseevent-example"/>
+      </sourceReference>
+      <exampleFor>
+        <reference value="StructureDefinition/qicore-adverseevent"/>
       </exampleFor>
     </resource>
     <resource>
@@ -77,24 +78,7 @@
         <reference value="StructureDefinition/qicore-condition"/>
       </exampleFor>
     </resource>
-    <resource>
-      <example value="true"/>
-      <name value="QICore DeviceUseRequest"/>
-      <description value="Example of QICore DeviceUseRequest"/>
-      <sourceReference><reference value="DeviceUseRequest/deviceuserequest-example-qicore"/></sourceReference>
-      <exampleFor>
-        <reference value="StructureDefinition/qicore-deviceuserequest"/>
-      </exampleFor>
-    </resource>
-    <resource>
-      <example value="true"/>
-      <name value="QICore DiagnosticRequest"/>
-      <description value="Example of QICore DiagnosticRequest"/>
-      <sourceReference><reference value="DiagnosticRequest/diagnosticrequest-example-qicore"/></sourceReference>
-      <exampleFor>
-        <reference value="StructureDefinition/qicore-diagnosticrequest"/>
-      </exampleFor>
-    </resource>
+
     <resource>
       <example value="true"/>
       <name value="QICore DiagnosticReport"/>
@@ -140,7 +124,7 @@
         <reference value="StructureDefinition/qicore-goal"/>
       </exampleFor>
     </resource>
-    <resource>
+    <!-- <resource>
       <example value="true"/>
       <name value="QICore ImagingStudy"/>
       <description value="Example of QICore ImagingStudy"/>
@@ -148,7 +132,7 @@
       <exampleFor>
         <reference value="StructureDefinition/qicore-imagingstudy"/>
       </exampleFor>
-    </resource>
+    </resource> -->
     <resource>
       <example value="true"/>
       <name value="QICore MedicationDispense"/>
@@ -248,6 +232,18 @@
         <reference value="StructureDefinition/qicore-specimen"/>
       </exampleFor>
     </resource>
+    <!-- <resource>
+       <example value="false" />
+       <sourceReference>
+          <reference value="ValueSet/qicore-allergyintolerance-reason-refuted" />
+       </sourceReference>
+    </resource>
+    <resource>
+       <example value="false" />
+       <sourceReference>
+          <reference value="ValueSet/qicore-bodysite-precoordinated" />
+       </sourceReference>
+    </resource> -->
   </package>
   <page>
     <source value="index.html"/>
@@ -359,18 +355,6 @@
       </page>
     </page>
     <page>
-      <source value="deviceuserequest-qicore.html"/>
-      <title value="Device Use Request"/>
-      <kind value="page"/>
-      <format value="generated"/>
-      <page>
-        <source value="qicore-deviceuserequest.html"/>
-        <title value="Device Use Request Details"/>
-        <kind value="resource"/>
-        <format value="generated"/>
-      </page>
-    </page>
-    <page>
       <source value="deviceusestatement-qicore.html"/>
       <title value="Device Use Statement"/>
       <kind value="page"/>
@@ -378,18 +362,6 @@
       <page>
         <source value="qicore-deviceusestatement.html"/>
         <title value="Device Use Statement Details"/>
-        <kind value="resource"/>
-        <format value="generated"/>
-      </page>
-    </page>
-    <page>
-      <source value="diagnosticrequest-qicore.html"/>
-      <title value="Diagnostic Request"/>
-      <kind value="page"/>
-      <format value="generated"/>
-      <page>
-        <source value="qicore-diagnosticrequest.html"/>
-        <title value="Diagnostic Request Details"/>
         <kind value="resource"/>
         <format value="generated"/>
       </page>
@@ -479,7 +451,7 @@
       </page>
     </page>
     <page>
-      <source value="immunizationrecommendation-qicore.html"/>
+      <source value="immunizationrec-qicore.html"/>
       <title value="Immunization Recommendation"/>
       <kind value="page"/>
       <format value="generated"/>

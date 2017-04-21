@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -75,7 +75,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ReferralRequest.html'>ReferralRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='Procedure.html'>Procedure</a> | <a href='MedicationOrder.html'>MedicationOrder</a> | <a href='DiagnosticRequest.html'>DiagnosticRequest</a> | <a href='NutritionRequest.html'>NutritionRequest</a> | <a href='SupplyRequest.html'>SupplyRequest</a> | <a href='Appointment.html'>Appointment</a>></code>
+                    <code>List&lt;<a href='ReferralRequest.html'>ReferralRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='Procedure.html'>Procedure</a> | <a href='MedicationRequest.html'>MedicationRequest</a> | <a href='Appointment.html'>Appointment</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Actions taken during assessment.</div>
                     </blockquote>
@@ -213,14 +213,14 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='investigations'>investigations</a>
+                      <a name='investigation'>investigation</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ClinicalImpression.Investigations.html'>Investigations</a>></code>
+                    <code>List&lt;<a href='ClinicalImpression.Investigation.html'>Investigation</a>></code>
                     <blockquote>
                       <div class='block'>One or more sets of investigations (signs, symptions, etc.). The actual grouping of investigations vary greatly depending on the type and context of the assessment. These investigations may include data generated during the assessment process, or data previously generated and recorded that is pertinent to the outcomes.</div>
                     </blockquote>
@@ -242,23 +242,8 @@
                     </blockquote>
                   </td>
                 </tr>
+                
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='plan'>plan</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..*</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>List&lt;<a href='CarePlan.html'>CarePlan</a> | <a href='Appointment.html'>Appointment</a> | <a href='CommunicationRequest.html'>CommunicationRequest</a> | <a href='DeviceUseRequest.html'>DeviceUseRequest</a> | <a href='DiagnosticRequest.html'>DiagnosticRequest</a> | <a href='MedicationOrder.html'>MedicationOrder</a> | <a href='NutritionRequest.html'>NutritionRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='ProcessRequest.html'>ProcessRequest</a> | <a href='ReferralRequest.html'>ReferralRequest</a> | <a href='SupplyRequest.html'>SupplyRequest</a> | <a href='VisionPrescription.html'>VisionPrescription</a>></code>
-                    <blockquote>
-                      <div class='block'>Plan of action after assessment.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='previous'>previous</a>
@@ -274,7 +259,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='problem'>problem</a>
@@ -290,7 +275,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='prognosisCodeableConcept'>prognosisCodeableConcept</a>
@@ -303,11 +288,11 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>Estimate of likely outcome.
-<p>Binding: <a title="Prognosis or outlook findings" href="http://hl7.org/fhir/STU3/valueset-clinicalimpression-prognosis.html">Clinical Impression Prognosis</a> (Example)</p></div>
+<p>Binding: <a title="Prognosis or outlook findings" href="http://hl7.org/fhir/ValueSet/clinicalimpression-prognosis">Clinical Impression Prognosis</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='prognosisReference'>prognosisReference</a>
@@ -323,7 +308,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='protocol'>protocol</a>
@@ -339,7 +324,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='status'>status</a>
@@ -352,11 +337,11 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Identifies the workflow status of the assessment.
-<p>Binding: <a title="The workflow state of a clinical impression." href="http://hl7.org/fhir/STU3/valueset-clinical-impression-status.html">ClinicalImpressionStatus</a> (Required)</p></div>
+<p>Binding: <a title="The workflow state of a clinical impression." href="http://hl7.org/fhir/ValueSet/clinical-impression-status">ClinicalImpressionStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='subject'>subject</a>
@@ -372,7 +357,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='summary'>summary</a>

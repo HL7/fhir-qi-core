@@ -55,7 +55,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -84,7 +84,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
                     <blockquote>
                       <div class='block'>Individual who is making the condition statement.</div>
                     </blockquote>
@@ -103,7 +103,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>The anatomical location where this condition manifests itself.
-<p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/STU3/valueset-body-site.html">SNOMED CT Body Structures</a> (Example)</p></div>
+<p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/ValueSet/body-site">SNOMED CT Body Structures</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -130,13 +130,13 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>A category assigned to the condition.
-<p>Binding: <a title="A category assigned to the condition." href="http://hl7.org/fhir/STU3/valueset-condition-category.html">Condition Category Codes</a> (Preferred)</p></div>
+<p>Binding: <a title="A category assigned to the condition." href="http://hl7.org/fhir/ValueSet/condition-category">Condition Category Codes</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -153,7 +153,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The clinical status of the condition.
-<p>Binding: <a title="The clinical status of the condition or diagnosis." href="http://hl7.org/fhir/STU3/valueset-condition-clinical.html">Condition Clinical Status Codes</a> (Required)</p></div>
+<p>Binding: <a title="The clinical status of the condition or diagnosis." href="http://hl7.org/fhir/ValueSet/condition-clinical">Condition Clinical Status Codes</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -164,13 +164,13 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Identification of the condition, problem or diagnosis.
-<p>Binding: <a title="The code for the condition" href="http://hl7.org/fhir/daf/ValueSet/daf-problem">value set</a> (Preferred)</p></div>
+<p>Binding: <a title="The code for the condition" href="http://hl7.org/fhir/ValueSet/condition-code">Condition/Problem/Diagnosis Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -184,7 +184,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Encounter.html'>Encounter</a></code>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
                     <blockquote>
                       <div class='block'>Encounter during which the condition was first asserted.</div>
                     </blockquote>
@@ -210,7 +210,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='dateRecorded'>dateRecorded</a>
+                      <a name='assertedDate'>assertedDate</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -300,7 +300,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>A subjective assessment of the severity of the condition as evaluated by the clinician.
-<p>Binding: <a title="A subjective assessment of the severity of the condition as evaluated by the clinician." href="http://hl7.org/fhir/STU3/valueset-condition-severity.html">Condition/Diagnosis Severity</a> (Preferred)</p></div>
+<p>Binding: <a title="A subjective assessment of the severity of the condition as evaluated by the clinician." href="http://hl7.org/fhir/ValueSet/condition-severity">Condition/Diagnosis Severity</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -330,7 +330,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
                     <blockquote>
                       <div class='block'>Indicates the patient or group who the condition record is associated with.</div>
                     </blockquote>
@@ -343,13 +343,13 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The verification status to support the clinical status of the condition.
-<p>Binding: <a title="The verification status to support or decline the clinical status of the condition or diagnosis." href="http://hl7.org/fhir/STU3/valueset-condition-ver-status.html">ConditionVerificationStatus</a> (Required)</p></div>
+<p>Binding: <a title="The verification status to support or decline the clinical status of the condition or diagnosis." href="http://hl7.org/fhir/ValueSet/condition-ver-status">ConditionVerificationStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr></table>

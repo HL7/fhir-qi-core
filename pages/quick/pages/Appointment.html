@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -217,13 +217,13 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The reason that this appointment is being scheduled. This is more clinical than administrative.
-<p>Binding: <a title="The Reason for the appointment to take place." href="http://hl7.org/fhir/STU3/valueset-encounter-reason.html">Encounter Reason Codes</a> (Preferred)</p></div>
+<p>Binding: <a title="The Reason for the appointment to take place." href="http://hl7.org/fhir/ValueSet/encounter-reason">Encounter Reason Codes</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -240,7 +240,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>A broad categorisation of the service that is to be performed during this appointment.
-<p>Binding: <a title="This value set defines an example set of codes that can be used to classify groupings of service-types/specialties." href="http://hl7.org/fhir/STU3/valueset-service-category.html">ServiceCategory</a> (Example)</p></div>
+<p>Binding: <a title="This value set defines an example set of codes that can be used to classify groupings of service-types/specialties." href="http://hl7.org/fhir/ValueSet/service-category">ServiceCategory</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -257,7 +257,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>The specific service that is to be performed during this appointment.
-<p>Binding: <a title="This value set defines an example set of codes of service-types." href="http://hl7.org/fhir/STU3/valueset-service-type.html">ServiceType</a> (Example)</p></div>
+<p>Binding: <a title="This value set defines an example set of codes of service-types." href="http://hl7.org/fhir/ValueSet/service-type">ServiceType</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -290,7 +290,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>The specialty of a practitioner that would be required to perform the service requested in this appointment.
-<p>Binding: <a title="This is the code representing the clinical specialty of the clinician or provider who interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition." href="http://hl7.org/fhir/STU3/valueset-c80-practice-codes.html">Practice Setting Code Value Set</a> (Preferred)</p></div>
+<p>Binding: <a title="This is the code representing the clinical specialty of the clinician or provider who interacted with, treated, or provided a service to/for the patient. The value set used for clinical specialty has been limited by HITSP to the value set reproduced from HITSP C80 Table 2-149 Clinical Specialty Value Set Definition." href="http://hl7.org/fhir/ValueSet/c80-practice-codes">Practice Setting Code Value Set</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -323,7 +323,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The overall status of the Appointment. Each of the participants has their own participation status which indicates their involvement in the process, however this status indicates the shared status.
-<p>Binding: <a title="The free/busy status of an appointment." href="http://hl7.org/fhir/STU3/valueset-appointmentstatus.html">AppointmentStatus</a> (Required)</p></div>
+<p>Binding: <a title="The free/busy status of an appointment." href="http://hl7.org/fhir/ValueSet/appointmentstatus">AppointmentStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr></table>

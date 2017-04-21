@@ -62,23 +62,23 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='concept'>concept</a>
+                      <a name='code'>code</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Code></code>
+                    <code>List&lt;Code&gt;</code>
                     <blockquote>
-                      <div class='block'>Identifies a how this group of questions is known in a particular terminology such as LOINC.
-<p>Binding: <a title="Codes for questionnaires, groups and individual questions" href="http://hl7.org/fhir/STU3/valueset-questionnaire-questions.html">Questionnaire Question Codes</a> (Example)</p></div>
+                      <div class='block'>A terminology code that corresponds to this group or question (e.g. a code from LOINC, which defines many questions and answers).
+<p>Binding: <a title="Codes for questionnaires, groups and individual questions" href="http://hl7.org/fhir/ValueSet/questionnaire-questions">Questionnaire Question Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -92,7 +92,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Questionnaire.Item.EnableWhen.html'>EnableWhen</a>></code>
+                    <code>List&lt;<a href='Questionnaire.Item.EnableWhen.html'>EnableWhen</a>&gt;</code>
                     <blockquote>
                       <div class='block'>If present, indicates that this item should only be enabled (displayed/allow answers to be captured) when the specified condition is true.</div>
                     </blockquote>
@@ -126,7 +126,8 @@
                   <td class='colLast'>
                     <code>Boolean | Decimal | Integer | DateTime | Time | String | Uri | <a href='Attachment.html'>Attachment</a> | Code | <a href='Quantity.html'>Quantity</a> | <a href='Resource.html'>Resource</a></code>
                     <blockquote>
-                      <div class='block'>The value that should be pre-populated when rendering the questionnaire for user input.</div>
+                      <div class='block'>The value that should be pre-populated when rendering the questionnaire for user input.
+<p>Binding: <a title="Allowed values to answer questions." href="http://hl7.org/fhir/ValueSet/questionnaire-answers">Questionnaire Answer Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -152,7 +153,7 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>1..1</code>
                   </td>
                   <td class='colLast'>
                     <code>String</code>
@@ -187,7 +188,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Questionnaire.Item.Option.html'>Option</a>></code>
+                    <code>List&lt;<a href='Questionnaire.Item.Option.html'>Option</a>&gt;</code>
                     <blockquote>
                       <div class='block'>For a "choice" question, identifies one of the permitted answers for the question.</div>
                     </blockquote>
@@ -302,7 +303,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Identifies the type of questionnaire item this is - whether text for display, a grouping of other items or a particular type of data to be captured (string, integer, coded choice, etc.).
-<p>Binding: <a title="Distinguishes groups from questions and display text and indicates data type for questions" href="http://hl7.org/fhir/STU3/valueset-item-type.html">QuestionnaireItemType</a> (Required)</p></div>
+<p>Binding: <a title="Distinguishes groups from questions and display text and indicates data type for questions" href="http://hl7.org/fhir/ValueSet/item-type">QuestionnaireItemType</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr></table>

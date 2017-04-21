@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -99,16 +99,16 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='import'>import</a>
+                      <a name='inactive'>inactive</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..*</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Uri></code>
+                    <code>Boolean</code>
                     <blockquote>
-                      <div class='block'>Includes the contents of the referenced value set as a part of the contents of this value set. This is an absolute URI that is a reference to ValueSet.url.</div>
+                      <div class='block'>Whether inactive codes - codes that are not approved for current use - are in the value set.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -122,7 +122,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ValueSet.Compose.Include.html'>Include</a>></code>
+                    <code>List&lt;<a href='ValueSet.Compose.Include.html'>Include</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Include one or more codes from a code system.</div>
                     </blockquote>

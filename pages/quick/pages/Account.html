@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -77,7 +77,7 @@
                   <td class='colLast'>
                     <code>interval&lt;DateTime&gt;</code>
                     <blockquote>
-                      <div class='block'>Indicates the period of time over which the account is allowed to have transactions posted to it. This period may be different to the coveragePeriod which is the duration of time that services may occur.</div>
+                      <div class='block'>Indicates the period of time over which the account is allowed to have transactions posted to it. This period may be different to the period which is the duration of time that services may occur.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -116,7 +116,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='coveragePeriod'>coveragePeriod</a>
+                      <a name='period'>period</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -132,23 +132,6 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='currency'>currency</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Code</code>
-                    <blockquote>
-                      <div class='block'>Identifies the currency to which transactions must be converted when crediting or debiting the account.
-<p>Binding: <a title="The monetary currency in which this account records values." href="http://www.iso.org/iso/home/standards/currency_codes">value set</a> (Example)</p></div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
                       <a name='description'>description</a>
                     </strong>
                   </td>
@@ -162,7 +145,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='identifier'>identifier</a>
@@ -178,7 +161,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='name'>name</a>
@@ -194,7 +177,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='owner'>owner</a>
@@ -210,7 +193,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='status'>status</a>
@@ -223,11 +206,11 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Indicates whether the account is presently used/useable or not.
-<p>Binding: <a title="Indicates whether the account is available to be used." href="http://hl7.org/fhir/STU3/valueset-account-status.html">AccountStatus</a> (Required)</p></div>
+<p>Binding: <a title="Indicates whether the account is available to be used." href="http://hl7.org/fhir/ValueSet/account-status">AccountStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='subject'>subject</a>
@@ -243,7 +226,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='type'>type</a>

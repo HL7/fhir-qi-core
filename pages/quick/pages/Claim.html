@@ -55,10 +55,10 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='accident'>accident</a>
@@ -74,7 +74,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='billablePeriod'>billablePeriod</a>
@@ -90,17 +90,33 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='coverage'>coverage</a>
+                      <a name='careTeam'>careTeam</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Claim.Coverage.html'>Coverage</a>></code>
+                    <code>List&lt;<a href="Claim.CareTeam.html">CareTeam</a>&gt;</code>
+                    <blockquote>
+                      <div class='block'>The members of the team who provided the overall service as well as their role and whether responsible and qualifications.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='insurance'>insurance</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Claim.Insurance.html'>Insurance</a>></code>
                     <blockquote>
                       <div class='block'>Financial instrument by which payment information for health care.</div>
                     </blockquote>
@@ -157,14 +173,14 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='enterer_x_'>enterer[x]</a>
+                      <a name='enterer'>enterer</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                    <code><a href='Practitioner.html'>Practitioner</a></code>
                     <blockquote>
                       <div class='block'>Person who created the invoice/claim/pre-determination or pre-authorization.</div>
                     </blockquote>
@@ -173,14 +189,14 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='facility_x_'>facility[x]</a>
+                      <a name='facility'>facility</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Location.html'>Location</a></code>
+                    <code><a href='Location.html'>Location</a></code>
                     <blockquote>
                       <div class='block'>Facility where the services were provided.</div>
                     </blockquote>
@@ -196,10 +212,10 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.
-<p>Binding: <a title="For whom funds are to be reserved: (Patient, Provider, None)." href="http://hl7.org/fhir/STU3/valueset-fundsreserve.html">Funds Reservation Codes</a> (Example)</p></div>
+<p>Binding: <a title="For whom funds are to be reserved: (Patient, Provider, None)." href="http://hl7.org/fhir/ValueSet/fundsreserve">Funds Reservation Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -254,14 +270,14 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='insurer_x_'>insurer[x]</a>
+                      <a name='insurer'>insurer</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Organization.html'>Organization</a></code>
+                    <code><a href='Organization.html'>Organization</a></code>
                     <blockquote>
                       <div class='block'>The Insurer who is target  of the request.</div>
                     </blockquote>
@@ -286,79 +302,46 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='missingTeeth'>missingTeeth</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..*</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>List&lt;<a href='Claim.MissingTeeth.html'>MissingTeeth</a>></code>
-                    <blockquote>
-                      <div class='block'>A list of teeth which would be expected but are not found due to having been previously  extracted or for other reasons.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='organization_x_'>organization[x]</a>
+                      <a name='organization'>organization</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Organization.html'>Organization</a></code>
+                    <code><a href='Organization.html'>Organization</a></code>
                     <blockquote>
                       <div class='block'>The organization which is responsible for the bill, claim pre-determination, pre-authorization.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='originalPrescription_x_'>originalPrescription[x]</a>
+                      <a name='originalPrescription'>originalPrescription</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='MedicationOrder.html'>MedicationOrder</a></code>
+                    <code><a href='MedicationRequest.html'>MedicationRequest</a></code>
                     <blockquote>
                       <div class='block'>Original prescription which has been superceded by this prescription to support the dispensing of pharmacy services, medications or products.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='originalRuleset'>originalRuleset</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Code</code>
-                    <blockquote>
-                      <div class='block'>The version of the specification from which the original instance was created.
-<p>Binding: <a title="The static and dynamic model to which contents conform, which may be business version or standard/version." href="http://hl7.org/fhir/STU3/valueset-ruleset.html">Ruleset Codes</a> (Example)</p></div>
-                    </blockquote>
-                  </td>
-                </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='patient_x_'>patient[x]</a>
+                      <a name='patient'>patient</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a></code>
                     <blockquote>
                       <div class='block'>Patient Resource.</div>
                     </blockquote>
@@ -383,14 +366,14 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='prescription_x_'>prescription[x]</a>
+                      <a name='prescription'>prescription</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='MedicationOrder.html'>MedicationOrder</a> | <a href='VisionPrescription.html'>VisionPrescription</a></code>
+                    <code><a href='Identifier.html'>Identifier</a> | <a href='MedicationRequest.html'>MedicationRequest</a> | <a href='VisionPrescription.html'>VisionPrescription</a></code>
                     <blockquote>
                       <div class='block'>Prescription to support the dispensing of Pharmacy or Vision products.</div>
                     </blockquote>
@@ -406,10 +389,10 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>Immediate (STAT), best effort (NORMAL), deferred (DEFER).
-<p>Binding: <a title="The timeliness with which processing is required: STAT, normal, Deferred" href="http://hl7.org/fhir/STU3/valueset-process-priority.html">Priority Codes</a> (Example)</p></div>
+<p>Binding: <a title="The timeliness with which processing is required: STAT, normal, Deferred" href="http://hl7.org/fhir/ValueSet/process-priority">Priority Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -432,14 +415,14 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='provider_x_'>provider[x]</a>
+                      <a name='provider'>provider</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Identifier.html'>Identifier</a> | <a href='Practitioner.html'>Practitioner</a></code>
+                    <code><a href='Practitioner.html'>Practitioner</a></code>
                     <blockquote>
                       <div class='block'>The provider which is responsible for the bill, claim pre-determination, pre-authorization.</div>
                     </blockquote>
@@ -448,7 +431,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='referralReference'>referralReference</a>
+                      <a name='referral'>referral</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -476,25 +459,8 @@
                       <div class='block'>Other claims which are related to this claim such as prior claim versions or for related services.</div>
                     </blockquote>
                   </td>
-                </tr>
+                </tr>                
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='ruleset'>ruleset</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Code</code>
-                    <blockquote>
-                      <div class='block'>The version of the specification on which this instance relies.
-<p>Binding: <a title="The static and dynamic model to which contents conform, which may be business version or standard/version." href="http://hl7.org/fhir/STU3/valueset-ruleset.html">Ruleset Codes</a> (Example)</p></div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='status'>status</a>
@@ -507,11 +473,11 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the resource instance.
-<p>Binding: <a title="A code specifying the state of the resource instance." href="http://hl7.org/fhir/STU3/valueset-claim-status.html">ClaimStatus</a> (Required)</p></div>
+<p>Binding: <a title="A code specifying the state of the resource instance." href="http://hl7.org/fhir/ValueSet/claim-status">ClaimStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='subType'>subType</a>
@@ -521,14 +487,14 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Code></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
-<p>Binding: <a title="A more granular claim typecode" href="http://hl7.org/fhir/STU3/valueset-claim-subtype.html">Example Claim SubType Codes</a> (Example)</p></div>
+<p>Binding: <a title="A more granular claim typecode" href="http://hl7.org/fhir/ValueSet/claim-subtype">Example Claim SubType Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='total'>total</a>
@@ -544,24 +510,24 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='type'>type</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>The category of claim, eg, oral, pharmacy, vision, insitutional, professional.
-<p>Binding: <a title="The type or discipline-style of the claim" href="http://hl7.org/fhir/STU3/valueset-claim-type.html">Example Claim Type Codes</a> (Required)</p></div>
+<p>Binding: <a title="The type or discipline-style of the claim" href="http://hl7.org/fhir/ValueSet/claim-type">Example Claim Type Codes</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='use'>use</a>
@@ -574,7 +540,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
-<p>Binding: <a title="Complete, proposed, exploratory, other" href="http://hl7.org/fhir/STU3/valueset-claim-use.html">Use</a> (Required)</p></div>
+<p>Binding: <a title="Complete, proposed, exploratory, other" href="http://hl7.org/fhir/ValueSet/claim-use">Use</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr></table>

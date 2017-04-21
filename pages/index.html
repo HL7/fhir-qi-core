@@ -2,16 +2,16 @@
 # jekyll prompt
 ---
 <!DOCTYPE HTML>
-      
+
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
 <head>
   <meta charset="UTF-8"/>
-  <title>Quality Improvement Core (QI-Core) Implementation Guide - FHIR v1.8.0</title>
+  <title>Quality Improvement Core (QI-Core) Implementation Guide - FHIR v3.0.0</title>
 
   {% include header.html %}
 
 </head>
-<body> 
+<body>
 {% include navbar.html %}
 
  <div id="segment-breadcrumb" class="segment">  <!-- segment-breadcrumb -->
@@ -32,14 +32,14 @@
 
 <div class="col-9">
 
-<a name="QICore"> </a> 
+<a name="QICore"> </a>
 
 <h2>Quality Improvement Core (QI-Core) Implementation Guide</h2>
 
 <h3>Summary</h3>
 
 <p>This Implementation Guide is prepared as a U.S. Realm Specification with support from the <a href="http://www.cqframework.info">Clinical Quality Framework (CQF) initiative</a>, which is a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S. Office of the National Coordinator (ONC) to harmonize standards for clinical decision support and electronic clinical quality measurement. While this Implementation Guide is for electronic clinical quality improvement, the Quality Improvement Core (QICore) is intended to be usable for multiple use cases across domains, and much of the content is likely to be usable outside the U.S. Realm.</p>
- 
+
 <p>QI-Core FHIR profiles define the Quality Information and Clinical Knowledge (QUICK) logical model. The QUICK model, derived from QICore, provides a uniform way for clinical decision support and quality measures to refer to clinical data. Simultaneously, the QICore profiles provide a physical implementation of QUICK, making data for quality improvement applications accessible via the FHIR interface. However, using FHIR in the physical layer is optional. If the QICore FHIR profiles are not used at the physical layer, the implementer is responsible for mapping their data directly into the QUICK model via their own customized data access layer.</p>
 
 <p>The QICore model is an initiative of the Clinical Quality Information (CQI) and Clinical Decision Support (CDS) HL7 Work Groups. QICore defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. QICore classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical quality measures (CQM) and CDS, thus providing a common foundation for reusability. The expectation is that QICore will grow over time by incorporating other extensions with broad applicability. There may also be further extensions and coordinated  profiles in specific domains beyond QICore, e.g., radiology-specific profiles. When additional classes and attributes are needed for specific quality applications, they can be added through FHIR's extension mechanism. These extensions, however, would not automatically result in shareable artifacts without additional coordinating agreements between interested parties. It is expected that QICore will evolve over time to include some of the extensional content when the community identifies a common need and the additional content has been validated.</p>
@@ -47,7 +47,7 @@
 <h3>Background</h3>
 
 <p>Understanding QICore and how it is used in quality applications requires an understanding role of common reference models. Electronic Health Records (EHRs) are stored in many different local formats. Exchanging data between EHRs requires mapping between local data formats. It is well understood that standards can reduce the number of data maps each data provider must create. In a similar manner, to share quality measures and clinical decision support artifacts, the measures and artifacts must refer to data in a standardized way.</p>
- 
+
 <p>In the U.S. Realm, under Meaningful Use, the common reference model for quality measures is the <a href="http://www.qualityforum.org/QualityDataModel.aspx">Quality Data Model (QDM)</a>. For clinical quality measures, a common reference model is the <a href="http://www.hl7.org/implement/standards/product_brief.cfm?product_id=271">HL7 Virtual Medical Record for Clinical Decision Support(vMR)</a>. Decision support and quality measures are closely related, and can be viewed as "two sides of the same coin". Specifically, decision support provides guidance for clinical best practices, and quality measures assess whether clinical best practices have been followed. It therefore makes intuitive sense to use the same common reference model for both types of applications.</p>
 
 <p>The proposed unified model is known as QUICK. QUICK is a logical model consisting of objects, attributes, and relationships. QUICK provides a uniform way for clinical decision support and quality measures to refer to clinical data. Authors of future quality measures and clinical decision support artifacts may use QUICK, together with the Clinical Quality Language (CQL), to create interoperable and executable knowledge artifacts.</p>
@@ -107,7 +107,7 @@
 <a name="harmonization"></a>
 <h3>Relationship to Other Initiatives</h3>
 
-<p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="[%fhir-path%]daf/daf.html">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF, because they are needed for quality measures. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF, allowing QICore to be used outside the U.S. Realm. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
+<p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF, because they are needed for quality measures. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF, allowing QICore to be used outside the U.S. Realm. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
 
 <p>In general, where DAF defines its own value sets, QICore uses the same value sets. This assures the alignment of the two sets of profiles. The binding strengths may not be the same, however, and in many cases value sets that are required by DAF are only preferred in QICore. The weaker binding allows QICore to be used outside the U.S. Realm. In the U.S. Realm, compliance with QICore SHALL requires simultaneous compliance with DAF; therefore, any value set required by DAF SHALL be required by QICore.</p>
 
@@ -128,147 +128,139 @@
 	<tbody>
         <tr>
 			<td><a href="qicore-adverseevent.html">QICore-AdverseEvent</a></td>
-			<td><a href="[%fhir-path%]basic.html">Basic</a></td>
+			<td><a href="{{site.data.fhir.path}}/adverseevent.html">AdverseEvent</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-allergyintolerance.html">QICore-AllergyIntolerance</a></td>
-			<td><a href="[%fhir-path%]allergyintolerance.html">AllergyIntolerance</a></td>
+			<td><a href="{{site.data.fhir.path}}/allergyintolerance.html">AllergyIntolerance</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-bodysite.html">QICore-BodySite</a></td>
-			<td><a href="[%fhir-path%]bodysite.html">BodySite</a></td>
+			<td><a href="{{site.data.fhir.path}}/bodysite.html">BodySite</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-claim.html">QICore-Claim</a></td>
-			<td><a href="[%fhir-path%]claim.html">Claim</a></td>
+			<td><a href="{{site.data.fhir.path}}/claim.html">Claim</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-communication.html">QICore-Communication</a></td>
-			<td><a href="[%fhir-path%]communication.html">Communication</a></td>
+			<td><a href="{{site.data.fhir.path}}/communication.html">Communication</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-communicationrequest.html">QICore-CommunicationRequest</a></td>
-			<td><a href="[%fhir-path%]communicationrequest.html">CommunicationRequest</a></td>
+			<td><a href="{{site.data.fhir.path}}/communicationrequest.html">CommunicationRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-condition.html">QICore-Condition</a></td>
-			<td><a href="[%fhir-path%]condition.html">Condition</a></td>
+			<td><a href="{{site.data.fhir.path}}/condition.html">Condition</a></td>
 		</tr>
 		<tr>
-			<td><a href="qicore-condition.html">QICoverage-Condition</a></td>
-			<td><a href="[%fhir-path%]condition.html">Coverage</a></td>
+			<td><a href="qicore-coverage.html">QICore-Coverage</a></td>
+			<td><a href="{{site.data.fhir.path}}/coverage.html">Coverage</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-device.html">QICore-Device</a></td>
-			<td><a href="[%fhir-path%]device.html">Device</a></td>
-		</tr>		
-		<tr>
-			<td><a href="qicore-deviceuserequest.html">QICore-DeviceUseRequest</a></td>
-			<td><a href="[%fhir-path%]deviceuserequest.html">DeviceUseRequest</a></td>
+			<td><a href="{{site.data.fhir.path}}/device.html">Device</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-deviceusestatement.html">QICore-DeviceUseStatement</a></td>
-			<td><a href="[%fhir-path%]deviceusestatement.html">DeviceUseStatement</a></td>
-		</tr>
-		<tr>
-			<td><a href="qicore-diagnosticorder.html">QICore-DiagnosticOrder</a></td>
-			<td><a href="[%fhir-path%]diagnosticorder.html">DiagnosticOrder</a></td>
+			<td><a href="{{site.data.fhir.path}}/deviceusestatement.html">DeviceUseStatement</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-diagnosticreport.html">QICore-DiagnosticReport</a></td>
-			<td><a href="[%fhir-path%]diagnosticreport.html">DiagnosticReport</a></td>
+			<td><a href="{{site.data.fhir.path}}/diagnosticreport.html">DiagnosticReport</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-encounter.html">QICore-Encounter</a></td>
-			<td><a href="[%fhir-path%]encounter.html">Encounter</a></td>
+			<td><a href="{{site.data.fhir.path}}/encounter.html">Encounter</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-familymemberhistory.html">QICore-FamilyMemberHistory</a></td>
-			<td><a href="[%fhir-path%]familymemberhistory.html">FamilyMemberHistory</a></td>
+			<td><a href="{{site.data.fhir.path}}/familymemberhistory.html">FamilyMemberHistory</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-flag.html">QICore-Flag</a></td>
-			<td><a href="[%fhir-path%]flag.html">Flag</a></td>
+			<td><a href="{{site.data.fhir.path}}/flag.html">Flag</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-goal.html">QICore-Goal</a></td>
-			<td><a href="[%fhir-path%]goal.html">Goal</a></td>
+			<td><a href="{{site.data.fhir.path}}/goal.html">Goal</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-imagingstudy.html">QICore-ImagingStudy</a></td>
-			<td><a href="[%fhir-path%]imagingstudy.html">ImagingStudy</a></td>
+			<td><a href="{{site.data.fhir.path}}/imagingstudy.html">ImagingStudy</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-immunization.html">QICore-Immunization</a></td>
-			<td><a href="[%fhir-path%]immunization.html">Immunization</a></td>
+			<td><a href="{{site.data.fhir.path}}/immunization.html">Immunization</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-immunizationrec.html">QICore-ImmunizationRecommendation</a></td>
-			<td><a href="[%fhir-path%]immunizationrecommendation.html">ImmunizationRecommendation</a></td>
+			<td><a href="{{site.data.fhir.path}}/immunizationrecommendation.html">ImmunizationRecommendation</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-location.html">QICore-Location</a></td>
-			<td><a href="[%fhir-path%]location.html">Location</a></td>
+			<td><a href="{{site.data.fhir.path}}/location.html">Location</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-medication.html">QICore-Medication</a></td>
-			<td><a href="[%fhir-path%]medication.html">Medication</a></td>
+			<td><a href="{{site.data.fhir.path}}/medication.html">Medication</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-medicationadministration.html">QICore-MedicationAdministration</a></td>
-			<td><a href="[%fhir-path%]medicationadministration.html">MedicationAdministration</a></td>
+			<td><a href="{{site.data.fhir.path}}/medicationadministration.html">MedicationAdministration</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-medicationdispense.html">QICore-MedicationDispense</a></td>
-			<td><a href="[%fhir-path%]medicationdispense.html">MedicationDispense</a></td>
+			<td><a href="{{site.data.fhir.path}}/medicationdispense.html">MedicationDispense</a></td>
 		</tr>
 		<tr>
-			<td><a href="qicore-medicationorder.html">QICore-MedicationOrder</a></td>
-			<td><a href="[%fhir-path%]medicationorder.html">MedicationOrder</a></td>
+			<td><a href="qicore-medicationrequest.html">QICore-MedicationRequest</a></td>
+			<td><a href="{{site.data.fhir.path}}/medicationrequest.html">MedicationRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-medicationstatement.html">QICore-MedicationStatement</a></td>
-			<td><a href="[%fhir-path%]medicationstatement.html">MedicationStatement</a></td>
+			<td><a href="{{site.data.fhir.path}}/medicationstatement.html">MedicationStatement</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-observation.html">QICore-Observation</a></td>
-			<td><a href="[%fhir-path%]observation.html">Observation</a></td>
+			<td><a href="{{site.data.fhir.path}}/observation.html">Observation</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-organization.html">QICore-Organization</a></td>
-			<td><a href="[%fhir-path%]organization.html">Organization</a></td>
+			<td><a href="{{site.data.fhir.path}}/organization.html">Organization</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-patient.html">QICore-Patient</a></td>
-			<td><a href="[%fhir-path%]patient.html">Patient</a></td>
+			<td><a href="{{site.data.fhir.path}}/patient.html">Patient</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-practitioner.html">QICore-Practitioner</a></td>
-			<td><a href="[%fhir-path%]practitioner.html">Practitioner</a></td>
+			<td><a href="{{site.data.fhir.path}}/practitioner.html">Practitioner</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-procedure.html">QICore-Procedure</a></td>
-			<td><a href="[%fhir-path%]procedure.html">Procedure</a></td>
+			<td><a href="{{site.data.fhir.path}}/procedure.html">Procedure</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-procedurerequest.html">QICore-ProcedureRequest</a></td>
-			<td><a href="[%fhir-path%]procedurerequest.html">ProcedureRequest</a></td>
+			<td><a href="{{site.data.fhir.path}}/procedurerequest.html">ProcedureRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-referralrequest.html">QICore-ReferralRequest</a></td>
-			<td><a href="[%fhir-path%]referralrequest.html">ReferralRequest</a></td>
+			<td><a href="{{site.data.fhir.path}}/referralrequest.html">ReferralRequest</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-relatedperson.html">QICore-RelatedPerson</a></td>
-			<td><a href="[%fhir-path%]relatedperson.html">RelatedPerson</a></td>
+			<td><a href="{{site.data.fhir.path}}/relatedperson.html">RelatedPerson</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-specimen.html">QICore-Specimen</a></td>
-			<td><a href="[%fhir-path%]specimen.html">Specimen</a></td>
+			<td><a href="{{site.data.fhir.path}}/specimen.html">Specimen</a></td>
 		</tr>
 		<tr>
 			<td><a href="qicore-substance.html">QICore-Substance</a></td>
-			<td><a href="[%fhir-path%]substance.html">Substance</a></td>
+			<td><a href="{{site.data.fhir.path}}/substance.html">Substance</a></td>
 		</tr>
 	</tbody>
 </table>
@@ -293,7 +285,7 @@
 
 <p>If MustSupport is false (or does not appear), and that element appears in a quality measure or in the matching criteria of a CDS artifact (e.g., the left-hand side or antecedent), the entire quality measure or CDS artifact may be ignored. However, all elements in the QICore profiles, including those that are not MustSupport, can be used in CDS actions (i.e. right-hand side or consequents of CDS rules). For example, vaccination protocol in ImmunizationRecommendation is not a MustSupport element, so it cannot be used in a quality measure or as a criteria for triggering a CDS action. However, it can be filled in as part of the recommendation of a CDS application.</p>
 
-<p>Although the element may be returned in a resource when the resource is retrieved from an EHR, no logical processing involving that data element can be expected. Note that the MustSupport flag does not imply that the element will always have a value, if the lower cardinality is zero. The only assurance associated with MustSupport is that the quality improvement application will try to retrieve the data and process it if the data allows.</p> 
+<p>Although the element may be returned in a resource when the resource is retrieved from an EHR, no logical processing involving that data element can be expected. Note that the MustSupport flag does not imply that the element will always have a value, if the lower cardinality is zero. The only assurance associated with MustSupport is that the quality improvement application will try to retrieve the data and process it if the data allows.</p>
 
 <p>Specific applications can modify the profiles and set MustSupport flags to true if they will process additional elements, but setting a MustSupport flag from true to false is noncompliant.</p>
 
@@ -319,7 +311,7 @@
 <a name="references"></a>
 <h3>Resource References and "Any"</h3>
 
-<p>FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a reference to a Patient resource. In QICore, most references are constrained to QICore-profiled resources. For example, Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by Encounter.patient. References to QICore extensions accessed through references, such as Encounter.patient.veteranMilitaryStatus, are guaranteed to be valid. References to resources that do not currently have QICore profiles are not constrained, and as such, only the core FHIR properties and bindings are guaranteed to exist. 
+<p>FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a reference to a Patient resource. In QICore, most references are constrained to QICore-profiled resources. For example, Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by Encounter.patient. References to QICore extensions accessed through references, such as Encounter.patient.veteranMilitaryStatus, are guaranteed to be valid. References to resources that do not currently have QICore profiles are not constrained, and as such, only the core FHIR properties and bindings are guaranteed to exist.
 </p>
 <p>A particular problem occurs when a resource reference permits any type of resource, such as Encounter.indication. When dealing with "Any" references, the current method of specifying profiles does not allow the profile author to specify something to the effect of "a QICore resource when there is one, and a FHIR core resource if there isn't." In QICore, the resources in "Any" references SHALL conform to QICore profiles if the base resource has been profiled. </p>
 

@@ -80,19 +80,19 @@
  -- Row 5 -----------------------------------
   Element = Condition.patient
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient)
 
  -- Row 6 -----------------------------------
   Element = Condition.encounter
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+  Type = Reference(Encounter)
 
  -- Row 7 -----------------------------------
   Element = Condition.asserter
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Patient) | Reference(Practitioner)
 
  -- Row 8 -----------------------------------
-  Element = Condition.dateRecorded
+  Element = Condition.assertedDate
   Must Support = Y
 
  -- Row 9 -----------------------------------
@@ -157,7 +157,7 @@
   Element = Condition.extension
   Profile Name = bodySiteInstance
   Must Support = Y
-  Type = Reference(BodySite) {http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
+  Type = Reference(BodySite) 
 
  -- Row 23 -----------------------------------
   Element = !Condition.extension
@@ -172,7 +172,7 @@
  -- Row 25 -----------------------------------
   Element = !Condition.extension.extension
   Profile Name = dueTo.detail
-  Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/qicore-procedure} | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/qicore-medicationadministration} |  Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement} |  Reference(Immunization){http://hl7.org/fhir/StructureDefinition/qicore-immunization}
+  Type = Reference(Condition) | Reference(Procedure) | Reference(MedicationAdministration) |  Reference(MedicationStatement) |  Reference(Immunization)
 
  -- Row 26 -----------------------------------
   Element = !Condition.extension
@@ -187,6 +187,6 @@
  -- Row 28 -----------------------------------
   Element = !Condition.extension.extension
   Profile Name = occurredFollowing.detail
-  Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition} | Reference(Procedure){http://hl7.org/fhir/StructureDefinition/qicore-procedure} | Reference(MedicationAdministration){http://hl7.org/fhir/StructureDefinition/qicore-medicationadministration} |  Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement} |  Reference(Immunization){http://hl7.org/fhir/StructureDefinition/qicore-immunization}
+  Type = Reference(Condition) | Reference(Procedure) | Reference(MedicationAdministration) |  Reference(MedicationStatement) |  Reference(Immunization)
 
 === Sheet Search =====================================

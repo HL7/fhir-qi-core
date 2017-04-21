@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -84,16 +84,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='deviceName'>deviceName</a>
+                      <a name='device'>device</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>String</code>
+                    <code><a href="Device.html">Device</a> | <a href="DeviceMetric.html">DeviceMetric</a></code>
                     <blockquote>
-                      <div class='block'>The name of the device / manufacturer of the device  that was used to make the recording.</div>
+                      <div class='block'>The device used to collect the media.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -206,7 +206,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Details of the type of the media - usually, how it was acquired (what type of device). If images sourced from a DICOM system, are wrapped in a Media resource, then this is the modality.
-<p>Binding: <a title="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it" href="http://hl7.org/fhir/STU3/valueset-digital-media-subtype.html">Media SubType</a> (Example)</p></div>
+<p>Binding: <a title="Detailed information about the type of the image - its kind, purpose, or the kind of equipment used to generate it" href="http://hl7.org/fhir/ValueSet/digital-media-subtype">Media SubType</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -223,7 +223,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Whether the media is a photo (still image), an audio recording, or a video recording.
-<p>Binding: <a title="Whether the Media is a photo, video, or audio" href="http://hl7.org/fhir/STU3/valueset-digital-media-type.html">DigitalMediaType</a> (Required)</p></div>
+<p>Binding: <a title="Whether the Media is a photo, video, or audio" href="http://hl7.org/fhir/ValueSet/digital-media-type">DigitalMediaType</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -240,7 +240,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The name of the imaging view e.g. Lateral or Antero-posterior (AP).
-<p>Binding: <a title="Imaging view (projection) used when collecting an image" href="http://hl7.org/fhir/STU3/valueset-media-view.html">Media Collection View/Projection</a> (Example)</p></div>
+<p>Binding: <a title="Imaging view (projection) used when collecting an image" href="http://hl7.org/fhir/ValueSet/media-view">Media Collection View/Projection</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>

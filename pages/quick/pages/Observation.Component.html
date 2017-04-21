@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -78,7 +78,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Describes what was observed. Sometimes this is called the observation "code".
-<p>Binding: <a title="Codes identifying names of simple observations." href="http://hl7.org/fhir/STU3/valueset-observation-codes.html">LOINC Codes</a> (Example)</p></div>
+<p>Binding: <a title="Codes identifying names of simple observations." href="http://hl7.org/fhir/ValueSet/observation-codes">LOINC Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -95,7 +95,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Provides a reason why the expected value in the element Observation.value[x] is missing.
-<p>Binding: <a title="Codes specifying why the result (Observation.value[x]) is missing." href="http://hl7.org/fhir/STU3/valueset-observation-valueabsentreason.html">Observation Value Absent Reason</a> (Extensible)</p></div>
+<p>Binding: <a title="Codes specifying why the result (Observation.value[x]) is missing." href="http://hl7.org/fhir/ValueSet/observation-valueabsentreason">Observation Value Absent Reason</a> (Extensible)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -128,7 +128,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
-<p>Binding: <a title="Codes identifying interpretations of observations." href="http://hl7.org/fhir/STU3/valueset-observation-interpretation.html">Observation Interpretation Codes</a> (Extensible)</p></div>
+<p>Binding: <a title="Codes identifying interpretations of observations." href="http://hl7.org/fhir/ValueSet/observation-interpretation">Observation Interpretation Codes</a> (Extensible)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -157,7 +157,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Quantity.html'>Quantity</a> | Concept | String | interval&lt;Quantity&gt; | <a href='Ratio.html'>Ratio</a> | <a href='SampledData.html'>SampledData</a> | <a href='Attachment.html'>Attachment</a> | Time | DateTime | interval&lt;DateTime&gt;</code>
+                    <code><a href='Quantity.html'>Quantity</a> | Concept | String | interval&lt;<a href='Quantity.html'>Quantity</a>&gt; | <a href='Ratio.html'>Ratio</a> | <a href='SampledData.html'>SampledData</a> | <a href='Attachment.html'>Attachment</a> | Time | DateTime | interval&lt;DateTime&gt;</code>
                     <blockquote>
                       <div class='block'>The information determined as a result of making the observation, if the information has a simple value.</div>
                     </blockquote>

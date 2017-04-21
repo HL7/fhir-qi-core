@@ -55,7 +55,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -109,16 +109,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='encounter'>encounter</a>
+                      <a name='context'>context</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Encounter.html'>Encounter</a></code>
+                    <code><a href='Encounter.html'>Encounter</a> | <a href='EpisodeOfCare.html'>EpisodeOfCare</a></code>
                     <blockquote>
-                      <div class='block'>An interaction between a patient and healthcare provider(s) for the purpose of providing healthcare service(s) or assessing the health status of a patient.</div>
+                      <div class='block'>The visit, admission or other contact between patient and health care provider the medication administration was performed as part of.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -132,7 +132,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='MedicationAdministration.EventHistory.html'>EventHistory</a>></code>
+                    <code>List&lt;<a href='Provenance.html'>Provenance</a>&gt;</code>
                     <blockquote>
                       <div class='block'>A summary of the events of interest that have occurred, such as when the administration was verified.</div>
                     </blockquote>
@@ -190,16 +190,16 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='patient'>patient</a>
+                      <a name='subject'>subject</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Patient.html'>Patient</a></code>
+                    <code><a href='Patient.html'>Patient</a> | <a href='Group.html'>Group</a></code>
                     <blockquote>
-                      <div class='block'>The person or animal receiving the medication.</div>
+                      <div class='block'>The person or animal or group receiving the medication.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -210,10 +210,10 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a></code>
+                    <code>List&lt;<a href='MedicationAdministration.Performer.html'>Performer</a>&gt;</code>
                     <blockquote>
                       <div class='block'>The individual who was responsible for giving the medication to the patient.</div>
                     </blockquote>
@@ -229,7 +229,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='MedicationOrder.html'>MedicationOrder</a></code>
+                    <code><a href='MedicationRequest.html'>MedicationRequest</a></code>
                     <blockquote>
                       <div class='block'>The original request, instruction or authority to perform the administration.</div>
                     </blockquote>
@@ -238,7 +238,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='reasonGiven'>reasonGiven</a>
+                      <a name='reasonCode'>reasonCode</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -248,7 +248,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>A code indicating why the medication was given.
-<p>Binding: <a title="A set of codes indicating the reason why the MedicationAdministration was made." href="http://hl7.org/fhir/STU3/valueset-reason-medication-given-codes.html">Reason Medication Given Codes</a> (Example)</p></div>
+<p>Binding: <a title="A set of codes indicating the reason why the MedicationAdministration was made." href="http://hl7.org/fhir/ValueSet/reason-medication-given-codes">Reason Medication Given Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -265,7 +265,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>A code indicating why the administration was not performed.
-<p>Binding: <a title="A set of codes indicating the reason why the MedicationAdministration is negated." href="http://hl7.org/fhir/STU3/valueset-reason-medication-not-given-codes.html">SNOMED CT Reason Medication Not Given Codes</a> (Example)</p></div>
+<p>Binding: <a title="A set of codes indicating the reason why the MedicationAdministration is negated." href="http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes">SNOMED CT Reason Medication Not Given Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -282,14 +282,14 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
-<p>Binding: <a title="A set of codes indicating the current status of a MedicationAdministration." href="http://hl7.org/fhir/STU3/valueset-medication-admin-status.html">MedicationAdministrationStatus</a> (Required)</p></div>
+<p>Binding: <a title="A set of codes indicating the current status of a MedicationAdministration." href="http://hl7.org/fhir/ValueSet/medication-admin-status">MedicationAdministrationStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
-                      <a name='wasNotGiven'>wasNotGiven</a>
+                      <a name='notGiven'>notGiven</a>
                     </strong>
                   </td>
                   <td class='colMid'>

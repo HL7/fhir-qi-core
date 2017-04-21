@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -91,7 +91,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ValueSet.Contact.html'>Contact</a>></code>
+                    <code>List&lt;<a href='ContactDetail.html'>ContactDetail</a>></code>
                     <blockquote>
                       <div class='block'>Contacts to assist a user in finding and communicating with the publisher.</div>
                     </blockquote>
@@ -225,23 +225,8 @@
                     </blockquote>
                   </td>
                 </tr>
+                
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='lockedDate'>lockedDate</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>DateTime</code>
-                    <blockquote>
-                      <div class='block'>If a locked date is defined, then the Content Logical Definition must be evaluated using the current version of all referenced code system(s) and value set instances as of the locked date.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='name'>name</a>
@@ -257,7 +242,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='publisher'>publisher</a>
@@ -273,10 +258,10 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='requirements'>requirements</a>
+                      <a name='purpose'>purpose</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -289,7 +274,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"></i>&nbsp;
                     <strong>
                       <a name='status'>status</a>
@@ -302,11 +287,11 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the value set.
-<p>Binding: <a title="The lifecycle status of a Value Set or Concept Map." href="http://hl7.org/fhir/STU3/valueset-conformance-resource-status.html">ConformanceResourceStatus</a> (Required)</p></div>
+<p>Binding: <a title="The lifecycle status of a Value Set or Concept Map." href="http://hl7.org/fhir/ValueSet/publication-status">PublicationStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='url'>url</a>
@@ -322,7 +307,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='useContext'>useContext</a>
@@ -332,14 +317,13 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;UsageContext&gt;</code>
                     <blockquote>
-                      <div class='block'>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.
-<p>Binding: <a title="Indicates the countries, regions, disciplines and other aspects of use within which this artifact is targeted for use." href="http://hl7.org/fhir/STU3/valueset-use-context.html">Context of Use ValueSet</a> (Extensible)</p></div>
+                      <div class='block'>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of value set definitions.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='version'>version</a>

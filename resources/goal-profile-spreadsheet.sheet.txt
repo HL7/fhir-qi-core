@@ -67,7 +67,7 @@
   QDM Mapping = negation rationale
 
  -- Row 6 -----------------------------------
-  Element = Goal.targetDate
+  Element = Goal.target
   Must Support = Y
 
  -- Row 7 -----------------------------------
@@ -78,7 +78,7 @@
  -- Row 8 -----------------------------------
   Element = Goal.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Group) | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Patient) | Reference(Group) | Reference(Organization)
 
  -- Row 9 -----------------------------------
   Element = Goal.status
@@ -91,7 +91,7 @@
  -- Row 11 -----------------------------------
   Element = Goal.addresses
   Must Support = Y
-  Type = Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}| Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}| Reference(MedicationStatement){http://hl7.org/fhir/StructureDefinition/qicore-medicationstatement}| Reference(NutritionOrder)| Reference(ProcedureRequest){http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest}| Reference(RiskAssessment)
+  Type = Reference(Condition)| Reference(Observation)| Reference(MedicationStatement)| Reference(NutritionOrder)| Reference(ProcedureRequest)| Reference(RiskAssessment)
   QDM Mapping = related to
 
 === Sheet Search =====================================

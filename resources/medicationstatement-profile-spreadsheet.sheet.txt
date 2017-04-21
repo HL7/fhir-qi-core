@@ -29,14 +29,14 @@
   QDM Mapping = Medication, Active
 
  -- Row 2 -----------------------------------
-  Element = MedicationStatement.patient
+  Element = MedicationStatement.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient) | Reference(Group)
 
  -- Row 3 -----------------------------------
   Element = MedicationStatement.informationSource
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+  Type = Reference(Patient) | Reference(Practitioner) | Reference(RelatedPerson)
 
  -- Row 4 -----------------------------------
   Element = MedicationStatement.dateAsserted
@@ -47,13 +47,13 @@
   Must Support = Y
 
  -- Row 6 -----------------------------------
-  Element = MedicationStatement.wasNotTaken
+  Element = MedicationStatement.taken
   Must Support = Y
   QDM Mapping = negation rationale
 
  -- Row 7 -----------------------------------
-  Element = MedicationStatement.reasonForUse[x]
-  Type = CodeableConcept | Reference(Condition){http://hl7.org/fhir/StructureDefinition/qicore-condition}
+  Element = MedicationStatement.reasonCode
+  Type = CodeableConcept
 
  -- Row 8 -----------------------------------
   Element = MedicationStatement.effective[x]
@@ -63,31 +63,11 @@
  -- Row 9 -----------------------------------
   Element = MedicationStatement.medication[x]
   Must Support = Y
-  Type = CodeableConcept | Reference(Medication){http://hl7.org/fhir/StructureDefinition/qicore-medication}
+  Type = CodeableConcept | Reference(Medication)
   Binding = QICoreMedicationCodes
   QDM Mapping = primary code
 
  -- Row 10 -----------------------------------
   Element = MedicationStatement.dosage
-
- -- Row 11 -----------------------------------
-  Element = MedicationStatement.dosage.timing
-  Must Support = Y
-  QDM Mapping = frequency
-
- -- Row 12 -----------------------------------
-  Element = MedicationStatement.dosage.site[x]
-  Binding = DAFBodySite
-
- -- Row 13 -----------------------------------
-  Element = MedicationStatement.dosage.route
-  Must Support = Y
-  Binding = DAFRoute
-  QDM Mapping = route
-
- -- Row 14 -----------------------------------
-  Element = MedicationStatement.dosage.dose
-  Must Support = Y
-  QDM Mapping = dose
 
 === Sheet Search =====================================

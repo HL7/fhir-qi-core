@@ -10,9 +10,9 @@
       <reference value="Practitioner/example"/>
     </valueReference>
   </extension>
-  <subject>
-    <reference value="Patient/example"/>
-  </subject>
+  <status value="completed"/>
+  <intent value="order"/> 
+  <priority value="urgent"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -21,6 +21,21 @@
     </coding>
     <text value="Appendectomy"/>
   </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <context>
+    <reference value="Encounter/example"/>
+  </context>
+  <occurrenceDateTime value="2013-04-05"/>
+  <authoredOn value="2013-04-04"/>
+  <reasonCode>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="163220003"/>
+      <display value="On examination - abdominal pain - right iliac"/>
+    </coding>
+  </reasonCode>
   <bodySite>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -28,18 +43,4 @@
         <display value="Appendix structure"/>
       </coding>
   </bodySite>
-  <reasonCodeableConcept>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="163220003"/>
-      <display value="On examination - abdominal pain - right iliac"/>
-    </coding>
-  </reasonCodeableConcept>
-  <scheduledDateTime value="2013-04-05"/>
-  <encounter>
-    <reference value="Encounter/example"/>
-  </encounter>
-  <status value="completed"/>
-  <orderedOn value="2013-04-04"/>
-  <priority value="urgent"/>
 </ProcedureRequest>

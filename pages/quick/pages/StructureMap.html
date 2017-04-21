@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -75,7 +75,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='StructureMap.Contact.html'>Contact</a>></code>
+                    <code>List&lt;<a href='ContactDetail.html'>ContactDetail</a>></code>
                     <blockquote>
                       <div class='block'>Contacts to assist a user in finding and communicating with the publisher.</div>
                     </blockquote>
@@ -228,7 +228,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='requirements'>requirements</a>
+                      <a name='purpose'>purpose</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -254,7 +254,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the StructureMap.
-<p>Binding: <a title="The lifecycle status of a Value Set or Concept Map." href="http://hl7.org/fhir/STU3/valueset-conformance-resource-status.html">ConformanceResourceStatus</a> (Required)</p></div>
+<p>Binding: <a title="The lifecycle status of a Value Set or Concept Map." href="http://hl7.org/fhir/ValueSet/publication-status">PublicationStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -300,10 +300,9 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;UsageContext&gt;</code>
                     <blockquote>
-                      <div class='block'>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of structure maps.
-<p>Binding: <a title="Indicates the countries, regions, disciplines and other aspects of use within which this artifact is targeted for use." href="http://hl7.org/fhir/STU3/valueset-use-context.html">Context of Use ValueSet</a> (Extensible)</p></div>
+                      <div class='block'>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching of structure maps.</div>
                     </blockquote>
                   </td>
                 </tr>

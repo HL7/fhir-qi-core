@@ -367,7 +367,7 @@
 
  -- Row 43 -----------------------------------
   Element = Patient.contact.organization
-  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Organization)
 
  -- Row 44 -----------------------------------
   Element = Patient.extension
@@ -384,18 +384,18 @@
 
  -- Row 46 -----------------------------------
   Element = Patient.generalPractitioner
-  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner}
+  Type = Reference(Organization) | Reference(Practitioner)
 
  -- Row 47 -----------------------------------
   Element = Patient.managingOrganization
-  Type = Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Organization)
 
  -- Row 48 -----------------------------------
   Element = Patient.link
 
  -- Row 49 -----------------------------------
   Element = Patient.link.other
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}
+  Type = Reference(Patient)
 
  -- Row 50 -----------------------------------
   Element = Patient.active

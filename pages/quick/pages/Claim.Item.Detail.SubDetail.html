@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -75,10 +75,10 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>Health Care Service Type Codes  to identify the classification of service or benefits.
-<p>Binding: <a title="Benefit subcategories such as: oral-basic, major, glasses" href="http://hl7.org/fhir/STU3/valueset-benefit-subcategory.html">Benefit SubCategory Codes</a> (Example)</p></div>
+<p>Binding: <a title="Benefit subcategories such as: oral-basic, major, glasses" href="http://hl7.org/fhir/ValueSet/benefit-subcategory">Benefit SubCategory Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -124,10 +124,10 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Code></code>
+                    <code>List&lt;Concept&gt;</code>
                     <blockquote>
                       <div class='block'>Item typification or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or for medical whether the treatment was outside the clinic or out of office hours.
-<p>Binding: <a title="Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." href="http://hl7.org/fhir/STU3/valueset-claim-modifiers.html">Modifier type Codes</a> (Example)</p></div>
+<p>Binding: <a title="Item type or modifiers codes, eg for Oral whether the treatment is cosmetic or associated with TMJ, or an appliance was lost or stolen." href="http://hl7.org/fhir/ValueSet/claim-modifiers">Modifier type Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -147,23 +147,8 @@
                     </blockquote>
                   </td>
                 </tr>
+                
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='points'>points</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..1</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>Decimal</code>
-                    <blockquote>
-                      <div class='block'>An amount that expresses the weighting (based on difficulty, cost and/or resource intensiveness) associated with the good or service delivered. The concept of Points allows for assignment of point values for services and/or goods, such that a monetary amount can be assigned to each point.</div>
-                    </blockquote>
-                  </td>
-                </tr>
-                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='programCode'>programCode</a>
@@ -173,14 +158,14 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Code></code>
+                    <code>List&lt;Concetp&gt;</code>
                     <blockquote>
                       <div class='block'>For programs which require reson codes for the inclusion, covering, of this billed item under the program or sub-program.
-<p>Binding: <a title="Program specific reason codes" href="http://hl7.org/fhir/STU3/valueset-ex-program-code.html">Example Program Reason Codes</a> (Example)</p></div>
+<p>Binding: <a title="Program specific reason codes" href="http://hl7.org/fhir/ValueSet/ex-program-code">Example Program Reason Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='quantity'>quantity</a>
@@ -196,7 +181,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='revenue'>revenue</a>
@@ -206,14 +191,14 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>The type of reveneu or cost center providing the product and/or service.
-<p>Binding: <a title="Codes for the revenue or cost centers supplying the service and/or products." href="http://hl7.org/fhir/STU3/valueset-ex-revenue-center.html">Example Revenue Center Codes</a> (Example)</p></div>
+<p>Binding: <a title="Codes for the revenue or cost centers supplying the service and/or products." href="http://hl7.org/fhir/ValueSet/ex-revenue-center">Example Revenue Center Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='sequence'>sequence</a>
@@ -229,7 +214,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='service'>service</a>
@@ -239,14 +224,14 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>A code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS,USCLS,ICD10, NCPDP,DIN,ACHI,CCI).
-<p>Binding: <a title="Allowable service and product codes" href="http://hl7.org/fhir/STU3/valueset-service-uscls.html">USCLS Codes</a> (Example)</p></div>
+<p>Binding: <a title="Allowable service and product codes" href="http://hl7.org/fhir/ValueSet/service-uscls">USCLS Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='udi'>udi</a>
@@ -256,13 +241,13 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Device.html'>Device</a>></code>
+                    <code>List&lt;<a href='Device.html'>Device</a>&gt;</code>
                     <blockquote>
                       <div class='block'>List of Unique Device Identifiers associated with this line item.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='unitPrice'>unitPrice</a>

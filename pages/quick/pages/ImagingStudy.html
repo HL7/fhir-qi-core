@@ -55,10 +55,10 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='accession'>accession</a>
@@ -74,7 +74,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='availability'>availability</a>
@@ -87,26 +87,11 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Availability of study (online, offline or nearline).
-<p>Binding: <a title="Availability of the resource" href="http://hl7.org/fhir/STU3/valueset-instance-availability.html">InstanceAvailability</a> (Required)</p></div>
+<p>Binding: <a title="Availability of the resource" href="http://hl7.org/fhir/ValueSet/instance-availability">InstanceAvailability</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='baseLocation'>baseLocation</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..*</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>List&lt;<a href='ImagingStudy.BaseLocation.html'>BaseLocation</a>></code>
-                    <blockquote>
-                      <div class='block'>Methods of accessing  (e.g., retrieving, viewing) the study.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+                
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -117,7 +102,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Diagnosticrequest.html'>Diagnosticrequest</a>></code>
+                    <code>List&lt;<a href='ReferralRequest.html'>ReferralRequest</a> | <a href='CarePlan.html'>CarePlan</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a>&gt;</code>
                     <blockquote>
                       <div class='block'>A record of a request for a diagnostic investigation service to be performed.</div>
                     </blockquote>
@@ -178,10 +163,10 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a></code>
+                    <code>List&lt;<a href='Practitioner.html'>Practitioner</a>&gt;</code>
                     <blockquote>
                       <div class='block'>Who read the study and interpreted the images or other content.</div>
                     </blockquote>
@@ -200,7 +185,7 @@
                     <code>List&lt;Code></code>
                     <blockquote>
                       <div class='block'>A list of all the Series.ImageModality values that are actual acquisition modalities, i.e. those in the DICOM Context Group 29 (value set OID 1.2.840.10008.6.1.19).
-<p>Binding: <a title="Type of acquired data in the instance" href="http://hl7.org/fhir/STU3/valueset-dicom-cid29.html">Acquisition Modality Codes</a> (Extensible)</p></div>
+<p>Binding: <a title="Type of acquired data in the instance" href="http://hl7.org/fhir/ValueSet/dicom-cid29">Acquisition Modality Codes</a> (Extensible)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -211,7 +196,7 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>unsignedInt</code>
@@ -227,7 +212,7 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>unsignedInt</code>
@@ -255,7 +240,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='procedure'>procedure</a>
+                      <a name='procedureReference'>procedureReference</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -313,7 +298,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Description of clinical codition indicating why the ImagingStudy was requested.
-<p> (Example)</p></div>
+<p>Binding: <a title="This examples value set defines the set of codes that can be used to indicate a reasons for a procedure." href="http://hl7.org/fhir/ValueSet/procedure-reason">Procedure Reason Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>

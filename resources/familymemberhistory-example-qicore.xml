@@ -6,13 +6,15 @@
     <div xmlns="http://www.w3.org/1999/xhtml">Father died of a heart attack aged 74</div>
   </text>
 
+  <status value="completed"/>
+
   <patient>
     <reference value="Patient/example"/>
     <display value="Peter Patient"/>
   </patient>
 
   <date value="2011-03-18"/>
-  <status value="completed"/>
+
   <relationship>
     <coding>
       <system value="http://hl7.org/fhir/v3/RoleCode"/>
@@ -39,6 +41,13 @@
       </coding>
       <text value='Heart Attack'/>
     </code>
+    <outcome>
+      <coding>
+        <system value="http://snomed.info/sct" />
+        <code value="520004" />
+        <display value="Congenital bent nose" />
+      </coding>
+    </outcome>
     <onsetAge>
       <value value="74" />
       <unit value="yr" />

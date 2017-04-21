@@ -134,7 +134,7 @@
  -- Row 9 -----------------------------------
   Element = ProcedureRequest.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient}|Reference(Group)
+  Type = Reference(Patient)|Reference(Group)
 
  -- Row 10 -----------------------------------
   Element = ProcedureRequest.code
@@ -152,26 +152,27 @@
 
  -- Row 12 -----------------------------------
   Element = !ProcedureRequest.bodySite.site[x]
-  Type = CodeableConcept| Reference(BodySite){http://hl7.org/fhir/StructureDefinition/qicore-bodysite}
+  Type = CodeableConcept| Reference(BodySite)
 
  -- Row 13 -----------------------------------
-  Element = ProcedureRequest.reason[x]
+  Element = ProcedureRequest.reasonCode
   Must Support = Y
+  Type = CodeableConcept
   QDM Mapping = reason
 
  -- Row 14 -----------------------------------
-  Element = ProcedureRequest.scheduled[x]
+  Element = ProcedureRequest.occurrence[x]
   Must Support = Y
   QDM Mapping = start datetime, stop datetime
 
  -- Row 15 -----------------------------------
-  Element = ProcedureRequest.encounter
+  Element = ProcedureRequest.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
+  Type = Reference(Encounter) \ Reference(Group)
 
  -- Row 16 -----------------------------------
   Element = ProcedureRequest.performer
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization} | Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+  Type = Reference(Practitioner) |Reference(Organization) | Reference(Patient) | Reference(RelatedPerson)
 
  -- Row 17 -----------------------------------
   Element = ProcedureRequest.status
@@ -183,12 +184,12 @@
   Must Support = Y
 
  -- Row 19 -----------------------------------
-  Element = ProcedureRequest.orderedOn
+  Element = ProcedureRequest.authoredOn
   Must Support = Y
   QDM Mapping = start datetime, stop datetime
 
  -- Row 20 -----------------------------------
-  Element = ProcedureRequest.orderer
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} | Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device}
+  Element = ProcedureRequest.requester
+  Type = BackboneElement
 
 === Sheet Search =====================================

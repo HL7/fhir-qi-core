@@ -50,12 +50,12 @@
  -- Row 6 -----------------------------------
   Element = CommunicationRequest.sender
   Must Support = Y
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |  Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Practitioner) |  Reference(Patient) |Reference(Device) | Reference(RelatedPerson) | Reference(Organization)
 
  -- Row 7 -----------------------------------
   Element = CommunicationRequest.recipient
   Must Support = Y
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |  Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} | Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = Reference(Practitioner) |  Reference(Patient) |Reference(Device) | Reference(RelatedPerson) | Reference(Organization)
 
  -- Row 8 -----------------------------------
   Element = CommunicationRequest.medium
@@ -63,7 +63,7 @@
 
  -- Row 9 -----------------------------------
   Element = CommunicationRequest.requester
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} |Reference(RelatedPerson){http://hl7.org/fhir/StructureDefinition/qicore-relatedperson}
+  Type = BackboneElement
 
  -- Row 10 -----------------------------------
   Element = CommunicationRequest.status
@@ -71,25 +71,20 @@
   QDM Mapping = negation rationale (when CommunicationRequest.status is rejected or failed)
 
  -- Row 11 -----------------------------------
-  Element = CommunicationRequest.encounter
+  Element = CommunicationRequest.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
-
- -- Row 12 -----------------------------------
-  Element = CommunicationRequest.requestedOn
-  Must Support = Y
-  QDM Mapping = start datetime, stop datetime
+  Type = Reference(Encounter) | Reference(EpisodeOfCare)
 
  -- Row 13 -----------------------------------
   Element = CommunicationRequest.subject
   Must Support = Y
 
  -- Row 14 -----------------------------------
-  Element = CommunicationRequest.reason
-  QDM Mapping = reason
+  Element = CommunicationRequest.reasonCode
+  QDM Mapping = reasonCode
 
  -- Row 15 -----------------------------------
-  Element = CommunicationRequest.scheduled[x]
+  Element = CommunicationRequest.occurrence[x]
   QDM Mapping = start datetime, stop datetime
 
 === Sheet Search =====================================

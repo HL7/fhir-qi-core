@@ -62,20 +62,20 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='actionDefinition'>actionDefinition</a>
+                      <a name='actionDefinition'>action</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='PlanDefinition.ActionDefinition.html'>ActionDefinition</a>></code>
+                    <code>List&lt;<a href='PlanDefinition.Action.html'>Action</a>></code>
                     <blockquote>
                       <div class='block'>An action to be taken as part of the plan.</div>
                     </blockquote>
@@ -132,16 +132,16 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='coverage'>coverage</a>
+                      <a name='useContext'>useContext</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;UsageContext></code>
+                    <code>List&lt;UsageContext&gt;</code>
                     <blockquote>
-                      <div class='block'>Specifies various attributes of the patient population for whom and/or environment of care in which the asset is applicable.</div>
+                      <div class='block'>The content was developed with a focus and intent of supporting the contexts that are listed. These terms may be used to assist with indexing and searching for appropriate plan definition instances.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -260,7 +260,7 @@
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='publicationDate'>publicationDate</a>
+                      <a name='date'>date</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -269,7 +269,7 @@
                   <td class='colLast'>
                     <code>DateTime</code>
                     <blockquote>
-                      <div class='block'>The date on which the asset was published.</div>
+                      <div class='block'>The date (and optionally time) when the plan definition was published.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -308,16 +308,16 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='relatedResource'>relatedResource</a>
+                      <a name='relatedArtifact'>relatedArtifact</a>
                     </strong>
                   </td>
                   <td class='colMid'>
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;RelatedResource></code>
+                    <code>List&lt;relatedArtifact&gt;</code>
                     <blockquote>
-                      <div class='block'>Related resources such as additional documentation, justification, or bibliographic references.</div>
+                      <div class='block'>Related artifacts such as additional documentation, justification, or bibliographic references.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -334,7 +334,7 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The status of the asset.
-<p>Binding: <a title="The status of the PlanDefinition" href="http://hl7.org/fhir/STU3/valueset-module-metadata-status.html">LibraryStatus</a> (Required)</p></div>
+<p>Binding: <a title="The lifecycle status of a Value Set or Concept Map." href="http://hl7.org/fhir/ValueSet/publication-status">PublicationStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -366,7 +366,8 @@
                   <td class='colLast'>
                     <code>List&lt;Concept></code>
                     <blockquote>
-                      <div class='block'>Clinical topics related to the content of the asset.</div>
+                      <div class='block'>Clinical topics related to the content of the asset.
+<p>Binding: <a title="The lifecycle status of a Value Set or Concept Map." href="http://hl7.org/fhir/ValueSet/publication-status">PublicationStatus</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -383,7 +384,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>The type of asset the plan definition represents, e.g. an order set, protocol, or event-condition-action rule.
-<p>Binding: <a title="The type of PlanDefinition" href="http://hl7.org/fhir/STU3/valueset-plan-definition-type.html">PlanDefinitionType</a> (Extensible)</p></div>
+<p>Binding: <a title="The type of PlanDefinition" href="http://hl7.org/fhir/ValueSet/plan-definition-type">PlanDefinitionType</a> (Extensible)</p></div>
                     </blockquote>
                   </td>
                 </tr>

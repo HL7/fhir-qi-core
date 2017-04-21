@@ -62,10 +62,10 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='availability'>availability</a>
@@ -78,26 +78,11 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>Availability of series (online, offline or nearline).
-<p>Binding: <a title="Availability of the resource" href="http://hl7.org/fhir/STU3/valueset-instance-availability.html">InstanceAvailability</a> (Required)</p></div>
+<p>Binding: <a title="Availability of the resource" href="http://hl7.org/fhir/ValueSet/instance-availability">InstanceAvailability</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-                    <strong>
-                      <a name='baseLocation'>baseLocation</a>
-                    </strong>
-                  </td>
-                  <td class='colMid'>
-                    <code>0..*</code>
-                  </td>
-                  <td class='colLast'>
-                    <code>List&lt;<a href='ImagingStudy.Series.BaseLocation.html'>BaseLocation</a>></code>
-                    <blockquote>
-                      <div class='block'>Methods of accessing (e.g. retrieving) the series.</div>
-                    </blockquote>
-                  </td>
-                </tr>
+                
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -111,7 +96,7 @@
                     <code>Code</code>
                     <blockquote>
                       <div class='block'>Body part examined. See  DICOM Part 16 Annex L for the mapping from DICOM to Snomed CT.
-<p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/STU3/valueset-body-site.html">SNOMED CT Body Structures</a> (Example)</p></div>
+<p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/ValueSet/body-site">SNOMED CT Body Structures</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -176,7 +161,7 @@
                     <code>Code</code>
                     <blockquote>
                       <div class='block'>Laterality if body site is paired anatomic structure and laterality is not pre-coordinated in body site code.
-<p>Binding: <a title="Codes describing body site laterality (left, right, etc.)." href="http://hl7.org/fhir/STU3/valueset-bodysite-laterality.html">Laterality</a> (Example)</p></div>
+<p>Binding: <a title="Codes describing body site laterality (left, right, etc.)." href="http://hl7.org/fhir/ValueSet/bodysite-laterality">Laterality</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -193,7 +178,7 @@
                     <code>Code</code>
                     <blockquote>
                       <div class='block'>The modality of this series sequence.
-<p>Binding: <a title="Type of acquired data in the instance" href="http://hl7.org/fhir/STU3/valueset-dicom-cid29.html">Acquisition Modality Codes</a> (Extensible)</p></div>
+<p>Binding: <a title="Type of acquired data in the instance" href="http://hl7.org/fhir/ValueSet/dicom-cid29">Acquisition Modality Codes</a> (Extensible)</p></div>
                     </blockquote>
                   </td>
                 </tr>

@@ -42,7 +42,7 @@
  -- Row 3 -----------------------------------
   Element = DiagnosticReport.extension.valueReference
   Profile Name = DiagnosticReport.locationPerformed.valueReference
-  Type = Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+  Type = Reference(Location)
 
  -- Row 4 -----------------------------------
   Element = DiagnosticReport.code
@@ -58,21 +58,20 @@
  -- Row 6 -----------------------------------
   Element = DiagnosticReport.subject
   Must Support = Y
-  Type = Reference(Patient){http://hl7.org/fhir/StructureDefinition/qicore-patient} |Reference(Group) |Reference(Device){http://hl7.org/fhir/StructureDefinition/qicore-device} |Reference(Location){http://hl7.org/fhir/StructureDefinition/qicore-location}
+  Type = Reference(Patient) |Reference(Group) |Reference(Device) |Reference(Location)
 
  -- Row 7 -----------------------------------
   Element = DiagnosticReport.performer
-  Type = Reference(Practitioner){http://hl7.org/fhir/StructureDefinition/qicore-practitioner} | Reference(Organization){http://hl7.org/fhir/StructureDefinition/qicore-organization}
+  Type = BackboneElement
 
  -- Row 8 -----------------------------------
-  Element = DiagnosticReport.encounter
+  Element = DiagnosticReport.context
   Must Support = Y
-  Type = Reference(Encounter){http://hl7.org/fhir/StructureDefinition/qicore-encounter}
-
+  Type = Reference(Encounter) | Reference(EpisodeOfCare)
  -- Row 9 -----------------------------------
-  Element = DiagnosticReport.request
-  Type = Reference(DiagnosticOrder){http://hl7.org/fhir/StructureDefinition/qicore-diagnosticorder} | Reference(ProcedureRequest){http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest} | Reference(ReferralRequest){http://hl7.org/fhir/StructureDefinition/qicore-referralrequest}
-  QDM Mapping = reason (DiagnosticReport.request.clinicalNotes)
+  Element = DiagnosticReport.basedOn
+  Type = Reference(CarePlan) | Reference(ImmunizationRecommendation) | Reference(MedicationRequest) | Reference(NutritionOrder) | Reference(ProcedureRequest) | Reference(ReferralRequest)
+  QDM Mapping = reason (DiagnosticReport.basedOn.clinicalNotes)
 
  -- Row 10 -----------------------------------
   Element = !DiagnosticReport.category
@@ -84,18 +83,18 @@
 
  -- Row 12 -----------------------------------
   Element = DiagnosticReport.specimen
-  Type = Reference(Specimen){http://hl7.org/fhir/StructureDefinition/qicore-specimen}
+  Type = Reference(Specimen)
 
  -- Row 13 -----------------------------------
   Element = DiagnosticReport.result
   Must Support = Y
-  Type = Reference(Observation){http://hl7.org/fhir/StructureDefinition/qicore-observation}
+  Type = Reference(Observation)
   QDM Mapping = result; method (DiagnosticReport.result.Observation.method)
 
  -- Row 14 -----------------------------------
   Element = DiagnosticReport.imagingStudy
   Must Support = Y
-  Type = Reference(ImagingStudy){http://hl7.org/fhir/StructureDefinition/qicore-imagingstudy} | Reference(ImagingObjectSelection)
+  Type = Reference(ImagingStudy) | Reference(ImagingObjectSelection)
   QDM Mapping = radiation dosage (DiagnosticReport.imagingStudy.radiationDose); radiation duration (DiagnosticReport.imagingStudy.radiationDuration)
 
  -- Row 15 -----------------------------------

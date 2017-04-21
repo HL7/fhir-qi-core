@@ -62,13 +62,13 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='actionResulting'>actionResulting</a>
+                      <a name='outcomeReference'>outcomeReference</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -77,7 +77,7 @@
                   <td class='colLast'>
                     <code>List&lt;<a href='Resource.html'>Resource</a>></code>
                     <blockquote>
-                      <div class='block'>Resources that describe follow-on actions resulting from the plan, such as drug prescriptions, encounter records, appointments, etc.</div>
+                      <div class='block'>Details of the outcome or action resulting from the activity. The reference to an "event" resource, such as Procedure or Encounter or Observation, is the result/outcome of the activity itself. The activity can be conveyed using CarePlan.activity.detail OR using the CarePlan.activity.reference (a reference to a &quot;request&quot; resource).</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -116,7 +116,7 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
-                      <a name='outcome'>outcome</a>
+                      <a name='outcomeCodeableConcept'>outcomeCodeableConcept</a>
                     </strong>
                   </td>
                   <td class='colMid'>
@@ -125,8 +125,8 @@
                   <td class='colLast'>
                     <code>Concept</code>
                     <blockquote>
-                      <div class='block'>Results of the careplan activity.
-<p> (Example)</p></div>
+                      <div class='block'>Identifies the outcome at the point when the status of the activity is assessed. For example, the outcome of an education activity could be patient understands (or not).
+<p>Binding: <a title="Example codes indicating the outcome of a care plan activity. Note that these are in no way complete and may not even be appropriate for some uses." href="http://hl7.org/fhir/ValueSet/care-plan-activity-outcome">Care Plan Activity Outcome</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -156,7 +156,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Appointment.html'>Appointment</a> | <a href='CommunicationRequest.html'>CommunicationRequest</a> | <a href='DeviceUseRequest.html'>DeviceUseRequest</a> | <a href='DiagnosticRequest.html'>DiagnosticRequest</a> | <a href='MedicationOrder.html'>MedicationOrder</a> | <a href='NutritionRequest.html'>NutritionRequest</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='ProcessRequest.html'>ProcessRequest</a> | <a href='ReferralRequest.html'>ReferralRequest</a> | <a href='SupplyRequest.html'>SupplyRequest</a> | <a href='VisionPrescription.html'>VisionPrescription</a></code>
+                    <code><a href='Appointment.html'>Appointment</a> | <a href='CommunicationRequest.html'>CommunicationRequest</a> | <a href='DeviceRequest.html'>DeviceUseRequest</a> | <a href='MedicationRequest.html'>MedicationRequest</a> | <a href='NutritionOrder.html'>NutritionOrder</a> | <a href='ProcedureRequest.html'>ProcedureRequest</a> | <a href='ReferralRequest.html'>ReferralRequest</a> | <a href='VisionPrescription.html'>VisionPrescription</a> | RequestGroup</code>
                     <blockquote>
                       <div class='block'>The details of the proposed activity represented in a specific resource.</div>
                     </blockquote>
