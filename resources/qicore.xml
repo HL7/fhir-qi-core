@@ -2,8 +2,8 @@
 
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/implementationguide.xsd">
   <id value="qicore"/>
-  <!-- <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/qicore"/> -->
-  <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/ig"/>
+  <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/qicore"/>
+  <!-- <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/ig"/> -->
   <name value="QICore Implementation Guide"/>
   <status value="draft"/>
   <experimental value="true"/>
@@ -36,6 +36,7 @@
         <reference value="StructureDefinition/qicore-allergyintolerance"/>
       </exampleFor>
     </resource>
+    <!-- Removed from the build until tooling separates 3.0.1 from current
     <resource>
       <example value="true"/>
       <name value="QICore AdverseEvent"/>
@@ -47,6 +48,7 @@
         <reference value="StructureDefinition/qicore-adverseevent"/>
       </exampleFor>
     </resource>
+	-->
     <resource>
       <example value="true"/>
       <name value="QICore Communication"/>
@@ -97,6 +99,7 @@
         <reference value="StructureDefinition/qicore-encounter"/>
       </exampleFor>
     </resource>
+    <!-- Removed from the build, gives an error about snapshot differential?
     <resource>
       <example value="true"/>
       <name value="QICore FamilyMemberHistory"/>
@@ -106,6 +109,7 @@
         <reference value="StructureDefinition/qicore-familymemberhistory"/>
       </exampleFor>
     </resource>
+	-->
     <resource>
       <example value="true"/>
       <name value="QICore Flag"/>
