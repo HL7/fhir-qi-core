@@ -23,6 +23,9 @@
 		"AllergyIntolerance": {				
 			"template-format": "example-template.html"
 		},
+		"AdverseEvent": {				
+			"template-format": "example-template.html"
+		},
 		"Communication": {
 			"template-format": "example-template.html"
 		},
@@ -98,6 +101,7 @@
 	"canonicalBase": "http://hl7.org/fhir/us/qicore",
 	"source": "qicore.xml",
 	"spreadsheets": [
+		"adverseevent-profile-spreadsheet.xml",
 		"allergyintolerance-profile-spreadsheet.xml",
 		"bodysite-profile-spreadsheet.xml",
 		"claim-profile-spreadsheet.xml",
@@ -132,6 +136,10 @@
 		"substance-profile-spreadsheet.xml"
 	],
 	"resources": {
+		"StructureDefinition/qicore-adverseevent": {
+			"defns": "qicore-adverseevent-definitions.html",
+			"base": "qicore-adverseevent.html"
+		},
 		"StructureDefinition/qicore-allergyintolerance": {
 			"defns": "qicore-allergyintolerance-definitions.html",
 			"base": "qicore-allergyintolerance.html",
