@@ -44,6 +44,9 @@
 		"Goal": {
 			"template-format": "example-template.html"
 		},
+		"ImagingStudy": {
+			"template-format": "example-template.html"
+		},
 		"Medication": {
 			"template-format": "example-template.html"
 		},
@@ -102,33 +105,19 @@
 	"source": "qicore.xml",
 	"spreadsheets": [
 		"adverseevent-profile-spreadsheet.xml",
-		"allergyintolerance-profile-spreadsheet.xml",
 		"bodysite-profile-spreadsheet.xml",
 		"claim-profile-spreadsheet.xml",
 		"communication-profile-spreadsheet.xml",
 		"communicationrequest-profile-spreadsheet.xml",
-		"condition-profile-spreadsheet.xml",
 		"coverage-profile-spreadsheet.xml",
-		"device-profile-spreadsheet.xml",
 		"deviceusestatement-profile-spreadsheet.xml",
-		"diagnosticreport-profile-spreadsheet.xml",
 		"encounter-profile-spreadsheet.xml",
 		"flag-profile-spreadsheet.xml",
-		"goal-profile-spreadsheet.xml",
 		"imagingstudy-profile-spreadsheet.xml",
-		"immunization-profile-spreadsheet.xml",
 		"immunizationrecommendation-profile-spreadsheet.xml",
-		"location-profile-spreadsheet.xml",
-		"medication-profile-spreadsheet.xml",
 		"medicationadministration-profile-spreadsheet.xml",
 		"medicationdispense-profile-spreadsheet.xml",
-		"medicationrequest-profile-spreadsheet.xml",
-		"medicationstatement-profile-spreadsheet.xml",
 		"observation-profile-spreadsheet.xml",
-		"organization-profile-spreadsheet.xml",
-		"patient-profile-spreadsheet.xml",
-		"practitioner-profile-spreadsheet.xml",
-		"procedure-profile-spreadsheet.xml",
 		"procedurerequest-profile-spreadsheet.xml",
 		"referralrequest-profile-spreadsheet.xml",
 		"relatedperson-profile-spreadsheet.xml",
@@ -143,7 +132,7 @@
 		"StructureDefinition/qicore-allergyintolerance": {
 			"defns": "qicore-allergyintolerance-definitions.html",
 			"base": "qicore-allergyintolerance.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-allergyintolerance.xml"
 		},
 		"StructureDefinition/qicore-bodysite": {
 			"defns": "qicore-bodysite-definitions.html",
@@ -164,7 +153,7 @@
 		"StructureDefinition/qicore-condition": {
 			"defns": "qicore-condition-definitions.html",
 			"base": "qicore-condition.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-condition.xml"
 		},
 		"StructureDefinition/qicore-coverage": {
 			"defns": "qicore-coverage-definitions.html",
@@ -173,7 +162,7 @@
 		"StructureDefinition/qicore-device": {
 			"defns": "qicore-device-definitions.html",
 			"base": "qicore-device.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-device.xml"
 		},
 		"StructureDefinition/qicore-deviceusestatement": {
 			"defns": "qicore-deviceusestatement-definitions.html",
@@ -182,7 +171,7 @@
 		"StructureDefinition/qicore-diagnosticreport": {
 			"defns": "qicore-diagnosticreport-definitions.html",
 			"base": "qicore-diagnosticreport.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-diagnosticreport.xml"
 		},
 		"StructureDefinition/qicore-encounter": {
 			"defns": "qicore-encounter-definitions.html",
@@ -195,7 +184,7 @@
 		"StructureDefinition/qicore-goal": {
 			"defns": "qicore-goal-definitions.html",
 			"base": "qicore-goal.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-goal.xml"
 		},
 		"StructureDefinition/qicore-imagingstudy": {
 			"defns": "qicore-imagingstudy-definitions.html",
@@ -204,7 +193,7 @@
 		"StructureDefinition/qicore-immunization": {
 			"defns": "qicore-immunization-definitions.html",
 			"base": "qicore-immunization.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-immunization.xml"
 		},
 		"StructureDefinition/qicore-immunizationrec": {
 			"defns": "qicore-immunizationrec-definitions.html",
@@ -213,12 +202,12 @@
 		"StructureDefinition/qicore-location": {
 			"defns": "qicore-location-definitions.html",
 			"base": "qicore-location.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-location.xml"
 		},
 		"StructureDefinition/qicore-medication": {
 			"defns": "qicore-medication-definitions.html",
 			"base": "qicore-medication.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-medication.xml"
 		},
 		"StructureDefinition/qicore-medicationadministration": {
 			"defns": "qicore-medicationadministration-definitions.html",
@@ -231,12 +220,12 @@
 		"StructureDefinition/qicore-medicationrequest": {
 			"defns": "qicore-medicationrequest-definitions.html",
 			"base": "qicore-medicationrequest.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-medicationrequest.xml"
 		},
 		"StructureDefinition/qicore-medicationstatement": {
 			"defns": "qicore-medicationstatement-definitions.html",
 			"base": "qicore-medicationstatement.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-medicationstatement.xml"
 		},
 		"StructureDefinition/qicore-observation": {
 			"defns": "qicore-observation-definitions.html",
@@ -245,22 +234,22 @@
 		"StructureDefinition/qicore-organization": {
 			"defns": "qicore-organization-definitions.html",
 			"base": "qicore-organization.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-organization.xml"
 		},
 		"StructureDefinition/qicore-patient": {
 			"defns": "qicore-patient-definitions.html",
 			"base": "qicore-patient.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-patient.xml"
 		},
 		"StructureDefinition/qicore-practitioner": {
 			"defns": "qicore-practitioner-definitions.html",
 			"base": "qicore-practitioner.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-practitioner.xml"
 		},
 		"StructureDefinition/qicore-procedure": {
 			"defns": "qicore-procedure-definitions.html",
 			"base": "qicore-procedure.html",
-			"template-base": "instance-template-derived.html"
+			"source": "structuredefinition-qicore-procedure.xml"
 		},
 		"StructureDefinition/qicore-procedurerequest": {
 			"defns": "qicore-procedurerequest-definitions.html",
