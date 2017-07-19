@@ -10,9 +10,9 @@
 	},
 	"logging": ["init", "progress", "context", "html", "tx"],
 	"special-urls":[
-      "urn:oid:2.16.840.1.113883.6.238"
-   ],
-  "dependencyList" : [
+		"urn:oid:2.16.840.1.113883.6.238"
+	],
+  	"dependencyList" : [
 		{
 			"name": "uscore",
 			"location": "http://hl7.org/fhir/us/core",
@@ -20,75 +20,75 @@
 		}
 	],
 	"defaults": {
-			"AllergyIntolerance": {
-				"template-format": "example-template.html"
-			},
-			"Communication": {
-				"template-format": "example-template.html"
-			},
-			"CommunicationRequest": {
-				"template-format": "example-template.html"
-			},
-			"DiagnosticReport": {
-				"template-format": "example-template.html"
-			},
-			"Encounter": {
-				"template-format": "example-template.html"
-			},
-			"Flag": {
-				"template-format": "example-template.html"
-			},
-			"Goal": {
-				"template-format": "example-template.html"
-			},
-			"Medication": {
-				"template-format": "example-template.html"
-			},
-			"MedicationRequest": {
-				"template-format": "example-template.html"
-			},
-			"MedicationDispense": {
-				"template-format": "example-template.html"
-			},
-			"MedicationStatement": {
-				"template-format": "example-template.html"
-			},
-			"Observation": {
-				"template-format": "example-template.html"
-			},
-			"Organization": {
-				"template-format": "example-template.html"
-			},
-			"Patient": {
-				"template-format": "example-template.html"
-			},
-			"Practitioner": {
-				"template-format": "example-template.html"
-			},
-			"Procedure": {
-				"template-format": "example-template.html"
-			},
-			"ProcedureRequest": {
-				"template-format": "example-template.html"
-			},
-			"ReferralRequest": {
-				"template-format": "example-template.html"
-			},
-			"Specimen": {
-				"template-format": "example-template.html"
-			},
-			"ValueSet": {
-				"template-format": "valueset-template.html"
-			},
-			"Any": {
-				"template-format": "instance-template-format.html",
-				"template-base": "instance-template-base.html"
-			},
-	    "StructureDefinition": {
-				"template-base": "instance-template-sd.html",
-		    "template-mappings":"instance-template-sd-mappings.html",
-		    "template-defns":"instance-template-sd-definitions.html"
-	    }
+		"AllergyIntolerance": {				
+			"template-format": "example-template.html"
+		},
+		"Communication": {
+			"template-format": "example-template.html"
+		},
+		"CommunicationRequest": {
+			"template-format": "example-template.html"
+		},
+		"DiagnosticReport": {
+			"template-format": "example-template.html"
+		},
+		"Encounter": {
+			"template-format": "example-template.html"
+		},
+		"Flag": {
+			"template-format": "example-template.html"
+		},
+		"Goal": {
+			"template-format": "example-template.html"
+		},
+		"Medication": {
+			"template-format": "example-template.html"
+		},
+		"MedicationRequest": {
+			"template-format": "example-template.html"
+		},
+		"MedicationDispense": {
+			"template-format": "example-template.html"
+		},
+		"MedicationStatement": {
+			"template-format": "example-template.html"
+		},
+		"Observation": {
+			"template-format": "example-template.html"
+		},
+		"Organization": {
+			"template-format": "example-template.html"
+		},
+		"Patient": {
+			"template-format": "example-template.html"
+		},
+		"Practitioner": {
+			"template-format": "example-template.html"
+		},
+		"Procedure": {
+			"template-format": "example-template.html"
+		},
+		"ProcedureRequest": {
+			"template-format": "example-template.html"
+		},
+		"ReferralRequest": {
+			"template-format": "example-template.html"
+		},
+		"Specimen": {
+			"template-format": "example-template.html"
+		},
+		"ValueSet": {
+			"template-format": "valueset-template.html"
+		},
+		"Any": {
+			"template-format": "instance-template-format.html",
+			"template-base": "instance-template-base.html"
+		},
+		"StructureDefinition": {
+			"template-base": "instance-template-sd.html",
+			"template-mappings":"instance-template-sd-mappings.html",
+			"template-defns":"instance-template-sd-definitions.html"
+		}
 	},
 	"version": "3.0.1",
 	"sct-edition": "http://snomed.info/sct/731000124108",
@@ -134,7 +134,8 @@
 	"resources": {
 		"StructureDefinition/qicore-allergyintolerance": {
 			"defns": "qicore-allergyintolerance-definitions.html",
-			"base": "qicore-allergyintolerance.html"
+			"base": "qicore-allergyintolerance.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-bodysite": {
 			"defns": "qicore-bodysite-definitions.html",
@@ -154,7 +155,8 @@
 		},
 		"StructureDefinition/qicore-condition": {
 			"defns": "qicore-condition-definitions.html",
-			"base": "qicore-condition.html"
+			"base": "qicore-condition.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-coverage": {
 			"defns": "qicore-coverage-definitions.html",
@@ -162,7 +164,8 @@
 		},
 		"StructureDefinition/qicore-device": {
 			"defns": "qicore-device-definitions.html",
-			"base": "qicore-device.html"
+			"base": "qicore-device.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-deviceusestatement": {
 			"defns": "qicore-deviceusestatement-definitions.html",
@@ -170,7 +173,8 @@
 		},
 		"StructureDefinition/qicore-diagnosticreport": {
 			"defns": "qicore-diagnosticreport-definitions.html",
-			"base": "qicore-diagnosticreport.html"
+			"base": "qicore-diagnosticreport.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-encounter": {
 			"defns": "qicore-encounter-definitions.html",
@@ -182,7 +186,8 @@
 		},
 		"StructureDefinition/qicore-goal": {
 			"defns": "qicore-goal-definitions.html",
-			"base": "qicore-goal.html"
+			"base": "qicore-goal.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-imagingstudy": {
 			"defns": "qicore-imagingstudy-definitions.html",
@@ -190,7 +195,8 @@
 		},
 		"StructureDefinition/qicore-immunization": {
 			"defns": "qicore-immunization-definitions.html",
-			"base": "qicore-immunization.html"
+			"base": "qicore-immunization.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-immunizationrec": {
 			"defns": "qicore-immunizationrec-definitions.html",
@@ -198,11 +204,13 @@
 		},
 		"StructureDefinition/qicore-location": {
 			"defns": "qicore-location-definitions.html",
-			"base": "qicore-location.html"
+			"base": "qicore-location.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-medication": {
 			"defns": "qicore-medication-definitions.html",
-			"base": "qicore-medication.html"
+			"base": "qicore-medication.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-medicationadministration": {
 			"defns": "qicore-medicationadministration-definitions.html",
@@ -214,11 +222,13 @@
 		},
 		"StructureDefinition/qicore-medicationrequest": {
 			"defns": "qicore-medicationrequest-definitions.html",
-			"base": "qicore-medicationrequest.html"
+			"base": "qicore-medicationrequest.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-medicationstatement": {
 			"defns": "qicore-medicationstatement-definitions.html",
-			"base": "qicore-medicationstatement.html"
+			"base": "qicore-medicationstatement.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-observation": {
 			"defns": "qicore-observation-definitions.html",
@@ -226,19 +236,23 @@
 		},
 		"StructureDefinition/qicore-organization": {
 			"defns": "qicore-organization-definitions.html",
-			"base": "qicore-organization.html"
+			"base": "qicore-organization.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-patient": {
 			"defns": "qicore-patient-definitions.html",
-			"base": "qicore-patient.html"
+			"base": "qicore-patient.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-practitioner": {
 			"defns": "qicore-practitioner-definitions.html",
-			"base": "qicore-practitioner.html"
+			"base": "qicore-practitioner.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-procedure": {
 			"defns": "qicore-procedure-definitions.html",
-			"base": "qicore-procedure.html"
+			"base": "qicore-procedure.html",
+			"template-base": "instance-template-derived.html"
 		},
 		"StructureDefinition/qicore-procedurerequest": {
 			"defns": "qicore-procedurerequest-definitions.html",

@@ -104,7 +104,7 @@
 <p>It is the responsibility of the server(data provider)to ensure that any necessary consent records exist and are reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in the same manner as other transactions, as discussed above under General Security Considerations.</p>
 
 
-<a name="harmonization"></a>
+<a name="harmonization"> </a>
 <h3>Relationship to Other Initiatives</h3>
 
 <p>QICore has been harmonized with certain other FHIR-based initiatives, in particular, the <a href="http://wiki.siframework.org/Data+Access+Framework+Homepage">Data Access Framework (DAF)</a>. DAF is a U.S. Realm Implementation Guide that maps Meaningful Use data elements to FHIR resources. The data elements in DAF are also in QICore, and the value sets required by DAF are preferred (but not required) in QICore. As a result, conforming to DAF automatically satisfies a significant subset of the conformance requirements of QICore. QICore conformance involves supporting certain additional data elements not required by DAF, because they are needed for quality measures. However, it is possible to conform to QICore and not conform to DAF, because by design, QICore is less restrictive than DAF, allowing QICore to be used outside the U.S. Realm. Although there are no conflicts between DAF and QICore, conforming to DAF is neither necessary nor sufficient for conforming to QICore.</p>
@@ -113,7 +113,7 @@
 
 <p>QICore's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QICore extensions will not create future conflicts. One initiative that provided reviews and feedback was the <a href="http://www.opencimi.org/">Clinical Information Modeling Initiative (CIMI)</a> through the <a href="http://www.opencimi.org/healthcare-services-platform-consortium">Healthcare Services Platform Consortium (HSPC)</a>. </p>
 
-<a name="contents"></a>
+<a name="contents"> </a>
 <h3>Contents</h3>
 
 <p>The following table lists the QICore profiles that are part of the IG, and the underlying FHIR resources:</p>
@@ -267,17 +267,17 @@
 
 <p>The QUICK Logical View of these profiles is provided <a href="quick/index.html">here</a>.</p>
 
-<a name="naming"></a>
+<a name="naming"> </a>
 <h3>Naming Conventions</h3>
 
 <p>QICore profiles are indicated by the prefix "QICore-". For example, the QICore profile of Patient is named QICore-Patient. </p>
 
-<a name="extensions"></a>
+<a name="extensions"> </a>
 <h3>Extensions and Mappings</h3>
 
 <p>QICore adds a variety of extensions to core FHIR classes. These extensions derive from two primary sources: the Quality  Improvement Domain Analysis Model (QIDAM), and the Quality Data Model (QDM). Profile pages contain definitions of extensions and mappings to QDM as an aid for current users of QDM.</p>
 
-<a name="mustsupport"></a>
+<a name="mustsupport"> </a>
 
 <h3>MustSupport Flag</h3>
 
@@ -296,19 +296,19 @@
 	<li>Quality improvement artifact applications SHALL recognize and process all MustSupport elements in QICore.</li>
 </ul>
 
-<a name="modifying"></a>
+<a name="modifying"> </a>
 <h3>Modifying Attributes</h3>
 
 <p>Is-Modifier is a boolean property of an element, indicating that the value of that element may change the interpretation of the resource. Examples of modifying elements include status (in many resources), negations (e.g. Immunization.wasNotGiven), and certainty qualifications (e.g. Observation.reliability). Decision support and quality implementations MUST always check the values of modifying elements. For example, in processing an Immunization resource, the application must inspect the "wasNotGiven" element to determine whether the immunization was given or was not given to the patient. For this reason, modifying elements SHALL be treated as MustSupport, even if not declared.</p>
 
 <p>As an aside, inclusion of modifying elements is a departure from the previous (January 2014) informative version of the QICore profiles, where profiles were developed for each meaning of each modifying attribute. For example, the Condition resource was represented using two profiles, one representing the occurrence of the condition, and the other the non-occurrence of the condition. However, it was felt the proliferation of profiles under this approach would lead to a non-sustainable situation, particularly in light of the future need to expand QICore by incorporation of third-party profiles, such as those being developed by CIMI. The current approach requires quality improvement artifact authors to make explicit checks for modifying elements when dealing with classes that have modifying elements.</p>
 
-<a name="bindings"></a>
+<a name="bindings"> </a>
 <h3>Terminology Bindings</h3>
 
 <p>Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data owners to translate local data into the required vocabulary. As a U.S. Realm product, QICore recommends value sets and vocabularies required by Meaningful Use. DAF provides the FHIR realization of these requirements. Because QICore is expected to be applied outside the U.S. Realm, and also in clinical settings where local terminologies exist, U.S. Realm bindings are preferred but not required in the QICore profiles. When and if Meaningful Use adopts QICore, QUICK, and CQL, policy could be created that could mandate the preferred bindings given in the standard.</p>
 
-<a name="references"></a>
+<a name="references"> </a>
 <h3>Resource References and "Any"</h3>
 
 <p>FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a reference to a Patient resource. In QICore, most references are constrained to QICore-profiled resources. For example, Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by Encounter.patient. References to QICore extensions accessed through references, such as Encounter.patient.veteranMilitaryStatus, are guaranteed to be valid. References to resources that do not currently have QICore profiles are not constrained, and as such, only the core FHIR properties and bindings are guaranteed to exist.
@@ -317,7 +317,7 @@
 
 
 
-<a name="conformance"></a>
+<a name="conformance"> </a>
 <h3>Summary of Conformance Requirements</h3>
 
 <p>Conformance to this QICore Implementation Guide requires the following (in addition to adherence to core FHIR requirements):</p>
