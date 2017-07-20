@@ -6,32 +6,53 @@
 
 {% include container-start.html %}
 
-<h2>
-    QICore Implementation Guide - Artifacts
-</h2>
+<a name="artifacts"> </a>
+<h2><span class="sectioncount">3.0.0</span> QICore Implementation Guide - Artifacts <a href="index.html#artifacts" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h2>
 
-{% include list-simple-adverseevents.xhtml %}
-{% include list-simple-allergyintolerances.xhtml %}
-{% include list-simple-communications.xhtml %}
-{% include list-simple-communicationrequests.xhtml %}
-{% include list-simple-conditions.xhtml %}
-{% include list-simple-diagnosticreports.xhtml %}
-{% include list-simple-encounters.xhtml %}
-{% include list-simple-familymemberhistories.xhtml %}
-{% include list-simple-flags.xhtml %}
-{% include list-simple-goals.xhtml %}
-{% include list-simple-imagingstudies.xhtml %}
-{% include list-simple-medications.xhtml %}
-{% include list-simple-medicationdispenses.xhtml %}
-{% include list-simple-medicationrequests.xhtml %}
-{% include list-simple-medicationstatements.xhtml %}
-{% include list-simple-observations.xhtml %}
-{% include list-simple-organizations.xhtml %}
-{% include list-simple-patients.xhtml %}
-{% include list-simple-practitioners.xhtml %}
-{% include list-simple-procedures.xhtml %}
-{% include list-simple-procedurerequests.xhtml %}
-{% include list-simple-specimen.xhtml %}
+<table class="list">
+    <tr><td>AdverseEvent</td></tr>
+    {% include qicore-adverseevent-ex.html %}
+    <tr><td>AllergyIntolerance</td></tr>
+    {% include qicore-allergyintolerance-ex.html %}
+    <tr><td>Communication</td></tr>
+    {% include qicore-communication-ex.html %}
+    <tr><td>CommunicationRequest</td></tr>
+    {% include qicore-communicationrequest-ex.html %}
+    <tr><td>Condition</td></tr>
+    {% include qicore-condition-ex.html %}
+    <tr><td>DiagnosticReport</td></tr>
+    {% include qicore-diagnosticreport-ex.html %}
+    <tr><td>Encounter</td></tr>
+    {% include qicore-encounter-ex.html %}
+    <tr><td>Flag</td></tr>
+    {% include qicore-flag-ex.html %}
+    <tr><td>Goal</td></tr>
+    {% include qicore-goal-ex.html %}
+    <tr><td>ImagingStudy</td></tr>
+    {% include qicore-imagingstudy-ex.html %}
+    <tr><td>Medication</td></tr>
+    {% include qicore-medication-ex.html %}
+    <tr><td>MedicationDispense</td></tr>
+    {% include qicore-medicationdispense-ex.html %}
+    <tr><td>MedicationRequest</td></tr>
+    {% include qicore-medicationrequest-ex.html %}
+    <tr><td>MedicationStatement</td></tr>
+    {% include qicore-medicationstatement-ex.html %}
+    <tr><td>Observation</td></tr>
+    {% include qicore-observation-ex.html %}
+    <tr><td>Organization</td></tr>
+    {% include qicore-organization-ex.html %}
+    <tr><td>Patient</td></tr>
+    {% include qicore-patient-ex.html %}
+    <tr><td>Practitioner</td></tr>
+    {% include qicore-practitioner-ex.html %}
+    <tr><td>Procedure</td></tr>
+    {% include qicore-procedure-ex.html %}
+    <tr><td>ProcedureRequest</td></tr>
+    {% include qicore-procedurerequest-ex.html %}
+    <tr><td>Specimen</td></tr>
+    {% include qicore-specimen-ex.html %}
+</table>
 
 {% include container-end.html %}
 
