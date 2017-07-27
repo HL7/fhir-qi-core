@@ -1,3 +1,4 @@
+
 # Quality Improvement Core Profiles (QI-Core)
 This repository contains the source for the QI-Core implementation guide, which defines a set of FHIR profiles and extensions for use in clinical quality measurement and decision support. The implementation guide is the result of a harmonization of data requirements between the Quality Data Model (QDM) and the virtual Medical Record (vMR).
 
@@ -14,3 +15,10 @@ Build log is available here:
 Full debugging information is available here:
 
 [http://build.fhir.org/ig/cqframework/qi-core/debug.tgz](http://build.fhir.org/ig/cqframework/qi-core/debug.tgz)
+
+## Local Build
+
+The HL7 IG Publisher is committed to this repository to make building as easy as possible. To build locally, clone the repository and issue the following command in the root:
+
+    java -jar "org.hl7.fhir.igpublisher.jar" -ig ig.json
+    
