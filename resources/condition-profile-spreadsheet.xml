@@ -1373,17 +1373,17 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s93"><Data ss:Type="String">QICore-Condition</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s93"><Data ss:Type="String">QICore-Condition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s95"><Data ss:Type="String">Condition</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s95"><Data ss:Type="String">Condition</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s96"><Data ss:Type="String">Condition{http://hl7.org/fhir/us/core/StructureDefinition-us-core-condition.html}</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s96">
+      <Data ss:Type="String">Condition{http://hl7.org/fhir/us/core/StructureDefinition-us-core-condition.html}</Data>
+      <NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1391,39 +1391,42 @@
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s97"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s96"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s98">
+      <Data ss:Type="String">A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Diagnosis, Active, Inactive or Resolved</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101">
+      <Data ss:Type="String">Diagnosis, Active, Inactive or Resolved</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s104">
-    <Cell ss:StyleID="s106"><Data ss:Type="String">conditionState</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">conditionState</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s108"><Data ss:Type="String">!Condition.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><Data ss:Type="String">!Condition.extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/condition-conditionState}</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109">
+      <Data ss:Type="String">Extension{http://hl7.org/fhir/condition-state}</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110">
+      <Data ss:Type="String">Enumeration indicating whether the condition is currently active, inactive, or has been resolved.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1434,67 +1437,34 @@
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:StyleID="s115">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">contributionToDeath</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/condition-contributionToDeath}</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"><Data ss:Type="String">criticality</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s125"><Data ss:Type="String">criticality</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">0..1</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/condition-criticality}</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128">
+      <Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/condition-criticality}</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreConditionCriticality</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreConditionCriticality</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">Characterizes potential impact of the condition on life, durable physiological function, or quality of life.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">ManifestedSymptom.criticality</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">ManifestedSymptom.criticality</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1502,22 +1472,21 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.subject</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.subject</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Reference(Patient)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Reference(Patient) | Reference(Group)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">Indicates the patient or group who the condition record is associated with.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1532,22 +1501,21 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.context</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.context</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Reference(Encounter)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Reference(Encounter) | Reference(EpisodeOfCare)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">Encounter during which the condition was first asserted.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1562,21 +1530,23 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.asserter</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.asserter</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128">
+      <Data ss:Type="String">Reference(Patient) | Reference(Practitioner) | Reference(RelatedPerson)</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Reference(Patient) | Reference(Practitioner) </Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">Individual who is making the condition statement.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1591,21 +1561,21 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.assertedDate</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.assertedDate</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">0..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128">dateTime<NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">The date on which the existance of the Condition was first asserted or acknowledged.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1620,29 +1590,27 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreProblemCode</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreProblemCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">This describes the problem.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">primary code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">primary code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1651,21 +1619,21 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.category</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.category</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreCategoryCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">A category assigned to the condition.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1680,21 +1648,21 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.clinicalStatus</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.clinicalStatus</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">QICoreClinicalStatusCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">The clinical status of the condition.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1709,29 +1677,27 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.severity</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.severity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s117"><Data ss:Type="String">!QICoreProblemSeverity</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">!QICoreProblemSeverity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">A subjective assessment of the severity of the condition as evaluated by the clinician.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">severity</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">severity</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1740,28 +1706,27 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.onset[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.onset[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">Estimated or actual date or date-time the condition began, in the opinion of the clinician.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">start datetime</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">start datetime</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1770,28 +1735,27 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.abatement[x]</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.abatement[x]</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">The date or estimated date that the condition resolved or went into remission.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">stop datetime</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">stop datetime</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1800,21 +1764,21 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.stage</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.stage</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11" ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s130">
+      <Data ss:Type="String">Clinical stage or grade of a condition. May include formal severity assessments.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1828,22 +1792,21 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.stage.summary</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.stage.summary</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">!QICoreConditionStage</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">QICoreConditionStage</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">A simple summary of the stage such as &quot;Stage 3&quot;. The determination of the stage is disease-specific.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1858,8 +1821,11 @@
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.stage.assessment</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.stage.assessment</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Reference(ClinicalImpression) | Reference(DiagnosticReport) | Reference(Observation)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1867,11 +1833,9 @@
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s121">
+      <Data ss:Type="String">Reference to a formal record of the evidence on which the staging assessment is based.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1886,8 +1850,9 @@
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.evidence</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.evidence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1897,9 +1862,9 @@
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s121">
+      <Data ss:Type="String">Supporting Evidence / manifestations that are the basis on which this condition is suspected or confirmed.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1914,21 +1879,21 @@
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.evidence.code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.evidence.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">QICoreConditionEvidence</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">!QICoreConditionEvidence</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s121">
+      <Data ss:Type="String">A manifestation or symptom that led to the recording of this condition.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1943,20 +1908,21 @@
     <Cell ss:StyleID="s117"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.evidence.detail</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.evidence.detail</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">0..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Reference(Any)</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="12" ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s121"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s121">
+      <Data ss:Type="String">Links to other relevant information, including pathology reports.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s122"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1969,76 +1935,40 @@
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.bodySite</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.bodySite</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">1..*</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">CodeableConcept</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="Default"><Data ss:Type="String">QICoreBodySiteCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129">
+      <Data ss:Type="String">The anatomical location where this condition manifests itself.</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><Data ss:Type="String">anatomical location site and laterality</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="27">
-    <Cell ss:StyleID="s125"><Data ss:Type="String">bodySiteInstance</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><Data ss:Type="String">Condition.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Reference(BodySite) </Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">Y</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="Default"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><Data ss:Type="String">anatomical location site and laterality</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s115">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">dueTo</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">dueTo</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/condition-dueTo}</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/condition-dueTo}</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2058,19 +1988,16 @@
     <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s115">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">dueTo.code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">dueTo.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.extension.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.extension.extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/condition-dueTo#code}</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">QICoreDueToCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2092,13 +2019,13 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.extension.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.extension.extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Reference(Condition) | Reference(Procedure) | Reference(MedicationAdministration) |  Reference(MedicationStatement) |  Reference(Immunization)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120">
+      <Data ss:Type="String">Reference(Condition) | Reference(Procedure) | Reference(MedicationAdministration) |  Reference(MedicationStatement) |  Reference(Immunization)</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2122,7 +2049,7 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.extension</Data><NamedCell
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2148,19 +2075,16 @@
     <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s115">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">occurredFollowing.code</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">occurredFollowing.code</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s118"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s119"><Data ss:Type="String">!Condition.extension.extension</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s119"><Data ss:Type="String">Condition.extension.extension</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing#code}</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">CodeableConcept</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">QICoreOccurredFollowingCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2187,8 +2111,9 @@
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Reference(Condition) | Reference(Procedure) | Reference(MedicationAdministration) |  Reference(MedicationStatement) |  Reference(Immunization)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s120">
+      <Data ss:Type="String">Reference(Condition) | Reference(Procedure) | Reference(MedicationAdministration) |  Reference(MedicationStatement) |  Reference(Immunization)</Data><NamedCell ss:Name="_FilterDatabase"/>
+    </Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s120"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -2206,6 +2131,60 @@
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s123"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s124"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s129"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s130"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s131"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s132"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -6188,12 +6167,12 @@
     <Cell ss:StyleID="s162"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="36.75" ss:StyleID="s180">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">!QICoreConditionStage</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">A period or phase in the course of a disease</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">QICoreConditionStage</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Example value set for stages of cancer and other conditions</Data></Cell>
     <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s182"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s182"><Data ss:Type="String">valueset-qicore-condition-stage</Data></Cell>
-    <Cell ss:StyleID="s181"><Data ss:Type="String">Value set indicating the period or phase in the course of a disease</Data></Cell>
+    <Cell ss:StyleID="s182"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s182"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-stage</Data></Cell>
+    <Cell ss:StyleID="s181"/>
     <Cell ss:StyleID="s181"/>
     <Cell ss:StyleID="s181"/>
     <Cell ss:StyleID="s181"/>
@@ -6203,12 +6182,12 @@
     <Cell ss:StyleID="s183"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="33.75" ss:StyleID="s180">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">!QICoreConditionEvidence</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Observations pertaining to the problem, condition, or diagnosis </Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">QICoreConditionEvidence</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Example value set for Manifestation and Symptom codes.</Data></Cell>
     <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s181"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/observation-codes</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Observations pertaining to the problem, condition, or diagnosis </Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/manifestation-or-symptom</Data></Cell>
+    <Cell ss:StyleID="s120"/>
     <Cell ss:StyleID="s181"/>
     <Cell ss:StyleID="s181"/>
     <Cell ss:StyleID="s181"/>
@@ -6218,15 +6197,14 @@
     <Cell ss:StyleID="s183"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:Height="15.5625" ss:StyleID="s180">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">!QICoreProblemSeverity</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Valueset to identify the severity of the problem</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">QICoreProblemSeverity</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Preferred value set for Condition/Diagnosis severity grading</Data></Cell>
     <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s181"><Data ss:Type="String">preferred</Data></Cell>
     <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-severity</Data></Cell>
-    <Cell ss:StyleID="s181"><Data ss:Type="String">Value set to identify the severity of the problem</Data></Cell>
     <Cell ss:StyleID="s181"/>
-    <Cell ss:StyleID="s184" ss:HRef="http://hl7.org/fhir/ValueSet/condition-severity"><Data
-      ss:Type="String">http://hl7.org/fhir/ValueSet/condition-severity</Data></Cell>
+    <Cell ss:StyleID="s181"/>
+    <Cell ss:StyleID="s184"/>
     <Cell ss:StyleID="s181"/>
     <Cell ss:StyleID="s181"/>
     <Cell ss:StyleID="s181"/>
@@ -6234,11 +6212,11 @@
     <Cell ss:StyleID="s183"/>
    </Row>
    <Row ss:AutoFitHeight="0" ss:StyleID="s180">
-    <Cell ss:StyleID="s117"><Data ss:Type="String">!QICorePrecoordinatedBodySite</Data></Cell>
-    <Cell ss:StyleID="s120"><Data ss:Type="String">Precoordinated body sites such as 'left ear'</Data></Cell>
+    <Cell ss:StyleID="s117"><Data ss:Type="String">QICoreCategoryCode</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Preferred value set for Condition Categories.</Data></Cell>
     <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
-    <Cell ss:StyleID="s181"><Data ss:Type="String">preferred</Data></Cell>
-    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/qicore-bodysite-precoordinated</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-category</Data></Cell>
     <Cell ss:StyleID="s185"/>
     <Cell ss:StyleID="s185"/>
     <Cell ss:StyleID="s185"/>
@@ -6248,65 +6226,65 @@
     <Cell ss:StyleID="s185"/>
     <Cell ss:StyleID="s186"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s162"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s180">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">QICoreClinicalStatusCode</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Preferred value set for Condition Clinical Status.</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">required</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-clinical</Data></Cell>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s186"/>
+   </Row>  
+   <Row ss:AutoFitHeight="0" ss:StyleID="s180">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">QICoreBodySiteCode</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">This value set includes all codes from http://snomed.info/sct where concept is-a 442083009 (Anatomical or acquired body site (body structure)).</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/body-site</Data></Cell>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s186"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s162"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s180">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">QICoreDueToCode</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Example value set for Cause of Condition codes</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-cause</Data></Cell>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s186"/>
    </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s162"/>
-   </Row>
-   <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s125"/>
-    <Cell ss:StyleID="s128"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s161"/>
-    <Cell ss:StyleID="s162"/>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s180">
+    <Cell ss:StyleID="s117"><Data ss:Type="String">QICoreOccurredFollowingCode</Data></Cell>
+    <Cell ss:StyleID="s120"><Data ss:Type="String">Example value set for Condition Predecessor codes</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">value set</Data></Cell>
+    <Cell ss:StyleID="s181"><Data ss:Type="String">example</Data></Cell>
+    <Cell ss:StyleID="s136"><Data ss:Type="String">http://hl7.org/fhir/ValueSet/condition-predecessor</Data></Cell>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s185"/>
+    <Cell ss:StyleID="s186"/>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s125"/>
