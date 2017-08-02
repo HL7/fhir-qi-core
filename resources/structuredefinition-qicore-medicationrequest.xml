@@ -508,7 +508,7 @@
           <valueString value="MedicationRequestIntent"/>
         </extension>
         <strength value="required"/>
-        <description value="The kind of medication order"/>
+        <description value="The kind of medication request"/>
         <valueSetReference>
           <reference value="http://hl7.org/fhir/ValueSet/medication-request-intent"/>
         </valueSetReference>
@@ -529,7 +529,7 @@
     <element id="MedicationRequest.category">
       <path value="MedicationRequest.category"/>
       <short value="Type of medication usage"/>
-      <definition value="Indicates the type of medication order and where the medication is expected to be consumed or administered."/>
+      <definition value="Indicates the type of medication request and where the medication is expected to be consumed or administered."/>
       <min value="0"/>
       <max value="1"/>
       <base>
@@ -545,7 +545,7 @@
           <valueString value="MedicationRequestCategory"/>
         </extension>
         <strength value="preferred"/>
-        <description value="A coded concept identifying where the medication ordered is expected to be consumed or administered"/>
+        <description value="A coded concept identifying where the medication requested is expected to be consumed or administered"/>
         <valueSetReference>
           <reference value="http://hl7.org/fhir/ValueSet/medication-request-category"/>
         </valueSetReference>
@@ -1055,7 +1055,7 @@
       <path value="MedicationRequest.reasonReference"/>
       <short value="Condition or Observation that supports why the prescription is being written"/>
       <definition value="Condition or observation that supports why the medication was ordered."/>
-      <comment value="This is a reference to a condition or observation that is the reason for the medication order.  If only a code exists, use reasonCode."/>
+      <comment value="This is a reference to a condition or observation that is the reason for the medication request.  If only a code exists, use reasonCode."/>
       <min value="0"/>
       <max value="*"/>
       <base>
@@ -1143,7 +1143,7 @@
     <element id="MedicationRequest.dispenseRequest">
       <path value="MedicationRequest.dispenseRequest"/>
       <short value="Medication supply authorization"/>
-      <definition value="Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department."/>
+      <definition value="Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Request).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department."/>
       <min value="0"/>
       <max value="1"/>
       <base>
