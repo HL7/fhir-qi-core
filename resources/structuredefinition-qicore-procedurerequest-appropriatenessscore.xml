@@ -1,11 +1,10 @@
-<?xml version="1.0" encoding="UTF-8"?>
-
 <StructureDefinition xmlns="http://hl7.org/fhir">
   <id value="qicore-procedurerequest-appropriatenessScore"/>
   <url value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-appropriatenessScore"/>
   <name value="QICore-ProcedureRequest-AppropriatenessScore"/>
   <title value="appropriatenessScore"/>
   <status value="draft"/>
+  <date value="2017-08-08"/>
   <publisher value="Health Level Seven International (Clinical Quality Information - QICore)"/>
   <contact>
     <telecom>
@@ -13,13 +12,12 @@
       <value value="http://hl7.org/special/committees/CQI"/>
     </telecom>
   </contact>
-  <date value="2017-08-08"/>
   <description value="The RAND appropriateness score for the requested procedure."/>
   <fhirVersion value="3.0.1"/>
   <mapping>
-        <identity value="rim"/>
-        <uri value="http://hl7.org/v3"/>
-        <name value="RIM Mapping"/>
+    <identity value="rim"/>
+    <uri value="http://hl7.org/v3"/>
+    <name value="RIM Mapping"/>
   </mapping>
   <kind value="complex-type"/>
   <abstract value="false"/>
@@ -29,7 +27,7 @@
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
   <derivation value="constraint"/>
   <snapshot>
-    <element>
+    <element id="Extension">
       <path value="Extension"/>
       <short value="Appropriateness Score"/>
       <definition value="The RAND appropriateness score for the requested procedure."/>
@@ -40,11 +38,8 @@
         <min value="0"/>
         <max value="*"/>
       </base>
-      <type>
-        <code value="Extension"/>
-      </type>
     </element>
-    <element>
+    <element id="Extension.id">
       <path value="Extension.id"/>
       <representation value="xmlAttr"/>
       <short value="xml:id (or equivalent in JSON)"/>
@@ -64,7 +59,7 @@
         <map value="n/a"/>
       </mapping>
     </element>
-    <element>
+    <element id="Extension.extension">
       <path value="Extension.extension"/>
       <sliceName value="extension"/>
       <short value="Extension"/>
@@ -80,7 +75,7 @@
         <code value="Extension"/>
       </type>
     </element>
-    <element>
+    <element id="Extension.url">
       <path value="Extension.url"/>
       <representation value="xmlAttr"/>
       <short value="identifies the meaning of the extension"/>
@@ -105,7 +100,7 @@
         <map value="N/A"/>
       </mapping>
     </element>
-    <element>
+    <element id="Extensino.value[x]">
       <path value="Extension.value[x]"/>
       <short value="Value of extension"/>
       <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see
@@ -127,7 +122,7 @@
         <strength value="required"/>
         <description value="The RAND scoring for appropriateness of the procedure."/>
         <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/qicore-appropriateness-score"/>
+          <reference value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
         </valueSetReference>
       </binding>
       <mapping>
@@ -137,29 +132,26 @@
     </element>
   </snapshot>
   <differential>
-    <element>
+    <element id="Extension">
       <path value="Extension"/>
       <short value="Appropriateness Score"/>
       <definition value="The RAND appropriateness score for the requested procedure."/>
       <min value="0"/>
       <max value="1"/>
-      <type>
-        <code value="Extension"/>
-      </type>
     </element>
-    <element>
+    <element id="Extension.extension">
       <path value="Extension.extension"/>
       <sliceName value="extension"/>
       <max value="0"/>
     </element>
-    <element>
+    <element id="Extension.url">
       <path value="Extension.url"/>
       <type>
         <code value="uri"/>
       </type>
       <fixedUri value="http://hl7.org/fhir/StructureDefinition/qicore-procedurerequest-appropriatenessScore"/>
     </element>
-    <element>
+    <element id="Extension.value[x]">
       <path value="Extension.value[x]"/>
       <min value="1"/>
       <type>
@@ -172,7 +164,7 @@
         <strength value="required"/>
         <description value="The RAND scoring for appropriateness of the procedure."/>
         <valueSetReference>
-          <reference value="http://hl7.org/fhir/ValueSet/qicore-appropriateness-score"/>
+          <reference value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
         </valueSetReference>
       </binding>
     </element>

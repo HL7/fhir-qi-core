@@ -4,6 +4,7 @@
     <name value="Indicates the current or former military service of the patient"/>
     <title value="militaryService"/>
     <status value="draft"/>
+    <date value="2015-02-27"/>
     <publisher value="Health Level Seven International (Clinical Quality Information - QICore)"/>
     <contact>
         <telecom>
@@ -11,7 +12,6 @@
             <value value="http://hl7.org/special/committees/CQI"/>
         </telecom>
     </contact>
-    <date value="2015-02-27"/>
     <description value="Status indicating the current or former military service of the patient."/>
     <fhirVersion value="3.0.1"/>
     <kind value="complex-type"/>
@@ -22,7 +22,7 @@
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
     <derivation value="constraint"/>
     <snapshot>
-        <element>
+        <element id="Extension">
             <path value="Extension"/>
             <short value="Indicates the current or former military service of the patient"/>
             <definition value="Status indicating the current or former military service of the patient."/>
@@ -33,11 +33,8 @@
                 <min value="0"/>
                 <max value="*"/>
             </base>
-            <type>
-                <code value="Extension"/>
-            </type>
         </element>
-        <element>
+        <element id="Extension.id">
             <path value="Extension.id"/>
             <representation value="xmlAttr"/>
             <short value="xml:id (or equivalent in JSON)"/>
@@ -57,7 +54,7 @@
                 <map value="n/a"/>
             </mapping>
         </element>
-        <element>
+        <element id="Extension.extension">
             <path value="Extension.extension"/>
             <sliceName value="extension"/>
             <short value="Extension"/>
@@ -73,7 +70,7 @@
                 <code value="Extension"/>
             </type>
         </element>
-        <element>
+        <element id="Extension.url">
             <path value="Extension.url"/>
             <representation value="xmlAttr"/>
             <short value="identifies the meaning of the extension"/>
@@ -98,7 +95,7 @@
                 <map value="N/A"/>
             </mapping>
         </element>
-        <element>
+        <element id="Extension.valueCodeableConcept">
             <path value="Extension.valueCodeableConcept"/>
             <short value="Value of extension"/>
             <definition value="Value of extension - may be a resource or one of a constrained set of the data types (see
@@ -127,29 +124,26 @@
         </element>
     </snapshot>
     <differential>
-        <element>
+        <element id="Extension">
             <path value="Extension"/>
             <short value="Indicates the current or former military service of the patient"/>
             <definition value="Status indicating the current or former military service of the patient."/>
             <min value="0"/>
             <max value="1"/>
-            <type>
-                <code value="Extension"/>
-            </type>
         </element>
-        <element>
+        <element id="Extension.extension">
             <path value="Extension.extension"/>
             <sliceName value="extension"/>
             <max value="0"/>
         </element>
-        <element>
+        <element id="Extension.url">
             <path value="Extension.url"/>
             <type>
                 <code value="uri"/>
             </type>
             <fixedUri value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient-militaryService"/>
         </element>
-        <element>
+        <element id="Extension.value[x]">
             <path value="Extension.value[x]"/>
             <min value="1"/>
             <type>
