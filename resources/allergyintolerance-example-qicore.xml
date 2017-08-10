@@ -1,37 +1,127 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
-<AllergyIntolerance xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/allergyintolerance.xsd">
+<AllergyIntolerance 
+  xmlns="http://hl7.org/fhir">
   <id value="qicore-allergyintolerance-example"/>
+  <!--    an identifier used for this allergic propensity (adverse reaction risk)    -->
   <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">Generated narrative...</div>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <strong>id</strong>: example
+      </p>
+      <p>
+        <strong>identifier</strong>: 49476534
+      </p>
+      <p>
+        <strong>clinicalStatus</strong>: active
+      </p>
+      <p>
+        <strong>verificationStatus</strong>: confirmed
+      </p>
+      <p>
+        <strong>type</strong>: allergy
+      </p>
+      <p>
+        <strong>category</strong>: food
+      </p>
+      <p>
+        <strong>criticality</strong>: high
+      </p>
+      <p>
+        <strong>code</strong>: Cashew nuts 
+        <span>(Details: { SNOMED CT code '227493005' = 'Cashew nuts', given as 'Cashew nuts' })</span>
+      </p>
+      <p>
+        <strong>patient</strong>: 
+        <a href="Patient-qicore-patient-example.html">Patient/example</a>
+      </p>
+      <p>
+        <strong>onset</strong>: 01/01/2004
+      </p>
+      <p>
+        <strong>assertedDate</strong>: 10/09/2014
+      </p>
+      <p>
+        <strong>recorder</strong>: 
+        <a href="Practitioner-qicore-practitioner-example.html">Practitioner/example</a>
+      </p>
+      <p>
+        <strong>asserter</strong>: 
+        <a href="Patient-qicore-patient-example.html">Patient/example</a>
+      </p>
+      <p>
+        <strong>lastOccurrence</strong>: 01/06/2012
+      </p>
+      <p>
+        <strong>note</strong>: The criticality is high because of the observed anaphylactic reaction when challenged with cashew extract.
+      </p>
+      <blockquote>
+        <p>
+          <strong>reaction</strong>
+        </p>
+        <p>
+          <strong>substance</strong>: cashew nut allergenic extract Injectable Product 
+          <span> (Details: { RxNorm code '1160593' = '1160593', given as 'cashew nut allergenic extract Injectable Product' })</span>
+        </p>
+        <p>
+          <strong>manifestation</strong>: Anaphylactic reaction 
+          <span> (Details: { SNOMED CT code '39579001' = 'Anaphylaxis', given as 'Anaphylactic reaction' })</span>
+        </p>
+        <p>
+          <strong>description</strong>: Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered
+        </p>
+        <p>
+          <strong>onset</strong>: 12/06/2012
+        </p>
+        <p>
+          <strong>severity</strong>: severe
+        </p>
+        <p>
+          <strong>exposureRoute</strong>: Subcutaneous route 
+          <span> (Details: { SNOMED CT code '34206005' = 'Subcutaneous route', given as 'Subcutaneous route' })</span>
+        </p>
+      </blockquote>
+      <blockquote>
+        <p>
+          <strong>reaction</strong>
+        </p>
+        <p>
+          <strong>manifestation</strong>: Urticaria 
+          <span> (Details: {SNOMED CT code '64305001' = 'Urticaria', given as 'Urticaria'})</span>
+        </p>
+        <p>
+          <strong>onset</strong>: 01/01/2004
+        </p>
+        <p>
+          <strong>severity</strong>: moderate
+        </p>
+        <p>
+          <strong>note</strong>: The patient reports that the onset of urticaria was within 15 minutes of eating cashews.
+        </p>
+      </blockquote>
+    </div>
   </text>
-
-  <!-- an identifier used for this Adverse Reaction Risk -->
   <identifier>
     <system value="http://acme.com/ids/patients/risks"/>
     <value value="49476534"/>
   </identifier>
-
-  <!-- this individual has had several reactions -->
+  <!--    this individual has had several reactions    -->
   <clinicalStatus value="active"/>
   <verificationStatus value="confirmed"/>
-
-  <!-- note: it's often unknown whether an allergy is mediated by an immune response, and not as significant as once thought -->
+  <!--    note: it's often unknown whether an allergy is mediated by an immune response, and
+   not as significant as once thought    -->
   <type value="allergy"/>
-
-  <!-- this categorisation is implied by "cashew nut" and therefore basically
-    redundant, but many systems collect this field anyway, since it's either
-    useful when the substance/product is not coded, or it's quicker to sort/filter on
-    than using terminology based reasoning -->
+  <!--    this categorisation is implied by "cashew nut" and therefore basically 
+    redundant, but many systems collect this field anyway, since it's either 
+    useful when the substance is not coded, or it's quicker to sort/filter on
+    than using terminology based reasoning    -->
   <category value="food"/>
-
-  <!-- there is no question that the allergy is real and serious -->
+  <!--    there is no question that the allergy is real and serious    -->
   <criticality value="high"/>
-
-  <!-- Allergy or intolerance code (substance, product, condition or negated/excluded statement) or text. A few times,
+  <!--    Allergy or intolerance code (substance, product, condition or negated/excluded statement)
+   or text. A few times, 
     there's a full description of a complex substance/product - in these caes, use the
-    extension [url] to refer to a Substance resource. -->
+    extension [url] to refer to a Substance resource.    -->
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -39,35 +129,41 @@
       <display value="Cashew nuts"/>
     </coding>
   </code>
-
-  <!-- the patient that actually has the risk of adverse reaction -->
+  <!--    the patient that actually has the risk of adverse reaction    -->
   <patient>
     <reference value="Patient/example"/>
   </patient>
-
-  <!-- the date that this entry was recorded -->
+  <!--    when the allergy was first noted (in this case the same as reaction.onset of the first
+   occurrence)    -->
+  <onsetDateTime value="2004"/>
+  <!--    the date that this entry was recorded    -->
   <assertedDate value="2014-10-09T14:58:00+11:00"/>
-
-  <!-- who made the record / last updated it -->
+  <!--    who made the record / last updated it    -->
   <recorder>
     <reference value="Practitioner/example"/>
   </recorder>
-
-  <!-- last happened June 2012. Typically, systems either track lastOccurrence,
-     or a list of events. -->
+  <!--    the patient is the reporter in this case    -->
+  <asserter>
+    <reference value="Patient/example"/>
+  </asserter>
+  <!--    last happened June 2012. Typically, systems either track lastOccurrence,
+     or a list of events.    -->
   <lastOccurrence value="2012-06"/>
-
-  <!-- past events. There's no claim that this is all the events, and
-     that should not be assumed -->
+  <!--    an additional note about the allergy propensity by the recorder    -->
+  <note>
+    <text value="The criticality is high becasue of the observed anaphylactic reaction when challenged     with cashew extract."/>
+  </note>
+  <!--    past events. There's no claim that this is all the events, and 
+     that should not be assumed    -->
   <reaction>
-    <!--
+    <!--    
       It's possible to list specific things to which the patient responded,
       e.g. chocolate (that happened to contain cashew nuts). This event has
       such a specific substance. Note that systems should ensure that what
       goes in here does not conflict with the substance above, and systems
       processing the data can be sure that what is here does not contravene
       the substance above
-    -->
+       -->
     <substance>
       <coding>
         <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -75,7 +171,6 @@
         <display value="cashew nut allergenic extract Injectable Product"/>
       </coding>
     </substance>
-
     <manifestation>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -83,12 +178,19 @@
         <display value="Anaphylactic reaction"/>
       </coding>
     </manifestation>
-    <description value="Challenge Protocol. Severe Reaction to 1/8 cashew. Epinephrine administered"/>
+    <description value="Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered"/>
     <onset value="2012-06-12"/>
     <severity value="severe"/>
+    <exposureRoute>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="34206005"/>
+        <display value="Subcutaneous route"/>
+      </coding>
+    </exposureRoute>
   </reaction>
+  <!--    this was the first occurrence    -->
   <reaction>
-    <!-- this was the first occurence -->
     <manifestation>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -98,5 +200,9 @@
     </manifestation>
     <onset value="2004"/>
     <severity value="moderate"/>
+    <!--    an additional note about the reaction by the recorder    -->
+    <note>
+      <text value="The patient reports that the onset of urticaria was within 15 minutes of eating cashews."/>
+    </note>
   </reaction>
 </AllergyIntolerance>

@@ -1,0 +1,66 @@
+<BodySite 
+  xmlns="http://hl7.org/fhir">
+  <id value="qicore-bodysite-example"/>
+  <text>
+    <status value="generated"/>
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <strong>Generated Narrative with Details</strong>
+      </p>
+      <p>
+        <strong>id</strong>: tumor
+      </p>
+      <p>
+        <strong>identifier</strong>: 12345
+      </p>
+      <p>
+        <strong>code</strong>: Splenic mass 
+        <span>(Details: { SNOMED CT code '4147007' = 'Mass', given as 'Mass (morphologic abnormality)' })</span>
+      </p>
+      <p>
+        <strong>qualifier</strong>: Splenic mass 
+        <span>(Details: { SNOMED CT code '78961009' = 'Spleen', given as 'Splenic structure (body structure)' })</span>
+      </p>
+      <p>
+        <strong>description</strong>: 7 cm maximum diameter
+      </p>
+      <p>
+        <strong>image</strong>: 
+      </p>
+      <p>
+        <strong>patient</strong>:
+        <a href="Patient-qicore-patient-example.html">Patient/example</a>
+      </p>
+    </div>
+  </text>
+  <identifier>
+    <system value="http://goodhealth.org/bodysite/identifiers"/>
+    <value value="12345"/>
+  </identifier>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="4147007"/>
+      <display value="Mass (morphologic abnormality)"/>
+    </coding>
+    <text value="Splenic mass"/>
+  </code>
+  <qualifier>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="78961009"/>
+      <display value="Splenic structure (body structure)"/>
+    </coding>
+    <text value="Splenic mass"/>
+  </qualifier>
+  <description value="7 cm maximum diameter"/>
+  <image>
+    <!-- The actual image could be anywhere. This is a WADO example using a ficitious url -->
+    <contentType value="application/dicom"/>
+    <url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;amp;wado_details"/>
+  </image>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</BodySite>
