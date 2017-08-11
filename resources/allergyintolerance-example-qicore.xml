@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AllergyIntolerance 
-  xmlns="http://hl7.org/fhir">
+  xmlns="http://hl7.org/fhir/STU3/">
   <id value="qicore-allergyintolerance-example"/>
   <!--    an identifier used for this allergic propensity (adverse reaction risk)    -->
   <text>
@@ -78,7 +78,7 @@
         </p>
         <p>
           <strong>exposureRoute</strong>: Subcutaneous route 
-          <span> (Details: { SNOMED CT code '34206005' = 'Subcutaneous route', given as 'Subcutaneous route' })</span>
+          <span>(Details: { SNOMED CT code '34206005' = 'Subcutaneous route', given as 'Subcutaneous route' })</span>
         </p>
       </blockquote>
       <blockquote>
@@ -148,7 +148,7 @@
   </asserter>
   <!--    last happened June 2012. Typically, systems either track lastOccurrence,
      or a list of events.    -->
-  <lastOccurrence value="2012-06"/>
+  <lastOccurrence value="2012-06-02T01:45:31+00:00"/>
   <!--    an additional note about the allergy propensity by the recorder    -->
   <note>
     <text value="The criticality is high becasue of the observed anaphylactic reaction when challenged     with cashew extract."/>

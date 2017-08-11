@@ -1,42 +1,88 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- Placeholder copied from base resource example.  To be updated for QICore.  -->
-<Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/condition.xsd">
+<Condition 
+  xmlns="http://hl7.org/fhir/STU3" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir/STU3/ ../schema/condition.xsd">
   <id value="qicore-condition-example"/>
   <text>
-   <status value="generated"/>
-   <div xmlns="http://www.w3.org/1999/xhtml">Severe burn of left ear (Date: 24-May 2012)</div>
- </text>
- <extension url="http://hl7.org/fhir/StructureDefinition/condition-criticality">
-   <valueCodeableConcept>
-     <coding>
-       <system value="http://snomed.info/sct"/>
-       <code value="399166001" />
-       <display value="Fatal"/>
-     </coding>
-   </valueCodeableConcept>
- </extension>
- <clinicalStatus value="active"/>
+    <status value="generated"/>
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
+      <blockquote>
+        <p><strong>condition-criticality</strong></p>
+        <p>
+          <strong>code</strong>: { SNOMED CT code '399166001' = 'Fatal' }
+        </p>
+      </blockquote>
+      <p>
+        <strong>clinicalStatus</strong>: confirmed
+      </p>
+      <blockquote>
+        <p><strong>category</strong></p>
+        <p>
+          <strong>coding 1</strong>: Problem List Item
+        </p>
+        <p>
+          <strong>coding 2</strong>: { SNOMED CT code '439401001' = 'Diagnosis' }
+        </p>
+      </blockquote>
+      <p>
+        <strong>severity</strong>: { SNOMED CT code '24484000' = 'Severe (severity modifier)' }
+      </p>
+      <blockquote>
+        <p><strong>code</strong>: Burnt Ear</p>
+        <p>
+          <strong>coding 3</strong>: { SNOMED CT code '39065001' = 'Burn of ear' }
+        </p>
+      </blockquote>
+      <blockquote>
+        <p><strong>bodySite</strong>: Left Ear</p>
+        <p>
+          <strong>coding 4</strong>: { SNOMED CT code '49521004' = 'Left external ear structure' }
+        </p>
+      </blockquote>
+      <p>
+        <strong>subject</strong>: 
+        <a href="Patient-qicore-patient-example.html">Patient/example</a>
+      </p>
+      <p>
+        <strong>onsetDateTime</strong>: 05/24/2012
+      </p>
+    </div>
+  </text>
+
+
+
+  <extension url="http://hl7.org/fhir/STU3/StructureDefinition/condition-criticality">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="399166001" />
+        <display value="Fatal"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <clinicalStatus value="active"/>
   <verificationStatus value="confirmed"/>
- <category>
-   <coding>
-    <system value="http://hl7.org/fhir/condition-category"/>
-    <code value="problem-list-item"/>
-    <display value="Problem List Item"/>
-   </coding>
-   <!-- and also a SNOMED CT coding -->
-   <coding>
-    <system value="http://snomed.info/sct"/>
-    <code value="439401001"/>
-    <display value="Diagnosis"/>
-   </coding>
- </category>
- <severity>
-   <coding>
-    <system value="http://snomed.info/sct"/>
-    <code value="24484000"/>
-    <display value="Severe (severity modifier)"/>
-   </coding>
- </severity>
+  <category>
+    <coding>
+      <system value="http://hl7.org/fhir/STU3/condition-category"/>
+      <code value="problem-list-item"/>
+      <display value="Problem List Item"/>
+    </coding>
+    <!-- and also a SNOMED CT coding -->
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="439401001"/>
+      <display value="Diagnosis"/>
+    </coding>
+  </category>
+  <severity>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="24484000"/>
+      <display value="Severe (severity modifier)"/>
+    </coding>
+  </severity>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -45,16 +91,16 @@
     </coding>
     <text value="Burnt Ear"/>
   </code>
- <bodySite>
+  <bodySite>
     <coding>
       <system value="http://snomed.info/sct"/>
       <code value="49521004"/>
       <display value="Left external ear structure"/>
     </coding>
     <text value="Left Ear"/>
- </bodySite>
+  </bodySite>
   <subject>
     <reference value="Patient/example"/>
   </subject>
- <onsetDateTime value="2012-05-24"/>
+  <onsetDateTime value="2012-05-24T00:00:00+00:00"/>
 </Condition>
