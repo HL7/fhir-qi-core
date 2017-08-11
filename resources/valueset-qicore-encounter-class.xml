@@ -1,0 +1,46 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+    <id value="qicore-encounter-class"/>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-ballot-status">
+        <valueString value="External"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm">
+        <valueInteger value="2"/>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
+        <valueCode value="pa"/>
+    </extension>
+    <url value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-encounter-class"/>
+    <identifier>
+        <system value="urn:ietf:rfc:3986"/>
+        <value value="urn:oid:2.16.840.1.113883.1.11.13955"/>
+    </identifier>
+    <version value="2014-03-26"/>
+    <name value="ActEncounterCode"/>
+    <status value="active"/>
+    <experimental value="false"/>
+    <publisher value="HL7 v3"/>
+    <contact>
+        <telecom>
+            <system value="url"/>
+            <value value="http://www.hl7.org"/>
+        </telecom>
+    </contact>
+    <description value=" Domain provides codes that qualify the ActEncounterClass (ENC)"/>
+    <immutable value="false"/>
+    <compose>
+        <include>
+            <system value="http://hl7.org/fhir/us/qicore/CodeSystem/qicore-encounter-class"/>
+            <filter>
+                <property value="concept"/>
+                <op value="is-a"/>
+                <value value="_ActEncounterCode"/>
+            </filter>
+        </include>
+        <exclude>
+            <system value="http://hl7.org/fhir/us/qicore/CodeSystem/qicore-encounter-class"/>
+            <concept>
+                <code value="_ActEncounterCode"/>
+            </concept>
+        </exclude>
+    </compose>
+</ValueSet>
