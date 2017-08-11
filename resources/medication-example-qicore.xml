@@ -14,9 +14,7 @@
     <text value="Salmeterol/fluticason"/>
   </code>
   <isBrand value="false"/>
-  <!--Seretide;Advair;Adoair;Foxaire;Viani-->
-  <!--kind value="product"/-->
-  <product>
+  <form>
     <extension url="http://hl7.org/fhir/StructureDefinition/medication-usualRoute" >
       <valueCodeableConcept>
         <coding>
@@ -26,52 +24,46 @@
         </coding>
       </valueCodeableConcept>
     </extension>
-    <form>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="421606006"/>
-        <display value="Aerosol spray"/>
-      </coding>
-    </form>
-    <ingredient>
-      <extension url="http://hl7.org/fhir/StructureDefinition/medication-isActiveIngredient" >
-        <valueBoolean value="true"/>
-      </extension>
-      <itemCodeableConcept>
-        <text value="flutacisone"/>
-      </itemCodeableConcept>
-      <amount>
-        <numerator>
-          <value value="115"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="ug"/>
-        </numerator>
-        <denominator>
-          <value value="1"/>
-          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-          <code value="PUFF"/>
-        </denominator>
-      </amount>
-    </ingredient>
-    <ingredient>
-      <extension url="http://hl7.org/fhir/StructureDefinition/medication-isActiveIngredient" >
-        <valueBoolean value="true"/>
-      </extension>
-      <itemCodeableConcept>
-        <text value="salmeterol"/>
-      </itemCodeableConcept>
-      <amount>
-        <numerator>
-          <value value="21"/>
-          <system value="http://unitsofmeasure.org"/>
-          <code value="ug"/>
-        </numerator>
-        <denominator>
-          <value value="1"/>
-          <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-          <code value="PUFF"/>
-        </denominator>
-      </amount>
-    </ingredient>
-  </product>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="421606006"/>
+      <display value="Aerosol spray"/>
+    </coding>
+  </form>
+  <ingredient>
+    <itemCodeableConcept>
+      <text value="flutacisone"/>
+    </itemCodeableConcept>
+    <isActive value="true"/>
+    <amount>
+      <numerator>
+        <value value="115"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ug"/>
+      </numerator>
+      <denominator>
+        <value value="1"/>
+        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+        <code value="PUFF"/>
+      </denominator>
+    </amount>
+  </ingredient>
+  <ingredient>
+    <itemCodeableConcept>
+      <text value="salmeterol"/>
+    </itemCodeableConcept>
+    <isActive value="true"/>
+    <amount>
+      <numerator>
+        <value value="21"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ug"/>
+      </numerator>
+      <denominator>
+        <value value="1"/>
+        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
+        <code value="PUFF"/>
+      </denominator>
+    </amount>
+  </ingredient>
 </Medication>
