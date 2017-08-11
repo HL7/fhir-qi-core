@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<AllergyIntolerance 
+  xmlns="http://hl7.org/fhir">
+  <id value="qicore-allergyintolerance-refuted-example"/>
+  <!--    an identifier used for this allergic propensity (adverse reaction risk)    -->
+  <text>
+    <status value="generated"/>
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
+      <p>
+        <strong>id</strong>: example      
+      </p>
+      <p>
+        <strong>identifier</strong>: 49476534      
+      </p>
+      <p>
+        <strong>clinicalStatus</strong>: inactive      
+      </p>
+      <p>
+        <strong>verificationStatus</strong>: refuted      
+      </p>
+      <p>
+        <strong>type</strong>: allergy      
+      </p>
+      <p>
+        <strong>category</strong>: food      
+      </p>
+      <p>
+        <strong>code</strong>: Cashew nuts         
+        <span>(Details: { SNOMED CT code '227493005' = 'Cashew nuts', given as 'Cashew nuts' })</span>
+      </p>
+      <p>
+        <strong>patient</strong>:         
+        <a href="Patient-qicore-patient-example.html">Patient/example</a>
+      </p>
+      <p>
+        <strong>assertedDate</strong>: 10/09/2014      
+      </p>
+      <p>
+        <strong>recorder</strong>:         
+        <a href="Practitioner-qicore-practitioner-example.html">Practitioner/example</a>
+      </p>
+      <p>
+        <strong>asserter</strong>:         
+        <a href="Patient-qicore-patient-example.html">Patient/example</a>
+      </p>
+    </div>
+  </text>
+
+  <extension url="http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/v3/ActReason"/>
+        <code value="MED" />
+        <display value="Medical Status Altered"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+
+  <identifier>
+    <system value="http://acme.com/ids/patients/risks"/>
+    <value value="49476534"/>
+  </identifier>
+  <!--    this allergy has been refuted    -->
+  <clinicalStatus value="inactive"/>
+  <verificationStatus value="refuted"/>
+  <type value="allergy"/>
+  <!--    this categorisation is implied by "cashew nut" and therefore basically 
+    redundant, but many systems collect this field anyway, since it's either 
+    useful when the substance is not coded, or it's quicker to sort/filter on
+    than using terminology based reasoning    -->
+  <category value="food"/>
+  <!--    Allergy or intolerance code (substance, product, condition or negated/excluded statement)
+   or text. A few times, 
+    there's a full description of a complex substance/product - in these caes, use the
+    extension [url] to refer to a Substance resource.    -->
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="227493005"/>
+      <display value="Cashew nuts"/>
+    </coding>
+  </code>
+  <!--    the patient that actually has the risk of adverse reaction    -->
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <!--    the date that this entry was recorded    -->
+  <assertedDate value="2014-10-09T14:58:00+11:00"/>
+  <!--    who made the record / last updated it    -->
+  <recorder>
+    <reference value="Practitioner/example"/>
+  </recorder>
+  <!--    the patient is the reporter in this case    -->
+  <asserter>
+    <reference value="Patient/example"/>
+  </asserter>
+</AllergyIntolerance>

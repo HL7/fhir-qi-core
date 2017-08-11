@@ -6,13 +6,13 @@
 		"temp": "temp",
 		"output": "output",
 		"qa": "qa",
-		"specification": "http://hl7.org/fhir/"
+		"specification": "http://hl7.org/fhir/STU3/"
 	},
 	"logging": ["init", "progress", "context", "html", "tx"],
 	"special-urls":[
 		"urn:oid:2.16.840.1.113883.6.238"
 	],
-  	"dependencyList" : [
+  	"dependencyList": [
 		{
 			"name": "uscore",
 			"location": "http://hl7.org/fhir/us/core",
@@ -24,6 +24,12 @@
 			"template-format": "instance-template-example.html"
 		},
 		"AdverseEvent": {				
+			"template-format": "instance-template-example.html"
+		},
+		"BodySite": {				
+			"template-format": "instance-template-example.html"
+		},
+		"Claim": {
 			"template-format": "instance-template-example.html"
 		},
 		"Communication": {
@@ -106,7 +112,7 @@
 	"sct-edition": "http://snomed.info/sct/731000124108",
 	"extraTemplates": [
       "mappings"
-   ],
+   	],
 	"canonicalBase": "http://hl7.org/fhir/us/qicore",
 	"source": "qicore.xml",
 	"spreadsheets": [
@@ -447,9 +453,17 @@
 			"source": "allergyintolerance-example-qicore.xml",
 			"base": "AllergyIntolerance-allergyintolerance-example-qicore.html"
 		},
-		"AllergyIntolerance/allergyintolerance-example-refuted": {
-			"source": "allergyintolerance-example-refuted.xml",
-			"base": "AllergyIntolerance-allergyintolerance-example-refuted.html"
+		"AllergyIntolerance/allergyintolerance-example-refuted-qicore": {
+			"source": "allergyintolerance-example-refuted-qicore.xml",
+			"base": "AllergyIntolerance-allergyintolerance-example-refuted-qicore.html"
+		},
+		"BodySite/bodysite-example-qicore": {
+			"source": "bodysite-example-qicore.xml",
+			"base": "Bodysite-bodysite-example-qicore.html"
+		},
+		"Claim/claim-example-qicore": {
+			"source": "claim-example-qicore.xml",
+			"base": "Claim-claim-example-qicore.html"
 		},
 		"Communication/communication-example-qicore": {
 			"source": "communication-example-qicore.xml",
