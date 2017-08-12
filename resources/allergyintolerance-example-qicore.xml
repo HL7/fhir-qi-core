@@ -1,11 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <AllergyIntolerance 
-  xmlns="http://hl7.org/fhir/STU3/">
+  xmlns="http://hl7.org/fhir" 
+  xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/diagnosticreport.xsd">
   <id value="qicore-allergyintolerance-example"/>
   <!--    an identifier used for this allergic propensity (adverse reaction risk)    -->
   <text>
     <status value="generated"/>
-    <div xmlns="http://www.w3.org/1999/xhtml">
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
       <p>
         <strong>id</strong>: example
       </p>
@@ -28,7 +30,7 @@
         <strong>criticality</strong>: high
       </p>
       <p>
-        <strong>code</strong>: Cashew nuts 
+        <strong>code</strong>: Cashew nuts
         <span>(Details: { SNOMED CT code '227493005' = 'Cashew nuts', given as 'Cashew nuts' })</span>
       </p>
       <p>
@@ -60,15 +62,13 @@
           <strong>reaction</strong>
         </p>
         <p>
-          <strong>substance</strong>: cashew nut allergenic extract Injectable Product 
-          <span> (Details: { RxNorm code '1160593' = '1160593', given as 'cashew nut allergenic extract Injectable Product' })</span>
+          <strong>substance</strong>: { RxNorm code '1160593' = '1160593', given as 'cashew nut allergenic extract Injectable Product' }
         </p>
         <p>
-          <strong>manifestation</strong>: Anaphylactic reaction 
-          <span> (Details: { SNOMED CT code '39579001' = 'Anaphylaxis', given as 'Anaphylactic reaction' })</span>
+          <strong>manifestation</strong>: { SNOMED CT code '39579001' = 'Anaphylaxis', given as 'Anaphylactic reaction' })
         </p>
         <p>
-          <strong>description</strong>: Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered
+          <strong>description</strong>: Challenge Protocol. Severe reaction to subcutaneous cashew extract. Epinephrine administered.
         </p>
         <p>
           <strong>onset</strong>: 12/06/2012
@@ -77,8 +77,7 @@
           <strong>severity</strong>: severe
         </p>
         <p>
-          <strong>exposureRoute</strong>: Subcutaneous route 
-          <span>(Details: { SNOMED CT code '34206005' = 'Subcutaneous route', given as 'Subcutaneous route' })</span>
+          <strong>exposureRoute</strong>: Subcutaneous route { SNOMED CT code '34206005' = 'Subcutaneous route', given as 'Subcutaneous route' }
         </p>
       </blockquote>
       <blockquote>
@@ -86,8 +85,7 @@
           <strong>reaction</strong>
         </p>
         <p>
-          <strong>manifestation</strong>: Urticaria 
-          <span> (Details: {SNOMED CT code '64305001' = 'Urticaria', given as 'Urticaria'})</span>
+          <strong>manifestation</strong>: { SNOMED CT code '64305001' = 'Urticaria', given as 'Urticaria' }
         </p>
         <p>
           <strong>onset</strong>: 01/01/2004
