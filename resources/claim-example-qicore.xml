@@ -137,10 +137,13 @@
     <reference value="MedicationRequest/example"/>
   </prescription>
   <payee>
+    <type>
+	  <coding>
+	    <code value="provider"/>
+	  </coding>
+	</type>
     <party>
-      <provider>
-        <reference value="Provider/example"/>
-      </provider>
+	  <reference value="Provider/example"/>
     </party>
   </payee>
   <careTeam>
