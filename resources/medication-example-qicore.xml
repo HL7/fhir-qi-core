@@ -1,69 +1,119 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/medication.xsd">
-  <id value="qicore-medication-example"/>
+<Medication xmlns="http://hl7.org/fhir">
+  <id value="med0303"/>
   <text>
-    <status value="generated" />
-    <div xmlns="http://www.w3.org/1999/xhtml">Generated narrative...</div>
+    <status value="generated"/>
+    <div xmlns="http://www.w3.org/1999/xhtml"><p> <strong> Generated Narrative with Details</strong> </p>
+      <p> <strong> id</strong> : med0303</p> <p> <strong> contained</strong> : </p>
+      <p> <strong> code</strong> : Alemtuzumab 10mg/ml (Lemtrada) <span> (Details : {RxNorm code '1594660' = '1594660', given as 'Alemtuzumab 10mg/ml (Lemtrada)'})</span> </p>
+      <p> <strong> isBrand</strong> : true</p>
+      <p> <strong> manufacturer</strong> : id: org6; name: Genzyme</p>
+      <p> <strong> form</strong> : Injection solution (qualifier vallue) <span> (Details : {SNOMED CT code '385219001' = 'Injection solution', given as 'Injection solution (qualifier vallue)'})</span> </p>
+      <h3> Ingredients</h3> <table>
+        <tr>
+          <td> -</td>
+          <td> <strong> ItemReference</strong> </td>
+          <td> <strong> isActive</strong> </td>
+          <td> <strong> Amount</strong> </td>
+        </tr>
+        <tr>
+          <td> *</td>
+          <td> Alemtuzamab (substance) <span> (Details : {SNOMED CT code '129472003' = 'Alemtuzumab', given as 'Alemtuzamab (substance)'})</span> </td>
+          <td> 12 mg<span>  (Details: UCUM code mg = 'mg')</span> /1.2 mL<span>  (Details: UCUM code mL = 'mL')</span> </td>
+        </tr>
+      </table>
+      <blockquote>
+        <p> <strong> package</strong> </p>
+        <p> <strong> container</strong> : Vial <span> (Details : {SNOMED CT code '415818006' = 'Vial', given as 'Vial'})</span> </p>
+        <h3> Contents</h3>
+        <table>
+          <tr>
+            <td> -</td>
+            <td> <strong> Item[x]</strong> </td>
+            <td> <strong> Amount</strong> </td>
+          </tr>
+          <tr>
+            <td> *</td>
+            <td> Alemtuzumab 30mg/3mL infusion concentrate (product) <span> (Details : {SNOMED CT code '408596005' = 'Alemtuzumab 30mg/3mL infusion concentrate', given as 'Alemtuzumab 30mg/3mL infusion concentrate (product)'})</span> </td>
+            <td> 3 mL<span>  (Details: UCUM code mL = 'mL')</span> </td>
+          </tr>
+        </table>
+        <h3> Batches</h3>
+        <table>
+          <tr>
+            <td> -</td>
+            <td> <strong> LotNumber</strong> </td>
+            <td> <strong> ExpirationDate</strong></td>
+          </tr>
+          <tr>
+            <td> *</td>
+            <td> 9494788</td>
+            <td> 22/05/2017</td>
+          </tr>
+        </table>
+      </blockquote>
+    </div>
   </text>
   <code>
     <coding>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
-      <code value="896239"/>
-      <display value="60 ACTUAT Fluticasone propionate 0.115 MG/ACTUAT / salmeterol 0.021 MG/ACTUAT Metered Dose Inhaler"/>
+      <code value="1594660"/>
+      <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
     </coding>
-    <text value="Salmeterol/fluticason"/>
   </code>
-  <isBrand value="false"/>
+  <isBrand value="true"/>
+  <manufacturer>
+    <reference value="Organization/example"/>
+  </manufacturer>
   <form>
-    <extension url="http://hl7.org/fhir/StructureDefinition/medication-usualRoute" >
-      <valueCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="447694001" />
-          <display value="Respiratory tract route"/>
-        </coding>
-      </valueCodeableConcept>
-    </extension>
     <coding>
       <system value="http://snomed.info/sct"/>
-      <code value="421606006"/>
-      <display value="Aerosol spray"/>
+      <code value="385219001"/>
+      <display value="Injection solution (qualifier value)"/>
     </coding>
   </form>
   <ingredient>
-    <itemCodeableConcept>
-      <text value="flutacisone"/>
-    </itemCodeableConcept>
+    <itemReference>
+      <reference value="Substance/example"/>
+    </itemReference>
     <isActive value="true"/>
     <amount>
       <numerator>
-        <value value="115"/>
+        <value value="12"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="ug"/>
+        <code value="mg"/>
       </numerator>
       <denominator>
-        <value value="1"/>
-        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-        <code value="PUFF"/>
+        <value value="1.2"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="mL"/>
       </denominator>
     </amount>
   </ingredient>
-  <ingredient>
-    <itemCodeableConcept>
-      <text value="salmeterol"/>
-    </itemCodeableConcept>
-    <isActive value="true"/>
-    <amount>
-      <numerator>
-        <value value="21"/>
+  <package>
+    <container>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="415818006"/>
+        <display value="Vial"/>
+      </coding>
+    </container>
+    <content>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="408596005"/>
+          <display value="Alemtuzumab 30mg/3mL infusion concentrate (product)"/>
+        </coding>
+      </itemCodeableConcept>
+      <amount>
+        <value value="3"/>
         <system value="http://unitsofmeasure.org"/>
-        <code value="ug"/>
-      </numerator>
-      <denominator>
-        <value value="1"/>
-        <system value="http://hl7.org/fhir/v3/orderableDrugForm"/>
-        <code value="PUFF"/>
-      </denominator>
-    </amount>
-  </ingredient>
+        <code value="mL"/>
+      </amount>
+    </content>
+    <batch>
+      <lotNumber value="9494788"/>
+      <expirationDate value="2017-05-22"/>
+    </batch>
+  </package>
 </Medication>

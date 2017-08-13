@@ -1,0 +1,68 @@
+<MedicationAdministration xmlns="http://hl7.org/fhir">
+    <id value="example"/>
+    <text> 
+        <status value="generated"/> 
+        <div xmlns="http://www.w3.org/1999/xhtml"><p> <strong> Generated Narrative with Details</strong> </p> 
+            <p> <strong> id</strong> : medadminexample03</p> 
+            <p> <strong> contained</strong> : </p> 
+            <p> <strong> status</strong> : on-hold</p> <p> <strong> medication</strong> : id: med0303; Alemtuzumab 10mg/ml (Lemtrada) <span> (Details : {RxNorm code '1594660' = '1594660', given as 'Alemtuzumab 10mg/ml (Lemtrada)'})</span> </p> 
+            <p> <strong> subject</strong> : <a> Donald Duck</a> </p> 
+            <p> <strong> context</strong> : <a> Encounter/f001</a> </p> 
+            <p> <strong> supportingInformation</strong> : <a> Condition/f204</a> </p> 
+            <p> <strong> effective</strong> : 15/01/2015 2:30:00 PM --&gt; 15/01/2015 2:30:00 PM</p> 
+            <p> <strong> notGiven</strong> : true</p> 
+            <p> <strong> reasonNotGiven</strong> : Administration of medication not done due to a contraindication (situation) <span> (Details : {SNOMED CT code '373147003' = 'Medication not administered because contraindicated',
+        given as 'Administration of medication not done due to a contraindication (situation)'})</span> </p> 
+            <p> <strong> prescription</strong> : <a> MedicationRequest/medrx0317</a> </p>
+            <p> <strong> dosage</strong> : <a> 3 mg by intravenous route</a> </p>
+            <p> <strong> note</strong> : Patient started Bupropion this morning - will administer in a reduced dose tomorrow</p> 
+        </div> 
+    </text>
+    <status value="on-hold"/>
+    <medicationReference>
+        <reference value="Medication/example"/>
+    </medicationReference>
+    <subject>
+        <reference value="Patient/example"/>
+        <display value="Donald Duck"/>
+    </subject>
+    <context>
+        <reference value="Encounter/example"/>
+    </context>
+    <supportingInformation>
+        <reference value="Condition/example"/>
+    </supportingInformation>
+    <effectivePeriod>
+        <start value="2015-01-15T14:30:00+01:00"/>
+        <end value="2015-01-15T14:30:00+01:00"/>
+    </effectivePeriod>
+    <notGiven value="true"/>
+    <reasonNotGiven>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373147003"/>
+            <display value="Administration of medication not done due to a contraindication (situation)"/>
+        </coding>
+    </reasonNotGiven>
+    <prescription>
+        <reference value="MedicationRequest/example"/>
+    </prescription>
+    <note>
+        <text value="Patient started Bupropion this morning - will administer in a reduced dose tomorrow"/>
+    </note>
+    <dosage>
+        <route>
+            <coding>
+                <system value="http://snomed.info/sct"/>
+                <code value="47625008"/>
+                <display value="Intravenous route (qualifier value)"/>
+            </coding>
+        </route>
+        <dose>
+            <value value="3"/>
+            <unit value="mg"/>
+            <system value="http://unitsofmeasure.org"/>
+            <code value="mg"/>
+        </dose>
+    </dosage>
+</MedicationAdministration> 
