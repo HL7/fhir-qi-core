@@ -4,7 +4,67 @@
   <text>
     <status value="additional"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
-      <p>  A simple care goal for a patient to lose weight due to obesity.</p>
+      <p>Simple care goal for an obese patient to lose weight</p>
+      <p>
+        <strong>identifier</strong>: 123
+      </p>
+      <p>
+        <strong>status</strong>: on-hold
+      </p>
+      <p>
+        <strong>assertedDate</strong>: 10/09/2014
+      </p>
+      <p>
+        <strong>category</strong>: { FHIR code 'dietary' = 'Dietary' }
+      </p>
+      <p>
+        <strong>priority</strong>: { FHIR code 'high-priority' = 'High Priority', given as 'high' })
+      </p>
+      <p>
+        <strong>description</strong>: Target weight is 160 to 180 lbs.
+      </p>
+      <p>
+        <strong>subject</strong>: 
+        <a href="Patient-qicore-patient-example.html">Patient/example</a>
+      </p>
+      <p>
+        <strong>startDate</strong>: 04/05/2015
+      </p>
+      <blockquote>
+        <p><strong>target</strong></p>
+        <p>
+          <strong>measure</strong>: { LOINC code '3141-9' = 'Weight Measured' })
+        </p>
+        <blockquote>
+          <p><strong>detailRange</strong></p>
+          <p>
+            <strong>low</strong>: 160 lbs
+          </p>
+          <p>
+            <strong>high</strong>: 180 lbs
+          </p>
+        </blockquote>
+        <p>
+          <strong>dueDate</strong>: 04/05/2015
+        </p>
+      </blockquote>
+      <p>
+        <strong>statusDate</strong>: 02/14/2016
+      </p>
+      <p>
+        <strong>statusReason</strong>: Patient wants to defer weight loss until after honeymoon.
+      </p>
+      <p>
+        <strong>expressedBy</strong>: 
+        <a href="Patient-qicore-patient-example.html">Patient/example</a>
+      </p>
+      <p>
+        <strong>addresses</strong>: obesity condition
+      </p>
+      <p>
+        <strong>outcomeReference</strong>: 
+        <a href="Observation-qicore-observation-example.html">Observation/example</a>
+      </p>
     </div>
   </text>
   <identifier>
@@ -32,7 +92,7 @@
     <reference value="Patient/example"/>
     <display value="Peter James Chalmers"/>
   </subject>
-  <startDate value="2015-04-05"/>
+  <startDate value="2015-04-05T17:49:10+00:00"/>
   <target>
     <measure>
       <coding>
@@ -55,9 +115,9 @@
         <code value="[lb_av]"/>
       </high>
     </detailRange>
-    <dueDate value="2016-04-05"/>
+    <dueDate value="2016-04-05T17:49:10+00:00"/>
   </target>
-  <statusDate value="2016-02-14"/>
+  <statusDate value="2016-02-14T17:49:10+00:00"/>
   <statusReason value="Patient wants to defer weight loss until after honeymoon."/>
   <expressedBy>
     <reference value="Patient/example"/>
