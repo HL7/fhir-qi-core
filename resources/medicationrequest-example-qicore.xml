@@ -3,7 +3,6 @@
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
   xsi:schemaLocation="http://hl7.org/fhir ..\schema\medicationrequest.xsd">
   <id value="qicore-medicationrequest-example"/>
-
   <text>
     <status value="generated"/>
     <div xmlns="http://www.w3.org/1999/xhtml">
@@ -26,7 +25,6 @@
   <!-- <requester>
     <agent>
       <reference value="Practitioner/example"/>
-      <display value="Patrick Pump"/>
     </agent>
   </requester> -->
   <dosageInstruction>
@@ -78,6 +76,12 @@
         <periodUnit value="d"/>
       </repeat>
     </timing>
+    <site>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="447964005"/>
+      </coding>
+    </site>
     <route>
       <coding>
         <system value="http://snomed.info/sct"/>
@@ -92,7 +96,6 @@
       <code value="ml"/>
     </doseQuantity>
   </dosageInstruction>
-
   <dispenseRequest>
     <quantity>
       <value value="100"/>
@@ -101,5 +104,4 @@
       <code value="ml"/>
     </quantity>
   </dispenseRequest>
-
 </MedicationRequest>

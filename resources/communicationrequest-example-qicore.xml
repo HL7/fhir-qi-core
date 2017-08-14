@@ -66,7 +66,7 @@
       </p>
       <p>
         <strong>recipient</strong>:         
-        <a href="https://www.hl7.org/fhir/STU3/organization-example-good-health-care.html">Provider/Example</a>
+        <a href="Organization-qicore-organization-example.html">Organization/Example</a>
       </p>
       <p>
         <strong>context</strong>:         
@@ -83,40 +83,14 @@
       </p>
       <p>
         <strong>sender</strong>:        
-        <a href="Organization-qicore-organization-example.html">Provider/Example</a>
+        <a href="Organization-qicore-patient-example.html">Patient/Example</a>
       </p>
       <p>
         <strong>requester</strong>:        
-        <a href="Organization-qicore-organization-example.html">Organization/Example</a>
+        <a href="Organization-qicore-practitioner-example.html">Practitioner/Example</a>
       </p>
     </div>
   </text>
-  <contained>
-    <Organization>
-      <id value="provider"/>
-      <identifier>
-        <system value="http://www.jurisdiction.com/provideroffices"/>
-        <value value="3456"/>
-      </identifier>
-    </Organization>
-  </contained>
-  <contained>
-    <Organization>
-      <id value="payor"/>
-      <identifier>
-        <system value="http://www.jurisdiction.com/insurer"/>
-        <value value="123456"/>
-      </identifier>
-    </Organization>
-  </contained>
-  <contained>
-    <Practitioner>
-      <id value="requester"/>
-      <identifier>
-        <value value="6789"/>
-      </identifier>
-    </Practitioner>
-  </contained>
   <!--   body of the resource   -->
   <identifier>
     <system value="http://www.jurisdiction.com/insurer/123456"/>
@@ -149,7 +123,7 @@
     <text value="written"/>
   </medium>
   <recipient>
-    <reference value="#provider"/>
+    <reference value="Oraganization/example"/>
   </recipient>
   <context>
     <reference value="Encounter/example"/>
@@ -160,11 +134,11 @@
   <occurrenceDateTime value="2016-06-10T11:01:10-08:00"/>
   <authoredOn value="2016-06-10T11:01:10-08:00"/>
   <sender>
-    <reference value="#payor"/>
+    <reference value="Patient/example"/>
   </sender>
-  <requester>
-    <agent>
-      <reference value="#requester"/>
-    </agent>
-  </requester>
+  <!--<requester>-->
+    <!--<agent>-->
+      <!--<reference value="Practitioner/example"/>-->
+    <!--</agent>-->
+  <!--</requester>-->
 </CommunicationRequest> 

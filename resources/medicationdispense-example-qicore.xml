@@ -33,7 +33,7 @@
     </actor>
   </performer>
   <authorizingPrescription>
-    <reference value="MedicationRequest/medicationrequest-example-qicore" />
+    <reference value="MedicationRequest/example"/>
   </authorizingPrescription>
   <quantity>
     <value value="100"/>
@@ -41,10 +41,22 @@
     <system value="http://unitsofmeasure.org"/>
     <code value="ml"/>
   </quantity>
+  <daysSupply>
+    <value value="30"/>
+    <unit value="Day"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="d"/>
+  </daysSupply>
   <whenPrepared value="2012-05-30T16:20:00+00:00"/>
   <whenHandedOver value="2012-05-31T10:20:00+00:00"/>
+  <destination>
+    <reference value="Location/example"/>
+  </destination>
+  <receiver>
+    <reference value="Patient/example"/>
+  </receiver>
   <dosageInstruction>
-    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType" >
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType">
       <valueCodeableConcept>
         <coding>
           <system value="http://snomed.info/sct"/>

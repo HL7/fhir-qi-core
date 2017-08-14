@@ -14,7 +14,6 @@
 	</type>
 	<subject>
 		<reference value="Patient/example"/>
-		<display value="Peter Patient"/>
 	</subject>
 	<receivedTime value="2011-03-04T07:03:00Z"/>
 	<collection>
@@ -44,6 +43,13 @@
 			<value value="6"/>
 			<unit value="mL"/>
 		</quantity>
+		<bodySite>
+			<coding>
+				<system value="http://snomed.info/sct"/>
+				<code value="7311008"/>
+				<display value="Anterior surface of arm"/>
+			</coding>
+		</bodySite>
 	</collection>
 	<processing>
 		<extension url="http://hl7.org/fhir/StructureDefinition/specimen-processingTime">
@@ -53,6 +59,13 @@
 			</valuePeriod>
 		</extension>
 		<description value="Treated with anticoagulants."/>
+		<procedure>
+			<coding>
+				<system value="http://hl7.org/fhir/v2/0373"/>
+				<code value="DEFB"/>
+				<display value="Defibrination"/>
+			</coding>
+		</procedure>
 		<additive>
 			<reference value="Substance/example"/>
 		</additive>
