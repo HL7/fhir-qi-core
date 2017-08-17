@@ -29,7 +29,11 @@
     <immutable value="false"/>
     <compose>
         <include>
-            <system value="http://hl7.org/fhir/us/qicore/CodeSystem/qicore-encounter-class"/>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
+            <concept>
+                <code value="OBS"/>
+                <display value="Observation Status"/>
+            </concept>
             <filter>
                 <property value="concept"/>
                 <op value="is-a"/>
@@ -37,7 +41,7 @@
             </filter>
         </include>
         <exclude>
-            <system value="http://hl7.org/fhir/us/qicore/CodeSystem/qicore-encounter-class"/>
+            <system value="http://hl7.org/fhir/v3/ActCode"/>
             <concept>
                 <code value="_ActEncounterCode"/>
             </concept>
