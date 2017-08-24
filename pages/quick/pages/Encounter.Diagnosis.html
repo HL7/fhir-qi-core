@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -43,6 +43,7 @@
       <div class='description'>
         <ul class='blockList'>
           <li class='blockList' style='font-size:115%;'>The list of diagnosis relevant to this encounter
+            <p />
           </li>
         </ul>
       </div>
@@ -61,74 +62,74 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
-  <tr class='rowColor'>
-    <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-      <strong>
-        <a name='period'>condition</a>
-      </strong>
-    </td>
-    <td class='colMid'>
-      <code>1..1</code>
-    </td>
-    <td class='colLast'>
-      <code><a href="Condition.html">Condition</a></code>
-      <blockquote>
-        <div class='block'>A list of conditions/problems/diagnoses that this episode of care is intended to be providing care for.</div>
-      </blockquote>
-    </td>
-  </tr>
-  <tr class='altColor'>
-    <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-      <strong>
-        <a name='id'>id</a>
-      </strong>
-    </td>
-    <td class='colMid'>
-      <code>0..1</code>
-    </td>
-    <td class='colLast'>
-      <code>String</code>
-      <blockquote>
-        <div class='block'>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</div>
-      </blockquote>
-    </td>
-  </tr>
-  <tr class='rowColor'>
-    <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-      <strong>
-        <a name='rank'>rank</a>
-      </strong>
-    </td>
-    <td class='colMid'>
-      <code>0..1</code>
-    </td>
-    <td class='colLast'>
-      <code>positiveInt</code>
-      <blockquote>
-        <div class='block'>Ranking of the diagnosis (for each role type).</div>
-      </blockquote>
-    </td>
-  </tr>
-  <tr class='altColor'>
-    <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
-      <strong>
-        <a name='status'>role</a>
-      </strong>
-    </td>
-    <td class='colMid'>
-      <code>0..1</code>
-    </td>
-    <td class='colLast'>
-      <code>Concept</code>
-      <blockquote>
-        <div class='block'>Role that this diagnosis has within the episode of care (e.g. admission, billing, discharge …).
-<p>Binding: <a title="This value set defines a set of codes that can be used to express the role of a diagnosis on the Encounter or EpisodeOfCare record." href="http://hl7.org/fhir/ValueSet/diagnosis-role">DiagnosisRole</a> (Preferred)</p></div>
-      </blockquote>
-    </td>
-  </tr></table>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='condition'>condition</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Reference</code>
+                    <blockquote>
+                      <div class='block'>Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='id'>id</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>String</code>
+                    <blockquote>
+                      <div class='block'>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='rank'>rank</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>positiveInt</code>
+                    <blockquote>
+                      <div class='block'>Ranking of the diagnosis (for each role type).</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='role'>role</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>Role that this diagnosis has within the encounter (e.g. admission, billing, discharge …).
+<p>Binding: <a title="The type of diagnosis this condition represents" href="http://hl7.org/fhir/STU3/valueset-diagnosis-role.html">DiagnosisRole</a> (Preferred)</p></div>
+                    </blockquote>
+                  </td>
+                </tr></table>
 <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
  class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
               </li>
@@ -140,7 +141,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>

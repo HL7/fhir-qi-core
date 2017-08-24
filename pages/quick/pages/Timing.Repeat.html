@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -43,7 +43,7 @@
       <div class='description'>
         <ul class='blockList'>
           <li class='blockList' style='font-size:115%;'>When the event is to occur
-            <p />A set of rules that describe when the event should occur.
+            <p />A set of rules that describe when the event is scheduled.
           </li>
         </ul>
       </div>
@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -75,7 +75,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Duration.html'>Duration</a> | interval&lt;<a href='Quantity.html'>Quantity</a>&gt; | interval&lt;DateTime&gt;</code>
+                    <code><a href='Duration.html'>Duration</a> | interval&lt;Quantity&gt; | interval&lt;DateTime&gt;</code>
                     <blockquote>
                       <div class='block'>Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.</div>
                     </blockquote>
@@ -116,6 +116,23 @@
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
+                      <a name='dayOfWeek'>dayOfWeek</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;code></code>
+                    <blockquote>
+                      <div class='block'>If one or more days of week is provided, then the action happens only on the specified day(s).
+<p>Binding: <a title="The days of the week." href="http://hl7.org/fhir/STU3/valueset-days-of-week.html">DaysOfWeek</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
                       <a name='duration'>duration</a>
                     </strong>
                   </td>
@@ -129,7 +146,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='durationMax'>durationMax</a>
@@ -145,7 +162,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='durationUnit'>durationUnit</a>
@@ -158,11 +175,11 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The units of time for the duration, in UCUM units.
-<p>Binding: <a title="A unit of time (units from UCUM)." href="http://hl7.org/fhir/ValueSet/units-of-time">UnitsOfTime</a> (Required)</p></div>
+<p>Binding: <a title="A unit of time (units from UCUM)." href="http://hl7.org/fhir/STU3/valueset-units-of-time.html">UnitsOfTime</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='frequency'>frequency</a>
@@ -178,7 +195,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='frequencyMax'>frequencyMax</a>
@@ -190,11 +207,11 @@
                   <td class='colLast'>
                     <code>Integer</code>
                     <blockquote>
-                      <div class='block'>If present, indicates that the frequency is a range - so repeat between [frequency] and [frequencyMax] times within the period or period range.</div>
+                      <div class='block'>If present, indicates that the frequency is a range - so to repeat between [frequency] and [frequencyMax] times within the period or period range.</div>
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='id'>id</a>
@@ -210,7 +227,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='offset'>offset</a>
@@ -226,7 +243,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='period'>period</a>
@@ -242,7 +259,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='rowColor'>
+                <tr class='altColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='periodMax'>periodMax</a>
@@ -258,7 +275,7 @@
                     </blockquote>
                   </td>
                 </tr>
-                <tr class='altColor'>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='periodUnit'>periodUnit</a>
@@ -271,7 +288,23 @@
                     <code>code</code>
                     <blockquote>
                       <div class='block'>The units of time for the period in UCUM units.
-<p>Binding: <a title="A unit of time (units from UCUM)." href="http://hl7.org/fhir/ValueSet/units-of-time">UnitsOfTime</a> (Required)</p></div>
+<p>Binding: <a title="A unit of time (units from UCUM)." href="http://hl7.org/fhir/STU3/valueset-units-of-time.html">UnitsOfTime</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='timeOfDay'>timeOfDay</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Time></code>
+                    <blockquote>
+                      <div class='block'>Specified time of day for action to take place.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -282,13 +315,13 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>0..1</code>
+                    <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code>List&lt;code></code>
                     <blockquote>
-                      <div class='block'>A real world event that the occurrence of the event should be tied to.
-<p>Binding: <a title="Real world event that the relating to the schedule." href="http://hl7.org/fhir/ValueSet/event-timing">EventTiming</a> (Required)</p></div>
+                      <div class='block'>Real world events that the occurrence of the event should be tied to.
+<p>Binding: <a title="Real world event relating to the schedule." href="http://hl7.org/fhir/STU3/valueset-event-timing.html">EventTiming</a> (Required)</p></div>
                     </blockquote>
                   </td>
                 </tr></table>
@@ -303,7 +336,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>

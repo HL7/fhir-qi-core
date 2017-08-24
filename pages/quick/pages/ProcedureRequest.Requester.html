@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -42,7 +42,7 @@
     <div class='contentContainer'>
       <div class='description'>
         <ul class='blockList'>
-          <li class='blockList' style='font-size:115%;'>Who/what is requesting service
+          <li class='blockList' style='font-size:115%;'>Who/what is requesting procedure or diagnostic
             <p />The individual who initiated the request and has responsibility for its activation.
           </li>
         </ul>
@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -75,9 +75,9 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a> | <a href='Patient.html'>Patient</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Device.html'>Device</a></code>
+                    <code>Reference</code>
                     <blockquote>
-                      <div class='block'>The device, practitioner, etc. who initiated the request.</div>
+                      <div class='block'>The device, practitioner or organization who initiated the request.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -104,16 +104,15 @@
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Organization.html'>Organization</a></code>
+                    <code>Reference</code>
                     <blockquote>
                       <div class='block'>The organization the device or practitioner was acting on behalf of.</div>
                     </blockquote>
                   </td>
-                </tr>
-              </table>
+                </tr></table>
 <p style="margin: 10px">Key: <i class="fa fa-check fa-fw"></i>&nbsp;=&nbsp;Must support, <i
  class="fa fa-star fa-fw"></i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"></i>&nbsp;=&nbsp;Is-Modifier</p>
               </li>
@@ -125,7 +124,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>

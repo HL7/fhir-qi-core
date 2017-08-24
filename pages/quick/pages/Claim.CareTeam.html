@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -37,12 +37,14 @@
 <!-- ========= END OF TOP NAVBAR ========= -->
 <!-- ======== START OF CLASS DATA ======== -->
     <div class='header'>
-      <h2 title='Class Claim.CareTeam' class='title'><a href="Claim.html">Claim</a></a>.CareTeam</h2>
+      <h2 title='Class Claim.CareTeam' class='title'><a href="Claim.html">Claim</a>.CareTeam</h2>
     </div>
     <div class='contentContainer'>
       <div class='description'>
         <ul class='blockList'>
-          <li class='blockList' style='font-size:115%;'>The members of the team who provided the overall service as well as their role and whether responsible and qualifications.</li>
+          <li class='blockList' style='font-size:115%;'>Members of the care team
+            <p />The members of the team who provided the overall service as well as their role and whether responsible and qualifications.
+          </li>
         </ul>
       </div>
       <div class='summary'>
@@ -60,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -89,7 +91,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Practitioner.html'>Practitioner</a> | <a href='Organization.html'>Organization</a></code>
+                    <code>Reference</code>
                     <blockquote>
                       <div class='block'>Member of the team who provided the overall service.</div>
                     </blockquote>
@@ -105,10 +107,10 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>The qualification which is applicable for this service.
-<p>Binding: <a title="Provider professional qualifications" href="http://hl7.org/fhir/ValueSet/provider-qualification">Example Provider Qualification Codes</a> (Example)</p></div>
+<p>Binding: <a title="Provider professional qualifications" href="http://hl7.org/fhir/STU3/valueset-provider-qualification.html">Example Provider Qualification Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -138,10 +140,26 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Code</code>
+                    <code>Concept</code>
                     <blockquote>
                       <div class='block'>The lead, assisting or supervising practitioner and their discipline if a multidisiplinary team.
-<p>Binding: <a title="The role codes for the care team members." href="http://hl7.org/fhir/ValueSet/claim-careteamrole">Claim Care Team Role Codes</a> (Example)</p></div>
+<p>Binding: <a title="The role codes for the care team members." href="http://hl7.org/fhir/STU3/valueset-claim-careteamrole.html">Claim Care Team Role Codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='sequence'>sequence</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>positiveInt</code>
+                    <blockquote>
+                      <div class='block'>Sequence of the careTeam which serves to order and provide a link.</div>
                     </blockquote>
                   </td>
                 </tr></table>
@@ -156,7 +174,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>

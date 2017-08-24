@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -42,8 +42,8 @@
     <div class='contentContainer'>
       <div class='description'>
         <ul class='blockList'>
-          <li class='blockList' style='font-size:115%;'>A digital Signature - XML DigSig, JWT, Graphical image of signature, etc.
-            <p />Base StructureDefinition for Signature Type
+          <li class='blockList' style='font-size:115%;'>A digital Signature - XML DigSig, JWS, Graphical image of signature, etc.
+            <p />Base StructureDefinition for Signature Type: A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.
           </li>
         </ul>
       </div>
@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -93,7 +93,7 @@
                   <td class='colLast'>
                     <code>code</code>
                     <blockquote>
-                      <div class='block'>A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature, etc.
+                      <div class='block'>A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jose for JWS, and image/* for a graphical image of a signature, etc.
 <p>Binding: <a title="The mime type of an attachment. Any valid mime type is allowed." href="http://www.rfc-editor.org/bcp/bcp13.txt">value set</a> (Required)</p></div>
                     </blockquote>
                   </td>
@@ -108,7 +108,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Uri | <a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Patient.html'>Patient</a> | <a href='Device.html'>Device</a> | <a href='Organization.html'>Organization</a></code>
+                    <code>Uri | Reference</code>
                     <blockquote>
                       <div class='block'>A reference to an application-usable description of the identity that is represented by the signature.</div>
                     </blockquote>
@@ -127,7 +127,7 @@
                     <code>List&lt;Code></code>
                     <blockquote>
                       <div class='block'>An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.
-<p>Binding: <a title="An indication of the reason that an entity signed the object" href="http://hl7.org/fhir/ValueSet/signature-type">Signature Type Codes</a> (Preferred)</p></div>
+<p>Binding: <a title="An indication of the reason that an entity signed the object" href="http://hl7.org/fhir/STU3/valueset-signature-type.html">Signature Type Codes</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -157,7 +157,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Uri | <a href='Practitioner.html'>Practitioner</a> | <a href='RelatedPerson.html'>RelatedPerson</a> | <a href='Patient.html'>Patient</a> | <a href='Device.html'>Device</a> | <a href='Organization.html'>Organization</a></code>
+                    <code>Uri | Reference</code>
                     <blockquote>
                       <div class='block'>A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).</div>
                     </blockquote>
@@ -174,7 +174,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>

@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -91,7 +91,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='ImmunizationRecommendation.Recommendation.DateCriterion.html'>DateCriterion</a>&gt;</code>
+                    <code>List&lt;<a href='ImmunizationRecommendation.Recommendation.DateCriterion.html'>DateCriterion</a>></code>
                     <blockquote>
                       <div class='block'>Vaccine date recommendations.  For example, earliest date to administer, latest date to administer, etc.</div>
                     </blockquote>
@@ -109,7 +109,7 @@
                   <td class='colLast'>
                     <code>positiveInt</code>
                     <blockquote>
-                      <div class='block'>This indicates the next recommended dose number (e.g. dose 2 is the next recommended dose).</div>
+                      <div class='block'>The next recommended dose number (e.g. dose 2 is the next recommended dose).</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -126,7 +126,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Vaccine administration status.
-<p>Binding: <a title="The patient's status with respect to a vaccination protocol" href="http://hl7.org/fhir/ValueSet/immunization-recommendation-status">Immunization Recommendation Status Codes</a> (Example)</p></div>
+<p>Binding: <a title="The patient's status with respect to a vaccination protocol" href="http://hl7.org/fhir/STU3/valueset-immunization-recommendation-status.html">Immunization Recommendation Status Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -172,9 +172,9 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Immunization.html'>Immunization</a>&gt;</code>
+                    <code>List&lt;Reference></code>
                     <blockquote>
-                      <div class='block'>Describes the event of a patient being administered a vaccination or a record of a vaccination as reported by a patient, a clinician or another party and may include vaccine reaction information and what vaccination protocol was followed.</div>
+                      <div class='block'>Immunization event history that supports the status and recommendation.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -188,26 +188,43 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;<a href='Observation.html'>Observation</a> | <a href='AllergyIntolerance.html'>AllergyIntolerance</a>&gt;</code>
+                    <code>List&lt;Reference></code>
                     <blockquote>
                       <div class='block'>Patient Information that supports the status and recommendation.  This includes patient observations, adverse reactions and allergy/intolerance information.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                    <strong>
+                      <a name='targetDisease'>targetDisease</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>The targeted disease for the recommendation.
+<p>Binding: <a title="The disease that the recommended vaccination targets" href="http://hl7.org/fhir/STU3/valueset-immunization-recommendation-target-disease.html">Immunization Recommendation Target Disease Codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='vaccineCode'>vaccineCode</a>
                     </strong>
                   </td>
                   <td class='colMid'>
-                    <code>1..1</code>
+                    <code>0..1</code>
                   </td>
                   <td class='colLast'>
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Vaccine that pertains to the recommendation.
-<p>Binding: <a title="This identifies the vaccine substance administered - CVX codes." href="http://hl7.org/fhir/ValueSet/vaccine-code">Vaccine Administered Value Set</a> (Preferred)</p></div>
+<p>Binding: <a title="This identifies the CVX code system" href="http://hl7.org/fhir/us/core/ValueSet/us-core-cvx">value set</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr></table>
@@ -222,7 +239,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>

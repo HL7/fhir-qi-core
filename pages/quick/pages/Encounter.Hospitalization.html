@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -78,11 +78,10 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>From where patient was admitted (physician referral, transfer).
-<p>Binding: <a title="From where the patient was admitted." href="http://hl7.org/fhir/ValueSet/encounter-admit-source">AdmitSource</a> (Preferred)</p></div>
+<p>Binding: <a title="From where the patient was admitted." href="http://hl7.org/fhir/STU3/valueset-encounter-admit-source.html">AdmitSource</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -93,7 +92,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Location.html'>Location</a></code>
+                    <code>Reference</code>
                     <blockquote>
                       <div class='block'>Location to which the patient is discharged.</div>
                     </blockquote>
@@ -109,14 +108,13 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept&gt;</code>
+                    <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>Diet preferences reported by the patient.
-<p>Binding: <a title="Medical, cultural or ethical food preferences to help with catering requirements." href="http://hl7.org/fhir/ValueSet/encounter-diet">Diet</a> (Example)</p></div>
+<p>Binding: <a title="Medical, cultural or ethical food preferences to help with catering requirements." href="http://hl7.org/fhir/STU3/valueset-encounter-diet.html">Diet</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
-                
                 <tr class='rowColor'>
                   <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
@@ -130,7 +128,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Category or kind of location after discharge.
-<p>Binding: <a title="Discharge Disposition" href="http://hl7.org/fhir/ValueSet/encounter-discharge-disposition">DischargeDisposition</a> (Example)</p></div>
+<p>Binding: <a title="Discharge Disposition" href="http://hl7.org/fhir/STU3/valueset-encounter-discharge-disposition.html">DischargeDisposition</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -160,7 +158,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Location.html'>Location</a></code>
+                    <code>Reference</code>
                     <blockquote>
                       <div class='block'>The location from which the patient came before admission.</div>
                     </blockquote>
@@ -195,7 +193,7 @@
                     <code>Concept</code>
                     <blockquote>
                       <div class='block'>Whether this hospitalization is a readmission and why if known.
-<p>Binding: <a title="The reason for re-admission of this hospitalization encounter." href="http://hl7.org/fhir/STU3/v2/0092/index.html">v2 Re-Admission Indicator</a> (Example)</p></div>
+<p>Binding: <a title="The reason for re-admission of this hospitalization encounter." href="http://hl7.org/fhir/STU3/v2/0092/index.html">value set</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -211,8 +209,8 @@
                   <td class='colLast'>
                     <code>List&lt;Concept></code>
                     <blockquote>
-                      <div class='block'>Wheelchair, translator, stretcher, etc.
-<p>Binding: <a title="Special arrangements" href="http://hl7.org/fhir/ValueSet/encounter-special-arrangements">SpecialArrangements</a> (Preferred)</p></div>
+                      <div class='block'>Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.
+<p>Binding: <a title="Special arrangements" href="http://hl7.org/fhir/STU3/valueset-encounter-special-arrangements.html">SpecialArrangements</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -229,7 +227,7 @@
                     <code>List&lt;Concept></code>
                     <blockquote>
                       <div class='block'>Special courtesies (VIP, board member).
-<p>Binding: <a title="Special courtesies" href="http://hl7.org/fhir/ValueSet/encounter-special-courtesy">SpecialCourtesy</a> (Preferred)</p></div>
+<p>Binding: <a title="Special courtesies" href="http://hl7.org/fhir/STU3/valueset-encounter-special-courtesy.html">SpecialCourtesy</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr></table>
@@ -244,7 +242,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>

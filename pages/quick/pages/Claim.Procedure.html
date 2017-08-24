@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -43,7 +43,7 @@
       <div class='description'>
         <ul class='blockList'>
           <li class='blockList' style='font-size:115%;'>Procedures performed
-            <p />Ordered list of patient procedures performed to support the adjudication.
+            <p />
           </li>
         </ul>
       </div>
@@ -62,11 +62,11 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='date'>date</a>
                     </strong>
@@ -77,7 +77,7 @@
                   <td class='colLast'>
                     <code>DateTime</code>
                     <blockquote>
-                      <div class='block'>Date and optionally time the procedure was performed .</div>
+                      <div class='block'>When the procedure was performed.</div>
                     </blockquote>
                   </td>
                 </tr>
@@ -98,7 +98,7 @@
                   </td>
                 </tr>
                 <tr class='altColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='procedure_x_'>procedure[x]</a>
                     </strong>
@@ -107,15 +107,15 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept | <a href='Procedure.html'>Procedure</a></code>
+                    <code>Concept | Reference</code>
                     <blockquote>
-                      <div class='block'>The procedure code.
-<p>Binding: <a title="ICD10 Procedure codes" href="http://hl7.org/fhir/ValueSet/icd-10-procedures">ICD-10 Procedure Codes</a> (Example)</p></div>
+                      <div class='block'>When the procedure was performed.
+<p>Binding: <a title="ICD10 Procedure codes" href="http://hl7.org/fhir/STU3/valueset-icd-10-procedures.html">ICD-10 Procedure Codes</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;
                     <strong>
                       <a name='sequence'>sequence</a>
                     </strong>
@@ -126,7 +126,7 @@
                   <td class='colLast'>
                     <code>positiveInt</code>
                     <blockquote>
-                      <div class='block'>Sequence of procedures which serves to order and provide a link.</div>
+                      <div class='block'>Procedure sequence for reference.</div>
                     </blockquote>
                   </td>
                 </tr></table>
@@ -141,7 +141,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>

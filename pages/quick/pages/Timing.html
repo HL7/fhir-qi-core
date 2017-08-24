@@ -23,7 +23,7 @@
           <a href='../index-files.html'>Index</a>
         </li>
       </ul>
-      
+      <div class='aboutLanguage'>QUICK</div>
     </div>
     <div class='subNav'>
       <ul class='navList'>
@@ -43,7 +43,7 @@
       <div class='description'>
         <ul class='blockList'>
           <li class='blockList' style='font-size:115%;'>A timing schedule that specifies an event that may occur multiple times
-            <p />Base StructureDefinition for Timing Type
+            <p />Base StructureDefinition for Timing Type: Specifies an event that may occur multiple times. Timing schedules are used to record when things are planned, expected or requested to occur. The most common usage is in dosage instructions for medications. They are also used when planning care of various kinds, and may be used for reporting the schedule to which past regular activities were carried out.
           </li>
         </ul>
       </div>
@@ -62,7 +62,7 @@
 <th class="colFirst" scope="col"><i class="fa fa-fw"></i><i class="fa fa-fw"></i><i class="fa fa-fw"></i>&nbsp;Field</th>
 <th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
 <th class="colLast" scope="col">Type and Description
-<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../../assets/images/help16.png"/></a></span></th>
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
 </tr>
 
                 <tr class='altColor'>
@@ -77,8 +77,8 @@
                   <td class='colLast'>
                     <code>Concept</code>
                     <blockquote>
-                      <div class='block'>A code for the timing pattern. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing.
-<p>Binding: <a title="Code for a known / defined timing pattern." href="http://hl7.org/fhir/ValueSet/timing-abbreviation">TimingAbbreviation</a> (Preferred)</p></div>
+                      <div class='block'>A code for the timing schedule. Some codes such as BID are ubiquitous, but many institutions define their own additional codes. If a code is provided, the code is understood to be a complete statement of whatever is specified in the structured timing data, and either the code or the data may be used to interpret the Timing, with the exception that .repeat.bounds still applies over the code (and is not contained in the code).
+<p>Binding: <a title="Code for a known / defined timing pattern." href="http://hl7.org/fhir/STU3/valueset-timing-abbreviation.html">TimingAbbreviation</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -110,7 +110,7 @@
                   <td class='colLast'>
                     <code><a href='Timing.Repeat.html'>Repeat</a></code>
                     <blockquote>
-                      <div class='block'>A set of rules that describe when the event should occur.</div>
+                      <div class='block'>A set of rules that describe when the event is scheduled.</div>
                     </blockquote>
                   </td>
                 </tr></table>
@@ -125,7 +125,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 05, 2016 9:03AM.
+        &copy; HL7.org 2011+. QUICK Generated on Wed, Aug 23, 2017 8:37PM.
         </font>
 </small></span>
 </div>
