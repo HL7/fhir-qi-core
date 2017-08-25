@@ -1,0 +1,552 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>ProcedureRequest</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/ProcedureRequest.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='ProcedureRequest.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class ProcedureRequest' class='title'>ProcedureRequest</h2>
+    </div>
+    <div class='contentContainer'>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"> </i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"> </i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"> </i>&nbsp;=&nbsp;Is-Modifier</p>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-star fa-fw" title="QICore Extension"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='approachBodySite'>approachBodySite</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Extension></code>
+                    <blockquote>
+                      <div class='block'>An Extension</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-star fa-fw" title="QICore Extension"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='appropriatenessScore'>appropriatenessScore</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Extension</code>
+                    <blockquote>
+                      <div class='block'>An Extension</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='asNeeded_x_'>asNeeded[x]</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Boolean | Concept</code>
+                    <blockquote>
+                      <div class='block'>If a CodeableConcept is present, it indicates the pre-condition for performing the procedure. For example &amp;quot;pain&amp;quot;, &amp;quot;on flare-up&amp;quot;, etc.
+<p>Binding: <a title="A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example &quot;pain&quot;, &quot;on flare-up&quot;, etc." href="http://hl7.org/fhir/STU3/valueset-medication-as-needed-reason.html">SNOMED CT Medication As Needed Reason Codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='authoredOn'>authoredOn</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime</code>
+                    <blockquote>
+                      <div class='block'>When the request transitioned to being actionable.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='basedOn'>basedOn</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Reference></code>
+                    <blockquote>
+                      <div class='block'>Plan/proposal/order fulfilled by this request.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='bodySite'>bodySite</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Concept></code>
+                    <blockquote>
+                      <div class='block'>Anatomic location where the procedure should be performed. This is the target site.
+<p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/STU3/valueset-body-site.html">SNOMED CT Body Structures</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='category'>category</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Concept></code>
+                    <blockquote>
+                      <div class='block'>A code that classifies the procedure for searching, sorting and display purposes (e.g. &amp;quot;Surgical Procedure&amp;quot;).
+<p>Binding: <a title="Classification of the procedure" href="http://hl7.org/fhir/STU3/valueset-procedure-category.html">Procedure Category Codes (SNOMED CT)</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='code'>code</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>A code that identifies a particular procedure, diagnostic investigation, or panel of investigations, that have been requested.
+<p>Binding: <a title="Codes describing the Procedure Type" href="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-type">value set</a> (Preferred)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='context'>context</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Reference</code>
+                    <blockquote>
+                      <div class='block'>An encounter or episode of care that provides additional information about the healthcare context in which this request is made.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='definition'>definition</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Reference></code>
+                    <blockquote>
+                      <div class='block'>Protocol or definition followed by this request.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"> </i>&nbsp;
+                    <strong>
+                      <a name='doNotPerform'>doNotPerform</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Boolean</code>
+                    <blockquote>
+                      <div class='block'>Set this to true if the record is saying that the procedure should NOT be performed.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='identifier'>identifier</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Identifier.html'>Identifier</a>></code>
+                    <blockquote>
+                      <div class='block'>Identifiers assigned to this order instance by the orderer and/or the receiver and/or order fulfiller.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"> </i>&nbsp;
+                    <strong>
+                      <a name='intent'>intent</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>Whether the request is a proposal, plan, an original order or a reflex order.
+<p>Binding: <a title="The kind of procedure or diagnostic request" href="http://hl7.org/fhir/STU3/valueset-request-intent.html">RequestIntent</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='note'>note</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Annotation.html'>Annotation</a>></code>
+                    <blockquote>
+                      <div class='block'>Any other notes and comments made about the service request. For example, letting provider know that &amp;quot;patient hates needles&amp;quot; or other provider instructions.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='occurrence_x_'>occurrence[x]</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime | interval&lt;DateTime&gt; | <a href='Timing.html'>Timing</a></code>
+                    <blockquote>
+                      <div class='block'>The date/time at which the diagnostic testing should occur.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='performer'>performer</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Reference</code>
+                    <blockquote>
+                      <div class='block'>The desired perfomer for doing the diagnostic testing.  For example, the surgeon, dermatopathologist, endoscopist, etc.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='performerType'>performerType</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>Desired type of performer for doing the diagnostic testing.
+<p>Binding: <a title="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc." href="http://hl7.org/fhir/STU3/valueset-participant-role.html">Participant Roles</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='priority'>priority</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>Indicates how quickly the ProcedureRequest should be addressed with respect to other requests.
+<p>Binding: <a title="Identifies the level of importance to be assigned to actioning the request" href="http://hl7.org/fhir/STU3/valueset-request-priority.html">RequestPriority</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='reasonCode'>reasonCode</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Concept></code>
+                    <blockquote>
+                      <div class='block'>An explanation or justification for why this diagnostic investigation is being requested in coded or textual form.   This is often for billing purposes.  May relate to the resources referred to in supportingInformation.
+<p>Binding: <a title="Diagnosis or problem codes justifying the reason for requesting the procedure or diagnostic investigation." href="http://hl7.org/fhir/STU3/valueset-procedure-reason.html">Procedure Reason Codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='reasonReference'>reasonReference</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Reference></code>
+                    <blockquote>
+                      <div class='block'>Indicates another resource that provides a justification for why this diagnostic investigation is being requested.   May relate to the resources referred to in supportingInformation.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-star fa-fw" title="QICore Extension"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='reasonRefused'>reasonRefused</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Extension</code>
+                    <blockquote>
+                      <div class='block'>The reason the request was refused. Applies only if the status is refused.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='relevantHistory'>relevantHistory</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Reference></code>
+                    <blockquote>
+                      <div class='block'>Key events in the history of the request.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='replaces'>replaces</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Reference></code>
+                    <blockquote>
+                      <div class='block'>The request takes the place of the referenced completed or terminated request(s).</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='requester'>requester</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='ProcedureRequest.Requester.html'>Requester</a></code>
+                    <blockquote>
+                      <div class='block'>The individual who initiated the request and has responsibility for its activation.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='requisition'>requisition</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Identifier.html'>Identifier</a></code>
+                    <blockquote>
+                      <div class='block'>A shared identifier common to all procedure or diagnostic requests that were authorized more or less simultaneously by a single author, representing the composite or group identifier.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='specimen'>specimen</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Reference></code>
+                    <blockquote>
+                      <div class='block'>One or more specimens that the laboratory procedure will use.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"> </i>&nbsp;
+                    <strong>
+                      <a name='status'>status</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>The status of the order.
+<p>Binding: <a title="The status of a procedure or diagnostic order." href="http://hl7.org/fhir/STU3/valueset-request-status.html">RequestStatus</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='subject'>subject</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Reference</code>
+                    <blockquote>
+                      <div class='block'>On whom or what the procedure or diagnostic is to be performed. This is usually a human patient, but can also be requested on animals, groups of humans or animals, devices such as dialysis machines, or even locations (typically for environmental scans).</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='supportingInfo'>supportingInfo</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;Reference></code>
+                    <blockquote>
+                      <div class='block'>Additional clinical information about the patient or specimen that may influence the procedure or diagnostics or their interpretations.     This information includes diagnosis, clinical findings and other observations.  In laboratory ordering these are typically referred to as &amp;quot;ask at order entry questions (AOEs)&amp;quot;.  This includes observations explicitly requested by the producer (filler) to provide context or supporting information needed to complete the order. For example,  reporting the amount of inspired oxygen for blood gas measurements.</div>
+                    </blockquote>
+                  </td>
+                </tr></table>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"> </i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"> </i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"> </i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>

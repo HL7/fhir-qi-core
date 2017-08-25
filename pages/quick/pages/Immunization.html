@@ -1,0 +1,420 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE HTML>
+<html xmlns='http://www.w3.org/1999/xhtml' xml:lang='en' lang='en'>
+  <head>
+    <title>Immunization</title>
+    <meta http-equiv='X-UA-Compatible' content='IE=9' />
+    <link rel='icon' type='image/ico' href='../resources/favicon.ico' />
+    <link rel='stylesheet' type='text/css' href='../stylesheet.css' title='Style' />
+    <link rel='stylesheet' type='text/css' href='../font-awesome/css/font-awesome.min.css' />
+  </head>
+  <body>
+<!-- ========= START OF TOP NAVBAR ======= -->
+    <div class='topNav'>
+      <a name='navbar_top'>
+<!--   -->
+</a>
+      <ul class='navList' title='Navigation'>
+        <li>
+          <a href='../overview-summary.html'>Overview</a>
+        </li>
+        <li class='navBarCell1Rev'>Class</li>
+        <li>
+          <a href='../index-files.html'>Index</a>
+        </li>
+      </ul>
+      <div class='aboutLanguage'>QUICK</div>
+    </div>
+    <div class='subNav'>
+      <ul class='navList'>
+        <li>
+          <a target='_top' href='../index.html?pages/Immunization.html'>FRAMES</a>&nbsp;&nbsp;
+          <a target='_top' href='Immunization.html'>NO FRAMES</a>
+        </li>
+      </ul>
+      <div><!--   --></div>
+    </div>
+<!-- ========= END OF TOP NAVBAR ========= -->
+<!-- ======== START OF CLASS DATA ======== -->
+    <div class='header'>
+      <h2 title='Class Immunization' class='title'>Immunization</h2>
+    </div>
+    <div class='contentContainer'>
+      <div class='summary'>
+        <ul class='blockList'>
+          <li class='blockList'>
+            <ul class='blockList'>
+              <li class='blockList'>
+<!-- =========== FIELD SUMMARY =========== -->
+                <a name='field_summary'><!--   --></a>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"> </i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"> </i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"> </i>&nbsp;=&nbsp;Is-Modifier</p>
+<table class="overviewSummary" border="0" cellpadding="3" cellspacing="0"
+ summary="Field Summary table, listing fields, and an explanation">
+<tr>
+<th class="colFirst" scope="col"><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;Field</th>
+<th class="colLast" scope="col" style="border-right-width: 0px">Card.</th>
+<th class="colLast" scope="col">Type and Description
+<span style="float: right"><a title="Legend for this format" href="../help.html"><img alt="doco" border="0" src="../resources/help16.png"/></a></span></th>
+</tr>
+
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='date'>date</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime</code>
+                    <blockquote>
+                      <div class='block'>Date vaccine administered or was to be administered.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='doseQuantity'>doseQuantity</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Quantity.html'>Quantity</a></code>
+                    <blockquote>
+                      <div class='block'>The quantity of vaccine product that was administered.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='encounter'>encounter</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Reference</code>
+                    <blockquote>
+                      <div class='block'>The visit or admission or other contact between patient and health care provider the immunization was performed as part of.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='expirationDate'>expirationDate</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>DateTime</code>
+                    <blockquote>
+                      <div class='block'>Date vaccine batch expires.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='explanation'>explanation</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code><a href='Immunization.Explanation.html'>Explanation</a></code>
+                    <blockquote>
+                      <div class='block'>Reasons why a vaccine was or was not administered.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='identifier'>identifier</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Identifier.html'>Identifier</a>></code>
+                    <blockquote>
+                      <div class='block'>A unique identifier assigned to this immunization record.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='location'>location</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Reference</code>
+                    <blockquote>
+                      <div class='block'>The service delivery location where the vaccine administration occurred.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='lotNumber'>lotNumber</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>String</code>
+                    <blockquote>
+                      <div class='block'>Lot number of the  vaccine product.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='manufacturer'>manufacturer</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Reference</code>
+                    <blockquote>
+                      <div class='block'>Name of vaccine manufacturer.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"> </i>&nbsp;
+                    <strong>
+                      <a name='notGiven'>notGiven</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Boolean</code>
+                    <blockquote>
+                      <div class='block'>Indicates if the vaccination was or was not given.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='note'>note</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Annotation.html'>Annotation</a>></code>
+                    <blockquote>
+                      <div class='block'>Extra information about the immunization that is not conveyed by the other attributes.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='patient'>patient</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Reference</code>
+                    <blockquote>
+                      <div class='block'>The patient who either received or did not receive the immunization.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='practitioner'>practitioner</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Immunization.Practitioner.html'>Practitioner</a>></code>
+                    <blockquote>
+                      <div class='block'>Indicates who or what performed the event.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='primarySource'>primarySource</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Boolean</code>
+                    <blockquote>
+                      <div class='block'>An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='reaction'>reaction</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Immunization.Reaction.html'>Reaction</a>></code>
+                    <blockquote>
+                      <div class='block'>Categorical data indicating that an adverse event is associated in time to an immunization.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='reportOrigin'>reportOrigin</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>The source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.
+<p>Binding: <a title="The source of the data for a record which is not from a primary source." href="http://hl7.org/fhir/STU3/valueset-immunization-origin.html">Immunization Origin Codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='route'>route</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>The path by which the vaccine product is taken into the body.
+<p>Binding: <a title="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the administrative routes used during vaccination. This value set is provided as a suggestive example." href="http://hl7.org/fhir/STU3/valueset-immunization-route.html">Immunization Route Codes</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='site'>site</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>Body site where vaccine was administered.
+<p>Binding: <a title="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the body site where the vaccination occurred. This value set is provided as a suggestive example." href="http://hl7.org/fhir/STU3/valueset-immunization-site.html">Codes for Immunization Site of Administration</a> (Example)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-exclamation fa-fw" title="Is-Modifier"> </i>&nbsp;
+                    <strong>
+                      <a name='status'>status</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>code</code>
+                    <blockquote>
+                      <div class='block'>Indicates the current status of the vaccination event.
+<p>Binding: <a title="The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the current status of the administered dose of vaccine." href="http://hl7.org/fhir/STU3/valueset-immunization-status.html">Immunization Status Codes</a> (Required)</p></div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='rowColor'>
+                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='vaccinationProtocol'>vaccinationProtocol</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>0..*</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>List&lt;<a href='Immunization.VaccinationProtocol.html'>VaccinationProtocol</a>></code>
+                    <blockquote>
+                      <div class='block'>Contains information about the protocol(s) under which the vaccine was administered.</div>
+                    </blockquote>
+                  </td>
+                </tr>
+                <tr class='altColor'>
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                    <strong>
+                      <a name='vaccineCode'>vaccineCode</a>
+                    </strong>
+                  </td>
+                  <td class='colMid'>
+                    <code>1..1</code>
+                  </td>
+                  <td class='colLast'>
+                    <code>Concept</code>
+                    <blockquote>
+                      <div class='block'>Vaccine that was administered or was to be administered.
+<p>Binding: <a title="This identifies the CVX code system" href="http://hl7.org/fhir/us/core/ValueSet/us-core-cvx">value set</a> (Preferred)</p></div>
+                    </blockquote>
+                  </td>
+                </tr></table>
+<p style="margin: 10px">Key: <i class="fa fa-check fa-fw"> </i>&nbsp;=&nbsp;Must support, <i
+ class="fa fa-star fa-fw"> </i>&nbsp;=&nbsp;QICore-defined extension, <i class="fa fa-exclamation fa-fw"> </i>&nbsp;=&nbsp;Is-Modifier</p>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+    </div>
+<!-- ======= START OF BOTTOM NAVBAR ====== -->
+<div class="bottomNav">
+<span class="legalCopy"><small><font size="-1">
+        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        </font>
+</small></span>
+</div>
+<!-- ======== END OF BOTTOM NAVBAR ======= -->
+
+  </body>
+</html>
