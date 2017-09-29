@@ -76,7 +76,7 @@
   </type>
   <!--    the patient that actually had the adverse event    -->
   <subject>
-    <reference value="Patient/example"/>
+    <reference value="Patient/qicore-patient-example"/>
   </subject>
   <!--    when the event happened    -->
   <date value="2017-01-29T12:34:56+00:00"/>
@@ -84,21 +84,21 @@
       -->
   <seriousness>
     <coding>
-      <system value="http://hl7.org/fhir/STU3/adverse-event-seriousness"/>
+      <system value="http://hl7.org/fhir/adverse-event-seriousness"/>
       <code value="Mild"/>
       <display value="Mild"/>
     </coding>
   </seriousness>
   <!--    who made the record / last updated it    -->
   <recorder>
-    <reference value="Practitioner/example"/>
+    <reference value="Practitioner/qicore-practitioner-example"/>
   </recorder>
   <description value="This was a mild rash on the left forearm"/>
   <!--    may have been for cream to treat sunburn on that arm, reference to that medication
       -->
   <suspectEntity>
     <instance>
-      <reference value="Medication/example"/>
+      <reference value="Medication/qicore-medication-example"/>
     </instance>
   </suspectEntity>
 </AdverseEvent>

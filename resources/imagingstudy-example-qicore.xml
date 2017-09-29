@@ -7,14 +7,6 @@
       xmlns="http://www.w3.org/1999/xhtml">
       <p><strong>CT Chest. John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</strong></p>
       <p>
-        <strong>radiationDose</strong>: 
-        <a href="ImagingStudy-RadiationDose-qicore-imagingstudy-radiationdose-example.html">ImagingStudy-RadiationDose/example</a>
-      </p>
-      <p>
-        <strong>radiationDuration</strong>: 
-        <a href="ImagingStudy-RadiationDuration-qicore-imagingstudy-radiationduration-example.html">ImagingStudy-RadiationDuration/example</a>
-      </p>
-      <p>
         <strong>uid</strong>: urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045
       </p>
       <p>
@@ -65,29 +57,9 @@
       </blockquote>
     </div>
   </text>
-  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy-radiationDose">
-    <valueRange>
-      <low>
-        <value value="200.0"/>
-        <unit value="Gy"/>
-      </low>
-      <high>
-        <value value="1234.5"/>
-        <unit value="Gy"/>
-      </high>
-    </valueRange>
-  </extension>
-  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy-radiationDuration">
-    <valueDuration>
-      <value value="25" />
-      <unit value="sec" />
-      <system value="http://unitsofmeasure.org" />
-      <code value="s" />
-    </valueDuration>
-  </extension>
   <uid value="urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045"/>
   <patient>
-    <reference value="Patient/example"/>
+    <reference value="Patient/qicore-patient-example"/>
   </patient>
   <started value="2011-01-01T11:01:20+03:00"/>
   <numberOfSeries value="1"/>
