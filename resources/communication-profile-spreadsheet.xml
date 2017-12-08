@@ -1122,7 +1122,7 @@
     <Cell ss:StyleID="s98"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s100"><Data ss:Type="String">&quot;Communication: From Patient to Provider&quot; and &quot;Communication: From Provider to Patient&quot; and &quot;Communication: From Provider to Provider&quot;&#10;(Note that Communication in the context of FHIR standards expects that communication occurs between 2 ends of a conversation. The QDM Communication attribute Author dateTime should map to communication.sent.  Communication.received or acknowledged might be valuable but further guidance to determine if acknowledgement messages exist in current implementations, thus impacting feasibility of using Communication concepts in eCQMs. In most cases addressed by existing eCQMs, the use case is more effectively managed using the QDM datatype Assessment, Performed fulfilling an Intervention, Performed or Encounter, Order.  The relatedTo attribute maps to the basedOn attribute of Observation resource.) </Data><NamedCell
+    <Cell ss:StyleID="s100"><Data ss:Type="String">(Communication, Patient to Provider)|(Communication, Provider to Patient)|(Communication, Provider to Provider)&#10;&#10;(Note that Communication in the context of FHIR standards expects that communication occurs between 2 ends of a conversation. The QDM Communication attribute Author dateTime should map to communication.sent.  Communication.received or acknowledged might be valuable but further guidance to determine if acknowledgement messages exist in current implementations, thus impacting feasibility of using Communication concepts in eCQMs. In most cases addressed by existing eCQMs, the use case is more effectively managed using the QDM datatype Assessment, Performed fulfilling an Intervention, Performed or Encounter, Order.  The relatedTo attribute maps to the basedOn attribute of Observation resource.) </Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3097,7 +3097,7 @@
    <SplitHorizontal>1</SplitHorizontal>
    <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>18</LeftColumnRightPane>
+   <LeftColumnRightPane>20</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3112,8 +3112,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>18</ActiveRow>
-     <ActiveCol>22</ActiveCol>
+     <ActiveCol>21</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
