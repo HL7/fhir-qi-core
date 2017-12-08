@@ -8,10 +8,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Marc Hadley</LastAuthor>
+  <LastAuthor>Yan Heras</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-09T20:53:42Z</LastSaved>
-  <Version>16.00</Version>
+  <LastSaved>2017-12-08T05:46:34Z</LastSaved>
+  <Version>14.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">e7e96693-f5f9-4e8a-ae51-97f77a0d2e12</WorkbookGuid>
@@ -923,6 +923,33 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s168">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s169">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
+  <Style ss:ID="s170">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
+  <Style ss:ID="s171">
+   <Alignment ss:Vertical="Top" ss:WrapText="1"/>
+   <Borders/>
+   <Interior ss:Color="#969696" ss:Pattern="Solid"/>
+   <NumberFormat/>
+   <Protection/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1072,9 +1099,9 @@
  <Worksheet ss:Name="QICore-Immunization">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='QICore-Immunization'!R1C1:R71C24" ss:Hidden="1"/>
+    ss:RefersTo="='QICore-Immunization'!R1C1:R72C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="72" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="73" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="65.25"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="158.25"/>
@@ -1222,74 +1249,53 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">Medication, administered</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">&quot;Immunization, Administered&quot; (when Immunization.status=&quot;completed&quot;)</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.status</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s168"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s168"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">Immunization.id</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreImmunizationStatusCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s169"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s170"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">start datetime</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">id</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s171"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0">
-   <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.date</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-   <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-  </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.primarySource</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.status</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreImmunizationStatusCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1302,6 +1308,66 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.date</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">authorDatetime</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.primarySource</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">source</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1330,7 +1396,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">primary code</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1537,13 +1603,16 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.explanation.reason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.explanation.reason</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreImmunizationReasonCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreImmunizationReasonCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1555,7 +1624,8 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">reason</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><Data ss:Type="String">reason</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1563,13 +1633,16 @@
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.explanation.reasonNotGiven</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">Immunization.explanation.reasonNotGiven</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreImmunizationReasonNotGiven</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreImmunizationReasonNotGiven</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1581,7 +1654,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">negation rationale</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">negationRationale</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1664,8 +1737,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">frequency</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1721,7 +1793,7 @@
     <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s110"><Data ss:Type="String">dose</Data><NamedCell
+    <Cell ss:StyleID="s110"><Data ss:Type="String">dosage</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1766,7 +1838,8 @@
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreImmunizationRouteCode</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">QICoreImmunizationRouteCode</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3075,9 +3148,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>13</TopRowBottomPane>
+   <TopRowBottomPane>1</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>8</LeftColumnRightPane>
+   <LeftColumnRightPane>19</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3089,12 +3162,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
-     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>21</ActiveRow>
-     <ActiveCol>9</ActiveCol>
+     <ActiveRow>2</ActiveRow>
+     <ActiveCol>21</ActiveCol>
+     <RangeSelection>R3C21:R23C22</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5773,7 +5846,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s156" ss:HRef="http://hl7.org/fhir/ValueSet/immunization-site"><Data
-            ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-site</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-site</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
@@ -5789,7 +5862,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s156" ss:HRef="http://hl7.org/fhir/ValueSet/immunization-route"><Data
-            ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-route</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-route</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
@@ -5805,7 +5878,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s156" ss:HRef="http://hl7.org/fhir/ValueSet/immunization-reason"><Data
-            ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-reason</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/ValueSet/immunization-reason</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
@@ -5821,7 +5894,7 @@
     <Cell ss:StyleID="s137"><Data ss:Type="String">value set</Data></Cell>
     <Cell ss:StyleID="s137"><Data ss:Type="String">example</Data></Cell>
     <Cell ss:StyleID="s156" ss:HRef="http://hl7.org/fhir/ValueSet/no-immunization-reason"><Data
-            ss:Type="String">http://hl7.org/fhir/ValueSet/no-immunization-reason</Data></Cell>
+      ss:Type="String">http://hl7.org/fhir/ValueSet/no-immunization-reason</Data></Cell>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
     <Cell ss:StyleID="s137"/>
