@@ -1016,7 +1016,7 @@
     </tr>
     <tr>
         <td>Reason</td>
-        <td>ProcedureRequest.reasonCode</td>
+        <td>ProcedureRequest.reasonCode, Use http://hl7.org/fhir/us/qicore/qicore-procedurerequest-appropriatenessScore.html to address RAND criteria for appropriate imaging usage criteria.</td>
         <td>QDM matched to QI Core / FHIR</td>
     </tr>
     <tr>
@@ -1052,7 +1052,7 @@
     </tr>
     <tr>
         <td>Diagnostic Study, Performed (Specific to imaging studies)</td>
-        <td>ObservationReport (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>DiagnosticReport (the .status metadata allows conformance to the specific QDM datatype context)</td>
         <td>QDM matched to QI Core / FHIR. Quality measures and CDS artifacts may need to address which status is desired: Partial, preliminary, final, amended, corrected, appended. Most quality measures will address final, amended, corrected, appended.</td>
     </tr>
     <tr>
@@ -1077,12 +1077,12 @@
     </tr>
     <tr>
         <td>Result</td>
-        <td>DiagnosticReport.effective[x]</td>
+        <td>DiagnosticReport.result</td>
         <td>Note - QI Core also includes Observation.interpretation and Observation.comment - eCQMs have addressed interpretation as an implementation issue. Perhaps that approach should be reconsidered.</td>
     </tr>
     <tr>
         <td>Result dateTime</td>
-        <td>Observation.issued</td>
+        <td>DiagnosticReport.issued</td>
         <td>QDM matched to QI Core / FHIR</td>
     </tr>
     <tr>
@@ -1729,8 +1729,8 @@
     </tr>
     <tr>
         <td>Birth dateTime</td>
-        <td>Patient.birthDate</td>
-        <td></td>
+        <td>Patient.birthDate<br />Patient.extension.birthTime</td>
+        <td>Patient.extension.birthTime used for birthTime for newborns</td>
     </tr>
     <tr>
         <td>Code</td>
@@ -2956,8 +2956,8 @@
     </tr>
     <tr>
         <td>Anatomical Approach Site</td>
-        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-approachBodySite">approachBodySite</a>)</td>
-        <td>Note QI Core ProcedureRequest.extension (http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-appropriatenessScore) - not included in QDM but may potentially apply to Appropriate Use Criteria</td>
+        <td>ProcedureRequest.reason</td>
+        <td>Note QI Core http://hl7.org/fhir/us/qicore/qicore-procedurerequest-appropriatenessScore.html applies to Diagnostic Study, Order when used for imaging studies. QDM identifies imaging procedures in the Diagnostic Study category.</td>
     </tr>
     <tr>
         <td>Anatomical Location Site</td>
@@ -2981,7 +2981,7 @@
     </tr>
     <tr>
         <td>Reason</td>
-        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-appropriatenessScore">appropriatenessScore</a>)</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/qicore-procedurerequest-appropriatenessScore.html">appropriatenessScore</a>)</td>
         <td>Suspect this code set references Appropriate Use Criteria but it is not generic to cover all procedures.</td>
     </tr>
     <tr>
