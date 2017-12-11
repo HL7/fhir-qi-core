@@ -8,10 +8,10 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Chris Moesel</LastAuthor>
+  <LastAuthor>Rob</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2015-03-29T02:39:11Z</LastSaved>
-  <Version>14.00</Version>
+  <LastSaved>2017-12-11T21:02:30Z</LastSaved>
+  <Version>15.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <WorkbookGuid dt:dt="string">5703fbb9-f9bb-4d72-8cc2-8935d68d9fb9</WorkbookGuid>
@@ -20,12 +20,11 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>7230</WindowHeight>
-  <WindowWidth>17100</WindowWidth>
+  <WindowHeight>5740</WindowHeight>
+  <WindowWidth>10780</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
-  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1061,6 +1060,13 @@
    </Borders>
    <Interior/>
   </Style>
+  <Style ss:ID="s190">
+   <Alignment ss:Horizontal="Left" ss:Vertical="Top" ss:ShrinkToFit="1"
+    ss:WrapText="1"/>
+   <Borders/>
+   <Font ss:FontName="Calibri" x:Family="Swiss" ss:Size="11" ss:Color="#000000"/>
+   <Interior ss:Color="#C0C0C0" ss:Pattern="Solid"/>
+  </Style>
  </Styles>
  <Worksheet ss:Name="Instructions">
   <Table ss:ExpandedColumnCount="1" ss:ExpandedRowCount="5" x:FullColumns="1"
@@ -1211,11 +1217,11 @@
  <Worksheet ss:Name="QICore-DiagnosticReport">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='QICore-DiagnosticReport'!R1C1:R77C24" ss:Hidden="1"/>
+    ss:RefersTo="='QICore-DiagnosticReport'!R1C1:R80C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="79" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="24" ss:ExpandedRowCount="82" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="64.5"
-   ss:DefaultRowHeight="17.0625">
+   ss:DefaultRowHeight="17">
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="121.5"/>
    <Column ss:StyleID="s86" ss:Width="67.5"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="58.5"/>
@@ -1361,9 +1367,94 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Diagnostic Study, Performed (used only in imaging studies.  All others use QICore-Observation)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s190"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s190"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticReport.id</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">id</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s190"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s190"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticReport.modifierExtension</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">negationRationale</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0">
+    <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s190"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s190"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><Data ss:Type="String">DiagnosticReport.modifierExtension</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">reason</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s104"><Data ss:Type="String">locationPerformed</Data><NamedCell
@@ -1393,7 +1484,8 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">facilityLocations</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1452,7 +1544,8 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">code</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1481,7 +1574,8 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">status</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1540,7 +1634,8 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">source</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1602,7 +1697,7 @@
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="73.3125">
+   <Row ss:AutoFitHeight="0" ss:Height="73.25">
     <Cell ss:StyleID="s104"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1685,7 +1780,8 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">relevantPeriod</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1742,7 +1838,8 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">result</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -1885,7 +1982,8 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">resultDatetime</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -3415,9 +3513,9 @@
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
-   <TopRowBottomPane>1</TopRowBottomPane>
+   <TopRowBottomPane>16</TopRowBottomPane>
    <SplitVertical>4</SplitVertical>
-   <LeftColumnRightPane>17</LeftColumnRightPane>
+   <LeftColumnRightPane>19</LeftColumnRightPane>
    <ActivePane>0</ActivePane>
    <Panes>
     <Pane>
@@ -3429,11 +3527,12 @@
     </Pane>
     <Pane>
      <Number>2</Number>
+     <ActiveRow>1</ActiveRow>
     </Pane>
     <Pane>
      <Number>0</Number>
+     <ActiveRow>22</ActiveRow>
      <ActiveCol>21</ActiveCol>
-     <RangeSelection>R2C22:R16C22</RangeSelection>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
