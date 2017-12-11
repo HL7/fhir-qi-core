@@ -1,0 +1,3536 @@
+---
+# jekyll header
+---
+
+{% include header.html %}
+
+{% include container-start.html %}
+
+<ul id="markdown-toc">
+    <li><a href="#qdmtoqicore" id="markdown-toc-mapping">QDM to QI Core Mapping</a></li>
+    <li><a href="#AdverseEvent" id="markdown-toc-adverseevent">Adverse Event</a></li>
+    <li><a href="#AllergyIntolerance" id="markdown-toc-allergyintolerance">AllergyIntolerance</a></li>
+    <li><a href="#Assessment" id="markdown-toc-assessment">Assessment</a></li>
+    <li><a href="#CareExperience" id="markdown-toc-careexperience">Care Experience</a></li>
+    <li><a href="#CareGoal" id="markdown-toc-caregoal">Care Goal</a></li>
+    <li><a href="#Communication" id="markdown-toc-communication">Communication</a></li>
+    <li><a href="#ConditionDiagnosisProblem" id="markdown-toc-conditiondiagnosisproblem">Condition/Diagnosis/Problem</a></li>
+    <li><a href="#Device" id="markdown-toc-device">Device</a></li>
+    <li><a href="#DiagnosticStudy" id="markdown-toc-diagnosticstudy">Diagnostic Study</a></li>
+    <li><a href="#Encounter" id="markdown-toc-encounter">Encounter</a></li>
+    <li><a href="#FamilyHistory" id="markdown-toc-familyhistory">Family History</a></li>
+    <li><a href="#Immunization" id="markdown-toc-immunization">Immunization</a></li>
+    <li><a href="#IndividualCharacteristic" id="markdown-toc-individualcharacteristic">Individual Characteristic</a></li>
+    <li><a href="#Intervention" id="markdown-toc-intervention">Intervention</a></li>
+    <li><a href="#LaboratoryTest" id="markdown-toc-laboratorytest">Laboratory Test</a></li>
+    <li><a href="#Medication" id="markdown-toc-medication">Medication</a></li>
+    <li><a href="#Participation" id="markdown-toc-participation">Participation</a></li>
+    <li><a href="#PhysicalExam" id="markdown-toc-physicalexam">Physical Exam</a></li>
+    <li><a href="#Procedure" id="markdown-toc-procedure">Procedure</a></li>
+    <li><a href="#Substance" id="markdown-toc-substance">Substance</a></li>
+    <li><a href="#Symptom" id="markdown-toc-symptom">Symptom</a></li>
+</ul>
+
+<a name="qdmtoqicore"> </a>
+<h2>
+    <span class="sectioncount">7.0.0</span> QICore - QDM to QI Core Mapping <a href="qdm-to-qicore.html#qdmtoqicore" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h2>
+
+<p>
+    The CMS Quality Data Model (QDM) has been used to express electronic clinical quality measures (eCQMs) in HQMF since 2012.
+    QDM is a conceptual data model that has evolved based on feedback, testing and use.
+    The current version (5.3) and QDM's complete history can be found on the <a href="https://ecqi.healthit.gov/qdm">eCQI Resource Center</a>.
+    Most of the QDM concepts map directly to FHIR resources and extensions represented in QI Core.
+</p>
+
+<p>
+    This version of QI Core includes mappings from QI Core to QDM.
+    Reviewers can evaluate the comparisons, represented in the <em>Mappings</em> table for each QI Core resource.
+    Each <em>mapping</em> table shows the QI Core concept in the left-hand column and the corresponding QDM datatype(s) and attributes in the left-hand column.
+    Only QI Core metadata concepts represented in QDM are included in the <em>mapping</em> tables.
+    The effort mapped the intended meaning of each QDM datatype and attribute to a QI Core resource metadata element.
+    In some cases, multiple QDM datatypes map to a single QI Core resource as indicated in the QI Core <em>mapping</em> table.
+</p>
+
+<p>
+    In addition to the QI Core to QDM comparisons presented with each QI Core resource, this section of the implementation guide presents the mapping directly from QDM concepts.
+    Thus, the IG provides a view of the mappings in both directions (QI Core to QDM, and QDM to QI Core).
+    This section is divided into 55 sections, one for each QDM concept, or QDM datatype.
+    Each QDM datatype includes a general description of the concept and a table mapping each of the QDM datatype-related attributes to QI Core metadata elements.
+    Refer to the <a href="https://ecqi.healthit.gov/qdm">eCQI Resource Center</a> for the full QDM 5.3 documentation.
+</p>
+
+<a name="AdverseEvent"> </a>
+<h3><span class="sectioncount">7.1.0</span> Adverse Event <a href="qdm-to-qicore.html#AdverseEvent" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines Adverse Event as any untoward medical occurrence associated with the clinical care delivery, whether or not considered drug related.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+        <tr><strong>QDM - Adverse Event</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>AdverseEvent.date</td>
+        <td>
+            FHIR references a single point in time - not a Period in QI Core. Most likely the event will be recorded with a single point in time.
+            QDM can reference the dateTime as the beginning of the Relevant Period but and endTime will not be available in QI Core or FHIR.
+        </td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources.</td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>AdverseEvent.suspectEntity.Instance</td>
+        <td>
+            A QDM date element binds the Adverse Event datatype to a value set (or to a direct reference code) indicating the suspect entity that might have caused the event.
+            The reason is the measures have mostly been focused on Adverse Event as an exclusion criterion.
+            Thus the "code" attribute is most consistent with AdverseEvent.suspectEntity.instance rather than the type of reaction.
+        </td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>AdverseEvent.reaction</td>
+        <td>
+            The QDM "Type" attribute definition addresses a value set (or a direct referenced code) that describes the reaction.
+            Hence the mapping of QDM "type" to AdverseEvent.reaction in QI Core. Example - anaphylactic reaction, hives, etc.
+            Greater clarity in definition in QDM descriptions in the CQL-based HQMF and in the QDM publication should be helpful.
+            In the future, QDM might consider adding the FHIR concept AdverseEvent.type (incident, near-miss, unsafe condition) and AdverseEvent.category (AE - adverse event Vs PAE - Potential Adverse Event)
+        </td>
+    </tr>
+    <tr>
+        <td>Severity</td>
+        <td>AdverseEvent.seriousness</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>FacilityLocations</td>
+        <td>AdverseEvent.location</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Recorder</td>
+        <td>AdverseEvent.recorder</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>AdverseEvent.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="AllergyIntolerance"> </a>
+<h3><span class="sectioncount">7.2.0</span> Allergy Intolerance <a href="qdm-to-qicore.html#AllergyIntolerance" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    <em>QDM Definitions:</em>
+    <p>
+        <em>Allergy</em> is used to address immune-mediated reactions to a substance such as type 1 hypersensitivity reactions, other allergy-like reactions, including pseudo-allergy.
+        <em>Intolerance</em> is a record of a clinical assessment of a propensity, or a potential risk to an individual, to have a non-immune mediated adverse reaction on future exposure to the specified substance, or class of substance.
+    </p>
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+        <tr><strong>QDM - Allergy/Intolerance</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Prevalence Period</td>
+        <td>AllergyIntolerance.onset[x]</td>
+        <td rowspan="3">
+            <p>
+                QDM Prevalence Period addressed the onset dateTime and the abatement dateTime for an allergy.
+            </p>
+            <dl style="list-style-type:none">
+                <dt>The options provided in QI Core / FHIR include</dt>
+                <dd>(a) AllergyIntolerance.reaction.onset,</dd>
+                <dd>(b) AllergyIntolerance.onset[x] (which allows a period),</dd>
+                <dd>(c) AllergyIntolerance.reaction.allergyintoleranceduration (the time the allergyIntolerance persisted, and</dd>
+                <dd>(d) allergyintolerance-resolutionAge (limited to age rather than dateTime).</dd>
+            </dl>
+            It seems that the QDM Prevalence Period start should map to AllergyIntolerance.onset[x] and the Prevalence Period end should map to allergyintolerance-resolutionAge, but the age is an extension (i.e., QI Core only) and implementers would potentially need to map an age to a year and default a month and day.
+        </td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>allergyintolerance-resolutionAge</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>AllergyIntolerance.assertedDate</td>
+        <td>
+            The definition of AllergyIntolerance.assertedDate may not be a direct match to authorDatetime.
+            Please advise if the definition in QI Core/FHIR is consistent with the authorDatetime reference in QDM and whether QDM requires greater clarity in definition (i.e., potentially change authorDatetime to Asserted dateTime).
+        </td>
+    </tr>
+    <tr>
+        <td>Code (for substance)</td>
+        <td>AllergyIntolerance.code</td>
+        <td>
+            The QDM "Type" attribute definition addresses a value set (or a direct referenced code) that describes the reaction.
+            Hence the mapping of QDM "type" to AllergyIntolerance.reaction.substance in QI Core.
+            QI Core and FHIR use "type" to describe the underlying physiologic mechanism for the reaction (i.e., allergy or intolerance).
+            Greater clarity in definition in QDM descriptions in the CQL-based HQMF and in the QDM publication should be helpful.
+        </td>
+    </tr>
+    <tr>
+        <td>Type</td>
+        <td>AllergyIntolerance.reaction.manifestation</td>
+        <td>
+            In the future, QDM might consider adding the FHIR concept AllergyIntolerance.type (Allergy, Intolerance) and AllergyIntolerance.category (food, medication, environment, biologic).
+        </td>
+    </tr>
+    <tr>
+        <td>Severity</td>
+        <td>Allergyintolerance.reaction.severity</td>
+        <td>
+            Note the comment in QI Core/FHIR:
+            <blockquote>
+                "It is acknowledged that this assessment is very subjective. There may be some some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions."
+            </blockquote>
+            In the future, consider addressing criticality in QDM as well (i.e., low risk, high risk).
+        </td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>AllergyIntolerance.asserter</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Recorder</td>
+        <td>AllergyIntolerance.recorder</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>AllergyIntolerance.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="Assessment"> </a>
+<h3><span class="sectioncount">7.3.0</span> Assessment <a href="qdm-to-qicore.html#Assessment" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+<p>
+    QDM defines <em>Assessment</em> as a resource used to define specific observations that clinicians use to guide treatment of the patient.
+    An assessment can be a single question, or observable entity with an expected response, an organized collection of questions intended to solicit information from patients, providers or other individuals, or a single observable entity that is part of such a collection of questions.
+    QDM further defines contexts for assessments: Assessment, Performed and Assessment, Recommended.
+    Each context is mapped to QI Core elements in the following tables.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Assessment, Performed</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Assessment, Performed</td>
+        <td>Observation (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>The context "performed" maps closest to the Observation.status final, amended, or corrected.  </td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Observation.effective[x]</td>
+        <td>
+            QDM only addresses authorTime; QI Core allows a Period.
+            Assessment generally address specific documentation of observations.
+            <p>
+                Consider: Assessment to determine tobacco use history might ask for when tobacco use started and when it ended.
+                The start time and stop time could be represented as answers to two different questions (i.e., when did the patient start and when did the patient end tobacco use).
+                The Observation.effective[x] would apply more directly to a laboratory test the included collection of a specimen over a period of time.
+            </p>
+            Consider authorDatetime for Assessment, Performed is the dateTime the assessment is captured.
+        </td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Observation.dataAbsentReason</td>
+        <td>
+            QDM negation rationale addresses absence of the information for a known, and approved reason determined by the measure author.
+            Thus eCQMs use a measure developer-specific value set for negation rationale.
+            The value set for Observation.dataAbsentReason is required so QI Core would need to be an extension of the existing information.
+            <br />
+            Note, the referenced value set is extensible.
+        </td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Observaton.basedOn</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td>Observation.method</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Result</td>
+        <td>Observation.value[x]</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            Note - QI Core also includes Observation.interpretation and Observation.comment - eCQMs have addressed interpretation as an implementation issue.
+        </td>
+    </tr>
+    <tr>
+        <td>Related to</td>
+        <td>Observaton.basedOn</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            Alternate name: fulfills
+        </td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>Observation.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Components</td>
+        <td>Components</td>
+        <td>
+            QDM uses components to combine related observations to each other, e.g., a set of independent observations performed within an admission assessment for an inpatient admission.
+            Each observation is unique (e.g., questions about tobacco usage, other substance usage, blood pressure, pulse, skin turgor, etc., etc.) but they are captured during the same patient-provider interaction.
+            Such QDM components should map directly to QI Core / FHIR observations that can be linked to other observations.
+            <p>
+                Other QDM component examples include multiple questions that are part of a validated evaluation tool (e.g., a Braden skin assessment scale).
+                This latter example indicates individual questions that are inherently tied to the Braden scale instrument and the questions and answers do not have inherent value without being part of the instrument.
+            </p>
+            QI Core / FHIR considers each such question as an Observation.component.
+            A general rule of thumb is QI Core / FHIR components apply only when the inherent value of the observation is defined by the parent observation.
+            The result is that the content will determine if a QDM component maps to Observation.code or to Observation.component.code.
+        </td>
+    </tr>
+    <tr>
+        <td>Component code</td>
+        <td>Observation.component.code</td>
+        <td>
+            See "Components" - The content will determine if a QDM component maps to Observation.code or to Observation.component.code
+        </td>
+    </tr>
+    <tr>
+        <td>Component result</td>
+        <td>Component result</td>
+        <td>
+            See "Components" - The content will determine if a QDM component maps to Observation.value[x] or to Observation.component.value[x]
+        </td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Observaton.id</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            Alternate name: fulfills
+        </td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Observation.performer</td>
+        <td>
+            QI Core / FHIR does not have a direct concept of "source" but it does list Observation.performer and Observation.device, both of which would address the QDM concept of Source.
+        </td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Assessment, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Assessment, Recommended</td>
+        <td>ProcedureRequest.intent</td>
+        <td>
+            Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option.
+            "Proposal" is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient.
+            The QDM concept Recommended addresses expectations a provider gives to a patient.
+            Such recommendations are most consistent with the ProcedureRequest.intent value of "plan" (an intension to ensure something occurs without providing an authorization to act).
+        </td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            <br />
+            Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+        </td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>This item is not found in QI Core.</td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>ProcedureRequest.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>QDM to QI Core mapping seems most appropriate to ProcedureRequest.requester as defined for the "source" attribute.</td>
+    </tr>
+    <tr>
+        <td>Recorder</td>
+        <td>ProcedureRequest.requester.agent</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="CareExperience"> </a>
+<h3><span class="sectioncount">7.4.0</span> Care Experience <a href="qdm-to-qicore.html#CareExperience" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Care Experience</em> as the experience a patient has when receiving care or a provider has when providing care.
+    The individual <em>Care Experience</em> datatypes should be consulted for further details.
+    QDM represents two kinds of care experience: Patient Care Experience and Provider Care Experience.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Care Experience</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Patient Care Experience</td>
+        <td>Observation (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Observation.effective[x]</td>
+        <td>
+            QDM only addresses authorTime; QI Core allows a Period.
+            Patient Care Experience generally address specific documentation of observations.
+            However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharege dateTime to define the Relevant Period).
+            Such concepts would use observation.effective.[x].
+            <br />
+            Consider authorDatetime for Patient Care Experience is the dateTime the experience is captured (i.e., the start of the effectiveTime).
+        </td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>Observation.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Observation.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Observation.performer</td>
+        <td>
+            QI Core / FHIR does not have a direct concept of "source" but it does list Observation.performer and Observation.device, both of which would address the QDM concept of Source.
+        </td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Provider Care Experience</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Provider Care Experience</td>
+        <td>Observation (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Observation.effective[x]</td>
+        <td>
+            QDM only addresses authorTime; QI Core allows a Period.
+            Provider Care Experience generally address specific documentation of observations.
+            However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Provider care experience during a hospitalization - i.e., with an admission dateTime and discharege dateTime to define the Relevant Period). Such concepts would use observation.effective.[x].
+            <br />
+            Consider authorDatetime for Provider Care Experience is the dateTime the experience is captured (i.e., the start of the effectiveTime).
+        </td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>Observation.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Observation.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Observation.performer</td>
+        <td>
+            QI Core / FHIR does not have a direct concept of "source" but it does list Observation.performer and Observation.device, both of which would address the QDM concept of Source.
+        </td>
+    </tr>
+</table>
+
+<a name="CareGoal"> </a>
+<h3><span class="sectioncount">7.5.0</span> Care Goal <a href="qdm-to-qicore.html#CareGoal" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Care Goal</em> as a defined target or measure to be achieved in the process of patient care, that is, an expected outcome.
+    A typical goal is expressed as a change in status expected at a defined future time.
+    That change can be an observation represented by other QDM categories (diagnostic tests, laboratory tests, symptoms, etc.) scheduled for some time in the future and with a particular value.
+    A goal can be found in the plan of care (care plan), the structure used by all stakeholders, including the patient, to define the management actions for the various conditions, problems, or issues identified for the target of the plan.
+    This structure, through which the goals and care-planning actions and processes can be organized, planned, communicated, and checked for completion, is represented in the QDM categories as a Record Artifact.
+    A time/date stamp is required.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Provider Care Experience</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Care Goal</td>
+        <td>Goal.status</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Related to</td>
+        <td>Goal.addresses</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            Alternate name: fulfills
+        </td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Goal.start[x]</td>
+        <td>Relevant Period should be calculated from the Goal.start[x] to the Goal.target.due[x]</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Goal.target.due[x]</td>
+        <td>Relevant Period should be calculated from the Goal.start[x] to the Goal.target.due[x]</td>
+    </tr>
+    <tr>
+        <td>Target Outcome</td>
+        <td>Goal.target.detail[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>Goal.description</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Goal.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Goal.expressedBy</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            The person responsible for setting the goal.
+        </td>
+    </tr>
+</table>
+
+<a name="Communication"> </a>
+<h3><span class="sectioncount">7.6.0</span> Communication <a href="qdm-to-qicore.html#Communication" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Communication</em> as the transmission, receipt, or acknowledgement of information sent from a source to a recipient, such as from one clinician to another regarding findings, assessments, plans of care, consultative advice, instructions, educational resources, etc.
+    It also may include the receipt of response from a patient with respect to any aspect of the care provided.
+    Furthermore, it may include the conveying of information from provider to patient (e.g., results, findings, plans for care, medical advice, instructions, educational resources, appointments).
+    A time and date stamp is required.
+    QDM defines three contexts for communication: Communication, Patient to Provider; Communication, Provider to Patient; Communication, Provider to Provider.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Communication, Patient to Provider</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Communication, Patient to Provider</td>
+        <td>Communication (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR - constrain to "completed"</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Communication.notDoneReason</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Communication.sent</td>
+        <td>QDM addresses authorDatetime as the time the communication is sent.</td>
+    </tr>
+    <tr>
+        <td>Related to</td>
+        <td>Observation.basedOn</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            <br />
+            Alternate name: fulfills
+        </td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Communication.reasonCode</td>
+        <td>Note - CommunicationRequest in QI Core could be considered but QDM does not differentiate a Communication recommended or ordered, only communication so the mapping assumes the communication has occurred, with or without a response.</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Communication.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Communication.sender</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Communication, Provider to Patient</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Communication, Provider to Patient</td>
+        <td>Communication (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Communication.notDoneReason</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Communication.sent</td>
+        <td>QDM addresses authorDatetime as the time the communication is sent.</td>
+    </tr>
+    <tr>
+        <td>Related to</td>
+        <td>Observation.basedOn</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            <br />
+            Alternate name: fulfills
+        </td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Communication.reasonCode</td>
+        <td>Note - CommunicationRequest in QI Core could be considered but QDM does not differentiate a Communication recommended or ordered, only communication so the mapping assumes the communication has occurred, with or without a response.</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Communication.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Communication.sender</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Communication, Provider to Provider</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Communication, Provider to Provider</td>
+        <td>Communication (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Communication.notDoneReason</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Communication.sent</td>
+        <td>QDM addresses authorDatetime as the time the communication is sent.</td>
+    </tr>
+    <tr>
+        <td>Related to</td>
+        <td>Observation.basedOn</td>
+        <td>
+            QDM matched to QI Core / FHIR
+            <br />
+            Alternate name: fulfills
+        </td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Communication.reasonCode</td>
+        <td>Note - CommunicationRequest in QI Core could be considered but QDM does not differentiate a Communication recommended or ordered, only communication so the mapping assumes the communication has occurred, with or without a response.</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Communication.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Communication.sender</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="ConditionDiagnosisProblem"> </a>
+<h3><span class="sectioncount">7.7.0</span> Condition/Diagnosis/Problem <a href="qdm-to-qicore.html#ConditionDiagnosisProblem" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Condition/Diagnosis/Problem</em> as a practitioner's identification of a patient's disease, illness, injury, or condition.
+    This category contains a single datatype to represent all of these concepts: <em>Diagnosis</em>.
+    A practitioner determines the <em>diagnosis</em> by means of examination, diagnostic test results, patient history, and/or family history.
+    <em>Diagnoses</em> are usually considered unfavorable, but may also represent neutral or favorable conditions that affect a patient's plan of care (e.g., pregnancy).
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Diagnosis</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Diagnosis</td>
+        <td>Condition (the .clinicalstatus metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM defaults the status to active and prevalence period provides the evidence of activity.</td>
+    </tr>
+    <tr>
+        <td>Prevalence Period</td>
+        <td>Condition.onset[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Condition.abatement[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Anatomical Location Site</td>
+        <td>Condition.bodySite</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Severity</td>
+        <td>Condition.severity</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>Condition.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Condition.assertedDate</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Condition.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Condition.asserter</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="Device"> </a>
+<h3><span class="sectioncount">7.8.0</span> Device <a href="qdm-to-qicore.html#Device" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Device</em> as an instrument, apparatus, implement, machine, contrivance, implant, in-vitro reagent, or other similar or related article, including a component part or accessory, intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease and not dependent on being metabolized to achieve any of its primary intended purposes.<sup><a href="#fn1" id="ref1">1</a></sup>
+    QDM provides three contexts for expressing devices: Device, Applied; Device, Order; and Device, Recommended.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+        <tr><strong>Device, Applied</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Device, Applied</td>
+        <td>Procedure (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>Device.status allows active | inactive | entered-in-error | unknown as a required value set; Procedure.status seems more appropriate - constrain the event code to "Completed"</td>
+    </tr>
+    <tr>
+        <td>Anatomical Approach Site</td>
+        <td>Procedure.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-approachBodySite">approachBodySite</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Anatomical Location Site</td>
+        <td>Procedure.bodySite</td>
+        <td>Device.location (QI Core only) can indicate where the resource is found, but Procedure seems a better fit for Device, Applied</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Procedure.notDoneReason</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Procedure.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Procedure.performed[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDateTime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Procedure.focalDevice</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Procedure.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Procedure.performer</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Device, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Device, Order</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Device, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Device, Recommended</td>
+        <td>ProcedureRequest.intent</td>
+        <td>
+            Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option.
+            "Proposal" is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient.
+            The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ProcedureRequest.intent value of "plan" (an intension to ensure something occurs without providing an authorization to act).
+        </td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<a name="DiagnosticStudy"> </a>
+<h3><span class="sectioncount">7.9.0</span> Diagnostic Study <a href="qdm-to-qicore.html#DiagnosticStudy" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Diagnostic Study</em> as any kind of medical test performed as a specific test or series of steps to aid in diagnosing or detecting disease (e.g., to establish a diagnosis, measure the progress or recovery from disease, confirm that a person is free from disease).<sup><a href="#fn2" id="ref2">2</a></sup>
+    The QDM defines diagnostic studies as those that are not performed in organizations that perform testing on samples of human blood, tissue, or other substance from the body.
+    Diagnostic studies may make use of digital images and textual reports.
+    Such studies include but are not limited to imaging studies, cardiology studies (electrocardiogram, treadmill stress testing), pulmonary-function testing, vascular laboratory testing, and others.
+    QDM defines three contexts for Diagnostic Study: Diagnostic Study, Order; Diagnostic Study, Performed; and Diagnostic Study, Recommended.
+    Note that QI Core maps for imaging type diagnostic studies are mapped to DiagnosticReport; QI Core maps for non-imaging type diagnostic studies are mapped to Observation.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Diagnostic Study, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Diagnostic Study, Order</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>This item is not found in QI Core.</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Diagnostic Study, Performed (imaging studies)</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Diagnostic Study, Performed (Specific to imaging studies)</td>
+        <td>ObservationReport (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR. Quality measures and CDS artifacts may need to address which status is desired: Partial, preliminary, final, amended, corrected, appended. Most quality measures will address final, amended, corrected, appended.</td>
+    </tr>
+    <tr>
+        <td>FacilityLocations</td>
+        <td>DiagnosticReport.extension (<a href="http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed">locationPerformed</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not available in QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>DiagnosticReport.modifierExtension</td>
+        <td>A value set is required. Many eCQMs use a measure developer-specific value set. Note, Observation.component.dataAbsentReason provides more explicit details for negation rationale.</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>DiagnosticReport.modifierExtension</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Result</td>
+        <td>DiagnosticReport.effective[x]</td>
+        <td>Note - QI Core also includes Observation.interpretation and Observation.comment - eCQMs have addressed interpretation as an implementation issue. Perhaps that approach should be reconsidered.</td>
+    </tr>
+    <tr>
+        <td>Result dateTime</td>
+        <td>Observation.issued</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>DiagnosticReport.effective[x]</td>
+        <td>QDM only addresses authorTime; QI Core allows a Period. Consider addressing the difference.</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>DiagnosticReport.status</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>DiagnosticReport.code</td>
+        <td>Note - QI Core includes DiagnosticReport.specimen - eCQMs use the LOINC value set to determine the specimen source</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td>Components</td>
+        <td></td>
+        <td>Components for imaging studies not addressed in QICore</td>
+    </tr>
+    <tr>
+        <td>Component code</td>
+        <td></td>
+        <td>Components for imaging studies not addressed in QICore</td>
+    </tr>
+    <tr>
+        <td>Component result</td>
+        <td></td>
+        <td>Components for imaging studies not addressed in QICore</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>DiagnosticReport.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>DiagnosticReport.performer</td>
+        <td>Source is addressed by either DiagnosticReport.performer or Observation.device</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Diagnostic Study, Performed (non-imaging studies)</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Diagnostic Study, Performed (Specific to non-imaging studies)</td>
+        <td>Observation (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR. Quality measures and CDS artifacts may need to address which status is desired: Partial, preliminary, final, amended, corrected, appended. Most quality measures will address final, amended, corrected, appended.</td>
+    </tr>
+    <tr>
+        <td>FacilityLocations</td>
+        <td>DiagnosticReport.extension (<a href="http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed">locationPerformed</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td>Observation.method</td>
+        <td>Not available in QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Observation.dateAbsentReason</td>
+        <td>The value set is required. Many eCQMs use a measure developer-specific value set. Note, component also has a Observation.component.dataAbsentReason in QI Core.</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Observation.basedOn</td>
+        <td>This is the best fit in QI Core</td>
+    </tr>
+    <tr>
+        <td>Result</td>
+        <td>Observation.value[x]</td>
+        <td>Note - QI Core also includes Observation.interpretation and Observation.comment - eCQMs have addressed interpretation as an implementation issue. Perhaps that approach should be reconsidered.</td>
+    </tr>
+    <tr>
+        <td>Result dateTime</td>
+        <td>Observation.issued</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Observation.effective[x]</td>
+        <td>QDM only addresses authorTime; QI Core allows a Period. Consider addressing the difference.</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>Observation.status</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Observation.code</td>
+        <td>Note - QI Core includes Observation.specimen - eCQMs use the LOINC value set to determine the specimen source</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td>Components</td>
+        <td>Observation.component</td>
+        <td>
+            QDM uses components to combine related observations to each other, e.g., a set of independent observations performed within an admission assessment for an inpatient admission.
+            Each observation is unique (e.g., questions about tobacco usage, other substance usage, blood pressure, pulse, skin turgor, etc., etc.) but they are captured during the same patient-provider interaction.
+            Such QDM components should map directly to QI Core / FHIR observations that can be linked to other observations.
+            Other QDM component examples include multiple questions that are part of a validated evaluation tool (e.g., a Braden skin assessment scale).
+            This latter example indicates individual questions that are inherently tied to the Braden scale instrument and the questions and answers do not have inherent value without being part of the instrument.
+            QI Core / FHIR considers each such question as an Observation.component.
+            A general rule of thumb is QI Core / FHIR components apply only when the inherent value of the observation is defined by the parent observation.
+            The result is that the content will determine if a QDM component maps to Observation.code or to Observation.component.code.
+        </td>
+    </tr>
+    <tr>
+        <td>Component code</td>
+        <td>Observation.component.code</td>
+        <td>See "component" - content-specific</td>
+    </tr>
+    <tr>
+        <td>Component result</td>
+        <td>Observation.component.value[x]</td>
+        <td>See "component" - content-specific</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Observation.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Observation.performer</td>
+        <td>Source is addressed by either Observation.performer or Observation.device</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Diagnostic Study, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Diagnostic Study, Recommended</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. "Proposal" is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ProcedureRequest.intent value of "plan" (an intension to ensure something occurs without providing an authorization to act).</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>This item is not found in QI Core.</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<a name="Encounter"> </a>
+<h3><span class="sectioncount">7.10.0</span> Encounter <a href="qdm-to-qicore.html#Encounter" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Encounter</em> as an identifiable grouping of healthcare-related activities characterized by the entity relationship between the subject of care and a healthcare provider; such a grouping is determined by the healthcare provider.<sup><a href="#fn3" id="ref3">3</a></sup>
+    A <em>patient encounter</em> represents interaction between a healthcare provider and a patient with a face-to-face patient visit to a clinician's office, or any electronically remote interaction with a clinician for any form of diagnostic treatment or therapeutic event.
+    Encounters can be billable events but are not limited to billable interactions.
+    Each encounter has an associated location or modality within which it occurred (such as an office, home, electronic methods, phone encounter, or telemedicine methods).
+    The <em>encounter location</em> is the patient's location at the time of measurement.
+    Different levels of interaction can be specified in the value associated with the element while modes of interaction (e.g., telephone) may be modeled using the data flow attribute.
+    QDM defines three contexts for Encounter: Encounter, Order; Encounter, Performed; Encounter, Recommended.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Encounter, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Encounter, Order</td>
+        <td>ReferralRequest.intent</td>
+        <td>Referral Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. For QDM datatypes with the context "order" the ReferralRequest.intent value shall be constrained to "order"</td>
+    </tr>
+    <tr>
+        <td>FacilityLocations</td>
+        <td>ReferralRequest.context/td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>Modeled as a procedure request - there is no Encounter request in QI Core</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ReferralRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ReferralRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>code</td>
+        <td>ReferralRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ReferralRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ReferralRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Encounter, Performed</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Encounter, Performed</td>
+        <td>Encounter (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>Constrained to status consistent with in-progress or finished.</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Encounter.period</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Admission Source</td>
+        <td>Encounter.hospitalization.admitSource</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Diagnosis</td>
+        <td>Encounter.diagnosis</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Discharge Disposition</td>
+        <td>Encounter.hospitalization.dischargeDisposition</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Length of Stay</td>
+        <td>Encounter.length</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Encounter.extension (<a href="http://hl7.org/fhir/StructureDefinition/encounter-reasonCancelled">reasonCancelled</a>)</td>
+        <td>Only applies to an encounter that was cancelled, not an encounter that was never planned for a specific reason.</td>
+    </tr>
+    <tr>
+        <td>Principal Diagosis</td>
+        <td>Encounter.diagnosis.role</td>
+        <td>Not a direct fit - the value set does not include principal diagnosis, which could be added to the value set. It is a better fit than diagnosis rank since the primary diagnosis may not be the same as the principal diagnosis. </td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Encounter.class</td>
+        <td>
+            Encounter.class fits best with the type of encounter.
+            Measure developers create their own values and might need to constrain the use to the suggested value set.
+            The previous Encounter.class value set included OBS - observation defined as "Provision of care of women during pregnancy, childbirth and immediate postpartum period. Also known as Maternity."
+            The updated value set includes OBSENC for "observation encounter" approved in the November 2017 Harmonization cycle.
+        </td>
+    </tr>
+    <tr>
+        <td>FacilityLocations</td>
+        <td>Encounter.location</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>FacilityLocations code</td>
+        <td>Location.type</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>FacilityLocations location period</td>
+        <td>Location.period</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Encounter.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Encounter, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Encounter, Order</td>
+        <td>ReferralRequest.intent</td>
+        <td>
+            Referral Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option.
+            "Proposal" is most consistent with the ReferralRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient.
+            The QDM concept Recommended addresses expectations a provider gives to a patient.
+            Such recommendations are most consistent with the ReferralRequest.intent value of "plan" (an intension to ensure something occurs without providing an authorization to act).
+        </td>
+    </tr>
+    <tr>
+        <td>FacilityLocations</td>
+        <td>ReferralRequest.context/td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ReferralRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ReferralRequest.authoredOn</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ReferralRequest.type</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ReferralRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ReferralRequest.requester</td>
+        <td></td>
+    </tr>
+</table>
+
+<a name="FamilyHistory"> </a>
+<h3><span class="sectioncount">7.11.0</span> Family History <a href="qdm-to-qicore.html#FamilyHistory" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Family History</em> as a diagnosis or problem experienced by a family member of the patient.
+    Typically, a family history will not contain very much detail, but the simple identification of a diagnosis or problem in the patient's family history may be relevant to the care of the patient.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Family History</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Family History</td>
+        <td>FamilyMemberHistory.status</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>FamilyMemberHistory.date</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relationships</td>
+        <td>FamilyMemberHistory.relationship</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>FamilyMemberHistory.condition.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>FamilyMemberHistory.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>FamilyMemberHistory.patient</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="Immunization"> </a>
+<h3><span class="sectioncount">7.11.0</span> Immunization <a href="qdm-to-qicore.html#Immunization" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Immunization</em> as vaccines administered to patients in healthcare settings but does not include non-vaccine agents. QDM defines two contexts for immunization: Immunization, Administered; Immunization, Order.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+        <tr><strong>Immunization, Administered</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Immunization, Administered</td>
+        <td>Immunization (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>Immunization.doseQuantity</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Immunization.explanation.reasonNotGiven</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Immunization.explanation.reason</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>Immunization.route</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Immunization.date</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td></td>
+        <td><strong>Not addressed in QI Core</strong></td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Immunization.vaccineCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Immunization.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Immunization.primarySource</td>
+        <td>Source addressed by primarySource or reportOrigin</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Immunization, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Immunization, Order</td>
+        <td>Immunization (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>the Immunization.status value set does not include an option for "requested" and needs to add the concept to the value set. Alternatively, use Procedure.status (which also needs "requested" as a concept to meet the need here).</td>
+    </tr>
+    <tr>
+        <td>Active dateTime</td>
+        <td>ImmunizationRecommendation.recommendation.dateCriterion</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>Immunization.doseQuantity</td>
+        <td>Not sure this applies since it addresses what was given, not what should be given. There is no QI Core Counterpart for immunization order</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ImmunizationRecommendation.recommendation.protocol</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>Immunization.route</td>
+        <td>Not sure this applies since it addresses the route used, not what route should be used. There is no QI Core Counterpart for immunization order</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td></td>
+        <td><strong>Not addressed in QI Core</strong></td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ImmunizationRecommendation.recommendation.date</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ImmunizationRecommendation.recommendation.vaccineCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ImmunizationRecommendation.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="IndividualCharacteristic"> </a>
+<h3><span class="sectioncount">7.12.0</span> Individual Characteristic <a href="qdm-to-qicore.html#IndividualCharacteristic" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Individual Characteristic</em> as specific factors about a patient, clinician, provider, or facility.
+    Included are demographics, behavioral factors, social or cultural factors, available resources, and preferences.
+    <em>Behaviors</em> reference responses or actions that affect (either positively or negatively) health or healthcare.
+    Included in this category are mental health issues, adherence issues unrelated to other factors or resources, coping ability, grief issues, and substance use/abuse.
+    <em>Social/cultural factors</em> are characteristics of an individual related to family/caregiver support, education, and literacy (including health literacy), primary language, cultural beliefs (including health beliefs), persistent life stressors, spiritual and religious beliefs, immigration status, and history of abuse or neglect.
+    <em>Resources</em> are means available to a patient to meet health and healthcare needs, which might include caregiver support, insurance coverage, financial resources, and community resources to which the patient is already connected and from which the patient is receiving benefit.
+    <em>Preferences</em> are choices made by patients and their caregivers relative to options for care or treatment (including scheduling, care experience, and meeting of personal health goals) and the sharing and disclosure of their health information.
+    <br />
+    QDM defines nine individual characteristics: Patient Characteristic; Patient Characteristic, Birthdate; Patient Characteristic, Clinical Trial Participant; Patient Characteristic, Ethnicity; Patient Characteristic, Expired; Patient Characteristic, Payer; Patient Characteristic, Race; Patient Characteristic, Sex; Provider Characteristic.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Characteristic</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources.</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>patient.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Recorder</td>
+        <td></td>
+        <td>Possbly addressed in FHIR provenance</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Characteristic: Birthdate</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Birth dateTime</td>
+        <td>Patient.birthDate</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>patient.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Characteristic: Clinical Trial Participant</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Patient.extension.clinicalTrial.reason</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Patient.extension.clinicalTrial.period</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Patient.extension.clinicalTrial.NCT</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>patient.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Characteristic: Ethnicity</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Patient.extension (<a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity">ethnicity.ombCategory</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>patient.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Characteristic: Expired</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Cause</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Expiration dateTime</td>
+        <td>Patient.deceasedDateTime</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>deceasedBoolean</td>
+        <td>If the code exisits in QDM the deceasedBoolean is true. Uses a direct referenced code (SNOMED CT 419099009 2016-03).</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>patient.id</td>
+        <td></td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Characteristic: Payer</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>patient.id</td>
+        <td></td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Characteristic: Race</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Patient.extension (<a href="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race">race.ombCategory</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>patient.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Patient Characteristic: Sex</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Patient.gender</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>patient.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Provider Characteristic</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Note - FHIR includes a concept Practitioner.qualification.period (period during which the qualification is valid). The qualification period may be useful in defining CDS or eCQMs.</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Practitioner.qualification.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Practitioner.identifier.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="Intervention"> </a>
+<h3><span class="sectioncount">7.13.0</span> Intervention <a href="qdm-to-qicore.html#Intervention" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Intervention</em> as a course of action intended to achieve a result in the care of persons with health <em>problems</em> that does not involve direct physical contact with a patient.
+    Examples include patient education and therapeutic communication.
+    QDM defines three contexts for intervention: Intervention, Order; Intervention, Performed; Intervention, Recommended.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Intervention, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Intervention, Order</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Intervention, Performed</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Intervention, Performed</td>
+        <td>Procedure (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Procedure.notDoneReason</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Procedure.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Result</td>
+        <td>Procedure.outcome</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Procedure.performed[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>Procedure.status</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Procedure.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Procedure.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Procedure.performer</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Intervention, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Intervention, Reecommended</td>
+        <td>ProcedureRequest.intent</td>
+        <td>
+            Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option.
+            "Proposal" is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient.
+            The QDM concept Recommended addresses expectations a provider gives to a patient.
+            Such recommendations are most consistent with the ProcedureRequest.intent value of "plan" (an intension to ensure something occurs without providing an authorization to act).
+        </td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<a name="LaboratoryTest"> </a>
+<h3><span class="sectioncount">7.14.0</span> Laboratory Test <a href="qdm-to-qicore.html#LaboratoryTest" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Laboratory Test</em> as a medical procedure that involves testing a sample of blood, urine, or other substance from the body.
+    Tests can help determine a diagnosis, plan treatment, check to see if treatment is working, or monitor the disease over time. <sup><a href="#fn4" id="ref4">4</a></sup>
+    This QDM data category for Laboratory Test is only used for information about the subject of record.
+    QDM defines three contexts for Laboratory Test: Laboratory Test, Order; Laboratory Test, Performed; Laboratory Test, Recommended.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Laboratory Test, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Laboratory Test, Order</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Laboratory Test, Performed</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Laboratory Test, Performed</td>
+        <td>Observation (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR.</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td>Observation.method</td>
+        <td>Not available in QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Observation.dateAbsentReason</td>
+        <td>The value set is required. Many eCQMs use a measure developer-specific value set. Note, component also has a Observation.component.dataAbsentReason in QI Core.</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Observation.basedOn</td>
+        <td>This is the best fit in QI Core</td>
+    </tr>
+    <tr>
+        <td>Reference Range High</td>
+        <td>Observation.referenceRange.high</td>
+        <td>QI Core also references Observation.referenceRange.type - i.e. what part of the referenced target population it applies to (e.g., normal or therapeutic range); and Observation.referenceRange.appliesTo - i.e., the target population (normal population, or particular sex or race), and Observation.referenceRange.age. QI Core also addresses Observation.component.referenceRange. Should these options be considered for QDM?</td>
+    </tr>
+    <tr>
+        <td>Reference Range Low</td>
+        <td>Observation.referenceRange.low</td>
+        <td>QI Core also references Observation.referenceRange.type - i.e. what part of the referenced target population it applies to (e.g., normal or therapeutic range); and Observation.referenceRange.appliesTo - i.e., the target population (normal population, or particular sex or race), and Observation.referenceRange.age. QI Core also addresses Observation.component.referenceRange. Should these options be considered for QDM?</td>
+    </tr>
+    <tr>
+        <td>Result</td>
+        <td>Observation.value[x]</td>
+        <td>Observation.value[x] refers to QI Core Observation which is noted here. Note - QI Core also includes Observation.interpretation and Observation.comment - eCQMs have addressed interpretation as an implementation issue. Perhaps that approach should be reconsidered.</td>
+    </tr>
+    <tr>
+        <td>Result dateTime</td>
+        <td>Observation.issued</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Observation.effective[x]</td>
+        <td>QDM only addresses authorTime; QI Core allows a Period. Consider addressing the difference.</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>Observation.status</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>Observation.issued</td>
+        <td>QDM only addresses authorTime; QI Core allows a Period. Consider addressing the difference.</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Observation.code</td>
+        <td>Note - QI Core includes Observation.specimen - eCQMs use the LOINC value set to determine the specimen source</td>
+    </tr>
+    <tr>
+        <td>Components</td>
+        <td>Observation.component</td>
+        <td>
+            QDM uses components to combine related observations to each other, e.g., a set of independent observations performed within an admission assessment for an inpatient admission.
+            Each observation is unique (e.g., questions about tobacco usage, other substance usage, blood pressure, pulse, skin turgor, etc., etc.) but they are captured during the same patient-provider interaction.
+            Such QDM components should map directly to QI Core / FHIR observations that can be linked to other observations.
+            Other QDM component examples include multiple questions that are part of a validated evaluation tool (e.g., a Braden skin assessment scale).
+            This latter example indicates individual questions that are inherently tied to the Braden scale instrument and the questions and answers do not have inherent value without being part of the instrument.
+            QI Core / FHIR considers each such question as an Observation.component.
+            A general rule of thumb is QI Core / FHIR components apply only when the inherent value of the observation is defined by the parent observation.
+            The result is that the content will determine if a QDM component maps to Observation.code or to Observation.component.code.
+        </td>
+    </tr>
+    <tr>
+        <td>Component code</td>
+        <td>Observation.component.code</td>
+        <td>See "component" - content-specific</td>
+    </tr>
+    <tr>
+        <td>Component result</td>
+        <td>Observation.component.value[x]</td>
+        <td>See "component" - content-specific</td>
+    </tr>
+    <tr>
+        <td>Component reference range high</td>
+        <td>Observation.component.referenceRange</td>
+        <td>Refers back to Component.referenceRange</td>
+    </tr>
+    <tr>
+        <td>Component reference range low</td>
+        <td>Observation.component.referenceRange</td>
+        <td>Refers back to Component.referenceRange</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Observation.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Observation.performer</td>
+        <td>Note - QI Core includes Observation.subject - QDM should consider adding subject instead of health record field.</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Laboratory Test, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Laboratory Test, Recommended</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<a name="Medication"> </a>
+<h3><span class="sectioncount">7.15.0</span> Medication <a href="qdm-to-qicore.html#Medication" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Medication</em> as clinical drugs or chemical substances intended for use in the medical diagnosis, cure, treatment, or prevention of disease.
+    Medications are defined as direct referenced values or value sets containing values derived from code systems such as RxNorm.<sup><a href="#fn5" id="ref5">5</a></sup>
+    QDM defines five contexts for Medication: Medication, Active; Medication, Administered; Medication, Discharge; Medication, Dispensed; Medication, Order.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Medication, Active</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Medication, Active</td>
+        <td>MedicationStatement (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>The Medication, Active datatype requires use of the "active" status code from the FHIR value set.</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>MedicationStatement.dosage.dose</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td></td>
+        <td>Not present in QI Core</td>
+    </tr>
+    <tr>
+        <td>Frequency</td>
+        <td>MedicationStatement.dosage.timing</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>MedicationStatement.dosage.route</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>MedicationStatement.effective[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>MedicationStatement.medication[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>MedicationStatement.informationSource</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Medication, Administered</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Medication, Administered</td>
+        <td>MedicationAdministration (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>MedicationAdministration.dosage.dose</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td></td>
+        <td><strong>Not addressed in QI Core</strong></td>
+    </tr>
+    <tr>
+        <td>Frequency</td>
+        <td>MedicationAdministration.dosage.timing</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>MedicationAdministration.reasonNotGiven</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>MedicationAdministration.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>MedicationAdministration.dosage.route</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>MedicationAdministration.effective[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDateTime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>MedicationAdministration.medication[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>MedicationAdministration.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Medication, Discharge</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Medication, Discharge</td>
+        <td>MedicationRequest.intent</td>
+        <td>New profile created to address Medication-request-category = dischargeMedication (LOINC code 8654-6 Hospital Discharge medications) bound to RxNorm.  </td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>MedicationRequest.dosage.dose[x]</td>
+        <td>Note - modeled using MedicationRequest - could also be modeled as MedicationStatement with a status of "intended".  May be modeled better as a component of a discharge instruction set but I can't find that in QI Core or FHIR</td>
+    </tr>
+    <tr>
+        <td>Frequency</td>
+        <td>MedicationRequest.dosageInstruction.timing</td>
+        <td>Note - MedicationRequest.dosageInstruction.timing includes both the frequency instruction (e.g., every 8 hours) and the start and stop dates for the amount included.</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td></td>
+        <td><strong>Supply shouldn't be required for Medication, Discharge since it is a set of medication instructions for a patient after departing from the hospital. Consider removing this attribute from this QDM datatype. Also- not present in MedicationStatement in QI Core.</strong></td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>MedicationStatement.reasonNotTaken</td>
+        <td><strong>Medication Request in QI Core does not reference negation rationale</strong></td>
+    </tr>
+    <tr>
+        <td>Refills</td>
+        <td></td>
+        <td>Not present in QI Core - refills shouldn't be an attribute for a list of medicaitons intended at dischage - consider retiring this attribute for Medication, Discharge in QDM</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>MedicationRequest.dosage.route</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>MedicationRequest.authoredOn</td>
+        <td>Start of relevant period - no specific author time in QI Core</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>MedicationRequest.dispenseRequest.validityPeriod</td>
+        <td>Consider prescription validity as a QDM attribute</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>MedicationRequest.dosageInstruction.timing</td>
+        <td>Note - MedicationRequest.dosageInstruction.timing includes both the frequency instruction (e.g., every 8 hours) and the start and stop dates for the amount included. </td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>MedicationRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>MedicationRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Medication, Dispensed</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Medication, Dispensed</td>
+        <td>MedicationDispense (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>MedicationDispense.quantity</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td>MedicationDispense.daysSupply</td>
+        <td><strong>Not addressed in QI Core</strong></td>
+    </tr>
+    <tr>
+        <td>Frequency</td>
+        <td>MedicationDispense.dosageInstruction.timing</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>MedicationDispense.notDoneReason[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Refills</td>
+        <td>MedicationDispense.extension (<a href="http://hl7.org/fhir/StructureDefinition/pharmacy-core-refillsRemaining">refillsRemaining</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>MedicationDispense.dosageInstruction.route</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>MedicationDispense.extension (<a href="http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod">validityPeriod</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDateTime as part of the provenance resource for all resources.</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>MedicationDispense.medication[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>MedicationDispense.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>MedicationDispense.performer</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Medication, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Medication, Order</td>
+        <td>MedicationRequest.intent</td>
+        <td>Medication Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>MedicationRequest.dosageInstruction.dose[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td>MedicationRequest.dispenseRequest.quantity</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Frequency</td>
+        <td>MedicationRequest.dosageInstruction.timing</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>MedicationRequest.medication[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>MedicationStatement.reasonNotTaken</td>
+        <td>Medication Request in QI Core does not reference negation rationale</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>MedicationRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Refills</td>
+        <td>MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>MedicationRequest.dispenseRequest.expectedSupplyDuration</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>MedicationRequest.dosageInstruction.route</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>MedicationRequest.authoredOn</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>MedicationRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>MedicationStatement.requester</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Recorder</td>
+        <td>MedicationRequest.recorder</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="Participation"> </a>
+<h3><span class="sectioncount">7.16.0</span> Participation <a href="qdm-to-qicore.html#Participation" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Participation</em> as a patient's coverage by a program such as an insurance or medical plan or a payment agreement.
+    Such programs can include patient-centered medical home, disease-specific programs, etc.<sup><a href="#fn6" id="ref6">6</a></sup>
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Participation</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Participation</td>
+        <td>Coverage (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Coverage.type</td>
+        <td>Modeled with FHIR Resource Coverage - may not apply to non-financial program participation but there is no other clear option identified. Not in QI Core</td>
+    </tr>
+    <tr>
+        <td>Participation Period</td>
+        <td>Coverage.period</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Coverage.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="PhysicalExam"> </a>
+<h3><span class="sectioncount">7.17.0</span> Physical Exam <a href="qdm-to-qicore.html#PhysicalExam" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Physical Exam</em> as the evaluation of the patient's body and/or mental status exam to determine its state of health.
+    The techniques of examination can include palpation (feeling with the hands or fingers), percussion (tapping with the fingers), auscultation (listening), visual inspection or observation, inquisition and smell.
+    Measurements may include vital signs (blood pressure, pulse, respiration) as well as other clinical measures (such as expiratory flow rate and size of lesion).
+    Physical exam includes psychiatric examinations.
+    QDM defines three contexts for Physical Exam: Physical Exam, Order; Physical Exam, Performed; Physical Exam, Recommended.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Physical Exam, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Physical Exam, Order</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Anatomical Location Site</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-approachBodySite">approachBodySite</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not present in QI Core</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>The reason the request was refused. Applies only if the status is refused.</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>An explanation or justification for why this diagnostic investigation is being requested in coded or textual form. This is often for billing purposes. May relate to the resources referred to in supportingInformation.</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Observation.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Physical Exam, Performed</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Physical Exam, Performed</td>
+        <td>Observation (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR.</td>
+    </tr>
+    <tr>
+        <td>Anatomical Location Site</td>
+        <td>Observation.bodySite</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td>Observation.method</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Observation.dateAbsentReason</td>
+        <td>The value set is required. Many eCQMs use a measure developer-specific value set. Note, component also has a Observation.component.dataAbsentReason in QI Core.</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Observation.basedOn</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reference Range High</td>
+        <td>Observation.referenceRange.high</td>
+        <td>QI Core also references Observation.referenceRange.type - i.e. what part of the referenced target population it applies to (e.g., normal or therapeutic range); and Observation.referenceRange.appliesTo - i.e., the target population (normal population, or particular sex or race), and Observation.referenceRange.age. QI Core also addresses Observation.component.referenceRange. Should these options be considered for QDM?</td>
+    </tr>
+    <tr>
+        <td>Result</td>
+        <td>Observation.value[x]</td>
+        <td>Note - QI Core also includes Observation.interpretation and Observation.comment - eCQMs have addressed interpretation as an implementation issue. Perhaps that approach should be reconsidered.</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Observation.effective[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Observation.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Observation.effective[x]</td>
+        <td>QDM only addresses authorTime; QI Core allows a Period. Consider addressing the difference.</td>
+    </tr>
+    <tr>
+        <td>Components</td>
+        <td>Observation.component</td>
+        <td>
+            QDM uses components to combine related observations to each other, e.g., a set of independent observations performed within an admission assessment for an inpatient admission.
+            Each observation is unique (e.g., questions about tobacco usage, other substance usage, blood pressure, pulse, skin turgor, etc., etc.) but they are captured during the same patient-provider interaction.
+            Such QDM components should map directly to QI Core / FHIR observations that can be linked to other observations.
+            Other QDM component examples include multiple questions that are part of a validated evaluation tool (e.g., a Braden skin assessment scale).
+            This latter example indicates individual questions that are inherently tied to the Braden scale instrument and the questions and answers do not have inherent value without being part of the instrument.
+            QI Core / FHIR considers each such question as an Observation.component.
+            A general rule of thumb is QI Core / FHIR components apply only when the inherent value of the observation is defined by the parent observation.
+            The result is that the content will determine if a QDM component maps to Observation.code or to Observation.component.code.
+        </td>
+    </tr>
+    <tr>
+        <td>Component code</td>
+        <td>Observation.component.code</td>
+        <td>See "component" - content-specific</td>
+    </tr>
+    <tr>
+        <td>Component result</td>
+        <td>Observation.component.value[x]</td>
+        <td>See "component" - content-specific</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Observation.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Observation.performer</td>
+        <td>Note - QI Core includes Observation.subject - QDM should consider adding subject instead of health record field.</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Physical Exam, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Physical Exam, Recommended</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. "Proposal" is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ProcedureRequest.intent value of "plan" (an intension to ensure something occurs without providing an authorization to act).</td>
+    </tr>
+    <tr>
+        <td>Anatomical Location Site</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-approachBodySite">approachBodySite</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<a name="Procedure"> </a>
+<h3><span class="sectioncount">7.18.0</span> Procedure <a href="qdm-to-qicore.html#Procedure" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Procedure</em> as "An Act whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the subject. ... Procedure is but one among several types of clinical activities such as observation, substance-administrations, and communicative interactions ... Procedure does not comprise all acts of [sic] whose intent is intervention or treatment."<sup><a href="#fn7" id="ref7">7</a></sup>
+    A <em>procedure</em> may be a surgery or other type of physical manipulation of a person's body in whole or in part for purposes of making observations and diagnoses or providing treatment.<sup><a href="#fn8" id="ref8">8</a></sup>
+    QDM defines three contexts for Procedure: Procedure, Order; Procedure, Performed; Procedure, Recommended.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Procedure, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Procedure, Order</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Anatomical Approach Site</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-approachBodySite">approachBodySite</a>)</td>
+        <td>Note QI Core ProcedureRequest.extension (http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-appropriatenessScore) - not included in QDM but may potentially apply to Appropriate Use Criteria</td>
+    </tr>
+    <tr>
+        <td>Anatomical Location Site</td>
+        <td>ProcedureRequest.bodySite</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Ordinality</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-appropriatenessScore">appropriatenessScore</a>)</td>
+        <td>Suspect this code set references Appropriate Use Criteria but it is not generic to cover all procedures.</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>ProcedureRequest.occurrence[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ProcedureRequest.code</td>
+        <td>Corrected to link for USCore Procedure Type per Rob's comments</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td></td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Procedure, Performed</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Procedure, Performed</td>
+        <td>Procedure (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>Device.status allows active | inactive | entered-in-error | unknown as a required value set; Procedure.status seems more appropriate - constrain the event code to "Completed"</td>
+    </tr>
+    <tr>
+        <td>Anatomical Approach Site</td>
+        <td>Procedure.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-approachBodySite">approachBodySite</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Anatomical Location Site</td>
+        <td>Procedure.bodySite</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Incision dateTime</td>
+        <td>Procedure.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedure-incisionDateTime">incisionDateTime</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>Procedure.notDoneReason</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Ordinality</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>Procedure.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Result</td>
+        <td>Procedure.outcome</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>Procedure.performed[x]</td>
+        <td>The Procedure.Performed[x] is defined as a period so I believe it fits well.</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDateTime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td>Status</td>
+        <td>Procedure.status</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Procedure.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Components</td>
+        <td></td>
+        <td>
+            QDM uses components to combine related observations to each other, e.g., a set of independent observations performed within an admission assessment for an inpatient admission.
+            Each observation is unique (e.g., questions about tobacco usage, other substance usage, blood pressure, pulse, skin turgor, etc., etc.) but they are captured during the same patient-provider interaction.
+            Such QDM components should map directly to QI Core / FHIR observations that can be linked to other observations.
+            Other QDM component examples include multiple questions that are part of a validated evaluation tool (e.g., a Braden skin assessment scale).
+            This latter example indicates individual questions that are inherently tied to the Braden scale instrument and the questions and answers do not have inherent value without being part of the instrument.
+            QI Core / FHIR considers each such question as an Observation.component.
+            A general rule of thumb is QI Core / FHIR components apply only when the inherent value of the observation is defined by the parent observation.
+            The result is that the content will determine if a QDM component maps to Observation.code or to Observation.component.code.
+        </td>
+    </tr>
+    <tr>
+        <td>Component code</td>
+        <td></td>
+        <td>See "component" - content-specific</td>
+    </tr>
+    <tr>
+        <td>Component result</td>
+        <td></td>
+        <td>See "component" - content-specific</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Procedure.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Procedure.performer</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Procedure, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Procedure, Recommended</td>
+        <td>ProcedureRequest.intent</td>
+        <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Anatomical Approach Site</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-approachBodySite">approachBodySite</a>)</td>
+        <td>Note QI Core ProcedureRequest.extension (http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-appropriatenessScore) - not included in QDM but may potentially apply to Appropriate Use Criteria</td>
+    </tr>
+    <tr>
+        <td>Anatomical Location Site</td>
+        <td>ProcedureRequest.bodySite</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Ordinality</td>
+        <td></td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-appropriatenessScore">appropriatenessScore</a>)</td>
+        <td>Suspect this code set references Appropriate Use Criteria but it is not generic to cover all procedures.</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>ProcedureRequest.reasonCode</td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>ProcedureRequest.authoredOn</td>
+        <td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>ProcedureRequest.code</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>ProcedureRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>ProcedureRequest.requester</td>
+        <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+    </tr>
+</table>
+
+<a name="Substance"> </a>
+<h3><span class="sectioncount">7.19.0</span> Substance <a href="qdm-to-qicore.html#Substance" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines <em>Substance</em> as a homogeneous material with definite composition that includes allergens, biological materials, chemicals, foods, drugs and materials.<sup><a href="#fn9" id="ref9">9</a></sup>
+    QDM distinguishes between medications from non-medication substances by separately listing medication datatypes.
+    Substance may or may not have a code or be classified by a code system such RxNorm.
+    Examples of a substance may include environmental agents (e.g., pollen, dust) and food (e.g., vitamins).
+    QDM defines three contexts for Substance: Substance, Administered; Substance, Order; Substance, Recommended.
+    Since QDM addresses substance a something that is administered, ordered or recommended, the actions are analogous to medications.
+    Hence, the QDM category Substance is mapped to QI core Medication concepts.
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Substance, Administered</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Substance, Administered</td>
+        <td>MedicationAdministration (the .status metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>MedicationAdministration.dosage.dose</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Frequency</td>
+        <td>MedicationAdministration.dosage.timing</td>
+        <td>Not addressed in QI Core</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>MedicationAdministration.reasonNotGiven</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>MedicationAdministration.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>MedicationAdministration.dosage.route</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Relevant Period</td>
+        <td>MedicationAdministration.effective[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>part of FHIR Provenance Resource</td>
+        <td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDateTime still appropriate for this datatype?</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td></td>
+        <td><strong>Not addressed in QI Core</strong></td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>MedicationAdministration.medication[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>MedicationAdministration.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Substance, Order</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Substance, Order</td>
+        <td>MedicationRequest.intent</td>
+        <td>Medication Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to "order" from the intent value set for QDM datatypes with the order context.</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>MedicationRequest.dosageInstruction.dose[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Supply</td>
+        <td>MedicationRequest.dispenseRequest.quantity</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Frequency</td>
+        <td>MedicationRequest.dosageInstruction.timing</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>MedicationRequest.medication[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>MedicationRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td></td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td></td>
+        <td>Medication Request in QI Core does not reference negation rationale</td>
+    </tr>
+    <tr>
+        <td>Refills</td>
+        <td>Refills</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Route</td>
+        <td>Route</td>
+        <td>http://hl7.org/fhir/STU3/valueset-route-codes.html</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>MedicationRequest.authoredOn</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>MedicationRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>MedicationStatement.requester</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Recorder</td>
+        <td>MedicationRequest.recorder</td>
+        <td>Possibly addressed in FHIR provenance</td>
+    </tr>
+</table>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Substance, Recommended</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Substance, Recommended</td>
+        <td>MedicationRequest.intent</td>
+        <td>Medication Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. "Proposal" is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the MedicationRequest.intent value of "plan" (an intension to ensure something occurs without providing an authorization to act).</td>
+    </tr>
+    <tr>
+        <td>Dosage</td>
+        <td>MedicationRequest.dosage.dose[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Frequency</td>
+        <td>MedicationRequest.dosageInstruction.timing</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Method</td>
+        <td></td>
+        <td>Not addressed in QI Core - consider retiring from QDM</td>
+    </tr>
+    <tr>
+        <td>Negation Rationale</td>
+        <td>ProcedureRequest.extension (<a href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused">reasonRefused</a>)</td>
+        <td><strong>Medication Request in QI Core does not reference negation rationale</strong></td>
+    </tr>
+    <tr>
+        <td>Reason</td>
+        <td>MedicationRequest.reasonCode</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Refills</td>
+        <td>Refills</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Author dateTime</td>
+        <td>MedicationRequest.authoredOn</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>MedicationRequest.medication</td>
+        <td>See also, Observation.category</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>MedicationRequest.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>MedicationRequest.requester</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Recorder</td>
+        <td>MedicationRequest.recorder</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<a name="Symptom"> </a>
+<h3><span class="sectioncount">7.20.0</span> Symptom <a href="qdm-to-qicore.html#Symptom" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>
+    QDM defines Symptom as an indication that a person has a condition or disease.
+    Some examples are headache, fever, fatigue, nausea, vomiting, and pain.<sup><a href="#fn10" id="ref10">10</a></sup>
+    Also, symptoms are subjective manifestations of the disease perceived by the patient.<sup><a href="#fn11" id="ref11">11</a></sup>
+    As an example to differentiate symptom from finding, the patient’s subjective symptom of fever is distinguished from the temperature (a finding).
+    For a finding, there is either a source of either a temperature-measuring device together with a recorder of the device (electronically) or an individual (healthcare provider, patient, etc.).
+</p>
+
+<table class="grid" style="width: 100%">
+    <thead>
+    <tr><strong>Symptom</strong></tr>
+    </thead>
+    <tr style="text-align: left">
+        <th style="width: 20%; alignment: left">QDM Attribute</th>
+        <th style="width: 20%">QI Core Metadata Element</th>
+        <th style="width: 60%">Comments</th>
+    </tr>
+    <tr>
+        <td>Symptom</td>
+        <td>Condition (the .clinicalstatus metadata allows conformance to the specific QDM datatype context)</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Prevalence Period</td>
+        <td>Condition.onset[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td>Condition.abatement[x]</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Severity</td>
+        <td>Condition.severity</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Code</td>
+        <td>Condition.code</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>id</td>
+        <td>Condition.id</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+    <tr>
+        <td>Source</td>
+        <td>Condition.asserter</td>
+        <td>QDM matched to QI Core / FHIR</td>
+    </tr>
+</table>
+
+<hr />
+
+<sup id="fn1" style="line-height: 1.428571429">
+    1. Derived from the device definition of the U.S. Food and Drug Administration (FDA), Department of Health and Human Services, Washington DC; 2010. Available at: http://www.fda.gov/. Last accessed August 2017.<a href="#ref1" title="Jump back to footnote 1 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn2" style="line-height: 1.428571429">
+    2. Canada Health Infoway EHR Glossary, https://www.infoway-inforoute.ca/. Last accessed August 2017.<a href="#ref2" title="Jump back to footnote 2 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn3" style="line-height: 1.428571429">
+    3. International Organization for Standardization (ISO), Health Informatics - Requirements for an Electronic Health Record Architecture, ISO 18308:2011. Available at: http://www.iso.org/iso/home/store/catalogue_tc/catalogue_detail.htm?csnumber=52823. Last accessed August 2017.<a href="#ref3" title="Jump back to footnote 3 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn4" style="line-height: 1.428571429">
+    4. National Cancer Institute (NCI). Bethesda, MD: NCI; 2010. Available at: www.cancer.gov/. Last accessed August 2017.<a href="#ref4" title="Jump back to footnote 4 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn5" style="line-height: 1.428571429">
+    5. See https://www.nlm.nih.gov/research/umls/rxnorm/. Last accessed August 2017.<a href="#ref5" title="Jump back to footnote 5 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn6" style="line-height: 1.428571429">
+    6. Definitions modeled similar to HL7 FHIR STU 3.0 - https://www.hl7.org/fhir/coverage.html.<a href="#ref6" title="Jump back to footnote 6 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn7" style="line-height: 1.428571429">
+    7. HL7, available at: http://www.hl7.org/documentcenter/public_temp_9D8B62D1-1C23-BA17-0C978A875D9E7083/wg/java/apidocs/org/hl7/rim/Procedure.html. Last accessed August 2017.<a href="#ref7" title="Jump back to footnote 7 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn8" style="line-height: 1.428571429">
+    8. Modified from Canada Health Infoway, available at: https://www.infoway-inforoute.ca/. Last accessed August 2017.<a href="#ref8" title="Jump back to footnote 8 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn9" style="line-height: 1.428571429">
+    9. HL7 Fast Health Information Resources (FHIR). 1.25.2.1.279. Value Set Substance Category.  DSTU 2. 24 October 2015. Available at: https://www.hl7.org/fhir/valueset-substance-category.html.  Last accessed August 2017.<a href="#ref9" title="Jump back to footnote 9 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn10" style="line-height: 1.428571429">
+    10. UMLS Dictionary, available at: http://www.nlm.nih.gov/research/umls/. Last accessed August 2017.<a href="#ref10" title="Jump back to footnote 10 in the text.">↩</a>
+</sup>
+<br />
+<sup id="fn11" style="line-height: 1.428571429">
+    11. National Cancer Institute (NCI), Bethesda, MD; NCI 2010, available at: www.cancer.gov/. Last accessed August 2017.<a href="#ref11" title="Jump back to footnote 11 in the text.">↩</a>
+</sup>
+
+{% include container-end.html %}
+
+{% include footer.html %}
