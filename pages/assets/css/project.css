@@ -1,8 +1,8 @@
 /*
- 
+
     Specific layout and styling, project based
-        
-    
+
+
 */
 /*
 Flexslider vs LayerSlider vs SliderRevolution
@@ -14,7 +14,7 @@ breadcrumb vs history what is a breadcrumb hiearchy or history?
 gray-color thingy
 
 widget-row vs thumbs vs joyo-thumbs
-shortcode for 
+shortcode for
 - Fontawesome
 - Accordion
 - Notifications
@@ -28,51 +28,51 @@ widget in sidebar vs in column = uiterlijk op basis van locale class via functio
 
 - SCAFFOLDING							Groundwork for the site. Background colors are set in less or overruled here
 - SCAFFOLDING OBJECTS					Objects reoccurring on every page
-- COMPONENTS							Everything what can be moved around				
+- COMPONENTS							Everything what can be moved around
 - BACK TO TOP							Anchor animating to top of the page
 - EXCEPTIONS FOR SPECIFIC SITUATIONS	Some pages are not like the others
-- D-I-D AREA							Do-It-Dirty 
+- D-I-D AREA							Do-It-Dirty
 
 */
-/* SCAFFOLDING STYLING 
+/* SCAFFOLDING STYLING
 ----------------------------------------------------------------------------------------*/
 html {
-  background-color: ;
+    background-color: ;
 }
 body {
-  background-color: #ffffff;
-  position: relative;
-  padding-top: 0;
+    background-color: #ffffff;
+    position: relative;
+    padding-top: 0;
 }
 .segment {
-  position: relative;
+    position: relative;
 }
 .segment > .container {
-  background-color: #ffffff;
-  position: relative;
+    background-color: #ffffff;
+    position: relative;
 }
 #segment-header {
-  background-color: #f5f5f5;
+    background-color: #f5f5f5;
 }
 #segment-header > .container {
-  background-color: #e6e6e6;
+    background-color: #e6e6e6;
 }
 #segment-footer {
-  background-color: #707070;
+    background-color: #707070;
 }
 #segment-footer > .container {
-  background-color: #ad1f2f;
-  color: #ffffff;
+    background-color: #ad1f2f;
+    color: #ffffff;
 }
 #segment-footer > .container .inner-wrapper {
-  padding: 11px 20px;
+    padding: 11px 20px;
 }
 #segment-post-footer {
-  background-color: #f5f5f5;
+    background-color: #f5f5f5;
 }
 #segment-post-footer > .container {
-  background-color: #e6e6e6;
-  min-height: 90px;
+    background-color: #e6e6e6;
+    min-height: 90px;
 }
 /*
 @media (max-width: 767px) {
@@ -81,7 +81,7 @@ body {
 		//padding-right: 0;
 		.segment > .container {
 			//padding-left: 10px;
-			//padding-right: 10px; 
+			//padding-right: 10px;
 		}
 	}
 	.segment {
@@ -95,146 +95,146 @@ body {
 }
 */
 #sidebar > .inner-wrapper {
-  margin-top: 14px;
-  margin-bottom: 20px;
+    margin-top: 14px;
+    margin-bottom: 20px;
 }
 #content > .inner-wrapper,
 .container > .row > .inner-wrapper {
-  margin-top: 14px;
-  margin-bottom: 20px;
+    margin-top: 14px;
+    margin-bottom: 20px;
 }
 /* SCAFFOlDING OBJECTS
 ----------------------------------------------------------------------------------------*/
 #logo {
-  float: left;
-  margin-top: 6px;
-  margin-left: 20px;
-  margin-bottom: 4px;
-  display: block;
+    float: left;
+    margin-top: 6px;
+    margin-left: 20px;
+    margin-bottom: 4px;
+    display: block;
 }
 #logo img {
-  max-width: 100%;
+    max-width: 100%;
 }
 #hl7-nav {
-  line-height: 50px;
-  float: right;
-  margin-top: 16px;
-  color: #808080;
+    line-height: 50px;
+    float: right;
+    margin-top: 16px;
+    color: #808080;
 }
 #hl7-nav a {
-  color: inherit;
+    color: inherit;
 }
 #hl7-status {
-  line-height: 50px;
-  float: left;
-  margin-top: 16px;
-  color: maroon;
+    line-height: 50px;
+    float: left;
+    margin-top: 16px;
+    color: maroon;
 }
 #hl7-search {
-  line-height: 50px;
-  float: right;
-  margin-top: 16px;
-  color: maroon;
+    line-height: 50px;
+    float: right;
+    margin-top: 16px;
+    color: maroon;
 }
 #hl7-search a {
-  color: inherit;
+    color: inherit;
 }
 #hl7-logo {
-  float: right;
-  margin-left: 6px;
-  margin-right: 6px;
+    float: right;
+    margin-left: 6px;
+    margin-right: 6px;
 }
 #stripe {
-  position: absolute;
-  left: 0;
-  right: 0;
-  top: 0;
-  height: 8px;
-  background: #999999;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 8px;
+    background: #999999;
 }
 #notes a {
-  color: #555555;
+    color: #555555;
 }
 /* GENERIC OBJECTS
 ----------------------------------------------------------------------------------------*/
 .navbar {
-  clear: both;
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  border-color: #ffffff;
-  border-width: 0px;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-  padding-left: 0px;
-  padding-right: 0px;
-  margin-bottom: 0;
+    clear: both;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
+    border-color: #ffffff;
+    border-width: 0px;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding-left: 0px;
+    padding-right: 0px;
+    margin-bottom: 0;
 }
 .navbar .nav > li > a {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+    font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
 .navbar .nav > li > a {
-  padding: 10px 12px;
-  text-shadow: none;
+    padding: 10px 12px;
+    text-shadow: none;
 }
 .navbar .nav > li > a,
 .navbar .nav > .active > a,
 .navbar .nav > .active > a:hover,
 .navbar .nav > .active > a:focus {
-  -webkit-box-shadow: none;
-  box-shadow: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
 }
 .dropdown-menu {
-  border-top-right-radius: 0;
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+    border-top-left-radius: 0;
 }
 .dropdown-menu li > a {
-  padding: 6px 20px;
+    padding: 6px 20px;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus,
 .dropdown-submenu:hover > a,
 .dropdown-submenu:focus > a {
-  background-color: #333333;
-  background-image: -webkit-gradient(linear, left #da0c23, left 100%, from(#da0c23), to(#333333));
-  background-image: -webkit-linear-gradient(top, #da0c23, #da0c23, #333333, 100%);
-  background-image: -moz-linear-gradient(top, #da0c23 #da0c23, #333333 100%);
-  background-image: linear-gradient(to bottom, #da0c23 #da0c23, #333333 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffda0c23', endColorstr='#ff333333', GradientType=0);
+    background-color: #333333;
+    background-image: -webkit-gradient(linear, left #da0c23, left 100%, from(#da0c23), to(#333333));
+    background-image: -webkit-linear-gradient(top, #da0c23, #da0c23, #333333, 100%);
+    background-image: -moz-linear-gradient(top, #da0c23 #da0c23, #333333 100%);
+    background-image: linear-gradient(to bottom, #da0c23 #da0c23, #333333 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffda0c23', endColorstr='#ff333333', GradientType=0);
 }
 .dropdown-menu > .active > a,
 .dropdown-menu > .active > a:hover,
 .dropdown-menu > .active > a:focus {
-  background-color: #333333;
-  background-image: -webkit-gradient(linear, left #da0c23, left 100%, from(#da0c23), to(#333333));
-  background-image: -webkit-linear-gradient(top, #da0c23, #da0c23, #333333, 100%);
-  background-image: -moz-linear-gradient(top, #da0c23 #da0c23, #333333 100%);
-  background-image: linear-gradient(to bottom, #da0c23 #da0c23, #333333 100%);
-  background-repeat: repeat-x;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffda0c23', endColorstr='#ff333333', GradientType=0);
+    background-color: #333333;
+    background-image: -webkit-gradient(linear, left #da0c23, left 100%, from(#da0c23), to(#333333));
+    background-image: -webkit-linear-gradient(top, #da0c23, #da0c23, #333333, 100%);
+    background-image: -moz-linear-gradient(top, #da0c23 #da0c23, #333333 100%);
+    background-image: linear-gradient(to bottom, #da0c23 #da0c23, #333333 100%);
+    background-repeat: repeat-x;
+    filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffda0c23', endColorstr='#ff333333', GradientType=0);
 }
 .nav-tabs {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 .nav-tabs a {
-  color: #555555;
+    color: #555555;
 }
 .nav-tabs li a:hover,
 .nav-tabs li a:focus {
-  border-bottom-color: #955159;
+    border-bottom-color: #955159;
 }
 .nav-tabs {
-  border-bottom-color: #955159;
+    border-bottom-color: #955159;
 }
 .nav-tabs > .active > a,
 .nav-tabs > .active > a:hover,
 .nav-tabs > .active > a:focus {
-  color: #da0c23;
-  border-color: #955159 #955159 transparent;
+    color: #da0c23;
+    border-color: #955159 #955159 transparent;
 }
 /*
 @media (max-width: 979px) {
@@ -250,7 +250,7 @@ body {
         border-bottom: 0;
     }
     .nav-tabs > li > a {
-        border: 1px solid #ddd;        
+        border: 1px solid #ddd;
         .border-top-radius(0);
         .border-right-radius(0);
         .border-bottom-radius(0);
@@ -271,34 +271,34 @@ body {
         border-color: #ddd;
         z-index: 2;
     }
-}	
+}
 */
 .nav-list > li > a {
-  padding: 3px 15px;
+    padding: 3px 15px;
 }
 .breadcrumb {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 .breadcrumb a {
-  color: #555555;
+    color: #555555;
 }
 .nav-listing {
-  overflow: hidden;
+    overflow: hidden;
 }
 .nav-listing > li {
-  float: left;
-  width: 25%;
+    float: left;
+    width: 25%;
 }
 .nav-listing > li > a {
-  padding: 2px 6px;
+    padding: 2px 6px;
 }
 .sectioncount {
-  x-float: right;
-  x-color: #555555;
-  x-font-size: 12px;
+    x-float: right;
+    x-color: #555555;
+    x-font-size: 12px;
 }
 .sectioncount a {
-  color: inherit;
+    color: inherit;
 }
 h1.underlined,
 h2.underlined,
@@ -306,19 +306,19 @@ h3.underlined,
 h4.underlined,
 h5.underlined,
 h6.underlined {
-  border-bottom: 1px solid #dddddd;
-  padding-bottom: 0.2em;
+    border-bottom: 1px solid #dddddd;
+    padding-bottom: 0.2em;
 }
 p > img {
-  float: left;
-  margin-top: 0;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  margin-left: 0;
+    float: left;
+    margin-top: 0;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    margin-left: 0;
 }
 .table td {
-  padding: 6px;
-  line-height: 18px;
+    padding: 6px;
+    line-height: 18px;
 }
 .table th h1,
 .table th h2,
@@ -326,12 +326,12 @@ p > img {
 .table th h4,
 .table th h5,
 .table th h6 {
-  margin-bottom: 0;
+    margin-bottom: 0;
 }
 .table th.inverted {
-  background-color: #555555;
-  color: #ffffff;
-  border: none!important;
+    background-color: #555555;
+    color: #ffffff;
+    border: none!important;
 }
 .table th.inverted h1,
 .table th.inverted h2,
@@ -339,28 +339,59 @@ p > img {
 .table th.inverted h4,
 .table th.inverted h5,
 .table th.inverted h6 {
-  color: inherit;
+    color: inherit;
 }
 pre {
-  font-size: 12px;
+    font-size: 12px;
 }
 .icon-warning-sign {
-  font-size: 30px;
-  margin-right: 10px;
-  display: block;
-  float: left;
+    font-size: 30px;
+    margin-right: 10px;
+    display: block;
+    float: left;
 }
 /* BACK TO TOP
 ----------------------------------------------------------------------------------------*/
 a.to-top {
-  background: url('../images/theme/up.png') no-repeat;
-  display: block;
-  float: right;
-  width: 25px;
-  height: 25px;
-  text-indent: -9999px;
-  margin-top: -28px;
+    background: url('../images/theme/up.png') no-repeat;
+    display: block;
+    float: right;
+    width: 25px;
+    height: 25px;
+    text-indent: -9999px;
+    margin-top: -28px;
 }
+
+/* ----------TOC styling ------*/
+
+/* Adding 'Contents' headline to the TOC */
+#markdown-toc {
+}
+
+#markdown-toc::before {
+    content: 'Contents';
+    font-size: 1.5em;
+}
+
+
+ul#markdown-toc {
+    font-size: .6em;
+    list-style: none;
+    margin: 4px;
+    padding: 4px;
+    float: right;
+    z-index: 10;
+    width: 150px;
+    background-color: #f5f5f5;
+    border: 1px solid #f5f5f5;
+    border-radius: 5px;
+}
+
+#markdown-toc li{
+    font-size: 1em;
+}
+
+
 /* EXCEPTIONS FOR SPECIFIC SITUATIONS
 ----------------------------------------------------------------------------------------*/
 /* D-I-D AREA
