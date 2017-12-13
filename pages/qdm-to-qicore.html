@@ -114,7 +114,7 @@
         <td>QDM matched to QI Core / FHIR</td>
     </tr>
     <tr>
-        <td>FacilityLocations</td>
+        <td>FacilityLocation</td>
         <td>AdverseEvent.location</td>
         <td>QDM matched to QI Core / FHIR</td>
     </tr>
@@ -1067,13 +1067,13 @@
     </tr>
     <tr>
         <td>Negation Rationale</td>
-        <td>DiagnosticReport.modifierExtension</td>
-        <td>A value set is required. Many eCQMs use a measure developer-specific value set. Note, Observation.component.dataAbsentReason provides more explicit details for negation rationale.</td>
+        <td>None</td>
+        <td>FHIR DiagnosticReport does not address negation since there would be no report. QDM usage to indicate studies that have not been done should address negation rationale for the order or the recommendation (i.e., ProcedureRequest.extension (reasonRefused).</td>
     </tr>
     <tr>
         <td>Reason</td>
-        <td>DiagnosticReport.modifierExtension</td>
-        <td></td>
+        <td>None</td>
+        <td>FHIR DiagnosticReport does not address reason since reason is a function of the order or recommendation. QDM reference to indicate the reason for imaging studies should reference qicore-procedurerequest-appropriatenessScore.</td>
     </tr>
     <tr>
         <td>Result</td>
@@ -1147,7 +1147,7 @@
         <td>QDM matched to QI Core / FHIR. Quality measures and CDS artifacts may need to address which status is desired: Partial, preliminary, final, amended, corrected, appended. Most quality measures will address final, amended, corrected, appended.</td>
     </tr>
     <tr>
-        <td>FacilityLocations</td>
+        <td>FacilityLocation</td>
         <td>DiagnosticReport.extension (<a href="http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed">locationPerformed</a>)</td>
         <td>QDM matched to QI Core / FHIR</td>
     </tr>
@@ -1306,7 +1306,7 @@
         <td>Referral Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. For QDM datatypes with the context "order" the ReferralRequest.intent value shall be constrained to "order"</td>
     </tr>
     <tr>
-        <td>FacilityLocations</td>
+        <td>FacilityLocation</td>
         <td>ReferralRequest.context/td>
         <td>QDM matched to QI Core / FHIR</td>
     </tr>
@@ -1448,7 +1448,7 @@
         </td>
     </tr>
     <tr>
-        <td>FacilityLocations</td>
+        <td>FacilityLocation</td>
         <td>ReferralRequest.context/td>
         <td>QDM matched to QI Core / FHIR</td>
     </tr>
