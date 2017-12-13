@@ -100,7 +100,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.
 <p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/STU3/valueset-body-site.html">SNOMED CT Body Structures</a> (Example)</p></div>
@@ -117,7 +117,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>A code that classifies the procedure for searching, sorting and display purposes (e.g. &amp;quot;Surgical Procedure&amp;quot;).
 <p>Binding: <a title="A code that classifies a procedure for searching, sorting and display purposes." href="http://hl7.org/fhir/STU3/valueset-procedure-category.html">Procedure Category Codes (SNOMED CT)</a> (Example)</p></div>
@@ -134,7 +134,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. &amp;quot;Laparoscopic Appendectomy&amp;quot;).
 <p>Binding: <a title="Codes describing the Procedure Type" href="http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code">value set</a> (Preferred)</p></div>
@@ -151,7 +151,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>Any complications that occurred during the procedure, or in the immediate post-performance period. These are generally tracked separately from the notes, which will typically describe the procedure itself rather than any 'post procedure' issues.
 <p>Binding: <a title="Codes describing complications that resulted from a procedure." href="http://hl7.org/fhir/STU3/valueset-condition-code.html">Condition/Problem/Diagnosis Codes</a> (Example)</p></div>
@@ -232,7 +232,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>If the procedure required specific follow up - e.g. removal of sutures. The followup may be represented as a simple note, or could potentially be more complex in which case the CarePlan resource can be used.
 <p>Binding: <a title="Specific follow up required for a procedure e.g. removal of sutures." href="http://hl7.org/fhir/STU3/valueset-procedure-followup.html">Procedure Follow up Codes (SNOMED CT)</a> (Example)</p></div>
@@ -297,7 +297,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Boolean</code>
+                    <code><a href='Boolean.html'>Boolean</a></code>
                     <blockquote>
                       <div class='block'>Set this to true if the record is saying that the procedure was NOT performed.</div>
                     </blockquote>
@@ -313,7 +313,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>A code indicating why the procedure was not performed.
 <p>Binding: <a title="A code that identifies the reason a procedure was not performed." href="http://hl7.org/fhir/STU3/valueset-procedure-not-performed-reason.html">Procedure Not Performed Reason (SNOMED-CT)</a> (Example)</p></div>
@@ -346,7 +346,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>The outcome of the procedure - did it resolve reasons for the procedure being performed?
 <p>Binding: <a title="An outcome of a procedure - whether it was resolved or otherwise." href="http://hl7.org/fhir/STU3/valueset-procedure-outcome.html">Procedure Outcome Codes (SNOMED CT)</a> (Example)</p></div>
@@ -379,7 +379,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime | interval&lt;DateTime&gt;</code>
+                    <code>Interval&lt;DateTime | Interval&lt;DateTime&gt;</code>
                     <blockquote>
                       <div class='block'>The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.</div>
                     </blockquote>
@@ -411,7 +411,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.
 <p>Binding: <a title="A code that identifies the reason a procedure is  required." href="http://hl7.org/fhir/STU3/valueset-procedure-reason.html">Procedure Reason Codes</a> (Example)</p></div>
@@ -460,7 +460,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>A code specifying the state of the procedure. Generally this will be in-progress or completed state.
 <p>Binding: <a title="A code specifying the state of the procedure." href="http://hl7.org/fhir/STU3/valueset-event-status.html">EventStatus</a> (Required)</p></div>
@@ -493,7 +493,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>Identifies coded items that were used as part of the procedure.
 <p>Binding: <a title="Codes describing items used during a procedure" href="http://hl7.org/fhir/STU3/valueset-device-kind.html">FHIR Device Types</a> (Example)</p></div>
@@ -527,7 +527,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Dec 12, 2017 6:36PM.
         </font>
 </small></span>
 </div>

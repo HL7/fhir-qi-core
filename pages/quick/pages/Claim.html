@@ -84,7 +84,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>interval&lt;DateTime&gt;</code>
+                    <code>Interval&lt;<a href='DateTime.html'>DateTime</a>></code>
                     <blockquote>
                       <div class='block'>The billable period for which charges are being submitted.</div>
                     </blockquote>
@@ -116,7 +116,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime</code>
+                    <code><a href='DateTime.html'>DateTime</a></code>
                     <blockquote>
                       <div class='block'>The date when the enclosed suite of services were performed or completed.</div>
                     </blockquote>
@@ -148,7 +148,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>interval&lt;DateTime&gt;</code>
+                    <code>Interval&lt;<a href='DateTime.html'>DateTime</a>></code>
                     <blockquote>
                       <div class='block'>The start and optional end dates of when the patient was precluded from working due to the treatable condition(s).</div>
                     </blockquote>
@@ -196,7 +196,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>In the case of a Pre-Determination/Pre-Authorization the provider may request that funds in the amount of the expected Benefit be reserved ('Patient' or 'Provider') to pay for the Benefits determined on the subsequent claim(s). 'None' explicitly indicates no funds reserving is requested.
 <p>Binding: <a title="For whom funds are to be reserved: (Patient, Provider, None)." href="http://hl7.org/fhir/STU3/valueset-fundsreserve.html">Funds Reservation Codes</a> (Example)</p></div>
@@ -213,7 +213,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>interval&lt;DateTime&gt;</code>
+                    <code>Interval&lt;<a href='DateTime.html'>DateTime</a>></code>
                     <blockquote>
                       <div class='block'>Period in hospital.</div>
                     </blockquote>
@@ -389,7 +389,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>Immediate (STAT), best effort (NORMAL), deferred (DEFER).
 <p>Binding: <a title="The timeliness with which processing is required: STAT, normal, Deferred" href="http://hl7.org/fhir/STU3/valueset-process-priority.html">Process Priority Codes</a> (Example)</p></div>
@@ -470,7 +470,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>The status of the resource instance.
 <p>Binding: <a title="A code specifying the state of the resource instance." href="http://hl7.org/fhir/STU3/valueset-fm-status.html">Financial Resource Status Codes</a> (Required)</p></div>
@@ -487,7 +487,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>A finer grained suite of claim subtype codes which may convey Inpatient vs Outpatient and/or a specialty service. In the US the BillType.
 <p>Binding: <a title="A more granular claim typecode" href="http://hl7.org/fhir/STU3/valueset-claim-subtype.html">Example Claim SubType Codes</a> (Example)</p></div>
@@ -520,7 +520,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>The category of claim, eg, oral, pharmacy, vision, insitutional, professional.
 <p>Binding: <a title="The type or discipline-style of the claim" href="http://hl7.org/fhir/STU3/valueset-claim-type.html">Example Claim Type Codes</a> (Required)</p></div>
@@ -537,7 +537,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>Complete (Bill or Claim), Proposed (Pre-Authorization), Exploratory (Pre-determination).
 <p>Binding: <a title="Complete, proposed, exploratory, other" href="http://hl7.org/fhir/STU3/valueset-claim-use.html">Use</a> (Required)</p></div>
@@ -555,7 +555,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Dec 12, 2017 6:36PM.
         </font>
 </small></span>
 </div>

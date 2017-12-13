@@ -68,7 +68,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime | <a href='Age.html'>Age</a> | Boolean | interval&lt;DateTime&gt; | interval&lt;Quantity&gt; | String</code>
+                    <code>Interval&lt;DateTime | <a href='Age.html'>Age</a> | Boolean | Interval&lt;DateTime&gt; | Interval&lt;Quantity&gt;</code>
                     <blockquote>
                       <div class='block'>The date or estimated date that the condition resolved or went into remission.</div>
                     </blockquote>
@@ -84,7 +84,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime</code>
+                    <code><a href='DateTime.html'>DateTime</a></code>
                     <blockquote>
                       <div class='block'>The date on which the existance of the Condition was first asserted or acknowledged.</div>
                     </blockquote>
@@ -116,7 +116,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>The anatomical location where this condition manifests itself.
 <p>Binding: <a title="This value set includes all codes from http://snomed.info/sct where concept is-a 442083009 (Anatomical or acquired body site (body structure))." href="http://hl7.org/fhir/STU3/valueset-body-site.html">SNOMED CT Body Structures</a> (Example)</p></div>
@@ -133,7 +133,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>A category assigned to the condition.
 <p>Binding: <a title="The US core Condition Category Codes support the separate concepts of problems and health concerns in Condition.category in order for API consumers to be able to separate health concerns and problems." href="http://hl7.org/fhir/us/core/ValueSet/us-core-condition-category">value set</a> (Preferred)</p></div>
@@ -150,7 +150,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>The clinical status of the condition.
 <p>Binding: <a title="Preferred value set for Condition Clinical Status." href="http://hl7.org/fhir/STU3/valueset-condition-clinical.html">Condition Clinical Status Codes</a> (Required)</p></div>
@@ -167,7 +167,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>This describes the problem.
 <p>Binding: <a title="The code for the condition" href="http://hl7.org/fhir/us/core/ValueSet/us-core-problem">value set</a> (Preferred)</p></div>
@@ -298,7 +298,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime | <a href='Age.html'>Age</a> | interval&lt;DateTime&gt; | interval&lt;Quantity&gt; | String</code>
+                    <code>Interval&lt;DateTime | <a href='Age.html'>Age</a> | Interval&lt;DateTime&gt; | Interval&lt;Quantity&gt;</code>
                     <blockquote>
                       <div class='block'>Estimated or actual date or date-time the condition began, in the opinion of the clinician.</div>
                     </blockquote>
@@ -314,7 +314,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>A subjective assessment of the severity of the condition as evaluated by the clinician.
 <p>Binding: <a title="Preferred value set for Condition/Diagnosis severity grading" href="http://hl7.org/fhir/STU3/valueset-condition-severity.html">Condition/Diagnosis Severity</a> (Preferred)</p></div>
@@ -363,7 +363,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>The verification status to support the clinical status of the condition.
 <p>Binding: <a title="The verification status to support or decline the clinical status of the condition or diagnosis." href="http://hl7.org/fhir/STU3/valueset-condition-ver-status.html">ConditionVerificationStatus</a> (Required)</p></div>
@@ -381,7 +381,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Dec 12, 2017 6:36PM.
         </font>
 </small></span>
 </div>

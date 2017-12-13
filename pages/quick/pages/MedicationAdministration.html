@@ -68,7 +68,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>Indicates the type of medication administration and where the medication is expected to be consumed or administered.
 <p>Binding: <a title="A coded concept describing where the medication administered is expected to occur" href="http://hl7.org/fhir/STU3/valueset-medication-admin-category.html">MedicationAdministrationCategory</a> (Preferred)</p></div>
@@ -149,7 +149,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime | interval&lt;DateTime&gt;</code>
+                    <code>Interval&lt;DateTime | Interval&lt;DateTime&gt;</code>
                     <blockquote>
                       <div class='block'>A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.</div>
                     </blockquote>
@@ -214,7 +214,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Boolean</code>
+                    <code><a href='Boolean.html'>Boolean</a></code>
                     <blockquote>
                       <div class='block'>Set this to true if the record is saying that the medication was NOT administered.</div>
                     </blockquote>
@@ -294,7 +294,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>A code indicating why the medication was given.
 <p>Binding: <a title="A set of codes indicating the reason why the MedicationAdministration was made." href="http://hl7.org/fhir/STU3/valueset-reason-medication-given-codes.html">Reason Medication Given Codes</a> (Example)</p></div>
@@ -311,7 +311,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>A code indicating why the administration was not performed.
 <p>Binding: <a title="A set of codes indicating the reason why the MedicationAdministration is negated." href="http://hl7.org/fhir/STU3/valueset-reason-medication-not-given-codes.html">SNOMED CT Reason Medication Not Given Codes</a> (Example)</p></div>
@@ -344,7 +344,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions it is possible for an administration to be started but not completed or it may be paused while some other process is under way.
 <p>Binding: <a title="A set of codes indicating the current status of a MedicationAdministration." href="http://hl7.org/fhir/STU3/valueset-medication-admin-status.html">MedicationAdministrationStatus</a> (Required)</p></div>
@@ -394,7 +394,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Dec 12, 2017 6:36PM.
         </font>
 </small></span>
 </div>

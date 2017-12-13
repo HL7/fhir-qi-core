@@ -100,7 +100,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>Indicates the site on the subject's body where the observation was made (i.e. the target site).
 <p>Binding: <a title="Codes describing anatomical locations. May include laterality." href="http://hl7.org/fhir/STU3/valueset-body-site.html">SNOMED CT Body Structures</a> (Example)</p></div>
@@ -117,7 +117,7 @@
                     <code>1..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>A code that classifies the general type of observation being made.
 <p>Binding: <a title="Codes for high level observation categories." href="http://hl7.org/fhir/STU3/valueset-observation-category.html">Observation Category Codes</a> (Preferred)</p></div>
@@ -134,7 +134,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>Describes what was observed. Sometimes this is called the observation &amp;quot;name&amp;quot;.
 <p>Binding: <a title="Codes identifying names of simple observations." href="http://hl7.org/fhir/STU3/valueset-observation-codes.html">LOINC Codes</a> (Example)</p></div>
@@ -151,7 +151,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>String</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>May include statements about significant, unexpected or unreliable values, or information about the source of the value where this may be relevant to the interpretation of the result.</div>
                     </blockquote>
@@ -199,7 +199,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>Provides a reason why the expected value in the element Observation.value[x] is missing.
 <p>Binding: <a title="Codes specifying why the result (Observation.value[x]) is missing." href="http://hl7.org/fhir/STU3/valueset-observation-valueabsentreason.html">Observation Value Absent Reason</a> (Extensible)</p></div>
@@ -232,7 +232,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime | interval&lt;DateTime&gt;</code>
+                    <code>Interval&lt;DateTime | Interval&lt;DateTime&gt;</code>
                     <blockquote>
                       <div class='block'>The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the &amp;quot;physiologically relevant time&amp;quot;. This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.</div>
                     </blockquote>
@@ -264,7 +264,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>The assessment made based on the result of the observation.  Intended as a simple compact code often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result. Otherwise known as abnormal flag.
 <p>Binding: <a title="Codes identifying interpretations of observations." href="http://hl7.org/fhir/STU3/valueset-observation-interpretation.html">Observation Interpretation Codes</a> (Extensible)</p></div>
@@ -281,7 +281,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime</code>
+                    <code><a href='DateTime.html'>DateTime</a></code>
                     <blockquote>
                       <div class='block'>The date and time this observation was made available to providers, typically after the results have been reviewed and verified.</div>
                     </blockquote>
@@ -297,7 +297,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>Indicates the mechanism used to perform the observation.
 <p>Binding: <a title="Methods for simple observations." href="http://hl7.org/fhir/STU3/valueset-observation-methods.html">Observation Methods</a> (Example)</p></div>
@@ -378,7 +378,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>The status of the result value.
 <p>Binding: <a title="Codes providing the status of an observation." href="http://hl7.org/fhir/STU3/valueset-observation-status.html">ObservationStatus</a> (Required)</p></div>
@@ -411,7 +411,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Quantity.html'>Quantity</a> | Concept | String | Boolean | interval&lt;Quantity&gt; | <a href='Ratio.html'>Ratio</a> | <a href='SampledData.html'>SampledData</a> | <a href='Attachment.html'>Attachment</a> | Time | DateTime | interval&lt;DateTime&gt;</code>
+                    <code>Interval&lt;Quantity | Concept | String | Boolean | Interval&lt;Quantity&gt; | <a href='Ratio.html'>Ratio</a> | <a href='SampledData.html'>SampledData</a> | <a href='Attachment.html'>Attachment</a> | Time | DateTime | Interval&lt;DateTime&gt;</code>
                     <blockquote>
                       <div class='block'>The information determined as a result of making the observation, if the information has a simple value.
 <p>Binding: <a title="SNOMED CT for coded results" href="http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes">value set</a> (Preferred)</p></div>
@@ -429,7 +429,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Dec 12, 2017 6:36PM.
         </font>
 </small></span>
 </div>

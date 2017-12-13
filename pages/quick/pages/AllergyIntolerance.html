@@ -68,7 +68,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime</code>
+                    <code><a href='DateTime.html'>DateTime</a></code>
                     <blockquote>
                       <div class='block'>The date on which the existance of the AllergyIntolerance was first asserted or acknowledged.</div>
                     </blockquote>
@@ -100,7 +100,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;code></code>
+                    <code>List&lt;<a href='String.html'>String</a>></code>
                     <blockquote>
                       <div class='block'>Category of the identified substance.
 <p>Binding: <a title="Category of an identified substance." href="http://hl7.org/fhir/STU3/valueset-allergy-intolerance-category.html">AllergyIntoleranceCategory</a> (Required)</p></div>
@@ -117,7 +117,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>The clinical status of the allergy or intolerance.
 <p>Binding: <a title="The clinical status of the allergy or intolerance." href="http://hl7.org/fhir/STU3/valueset-allergy-clinical-status.html">AllergyIntoleranceClinicalStatus</a> (Required)</p></div>
@@ -134,9 +134,9 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
-                      <div class='block'>Code for an allergy or intolerance statement (either a positive or a negated/excluded statement). This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., &amp;quot;Latex&amp;quot;), an allergy or intolerance condition (e.g., &amp;quot;Latex allergy&amp;quot;), or a negated/excluded code for a specific substance or class (e.g., &amp;quot;No latex allergy&amp;quot;) or a general or categorical negated statement (e.g., &amp;quot;No known allergy&amp;quot;, &amp;quot;No known drug allergies&amp;quot;).
+                      <div class='block'>Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., &amp;quot;Latex&amp;quot;), an allergy or intolerance condition (e.g., &amp;quot;Latex allergy&amp;quot;), or a negated/excluded code for a specific substance or class (e.g., &amp;quot;No latex allergy&amp;quot;) or a general or categorical negated statement (e.g.,  &amp;quot;No known allergy&amp;quot;, &amp;quot;No known drug allergies&amp;quot;).
 <p>Binding: <a title="A substance or other type of agent (e.g., sunshine) that may be associated with an intolerance reaction event or a propensity to such an event." href="http://hl7.org/fhir/us/core/ValueSet/us-core-substance">value set</a> (Preferred)</p></div>
                     </blockquote>
                   </td>
@@ -151,7 +151,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>Estimate of the potential clinical harm, or seriousness, of the reaction to the identified substance.
 <p>Binding: <a title="Estimate of the potential clinical harm, or seriousness, of a reaction to an identified substance." href="http://hl7.org/fhir/STU3/valueset-allergy-intolerance-criticality.html">AllergyIntoleranceCriticality</a> (Required)</p></div>
@@ -184,7 +184,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime</code>
+                    <code><a href='DateTime.html'>DateTime</a></code>
                     <blockquote>
                       <div class='block'>Represents the date and/or time of the last known occurrence of a reaction event.</div>
                     </blockquote>
@@ -216,7 +216,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime | <a href='Age.html'>Age</a> | interval&lt;DateTime&gt; | interval&lt;Quantity&gt; | String</code>
+                    <code>Interval&lt;DateTime | <a href='Age.html'>Age</a> | Interval&lt;DateTime&gt; | Interval&lt;Quantity&gt; | String</code>
                     <blockquote>
                       <div class='block'>Estimated or actual date,  date-time, or age when allergy or intolerance was identified.</div>
                     </blockquote>
@@ -280,7 +280,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>String</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>Text description about the reaction as a whole, including details of the manifestation if required.</div>
                     </blockquote>
@@ -296,7 +296,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>Identification of the route by which the subject was exposed to the substance.
 <p>Binding: <a title="A coded concept describing the route or physiological path of administration of a therapeutic agent into or onto the body of a subject." href="http://hl7.org/fhir/STU3/valueset-route-codes.html">SNOMED CT Route Codes</a> (Example)</p></div>
@@ -313,7 +313,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>String</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</div>
                     </blockquote>
@@ -329,10 +329,10 @@
                     <code>1..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Concept></code>
+                    <code>List&lt;<a href='Concept.html'>Concept</a>></code>
                     <blockquote>
                       <div class='block'>Clinical symptoms and/or signs that are observed or associated with the adverse reaction event.
-<p>Binding: <a title="This value set includes all the &quot;Clinical finding&quot; SNOMED CT codes - concepts where concept is-a 404684003 (Clinical finding (finding))." href="http://hl7.org/fhir/STU3/valueset-clinical-findings.html">SNOMED CT Clinical Findings</a> (Example)</p></div>
+<p>Binding: <a title="Clinical symptoms and/or signs that are observed or associated with an Adverse Reaction Event." href="http://hl7.org/fhir/STU3/valueset-clinical-findings.html">SNOMED CT Clinical Findings</a> (Example)</p></div>
                     </blockquote>
                   </td>
                 </tr>
@@ -362,14 +362,14 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>DateTime</code>
+                    <code><a href='DateTime.html'>DateTime</a></code>
                     <blockquote>
                       <div class='block'>Record of the date and/or time of the onset of the Reaction.</div>
                     </blockquote>
                   </td>
                 </tr>
                 <tr class='rowColor'>
-                  <td class='colFirst'><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
+                  <td class='colFirst'><i class="fa fa-check fa-fw" title="Must Support"> </i><i class="fa fa-fw"> </i><i class="fa fa-fw"> </i>&nbsp;
                     <strong>
                       <a name='reaction.severity'>reaction.severity</a>
                     </strong>
@@ -378,7 +378,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>Clinical assessment of the severity of the reaction event as a whole, potentially considering multiple different manifestations.
 <p>Binding: <a title="Clinical assessment of the severity of a reaction event as a whole, potentially considering multiple different manifestations." href="http://hl7.org/fhir/STU3/valueset-reaction-event-severity.html">AllergyIntoleranceSeverity</a> (Required)</p></div>
@@ -395,7 +395,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Concept</code>
+                    <code><a href='Concept.html'>Concept</a></code>
                     <blockquote>
                       <div class='block'>Identification of the specific substance (or pharmaceutical product) considered to be responsible for the Adverse Reaction event. Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.
 <p>Binding: <a title="Codes defining the type of the substance (including pharmaceutical products)." href="http://hl7.org/fhir/STU3/valueset-substance-code.html">Substance Code</a> (Example)</p></div>
@@ -460,7 +460,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>Identification of the underlying physiological mechanism for the reaction risk.
 <p>Binding: <a title="Identification of the underlying physiological mechanism for a Reaction Risk." href="http://hl7.org/fhir/STU3/valueset-allergy-intolerance-type.html">AllergyIntoleranceType</a> (Required)</p></div>
@@ -477,7 +477,7 @@
                     <code>1..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).
 <p>Binding: <a title="Assertion about certainty associated with a propensity, or potential risk, of a reaction to the identified substance." href="http://hl7.org/fhir/STU3/valueset-allergy-verification-status.html">AllergyIntoleranceVerificationStatus</a> (Required)</p></div>
@@ -495,7 +495,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Dec 12, 2017 6:36PM.
         </font>
 </small></span>
 </div>

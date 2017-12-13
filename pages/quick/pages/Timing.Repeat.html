@@ -75,7 +75,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code><a href='Duration.html'>Duration</a> | interval&lt;Quantity&gt; | interval&lt;DateTime&gt;</code>
+                    <code>Interval&lt;<a href='Duration.html'>Duration</a> | Interval&lt;Quantity&gt; | Interval&lt;DateTime&gt;</code>
                     <blockquote>
                       <div class='block'>Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.</div>
                     </blockquote>
@@ -91,7 +91,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Integer</code>
+                    <code><a href='Integer.html'>Integer</a></code>
                     <blockquote>
                       <div class='block'>A total count of the desired number of repetitions.</div>
                     </blockquote>
@@ -107,7 +107,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Integer</code>
+                    <code><a href='Integer.html'>Integer</a></code>
                     <blockquote>
                       <div class='block'>A maximum value for the count of the desired repetitions (e.g. do something 6-8 times).</div>
                     </blockquote>
@@ -123,7 +123,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;code></code>
+                    <code>List&lt;<a href='String.html'>String</a>></code>
                     <blockquote>
                       <div class='block'>If one or more days of week is provided, then the action happens only on the specified day(s).
 <p>Binding: <a title="The days of the week." href="http://hl7.org/fhir/STU3/valueset-days-of-week.html">DaysOfWeek</a> (Required)</p></div>
@@ -140,7 +140,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Decimal</code>
+                    <code><a href='Decimal.html'>Decimal</a></code>
                     <blockquote>
                       <div class='block'>How long this thing happens for when it happens.</div>
                     </blockquote>
@@ -156,7 +156,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Decimal</code>
+                    <code><a href='Decimal.html'>Decimal</a></code>
                     <blockquote>
                       <div class='block'>The upper limit of how long this thing happens for when it happens.</div>
                     </blockquote>
@@ -172,7 +172,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>The units of time for the duration, in UCUM units.
 <p>Binding: <a title="A unit of time (units from UCUM)." href="http://hl7.org/fhir/STU3/valueset-units-of-time.html">UnitsOfTime</a> (Required)</p></div>
@@ -189,7 +189,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Integer</code>
+                    <code><a href='Integer.html'>Integer</a></code>
                     <blockquote>
                       <div class='block'>The number of times to repeat the action within the specified period / period range (i.e. both period and periodMax provided).</div>
                     </blockquote>
@@ -205,7 +205,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Integer</code>
+                    <code><a href='Integer.html'>Integer</a></code>
                     <blockquote>
                       <div class='block'>If present, indicates that the frequency is a range - so to repeat between [frequency] and [frequencyMax] times within the period or period range.</div>
                     </blockquote>
@@ -221,7 +221,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>String</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>unique id for the element within a resource (for internal references). This may be any string value that does not contain spaces.</div>
                     </blockquote>
@@ -237,7 +237,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>unsignedInt</code>
+                    <code><a href='Integer.html'>Integer</a></code>
                     <blockquote>
                       <div class='block'>The number of minutes from the event. If the event code does not indicate whether the minutes is before or after the event, then the offset is assumed to be after the event.</div>
                     </blockquote>
@@ -253,7 +253,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Decimal</code>
+                    <code><a href='Decimal.html'>Decimal</a></code>
                     <blockquote>
                       <div class='block'>Indicates the duration of time over which repetitions are to occur; e.g. to express &amp;quot;3 times per day&amp;quot;, 3 would be the frequency and &amp;quot;1 day&amp;quot; would be the period.</div>
                     </blockquote>
@@ -269,7 +269,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>Decimal</code>
+                    <code><a href='Decimal.html'>Decimal</a></code>
                     <blockquote>
                       <div class='block'>If present, indicates that the period is a range from [period] to [periodMax], allowing expressing concepts such as &amp;quot;do this once every 3-5 days.</div>
                     </blockquote>
@@ -285,7 +285,7 @@
                     <code>0..1</code>
                   </td>
                   <td class='colLast'>
-                    <code>code</code>
+                    <code><a href='String.html'>String</a></code>
                     <blockquote>
                       <div class='block'>The units of time for the period in UCUM units.
 <p>Binding: <a title="A unit of time (units from UCUM)." href="http://hl7.org/fhir/STU3/valueset-units-of-time.html">UnitsOfTime</a> (Required)</p></div>
@@ -302,7 +302,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;Time></code>
+                    <code>List&lt;<a href='Time.html'>Time</a>></code>
                     <blockquote>
                       <div class='block'>Specified time of day for action to take place.</div>
                     </blockquote>
@@ -318,7 +318,7 @@
                     <code>0..*</code>
                   </td>
                   <td class='colLast'>
-                    <code>List&lt;code></code>
+                    <code>List&lt;<a href='String.html'>String</a>></code>
                     <blockquote>
                       <div class='block'>Real world events that the occurrence of the event should be tied to.
 <p>Binding: <a title="Real world event relating to the schedule." href="http://hl7.org/fhir/STU3/valueset-event-timing.html">EventTiming</a> (Required)</p></div>
@@ -336,7 +336,7 @@
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Fri, Aug 25, 2017 5:43PM.
+        &copy; HL7.org 2011+. QUICK Generated on Tue, Dec 12, 2017 6:36PM.
         </font>
 </small></span>
 </div>
