@@ -10,18 +10,19 @@
   <LastAuthor>Jason Walonoski</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
   <LastSaved>2015-03-19T14:45:27Z</LastSaved>
-  <Version>15.00</Version>
+  <Version>14.00</Version>
  </DocumentProperties>
  <OfficeDocumentSettings xmlns="urn:schemas-microsoft-com:office:office">
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>5740</WindowHeight>
-  <WindowWidth>10780</WindowWidth>
+  <WindowHeight>5745</WindowHeight>
+  <WindowWidth>10785</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
+  <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
   <ProtectWindows>False</ProtectWindows>
  </ExcelWorkbook>
@@ -1120,9 +1121,9 @@
  <Worksheet ss:Name="QICore-ReferralRequest">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='QICore-ReferralRequest'!R1C1:R68C24" ss:Hidden="1"/>
+    ss:RefersTo="='QICore-ReferralRequest'!R1C1:R69C24" ss:Hidden="1"/>
   </Names>
-  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="69" x:FullColumns="1"
+  <Table ss:ExpandedColumnCount="25" ss:ExpandedRowCount="70" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="178.5"/>
@@ -1270,7 +1271,7 @@
     <Cell ss:StyleID="s99"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s100"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><Data ss:Type="String">&quot;Encounter, Order&quot; (when referralRequest.intent=&quot;order); &quot;Encounter, Recommended&quot; (when referralRequest.intent=&quot;plan') or (when referralRequest.intent=&quot;proposal&quot;)  When using recommended, &quot;plan&quot; indicates when a clinician is making a recommendation to a patient, and &quot;proposal&quot; is used in CDS to indicate the system is making a recommendation to a clinician</Data><NamedCell
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Encounter, Order (when referralRequest.intent=&quot;order&quot;)| Encounter, Recommended (when referralRequest.intent=&quot;plan&quot;|&quot;proposal&quot;)  Note: when using recommended, &quot;plan&quot; indicates when a clinician is making a recommendation to a patient, and &quot;proposal&quot; is used in CDS to indicate the system is making a recommendation to a clinician.</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s102"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s103"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1302,7 +1303,35 @@
     <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">negationRationale (when ReferralRequest.status=&quot;refused&quot;)</Data><NamedCell
+    <Cell ss:StyleID="s112"><Data ss:Type="String">negationRationale (when referralRequest.status=&quot;refused&quot;)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+   </Row>
+   <Row ss:AutoFitHeight="0" ss:StyleID="s104">
+    <Cell ss:StyleID="s114"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s106"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s107"><Data ss:Type="String">ReferralRequest.id</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s109"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><Data ss:Type="String">id</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3066,7 +3095,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>13</ActiveRow>
+     <ActiveRow>20</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -5664,7 +5693,7 @@
   <Table ss:ExpandedColumnCount="13" ss:ExpandedRowCount="29" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s136" ss:DefaultColumnWidth="64.5"
    ss:DefaultRowHeight="15">
-   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="130"/>
+   <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="129.75"/>
    <Column ss:StyleID="s136" ss:AutoFitWidth="0" ss:Width="274.5"/>
    <Column ss:StyleID="s136" ss:Width="51"/>
    <Column ss:StyleID="s136" ss:Width="67.5"/>
@@ -5730,7 +5759,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Unpublished notes</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="28.25">
+   <Row ss:AutoFitHeight="0" ss:Height="28.3125">
     <Cell ss:StyleID="s93"><Data ss:Type="String">QICoreRefusalReason</Data></Cell>
     <Cell ss:StyleID="s96"/>
     <Cell ss:StyleID="s139"><Data ss:Type="String">value set</Data></Cell>
@@ -5745,7 +5774,7 @@
     <Cell ss:StyleID="s139"/>
     <Cell ss:StyleID="s140"/>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="30.5" ss:StyleID="s161">
+   <Row ss:AutoFitHeight="0" ss:Height="30.5625" ss:StyleID="s161">
     <Cell ss:StyleID="s162"><Data ss:Type="String">QICorePractitionerSpecialty</Data></Cell>
     <Cell ss:StyleID="s117"/>
     <Cell ss:StyleID="s163"><Data ss:Type="String">value set</Data></Cell>
