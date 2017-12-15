@@ -32,6 +32,7 @@
       <h1 title='Package' class='title'>QUICK Data Model</h1>
       <div class='docSummary'>
         <div class='block'>QUICK</div>
+        <div class='block'>The QUICK data model provides a logical view of clinical data from the persepctive of representing quality measurement and decision support knowledge.</div>
       </div>
     </div>
     <div class='contentContainer'>
@@ -321,10 +322,180 @@
         </li>
       </ul>
     </div>
+    <div class='contentContainer'>
+      <ul class='blockList'>
+        <li class='blockList'><h2 style='padding-bottom: 0px'>Relationship to FHIR and QI-Core</h2>
+          <p>The QUICK data model uses the QI-Core profiles to provide a physical representation for the data. QUICK provides a logical model that enables knowledge authors to ignore certain details of the FHIR Physical representation, including:</p>
+          <ul>
+            <li>The representation of primitives in FHIR using a "value" element of a complex type, rather than a true primitive</li>
+            <li>The representation of extensions in FHIR as first class elements in QUICK</li>
+            <li>Direct reference of resources, rather than needing to traverse a "reference"</li>
+          </ul>
+          <p>To address the first issue, the QUICK model maps the FHIR base types to CQL primitives, rather than using the FHIR types directly:</p>
+<table class="packageSummary" style='width: 15%' border="0" cellpadding="3" cellspacing="0" summary="Class Summary table, listing classes, and an explanation">
+<thead>
+<tr>
+<th class="colFirst" scope="col">FHIR Type</th>
+<th class="colLast" scope="col">CQL Type</th>
+</tr>
+</thead>
+<tbody>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#base64Binary'>base64Binary</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/String.html'>String</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#boolean'>boolean</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/Boolean.html'>Boolean</a>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#code'>code</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/String.html'>String</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#codeableconcept'>CodeableConcept</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/Concept.html'>Concept</a>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#coding'>Coding</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/Code.html'>Code</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#date'>date</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/DateTime.html'>DateTime</a>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#dateTime'>dateTime</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/DateTime.html'>DateTime</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#decimal'>decimal</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/Decimal.html'>Decimal</a>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#id'>id</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/String.html'>String</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#instant'>instant</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/DateTime.html'>DateTime</a>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#integer'>integer</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/Integer.html'>Integer</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#markdown'>markdown</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/String.html'>String</a>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#oid'>oid</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/String.html'>String</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#period'>Period</a>
+            </td>
+            <td class='colLast'>Interval&lt;<a href='pages/DateTime.html'>DateTime</a>></td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#positiveint'>positiveInt</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/Integer.html'>Integer</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#range'>Range</a>
+            </td>
+            <td class='colLast'>Interval&lt;<a href='pages/Quantity.html'>Quantity</a>></td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#string'>string</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/String.html'>String</a>
+            </td>
+          </tr>
+          <tr class='altColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#time'>time</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/Time.html'>Time</a>
+            </td>
+          </tr>
+          <tr class='rowColor'>
+            <td class='colFirst'>
+              <a href='http://hl7.org/fhir/STU3/datatypes.html#uri'>uri</a>
+            </td>
+            <td class='colLast'>
+              <a href='pages/String.html'>String</a>
+            </td>
+          </tr></tbody></table>
+          <p>To address the second issue, the QUICK model represents FHIR extensions as first-class attributes of the class. To address the third issue, the QUICK model represents FHIR references as direct appearances of the referenced class or classes. NOTE: The third issue is still being worked out, so current QUICK documentation still uses the Reference type to model references.</p>
+        </li>
+      </ul>
+    </div>
 <!-- ======= START OF BOTTOM NAVBAR ====== -->
 <div class="bottomNav">
 <span class="legalCopy"><small><font size="-1">
-        &copy; HL7.org 2011+. QUICK Generated on Tue, Dec 12, 2017 6:36PM.
+        &copy; HL7.org 2011+. QUICK Generated on Fri, Dec 15, 2017 11:10AM.
         </font>
 </small></span>
 </div>
