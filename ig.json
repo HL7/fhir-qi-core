@@ -135,34 +135,20 @@
 	"source": "qicore.xml",
 	"spreadsheets": [
 		"adverseevent-profile-spreadsheet.xml",
-		"allergyintolerance-profile-spreadsheet.xml",
 		"bodysite-profile-spreadsheet.xml",
 		"claim-profile-spreadsheet.xml",
 		"communication-profile-spreadsheet.xml",
 		"communicationrequest-profile-spreadsheet.xml",
-		"condition-profile-spreadsheet.xml",
 		"coverage-profile-spreadsheet.xml",
-		"device-profile-spreadsheet.xml",
 		"deviceusestatement-profile-spreadsheet.xml",
-		"diagnosticreport-profile-spreadsheet.xml",
 		"encounter-profile-spreadsheet.xml",
 		"familymemberhistory-profile-spreadsheet.xml",
 		"flag-profile-spreadsheet.xml",
-		"goal-profile-spreadsheet.xml",
 		"imagingstudy-profile-spreadsheet.xml",
-		"immunization-profile-spreadsheet.xml",
 		"immunizationrecommendation-profile-spreadsheet.xml",
-		"location-profile-spreadsheet.xml",
-		"medication-profile-spreadsheet.xml",
 		"medicationadministration-profile-spreadsheet.xml",
 		"medicationdispense-profile-spreadsheet.xml",
-		"medicationrequest-profile-spreadsheet.xml",
-		"medicationstatement-profile-spreadsheet.xml",
 		"observation-profile-spreadsheet.xml",
-		"organization-profile-spreadsheet.xml",
-		"patient-profile-spreadsheet.xml",
-		"practitioner-profile-spreadsheet.xml",
-		"procedure-profile-spreadsheet.xml",
 		"procedurerequest-profile-spreadsheet.xml",
 		"referralrequest-profile-spreadsheet.xml",
 		"relatedperson-profile-spreadsheet.xml",
@@ -181,6 +167,10 @@
 		"CodeSystem/qicore-adverseevent-type": {
 			"source": "codesystem-adverseevent-type.xml",
 			"base": "qicore-adverseevent-type.html"
+		},
+		"CodeSystem/qicore-appropriateness-score": {
+			"source": "codesystem-appropriateness-score.xml",
+			"base": "qicore-appropriateness-score.html"
 		},
 		"CodeSystem/qicore-communication-medium": {
 			"source": "codesystem-communication-medium.xml",
@@ -203,6 +193,7 @@
 			"base": "qicore-adverseevent.html"
 		},
 		"StructureDefinition/qicore-allergyintolerance": {
+			"source": "structuredefinition-qicore-allergyintolerance.xml",
 			"defns": "qicore-allergyintolerance-definitions.html",
 			"base": "qicore-allergyintolerance.html"
 		},
@@ -223,6 +214,7 @@
 			"base": "qicore-communicationrequest.html"
 		},
 		"StructureDefinition/qicore-condition": {
+			"source": "structuredefinition-qicore-condition.xml",
 			"defns": "qicore-condition-definitions.html",
 			"base": "qicore-condition.html"
 		},
@@ -231,6 +223,7 @@
 			"base": "qicore-coverage.html"
 		},
 		"StructureDefinition/qicore-device": {
+			"source": "structuredefinition-qicore-device.xml",
 			"defns": "qicore-device-definitions.html",
 			"base": "qicore-device.html"
 		},
@@ -239,6 +232,7 @@
 			"base": "qicore-deviceusestatement.html"
 		},
 		"StructureDefinition/qicore-diagnosticreport": {
+			"source": "structuredefinition-qicore-diagnosticreport.xml",
 			"defns": "qicore-diagnosticreport-definitions.html",
 			"base": "qicore-diagnosticreport.html"
 		},
@@ -255,6 +249,7 @@
 			"base": "qicore-flag.html"
 		},
 		"StructureDefinition/qicore-goal": {
+			"source": "structuredefinition-qicore-goal.xml",
 			"defns": "qicore-goal-definitions.html",
 			"base": "qicore-goal.html"
 		},
@@ -263,6 +258,7 @@
 			"base": "qicore-imagingstudy.html"
 		},
 		"StructureDefinition/qicore-immunization": {
+			"source": "structuredefinition-qicore-immunization.xml",
 			"defns": "qicore-immunization-definitions.html",
 			"base": "qicore-immunization.html"
 		},
@@ -271,10 +267,12 @@
 			"base": "qicore-immunizationrec.html"
 		},
 		"StructureDefinition/qicore-location": {
+			"source": "structuredefinition-qicore-location.xml",
 			"defns": "qicore-location-definitions.html",
 			"base": "qicore-location.html"
 		},
 		"StructureDefinition/qicore-medication": {
+			"source": "structuredefinition-qicore-medication.xml",
 			"defns": "qicore-medication-definitions.html",
 			"base": "qicore-medication.html"
 		},
@@ -287,10 +285,12 @@
 			"base": "qicore-medicationdispense.html"
 		},
 		"StructureDefinition/qicore-medicationrequest": {
+			"source": "structuredefinition-qicore-medicationrequest.xml",
 			"defns": "qicore-medicationrequest-definitions.html",
 			"base": "qicore-medicationrequest.html"
 		},
 		"StructureDefinition/qicore-medicationstatement": {
+			"source": "structuredefinition-qicore-medicationstatement.xml",
 			"defns": "qicore-medicationstatement-definitions.html",
 			"base": "qicore-medicationstatement.html"
 		},
@@ -299,6 +299,7 @@
 			"base": "qicore-observation.html"
 		},
 		"StructureDefinition/qicore-organization": {
+			"source": "structuredefinition-qicore-organization.xml",
 			"defns": "qicore-organization-definitions.html",
 			"base": "qicore-organization.html"
 		},
@@ -308,10 +309,12 @@
 			"base": "qicore-patient.html"
 		},
 		"StructureDefinition/qicore-practitioner": {
+			"source": "structuredefinition-qicore-practitioner.xml",
 			"defns": "qicore-practitioner-definitions.html",
 			"base": "qicore-practitioner.html"
 		},
 		"StructureDefinition/qicore-procedure": {
+			"source": "structuredefinition-qicore-procedure.xml",
 			"defns": "qicore-procedure-definitions.html",
 			"base": "qicore-procedure.html"
 		},

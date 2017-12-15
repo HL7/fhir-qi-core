@@ -17,7 +17,7 @@
   <url value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"/>
   <name value="QICore-Device"/>
   <status value="draft"/>
-  <date value="2015-03-11T00:00:00-06:00"/>
+  <date value="2017-08-21T00:00:00-06:00"/>
   <publisher value="Health Level Seven International (Clinical Quality Information - QICore)"/>
   <contact>
     <telecom>
@@ -26,11 +26,6 @@
     </telecom>
   </contact>
   <fhirVersion value="3.0.1"/>
-  <mapping>
-    <identity value="qdm"/>
-    <uri value="http://www.healthit.gov/quality-data-model"/>
-    <name value="Quality Data Model"/>
-  </mapping>
   <mapping>
     <identity value="v2"/>
     <uri value="http://hl7.org/v2"/>
@@ -112,10 +107,6 @@
       <mapping>
         <identity value="w5"/>
         <map value="administrative.device"/>
-      </mapping>
-      <mapping>
-        <identity value="qdm"/>
-        <map value="Device, Applied or Order or Recommended"/>
       </mapping>
     </element>
     <element id="Device.id">
@@ -684,10 +675,6 @@
         <identity value="w5"/>
         <map value="what"/>
       </mapping>
-      <mapping>
-        <identity value="qdm"/>
-        <map value="primary code"/>
-      </mapping>
     </element>
     <element id="Device.lotNumber">
       <path value="Device.lotNumber"/>
@@ -1027,10 +1014,6 @@
       <path value="Device"/>
       <mustSupport value="false"/>
       <isModifier value="false"/>
-      <mapping>
-        <identity value="qdm"/>
-        <map value="Device, Applied or Order or Recommended"/>
-      </mapping>
     </element>
     <element id="Device.udi">
       <path value="Device.udi"/>
@@ -1072,10 +1055,6 @@
           <reference value="http://hl7.org/fhir/ValueSet/device-kind"/>
         </valueSetReference>
       </binding>
-      <mapping>
-        <identity value="qdm"/>
-        <map value="primary code"/>
-      </mapping>
     </element>
     <element id="Device.patient">
       <path value="Device.patient"/>

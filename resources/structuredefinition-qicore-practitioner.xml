@@ -19,7 +19,7 @@
   <version value="0.1"/>
   <name value="QICore-Practitioner"/>
   <status value="draft"/>
-  <date value="2015-02-27T00:00:00-07:00"/>
+  <date value="2017-08-21T00:00:00-06:00"/>
   <publisher value="Health Level Seven International (Clinical Quality Information - QICore)"/>
   <contact>
     <telecom>
@@ -131,7 +131,7 @@
       </mapping>
       <mapping>
         <identity value="qdm"/>
-        <map value="Provider Characteristic"/>
+        <map value="providerCharacteristic"/>
       </mapping>
     </element>
     <element id="Practitioner.id">
@@ -269,7 +269,7 @@
     </element>
     <element id="Practitioner.extension">
       <path value="Practitioner.extension"/>
-      <slicing id="13">
+      <slicing id="12">
         <discriminator>
           <type value="value"/>
           <path value="url"/>
@@ -403,6 +403,10 @@
       </mapping>
       <mapping>
         <identity value="w5"/>
+        <map value="id"/>
+      </mapping>
+      <mapping>
+        <identity value="qdm"/>
         <map value="id"/>
       </mapping>
     </element>
@@ -1169,6 +1173,10 @@
         <identity value="servd"/>
         <map value="./Qualifications"/>
       </mapping>
+      <mapping>
+        <identity value="qdm"/>
+        <map value="code"/>
+      </mapping>
     </element>
     <element id="Practitioner.qualification.id">
       <path value="Practitioner.qualification.id"/>
@@ -1390,7 +1398,7 @@
       <isModifier value="false"/>
       <mapping>
         <identity value="qdm"/>
-        <map value="Provider Characteristic"/>
+        <map value="providerCharacteristic"/>
       </mapping>
     </element>
     <element id="Practitioner.extension:classification">
@@ -1427,6 +1435,10 @@
       <max value="*"/>
       <mustSupport value="true"/>
       <isModifier value="false"/>
+      <mapping>
+        <identity value="qdm"/>
+        <map value="id"/>
+      </mapping>
     </element>
     <element id="Practitioner.identifier.system">
       <path value="Practitioner.identifier.system"/>
@@ -1460,6 +1472,10 @@
       <path value="Practitioner.qualification"/>
       <mustSupport value="false"/>
       <isModifier value="false"/>
+      <mapping>
+        <identity value="qdm"/>
+        <map value="code"/>
+      </mapping>
     </element>
     <element id="Practitioner.qualification.issuer">
       <path value="Practitioner.qualification.issuer"/>
