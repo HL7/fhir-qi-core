@@ -1,0 +1,472 @@
+---
+# jekyll header
+---
+{% include header.html %}
+{% include container-start.html %}
+<ul id="markdown-toc">
+    <li><a href="#IndividualCharacteristic" id="markdown-toc-IndividualCharacteristic">Individual Characteristic</a></li>    <li><a href="#PatientCharacteristicGeneric" id="markdown-toc-PatientCharacteristicGeneric">Patient Characteristic (Generic)</a></li>    <li><a href="#PatientCharacteristicBirthdate" id="markdown-toc-PatientCharacteristicBirthdate">Patient Characteristic: Birthdate</a></li>    <li><a href="#PatientCharacteristicCTP" id="markdown-toc-PatientCharacteristicCTP">Patient Characteristic: Clinical Trial Participant</a></li>    <li><a href="#PatientCharacteristicEthnicity" id="markdown-toc-PatientCharacteristicEthnicity">Patient Characteristic: Ethnicity</a></li>    <li><a href="#PatientCharacteristicExpired" id="markdown-toc-PatientCharacteristicExpired">Patient Characteristic: Expired</a></li>    <li><a href="#PatientCharacteristicPayer" id="markdown-toc-PatientCharacteristicPayer">Patient Characteristic: Payer</a></li>    <li><a href="#PatientCharacteristicRace" id="markdown-toc-PatientCharacteristicRace">Patient Characteristic: Race</a></li>    <li><a href="#PatientCharacteristicSex" id="markdown-toc-PatientCharacteristicSex">Patient Characteristic: Sex</a></li>    <li><a href="#ProviderCharacteristic" id="markdown-toc-ProviderCharacteristic">Provider Characteristic</a></li></ul><a name="IndividualCharacteristic"> </a>
+<h2>
+    <span class="sectioncount">7.17.0</span> Individual Characteristic <a href="IndividualCharacteristic.html#IndividualCharacteristic" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h2>
+
+<p>Entered onto CQI WG Wiki on 9 April 2018</p>
+<p>QDM defines Individual Characteristic as specific factors about a patient, clinician, provider, or facility. Included are demographics, behavioral factors, social or cultural factors, available resources, and preferences. Behaviors reference responses or actions that affect (either positively or negatively) health or healthcare. Included in this category are mental health issues, adherence issues unrelated to other factors or resources, coping ability, grief issues, and substance use/abuse. Social/cultural factors are characteristics of an individual related to family/caregiver support, education, and literacy (including health literacy), primary language, cultural beliefs (including health beliefs), persistent life stressors, spiritual and religious beliefs, immigration status, and history of abuse or neglect. Resources are means available to a patient to meet health and healthcare needs, which might include caregiver support, insurance coverage, financial resources, and community resources to which the patient is already connected and from which the patient is receiving benefit. Preferences are choices made by patients and their caregivers relative to options for care or treatment (including scheduling, care experience, and meeting of personal health goals) and the sharing and disclosure of their health information. QDM defines nine individual characteristics: Patient Characteristic; Patient Characteristic, Birthdate; Patient Characteristic, Clinical Trial Participant; Patient Characteristic, Ethnicity; Patient Characteristic, Expired; Patient Characteristic, Payer; Patient Characteristic, Race; Patient Characteristic, Sex; Provider Characteristic. </p>
+<br /><a name="PatientCharacteristicGeneric"> </a>
+<h3>
+    <span class="sectioncount">7.17.1</span> Patient Characteristic (Generic) <a href="Individual Characteristic.html#PatientCharacteristicGeneric" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Author dateTime</td>
+
+<td>FHIR Provenance.recorded</td>
+
+<td>FHIR references authorDatetime as part of the provenance resource for all resources. </td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td></td>
+<td>Not sufficiently specific to address with FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>patient.id </td>
+
+<td>QDM matched to FHIR / QI Core</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td></td>
+<td>Not sufficiently specific to address with FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Recorder</td>
+
+<td>FHIR Provenance.recorder</td>
+
+<td>QDM matched to FHIR / QI Core</td>
+</tr>
+</table></div>
+<br /><a name="PatientCharacteristicBirthdate"> </a>
+<h3>
+    <span class="sectioncount">7.17.2</span> Patient Characteristic: Birthdate <a href="Individual Characteristic.html#PatientCharacteristicBirthdate" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Birth dateTime</td>
+
+<td>Patient.birthDate<br />
+<p>Patient.extension.birthTime</p></td>
+
+<td>Patient.extension.birthTime used for birthTime for newborns.</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td></td>
+<td>Not addressed in QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>patient.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br /><a name="PatientCharacteristicCTP"> </a>
+<h3>
+    <span class="sectioncount">7.17.3</span> Patient Characteristic: Clinical Trial Participant <a href="Individual Characteristic.html#PatientCharacteristicCTP" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Reason</td>
+
+<td>Patient.extension.clinicalTrial.reason</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Relevant Period</td>
+
+<td>Patient.extension.clinicalTrial.period</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>Patient.extension.clinicalTrial.NCT</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>Patient.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br /><a name="PatientCharacteristicEthnicity"> </a>
+<h3>
+    <span class="sectioncount">7.17.4</span> Patient Characteristic: Ethnicity <a href="Individual Characteristic.html#PatientCharacteristicEthnicity" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Code</td>
+
+<td>Patient.extension (<a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity" rel="nofollow">http://hl7.org/fhir/us/core/StructureDefinition-us-core-ethnicity</a></a>) .ombCategory </td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>Patient.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br /><a name="PatientCharacteristicExpired"> </a>
+<h3>
+    <span class="sectioncount">7.17.5</span> Patient Characteristic: Expired <a href="Individual Characteristic.html#PatientCharacteristicExpired" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr>
+
+
+<td>Cause</td>
+
+<td></td>
+<td>Not addressed in QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Expiration dateTime</td>
+
+<td>Patient.deceasedDateTime</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>deceasedBoolean</td>
+
+<td>If the code exisits in QDM the deceasedBoolean is true. Uses a direct referenced code (SNOMED CT 419099009 2016-03).</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>Patient.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br /><a name="PatientCharacteristicPayer"> </a>
+<h3>
+    <span class="sectioncount">7.17.6</span> Patient Characteristic: Payer <a href="Individual Characteristic.html#PatientCharacteristicPayer" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr>
+
+
+<td>Relevant Period</td>
+
+<td></td>
+<td>Not addressed in QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td></td>
+<td>Not addressed in QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>Patient.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br /><a name="PatientCharacteristicRace"> </a>
+<h3>
+    <span class="sectioncount">7.17.7</span> Patient Characteristic: Race <a href="Individual Characteristic.html#PatientCharacteristicRace" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Code</td>
+
+<td>Patient.extension (<a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html" rel="nofollow">http://hl7.org/fhir/us/core/StructureDefinition-us-core-race.html</a></a>) .ombCategory</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>Patient.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br /><a name="PatientCharacteristicSex"> </a>
+<h3>
+    <span class="sectioncount">7.17.8</span> Patient Characteristic: Sex <a href="Individual Characteristic.html#PatientCharacteristicSex" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Code</td>
+
+<td>Patient.gender</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>Patient.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br /><a name="ProviderCharacteristic"> </a>
+<h3>
+    <span class="sectioncount">7.17.9</span> Provider Characteristic <a href="Individual Characteristic.html#ProviderCharacteristic" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Author dateTime</td>
+
+<td>FHIR Provenance.recorded</td>
+
+<td>FHIR references authorDatetime as part of the provenance resource for all resources. Note - FHIR includes a concept Practitioner.qualification.period (period during which the qualification is valid). The qualification period may be useful in defining CDS or eCQMs.</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>Practitioner.qualification.code</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>Practitioner.identifier.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br />{% include container-end.html %}
+{% include footer.html %}

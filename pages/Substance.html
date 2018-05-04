@@ -1,0 +1,1062 @@
+---
+# jekyll header
+---
+{% include header.html %}
+{% include container-start.html %}
+<ul id="markdown-toc">
+    <li><a href="#Substance" id="markdown-toc-Substance">Substance</a></li>    <li><a href="#SubstanceAdministered" id="markdown-toc-SubstanceAdministered">Substance, Administered [When consistent with medication use cases]</a></li>    <li><a href="#SubstanceOrderMUC" id="markdown-toc-SubstanceOrderMUC">Substance, Order [when consistent with medication use cases]</a></li>    <li><a href="#SubstanceRecommended" id="markdown-toc-SubstanceRecommended">Substance, Recommended [when consistent with medication use cases]</a></li>    <li><a href="#SubstanceOrderNUC" id="markdown-toc-SubstanceOrderNUC">Substance, Order [For consideration for future review - Nutrition Use Cases]</a></li>    <li><a href="#SubstanceRecommendedNUC" id="markdown-toc-SubstanceRecommendedNUC">Substance, Recommended [For consideration for future review - Nutrition Use Cases]</a></li>    <li><a href="#SubstanceAdministeredBPUC" id="markdown-toc-SubstanceAdministeredBPUC">Substance, Administered [For consideration for future review - Blood Product Use Cases]</a></li>    <li><a href="#SubstanceOrderBPUC" id="markdown-toc-SubstanceOrderBPUC">Substance, Order [For consideration for future review - Blood Product Use Cases]</a></li></ul><a name="Substance"> </a>
+<h2>
+    <span class="sectioncount">7.13.0</span> Substance <a href="Substance.html#Substance" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h2>
+
+<p>QDM defines Substance as a homogeneous material with definite composition that includes allergens, biological materials, chemicals, foods, drugs and materials.  QDM distinguishes between medications from non-medication substances by separately listing medication datatypes. Substance may or may not have a code or be classified by a code system such RxNorm. Examples of a substance may include environmental agents (e.g., pollen, dust) and food (e.g., vitamins). QDM defines three contexts for Substance: Substance, Administered; Substance, Order; Substance, Recommended. Since QDM addresses substance a something that is administered, ordered or recommended, the actions are analogous to medications. Hence, the QDM category Substance is mapped to QI core Medication concepts.<br /><br />
+The mapping was first uploaded to the wiki on April 3, 2018. The CQI Workgroup reviewed the content on 13 April and required additional review and consideration. A QI Core ballot item from the January ballot suggested that NutritionOrder be included in QI Core. The context might be consistent with Substance, Order and/or Substance, Recommended, however, there are some gaps and the NutritionOrder is specifically focused on different diet types (i.e., enteral diet, supplement usage and parenteral diets) rather than specific dietary substance use. Therefore, the following QDM Substance category items address substance similar to medications OR procedures. The NutritionOrder references, created on 17 April 2018 content were added as considerations for future evaluation once the FHRI resources mature. Similarly, use of Substance for blood product orders and administration provide considerations for future evaluation as well. <br /><br />
+<b><i>Use of MedicationAdministration and Procedure FHIR Resources to reference QDM Substance datatypes</i></b><br />
+The current mapping reflects additional considerations in that NutritionOrder and Administration of blood products are not yet mature concepts in FHIR 3.0. The potential mapping considerations remain as points for review and discussion. However, the near-term mapping references for Substance, Administration, Substance, Order and Substance, Recommended for instances inconsistent with the Medication resources should use the QDM datatypes Procedure, Performed; Procedure, Order and Procedure, Recommended.<br />
+Instances inconsistent with the Medication resources include the following two use cases:<br />
+</p>
+<ul>
+
+
+<li>Determination that blood products (a biological product in FHIR resources) are ordered or are administered within specific time relationships to other data elements</li>
+
+<li>Determination that human breast milk (not considered a biological product in the FHIR resource discussions) is used exclusively to feed newborn infants during the initial stay in the hospital after birth.<br /></li>
+
+</ul>
+<p>This section was updated on 24 April 2018.<br /><br />
+<b><i>Nutrition [Considerations for Future Use]</i></b><br />
+The nutrition mappings remain for discussion and review as related FHIR resources become more mature.<br />
+Note the reference in <a class="external text" href="http://hl7.org/fhir/nutritionorder.html" rel="nofollow">FHIR NutritionOrder Resource</a>:<br />
+The Nutrition Order is a record of the request for the supply of a diet, oral supplement or enteral formulas for a patient. However, to initiate the request requires the use of the Task resource and its associated workflow with the Nutrition Order referenced from Task.basedOn, or by using the Nutrition Task resource in the context of a messaging or service workflow where the request is explicit or implicit.<br />
+Based on the quoted reference, Substance is modeled as either medication or nutrition. The NutritionOrder resource is used for requesting oral diets, oral nutrition supplements and enteral feedings in an in-patient setting. The MedicationRequest resource should be used for requesting parenteral (IV) nutrition and prescribing dietary supplements such as vitamin or mineral supplements.<br />
+FHIR Tracker Items <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;#38;tracker_item_id=15942" rel="nofollow">15942</a> and <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;#38;tracker_item_id=15943" rel="nofollow">15943</a> address these concerns in current FHIR modeling.<br /><br />
+<b><i>Blood Products  [Considerations for Future Use]</i></b><br />
+The blood product mappings remain for discussion and review as related FHIR resources become more mature.<br />
+Also note a different mapping for blood products addressing SupplyRequest, SupplyDelivery and BiologicallyDerivedProducts.<br />
+FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;#38;tracker_item_id=15945" rel="nofollow">15945</a> addresses concerns about the Supply resources to address blood products.</p>
+
+<br /><a name="SubstanceAdministered"> </a>
+<h3>
+    <span class="sectioncount">7.13.1</span> Substance, Administered [When consistent with medication use cases] <a href="Substance.html#SubstanceAdministered" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Medication, Administered</td>
+
+<td>MedicationAdministration (the .status metadata allows conformance to the specific QDM datatype context)</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Dosage</td>
+
+<td>MedicationAdministration.dosage.dose</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Supply</td>
+
+<td></td>
+<td>Not addressed in QI Core</td>
+</tr>
+
+<tr>
+
+
+<td>Frequency</td>
+
+<td>Not referenced</td>
+
+<td>Medication Administration documents a single administration, thus frequency is not a concept in the Medication Administered resource.</td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td>MedicationAdministration.reasonNotGiven</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Route</td>
+
+<td>MedicationAdministration.dosage.route</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Relevant Period</td>
+
+<td>MedicationAdministration.effective[x]</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>FHIRprovenance.recorded</td>
+
+<td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>MedicationAdministration.medication[x]</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>MedicationAdministration.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+
+<br /><a name="SubstanceOrderMUC"> </a>
+<h3>
+    <span class="sectioncount">7.13.2</span> Substance, Order [when consistent with medication use cases] <a href="Substance.html#SubstanceOrderMUC" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Substance, Order</td>
+
+<td>MedicationRequest.intent</td>
+
+<td>Medication Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to &#34;order&#34; from the intent value set for QDM datatypes with the order context.</td>
+</tr>
+
+<tr>
+
+
+<td>Dosage</td>
+
+<td>MedicationRequest.dosageInstruction.dose[x]</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Supply</td>
+
+<td>MedicationRequest.dispenseRequest.quantity</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Frequency</td>
+
+<td>MedicationRequest.dosageInstruction.timing</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>MedicationRequest.medication</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>MedicationRequest.reasonCode</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Method</td>
+
+<td>MedicationRequest.dosageInstruction.method</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td>MedicationStatement.reasonNotTaken</td>
+
+<td>Medication Request in QI Core does not reference negation rationale</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>MedicationRequest.reasonCode</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Refills</td>
+
+<td>MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Route</td>
+
+<td>MedicationRequest.dosageInstruction.route</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>MedicationRequest.authoredOn</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>MedicationRequest.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td>MedicationRequest.requester</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Recorder</td>
+
+<td>MedicationRequest.recorder</td>
+
+<td>Possibly addressed in FHIR Provenance</td>
+</tr>
+</table></div>
+
+<br /><a name="SubstanceRecommended"> </a>
+<h3>
+    <span class="sectioncount">7.13.3</span> Substance, Recommended [when consistent with medication use cases] <a href="Substance.html#SubstanceRecommended" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Substance, Recommended</td>
+
+<td>MedicationRequest.intent</td>
+
+<td>Medication Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. &#34;Proposal&#34; is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the MedicationRequest.intent value of &#34;plan&#34; (an intension to ensure something occurs without providing an authorization to act).</td>
+</tr>
+
+<tr>
+
+
+<td>Dosage</td>
+
+<td>MedicationRequest.dosageInstruction.dose[x]</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Frequency</td>
+
+<td>MedicationRequest.dosageInstruction.timing</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>MedicationRequest.medication</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>MedicationRequest.reasonCode</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Method</td>
+
+<td>MedicationRequest.dosageInstruction.method</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td>MedicationStatement.reasonNotTaken</td>
+
+<td>Medication Request in QI Core does not reference negation rationale</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>MedicationRequest.reasonCode</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Refills</td>
+
+<td>MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>MedicationRequest.authoredOn</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>MedicationRequest.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td>MedicationRequest.requester</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Recorder</td>
+
+<td>MedicationRequest.recorder</td>
+
+<td>Possibly addressed in FHIR Provenance</td>
+</tr>
+</table></div>
+<br /><a name="SubstanceOrderNUC"> </a>
+<h3>
+    <span class="sectioncount">7.13.4</span> Substance, Order [For consideration for future review - Nutrition Use Cases] <a href="Substance.html#SubstanceOrderNUC" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Substance, Order</td>
+
+<td>NutritionOrder.status</td>
+
+<td>SubstanceOrder.status includes proposed, draft, planned, requested, active, on-hold, completed, cancelled, entered-in-error. &#34;Proposed&#34; is most consistent with the NutritionOrder when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the NutritionOrder.status value of &#34;planned&#34; (an intention to ensure something occurs without providing an authorization to act). The QDM concept Order addresses a request that has been placed, and therefore is expected to be carried out. Such recommendations are most consistent with the NutritionOrder.status value of &#34;requested&#34; (The request has been placed.). Note - the &#34;active&#34; element is consistent with a NutritionOrder that has been reviewed by the dietician and, therefore, can be processed, but processing is not yet complete (the request is &#39;actionable&#39;, but not all actions that are implied by it have occurred yet).</td>
+</tr>
+
+<tr>
+
+
+<td>Dosage</td>
+
+<td>NutritionOrder.oralDiet.nutrient.amount<br />
+<p>NutritionOrder.supplement.quantity<br />
+NutritionOrder.enteralFormula.administration.quantity</p></td>
+
+<td>NutritionOrder.oralDiet.nutrient.amount (The quantity of the specified nutrient to include in diet.)<br />
+<p>NutritionOrder.supplement.quantity (The amount of the nutritional supplement to be given.)<br />
+NutritionOrder.enteralFormula.administration.quantity (The volume of formula to provide to the patient per the specified administration schedule.)</p></td>
+</tr>
+
+<tr>
+
+
+<td>Frequency</td>
+
+<td>NutritionOrder.oralDiet.schedule<br />
+<p>NutritionOrder.supplement.schedule<br />
+NutritionOrder.enteralFormula.administration.schedule</p></td>
+
+<td>NutritionOrder.oralDiet.schedule (The time period and frequency at which the diet should be given. The diet should be given for the combination of all schedules if more than one schedule is present.)<br />
+<p>NutritionOrder.supplement.schedule (The time period and frequency at which the supplement(s) should be given. The supplement should be given for the combination of all schedules if more than one schedule is present.)<br />
+NutritionOrder.enteralFormula.administration.schedule (The time period and frequency at which the enteral formula should be delivered to the patient.)</p></td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>NutritionOrder.oralDiet.nutrient<br />
+<p>Uncertain mapping for QDM code attribute for supplements or enteral formula</p></td>
+
+<td>NutritionOrder.oralDiet.nutrient (Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.)<br />
+<p>Uncertain mapping for QDM code attribute for supplements or enteral formula</p></td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>NutritionOrder.oralDiet.instruction<br />
+<p>NutritionOrder.supplement.instruction<br />
+NutritionOrder.enteralFormula.administration</p></td>
+
+<td>NutritionOrder does not address reason except, perhaps, as .instruction:<br />
+<p>NutritionOrder.oralDiet.instruction<br />
+NutritionOrder.supplement.instruction<br />
+NutritionOrder.enteralFormula.administration</p></td>
+</tr>
+
+<tr>
+
+
+<td>Method</td>
+
+<td>NutritionOrder.oralDiet.instruction<br />
+<p>NutritionOrder.supplement.instruction<br />
+NutritionOrder.enteralFormula.administration</p></td>
+
+<td>NutritionOrder.oralDiet.instruction (Free text or additional instructions or information pertaining to the oral diet.)<br />
+<p>NutritionOrder.supplement.instruction (Free text or additional instructions or information pertaining to the oral supplement.)<br />
+NutritionOrder.enteralFormula.administration (Formula administration instructions as structured data. This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding. An example of this would be an instruction to increase the rate of continuous feeding every 2 hours.)</p></td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td></td>
+<td>NutritionOrder does not address NegationRationale. NutritionOrder.excludeFoodModifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or Gluten-Free. While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td></td>
+<td>NutritionOrder does not address reason.</td>
+</tr>
+
+<tr>
+
+
+<td>Refills</td>
+
+<td></td>
+<td>NutritionOrder does not address refills.</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>NutritionOrder.dateTime</td>
+
+<td>QDM matched to FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td></td>
+<td>NutritionOrder does not address id.</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td>NutritionOrder.orderer</td>
+
+<td>QDM matched to FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Recorder</td>
+
+<td>FHIR.provenance.recorder</td>
+
+<td>Possibly addressed in FHIR Provenance</td>
+</tr>
+</table></div>
+<br /><a name="SubstanceRecommendedNUC"> </a>
+<h3>
+    <span class="sectioncount">7.13.5</span> Substance, Recommended [For consideration for future review - Nutrition Use Cases] <a href="Substance.html#SubstanceRecommendedNUC" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Substance, Recommended</td>
+
+<td>NutritionOrder.status</td>
+
+<td>SubstanceOrder.status includes proposed, draft, planned, requested, active, on-hold, completed, cancelled, entered-in-error. &#34;Proposed&#34; is most consistent with the NutritionOrder when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the NutritionOrder.status value of &#34;planned&#34; (an intention to ensure something occurs without providing an authorization to act). The QDM concept Order addresses a request that has been placed, and therefore is expected to be carried out. Such recommendations are most consistent with the NutritionOrder.status value of &#34;requested&#34; (The request has been placed.). Note - the &#34;active&#34; element is consistent with a NutritionOrder that has been reviewed by the dietician and, therefore, can be processed, but processing is not yet complete (the request is &#39;actionable&#39;, but not all actions that are implied by it have occurred yet).</td>
+</tr>
+
+<tr>
+
+
+<td>Dosage</td>
+
+<td>NutritionOrder.oralDiet.nutrient.amount<br />
+<p>NutritionOrder.supplement.quantity<br />
+NutritionOrder.enteralFormula.administration.quantity</p></td>
+
+<td>NutritionOrder.oralDiet.nutrient.amount (The quantity of the specified nutrient to include in diet.)<br />
+<p>NutritionOrder.supplement.quantity (The amount of the nutritional supplement to be given.)<br />
+NutritionOrder.enteralFormula.administration.quantity (The volume of formula to provide to the patient per the specified administration schedule.)</p></td>
+</tr>
+
+<tr>
+
+
+<td>Frequency</td>
+
+<td>NutritionOrder.oralDiet.schedule<br />
+<p>NutritionOrder.supplement.schedule<br />
+NutritionOrder.enteralFormula.administration.schedule</p></td>
+
+<td>NutritionOrder.oralDiet.schedule (The time period and frequency at which the diet should be given. The diet should be given for the combination of all schedules if more than one schedule is present.)<br />
+<p>NutritionOrder.supplement.schedule (The time period and frequency at which the supplement(s) should be given. The supplement should be given for the combination of all schedules if more than one schedule is present.)<br />
+NutritionOrder.enteralFormula.administration.schedule (The time period and frequency at which the enteral formula should be delivered to the patient.)</p></td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>NutritionOrder.oralDiet.nutrient<br />
+<p>Uncertain mapping for QDM code attribute for supplements or enteral formula</p></td>
+
+<td>NutritionOrder.oralDiet.nutrient (Class that defines the quantity and type of nutrient modifications (for example carbohydrate, fiber or sodium) required for the oral diet.)<br />
+<p>Uncertain mapping for QDM code attribute for supplements or enteral formula</p></td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>NutritionOrder.oralDiet.instruction<br />
+<p>NutritionOrder.supplement.instruction<br />
+NutritionOrder.enteralFormula.administration</p></td>
+
+<td>NutritionOrder does not address reason except, perhaps, as .instruction:<br />
+<p>NutritionOrder.oralDiet.instruction<br />
+NutritionOrder.supplement.instruction<br />
+NutritionOrder.enteralFormula.administration</p></td>
+</tr>
+
+<tr>
+
+
+<td>Method</td>
+
+<td>NutritionOrder.oralDiet.instruction<br />
+<p>NutritionOrder.supplement.instruction<br />
+NutritionOrder.enteralFormula.administration</p></td>
+
+<td>NutritionOrder.oralDiet.instruction (Free text or additional instructions or information pertaining to the oral diet.)<br />
+<p>NutritionOrder.supplement.instruction (Free text or additional instructions or information pertaining to the oral supplement.)<br />
+NutritionOrder.enteralFormula.administration (Formula administration instructions as structured data. This repeating structure allows for changing the administration rate or volume over time for both bolus and continuous feeding. An example of this would be an instruction to increase the rate of continuous feeding every 2 hours.)</p></td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td></td>
+<td>NutritionOrder does not address NegationRationale. NutritionOrder.excludeFoodModifier is used to convey order-specific modifiers about the type of food that should NOT be given. These can be derived from patient allergies, intolerances, or preferences such as No Red Meat, No Soy or No Wheat or Gluten-Free. While it should not be necessary to repeat allergy or intolerance information captured in the referenced AllergyIntolerance resource in the excludeFoodModifier, this element may be used to convey additional specificity related to foods that should be eliminated from the patient’s diet for any reason. This modifier applies to the entire nutrition order inclusive of the oral diet, nutritional supplements and enteral formula feedings.</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td></td>
+<td>NutritionOrder does not address reason.</td>
+</tr>
+
+<tr>
+
+
+<td>Refills</td>
+
+<td></td>
+<td>NutritionOrder does not address refills.</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>NutritionOrder.dateTime</td>
+
+<td>QDM matched to FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td></td>
+<td>NutritionOrder does not address id.</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td>NutritionOrder.orderer</td>
+
+<td>QDM matched to FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Recorder</td>
+
+<td>FHIR.provenance.recorder</td>
+
+<td>Possibly addressed in FHIR Provenance</td>
+</tr>
+</table></div>
+<br /><a name="SubstanceAdministeredBPUC"> </a>
+<h3>
+    <span class="sectioncount">7.13.6</span> Substance, Administered [For consideration for future review - Blood Product Use Cases] <a href="Substance.html#SubstanceAdministeredBPUC" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Substance, Administered (Blood Products)</td>
+
+<td>SupplyDelivery.status (the .status metadata should be constrained to &#34;completed&#34; to allow conformance to the specific QDM datatype context)</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Dosage</td>
+
+<td>SupplyDelivery.suppliedItem.quantity</td>
+
+<td>QDM matched to FHIR core</td>
+</tr>
+
+<tr>
+
+
+<td>Supply</td>
+
+<td></td>
+<td>Not addressed directly since SupplyDelivery.suppliedItem.quantity addresses the quantity for the single delivery (i.e., administration in this case)</td>
+</tr>
+
+<tr>
+
+
+<td>Frequency</td>
+
+<td></td>
+<td>Substance Administration documents a single administration, thus frequency is not a concept in the Supply Delivery resource.</td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td></td>
+<td>Not addressed in FHIR core</td>
+</tr>
+
+<tr>
+
+
+<td>Route</td>
+
+<td></td>
+<td>Not addressed in FHIR core</td>
+</tr>
+
+<tr>
+
+
+<td>Relevant Period</td>
+
+<td>SupplyDelivery.occurrence[x]</td>
+
+<td>QDM matched to FHIR core</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>FHIRprovenance.recorded</td>
+
+<td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>SupplyDelivery.suppliedItem.item[x]</td>
+
+<td>QDM matched to FHIR core</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>SupplyDelivery.id</td>
+
+<td>QDM matched to FHIR core</td>
+</tr>
+</table></div>
+<br /><a name="SubstanceOrderBPUC"> </a>
+<h3>
+    <span class="sectioncount">7.13.7</span> Substance, Order [For consideration for future review - Blood Product Use Cases] <a href="Substance.html#SubstanceOrderBPUC" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Substance, Order (Blood Products)</td>
+
+<td></td>
+<td>There is no .intent metadata element consistent with other FHIR resources (e.g., proposed, draft, planned, requested, active, on-hold, completed, cancelled, entered-in-error).</td>
+</tr>
+
+<tr>
+
+
+<td>Dosage</td>
+
+<td>SupplyRequest.orderedItem.quantity</td>
+
+<td>QDM maps to FHIR core</td>
+</tr>
+
+<tr>
+
+
+<td>Frequency</td>
+
+<td></td>
+<td>SupplyRequest does not address frequency since it addresses a single occurrence</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>SupplyRequest.category, OR<br />
+<p>SupplyRequest.orderedItem.item[x]</p></td>
+
+<td>Category presumably to include the category <a class="external text" href="http://hl7.org/fhir/2018Jan/biologicallyderivedproduct.html" rel="nofollow">biologicallyderivedproduct</a> to address blood products, consider the same for .ordereditem[x]</td>
+</tr>
+
+<tr>
+
+
+<td>Method</td>
+
+<td></td>
+<td>SupplyRequest does not address method</td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td></td>
+<td>SupplyRequest does not address .notDoneReason</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>SupplyRequest.reason[x]</td>
+
+<td>QDM maps to FHIR core</td>
+</tr>
+
+<tr>
+
+
+<td>Refills</td>
+
+<td></td>
+<td>SupplyRequest does not address refills.</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>SupplyRequest.authoredOn</td>
+
+<td>QDM matched to FHIR core - note that FHIR core also includes SupplyRequest.occurrence[x] (when the request should be fulfilled).</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>SupplyRequest.id</td>
+
+<td>QDM maps to FHIR core</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td>SupplyRequest.requester.agent</td>
+
+<td>QDM matched to FHIR code - note that FHIR core includes SupplyRequest.supplier (who is intended to fulfill the request)</td>
+</tr>
+
+<tr>
+
+
+<td>Recorder</td>
+
+<td>FHIR.provenance.recorder</td>
+
+<td>Possibly addressed in FHIR Provenance</td>
+</tr>
+</table></div>
+<br />{% include container-end.html %}
+{% include footer.html %}

@@ -1,0 +1,318 @@
+---
+# jekyll header
+---
+{% include header.html %}
+{% include container-start.html %}
+<ul id="markdown-toc">
+    <li><a href="#Procedure" id="markdown-toc-Procedure">Procedure</a></li>    <li><a href="#ProcedureOrder" id="markdown-toc-ProcedureOrder">Procedure, Order</a></li>    <li><a href="#ProcedureRecommended" id="markdown-toc-ProcedureRecommended">Procedure, Recommended</a></li>    <li><a href="#ProcedurePerformed" id="markdown-toc-ProcedurePerformed">Procedure, Performed</a></li></ul><a name="Procedure"> </a>
+<h2>
+    <span class="sectioncount">7.15.0</span> Procedure <a href="Procedure.html#Procedure" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h2>
+
+<p>QDM defines Procedure as “An Act whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the subject. … Procedure is but one among several types of clinical activities such as observation, substance-administrations, and communicative interactions … Procedure does not comprise all acts of [sic] whose intent is intervention or treatment.”  A procedure may be a surgery or other type of physical manipulation of a person’s body in whole or in part for purposes of making observations and diagnoses or providing treatment.   QDM defines three contexts for Procedure: Procedure, Order; Procedure, Performed; Procedure, Recommended.</p>
+
+<br /><a name="ProcedureOrder"> </a>
+<h3>
+    <span class="sectioncount">7.15.1</span> Procedure, Order <a href="Procedure.html#ProcedureOrder" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Procedure, Order</td>
+
+<td>ProcedureRequest.intent</td>
+
+<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to &#34;order&#34; from the intent value set for QDM datatypes with the order context.</td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td>ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a></a>)</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>ProcedureRequest.reasonCode</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>ProcedureRequest.AuthoredOn</td>
+
+<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>ProcedureRequest.code</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>ProcedureRequest.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td>ProcedureRequest.requester</td>
+
+<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+</tr>
+</table></div>
+<br /><a name="ProcedureRecommended"> </a>
+<h3>
+    <span class="sectioncount">7.15.2</span> Procedure, Recommended <a href="Procedure.html#ProcedureRecommended" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Procedure, Recommended</td>
+
+<td>ProcedureRequest.intent</td>
+
+<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. &#34;Proposal&#34; is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ProcedureRequest.intent value of &#34;plan&#34; (an intension to ensure something occurs without providing an authorization to act).</td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td>ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a></a>)</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>ProcedureRequest.reasonCode</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>ProcedureRequest.AuthoredOn</td>
+
+<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>ProcedureRequest.code</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>ProcedureRequest.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td>ProcedureRequest.requester</td>
+
+<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
+</tr>
+</table></div>
+<br /><a name="ProcedurePerformed"> </a>
+<h3>
+    <span class="sectioncount">7.15.3</span> Procedure, Performed <a href="Procedure.html#ProcedurePerformed" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
+
+
+<div>
+<table border="1" cellpadding="2" cellspacing="0">
+
+
+<tr>
+
+
+<td align="center"><b>QDM Attribute</b></td>
+
+<td align="center"><b>QI Core Metadata Element</b></td>
+
+<td align="center"><b>Comment</b></td>
+</tr>
+
+<tr valign="top">
+
+
+<td>Procedure, Performed</td>
+
+<td>Procedure (the .status metadata allows conformance to the specific QDM datatype context)</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Relevant Period</td>
+
+<td>Procedure.performed[x]</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Negation Rationale</td>
+
+<td>Procedure.notDoneReason</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Reason</td>
+
+<td>Procedure.reasonCode</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Result</td>
+
+<td>Procedure.outcome</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Author dateTime</td>
+
+<td>FHIR.provenance.recorded</td>
+
+<td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td>
+</tr>
+
+<tr>
+
+
+<td>Status</td>
+
+<td>Procedure.status</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Code</td>
+
+<td>Procedure.code</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>id</td>
+
+<td>Procedure.id</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+
+<tr>
+
+
+<td>Source</td>
+
+<td>Procedure.performer</td>
+
+<td>QDM matched to QI Core / FHIR</td>
+</tr>
+</table></div>
+<br />{% include container-end.html %}
+{% include footer.html %}
