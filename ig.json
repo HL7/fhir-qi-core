@@ -1,4 +1,10 @@
 {
+	"canonicalBase": "http://hl7.org/fhir/us/qicore",
+	"version": "3.0.1",
+	"sct-edition": "http://snomed.info/sct/731000124108",
+	"source": "qicore.xml",
+	"npm-name": "hl7.fhir.us.qicore",
+	"license": "CC0-1.0",
 	"tool": "jekyll",
 	"paths": {
 		"resources": "resources",
@@ -16,6 +22,7 @@
 		{
 			"name": "uscore",
 			"location": "http://hl7.org/fhir/us/core",
+			"version": "1.0.1",
 			"source": "lib/uscore"
 		}
 	],
@@ -126,29 +133,39 @@
 			"template-defns":"instance-template-sd-definitions.html"
 		}
 	},
-	"version": "3.0.1",
-	"sct-edition": "http://snomed.info/sct/731000124108",
 	"extraTemplates": [
 		"mappings"
 	],
-	"canonicalBase": "http://hl7.org/fhir/us/qicore",
-	"source": "qicore.xml",
 	"spreadsheets": [
 		"adverseevent-profile-spreadsheet.xml",
+		"allergyintolerance-profile-spreadsheet.xml",
 		"bodysite-profile-spreadsheet.xml",
 		"claim-profile-spreadsheet.xml",
 		"communication-profile-spreadsheet.xml",
 		"communicationrequest-profile-spreadsheet.xml",
+		"condition-profile-spreadsheet.xml",
 		"coverage-profile-spreadsheet.xml",
+		"device-profile-spreadsheet.xml",
 		"deviceusestatement-profile-spreadsheet.xml",
+		"diagnosticreport-profile-spreadsheet.xml",
 		"encounter-profile-spreadsheet.xml",
 		"familymemberhistory-profile-spreadsheet.xml",
 		"flag-profile-spreadsheet.xml",
+		"goal-profile-spreadsheet.xml",
 		"imagingstudy-profile-spreadsheet.xml",
+		"immunization-profile-spreadsheet.xml",
 		"immunizationrecommendation-profile-spreadsheet.xml",
+		"location-profile-spreadsheet.xml",
+		"medication-profile-spreadsheet.xml",
 		"medicationadministration-profile-spreadsheet.xml",
 		"medicationdispense-profile-spreadsheet.xml",
+		"medicationstatement-profile-spreadsheet.xml",
+		"medicationrequest-profile-spreadsheet.xml",
 		"observation-profile-spreadsheet.xml",
+		"organization-profile-spreadsheet.xml",
+		"patient-profile-spreadsheet.xml",
+		"practitioner-profile-spreadsheet.xml",
+		"procedure-profile-spreadsheet.xml",
 		"procedurerequest-profile-spreadsheet.xml",
 		"referralrequest-profile-spreadsheet.xml",
 		"relatedperson-profile-spreadsheet.xml",
@@ -167,10 +184,6 @@
 		"CodeSystem/qicore-adverseevent-type": {
 			"source": "codesystem-adverseevent-type.xml",
 			"base": "qicore-adverseevent-type.html"
-		},
-		"CodeSystem/qicore-appropriateness-score": {
-			"source": "codesystem-appropriateness-score.xml",
-			"base": "qicore-appropriateness-score.html"
 		},
 		"CodeSystem/qicore-communication-medium": {
 			"source": "codesystem-communication-medium.xml",
