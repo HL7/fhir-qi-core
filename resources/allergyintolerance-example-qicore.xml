@@ -3,7 +3,9 @@
   xmlns="http://hl7.org/fhir" 
   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/allergyintolerance.xsd">
   <id value="qicore-allergyintolerance-example"/>
-  <!--    an identifier used for this allergic propensity (adverse reaction risk)    -->
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance"/>
+  </meta>
   <text>
     <status value="generated"/>
     <div 
@@ -99,6 +101,7 @@
       </blockquote>
     </div>
   </text>
+  <!--    an identifier used for this allergic propensity (adverse reaction risk)    -->
   <identifier>
     <system value="http://acme.com/ids/patients/risks"/>
     <value value="49476534"/>

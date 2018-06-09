@@ -2,7 +2,9 @@
 <AllergyIntolerance 
   xmlns="http://hl7.org/fhir">
   <id value="qicore-allergyintolerance-example-refuted"/>
-  <!--    an identifier used for this allergic propensity (adverse reaction risk)    -->
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance"/>
+  </meta>
   <text>
     <status value="generated"/>
     <div 
@@ -57,6 +59,7 @@
     </valueCodeableConcept>
   </extension>
 
+  <!--    an identifier used for this allergic propensity (adverse reaction risk)    -->
   <identifier>
     <system value="http://acme.com/ids/patients/risks"/>
     <value value="49476534"/>
