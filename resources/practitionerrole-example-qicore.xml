@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PractitionerRole xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/practitioner.xsd">
+  <id value="qicore-practitionerrole-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"/>
+  </meta>
+  <identifier>
+    <system value="http://www.acme.org/practitionerroles"/>
+    <value value="31"/>
+  </identifier>
+  <active value="true"/>
+  <period>
+    <start value="1995"/>
+  </period>
+  <practitioner>
+    <reference value="Practitioner/qicore-practitioner-example"/>
+    <display value="Dr Adam Careful"/>
+  </practitioner>
+  <organization>
+    <reference value="Organization/qicore-organization-example"/>
+  </organization>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/practitioner-role"/>
+      <code value="doctor"/>
+      <display value="Doctor"/>
+    </coding>
+  </code>  
+  <specialty>
+    <coding>
+      <system value="http://www.snomed.org/"/>
+      <code value="394814009"/>
+      <display value="General Practice"/>
+    </coding>
+  </specialty>
+  <location>
+    <reference value="Location/qicore-location-example"/>
+  </location>
+</PractitionerRole>

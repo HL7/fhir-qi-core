@@ -102,6 +102,9 @@
 		"Practitioner": {
 			"template-format": "instance-template-example.html"
 		},
+		"PractitionerRole": {
+			"template-format": "instance-template-example.html"
+		},
 		"Procedure": {
 			"template-format": "instance-template-example.html"
 		},
@@ -165,6 +168,7 @@
 		"organization-profile-spreadsheet.xml",
 		"patient-profile-spreadsheet.xml",
 		"practitioner-profile-spreadsheet.xml",
+		"practitionerrole-profile-spreadsheet.xml",
 		"procedure-profile-spreadsheet.xml",
 		"procedurerequest-profile-spreadsheet.xml",
 		"referralrequest-profile-spreadsheet.xml",
@@ -306,6 +310,11 @@
 			"defns": "qicore-practitioner-definitions.html",
 			"base": "qicore-practitioner.html"
 		},
+		"StructureDefinition/qicore-practitionerrole": {
+			"source": "structuredefinition-qicore-practitionerrole.xml",
+			"defns": "qicore-practitionerrole-definitions.html",
+			"base": "qicore-practitionerrole.html"
+		},
 		"StructureDefinition/qicore-procedure": {
 			"source": "structuredefinition-qicore-procedure.xml",
 			"defns": "qicore-procedure-definitions.html",
@@ -360,11 +369,6 @@
 			"source": "structuredefinition-qicore-imagingstudy-radiationduration.xml",
 			"defns": "qicore-imagingstudy-radiationDuration-definitions.html",
 			"base": "qicore-imagingstudy-radiationDuration.html"
-		},
-		"StructureDefinition/qicore-practitioner-role": {
-			"source": "structuredefinition-qicore-practitioner-role.xml",
-			"defns": "qicore-practitioner-role-definitions.html",
-			"base": "qicore-practitioner-role.html"
 		},
 		"ValueSet/qicore-appropriateness-score": {
 			"source": "valueset-qicore-appropriateness-score.xml",
@@ -556,6 +560,10 @@
 		"Practitioner/qicore-practitioner-example": {
 			"source": "practitioner-example-qicore.xml",
 			"base": "Practitioner-practitioner-example-qicore.html"
+		},
+		"PractitionerRole/qicore-practitionerrole-example": {
+			"source": "practitionerrole-example-qicore.xml",
+			"base": "PractitionerRole-practitionerrole-example-qicore.html"
 		},
 		"Procedure/qicore-procedure-example": {
 			"source": "procedure-example-qicore.xml",
