@@ -123,6 +123,9 @@
 		"Substance": {
 			"template-format": "instance-template-example.html"
 		},
+		"Task": {
+			"template-format": "instance-template-example.html"
+		},
 		"ValueSet": {
 			"template-format": "instance-template-valueset.html"
 		},
@@ -174,7 +177,8 @@
 		"referralrequest-profile-spreadsheet.xml",
 		"relatedperson-profile-spreadsheet.xml",
 		"specimen-profile-spreadsheet.xml",
-		"substance-profile-spreadsheet.xml"
+		"substance-profile-spreadsheet.xml",
+		"task-profile-spreadsheet.xml"
 	],
 	"resources": {
 		"CodeSystem/qicore-appropriateness-score": {
@@ -339,6 +343,11 @@
 		"StructureDefinition/qicore-substance": {
 			"defns": "qicore-substance-definitions.html",
 			"base": "qicore-substance.html"
+		},
+		"StructureDefinition/qicore-task": {
+			"source": "structuredefinition-qicore-task.xml",
+			"defns": "qicore-task-definitions.html",
+			"base": "qicore-task.html"
 		},
 		"StructureDefinition/qicore-procedure-approachBodySite": {
 			"source": "structuredefinition-qicore-procedure-approachbodysite.xml",
@@ -588,6 +597,10 @@
 		"Substance/qicore-substance-example": {
 			"source": "substance-example-qicore.xml",
 			"base": "Substance-substance-example-qicore.html"
+		},
+		"Task/qicore-task-example": {
+			"source": "task-example-qicore.xml",
+			"base": "Task-task-example-qicore.html"
 		}
 	}
 }
