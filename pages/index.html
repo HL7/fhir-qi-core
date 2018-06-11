@@ -99,7 +99,7 @@
 
 <p>Quality applications may make use of patient-specific information. For this reason, all transactions must be appropriately secured, limiting access to authorized individuals and protecting data while in transit (as laid out in the <a href="http://hl7.org/fhir/safety.html#7.9.1">FHIR Implementer&apos;s Safety Check List</a>). These are the same considerations that would relate to any FHIR implementation, and include authentication, authorization, access control consistent with patient consent, transaction logging, and following best practices. For the purposes of QICore, security conformance rules are as follows:</p>
 <ul>
-	<li>Systems SHOULD use TLS version 1.0 or higher with bi-directional certificate validation for all transmissions not taking place over a secure network connection.</li>
+	<li>Systems SHOULD use TLS version 1.1 or higher with bi-directional certificate validation for all transmissions not taking place over a secure network connection.</li>
 	<li>Systems SHOULD use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).</li>
 	<li>Systems SHOULD use either IHE's ATNA standard for audit logging or an equivalent using the AuditEvent resource.</li>
 </ul>
