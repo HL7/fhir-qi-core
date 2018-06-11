@@ -11,7 +11,7 @@
 	<li><a href="#summary" id="markdown-toc-summary">Summary</a></li>
 	<li><a href="#background" id="markdown-toc-background">Background</a></li>
 	<li><a href="#relationships" id="markdown-toc-relationships">Relationship Between QUICK, the QICore Profiles, and FHIR</a></li>
-	<li><a href="#relevance" id="markdown-toc-relevance">Relevance of QICore Profiles to Developers</a></li>
+	<li><a href="#relevance" id="markdown-toc-relevance">Relevance of QICore Profiles to Authors</a></li>
 	<li><a href="#scope" id="markdown-toc-scope">Scope</a></li>
 	<li><a href="#psc" id="markdown-toc-psc">Privacy, Security, and Consent</a></li>
 	<li><a href="#harmonization" id="markdown-toc-harmonization">Relationship to Other Initiatives</a></li>
@@ -63,11 +63,11 @@
 <p>Using FHIR to define the QUICK logical model seems to reverse the usual flow from conceptual model to logical model to physical model. This is true, and has been the source of some controversy. Without revisiting that debate, the bottom line is whether the QUICK model has the right set of objects and attributes that are needed for quality improvement applications. To assure that QUICK does meet those requirements, the QICore profiles were created. QICore fills any gaps such as missing attributes and unspecified value sets, that might make QUICK insufficient for quality improvement applications. In turn, QUICK is derived from QICore profiles, rather than directly from FHIR.</p>
 
 <a name="relevance"> </a>
-<h3><span class="sectioncount">1.4.0</span> Relevance of QICore Profiles to Developers <a href="index.html#relevance" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+<h3><span class="sectioncount">1.4.0</span> Relevance of QICore Profiles to Authors <a href="index.html#relevance" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
 
-<p>The QUICK model is the logical model used by quality artifact developers. To obtain data to evaluate the artifacts, the interactions with the local EHR can use FHIR or implement a custom data mapping to local EHR data. In addition to defining QUICK, the QICore profiles provide a bridge to using FHIR as QUICK's physical model. To correctly map between FHIR and QUICK, the data instances retrieved from a FHIR interface must conform to the QICore profiles. The QICore FHIR Profiles link the QUICK logical model to FHIR at the physical level.</p>
+<p>The QUICK model is the logical model used by quality artifact authors. To obtain data to evaluate the artifacts, the interactions with the local EHR can use FHIR or implement a custom data mapping to local EHR data. In addition to defining QUICK, the QICore profiles provide a bridge to using FHIR as QUICK's physical model. To correctly map between FHIR and QUICK, the data instances retrieved from a FHIR interface must conform to the QICore profiles. The QICore FHIR Profiles link the QUICK logical model to FHIR at the physical level.</p>
 
-<p>For the developer, using FHIR as the physical data model behind QUICK may provide several benefits. It may be that the local EHR has already been mapped to FHIR. In this case, the same interface with minor modifications can be used for quality applications. Developers can also leverage future reference implementations based on FHIR. Using FHIR as a common model for different applications (quality, interoperability, etc.) reduces the overall learning curve.</p>
+<p>For system implementers, using FHIR as the physical data model behind QUICK may provide several benefits. It may be that the local EHR has already been mapped to FHIR. In this case, the same interface with minor modifications can be used for quality applications. Implementers can also leverage future reference implementations based on FHIR. Using FHIR as a common model for different applications (quality, interoperability, etc.) reduces the overall learning curve.</p>
 
 <a name="scope"> </a>
 <h3><span class="sectioncount">1.5.0</span> Scope <a href="index.html#scope" title="link to here" class="self-link"><img src="target.png" width="20" class="self-link" height="20"/></a></h3>
