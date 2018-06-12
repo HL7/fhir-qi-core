@@ -24,7 +24,7 @@
   <WindowWidth>24495</WindowWidth>
   <WindowTopX>0</WindowTopX>
   <WindowTopY>0</WindowTopY>
-  <ActiveSheet>2</ActiveSheet>
+  <ActiveSheet>3</ActiveSheet>
   <FirstVisibleSheet>2</FirstVisibleSheet>
   <RefModeR1C1/>
   <ProtectStructure>False</ProtectStructure>
@@ -3340,7 +3340,6 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
-   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3361,7 +3360,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>7</ActiveCol>
+     <ActiveRow>4</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -3424,9 +3424,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s101"><Data ss:Type="String">extension: reasonRefuted is only permitted if status is refuted</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">status = 'refuted' or extension.where(url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted').empty()</Data><NamedCell
+    <Cell ss:StyleID="s128"><Data ss:Type="String">verificationStatus = 'refuted' or extension.where(url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted').empty()</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s128"><Data ss:Type="String">not(f:status/@value != 'refuted' and f:extension/@url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted')</Data><NamedCell
+    <Cell ss:StyleID="s128"><Data ss:Type="String">not(f:verificationStatus/@value != 'refuted' and f:extension/@url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted')</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
@@ -3866,6 +3866,7 @@
     <HorizontalResolution>600</HorizontalResolution>
     <VerticalResolution>600</VerticalResolution>
    </Print>
+   <Selected/>
    <FreezePanes/>
    <FrozenNoSplit/>
    <SplitHorizontal>1</SplitHorizontal>
@@ -3885,7 +3886,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>7</ActiveRow>
+     <ActiveCol>6</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
