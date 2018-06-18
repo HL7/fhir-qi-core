@@ -3,118 +3,62 @@
 ---
 {% include header.html %}
 {% include container-start.html %}
-<a name="Condition/Diagnosis/Problem"> </a>
+
+<a name="ConditionDiagnosisProblem"> </a>
 <h2>
-    <span class="sectioncount">7.4.0</span> Condition/Diagnosis/Problem <a href="Condition/Diagnosis/Problem.html#Condition/Diagnosis/Problem" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.7.0</span> Condition Diagnosis Problem <a href="ConditionDiagnosisProblem.html#ConditionDiagnosisProblem" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
 
-<p>This QDM to QI Core Mapping for the QDM Datatype &#34;Diagnosis&#34; was updated 3 April 2018 based on discussion in the CQI WG on March 30, 2018. Posted 9 April 2018.<br /><br />
-QDM defines Condition/Diagnosis/Problem as a practitioner’s identification of a patient’s disease, illness, injury, or condition. This category contains a single datatype to represent all of these concepts: Diagnosis. A practitioner determines the diagnosis by means of examination, diagnostic test results, patient history, and/or family history. Diagnoses are usually considered unfavorable, but may also represent neutral or favorable conditions that affect a patient’s plan of care (e.g., pregnancy).
-<br />
-</p>
+<p>This QDM to QI Core Mapping for the QDM Datatype &#34;Diagnosis&#34; was reviewed by the CQI WG on March 30, 2018 for QDM version 5.3. There are no changes in &#34;Condition/Diagnosis/Problem&#34; in QDM version 5.4.</p>
 
-<div>
+<p>QDM defines Condition/Diagnosis/Problem as a practitioner’s identification of a patient’s disease, illness, injury, or condition. This category contains a single datatype to represent all of these concepts: Diagnosis. A practitioner determines the diagnosis by means of examination, diagnostic test results, patient history, and/or family history. Diagnoses are usually considered unfavorable, but may also represent neutral or favorable conditions that affect a patient’s plan of care (e.g., pregnancy).</p>
+
+
+
+
+
+<div style="page-break-inside: avoid;">
 <table border="1" cellpadding="2" cellspacing="0">
-
-
 <tr>
-
-
-<td align="center"><b>QDM Attribute</b></td>
-
-<td align="center"><b>QI Core Metadata Element</b></td>
-
-<td align="center"><b>Comment</b></td>
-</tr>
-
+<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
+<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
+<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
-
-
 <td>Diagnosis</td>
-
 <td>Condition (the .clinicalstatus metadata allows conformance to the specific QDM datatype context)</td>
-
-<td>QDM defaults the status to active and prevalence period provides the evidence of activity.</td>
-</tr>
-
+<td>QDM defaults the status to active and prevalence period provides the evidence of activity.</td></tr>
 <tr>
-
-
 <td>Prevalence Period</td>
-
 <td>Condition.onset[x], OR Condition.asserted</td>
-
-<td>Use whichever is the earlier date. QDM matched to QI Core / FHIR for start of Prevalence Period</td>
-</tr>
-
+<td>Use whichever is the earlier date. QDM matched to QI Core / FHIR for start of Prevalence Period</td></tr>
 <tr>
-
-
-<td></td>
+<td />
 <td>Condition.abatement[x]</td>
-
-<td>QDM matched to QI Core / FHIR for end of Prevalence Period</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR for end of Prevalence Period</td></tr>
 <tr>
-
-
 <td>Anatomical Location Site</td>
-
 <td>Condition.bodySite</td>
-
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
-
-
 <td>Severity</td>
-
 <td>Condition.severity</td>
-
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
-
-
 <td>Code</td>
-
 <td>Condition.code</td>
-
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
-
-
 <td>Author dateTime</td>
-
 <td>FHIR Provenance.recorded</td>
-
-<td>FHIR provenance addressed author time, Condition.assertedDate may be closer to the onset of the QDM Prevalence Period. Consider - the software may default assertedDate to the date entered requiring manual editing to enter a different date. Further, does it reflect the date the assertion is made or the date the patient asserted that the condition began? Seeking guidance - due to potential ambiguity, should QDM map to FHIR provenance?</td>
-</tr>
-
+<td>FHIR provenance addressed author time, Condition.assertedDate may be closer to the onset of the QDM Prevalence Period. Consider - the software may default assertedDate to the date entered requiring manual editing to enter a different date. Further, does it reflect the date the assertion is made or the date the patient asserted that the condition began? Seeking guidance - due to potential ambiguity, should QDM map to FHIR provenance?</td></tr>
 <tr>
-
-
 <td>id</td>
-
 <td>Condition.id</td>
-
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
-
-
 <td>Source</td>
-
 <td>Condition.asserter</td>
+<td>QDM matched to QI Core / FHIR</td></tr></table></div>
 
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-</table></div>
-<br />{% include container-end.html %}
+{% include container-end.html %}
 {% include footer.html %}

@@ -3,330 +3,158 @@
 ---
 {% include header.html %}
 {% include container-start.html %}
-<ul id="markdown-toc">
-    <li><a href="#Device" id="markdown-toc-Device">Device</a></li>    <li><a href="#DeviceApplied" id="markdown-toc-DeviceApplied">Device, Applied</a></li>    <li><a href="#DeviceOrder" id="markdown-toc-DeviceOrder">Device, Order</a></li>    <li><a href="#DeviceRecommended" id="markdown-toc-DeviceRecommended">Device, Recommended</a></li></ul><a name="Device"> </a>
+<ul id="markdown-toc"><li><a href="#Device.2C_Applied">Device, Applied</a></li><li><a href="#Device.2C_Order">Device, Order</a></li><li><a href="#Device.2C_Recommended">Device, Recommended</a></li></ul>
+<a name="Device"> </a>
 <h2>
-    <span class="sectioncount">7.6.0</span> Device <a href="Device.html#Device" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.8.0</span> Device <a href="Device.html#Device" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
 
-<p>This QDM to QI Core Mapping for the QDM Datatype &#34;Device&#34; was updated 6 April 2018 based on discussion in the CQI WG on April 6, 2018. <br />
-QDM defines Device as an instrument, apparatus, implement, machine, contrivance, implant, in-vitro reagent, or other similar or related article, including a component part or accessory, intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease and not dependent on being metabolized to achieve any of its primary intended purposes.   QDM provides three contexts for expressing devices: Device, Applied; Device, Order; and Device, Recommended.
+
+
+<p>This QDM to QI Core Mapping for the QDM Datatype &#34;Device&#34; was reviewed by the CQI WG on April 6, 2018 for QDM version 5.3. The content presented here is based on QDM version 5.4 and removes the QDM 5.3 attribute &#34;anatomical approach site&#34; as there was no existing use or clear use case to retain it. </p>
+<p>QDM defines Device as an instrument, apparatus, implement, machine, contrivance, implant, in-vitro reagent, or other similar or related article, including a component part or accessory, intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease and not dependent on being metabolized to achieve any of its primary intended purposes.   QDM provides three contexts for expressing devices: Device, Applied; Device, Order; and Device, Recommended.
 </p>
 <ol>
-
-
 <li>Note that the current use of the QDM datatype “Device, Applied” usually references the procedure to “apply” the device (i.e., to use for the patient, to use on the patient’s body, or to implant in the patient’s body). Each of these current uses should address the concept using the QDM datatypes, Intervention, Performed, or Procedure, Performed.  </li>
-
-<li>The original intent of the QDM datatype “Device, Applied” was to reference the specific device or type of device of concern to the measure. And that reference might be as detailed a providing a device class as referenced in a Unique Device Identifier (UDI). The FHIR Device resource (<a class="external free" href="http://hl7.org/fhir/device.html" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/device.html" rel="nofollow">http://hl7.org/fhir/device.html</a></a>) does have a metadata element for UDI (<a class="external free" href="http://hl7.org/fhir/device-definitions.html#Device.udi" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/device-definitions.html#Device.udi" rel="nofollow">http://hl7.org/fhir/device-definitions.html#Device.udi</a></a>). All device metadata reference inherent qualities of the device. And timing addresses Device.manufactureDate and Device.expirationDate. Therefore, a direct map to the Device resource may not be sufficient or appropriate for the QDM Device, Applied datatype.</li>
-
-<li>The FHIR Resource DeviceUseStatement (<a class="external free" href="http://hl7.org/fhir/deviceusestatement.html" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/deviceusestatement.html" rel="nofollow">http://hl7.org/fhir/deviceusestatement.html</a></a>) is a more appropriate resource to map QDM Device, Applied. The DeviceUseStatement has a maturity level of 0, so the mapping will need to be updated as the resource is updated. Note: this mapping will need to be reviewed with the QI Core DeviceUseStatement to assure alignment since the current QI Core content does not seem to address the most recent version of DeviceUseStatement.</li>
-
+<li>The original intent of the QDM datatype “Device, Applied” was to reference the specific device or type of device of concern to the measure. And that reference might be as detailed a providing a device class as referenced in a Unique Device Identifier (UDI). The FHIR Device resource (<a class="external free" href="http://hl7.org/fhir/device.html" rel="nofollow">http://hl7.org/fhir/device.html</a>) does have a metadata element for UDI (<a class="external free" href="http://hl7.org/fhir/device-definitions.html#Device.udi" rel="nofollow">http://hl7.org/fhir/device-definitions.html#Device.udi</a>). All device metadata reference inherent qualities of the device. And timing addresses Device.manufactureDate and Device.expirationDate. Therefore, a direct map to the Device resource may not be sufficient or appropriate for the QDM Device, Applied datatype.</li>
+<li>The FHIR Resource DeviceUseStatement (<a class="external free" href="http://hl7.org/fhir/deviceusestatement.html" rel="nofollow">http://hl7.org/fhir/deviceusestatement.html</a>) is a more appropriate resource to map QDM Device, Applied. The DeviceUseStatement has a maturity level of 0, so the mapping will need to be updated as the resource is updated. Note: this mapping will need to be reviewed with the QI Core DeviceUseStatement to assure alignment since the current QI Core content does not seem to address the most recent version of DeviceUseStatement.</li>
 </ol>
 
-<br /><a name="DeviceApplied"> </a>
+
+
+<a name="Device.2C_Applied"> </a>
 <h3>
-    <span class="sectioncount">7.6.1</span> Device, Applied <a href="Device.html#DeviceApplied" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.8.1</span> Device, Applied <a href="Device.html#Device.2C_Applied" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
 
-
-<div>
+<div style="page-break-inside: avoid;">
 <table border="1" cellpadding="2" cellspacing="0">
-
-
 <tr>
-
-
-<td align="center"><b>QDM Attribute</b></td>
-
-<td align="center"><b>QI Core Metadata Element</b></td>
-
-<td align="center"><b>Comment</b></td>
-</tr>
-
+<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
+<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
+<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
-
-
 <td>Device Applied</td>
-
 <td>DeviceUseStatement</td>
-
-<td>A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.</td>
-</tr>
-
+<td>A record of a device being used by a patient where the record is the result of a report from the patient or another clinician.</td></tr>
 <tr>
-
-
-<td>Anatomical Approach Site</td>
-
-<td>None</td>
-
-<td>Not addressed in the Device or DeviceUseStatement resources.</td>
-</tr>
-
-<tr>
-
-
 <td>Anatomical Location Site</td>
-
 <td>DeviceUseStatement.bodySite</td>
-
-<td>Indicates the site on the subject&#39;s body where the device was used ( i.e. the target site).</td>
-</tr>
-
+<td>Indicates the site on the subject&#39;s body where the device was used ( i.e. the target site).</td></tr>
 <tr>
-
-
 <td>Negation Rationale</td>
-
 <td>None</td>
-
-<td>A DeviceUseStatement does not address negation since there would be no statement if the device were absent. QDM usage to indicate devices that have not been applied should address negation rationale for the order or the recommendation (i.e., ProcedureRequest.extension (reasonRefused). See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;#38;tracker_item_id=15938" rel="nofollow">15938</a>.</td>
-</tr>
-
+<td>A DeviceUseStatement does not address negation since there would be no statement if the device were absent. QDM usage to indicate devices that have not been applied should address negation rationale for the order or the recommendation (i.e., ProcedureRequest.extension (reasonRefused). See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&#38;tracker_item_id=15938" rel="nofollow">15938</a>.</td></tr>
 <tr>
-
-
 <td>Reason</td>
-
 <td>DeviceUseStatement.indication</td>
-
-<td>Reason or justification for use of the device.</td>
-</tr>
-
+<td>Reason or justification for use of the device.</td></tr>
 <tr>
-
-
 <td>Relevant Period</td>
-
 <td>DeviceUseStatement.whenUsed</td>
-
 <td>The time period over which the device was used.
-<p>Note - the DeviceUseStatement resource also has a metadata element: DeviceUseStatement.timing(x) indicating how often the device was used (may be a period or dateTime).</p></td>
-</tr>
-
+Note – the DeviceUseStatement resource also has a metadata element: DeviceUseStatement.timing(x) indicating how often the device was used (may be a period or dateTime).</td></tr>
 <tr>
-
-
 <td>Author dateTime</td>
-
 <td>DeviceUseStatement.recordedOn</td>
-
-<td>The time at which the DeviceUseStatement was made/recorded.</td>
-</tr>
-
+<td>The time at which the DeviceUseStatement was made/recorded.</td></tr>
 <tr>
-
-
 <td>Code</td>
-
-<td>DeviceUseStatement.device <br /> 
-<p>Device.udi.deviceIdentifier</p></td>
-
-<td>DeviceUseStatemtn.device references Device for details of the device used. Device.udi.deviceIdentifier (DI) is a mandatory, fixed portion of a Unique Device Identified (UDI) that identifies the labeler and the specific version or model of a device. </td>
-</tr>
-
+<td>DeviceUseStatement.device 
+ 
+Device.udi.deviceIdentifier</td>
+<td>DeviceUseStatemtn.device references Device for details of the device used. Device.udi.deviceIdentifier (DI) is a mandatory, fixed portion of a Unique Device Identified (UDI) that identifies the labeler and the specific version or model of a device. </td></tr>
 <tr>
-
-
 <td>id</td>
-
 <td>DeviceUseStatement.id</td>
-
-<td>Logical id of this artifact</td>
-</tr>
-
+<td>Logical id of this artifact</td></tr>
 <tr>
-
-
 <td>Source</td>
-
 <td>DeviceUseStatement.source</td>
+<td>Who reported this device was being used by the patient.</td></tr></table></div>
 
-<td>Who reported this device was being used by the patient.</td>
-</tr>
-</table></div>
 
-<br /><a name="DeviceOrder"> </a>
+<a name="Device.2C_Order"> </a>
 <h3>
-    <span class="sectioncount">7.6.2</span> Device, Order <a href="Device.html#DeviceOrder" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.8.2</span> Device, Order <a href="Device.html#Device.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
-
-<div>
+<div style="page-break-inside: avoid;">
 <table border="1" cellpadding="2" cellspacing="0">
-
-
 <tr>
-
-
-<td align="center"><b>QDM Attribute</b></td>
-
-<td align="center"><b>QI Core Metadata Element</b></td>
-
-<td align="center"><b>Comment</b></td>
-</tr>
-
+<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
+<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
+<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
-
-
 <td>Device Order</td>
-
 <td>DeviceRequest.intent</td>
-
-<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to &#34;order&#34; from the intent value set for QDM datatypes with the order context.</td>
-</tr>
-
+<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to &#34;order&#34; from the intent value set for QDM datatypes with the order context.</td></tr>
 <tr>
-
-
 <td>Negation Rationale</td>
-
 <td>None</td>
-
-<td>DeviceRequest resource does not include a reason the device request did not occur. QI Core does have a ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a></a>). See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;#38;tracker_item_id=15939" rel="nofollow">15939</a>.</td>
-</tr>
-
+<td>DeviceRequest resource does not include a reason the device request did not occur. QI Core does have a ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a>). See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&#38;tracker_item_id=15939" rel="nofollow">15939</a>.</td></tr>
 <tr>
-
-
 <td>Reason</td>
-
 <td>DeviceRequest.reasonCode</td>
-
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
-
-
 <td>Author dateTime</td>
-
 <td>DeviceRequest.AuthoredOn</td>
-
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td>
-</tr>
-
+<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
 <tr>
-
-
 <td>Code</td>
-
 <td>DeviceRequest.code</td>
-
-<td>See also, Observation.category</td>
-</tr>
-
+<td>See also, Observation.category</td></tr>
 <tr>
-
-
 <td>id</td>
-
 <td>DeviceRequest.id</td>
-
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
-
-
 <td>Source</td>
-
 <td>DeviceRequest.requester</td>
+<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
 
-<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
-</tr>
-</table></div>
 
-<br /><a name="DeviceRecommended"> </a>
+<a name="Device.2C_Recommended"> </a>
 <h3>
-    <span class="sectioncount">7.6.3</span> Device, Recommended <a href="Device.html#DeviceRecommended" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.8.3</span> Device, Recommended <a href="Device.html#Device.2C_Recommended" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
-
-<div>
+<div style="page-break-inside: avoid;">
 <table border="1" cellpadding="2" cellspacing="0">
-
-
 <tr>
-
-
-<td align="center"><b>QDM Attribute</b></td>
-
-<td align="center"><b>QI Core Metadata Element</b></td>
-
-<td align="center"><b>Comment</b></td>
-</tr>
-
+<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
+<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
+<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
-
-
 <td>Device Recommended</td>
-
 <td>DeviceRequest.intent</td>
-
-<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. &#34;Proposal&#34; is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ProcedureRequest.intent value of &#34;plan&#34; (an intension to ensure something occurs without providing an authorization to act).</td>
-</tr>
-
+<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. &#34;Proposal&#34; is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ProcedureRequest.intent value of &#34;plan&#34; (an intension to ensure something occurs without providing an authorization to act).</td></tr>
 <tr>
-
-
 <td>Negation Rationale</td>
-
 <td>None</td>
-
-<td>DeviceRequest resource does not include a reason the device request did not occur. QI Core does have a ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow"><a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a></a>).  See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&amp;#38;tracker_item_id=15939" rel="nofollow">15939</a>.</td>
-</tr>
-
+<td>DeviceRequest resource does not include a reason the device request did not occur. QI Core does have a ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a>).  See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&#38;tracker_item_id=15939" rel="nofollow">15939</a>.</td></tr>
 <tr>
-
-
 <td>Reason</td>
-
 <td>DeviceRequest.reasonCode</td>
-
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
-
-
 <td>Author dateTime</td>
-
 <td>DeviceRequest.AuthoredOn</td>
-
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td>
-</tr>
-
+<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
 <tr>
-
-
 <td>Code</td>
-
 <td>DeviceRequest.code</td>
-
-<td>See also, Observation.category</td>
-</tr>
-
+<td>See also, Observation.category</td></tr>
 <tr>
-
-
 <td>id</td>
-
 <td>DeviceRequest.id</td>
-
-<td>QDM matched to QI Core / FHIR</td>
-</tr>
-
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
-
-
 <td>Source</td>
-
 <td>DeviceRequest.requester</td>
+<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
 
-<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td>
-</tr>
-</table></div>
-<br />{% include container-end.html %}
+{% include container-end.html %}
 {% include footer.html %}

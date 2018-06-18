@@ -3,156 +3,84 @@
 ---
 {% include header.html %}
 {% include container-start.html %}
-<ul id="markdown-toc">
-    <li><a href="#CareExperience" id="markdown-toc-CareExperience">Care Experience</a></li>    <li><a href="#PatientCareExperience" id="markdown-toc-PatientCareExperience">Patient Care Experience</a></li>    <li><a href="#ProviderCareExperience" id="markdown-toc-ProviderCareExperience">Provider Care Experience</a></li></ul><a name="CareExperience"> </a>
+<ul id="markdown-toc"><li><a href="#Patient_Care_Experience">Patient Care Experience</a></li><li><a href="#Provider_Care_Experience">Provider Care Experience</a></li></ul>
+<a name="CareExperience"> </a>
 <h2>
-    <span class="sectioncount">7.20.0</span> Care Experience <a href="CareExperience.html#CareExperience" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.4.0</span> Care Experience <a href="CareExperience.html#CareExperience" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
 
-<p>Reviewed by the CQI Workgroup on March 23 based on content posted to the CQI Workgroup document site. Updates based on that discussion entered on this wiki on 18 April 2018<br /><br />
-QDM defines Care Experience as the experience a patient has when receiving care or a provider has when providing care. The individual Care Experience datatypes should be consulted for further details. QDM represents two kinds of care experience: Patient Care Experience and Provider Care Experience. The main question for the CQI Workgroup is whether Care Experience should be considered an observation, or is there some other concept present in or missing from FHIR.</p>
+<p>Reviewed by the CQI Workgroup in April 2018 based on QDM version 5.3. There are no changes to apply for QDM version 5.4.</p>
 
-<br /><a name="PatientCareExperience"> </a>
+<p>QDM defines Care Experience as the experience a patient has when receiving care or a provider has when providing care. The individual Care Experience datatypes should be consulted for further details. QDM represents two kinds of care experience: Patient Care Experience and Provider Care Experience. The main question for the CQI Workgroup is whether Care Experience should be considered an observation, or is there some other concept present in or missing from FHIR.</p>
+
+
+
+
+<a name="Patient_Care_Experience"> </a>
 <h3>
-    <span class="sectioncount">7.20.1</span> Patient Care Experience <a href="Care Experience.html#PatientCareExperience" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.4.1</span> Patient Care Experience <a href="CareExperience.html#Patient_Care_Experience" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
 
-
-<div>
+<div style="page-break-inside: avoid;">
 <table border="1" cellpadding="2" cellspacing="0">
-
-
 <tr>
-
-
-<td align="center"><b>QDM Attribute</b></td>
-
-<td align="center"><b>QI Core Metadata Element</b></td>
-
-<td align="center"><b>Comment</b></td>
-</tr>
-
+<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
+<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
+<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
-
-
 <td>Patient Care Experience</td>
-
 <td>Observation.status</td>
-
-<td>QDM matched to FHIR / QI Core  (the .status metadata allows conformance to the specific QDM datatype context)</td>
-</tr>
-
+<td>QDM matched to FHIR / QI Core  (the .status metadata allows conformance to the specific QDM datatype context)</td></tr>
 <tr>
-
-
 <td>Code</td>
-
 <td>Observation.code</td>
-
-<td>QDM matched to FHIR / QI Core</td>
-</tr>
-
+<td>QDM matched to FHIR / QI Core</td></tr>
 <tr>
-
-
 <td>Author dateTime</td>
-
 <td>observation.effective.x</td>
-
-<td>QDM matched to FHIR / QI Core - QDM only addresses authorTime; QI Core allows a Period. Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective.x. Consider authorDatetime for Patient Care Experience is the dateTime the experience is captured (i.e., the start of the effectiveTime).</td>
-</tr>
-
+<td>QDM matched to FHIR / QI Core - QDM only addresses authorTime; QI Core allows a Period. Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective.x. Consider authorDatetime for Patient Care Experience is the dateTime the experience is captured (i.e., the start of the effectiveTime).</td></tr>
 <tr>
-
-
 <td>id</td>
-
 <td>Observation.id </td>
-
-<td>QDM matched to FHIR / QI Core</td>
-</tr>
-
+<td>QDM matched to FHIR / QI Core</td></tr>
 <tr>
-
-
 <td>Source</td>
-
 <td>Observation.performer</td>
+<td>QI Core / FHIR does not have a direct concept of &#34;source&#34; but it does list Observation.performer and Observation.device, both of which would address the QDM concept of Source.</td></tr></table></div>
 
-<td>QI Core / FHIR does not have a direct concept of &#34;source&#34; but it does list Observation.performer and Observation.device, both of which would address the QDM concept of Source.</td>
-</tr>
-</table></div>
-<br /><a name="ProviderCareExperience"> </a>
+<a name="Provider_Care_Experience"> </a>
 <h3>
-    <span class="sectioncount">7.20.2</span> Provider Care Experience <a href="Care Experience.html#ProviderCareExperience" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.4.2</span> Provider Care Experience <a href="CareExperience.html#Provider_Care_Experience" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
 
-
-<div>
+<div style="page-break-inside: avoid;">
 <table border="1" cellpadding="2" cellspacing="0">
-
-
 <tr>
-
-
-<td align="center"><b>QDM Attribute</b></td>
-
-<td align="center"><b>QI Core Metadata Element</b></td>
-
-<td align="center"><b>Comment</b></td>
-</tr>
-
+<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
+<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
+<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
-
-
 <td>Provider Care Experience</td>
-
 <td>Observation.status</td>
-
-<td>QDM matched to FHIR / QI Core  (the .status metadata allows conformance to the specific QDM datatype context)</td>
-</tr>
-
+<td>QDM matched to FHIR / QI Core  (the .status metadata allows conformance to the specific QDM datatype context)</td></tr>
 <tr>
-
-
 <td>Code</td>
-
 <td>Observation.code</td>
-
-<td>QDM matched to FHIR / QI Core</td>
-</tr>
-
+<td>QDM matched to FHIR / QI Core</td></tr>
 <tr>
-
-
 <td>Author dateTime</td>
-
 <td>observation.effective.x</td>
-
-<td>QDM matched to FHIR / QI Core - QDM only addresses authorTime; QI Core allows a Period. Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective.x. Consider authorDatetime for Patient Care Experience is the dateTime the experience is captured (i.e., the start of the effectiveTime).</td>
-</tr>
-
+<td>QDM matched to FHIR / QI Core - QDM only addresses authorTime; QI Core allows a Period. Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective.x. Consider authorDatetime for Patient Care Experience is the dateTime the experience is captured (i.e., the start of the effectiveTime).</td></tr>
 <tr>
-
-
 <td>id</td>
-
 <td>Observation.id </td>
-
-<td>QDM matched to FHIR / QI Core</td>
-</tr>
-
+<td>QDM matched to FHIR / QI Core</td></tr>
 <tr>
-
-
 <td>Source</td>
-
 <td>Observation.performer</td>
+<td>QI Core / FHIR does not have a direct concept of &#34;source&#34; but it does list Observation.performer and Observation.device, both of which would address the QDM concept of Source.</td></tr></table></div>
 
-<td>QI Core / FHIR does not have a direct concept of &#34;source&#34; but it does list Observation.performer and Observation.device, both of which would address the QDM concept of Source.</td>
-</tr>
-</table></div>
-<br />{% include container-end.html %}
+{% include container-end.html %}
 {% include footer.html %}
