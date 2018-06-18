@@ -3,6 +3,18 @@
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"/>
   </meta>
+  <contained>
+    <Medication xmlns="http://hl7.org/fhir">
+      <id value="med-1"/>
+      <code>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="408596005"/>
+          <display value="Alemtuzumab 30mg/3mL infusion concentrate (product)"/>
+        </coding>
+      </code>
+    </Medication>
+  </contained>
   <code>
     <coding>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
@@ -48,13 +60,9 @@
       </coding>
     </container>
     <content>
-      <itemCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="408596005"/>
-          <display value="Alemtuzumab 30mg/3mL infusion concentrate (product)"/>
-        </coding>
-      </itemCodeableConcept>
+      <itemReference>
+        <reference value="#med-1"/>
+      </itemReference>
       <amount>
         <value value="3"/>
         <system value="http://unitsofmeasure.org"/>
