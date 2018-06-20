@@ -1,606 +1,599 @@
 {
-	"canonicalBase": "http://hl7.org/fhir/us/qicore",
-	"version": "3.0.1",
-	"sct-edition": "http://snomed.info/sct/731000124108",
-	"source": "qicore.xml",
-	"npm-name": "hl7.fhir.us.qicore",
-	"license": "CC0-1.0",
-	"tool": "jekyll",
-	"paths": {
-		"resources": "resources",
-		"pages": "pages",
-		"temp": "temp",
-		"output": "output",
-		"qa": "qa",
-		"specification": "http://hl7.org/fhir/STU3/"
-	},
-	"logging": ["init", "progress", "context", "html", "tx"],
-	"special-urls":[
-		"urn:oid:2.16.840.1.113883.6.238"
-	],
-	"dependencyList": [
-		{
-			"name": "uscore",
-			"location": "http://hl7.org/fhir/us/core",
-			"version": "1.0.1",
-			"source": "lib/uscore"
-		}
-	],
-	"defaults": {
-		"AllergyIntolerance": {
-			"template-format": "instance-template-example.html"
-		},
-		"AdverseEvent": {
-			"template-format": "instance-template-example.html"
-		},
-		"BodySite": {
-			"template-format": "instance-template-example.html"
-		},
-		"Claim": {
-			"template-format": "instance-template-example.html"
-		},
-		"Communication": {
-			"template-format": "instance-template-example.html"
-		},
-		"CommunicationRequest": {
-			"template-format": "instance-template-example.html"
-		},
-		"Condition": {
-			"template-format": "instance-template-example.html"
-		},
-		"DiagnosticReport": {
-			"template-format": "instance-template-example.html"
-		},
-		"Encounter": {
-			"template-format": "instance-template-example.html"
-		},
-		"FamilyMemberHistory": {
-			"template-format": "instance-template-example.html"
-		},
-		"Flag": {
-			"template-format": "instance-template-example.html"
-		},
-		"Goal": {
-			"template-format": "instance-template-example.html"
-		},
-		"ImagingStudy": {
-			"template-format": "instance-template-example.html"
-		},
-		"Immunization": {
-			"template-format": "instance-template-example.html"
-		},
-		"ImmunizationRecommendation": {
-			"template-format": "instance-template-example.html"
-		},
-		"Location": {
-			"template-format": "instance-template-example.html"
-		},
-		"Medication": {
-			"template-format": "instance-template-example.html"
-		},
-		"MedicationAdministration": {
-			"template-format": "instance-template-example.html"
-		},
-		"MedicationRequest": {
-			"template-format": "instance-template-example.html"
-		},
-		"MedicationDispense": {
-			"template-format": "instance-template-example.html"
-		},
-		"MedicationStatement": {
-			"template-format": "instance-template-example.html"
-		},
-		"Observation": {
-			"template-format": "instance-template-example.html"
-		},
-		"Organization": {
-			"template-format": "instance-template-example.html"
-		},
-		"Patient": {
-			"template-format": "instance-template-example.html"
-		},
-		"Practitioner": {
-			"template-format": "instance-template-example.html"
-		},
-		"PractitionerRole": {
-			"template-format": "instance-template-example.html"
-		},
-		"Procedure": {
-			"template-format": "instance-template-example.html"
-		},
-		"ProcedureRequest": {
-			"template-format": "instance-template-example.html"
-		},
-		"ReferralRequest": {
-			"template-format": "instance-template-example.html"
-		},
-		"RelatedPerson": {
-			"template-format": "instance-template-example.html"
-		},
-		"Specimen": {
-			"template-format": "instance-template-example.html"
-		},
-		"Substance": {
-			"template-format": "instance-template-example.html"
-		},
-		"Task": {
-			"template-format": "instance-template-example.html"
-		},
-		"ValueSet": {
-			"template-format": "instance-template-valueset.html"
-		},
-		"Any": {
-			"template-format": "instance-template-format.html",
-			"template-base": "instance-template-base.html"
-		},
-		"StructureDefinition": {
-			"template-base": "instance-template-sd.html",
-			"template-mappings":"instance-template-sd-mappings.html",
-			"template-defns":"instance-template-sd-definitions.html"
-		}
-	},
-	"extraTemplates": [
-		"mappings"
-	],
-	"spreadsheets": [
-		"adverseevent-profile-spreadsheet.xml",
-		"allergyintolerance-profile-spreadsheet.xml",
-		"bodysite-profile-spreadsheet.xml",
-		"claim-profile-spreadsheet.xml",
-		"communication-profile-spreadsheet.xml",
-		"communicationrequest-profile-spreadsheet.xml",
-		"condition-profile-spreadsheet.xml",
-		"coverage-profile-spreadsheet.xml",
-		"device-profile-spreadsheet.xml",
-		"deviceusestatement-profile-spreadsheet.xml",
-		"diagnosticreport-profile-spreadsheet.xml",
-		"encounter-profile-spreadsheet.xml",
-		"familymemberhistory-profile-spreadsheet.xml",
-		"flag-profile-spreadsheet.xml",
-		"goal-profile-spreadsheet.xml",
-		"imagingstudy-profile-spreadsheet.xml",
-		"immunization-profile-spreadsheet.xml",
-		"immunizationrecommendation-profile-spreadsheet.xml",
-		"location-profile-spreadsheet.xml",
-		"medication-profile-spreadsheet.xml",
-		"medicationadministration-profile-spreadsheet.xml",
-		"medicationdispense-profile-spreadsheet.xml",
-		"medicationstatement-profile-spreadsheet.xml",
-		"medicationrequest-profile-spreadsheet.xml",
-		"observation-profile-spreadsheet.xml",
-		"organization-profile-spreadsheet.xml",
-		"patient-profile-spreadsheet.xml",
-		"practitioner-profile-spreadsheet.xml",
-		"practitionerrole-profile-spreadsheet.xml",
-		"procedure-profile-spreadsheet.xml",
-		"procedurerequest-profile-spreadsheet.xml",
-		"referralrequest-profile-spreadsheet.xml",
-		"relatedperson-profile-spreadsheet.xml",
-		"specimen-profile-spreadsheet.xml",
-		"substance-profile-spreadsheet.xml",
-		"task-profile-spreadsheet.xml"
-	],
-	"resources": {
-		"CodeSystem/qicore-appropriateness-score": {
-			"source": "codesystem-appropriateness-score.xml",
-			"base": "qicore-appropriateness-score.html"
-		},
-		"CodeSystem/qicore-communication-medium": {
-			"source": "codesystem-communication-medium.xml",
-			"base": "qicore-communication-medium.html"
-		},
-		"StructureDefinition/qicore-adverseevent": {
-			"defns": "qicore-adverseevent-definitions.html",
-			"base": "qicore-adverseevent.html"
-		},
-		"StructureDefinition/qicore-allergyintolerance": {
-			"source": "structuredefinition-qicore-allergyintolerance.xml",
-			"defns": "qicore-allergyintolerance-definitions.html",
-			"base": "qicore-allergyintolerance.html"
-		},
-		"StructureDefinition/qicore-bodysite": {
-			"defns": "qicore-bodysite-definitions.html",
-			"base": "qicore-bodysite.html"
-		},
-		"StructureDefinition/qicore-claim": {
-			"defns": "qicore-claim-definitions.html",
-			"base": "qicore-claim.html"
-		},
-		"StructureDefinition/qicore-communication": {
-			"defns": "qicore-communication-definitions.html",
-			"base": "qicore-communication.html"
-		},
-		"StructureDefinition/qicore-communicationrequest": {
-			"defns": "qicore-communicationrequest-definitions.html",
-			"base": "qicore-communicationrequest.html"
-		},
-		"StructureDefinition/qicore-condition": {
-			"source": "structuredefinition-qicore-condition.xml",
-			"defns": "qicore-condition-definitions.html",
-			"base": "qicore-condition.html"
-		},
-		"StructureDefinition/qicore-coverage": {
-			"defns": "qicore-coverage-definitions.html",
-			"base": "qicore-coverage.html"
-		},
-		"StructureDefinition/qicore-device": {
-			"source": "structuredefinition-qicore-device.xml",
-			"defns": "qicore-device-definitions.html",
-			"base": "qicore-device.html"
-		},
-		"StructureDefinition/qicore-deviceusestatement": {
-			"defns": "qicore-deviceusestatement-definitions.html",
-			"base": "qicore-deviceusestatement.html"
-		},
-		"StructureDefinition/qicore-diagnosticreport": {
-			"source": "structuredefinition-qicore-diagnosticreport.xml",
-			"defns": "qicore-diagnosticreport-definitions.html",
-			"base": "qicore-diagnosticreport.html"
-		},
-		"StructureDefinition/qicore-encounter": {
-			"defns": "qicore-encounter-definitions.html",
-			"base": "qicore-encounter.html"
-		},
-		"StructureDefinition/qicore-familymemberhistory": {
-			"defns": "qicore-familymemberhistory-definitions.html",
-			"base": "qicore-familymemberhistory.html"
-		},
-		"StructureDefinition/qicore-flag": {
-			"defns": "qicore-flag-definitions.html",
-			"base": "qicore-flag.html"
-		},
-		"StructureDefinition/qicore-goal": {
-			"source": "structuredefinition-qicore-goal.xml",
-			"defns": "qicore-goal-definitions.html",
-			"base": "qicore-goal.html"
-		},
-		"StructureDefinition/qicore-imagingstudy": {
-			"defns": "qicore-imagingstudy-definitions.html",
-			"base": "qicore-imagingstudy.html"
-		},
-		"StructureDefinition/qicore-immunization": {
-			"source": "structuredefinition-qicore-immunization.xml",
-			"defns": "qicore-immunization-definitions.html",
-			"base": "qicore-immunization.html"
-		},
-		"StructureDefinition/qicore-immunizationrec": {
-			"defns": "qicore-immunizationrec-definitions.html",
-			"base": "qicore-immunizationrec.html"
-		},
-		"StructureDefinition/qicore-location": {
-			"source": "structuredefinition-qicore-location.xml",
-			"defns": "qicore-location-definitions.html",
-			"base": "qicore-location.html"
-		},
-		"StructureDefinition/qicore-medication": {
-			"source": "structuredefinition-qicore-medication.xml",
-			"defns": "qicore-medication-definitions.html",
-			"base": "qicore-medication.html"
-		},
-		"StructureDefinition/qicore-medicationadministration": {
-			"defns": "qicore-medicationadministration-definitions.html",
-			"base": "qicore-medicationadministration.html"
-		},
-		"StructureDefinition/qicore-medicationdispense": {
-			"defns": "qicore-medicationdispense-definitions.html",
-			"base": "qicore-medicationdispense.html"
-		},
-		"StructureDefinition/qicore-medicationrequest": {
-			"source": "structuredefinition-qicore-medicationrequest.xml",
-			"defns": "qicore-medicationrequest-definitions.html",
-			"base": "qicore-medicationrequest.html"
-		},
-		"StructureDefinition/qicore-medicationstatement": {
-			"source": "structuredefinition-qicore-medicationstatement.xml",
-			"defns": "qicore-medicationstatement-definitions.html",
-			"base": "qicore-medicationstatement.html"
-		},
-		"StructureDefinition/qicore-observation": {
-			"defns": "qicore-observation-definitions.html",
-			"base": "qicore-observation.html"
-		},
-		"StructureDefinition/qicore-organization": {
-			"source": "structuredefinition-qicore-organization.xml",
-			"defns": "qicore-organization-definitions.html",
-			"base": "qicore-organization.html"
-		},
-		"StructureDefinition/qicore-patient": {
-			"source": "structuredefinition-qicore-patient.xml",
-			"defns": "qicore-patient-definitions.html",
-			"base": "qicore-patient.html"
-		},
-		"StructureDefinition/qicore-practitioner": {
-			"source": "structuredefinition-qicore-practitioner.xml",
-			"defns": "qicore-practitioner-definitions.html",
-			"base": "qicore-practitioner.html"
-		},
-		"StructureDefinition/qicore-practitionerrole": {
-			"source": "structuredefinition-qicore-practitionerrole.xml",
-			"defns": "qicore-practitionerrole-definitions.html",
-			"base": "qicore-practitionerrole.html"
-		},
-		"StructureDefinition/qicore-procedure": {
-			"source": "structuredefinition-qicore-procedure.xml",
-			"defns": "qicore-procedure-definitions.html",
-			"base": "qicore-procedure.html"
-		},
-		"StructureDefinition/qicore-procedurerequest": {
-			"defns": "qicore-procedurerequest-definitions.html",
-			"base": "qicore-procedurerequest.html"
-		},
-		"StructureDefinition/qicore-referralrequest": {
-			"defns": "qicore-referralrequest-definitions.html",
-			"base": "qicore-referralrequest.html"
-		},
-		"StructureDefinition/qicore-relatedperson": {
-			"defns": "qicore-relatedperson-definitions.html",
-			"base": "qicore-relatedperson.html"
-		},
-		"StructureDefinition/qicore-specimen": {
-			"defns": "qicore-specimen-definitions.html",
-			"base": "qicore-specimen.html"
-		},
-		"StructureDefinition/qicore-substance": {
-			"defns": "qicore-substance-definitions.html",
-			"base": "qicore-substance.html"
-		},
-		"StructureDefinition/qicore-task": {
-			"source": "structuredefinition-qicore-task.xml",
-			"defns": "qicore-task-definitions.html",
-			"base": "qicore-task.html"
-		},
-		"StructureDefinition/qicore-procedure-approachBodySite": {
-			"source": "structuredefinition-qicore-procedure-approachbodysite.xml",
-			"defns": "qicore-procedure-approachBodySite-definitions.html",
-			"base": "qicore-procedure-approachBodySite.html"
-		},
-		"StructureDefinition/qicore-procedurerequest-approachBodySite": {
-			"source": "structuredefinition-qicore-procedurerequest-approachbodysite.xml",
-			"defns": "qicore-procedurerequest-approachBodySite-definitions.html",
-			"base": "qicore-procedurerequest-approachBodySite.html"
-		},
-		"StructureDefinition/qicore-procedurerequest-appropriatenessScore": {
-			"source": "structuredefinition-qicore-procedurerequest-appropriatenessscore.xml",
-			"defns": "qicore-procedurerequest-appropriatenessScore-definitions.html",
-			"base": "qicore-procedurerequest-appropriatenessScore.html"
-		},
-		"StructureDefinition/qicore-military-service": {
-			"source": "structuredefinition-qicore-military-service.xml",
-			"defns": "qicore-military-service-definitions.html",
-			"base": "qicore-military-service.html"
-		},
-		"StructureDefinition/qicore-imagingstudy-radiationDose": {
-			"source": "structuredefinition-qicore-imagingstudy-radiationdose.xml",
-			"defns": "qicore-imagingstudy-radiationDose-definitions.html",
-			"base": "qicore-imagingstudy-radiationDose.html"
-		},
-		"StructureDefinition/qicore-imagingstudy-radiationDuration": {
-			"source": "structuredefinition-qicore-imagingstudy-radiationduration.xml",
-			"defns": "qicore-imagingstudy-radiationDuration-definitions.html",
-			"base": "qicore-imagingstudy-radiationDuration.html"
-		},
-		"ValueSet/qicore-appropriateness-score": {
-			"source": "valueset-qicore-appropriateness-score.xml",
-			"base": "valueset-qicore-appropriateness-score.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-bodysite-precoordinated": {
-			"source": "valueset-qicore-bodysite-precoordinated.xml",
-			"base": "valueset-qicore-bodysite-precoordinated.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-communication-reason-not-performed": {
-			"source": "valueset-qicore-communication-reason-not-performed.xml",
-			"base": "valueset-qicore-communication-reason-not-performed.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-condition-certainty": {
-			"source": "valueset-qicore-condition-certainty.xml",
-			"base": "valueset-qicore-condition-certainty.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-condition-stage": {
-			"source": "valueset-qicore-condition-stage.xml",
-			"base": "valueset-qicore-condition-stage.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-encounter-canceled-reason": {
-			"source": "valueset-qicore-encounter-canceled-reason.xml",
-			"base": "valueset-qicore-encounter-canceled-reason.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-encounter-condition-role": {
-			"source": "valueset-qicore-encounter-condition-role.xml",
-			"base": "valueset-qicore-encounter-condition-role.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-encounter-diet": {
-			"source": "valueset-qicore-encounter-diet.xml",
-			"base": "valueset-qicore-encounter-diet.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-encounter-class": {
-			"source": "valueset-qicore-encounter-class.xml",
-			"base": "valueset-qicore-encounter-class.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-flag-category": {
-			"source": "valueset-qicore-flag-category.xml",
-			"base": "valueset-qicore-flag-category.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-medication-dose-type": {
-			"source": "valueset-qicore-medication-dose-type.xml",
-			"base": "valueset-qicore-medication-dose-type.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-observation-body-position": {
-			"source": "valueset-qicore-observation-body-position.xml",
-			"base": "valueset-qicore-observation-body-position.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-observation-delta": {
-			"source": "valueset-qicore-observation-delta.xml",
-			"base": "valueset-qicore-observation-delta.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-priority": {
-			"source": "valueset-qicore-priority.xml",
-			"base": "valueset-qicore-priority.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"ValueSet/qicore-referralrequest-reason-rejected": {
-			"source": "valueset-qicore-referralrequest-reason-rejected.xml",
-			"base": "valueset-qicore-referralrequest-reason-rejected.html",
-			"template-base": "instance-template-valueset.html"
-		},
-		"AdverseEvent/qicore-adverseevent-example": {
-			"source": "adverseevent-example-qicore.xml",
-			"base": "AdverseEvent-adverseevent-example-qicore.html"
-		},
-		"AllergyIntolerance/qicore-allergyintolerance-example": {
-			"source": "allergyintolerance-example-qicore.xml",
-			"base": "AllergyIntolerance-allergyintolerance-example-qicore.html"
-		},
-		"AllergyIntolerance/qicore-allergyintolerance-example-refuted": {
-			"source": "allergyintolerance-example-refuted-qicore.xml",
-			"base": "AllergyIntolerance-allergyintolerance-example-refuted-qicore.html"
-		},
-		"BodySite/qicore-bodysite-example": {
-			"source": "bodysite-example-qicore.xml",
-			"base": "Bodysite-bodysite-example-qicore.html"
-		},
-		"Claim/qicore-claim-example": {
-			"source": "claim-example-qicore.xml",
-			"base": "Claim-claim-example-qicore.html"
-		},
-		"Communication/qicore-communication-example": {
-			"source": "communication-example-qicore.xml",
-			"base": "Communication-communication-example-qicore.html"
-		},
-		"CommunicationRequest/qicore-communicationrequest-example": {
-			"source": "communicationrequest-example-qicore.xml",
-			"base": "CommunicationRequest-communicationrequest-example-qicore.html"
-		},
-		"Condition/qicore-condition-example": {
-			"source": "condition-example-qicore.xml",
-			"base": "Condition-condition-example-qicore.html"
-		},
-		"Coverage/qicore-coverage-example": {
-			"source": "coverage-example-qicore.xml",
-			"base": "Coverage-coverage-example-qicore.html"
-		},
-		"Device/qicore-device-example": {
-			"source": "device-example-qicore.xml",
-			"base": "Device-device-example-qicore.html"
-		},
-		"DeviceUseStatement/qicore-deviceusestatement-example": {
-			"source": "deviceusestatement-example-qicore.xml",
-			"base": "DeviceUseStatement-deviceusestatement-example-qicore.html"
-		},
-		"DiagnosticReport/qicore-diagnosticreport-example": {
-			"source": "diagnosticreport-example-qicore.xml",
-			"base": "DiagnosticReport-diagnosticreport-example-qicore.html"
-		},
-		"Encounter/qicore-encounter-example": {
-			"source": "encounter-example-qicore.xml",
-			"base": "Encounter-encounter-example-qicore.html"
-		},
-		"FamilyMemberHistory/qicore-familymemberhistory-example": {
-			"source": "familymemberhistory-example-qicore.xml",
-			"base": "FamilyMemberHistory-familymemberhistory-example-qicore.html"
-		},
-		"Flag/qicore-flag-example": {
-			"source": "flag-example-qicore.xml",
-			"base": "Flag-flag-example-qicore.html"
-		},
-		"Goal/qicore-goal-example": {
-			"source": "goal-example-qicore.xml",
-			"base": "Goal-goal-example-qicore.html"
-		},
-		"ImagingStudy/qicore-imagingstudy-example": {
-			"source": "imagingstudy-example-qicore.xml",
-			"base": "ImagingStudy-imagingstudy-example-qicore.html"
-		},
-		"Immunization/qicore-immunization-example": {
-			"source": "immunization-example-qicore.xml",
-			"base": "Immunization-immunization-example-qicore.html"
-		},
-		"ImmunizationRecommendation/qicore-immunizationrecommendation-example": {
-			"source": "immunizationrecommendation-example-qicore.xml",
-			"base": "ImmunizationRecommendation-immunizationrecommendation-example-qicore.html"
-		},
-		"Location/qicore-location-example": {
-			"source": "location-example-qicore.xml",
-			"base": "Location-location-example-qicore.html"
-		},
-		"Medication/qicore-medication-example": {
-			"source": "medication-example-qicore.xml",
-			"base": "Medication-medication-example-qicore.html"
-		},
-		"MedicationAdministration/qicore-medicationadministration-example": {
-			"source": "medicationadministration-example-qicore.xml",
-			"base": "MedicationAdministration-medicationadministration-example-qicore.html"
-		},
-		"MedicationDispense/qicore-medicationdispense-example": {
-			"source": "medicationdispense-example-qicore.xml",
-			"base": "MedicationDispense-medicationdispense-example-qicore.html"
-		},
-		"MedicationRequest/qicore-medicationrequest-example": {
-			"source": "medicationrequest-example-qicore.xml",
-			"base": "MedicationRequest-medicationrequest-example-qicore.html"
-		},
-		"MedicationStatement/qicore-medicationstatement-example": {
-			"source": "medicationstatement-example-qicore.xml",
-			"base": "MedicationStatement-medicationstatement-example-qicore.html"
-		},
-		"Observation/qicore-observation-example": {
-			"source": "observation-example-qicore.xml",
-			"base": "Observation-observation-example-qicore.html"
-		},
-		"Organization/qicore-organization-example": {
-			"source": "organization-example-qicore.xml",
-			"base": "Organization-organization-example-qicore.html"
-		},
-		"Patient/qicore-patient-example": {
-			"source": "patient-example-qicore.xml",
-			"base": "Patient-patient-example-qicore.html"
-		},
-		"Practitioner/qicore-practitioner-example": {
-			"source": "practitioner-example-qicore.xml",
-			"base": "Practitioner-practitioner-example-qicore.html"
-		},
-		"PractitionerRole/qicore-practitionerrole-example": {
-			"source": "practitionerrole-example-qicore.xml",
-			"base": "PractitionerRole-practitionerrole-example-qicore.html"
-		},
-		"Procedure/qicore-procedure-example": {
-			"source": "procedure-example-qicore.xml",
-			"base": "Procedure-procedure-example-qicore.html"
-		},
-		"ProcedureRequest/qicore-procedurerequest-example": {
-			"source": "procedurerequest-example-qicore.xml",
-			"base": "ProcedureRequest-procedurerequest-example-qicore.html"
-		},
-		"ReferralRequest/qicore-referralrequest-example": {
-			"source": "referralrequest-example-qicore.xml",
-			"base": "ReferralRequest-referralrequest-example-qicore.html"
-		},
-		"RelatedPerson/qicore-relatedperson-example": {
-			"source": "relatedperson-example-qicore.xml",
-			"base": "RelatedPerson-relatedperson-example-qicore.html"
-		},
-		"Specimen/qicore-specimen-example": {
-			"source": "specimen-example-qicore.xml",
-			"base": "Specimen-specimen-example-qicore.html"
-		},
-		"Substance/qicore-substance-example": {
-			"source": "substance-example-qicore.xml",
-			"base": "Substance-substance-example-qicore.html"
-		},
-		"Task/qicore-task-example": {
-			"source": "task-example-qicore.xml",
-			"base": "Task-task-example-qicore.html"
-		}
-	}
+  "canonicalBase": "http://hl7.org/fhir/us/qicore",
+  "version": "3.0.1",
+  "sct-edition": "http://snomed.info/sct/731000124108",
+  "source": "qicore.xml",
+  "npm-name": "hl7.fhir.us.qicore",
+  "license": "CC0-1.0",
+  "tool": "jekyll",
+  "paths": {
+    "resources": "resources",
+    "pages": "pages",
+    "temp": "temp",
+    "output": "output",
+    "qa": "qa",
+    "specification": "http://hl7.org/fhir/STU3/"
+  },
+  "logging": ["init", "progress", "context", "html", "tx"],
+  "special-urls":[
+    "urn:oid:2.16.840.1.113883.6.238"
+  ],
+  "dependencyList": [
+    {
+      "name": "uscore",
+      "location": "http://hl7.org/fhir/us/core",
+      "version": "1.0.1",
+      "source": "lib/uscore"
+    }
+  ],
+  "defaults": {
+    "AllergyIntolerance": {
+      "template-base": "instance-template-example.html"
+    },
+    "AdverseEvent": {
+      "template-base": "instance-template-example.html"
+    },
+    "BodySite": {
+      "template-base": "instance-template-example.html"
+    },
+    "Claim": {
+      "template-base": "instance-template-example.html"
+    },
+    "Communication": {
+      "template-base": "instance-template-example.html"
+    },
+    "CommunicationRequest": {
+      "template-base": "instance-template-example.html"
+    },
+    "Condition": {
+      "template-base": "instance-template-example.html"
+    },
+    "DiagnosticReport": {
+      "template-base": "instance-template-example.html"
+    },
+    "Encounter": {
+      "template-base": "instance-template-example.html"
+    },
+    "FamilyMemberHistory": {
+      "template-base": "instance-template-example.html"
+    },
+    "Flag": {
+      "template-base": "instance-template-example.html"
+    },
+    "Goal": {
+      "template-base": "instance-template-example.html"
+    },
+    "ImagingStudy": {
+      "template-base": "instance-template-example.html"
+    },
+    "Immunization": {
+      "template-base": "instance-template-example.html"
+    },
+    "ImmunizationRecommendation": {
+      "template-base": "instance-template-example.html"
+    },
+    "Location": {
+      "template-base": "instance-template-example.html"
+    },
+    "Medication": {
+      "template-base": "instance-template-example.html"
+    },
+    "MedicationAdministration": {
+      "template-base": "instance-template-example.html"
+    },
+    "MedicationRequest": {
+      "template-base": "instance-template-example.html"
+    },
+    "MedicationDispense": {
+      "template-base": "instance-template-example.html"
+    },
+    "MedicationStatement": {
+      "template-base": "instance-template-example.html"
+    },
+    "Observation": {
+      "template-base": "instance-template-example.html"
+    },
+    "Organization": {
+      "template-base": "instance-template-example.html"
+    },
+    "Patient": {
+      "template-base": "instance-template-example.html"
+    },
+    "Practitioner": {
+      "template-base": "instance-template-example.html"
+    },
+    "PractitionerRole": {
+      "template-base": "instance-template-example.html"
+    },
+    "Procedure": {
+      "template-base": "instance-template-example.html"
+    },
+    "ProcedureRequest": {
+      "template-base": "instance-template-example.html"
+    },
+    "ReferralRequest": {
+      "template-base": "instance-template-example.html"
+    },
+    "RelatedPerson": {
+      "template-base": "instance-template-example.html"
+    },
+    "Specimen": {
+      "template-base": "instance-template-example.html"
+    },
+    "Substance": {
+      "template-base": "instance-template-example.html"
+    },
+    "Task": {
+      "template-base": "instance-template-example.html"
+    },
+    "ValueSet": {
+      "template-format": "instance-template-valueset.html"
+    },
+    "Any": {
+      "template-base": "instance-template-base.html",
+      "template-format": "instance-template-format.html"
+    },
+    "StructureDefinition": {
+      "template-base": "instance-template-sd.html",
+      "template-defns":"instance-template-sd-definitions.html",
+      "template-mappings":"instance-template-sd-mappings.html"
+    }
+  },
+  "extraTemplates": [
+    "mappings"
+  ],
+  "spreadsheets": [
+    "adverseevent-profile-spreadsheet.xml",
+    "allergyintolerance-profile-spreadsheet.xml",
+    "bodysite-profile-spreadsheet.xml",
+    "claim-profile-spreadsheet.xml",
+    "communication-profile-spreadsheet.xml",
+    "communicationrequest-profile-spreadsheet.xml",
+    "condition-profile-spreadsheet.xml",
+    "coverage-profile-spreadsheet.xml",
+    "device-profile-spreadsheet.xml",
+    "deviceusestatement-profile-spreadsheet.xml",
+    "diagnosticreport-profile-spreadsheet.xml",
+    "encounter-profile-spreadsheet.xml",
+    "familymemberhistory-profile-spreadsheet.xml",
+    "flag-profile-spreadsheet.xml",
+    "goal-profile-spreadsheet.xml",
+    "imagingstudy-profile-spreadsheet.xml",
+    "immunization-profile-spreadsheet.xml",
+    "immunizationrecommendation-profile-spreadsheet.xml",
+    "location-profile-spreadsheet.xml",
+    "medication-profile-spreadsheet.xml",
+    "medicationadministration-profile-spreadsheet.xml",
+    "medicationdispense-profile-spreadsheet.xml",
+    "medicationstatement-profile-spreadsheet.xml",
+    "medicationrequest-profile-spreadsheet.xml",
+    "observation-profile-spreadsheet.xml",
+    "organization-profile-spreadsheet.xml",
+    "patient-profile-spreadsheet.xml",
+    "practitioner-profile-spreadsheet.xml",
+    "practitionerrole-profile-spreadsheet.xml",
+    "procedure-profile-spreadsheet.xml",
+    "procedurerequest-profile-spreadsheet.xml",
+    "referralrequest-profile-spreadsheet.xml",
+    "relatedperson-profile-spreadsheet.xml",
+    "specimen-profile-spreadsheet.xml",
+    "substance-profile-spreadsheet.xml",
+    "task-profile-spreadsheet.xml"
+  ],
+  "resources": {
+    "AdverseEvent/example": {
+      "base": "AdverseEvent-example.html",
+      "source": "adverseevent-example.xml"
+    },
+    "AllergyIntolerance/example": {
+      "base": "AllergyIntolerance-example.html",
+      "source": "allergyintolerance-example.xml"
+    },
+    "AllergyIntolerance/example-refuted": {
+      "base": "AllergyIntolerance-example-refuted.html",
+      "source": "allergyintolerance-example-refuted.xml"
+    },
+    "BodySite/example": {
+      "base": "BodySite-example.html",
+      "source": "bodysite-example.xml"
+    },
+    "Claim/example": {
+      "base": "Claim-example.html",
+      "source": "claim-example.xml"
+    },
+    "Communication/example": {
+      "base": "Communication-example.html",
+      "source": "communication-example.xml"
+    },
+    "CommunicationRequest/example": {
+      "base": "CommunicationRequest-example.html",
+      "source": "communicationrequest-example.xml"
+    },
+    "Condition/example": {
+      "source": "condition-example.xml",
+      "base": "Condition-example.html"
+    },
+    "Coverage/example": {
+      "base": "Coverage-example.html",
+      "source": "coverage-example.xml"
+    },
+    "Device/example": {
+      "base": "Device-example.html",
+      "source": "device-example.xml"
+    },
+    "DeviceUseStatement/example": {
+      "base": "DeviceUseStatement-example.html",
+      "source": "deviceusestatement-example.xml"
+    },
+    "DiagnosticReport/example": {
+      "base": "DiagnosticReport-example.html",
+      "source": "diagnosticreport-example.xml"
+    },
+    "Encounter/example": {
+      "base": "Encounter-example.html",
+      "source": "encounter-example.xml"
+    },
+    "FamilyMemberHistory/example": {
+      "base": "FamilyMemberHistory-example.html",
+      "source": "familymemberhistory-example.xml"
+    },
+    "Flag/example": {
+      "base": "Flag-example.html",
+      "source": "flag-example.xml"
+    },
+    "Goal/example": {
+      "base": "Goal-example.html",
+      "source": "goal-example.xml"
+    },
+    "ImagingStudy/example": {
+      "base": "ImagingStudy-example.html",
+      "source": "imagingstudy-example.xml"
+    },
+    "Immunization/example": {
+      "base": "Immunization-example.html",
+      "source": "immunization-example.xml"
+    },
+    "ImmunizationRecommendation/example": {
+      "base": "ImmunizationRecommendation-example.html",
+      "source": "immunizationrecommendation-example.xml"
+    },
+    "Location/example": {
+      "base": "Location-example.html",
+      "source": "location-example.xml"
+    },
+    "Medication/example": {
+      "base": "Medication-example.html",
+      "source": "medication-example.xml"
+    },
+    "MedicationAdministration/example": {
+      "base": "MedicationAdministration-example.html",
+      "source": "medicationadministration-example.xml"
+    },
+    "MedicationDispense/example": {
+      "base": "MedicationDispense-example.html",
+      "source": "medicationdispense-example.xml"
+    },
+    "MedicationRequest/example": {
+      "base": "MedicationRequest-example.html",
+      "source": "medicationrequest-example.xml"
+    },
+    "MedicationStatement/example": {
+      "base": "MedicationStatement-example.html",
+      "source": "medicationstatement-example.xml"
+    },
+    "Observation/example": {
+      "base": "Observation-example.html",
+      "source": "observation-example.xml"
+    },
+    "Organization/example": {
+      "base": "Organization-example.html",
+      "source": "organization-example.xml"
+    },
+    "Patient/example": {
+      "base": "Patient-example.html",
+      "source": "patient-example.xml"
+    },
+    "Practitioner/example": {
+      "base": "Practitioner-example.html",
+      "source": "practitioner-example.xml"
+    },
+    "PractitionerRole/example": {
+      "base": "PractitionerRole-example.html",
+      "source": "practitionerrole-example.xml"
+    },
+    "Procedure/example": {
+      "base": "Procedure-example.html",
+      "source": "procedure-example.xml"
+    },
+    "ProcedureRequest/example": {
+      "base": "ProcedureRequest-example.html",
+      "source": "procedurerequest-example.xml"
+    },
+    "ReferralRequest/example": {
+      "base": "ReferralRequest-example.html",
+      "source": "referralrequest-example.xml"
+    },
+    "RelatedPerson/example": {
+      "base": "RelatedPerson-example.html",
+      "source": "relatedperson-example.xml"
+    },
+    "Specimen/example": {
+      "base": "Specimen-example.html",
+      "source": "specimen-example.xml"
+    },
+    "Substance/example": {
+      "base": "Substance-example.html",
+      "source": "substance-example.xml"
+    },
+    "Task/example": {
+      "base": "Task-example.html",
+      "source": "task-example.xml"
+    },
+    "StructureDefinition/qicore-adverseevent": {
+      "base": "StructureDefinition-qicore-adverseevent.html",
+      "defns": "StructureDefinition-qicore-adverseevent-definitions.html"
+    },
+    "StructureDefinition/qicore-allergyintolerance": {
+      "base": "StructureDefinition-qicore-allergyintolerance.html",
+      "defns": "StructureDefinition-qicore-allergyintolerance-definitions.html"
+    },
+    "StructureDefinition/qicore-bodysite": {
+      "base": "StructureDefinition-qicore-bodysite.html",
+      "defns": "StructureDefinition-qicore-bodysite-definitions.html"
+    },
+    "StructureDefinition/qicore-claim": {
+      "base": "StructureDefinition-qicore-claim.html",
+      "defns": "StructureDefinition-qicore-claim-definitions.html"
+    },
+    "StructureDefinition/qicore-communication": {
+      "base": "StructureDefinition-qicore-communication.html",
+      "defns": "StructureDefinition-qicore-communication-definitions.html"
+    },
+    "StructureDefinition/qicore-communicationrequest": {
+      "base": "StructureDefinition-qicore-communicationrequest.html",
+      "defns": "StructureDefinition-qicore-communicationrequest-definitions.html"
+    },
+    "StructureDefinition/qicore-condition": {
+      "base": "StructureDefinition-qicore-condition.html",
+      "defns": "StructureDefinition-qicore-condition-definitions.html"
+    },
+    "StructureDefinition/qicore-coverage": {
+      "base": "StructureDefinition-qicore-coverage.html",
+      "defns": "StructureDefinition-qicore-coverage-definitions.html"
+    },
+    "StructureDefinition/qicore-device": {
+      "base": "StructureDefinition-qicore-device.html",
+      "defns": "StructureDefinition-qicore-device-definitions.html"
+    },
+    "StructureDefinition/qicore-deviceusestatement": {
+      "base": "StructureDefinition-qicore-deviceusestatement.html",
+      "defns": "StructureDefinition-qicore-deviceusestatement-definitions.html"
+    },
+    "StructureDefinition/qicore-diagnosticreport": {
+      "base": "StructureDefinition-qicore-diagnosticreport.html",
+      "defns": "StructureDefinition-qicore-diagnosticreport-definitions.html"
+    },
+    "StructureDefinition/qicore-encounter": {
+      "base": "StructureDefinition-qicore-encounter.html",
+      "defns": "StructureDefinition-qicore-encounter-definitions.html"
+    },
+    "StructureDefinition/qicore-familymemberhistory": {
+      "base": "StructureDefinition-qicore-familymemberhistory.html",
+      "defns": "StructureDefinition-qicore-familymemberhistory-definitions.html"
+    },
+    "StructureDefinition/qicore-flag": {
+      "base": "StructureDefinition-qicore-flag.html",
+      "defns": "StructureDefinition-qicore-flag-definitions.html"
+    },
+    "StructureDefinition/qicore-goal": {
+      "base": "StructureDefinition-qicore-goal.html",
+      "defns": "StructureDefinition-qicore-goal-definitions.html"
+    },
+    "StructureDefinition/qicore-imagingstudy": {
+      "base": "StructureDefinition-qicore-imagingstudy.html",
+      "defns": "StructureDefinition-qicore-imagingstudy-definitions.html"
+    },
+    "StructureDefinition/qicore-immunization": {
+      "base": "StructureDefinition-qicore-immunization.html",
+      "defns": "StructureDefinition-qicore-immunization-definitions.html"
+    },
+    "StructureDefinition/qicore-immunizationrec": {
+      "base": "StructureDefinition-qicore-immunizationrec.html",
+      "defns": "StructureDefinition-qicore-immunizationrec-definitions.html"
+    },
+    "StructureDefinition/qicore-location": {
+      "base": "StructureDefinition-qicore-location.html",
+      "defns": "StructureDefinition-qicore-location-definitions.html"
+    },
+    "StructureDefinition/qicore-medication": {
+      "base": "StructureDefinition-qicore-medication.html",
+      "defns": "StructureDefinition-qicore-medication-definitions.html"
+    },
+    "StructureDefinition/qicore-medicationadministration": {
+      "base": "StructureDefinition-qicore-medicationadministration.html",
+      "defns": "StructureDefinition-qicore-medicationadministration-definitions.html"
+    },
+    "StructureDefinition/qicore-medicationdispense": {
+      "base": "StructureDefinition-qicore-medicationdispense.html",
+      "defns": "StructureDefinition-qicore-medicationdispense-definitions.html"
+    },
+    "StructureDefinition/qicore-medicationrequest": {
+      "base": "StructureDefinition-qicore-medicationrequest.html",
+      "defns": "StructureDefinition-qicore-medicationrequest-definitions.html"
+    },
+    "StructureDefinition/qicore-medicationstatement": {
+      "base": "StructureDefinition-qicore-medicationstatement.html",
+      "defns": "StructureDefinition-qicore-medicationstatement-definitions.html"
+    },
+    "StructureDefinition/qicore-observation": {
+      "base": "StructureDefinition-qicore-observation.html",
+      "defns": "StructureDefinition-qicore-observation-definitions.html"
+    },
+    "StructureDefinition/qicore-organization": {
+      "base": "StructureDefinition-qicore-organization.html",
+      "defns": "StructureDefinition-qicore-organization-definitions.html"
+    },
+    "StructureDefinition/qicore-patient": {
+      "base": "StructureDefinition-qicore-patient.html",
+      "defns": "StructureDefinition-qicore-patient-definitions.html"
+    },
+    "StructureDefinition/qicore-practitioner": {
+      "base": "StructureDefinition-qicore-practitioner.html",
+      "defns": "StructureDefinition-qicore-practitioner-definitions.html"
+    },
+    "StructureDefinition/qicore-practitionerrole": {
+      "base": "StructureDefinition-qicore-practitionerrole.html",
+      "defns": "StructureDefinition-qicore-practitionerrole-definitions.html"
+    },
+    "StructureDefinition/qicore-procedure": {
+      "base": "StructureDefinition-qicore-procedure.html",
+      "defns": "StructureDefinition-qicore-procedure-definitions.html"
+    },
+    "StructureDefinition/qicore-procedurerequest": {
+      "base": "StructureDefinition-qicore-procedurerequest.html",
+      "defns": "StructureDefinition-qicore-procedurerequest-definitions.html"
+    },
+    "StructureDefinition/qicore-referralrequest": {
+      "base": "StructureDefinition-qicore-referralrequest.html",
+      "defns": "StructureDefinition-qicore-referralrequest-definitions.html"
+    },
+    "StructureDefinition/qicore-relatedperson": {
+      "base": "StructureDefinition-qicore-relatedperson.html",
+      "defns": "StructureDefinition-qicore-relatedperson-definitions.html"
+    },
+    "StructureDefinition/qicore-specimen": {
+      "base": "StructureDefinition-qicore-specimen.html",
+      "defns": "StructureDefinition-qicore-specimen-definitions.html"
+    },
+    "StructureDefinition/qicore-substance": {
+      "base": "StructureDefinition-qicore-substance.html",
+      "defns": "StructureDefinition-qicore-substance-definitions.html"
+    },
+    "StructureDefinition/qicore-task": {
+      "base": "StructureDefinition-qicore-task.html",
+      "defns": "StructureDefinition-qicore-task-definitions.html"
+    },
+    "StructureDefinition/qicore-procedurerequest-appropriatenessScore": {
+      "base": "StructureDefinition-qicore-procedurerequest-appropriatenessScore.html",
+      "defns": "StructureDefinition-qicore-procedurerequest-appropriatenessScore-definitions.html",
+      "source": "structuredefinition-qicore-procedurerequest-appropriatenessscore.xml"
+    },
+    "StructureDefinition/qicore-military-service": {
+      "base": "StructureDefinition-qicore-military-service.html",
+      "defns": "StructureDefinition-qicore-military-service-definitions.html",
+      "source": "structuredefinition-qicore-military-service.xml"
+    },
+    "CodeSystem/appropriateness-score": {
+      "base": "CodeSystem-appropriateness-score.html",
+      "source": "codesystem-appropriateness-score.xml"
+    },
+    "CodeSystem/communication-medium": {
+      "base": "CodeSystem-communication-medium.html",
+      "source": "codesystem-communication-medium.xml"
+    },
+    "CodeSystem/condition-criticality": {
+      "base": "CodeSystem-condition-criticality.html",
+      "source": "codesystem-condition-criticality.xml"
+    },
+    "CodeSystem/diagnosticorder-precondition": {
+      "base": "CodeSystem-diagnosticorder-precondition.html",
+      "source": "codesystem-diagnosticorder-precondition.xml"
+    },
+    "CodeSystem/encounter-class": {
+      "base": "CodeSystem-encounter-class.html",
+      "source": "codesystem-encounter-class.xml"
+    },
+    "CodeSystem/military-service": {
+      "base": "CodeSystem-military-service.html",
+      "source": "codesystem-military-service.xml"
+    },
+    "CodeSystem/observation-verification": {
+      "base": "CodeSystem-observation-verification.html",
+      "source": "codesystem-observation-verification.xml"
+    },
+    "ValueSet/qicore-allergyintolerance-reason-refuted": {
+      "source": "valueset-qicore-allergyintolerance-reason-refuted.xml",
+      "base": "ValueSet-qicore-allergyintolerance-reason-refuted.html"
+    },
+    "ValueSet/qicore-appropriateness-score": {
+      "source": "valueset-qicore-appropriateness-score.xml",
+      "base": "ValueSet-qicore-appropriateness-score.html"
+    },
+    "ValueSet/qicore-bodysite-precoordinated": {
+      "source": "valueset-qicore-bodysite-precoordinated.xml",
+      "base": "ValueSet-qicore-bodysite-precoordinated.html"
+    },
+    "ValueSet/qicore-communication-reason-not-performed": {
+      "source": "valueset-qicore-communication-reason-not-performed.xml",
+      "base": "ValueSet-qicore-communication-reason-not-performed.html"
+    },
+    "ValueSet/qicore-condition-certainty": {
+      "source": "valueset-qicore-condition-certainty.xml",
+      "base": "ValueSet-qicore-condition-certainty.html"
+    },
+    "ValueSet/qicore-condition-criticality": {
+      "source": "valueset-qicore-condition-criticality.xml",
+      "base": "ValueSet-qicore-condition-criticality.html"
+    },
+    "ValueSet/qicore-condition-stage": {
+      "source": "valueset-qicore-condition-stage.xml",
+      "base": "ValueSet-qicore-condition-stage.html"
+    },
+    "ValueSet/qicore-encounter-canceled-reason": {
+      "source": "valueset-qicore-encounter-canceled-reason.xml",
+      "base": "ValueSet-qicore-encounter-canceled-reason.html"
+    },
+    "ValueSet/qicore-encounter-class": {
+      "source": "valueset-qicore-encounter-class.xml",
+      "base": "ValueSet-qicore-encounter-class.html"
+    },
+    "ValueSet/qicore-encounter-condition-role": {
+      "source": "valueset-qicore-encounter-condition-role.xml",
+      "base": "ValueSet-qicore-encounter-condition-role.html"
+    },
+    "ValueSet/qicore-encounter-diet": {
+      "source": "valueset-qicore-encounter-diet.xml",
+      "base": "ValueSet-qicore-encounter-diet.html"
+    },
+    "ValueSet/qicore-flag-category": {
+      "source": "valueset-qicore-flag-category.xml",
+      "base": "ValueSet-qicore-flag-category.html"
+    },
+    "ValueSet/qicore-goal-reason-rejected": {
+      "source": "valueset-qicore-goal-reason-rejected.xml",
+      "base": "ValueSet-qicore-goal-reason-rejected.html"
+    },
+    "ValueSet/qicore-medication-dose-type": {
+      "source": "valueset-qicore-medication-dose-type.xml",
+      "base": "ValueSet-qicore-medication-dose-type.html"
+    },
+    "ValueSet/qicore-military-service": {
+      "source": "valueset-qicore-military-service.xml",
+      "base": "ValueSet-qicore-military-service.html"
+    },
+    "ValueSet/qicore-observation-body-position": {
+      "source": "valueset-qicore-observation-body-position.xml",
+      "base": "ValueSet-qicore-observation-body-position.html"
+    },
+    "ValueSet/qicore-observation-delta": {
+      "source": "valueset-qicore-observation-delta.xml",
+      "base": "ValueSet-qicore-observation-delta.html"
+    },
+    "ValueSet/qicore-observation-verification": {
+      "source": "valueset-qicore-observation-verification.xml",
+      "base": "ValueSet-qicore-observation-verification.html"
+    },
+    "ValueSet/qicore-patient-disability": {
+      "source": "valueset-qicore-patient-disability.xml",
+      "base": "ValueSet-qicore-patient-disability.html"
+    },
+    "ValueSet/qicore-priority": {
+      "source": "valueset-qicore-priority.xml",
+      "base": "ValueSet-qicore-priority.html"
+    },
+    "ValueSet/qicore-referralrequest-reason-rejected": {
+      "source": "valueset-qicore-referralrequest-reason-rejected.xml",
+      "base": "ValueSet-qicore-referralrequest-reason-rejected.html"
+    }
+  }
 }
