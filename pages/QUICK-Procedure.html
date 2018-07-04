@@ -1,0 +1,57 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="jquery-ui.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+</head>
+<body><div><a name='Procedure'> </a>
+<h2> Procedure <a href='QUICK-Procedure.html#Procedure' title='link to here' class='self-link'> <img src='target.png' width='20' class='self-link' height='20'/></a></h2>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>approachBodySite</th><td>0..*</td><td>List&lt;<a href='null'>Extension</a>&gt;</td><td>An Extension</td></tr>
+<tr><th>incisionDateTime</th><td>0..1</td><td><a href='null'>Extension</a></td><td>An Extension</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>1..1</td><td><a href='QUICK-String.html'>String</a></td><td>A code specifying the state of the procedure. Generally this will be in-progress or completed state.</td></tr>
+<tr><th>notDoneReason</th><td>0..1</td><td><a href='QUICK-Concept.html'>Concept</a></td><td>A code indicating why the procedure was not performed.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>code</th><td>1..1</td><td><a href='QUICK-Concept.html'>Concept</a></td><td>The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. "Laparoscopic Appendectomy").</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group'>Group</a></td><td>The person, animal or group on which the procedure was performed.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>context</th><td>0..1</td><td><a href='QUICK-Encounter.html'>Encounter</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group'>Group</a></td><td>The encounter during which the procedure was performed.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>performed[x]</th><td>1..1</td><td><a href='QUICK-DateTime.html'>DateTime</a> | Interval&lt;<a href='QUICK-DateTime.html'>DateTime</a>&gt;</td><td>The date(time)/period over which the procedure was performed. Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>performer</th><td>0..*</td><td>List&lt;<a href='QUICK-Procedure.performer.html'>performer</a>&gt;</td><td>Limited to 'real' people rather than equipment.</td></tr>
+<tr><th>location</th><td>0..1</td><td><a href='QUICK-Location.html'>Location</a></td><td>The location where the procedure actually happened.  E.g. a newborn at home, a tracheostomy at a restaurant.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>reasonCode</th><td>0..*</td><td>List&lt;<a href='QUICK-Concept.html'>Concept</a>&gt;</td><td>The coded reason why the procedure was performed. This may be coded entity of some type, or may simply be present as text.</td></tr>
+<tr><th>reasonReference</th><td>0..*</td><td>List&lt;<a href='http://hl7.org/fhir/StructureDefinition/Condition'>Condition</a> | <a href='http://hl7.org/fhir/StructureDefinition/Observation'>Observation</a>&gt;</td><td>The condition that is the reason why the procedure was performed.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>bodySite</th><td>0..*</td><td>List&lt;<a href='QUICK-Concept.html'>Concept</a>&gt;</td><td>Detailed and structured anatomical location information. Multiple locations are allowed - e.g. multiple punch biopsies of a lesion.</td></tr>
+<tr><th>outcome</th><td>0..1</td><td><a href='QUICK-Concept.html'>Concept</a></td><td>The outcome of the procedure - did it resolve reasons for the procedure being performed?</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>report</th><td>0..*</td><td>List&lt;<a href='QUICK-DiagnosticReport.html'>DiagnosticReport</a>&gt;</td><td>This could be a histology result, pathology report, surgical report, etc..</td></tr>
+<tr><th>focalDevice</th><td>0..*</td><td>List&lt;<a href='QUICK-Procedure.focalDevice.html'>focalDevice</a>&gt;</td><td>A device that is implanted, removed or otherwise manipulated (calibration, battery replacement, fitting a prosthesis, attaching a wound-vac, etc.) as a focal portion of the Procedure.</td></tr>
+</table>
+</div>
+</body>
+</html>

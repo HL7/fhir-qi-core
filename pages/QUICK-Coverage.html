@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="jquery-ui.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+</head>
+<body><div><a name='Coverage'> </a>
+<h2> Coverage <a href='QUICK-Coverage.html#Coverage' title='link to here' class='self-link'> <img src='target.png' width='20' class='self-link' height='20'/></a></h2>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>type</th><td>0..1</td><td><a href='QUICK-Concept.html'>Concept</a></td><td>The type of coverage: social program, medical plan, accident coverage (workers compensation, auto), group health or payment by an individual or organization.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>policyHolder</th><td>0..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Organization.html'>Organization</a> | <a href='QUICK-RelatedPerson.html'>RelatedPerson</a></td><td>The party who 'owns' the insurance policy,  may be an individual, corporation or the subscriber's employer.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>beneficiary</th><td>0..1</td><td><a href='QUICK-Patient.html'>Patient</a></td><td>The party who benefits from the insurance coverage., the patient when services are provided.</td></tr>
+<tr><th>period</th><td>0..1</td><td>Interval&lt;<a href='QUICK-DateTime.html'>DateTime</a>&gt;</td><td>Time period during which the coverage is in force. A missing start date indicates the start date isn't known, a missing end date means the coverage is continuing to be in force.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>payor</th><td>0..*</td><td>List&lt;<a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Organization.html'>Organization</a> | <a href='QUICK-RelatedPerson.html'>RelatedPerson</a>&gt;</td><td>The program or plan underwriter or payor including both insurance and non-insurance agreements, such as patient-pay agreements. May provide multiple identifiers such as insurance company identifier or business identifier (BIN number).</td></tr>
+</table>
+</div>
+</body>
+</html>

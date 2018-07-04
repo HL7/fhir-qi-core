@@ -1,0 +1,46 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="fhir.css" rel="stylesheet"/>
+
+    <!-- Bootstrap core CSS -->
+    <link href="dist/css/bootstrap.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-fhir.css" rel="stylesheet"/>
+    <link href="assets/css/bootstrap-glyphicons.css" rel="stylesheet">
+
+    <!-- Project extras -->
+    <link href="assets/css/project.css" rel="stylesheet"/>
+    <link href="assets/css/pygments-manni.css" rel="stylesheet"/>
+    <link href="jquery-ui.css" rel="stylesheet"/>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="assets/js/html5shiv.js"></script>
+    <script src="assets/js/respond.min.js"></script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="assets/ico/apple-touch-icon-144-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="assets/ico/apple-touch-icon-114-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="assets/ico/apple-touch-icon-72-precomposed.png"/>
+    <link rel="apple-touch-icon-precomposed" href="assets/ico/apple-touch-icon-57-precomposed.png"/>
+    <link rel="shortcut icon" href="assets/ico/favicon.png"/>
+
+</head>
+<body><div><a name='Flag'> </a>
+<h2> Flag <a href='QUICK-Flag.html#Flag' title='link to here' class='self-link'> <img src='target.png' width='20' class='self-link' height='20'/></a></h2>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>1..1</td><td><a href='QUICK-String.html'>String</a></td><td>Supports basic workflow.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>category</th><td>0..1</td><td><a href='QUICK-Concept.html'>Concept</a></td><td>Allows an flag to be divided into different categories like clinical, administrative etc. Intended to be used as a means of filtering which flags are displayed to particular user or in a given context.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>code</th><td>1..1</td><td><a href='QUICK-Concept.html'>Concept</a></td><td>The coded value or textual component of the flag to display to the user.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Location.html'>Location</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group'>Group</a> | <a href='QUICK-Organization.html'>Organization</a> | <a href='QUICK-Practitioner.html'>Practitioner</a></td><td>The patient, location, group , organization , or practitioner, etc. this is about record this flag is associated with.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>period</th><td>0..1</td><td>Interval&lt;<a href='QUICK-DateTime.html'>DateTime</a>&gt;</td><td>The period of time from the activation of the flag to inactivation of the flag. If the flag is active, the end of the period should be unspecified.</td></tr>
+</table>
+</div>
+</body>
+</html>
