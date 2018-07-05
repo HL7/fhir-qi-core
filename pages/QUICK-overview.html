@@ -42,25 +42,25 @@
           </ul>
           <p>To address the first issue, the QUICK model maps the FHIR base types to CQL primitives, rather than using the FHIR types directly:</p><table class='table table-striped table-bordered'>
 <tr><th>FHIR Type</th><th>CQL Type</th></tr>
-<tr><th>base64Binary</th><td><a href='QUICK-String.html'>String</a></td></tr>
-<tr><th>boolean</th><td><a href='QUICK-Boolean.html'>Boolean</a></td></tr>
-<tr><th>code</th><td><a href='QUICK-String.html'>String</a></td></tr>
-<tr><th>CodeableConcept</th><td><a href='QUICK-Concept.html'>Concept</a></td></tr>
-<tr><th>Coding</th><td><a href='QUICK-Code.html'>Code</a></td></tr>
-<tr><th>date</th><td><a href='QUICK-DateTime.html'>DateTime</a></td></tr>
-<tr><th>dateTime</th><td><a href='QUICK-DateTime.html'>DateTime</a></td></tr>
-<tr><th>decimal</th><td><a href='QUICK-Decimal.html'>Decimal</a></td></tr>
-<tr><th>id</th><td><a href='QUICK-String.html'>String</a></td></tr>
-<tr><th>instant</th><td><a href='QUICK-DateTime.html'>DateTime</a></td></tr>
-<tr><th>integer</th><td><a href='QUICK-Integer.html'>Integer</a></td></tr>
-<tr><th>markdown</th><td><a href='QUICK-String.html'>String</a></td></tr>
-<tr><th>oid</th><td><a href='QUICK-String.html'>String</a></td></tr>
-<tr><th>Period</th><td>Interval&lt;<a href='QUICK-DateTime.html'>DateTime</a>&gt;</td></tr>
-<tr><th>positiveInt</th><td><a href='QUICK-Integer.html'>Integer</a></td></tr>
-<tr><th>Range</th><td>Interval&lt;<a href='QUICK-Quantity.html'>Quantity</a>&gt;</td></tr>
-<tr><th>string</th><td><a href='QUICK-String.html'>String</a></td></tr>
-<tr><th>time</th><td><a href='QUICK-Time.html'>Time</a></td></tr>
-<tr><th>uri</th><td><a href='QUICK-String.html'>String</a></td></tr>
+<tr><th>base64Binary</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
+<tr><th>boolean</th><td><a href='http://cql.hl7.org/02-authorsguide.html#boolean' target='_blank'>Boolean</a></td></tr>
+<tr><th>code</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
+<tr><th>CodeableConcept</th><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td></tr>
+<tr><th>Coding</th><td><a href='http://cql.hl7.org/02-authorsguide.html#code' target='_blank'>Code</a></td></tr>
+<tr><th>date</th><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td></tr>
+<tr><th>dateTime</th><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td></tr>
+<tr><th>decimal</th><td><a href='http://cql.hl7.org/02-authorsguide.html#decimal' target='_blank'>Decimal</a></td></tr>
+<tr><th>id</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
+<tr><th>instant</th><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td></tr>
+<tr><th>integer</th><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td></tr>
+<tr><th>markdown</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
+<tr><th>oid</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
+<tr><th>Period</th><td>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a>&gt;</td></tr>
+<tr><th>positiveInt</th><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td></tr>
+<tr><th>Range</th><td>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a>&gt;</td></tr>
+<tr><th>string</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
+<tr><th>time</th><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>Time</a></td></tr>
+<tr><th>uri</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
 </table>
 <p>To address the second issue, the QUICK model represents FHIR extensions as first-class attributes of the class. To address the third issue, the QUICK model represents FHIR references as direct appearances of the referenced class or classes. NOTE: The third issue is still being worked out, so current QUICK documentation still uses the Reference type to model references.</p>
 </div>
