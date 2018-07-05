@@ -35,14 +35,14 @@
 <p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
 <table class='table table-striped table-bordered'>
 <tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
-<tr><th><span class="glyphicon glyphicon-ok"> </span>type</th><td>0..1</td><td><a href='QUICK-Concept.html'>Concept</a></td><td>The kind of material that forms the specimen.</td></tr>
-<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Device.html'>Device</a> | <a href='QUICK-Substance.html'>Substance</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group'>Group</a></td><td>Where the specimen came from. This may be from the patient(s) or from the environment or a device.</td></tr>
-<tr><th><span class="glyphicon glyphicon-ok"> </span>receivedTime</th><td>0..1</td><td><a href='QUICK-DateTime.html'>DateTime</a></td><td>Time when specimen was received for processing or testing.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>type</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The kind of material that forms the specimen.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Device.html'>Device</a> | <a href='QUICK-Substance.html'>Substance</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group' target='_blank'>Group</a></td><td>Where the specimen came from. This may be from the patient(s) or from the environment or a device.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>receivedTime</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>Time when specimen was received for processing or testing.</td></tr>
 <tr><th>parent</th><td>0..*</td><td>List&lt;<a href='QUICK-Specimen.html'>Specimen</a>&gt;</td><td>Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.</td></tr>
-<tr><th>collection</th><td>0..1</td><td><a href='QUICK-Specimen.collection.html'>collection</a></td><td>Details concerning the specimen collection.</td></tr>
-<tr><th>processing</th><td>0..*</td><td>List&lt;<a href='QUICK-Specimen.processing.html'>processing</a>&gt;</td><td>Details concerning processing and processing steps for the specimen.</td></tr>
-<tr><th>container</th><td>0..*</td><td>List&lt;<a href='QUICK-Specimen.container.html'>container</a>&gt;</td><td>The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.</td></tr>
-<tr><th>container-sequenceNumber</th><td>0..1</td><td><a href='null'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>collection</th><td>0..1</td><td><a href=''>collection</a></td><td>Details concerning the specimen collection.</td></tr>
+<tr><th>processing</th><td>0..*</td><td>List&lt;<a href=''>processing</a>&gt;</td><td>Details concerning processing and processing steps for the specimen.</td></tr>
+<tr><th>container</th><td>0..*</td><td>List&lt;<a href=''>container</a>&gt;</td><td>The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.</td></tr>
+<tr><th>container-sequenceNumber</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
 </table>
 </div>
 </body>
