@@ -43,19 +43,19 @@
 <tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group' target='_blank'>Group</a></td><td>A link to a resource representing the person or set of individuals to whom the medication will be given.</td></tr>
 <tr><th><span class="glyphicon glyphicon-ok"> </span>context</th><td>0..1</td><td><a href='QUICK-Encounter.html'>Encounter</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group' target='_blank'>Group</a></td><td>A link to an encounter, or episode of care, that identifies the particular occurrence or set occurrences of contact between patient and health care provider.</td></tr>
 <tr><th><span class="glyphicon glyphicon-ok"> </span>authoredOn</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>The date (and perhaps time) when the prescription was initially written or authored on.</td></tr>
-<tr><th><span class="glyphicon glyphicon-ok"> </span>requester</th><td>1..1</td><td><a href=''>requester</a></td><td>The individual, organization or device that initiated the request and has responsibility for its activation.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>requester</th><td>1..1</td><td><a href=QUICK-MedicationRequest.requester.html>requester</a></td><td>The individual, organization or device that initiated the request and has responsibility for its activation.</td></tr>
 <tr><th>recorder</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/Practitioner' target='_blank'>Practitioner</a></td><td>The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.</td></tr>
 <tr><th>reasonCode</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>The reason or the indication for ordering the medication.</td></tr>
 <tr><th><span class="glyphicon glyphicon-ok"> </span>dosageInstruction</th><td>0..*</td><td>List&lt;<a href='QUICK-Dosage.html'>Dosage</a>&gt;</td><td>Indicates how the medication is to be used by the patient.</td></tr>
-<tr><th>doseType</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
-<tr><th>infuseOver</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
-<tr><th>rateIncrement</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
-<tr><th>rateIncrementInterval</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
-<tr><th>rateGoal</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
-<tr><th>minDosePerPeriod</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
-<tr><th>maxDeliveryRate</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
-<tr><th>maxDeliveryVolume</th><td>0..1</td><td><a href=''>Extension</a></td><td>An Extension</td></tr>
-<tr><th><span class="glyphicon glyphicon-ok"> </span>dispenseRequest</th><td>0..1</td><td><a href=''>dispenseRequest</a></td><td>Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.</td></tr>
+<tr><th>doseType</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>infuseOver</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateIncrement</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrement' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateIncrementInterval</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrementInterval' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateGoal</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateGoal' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>minDosePerPeriod</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>maxDeliveryRate</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryRate' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>maxDeliveryVolume</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>dispenseRequest</th><td>0..1</td><td><a href=QUICK-MedicationRequest.dispenseRequest.html>dispenseRequest</a></td><td>Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.</td></tr>
 </table>
 </div>
 </body>
