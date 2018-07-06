@@ -37,7 +37,7 @@
 <table class='table table-striped table-bordered'>
 <tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
 <tr><th>event</th><td>0..*</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>Identifies specific times when the event occurs.</td></tr>
-<tr><th>repeat</th><td>0..1</td><td><a href=''>Element</a></td><td>A set of rules that describe when the event is scheduled.</td></tr>
+<tr><th>repeat</th><td>0..1</td><td>Element</td><td>A set of rules that describe when the event is scheduled.</td></tr>
 <tr><th>repeat.bounds[x]</th><td>0..1</td><td><a href='QUICK-Duration.html'>Duration</a> | Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a>&gt; | Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a>&gt;</td><td>Either a duration for the length of the timing schedule, a range of possible length, or outer bounds for start and/or end limits of the timing schedule.</td></tr>
 <tr><th>repeat.count</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td><td>A total count of the desired number of repetitions.</td></tr>
 <tr><th>repeat.countMax</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td><td>A maximum value for the count of the desired repetitions (e.g. do something 6-8 times).</td></tr>
