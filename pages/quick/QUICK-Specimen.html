@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Specimen'> </a>
+<h2> Specimen <a href='QUICK-Specimen.html#Specimen' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>A sample to be used for analysis.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>type</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The kind of material that forms the specimen.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/v2-0487' target='_blank'>The type of the specimen.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Device.html'>Device</a> | <a href='QUICK-Substance.html'>Substance</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group' target='_blank'>Group</a></td><td>Where the specimen came from. This may be from the patient(s) or from the environment or a device.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>receivedTime</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>Time when specimen was received for processing or testing.</td></tr>
+<tr><th>parent</th><td>0..*</td><td>List&lt;<a href='QUICK-Specimen.html'>Specimen</a>&gt;</td><td>Reference to the parent (source) specimen which is used when the specimen was either derived from or a component of another specimen.</td></tr>
+<tr><th>collection</th><td>0..1</td><td><a href=QUICK-Specimen.collection.html>collection</a></td><td>Details concerning the specimen collection.</td></tr>
+<tr><th>processing</th><td>0..*</td><td>List&lt;<a href=QUICK-Specimen.processing.html>processing</a>&gt;</td><td>Details concerning processing and processing steps for the specimen.</td></tr>
+<tr><th>container</th><td>0..*</td><td>List&lt;<a href=QUICK-Specimen.container.html>container</a>&gt;</td><td>The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.</td></tr>
+<tr><th>container-sequenceNumber</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+</table>
+</div>
+</body>
+</html>

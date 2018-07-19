@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Attachment'> </a>
+<h2> Attachment <a href='QUICK-Attachment.html#Attachment' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>For referring to data content defined in other formats.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>contentType</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Identifies the type of the data in the attachment and allows a method to be chosen to interpret or render the data. Includes mime type parameters such as charset where appropriate.</td></tr>
+<tr><th>language</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The human language of the content. The value can be any valid value according to BCP 47.</td></tr>
+<tr><th>data</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The actual data of the attachment - a sequence of bytes. In XML, represented using base64.</td></tr>
+<tr><th>url</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>An alternative location where the data can be accessed.</td></tr>
+<tr><th>size</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td><td>The number of bytes of data that make up this attachment (before base64 encoding, if that is done).</td></tr>
+<tr><th>hash</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The calculated hash of the data using SHA-1. Represented using base64.</td></tr>
+<tr><th>title</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A label or set of text to display in place of the data.</td></tr>
+<tr><th>creation</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>The date that the attachment was first created.</td></tr>
+</table>
+</div>
+</body>
+</html>

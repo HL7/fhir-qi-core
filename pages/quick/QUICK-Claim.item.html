@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Claim.item'> </a>
+<h2> Claim.item <a href='QUICK-Claim.item.html#Claim.item' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>First tier of goods and services.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>service</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>If this is an actual service or product line, ie. not a Group, then use code to indicate the Professional Service or Product supplied (eg. CTP, HCPCS, USCLS, ICD10, NCPDP, DIN, RXNorm, ACHI, CCI). If a grouping item then use a group code to indicate the type of thing being grouped eg. &quot;glasses&quot; or &quot;compound&quot;.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/service-uscls' target='_blank'>This value set includes a smattering of USCLS codes.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>serviced[x]</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a> | Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a>&gt;</td><td>The date or dates when the enclosed suite of services were performed or completed.</td></tr>
+<tr><th>locationReference</th><td>0..1</td><td><a href='QUICK-Location.html'>Location</a></td><td>Where the service was provided.</td></tr>
+<tr><th>udi</th><td>0..*</td><td>List&lt;<a href='QUICK-Device.html'>Device</a>&gt;</td><td>List of Unique Device Identifiers associated with this line item.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>encounter</th><td>0..*</td><td>List&lt;<a href='QUICK-Encounter.html'>Encounter</a>&gt;</td><td>Encounters related to this billed item.</td></tr>
+<tr><th>detail</th><td>0..*</td><td>List&lt;<a href=QUICK-Claim.item.detail.html>item.detail</a>&gt;</td><td>Second tier of goods and services.</td></tr>
+</table>
+</div>
+</body>
+</html>

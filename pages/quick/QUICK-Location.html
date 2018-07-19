@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Location'> </a>
+<h2> Location <a href='QUICK-Location.html#Location' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Details and position information for a physical place where services are provided  and resources and participants may be stored, found, contained or accommodated.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/location-status' target='_blank'>Indicates whether the location is still in use.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>name</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Name of the location as used by humans. Does not need to be unique.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>mode</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Indicates whether a resource instance represents a specific location or a class of locations.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/location-mode' target='_blank'>Indicates whether a resource instance represents a specific location or a class of locations.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>type</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Indicates the type of function performed at the location.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/v3-ServiceDeliveryLocationRoleType' target='_blank'>A role of a place that further classifies the setting (e.g., accident site, road side, work site, community location) in which services are delivered.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#extensible' target='_blank'>extensible</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>telecom</th><td>0..*</td><td>List&lt;<a href='QUICK-ContactPoint.html'>ContactPoint</a>&gt;</td><td>The contact details of communication devices available at the location. This can include phone numbers, fax numbers, mobile numbers, email addresses and web sites.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>address</th><td>0..1</td><td><a href='QUICK-Address.html'>Address</a></td><td>Physical location.</td></tr>
+<tr><th>managingOrganization</th><td>0..1</td><td><a href='QUICK-Organization.html'>Organization</a></td><td>The organization responsible for the provisioning and upkeep of the location.</td></tr>
+<tr><th>partOf</th><td>0..1</td><td><a href='QUICK-Location.html'>Location</a></td><td>Another Location which this Location is physically part of.</td></tr>
+</table>
+</div>
+</body>
+</html>

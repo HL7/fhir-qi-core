@@ -1,0 +1,49 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='SampledData'> </a>
+<h2> SampledData <a href='QUICK-SampledData.html#SampledData' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>A series of measurements taken by a device, with upper and lower limits. There may be more than one dimension in the data.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>origin</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a></td><td>The base quantity that a measured value of zero represents. In addition, this provides the units of the entire measurement series.</td></tr>
+<tr><th>period</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#decimal' target='_blank'>Decimal</a></td><td>The length of time between sampling times, measured in milliseconds.</td></tr>
+<tr><th>factor</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#decimal' target='_blank'>Decimal</a></td><td>A correction factor that is applied to the sampled data points before they are added to the origin.</td></tr>
+<tr><th>lowerLimit</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#decimal' target='_blank'>Decimal</a></td><td>The lower limit of detection of the measured points. This is needed if any of the data points have the value &quot;L&quot; (lower than detection limit).</td></tr>
+<tr><th>upperLimit</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#decimal' target='_blank'>Decimal</a></td><td>The upper limit of detection of the measured points. This is needed if any of the data points have the value &quot;U&quot; (higher than detection limit).</td></tr>
+<tr><th>dimensions</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td><td>The number of sample points at each time point. If this value is greater than one, then the dimensions will be interlaced - all the sample points for a point in time will be recorded at once.</td></tr>
+<tr><th>data</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A series of data points which are decimal values separated by a single space (character u20). The special values &quot;E&quot; (error), &quot;L&quot; (below detection limit) and &quot;U&quot; (above detection limit) can also be used in place of a decimal value.</td></tr>
+</table>
+</div>
+</body>
+</html>

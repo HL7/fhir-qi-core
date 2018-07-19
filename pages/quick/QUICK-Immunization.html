@@ -1,0 +1,58 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Immunization'> </a>
+<h2> Immunization <a href='QUICK-Immunization.html#Immunization' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>The US Core Immunization Profile is based upon the core FHIR Immunization Resource and created to meet the 2015 Edition Common Clinical Data Set 'Immunizations' requirements.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Indicates the current status of the vaccination event.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/immunization-status' target='_blank'>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the current status of the administered dose of vaccine.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>notGiven</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#boolean' target='_blank'>Boolean</a></td><td>Indicates if the vaccination was or was not given.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>vaccineCode</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Vaccine that was administered or was to be administered.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/us/core/ValueSet-us-core-cvx.html' target='_blank'>This identifies the CVX code system</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>patient</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a></td><td>The patient who either received or did not receive the immunization.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>encounter</th><td>0..1</td><td><a href='QUICK-Encounter.html'>Encounter</a></td><td>The visit or admission or other contact between patient and health care provider the immunization was performed as part of.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>date</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>Date vaccine administered or was to be administered.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>primarySource</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#boolean' target='_blank'>Boolean</a></td><td>An indication that the content of the record is based on information from the person who administered the vaccine. This reflects the context under which the data was originally recorded.</td></tr>
+<tr><th>location</th><td>0..1</td><td><a href='QUICK-Location.html'>Location</a></td><td>The service delivery location where the vaccine administration occurred.</td></tr>
+<tr><th>manufacturer</th><td>0..1</td><td><a href='QUICK-Organization.html'>Organization</a></td><td>Name of vaccine manufacturer.</td></tr>
+<tr><th>site</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Body site where vaccine was administered.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/immunization-site' target='_blank'>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the body site where the vaccination occurred. This value set is provided as a suggestive example.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>route</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The path by which the vaccine product is taken into the body.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/immunization-route' target='_blank'>The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support describing the administrative routes used during vaccination. This value set is provided as a suggestive example.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>doseQuantity</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a></td><td>The quantity of vaccine product that was administered.</td></tr>
+<tr><th>practitioner</th><td>0..*</td><td>List&lt;<a href=QUICK-Immunization.practitioner.html>practitioner</a>&gt;</td><td>Indicates who or what performed the event.</td></tr>
+<tr><th>explanation</th><td>0..1</td><td><a href=QUICK-Immunization.explanation.html>explanation</a></td><td>Reasons why a vaccine was or was not administered.</td></tr>
+<tr><th>reaction</th><td>0..*</td><td>List&lt;<a href=QUICK-Immunization.reaction.html>reaction</a>&gt;</td><td>Categorical data indicating that an adverse event is associated in time to an immunization.</td></tr>
+<tr><th>vaccinationProtocol</th><td>0..*</td><td>List&lt;<a href=QUICK-Immunization.vaccinationProtocol.html>vaccinationProtocol</a>&gt;</td><td>Contains information about the protocol(s) under which the vaccine was administered.</td></tr>
+</table>
+</div>
+</body>
+</html>

@@ -1,0 +1,65 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='MedicationDispense'> </a>
+<h2> MedicationDispense <a href='QUICK-MedicationDispense.html#MedicationDispense' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>validityPeriod</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>refillsRemaining</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-refillsRemaining' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A code specifying the state of the set of dispense events.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/medication-dispense-status' target='_blank'>A coded concept specifying the state of the dispense event.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>medication[x]</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a> | <a href='http://hl7.org/fhir/StructureDefinition/Medication' target='_blank'>Medication</a></td><td>Identifies the medication being administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/us/core/ValueSet-us-core-medication-codes.html' target='_blank'>The set of RxNorm codes to represent medications</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>0..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group' target='_blank'>Group</a></td><td>A link to a resource representing the person or the group to whom the medication will be given.</td></tr>
+<tr><th>performer</th><td>0..*</td><td>List&lt;<a href=QUICK-MedicationDispense.performer.html>performer</a>&gt;</td><td>Indicates who or what performed the event.  It should be assumed that the performer is the dispenser of the medication.</td></tr>
+<tr><th>authorizingPrescription</th><td>0..*</td><td>List&lt;<a href='QUICK-MedicationRequest.html'>MedicationRequest</a>&gt;</td><td>Indicates the medication order that is being dispensed against.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>quantity</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a></td><td>The amount of medication that has been dispensed. Includes unit of measure.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>daysSupply</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a></td><td>The amount of medication expressed as a timing amount.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>whenHandedOver</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>The time the dispensed product was provided to the patient or their representative.</td></tr>
+<tr><th>destination</th><td>0..1</td><td><a href='QUICK-Location.html'>Location</a></td><td>Identification of the facility/location where the medication was shipped to, as part of the dispense event.</td></tr>
+<tr><th>receiver</th><td>0..*</td><td>List&lt;<a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Practitioner.html'>Practitioner</a>&gt;</td><td>Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.</td></tr>
+<tr><th>dosageInstruction</th><td>0..*</td><td>List&lt;<a href='QUICK-Dosage.html'>Dosage</a>&gt;</td><td>Indicates how the medication is to be used by the patient.</td></tr>
+<tr><th>doseType</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType' target='_blank'>Extension</a></td><td>An Extension<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/us/qicore/ValueSet/qicore-medication-dose-type'>Medication dose types (e.g., loading, maintenance, etc.)</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th>infuseOver</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateIncrement</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrement' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateIncrementInterval</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrementInterval' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateGoal</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateGoal' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>minDosePerPeriod</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>maxDeliveryRate</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryRate' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>maxDeliveryVolume</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>substitution</th><td>0..1</td><td><a href=QUICK-MedicationDispense.substitution.html>substitution</a></td><td>Indicates whether or not substitution was made as part of the dispense.  In some cases substitution will be expected but does not happen, in other cases substitution is not expected but does happen.  This block explains what substitution did or did not happen and why.  If nothing is specified, substitution was not done.</td></tr>
+<tr><th>notDoneReason[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a> | <a href='http://hl7.org/fhir/StructureDefinition/DetectedIssue' target='_blank'>DetectedIssue</a></td><td>Indicates the reason why a dispense was not performed.</td></tr>
+</table>
+</div>
+</body>
+</html>

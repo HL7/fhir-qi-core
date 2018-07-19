@@ -1,0 +1,50 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='FamilyMemberHistory'> </a>
+<h2> FamilyMemberHistory <a href='QUICK-FamilyMemberHistory.html#FamilyMemberHistory' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Significant health events and conditions for a person related to the patient relevant in the context of care for the patient.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>patient</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a></td><td>The person who this history concerns.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>date</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>The date (and possibly time) when the family member history was taken.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>relationship</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The type of relationship this person has to the patient (father, mother, brother etc.).<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/v3-FamilyMember' target='_blank'>A relationship between two people characterizing their "familial" relationship</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>age[x]</th><td>0..1</td><td><a href='QUICK-Age.html'>Age</a> | Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a>&gt; | <a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The age of the relative at the time the family member history is recorded.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>deceased[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#boolean' target='_blank'>Boolean</a> | <a href='QUICK-Age.html'>Age</a> | Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a>&gt; | <a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a> | <a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.</td></tr>
+<tr><th>condition</th><td>0..*</td><td>List&lt;<a href=QUICK-FamilyMemberHistory.condition.html>condition</a>&gt;</td><td>The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.</td></tr>
+<tr><th>condition-abatement</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>condition-severity</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity' target='_blank'>Extension</a></td><td>An Extension<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/condition-severity' target='_blank'>Valueset to identify the severity of the problem</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+</table>
+</div>
+</body>
+</html>

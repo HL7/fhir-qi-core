@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='MedicationRequest'> </a>
+<h2> MedicationRequest <a href='QUICK-MedicationRequest.html#MedicationRequest' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Profile of medication prescription, indicating which elements must be supported in rule and measure interpreters.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A code specifying the current state of the order.  Generally this will be active or completed state.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/medication-request-status' target='_blank'>A code specifying the state of the prescribing event. Describes the lifecycle of the prescription.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-exclamation-sign"> </span>intent</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Whether the request is a proposal, plan, or an original order.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/medication-request-intent' target='_blank'>The kind of medication order</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th>category</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Indicates the type of medication order and where the medication is expected to be consumed or administered.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/medication-request-category' target='_blank'>A coded concept identifying where the medication ordered is expected to be consumed or administered</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>medication[x]</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a> | <a href='QUICK-Medication.html'>Medication</a></td><td>Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/us/core/ValueSet-us-core-medication-codes.html' target='_blank'>The set of RxNorm codes to represent medications</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group' target='_blank'>Group</a></td><td>A link to a resource representing the person or set of individuals to whom the medication will be given.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>context</th><td>0..1</td><td><a href='QUICK-Encounter.html'>Encounter</a> | <a href='http://hl7.org/fhir/StructureDefinition/Group' target='_blank'>Group</a></td><td>A link to an encounter, or episode of care, that identifies the particular occurrence or set occurrences of contact between patient and health care provider.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>authoredOn</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td><td>The date (and perhaps time) when the prescription was initially written or authored on.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>requester</th><td>1..1</td><td><a href=QUICK-MedicationRequest.requester.html>requester</a></td><td>The individual, organization or device that initiated the request and has responsibility for its activation.</td></tr>
+<tr><th>recorder</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/Practitioner' target='_blank'>Practitioner</a></td><td>The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order.</td></tr>
+<tr><th>reasonCode</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>The reason or the indication for ordering the medication.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/us/core/ValueSet-us-core-problem.html' target='_blank'>The reason code for the presecription</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>dosageInstruction</th><td>0..*</td><td>List&lt;<a href='QUICK-Dosage.html'>Dosage</a>&gt;</td><td>Indicates how the medication is to be used by the patient.</td></tr>
+<tr><th>doseType</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType' target='_blank'>Extension</a></td><td>An Extension<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/us/qicore/ValueSet/qicore-medication-dose-type'>Medication dose types (e.g., loading, maintenance, etc.)</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th>infuseOver</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateIncrement</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrement' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateIncrementInterval</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrementInterval' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>rateGoal</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateGoal' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>minDosePerPeriod</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>maxDeliveryRate</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryRate' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>maxDeliveryVolume</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>dispenseRequest</th><td>0..1</td><td><a href=QUICK-MedicationRequest.dispenseRequest.html>dispenseRequest</a></td><td>Indicates the specific details for the dispense or medication supply part of a medication request (also known as a Medication Prescription or Medication Order).  Note that this information is not always sent with the order.  There may be in some settings (e.g. hospitals) institutional or system support for completing the dispense details in the pharmacy department.</td></tr>
+</table>
+</div>
+</body>
+</html>
