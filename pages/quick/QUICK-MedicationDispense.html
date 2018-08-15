@@ -31,7 +31,7 @@
 
 </head>
 <body><div><a name='MedicationDispense'> </a>
-<h2> MedicationDispense <a href='QUICK-MedicationDispense.html#MedicationDispense' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<h2> MedicationDispense <a href='#MedicationDispense' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
 <p>Indicates that a medication product is to be or has been dispensed for a named person/patient.  This includes a description of the medication product (supply) provided and the instructions for administering the medication.  The medication dispense is the result of a pharmacy system responding to a medication order.</p>
 <p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
 <table class='table table-striped table-bordered'>
@@ -49,7 +49,7 @@
 <tr><th>destination</th><td>0..1</td><td><a href='QUICK-Location.html'>Location</a></td><td>Identification of the facility/location where the medication was shipped to, as part of the dispense event.</td></tr>
 <tr><th>receiver</th><td>0..*</td><td>List&lt;<a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Practitioner.html'>Practitioner</a>&gt;</td><td>Identifies the person who picked up the medication.  This will usually be a patient or their caregiver, but some cases exist where it can be a healthcare professional.</td></tr>
 <tr><th>dosageInstruction</th><td>0..*</td><td>List&lt;<a href='QUICK-Dosage.html'>Dosage</a>&gt;</td><td>Indicates how the medication is to be used by the patient.</td></tr>
-<tr><th>doseType</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType' target='_blank'>Extension</a></td><td>An Extension<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/us/qicore/ValueSet/qicore-medication-dose-type'>Medication dose types (e.g., loading, maintenance, etc.)</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th>doseType</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType' target='_blank'>Extension</a></td><td>An Extension<br /><strong>Binding: </strong><a href='../ValueSet-qicore-medication-dose-type.html' target='_blank'>Medication dose types (e.g., loading, maintenance, etc.)</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
 <tr><th>infuseOver</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver' target='_blank'>Extension</a></td><td>An Extension</td></tr>
 <tr><th>rateIncrement</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrement' target='_blank'>Extension</a></td><td>An Extension</td></tr>
 <tr><th>rateIncrementInterval</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/pharmacy-core-rateIncrementInterval' target='_blank'>Extension</a></td><td>An Extension</td></tr>
