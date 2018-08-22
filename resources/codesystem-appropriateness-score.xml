@@ -1,23 +1,22 @@
 <CodeSystem xmlns="http://hl7.org/fhir">
     <id value="appropriateness-score"/>
+    <meta>
+      <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    </meta>
     <url value="http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score"/>
-    <version value="3.1.0"/>
-    <name value="QICoreAppropriatenessScore"/>
+  <version value="3.1.0"/>
+    <name value="AppropriatenessScore"/>
+    <title value="RAND Appropriateness Scores"/>
     <status value="draft"/>
     <experimental value="false"/>
-    <date value="2016-03-31T08:01:25+11:00"/>
-    <publisher value="HL7 (FHIR Project)"/>
+    <date value="2018-08-22"/>
+    <publisher value="Health Level Seven, Inc. - CQI WG"/>
     <contact>
-        <telecom>
-            <system value="other"/>
-            <value value="http://hl7.org/fhir"/>
-        </telecom>
-        <telecom>
-            <system value="email"/>
-            <value value="fhir@lists.hl7.org"/>
-        </telecom>
+      <telecom>
+        <system value="url"/>
+        <value value="http://hl7.org/special/committees/CQI"/>
+      </telecom>
     </contact>
-    
     <description value="The RAND scoring for appropriateness of the procedure."/>
     <caseSensitive value="true"/>
     <valueSet value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
