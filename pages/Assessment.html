@@ -41,10 +41,12 @@
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.AuthoredOn</td>
+<td>ProcedureRequest.authoredOn</td>
 <td>QDM matched to QI Core / FHIR
 
-Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>ProcedureRequest.code</td>
@@ -89,10 +91,12 @@ Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should o
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.AuthoredOn</td>
+<td>ProcedureRequest.authoredOn</td>
 <td>QDM matched to QI Core / FHIR
 
-Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>ProcedureRequest.code</td>
@@ -148,12 +152,8 @@ Note - QI Core also includes Observation.interpretation and Observation.comment 
 Note that the QDM assessment result (or results for components of results can be numerical values, codes or dateTime entries.</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>FHIR.provenance.recorded</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources.
-
-QDM only addresses Author dateTime; QI Core allows a Period. Assessment generally addresses specific documentation of observations. Consider: Assessment to determine tobacco use history might ask for when tobacco use started and when it ended. The start time and stop time could be represented as answers to two different questions (i.e., when did the patient start and when did the patient end tobacco use). The observation.effective.x would apply more directly to a laboratory test the included collection of a specimen over a period of time. Consider authorDatetime for Assessment, Performed is the dateTime the assessment is captured. Note that the QDM assessment result (or results for components of results can be numerical values, codes or dateTime entries.
-
-QDM might consider a Relevant Period consistent with observation.effective.x indicating the Relevant Period start and stop times are the same unless otherwise specified. Such practice would be consistent with other QDM datatypes that map to observation.</td></tr>
+<td>Observation.issued</td>
+<td>Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The W5 report recommends Observation.issued to address the authorDatetime.</td></tr>
 <tr>
 <td>Related To</td>
 <td>Observation.basedOn</td>

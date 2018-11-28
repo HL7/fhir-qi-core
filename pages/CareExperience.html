@@ -38,8 +38,10 @@
 <td>QDM matched to FHIR / QI Core</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>observation.effective.x</td>
-<td>QDM matched to FHIR / QI Core - QDM only addresses authorTime; QI Core allows a Period. Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective.x. Consider authorDatetime for Patient Care Experience is the dateTime the experience is captured (i.e., the start of the effectiveTime).</td></tr>
+<td>observation.issued</td>
+<td>QDM matched to FHIR / QI Core - Note: QDM only addresses authorTime;
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR Observation resource uses .issued for author time. QI Core also allows a Period during which an observation actually occurs (observation.effective[x]). Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective[x] QDM does not address the time for which the experience is evaluated. Such a concept might be a new consideration for QDM.</td></tr>
 <tr>
 <td>id</td>
 <td>Observation.id </td>
@@ -48,6 +50,7 @@
 <td>Source</td>
 <td>Observation.performer</td>
 <td>QI Core / FHIR does not have a direct concept of &#34;source&#34; but it does list Observation.performer and Observation.device, both of which would address the QDM concept of Source.</td></tr></table></div>
+
 
 <a name="Provider_Care_Experience"> </a>
 <h3>
@@ -71,8 +74,9 @@
 <td>QDM matched to FHIR / QI Core</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>observation.effective.x</td>
-<td>QDM matched to FHIR / QI Core - QDM only addresses authorTime; QI Core allows a Period. Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective.x. Consider authorDatetime for Patient Care Experience is the dateTime the experience is captured (i.e., the start of the effectiveTime).</td></tr>
+<td>observation.issued</td>
+<td>QDM matched to FHIR / QI Core – Note: QDM only addresses authorTime; 
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR Observation resource uses .issued for author time. QI Core also allows a Period during which an observation actually occurs (observation.effective[x]). Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective[x]. QDM does not address the time for which the experience is evaluated. Such a concept might be a new consideration for QDM.</td></tr>
 <tr>
 <td>id</td>
 <td>Observation.id </td>

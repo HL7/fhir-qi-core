@@ -12,7 +12,7 @@
 <p>The HL7 CQI Workgroup reviewed the content on this page in April 2018 referencing QDM version 5.3. There are no changes to the QDM Encounter category in QDM 5.4.</p>
 
 
-<p>QDM defines Encounter as an identifiable grouping of healthcare-related activities characterized by the entity relationship between the subject of care and a healthcare provider; such a grouping is determined by the healthcare provider.  A patient encounter represents interaction between a healthcare provider and a patient with a face-to-face patient visit to a clinician’s office, or any electronically remote interaction with a clinician for any form of diagnostic treatment or therapeutic event. Encounters can be billable events but are not limited to billable interactions. Each encounter has an associated location or modality within which it occurred (such as an office, home, electronic methods, phone encounter, or telemedicine methods). The encounter location is the patient’s location at the time of measurement. Different levels of interaction can be specified in the value associated with the element while modes of interaction (e.g., telephone) may be modeled using the data flow attribute. QDM defines three contexts for Encounter: Encounter, Order; Encounter, Performed; Encounter, Recommended.</p>
+<p>QDM defines Encounter as an identifiable grouping of healthcare-related activities characterized by the entity relationship between the subject of care and a healthcare provider; such a grouping is determined by the healthcare provider.  A patient encounter represents interaction between a healthcare provider and a patient with a face-to-face patient visit to a clinician’s office, or any electronically remote interaction with a clinician for any form of diagnostic treatment or therapeutic event. Encounters can be billable events but are not limited to billable interactions. Each encounter has an associated location or modality within which it occurred (such as an office, home, electronic methods, phone encounter, or telemedicine methods). The encounter location is the patient’s location at the time of measurement. Different levels of interaction can be specified in the value associated with the element while modes of interaction (e.g., telephone) may be modeled using the data flow attribute. QDM defines three contexts for Encounter: Encounter, Order; Encounter, Performed; Encounter, Recommended. Note: Encounter, Performed; Encounter, Order; and Encounter, Recommended do not include a clear mechanism to address urgent, emergent or routine (scheduled) encounters. QDM is evaluating the possibility of adding Encounter,priority to address these issues. See the QDM Known Issues site to review the request and to link to the ONC Jira QDM Issues page to join in the discussion in consideration of the next version of QDM (5.5) <a class="external autonumber" href="https://github.com/esacinc/CQL-Formatting-and-Usage-Wiki/wiki/eCQM-Known-Issues#differentiating-elective-vs-emergent-or-urgent-encounters-or-procedures" rel="nofollow">[1]</a>.</p>
 
 
 
@@ -34,7 +34,7 @@
 <td>Referral Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. For QDM datatypes with the context &#34;order&#34; the ReferralRequest.intent value shall be constrained to &#34;order&#34;</td></tr>
 <tr>
 <td>FacilityLocation</td>
-<td>ReferralRequest.context - FHIR STU 4.0 updating to ServiceRequest.context</td>
+<td>ReferralRequest.context</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Negation Rationale</td>
@@ -42,23 +42,23 @@
 <td>Modeled as a procedure request - there is no Encounter request in QI Core. Note FHIR STU 4.0 is updating ReferralRequest to Service.Request. See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&#38;tracker_item_id=15940" rel="nofollow">15940</a> for negation rationale for ServiceRequest.</td></tr>
 <tr>
 <td>Reason</td>
-<td>ReferralRequest.reasonCode - FHIR STU 4.0 updating to ServiceRequest.reasonCode</td>
+<td>ReferralRequest.reasonCode</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ReferralRequest.AuthoredOn - FHIR STU 4.0 updating to ServiceRequest.AuthoredOn</td>
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>ReferralRequest.authoredOn</td>
+<td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td></tr>
 <tr>
 <td>Code</td>
-<td>ReferralRequest.type - FHIR STU 4.0 updating to ServiceRequest.type</td>
+<td>ReferralRequest.type</td>
 <td>See also, Observation.category</td></tr>
 <tr>
 <td>id</td>
-<td>ReferralRequest.id - FHIR 4.0 updating to ServiceRequest.id</td>
+<td>ReferralRequest.id</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Source</td>
-<td>ReferralRequest.requester - FHIR 4.0 updating to ServiceRequest.requester</td>
+<td>ReferralRequest.requester</td>
 <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization on whose behalf the device or practitioner was acting</td></tr></table></div>
 
 
@@ -76,11 +76,11 @@
 <td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
 <td>Encounter, Recommended</td>
-<td>ReferralRequest.intent - FHIR STU 4.0 updating to ServiceRequest.intent</td>
+<td>ReferralRequest.intent</td>
 <td>Referral Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. For QDM datatypes with the context &#34;recommended&#34; the ReferralRequest.intent value shall be constrained to &#34;order&#34;</td></tr>
 <tr>
 <td>FacilityLocation</td>
-<td>ReferralRequest.context - FHIR STU 4.0 updating to ServiceRequest.context</td>
+<td>ReferralRequest.context</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Negation Rationale</td>
@@ -88,23 +88,23 @@
 <td>Modeled as a procedure request - there is no Encounter request in QI Core. Note FHIR STU 4.0 is updating ReferralRequest to Service.Request. See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&#38;tracker_item_id=15940" rel="nofollow">15940</a> for negation rationale for ServiceRequest.</td></tr>
 <tr>
 <td>Reason</td>
-<td>ReferralRequest.reasonCode - FHIR STU 4.0 updating to ServiceRequest.reasonCode</td>
+<td>ReferralRequest.reasonCode</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ReferralRequest.AuthoredOn - FHIR STU 4.0 updating to ServiceRequest.AuthoredOn</td>
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>ReferralRequest.authoredOn</td>
+<td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM</td></tr>
 <tr>
 <td>Code</td>
-<td>ReferralRequest.type - FHIR STU 4.0 updating to ServiceRequest.type</td>
+<td>ReferralRequest.type</td>
 <td>See also, Observation.category</td></tr>
 <tr>
 <td>id</td>
-<td>ReferralRequest.id - FHIR 4.0 updating to ServiceRequest.id</td>
+<td>ReferralRequest.id</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Source</td>
-<td>ReferralRequest.requester - FHIR 4.0 updating to ServiceRequest.requester</td>
+<td>ReferralRequest.requester</td>
 <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization on whose behalf the device or practitioner was acting</td></tr></table></div>
 
 
@@ -157,7 +157,7 @@ Encounter.diagnosis.rank</td>
 <tr>
 <td>Author dateTime</td>
 <td>FHIR.provenance.recorded</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td></tr>
+<td>FHIR references authorDatetime as part of the provenance resource for all resources. Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR Encounter resource does not reference an author dateTime; hence the QDM mapping references FHIR.provenance.</td></tr>
 <tr>
 <td>Code</td>
 <td>Encounter.class</td>

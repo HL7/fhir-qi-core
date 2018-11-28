@@ -41,8 +41,10 @@
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.AuthoredOn</td>
-<td>QDM matched to QI Core/FHIR. Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>ProcedureRequest.authoredOn</td>
+<td>QDM matched to QI Core/FHIR. Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>ProcedureRequest.code</td>
@@ -55,6 +57,7 @@
 <td>Source</td>
 <td>ProcedureRequest.requester</td>
 <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization on whose behalf the device or practitioner was acting</td></tr></table></div>
+
 
 <a name="Diagnostic_Study.2C_Recommended"> </a>
 <h3>
@@ -82,8 +85,10 @@
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.AuthoredOn</td>
-<td>QDM matched to QI Core/FHIR. Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>ProcedureRequest.authoredOn</td>
+<td>QDM matched to QI Core/FHIR. Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>ProcedureRequest.code</td>
@@ -96,6 +101,7 @@
 <td>Source</td>
 <td>ProcedureRequest.requester</td>
 <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization on whose behalf the device or practitioner was acting</td></tr></table></div>
+
 
 <a name="Diagnostic_Study.2C_Performed_.28Imaging_Studies.29"> </a>
 <h3>
@@ -151,8 +157,9 @@
 <td>Note - QI Core includes DiagnosticReport.specimen - eCQMs use the LOINC value set to determine the specimen source</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>FHIR.provenance.recorded</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources. Is author dateTime still appropriate for this QDM datatype?</td></tr>
+<td>DiagnosticReport.issued</td>
+<td>QDM matched to FHIR / QI Core – Note: QDM only addresses authorTime; 
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR Observation resource uses .issued for author time. QI Core also allows a Period during which an observation actually occurs (observation.effective[x]). Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective[x]. QDM does not address the time for which the experience is evaluated. Such a concept might be a new consideration for QDM</td></tr>
 <tr>
 <td>Components</td>
 <td>Observation.component</td>
@@ -230,8 +237,9 @@
 <td>Note - QI Core includes Observation.specimen - eCQMs use the LOINC value set to determine the specimen source</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>part of FHIR Provenance Resource</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources. Is author dateTime still appropriate for this QDM datatype?</td></tr>
+<td>Observation.issued</td>
+<td>QDM matched to FHIR / QI Core – Note: QDM only addresses authorTime; 
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR Observation resource uses .issued for author time. QI Core also allows a Period during which an observation actually occurs (observation.effective[x]). Patient Care Experience generally address specific documentation of observations. However, the experience may be referencing a specific period of time during which the patient was exposed to the healthcare system (e.g., Patient Care Experience during a hospitalization - i.e., with an admission dateTime and discharge dateTime to define the Relevant Period). Such concepts would use observation.effective[x]. QDM does not address the time for which the experience is evaluated. Such a concept might be a new consideration for QDM</td></tr>
 <tr>
 <td>Components</td>
 <td>Observation.component</td>

@@ -25,8 +25,8 @@
 <td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
 <td>Diagnosis</td>
-<td>Condition (the .clinicalstatus metadata allows conformance to the specific QDM datatype context)</td>
-<td>QDM defaults the status to active and prevalence period provides the evidence of activity.</td></tr>
+<td>Condition (the Condition.clinicalStatus metadata allows conformance to the specific QDM datatype context)</td>
+<td>QDM defaults the status to active and prevalence period provides the evidence of activity. Note: The FHIR Condition resource does not specify a status for Condition.clinicalStatus; however, the QDM datatype Diagnosis default state is &#34;active&#34;; hence, the Condition.clinicalStatus should be constrained to &#34;active&#34;. Also, the Condition.verificationStatus should be constrained to &#34;confirmed&#34;.</td></tr>
 <tr>
 <td>Prevalence Period</td>
 <td>Condition.onset[x], OR Condition.asserted</td>
@@ -49,8 +49,8 @@
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>FHIR Provenance.recorded</td>
-<td>FHIR provenance addressed author time, Condition.assertedDate may be closer to the onset of the QDM Prevalence Period. Consider - the software may default assertedDate to the date entered requiring manual editing to enter a different date. Further, does it reflect the date the assertion is made or the date the patient asserted that the condition began? Seeking guidance - due to potential ambiguity, should QDM map to FHIR provenance?</td></tr>
+<td>Condition.assertedDate</td>
+<td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>id</td>
 <td>Condition.id</td>
