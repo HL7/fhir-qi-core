@@ -21,19 +21,23 @@
   </organization>
   <code>
     <coding>
-      <system value="http://hl7.org/fhir/practitioner-role"/>
-      <code value="doctor"/>
-      <display value="Doctor"/>
+      <system value="http://nucc.org/provider-taxonomy"/>
+      <code value="208D00000X"/>
+      <display value="General Practice"/>
     </coding>
   </code>  
   <specialty>
     <coding>
-      <system value="http://www.snomed.org/"/>
-      <code value="394814009"/>
+      <system value="http://nucc.org/provider-taxonomy"/>
+      <code value="208D00000X"/>
       <display value="General Practice"/>
     </coding>
   </specialty>
   <location>
     <reference value="Location/example"/>
   </location>
+	<telecom>
+		<system value="phone"/>
+		<value value="801-123-4567"/>
+	</telecom>
 </PractitionerRole>
