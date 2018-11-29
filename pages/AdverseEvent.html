@@ -27,7 +27,8 @@
 <tr valign="top">
 <td>Author dateTime</td>
 <td>FHIR Provenance.recorded</td>
-<td>QDM match to QI Core / FHIR</td></tr>
+<td>QDM match to QI Core / FHIR
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The AdverseEvent resource does not include a &#34;when.recorded&#34; timing element. Therefore, this mapping uses FHIR provenance.recorded for the QDM attribute for Adverse Event.</td></tr>
 <tr>
 <td>Relevant Period</td>
 <td>AdverseEvent.date</td>

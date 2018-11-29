@@ -52,7 +52,9 @@
 <tr>
 <td>Author dateTime</td>
 <td>Immunization.date</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
+<td>QDM matched to QI Core / FHIR
+
+NOTE: See QDM Known Issues for update – Immunization, Administered should include only the dateTime of the immunization administration. Until QDM 5.5 version, implementers should map Immunization, Administered author dateTime to administrationTime. <a class="external autonumber" href="https://github.com/esacinc/CQL-Formatting-and-Usage-Wiki/wiki/eCQM-Known-Issues#qdm-immunization-administered-timing-attribute-advisory" rel="nofollow">[1]</a></td></tr>
 <tr>
 <td>Code</td>
 <td>Immunization.vaccineCode</td>
@@ -105,7 +107,9 @@
 <tr>
 <td>Author dateTime</td>
 <td>MedicationRequest.authoredOn</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
+<td>QDM matched to QI Core / FHIR
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Supply</td>
 <td>MedicationRequest.dispenseRequest.quantity</td>

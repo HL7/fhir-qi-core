@@ -51,8 +51,10 @@
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.AuthoredOn</td>
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>ProcedureRequest.authoredOn</td>
+<td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>ProcedureRequest.code</td>
@@ -65,6 +67,7 @@
 <td>Source</td>
 <td>ProcedureRequest.requester</td>
 <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
+
 
 <a name="Physical_Exam.2C_Recommended"> </a>
 <h3>
@@ -96,8 +99,10 @@
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.AuthoredOn</td>
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>ProcedureRequest.authoredOn</td>
+<td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>ProcedureRequest.code</td>
@@ -110,6 +115,7 @@
 <td>Source</td>
 <td>ProcedureRequest.requester</td>
 <td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
+
 
 <a name="Physical_Exam.2C_Performed"> </a>
 <h3>
@@ -156,8 +162,10 @@
 <td>Note - QI Core also includes Observation.interpretation and Observation.comment - eCQMs have addressed interpretation as an implementation issue. Perhaps that approach should be reconsidered.</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>FHIR.provenance.recorded</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td></tr>
+<td>Observation.issued</td>
+<td>QDM matched to QI Core / FHIR
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Status</td>
 <td>Procedure.status</td>

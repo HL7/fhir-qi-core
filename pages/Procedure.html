@@ -51,8 +51,10 @@
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.AuthoredOn</td>
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>ProcedureRequest.authoredOn</td>
+<td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>ProcedureRequest.code</td>
@@ -101,8 +103,10 @@
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.AuthoredOn</td>
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>ProcedureRequest.authoredOn</td>
+<td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>ProcedureRequest.code</td>
@@ -180,11 +184,15 @@
 <tr>
 <td>Author dateTime</td>
 <td>FHIR.provenance.recorded</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources.</td></tr>
+<td>FHIR references authorDatetime as part of the provenance resource for all resources.
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR Procedure resource does not address an author time. Hence, the QDM Procedure, Performed datatype references FHIR provenance.</td></tr>
 <tr>
 <td>Status</td>
 <td>Procedure.status</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
+<td>QDM matched to QI Core / FHIR
+
+Note: Procedure.status allows specification of completed but it does not assure the procedure was completed successfully. The FHIR resource Proecedure.outcome does also specification of successful completion but that element may be ambiguous. The Patient Care Workgroup is evaluating options to more clearly represent a procedure that successfully achieved its objective (objective is not currently available as a metadata element). Moreover, clinical care capture of success with respect to procedure completion is highly variable. See the QDM Known Issues for a description of the issue and a link to the ONC Jira QDM Issues page to join the discussion for QDM <a class="external autonumber" href="https://github.com/esacinc/CQL-Formatting-and-Usage-Wiki/wiki/eCQM-Known-Issues#qdm-procedure-performed-completion-time" rel="nofollow">[2]</a>.</td></tr>
 <tr>
 <td>Code</td>
 <td>Procedure.code</td>

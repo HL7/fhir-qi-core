@@ -27,29 +27,22 @@
 <td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
 <td>Author dateTime</td>
-<td>FHIR Provenance.recorded</td>
-<td>FHIR provenance.recorded was chosen since the definition of AllergyIntolerance.assertedDate may not be a direct match to authorDatetime. Different clinical software products address asserted date indicating the time at which the allergy or intolerance is known.  That may be the same as the date entered into the software (i.e., authorDatetime). However, providers have the option of entering the time the allergy or intolerance was known to occur. The definition of the FHIR resource is ambiguous, i.e., asserted by whom (the patient or the provider), and is it the date the patient informed the provider or the date (approximate) that the allergy or intolerance occurred. Entering FHIR tracker comment for improvement in clarity of definition.
-QDM Guidance – add asserted date Vs modify authorDatetime to assertedDatetime. (FHIR tracker 15781 15March2018).Please advise if the definition in QI Core/FHIR is consistent with the authorDatetime reference in QDM and whether QDM requires greater clarity in definition (i.e., potentially change authorDatetime to Asserted dateTime).</td></tr>
+<td>AllergyIntolerance.assertedDate</td>
+<td>Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Prevalence Period</td>
 <td>AllergyIntolerance.onset[x]
 
-AllergyIntolerance-resolutionAge</td>
+AllergyIntolerance.lastOccurrence</td>
 <td>QDM Prevalence Period addresses the onset dateTime and the abatement dateTime for an allergy.  The options provided in QI Core / FHIR include
 
 
 <ol>
 <li>AllergyIntolerance.reaction.onset,</li>
-<li>AllergyIntolerance.onset(x) (which allows a period) to allow expression of a timeframe during which the allergy began, </li>
-<li>AllergyIntolerance.reaction.allergyintoleranceduration (the time the allergyIntolerance persisted, and </li>
-<li>allergyintolerance-resolutionAge (limited to age rather than dateTime). In general, patients may remember the age at which an allergy was determined to have abated, but not a dateTime.</li>
+<li>AllergyIntolerance.onset(x) (which allows a period) to allow expression of a timeframe during which the allergy began</li>
 </ol>
 
-QDM Guidance: The QDM Prevalence Period start should map to AllergyIntolerance.onset[x] and reference the start of the AllergyIntolerance.onset period. the QDM Allergy/Intolerance Prevalence Period end should map to allergyintolerance-resolutionAge, but the age is an extension (i.e., QI Core only) and implementers would potentially need to map an age to a year and default a month and day.  
-
-The definition of AllergyIntolerance.assertedDate may not be a direct match to authorDatetime. Different clinical software products address asserted date indicating the time at which the allergy or intolerance is known.  That may be the same as the date entered into the software (i.e., authorDatetime). However, providers have the option of entering the time the allergy or intolerance was known to occur. The definition of the FHIR resource is ambiguous, i.e., asserted by whom (the patient or the provider), and is it the date the patient informed the provider or the date (approximate) that the allergy or intolerance occurred. Entering FHIR tracker comment for improvement in clarity of definition.
-QDM Guidance – add asserted date Vs modify authorDatetime to assertedDatetime. (FHIR tracker 15781 15March2018).Please advise if the definition in QI Core/FHIR is consistent with the authorDatetime reference in QDM and whether QDM requires greater clarity in definition (i.e., potentially change authorDatetime to Asserted dateTime).
-</td></tr>
+QDM Guidance: The QDM Prevalence Period start should map to AllergyIntolerance.onset[x] and reference the start of the AllergyIntolerance.onset period. the QDM Allergy/Intolerance Prevalence Period end should map to allergyintolerance.lastOccurrence. Different clinical software products address asserted date indicating the time at which the allergy or intolerance is known.  That may be the same as the date entered into the software (i.e., assertedDate). However, providers have the option of entering the time the allergy or intolerance was known to occur.</td></tr>
 <tr>
 <td>Code</td>
 <td>AllergyIntolerance.code</td>
@@ -60,8 +53,8 @@ QDM Guidance – add asserted date Vs modify authorDatetime to assertedDatetime.
 <td>In the future, QDM might consider adding the FHIR concept AllergyIntolerance.type (Allergy, Intolerance) and AllergyIntolerance.category (food, medication, environment, biologic).</td></tr>
 <tr>
 <td>Severity</td>
-<td>Allergyintolerance.reaction.severity</td>
-<td>Note the comment in QI Core/FHIR --- &#34;It is acknowledged that this assessment is very subjective. There may be some specific practice domains where objective scales have been applied. Objective scales can be included in this model as extensions.&#34; In the future, consider addressing criticality in QDM as well (i.e., low risk, high risk).&#34;</td></tr>
+<td>Allergyintolerance.criticality</td>
+<td>QDM severity is more vague than the FHIR concept criticality which is most consistent with the intent of the QDM attribute (i.e., low risk, high risk).</td></tr>
 <tr>
 <td>Source</td>
 <td>AllergyIntolerance.asserter</td>

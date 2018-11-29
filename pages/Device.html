@@ -45,7 +45,7 @@
 <tr>
 <td>Negation Rationale</td>
 <td>None</td>
-<td>A DeviceUseStatement does not address negation since there would be no statement if the device were absent. QDM usage to indicate devices that have not been applied should address negation rationale for the order or the recommendation (i.e., ProcedureRequest.extension (reasonRefused). See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&#38;tracker_item_id=15938" rel="nofollow">15938</a>.</td></tr>
+<td>A DeviceUseStatement does not address negation directly since there would be no statement if the device were absent. QDM usage is to indicate devices that have not been applied should address negation rationale for the order or the recommendation (i.e., ProcedureRequest.extension (reasonRefused)). One could address negation rationale by indicating DeviceUseStatement.status constrained to values stopped or on-hold and reference DeviceUseStatement.reason to indicate the reason (i.e., reason for not using the device).</td></tr>
 <tr>
 <td>Reason</td>
 <td>DeviceUseStatement.indication</td>
@@ -89,11 +89,11 @@ Device.udi.deviceIdentifier</td>
 <tr valign="top">
 <td>Device Order</td>
 <td>DeviceRequest.intent</td>
-<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to &#34;order&#34; from the intent value set for QDM datatypes with the order context.</td></tr>
+<td>DeviceRequest.intent uses the concepts draft, active, on-hold, revoked, completed, entered-in-error, unkown. &#34;Draft&#34; is most consistent with the DeviceRequest when applied to clinical decision support (CDS) or expectations a provider gives to a patient. &#34;active&#34; or &#34;completed&#34; is consistent with the intent of the QDM Device, Order datatype.</td></tr>
 <tr>
 <td>Negation Rationale</td>
 <td>None</td>
-<td>DeviceRequest resource does not include a reason the device request did not occur. QI Core does have a ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a>). See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&#38;tracker_item_id=15939" rel="nofollow">15939</a>.</td></tr>
+<td>DeviceRequest resource does not include a reason the device request did not occur. QI Core does have a ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a>). One could address negation rationale by indicating DeviceRequest.status constrained to values suspended or cancelled and reference DeviceRequest.reasonCode to indicate the reason (i.e., reason for not using the device).</td></tr>
 <tr>
 <td>Reason</td>
 <td>DeviceRequest.reasonCode</td>
@@ -101,11 +101,13 @@ Device.udi.deviceIdentifier</td>
 <tr>
 <td>Author dateTime</td>
 <td>DeviceRequest.AuthoredOn</td>
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>Note - DeviceRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>DeviceRequest.code</td>
-<td>See also, Observation.category</td></tr>
+<td>Device requested</td></tr>
 <tr>
 <td>id</td>
 <td>DeviceRequest.id</td>
@@ -113,7 +115,7 @@ Device.udi.deviceIdentifier</td>
 <tr>
 <td>Source</td>
 <td>DeviceRequest.requester</td>
-<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
+<td>Who, what is requesting the diagnositics - note also, DeviceRequest.performer to indicate the requested filler of the request.</td></tr></table></div>
 
 
 <a name="Device.2C_Recommended"> </a>
@@ -130,7 +132,7 @@ Device.udi.deviceIdentifier</td>
 <tr valign="top">
 <td>Device Recommended</td>
 <td>DeviceRequest.intent</td>
-<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. &#34;Proposal&#34; is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ProcedureRequest.intent value of &#34;plan&#34; (an intension to ensure something occurs without providing an authorization to act).</td></tr>
+<td>DeviceRequest.intent uses the concepts draft, active, on-hold, revoked, copmleted, enetered-in-error, unknown. &#34;draft&#34; is most consistent with the DeviceRequest when applied to clinical decision support (CDS) or expectations a provider gives to a patient. &#34;active&#34; or &#34;completed&#34; is consistent with the intent of the QDM Device, Order datatype.</td></tr>
 <tr>
 <td>Negation Rationale</td>
 <td>None</td>
@@ -142,11 +144,13 @@ Device.udi.deviceIdentifier</td>
 <tr>
 <td>Author dateTime</td>
 <td>DeviceRequest.AuthoredOn</td>
-<td>Note - ProcedureRequest.occurrence(x) defines a dateTime when the event should occur - not addressed in QDM</td></tr>
+<td>Note - DeviceRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
 <td>DeviceRequest.code</td>
-<td>See also, Observation.category</td></tr>
+<td>Device requested</td></tr>
 <tr>
 <td>id</td>
 <td>DeviceRequest.id</td>
@@ -154,7 +158,7 @@ Device.udi.deviceIdentifier</td>
 <tr>
 <td>Source</td>
 <td>DeviceRequest.requester</td>
-<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
+<td>Who, what is requesting the diagnositics - note also, DeviceRequest.performer to indicate the requested filler of the request.</td></tr></table></div>
 
 {% include container-end.html %}
 {% include footer.html %}

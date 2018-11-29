@@ -108,7 +108,7 @@
 <tr>
 <td>Author dateTime</td>
 <td>FHIRprovenance.recorded</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources. Is authorDatetime still appropriate for this datatype?</td></tr>
+<td>FHIR references authorDatetime as part of the provenance resource for all resources. Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR MedicationAdministration resource does not reference an author dateTime. Hence, the QDM Medication, Administered datatype author dateTime references FHIR provenance.</td></tr>
 <tr>
 <td>Code</td>
 <td>MedicationAdministration.medication[x]</td>
@@ -165,7 +165,9 @@
 <tr>
 <td>Author dateTime</td>
 <td>FHIR.provenance.dateTime</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources. </td></tr>
+<td>FHIR references authorDatetime as part of the provenance resource for all resources.
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). FHIR MedicationDispense does not reference an author time. Hence, the QDM Medication, Dispensed datatype references FHIR provenance.  </td></tr>
 <tr>
 <td>Code</td>
 <td>MedicationDispense.medication[x]</td>
@@ -222,7 +224,7 @@
 <tr>
 <td>Author dateTime</td>
 <td>MedicationRequest.authoredOn</td>
-<td>Start of relevant period - no specific author time in QI Core
+<td>Start of relevant period - no specific author time in QI Core. In the case of Medication, Discharge, the &#34;request&#34; is either to the patient (for medications present in the home or those obtained over-the-counter) or a reference to the prescription sent to the pharmacy that is included in the discharge medication instructions.
 <pre>Note MedicationRequest.dispenseRequest.validityPeriod (Consider prescription validity as a QDM attribute)
 MedicationRequest.dosageInstruction.timing (Note - MedicationRequest.dosageInstruction.timing includes both the frequency instruction (e.g., every 8 hours) and the start and stop dates for the amount included.)
 </pre></td></tr>
@@ -290,7 +292,7 @@ MedicationRequest.dosageInstruction.timing (Note - MedicationRequest.dosageInstr
 <tr>
 <td>Relevant Period</td>
 <td>MedicationRequest.dispenseRequest.expectedSupplyDuration</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
+<td>QDM matched to QI Core / FHIR, except that expectedSupplyDuration is an interval, to map to relevantPeriod, it needs to be anchored to a starting date. Use start of dispenseRequest.validityPeriod as the starting date for the expectedSupplyDuration.</td></tr>
 <tr>
 <td>Route</td>
 <td>MedicationRequest.dosageInstruction.route</td>
@@ -298,7 +300,9 @@ MedicationRequest.dosageInstruction.timing (Note - MedicationRequest.dosageInstr
 <tr>
 <td>Author dateTime</td>
 <td>MedicationRequest.authoredOn</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
+<td>QDM matched to QI Core / FHIR
+
+Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>id</td>
 <td>MedicationRequest.id</td>
