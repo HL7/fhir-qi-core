@@ -36,6 +36,7 @@
 <p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
 <table class='table table-striped table-bordered'>
 <tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>condition</th><td>1..1</td><td><a href='QUICK-Condition.html'>Condition</a> | <a href='QUICK-Procedure.html'>qicore-procedure</a></td><td>Reason the encounter takes place, as specified using information from another resource. For admissions, this is the admission diagnosis. The indication will typically be a Condition (with other resources referenced in the evidence.detail), or a Procedure.</td></tr>
 <tr><th>role</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Role that this diagnosis has within the encounter (e.g. admission, billing, discharge &hellip;).<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/diagnosis-role' target='_blank'>The type of diagnosis this condition represents</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
 </table>
 </div>
