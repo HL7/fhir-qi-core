@@ -30,7 +30,7 @@
 <tr>
 <td>Prevalence Period</td>
 <td>Condition.onset[x], OR Condition.asserted</td>
-<td>Use whichever is the earlier date. QDM matched to QI Core / FHIR for start of Prevalence Period</td></tr>
+<td>Use Condition.onset[x], if present, use Condition.asserted as a fallback. Note that it may not be appropriate to map Condition.asserted to Diagnosis.prevalencePeriod.start when Condition.status is inactive. QDM matched to QI Core / FHIR for start of Prevalence Period</td></tr>
 <tr>
 <td />
 <td>Condition.abatement[x]</td>
