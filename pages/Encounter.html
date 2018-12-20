@@ -160,8 +160,11 @@ Encounter.diagnosis.rank</td>
 <td>FHIR references authorDatetime as part of the provenance resource for all resources. Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR Encounter resource does not reference an author dateTime; hence the QDM mapping references FHIR.provenance.</td></tr>
 <tr>
 <td>Code</td>
-<td>Encounter.class</td>
-<td>Encounter.class fits best with the type of encounter. Measure developers create their own values and might need to constrain the use to the suggested value set.  The previous Encounter.class value set included OBS - observation defined as &#34;Provision of care of women during pregnancy, childbirth and immediate postpartum period. Also known as Maternity.&#34; The updated value set includes OBSENC for &#34;observation encounter&#34; approved in the November 2017 Harmonization cycle.</td></tr>
+<td>Encounter.type</td>
+<td>Encounter.type fits best with the type of encounter. The Encounter.type value set includes codes from SNOMED CT decending from 308335008 patient encounter procedure (procedure) and codes from the Current Procedure and Terminology designated for Evaluation and Management (99200 – 99607) (subscription to AMA Required). Code systems included:
+
+http://snomed.info/sct http://www.ama-assn.org/go/cpt
+Encounter.type indicates: The codes SHALL be taken from US Core Encounter Type; other codes may be used where these codes are not suitable.</td></tr>
 <tr>
 <td>FacilityLocations</td>
 <td>Encounter.location</td>
