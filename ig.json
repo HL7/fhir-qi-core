@@ -16,6 +16,7 @@
     "specification": "http://hl7.org/fhir/STU3/"
   },
   "logging": ["init", "progress", "context", "html", "tx"],
+  "suppressedWarningFile": "SuppressedWarnings.txt",
   "special-urls":[
     "urn:oid:2.16.840.1.113883.6.238"
   ],
@@ -23,7 +24,7 @@
     {
       "name": "uscore",
       "location": "http://hl7.org/fhir/us/core",
-      "version": "1.1.0"
+      "version": "2.0.0"
     }
   ],
   "defaults": {
@@ -506,10 +507,6 @@
     "CodeSystem/observation-verification": {
       "base": "CodeSystem-observation-verification.html",
       "source": "codesystem-observation-verification.xml"
-    },
-    "ValueSet/hl7-payer": {
-      "source": "valueset-hl7-payer.json",
-      "base": "ValueSet-hl7-payer.html"
     },
     "ValueSet/qicore-allergyintolerance-reason-refuted": {
       "source": "valueset-qicore-allergyintolerance-reason-refuted.xml",
