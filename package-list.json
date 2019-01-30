@@ -1,0 +1,82 @@
+{
+    "package-id": "hl7.fhir.us.qicore",
+    "title": "Quality Improvement Core Framework",
+    "canonical": "http://www.hl7.org/fhir/us/qicore",
+    "introduction": "The QICore (Quality Improvement Core Framework) Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the [US Core](http://hl7.org/fhir/us/core) profiles to provide a common foundation for building, sharing, and evaluating knowledge artifacts across quality improvement efforts in the US Realm.",
+    "list": [
+        {
+            "version": "current",
+            "desc": "Continuous Integration Build (latest in version control)",
+            "path": "http://build.fhir.org/ig/cqframework/qi-core",
+            "status": "ci-build",
+            "current": true
+        },
+        {
+            "version": "3.2.0",
+            "descmd": "STU 3 (v3.2.0)\r\n* Updated profiles to be based on US Core 2.0.0\r\n* Derived Encounter and PractitionerRole profiles from US Core profiles",
+            "desc": "STU 3.2 (v3.2.0)",
+            "path": "http://www.hl7.org/fhir/us/qicore/STU32",
+            "status": "trial-use",
+            "sequence": "STU 3",
+            "current": true
+        }
+        {
+            "version": "3.1.0",
+            "date": "2018-08-21",
+            "descmd": "STU 3 (v3.1.0)\r\n* Added profile for PractitionerRole and removed Practitioner.role extension\r\n* Added profile for Task\r\n* Established pattern for representing QDM Principal Diagnosis in Encounters\r\n* Relaxed conformance requirements from all profiles to profiles that are relevant to a particular use case",
+            "desc": "STU 3 (v3.1.0)",
+            "path": "http://www.hl7.org/fhir/us/qicore/STU3",
+            "status": "trial-use",
+            "sequence": "STU 3"
+        },
+        {
+            "version": "2.1.0",
+            "date": "2017-12-20",
+            "descmd": "STU 3 Ballot (v3.0.0)\r\n* Incorporates ballot reconciliation from all comments from the September 2016 ballot which have been applied to FHIR 3.0 and US Core Release 1.0.1\r\n* Includes mapping to QDM Version 5.3 Annotated available at: https://ecqi.healthit.gov/qdm\r\n* ncludes an updated Mapping table from the QICore metadata to QDM 5.3\r\n* \r\n* Includes a direct mapping from QDM version 5.3 to QI Core",
+            "path": "http://www.hl7.org/fhir/us/qicore/2018Jan",
+            "status": "ballot",
+            "sequence": "STU 3"
+        },
+        {
+            "version": "3.0.1",
+            "date": "2017-12-12",
+            "descmd": "STU 2 (v2.0.0)\r\n* Updated to FHIR STU3 (3.0.1)\r\n* Changed from Universal Realm to US Realm\r\n* Derived from US Core profiles where possible\r\n* Added support for Claim and Coverage resources\r\n* Changed AdverseEvent profile to use the base resource\r\n* Numerous typographical and technical errors corrected",
+            "path": "http://www.hl7.org/fhir/us/qicore/STU2",
+            "status": "trial-use",
+            "sequence": "STU 2"
+        },
+        {
+            "version": "1.6.0",
+            "date": "2016-08-11",
+            "descmd": "STU 2 Ballot\r\n* Moved out of main FHIR publication package to its own home\r\n* Updated QICore profiles for changes to underlying specification\r\n* Added an additional profile on Condition\r\n* The QUICK logical model is included",
+            "path": "http://www.hl7.org/fhir/us/qicore/2016Sep",
+            "status": "ballot",
+            "sequence": "STU 2"
+        },
+        {
+            "version": "1.0.2",
+            "date": "2015-10-24",
+            "desc": "DSTU 1 (Permanent home)",
+            "path": "http://hl7.org/fhir/DSTU2/qicore/qicore.html",
+            "status": "trial-use",
+            "sequence": "STU 1",
+            "sequence-note": "Note: for this sequence, QICore was balloted as part of the FHIR specification, and these links are into the QICore page of the FHIR specification. Also note that this was DSTU 2 for the FHIR specification, but DSTU 1 for the QICore specification."
+        },
+        {
+            "version": "1.0.0",
+            "date": "2015-08-31",
+            "desc": "DSTU 1 Preview",
+            "path": "http://hl7.org/fhir/2015Sep/qicore/qicore.html",
+            "status": "preview",
+            "sequence": "STU 1"
+        },
+        {
+            "version": "0.5.0",
+            "date": "2015-04-02",
+            "desc": "DSTU 1 Ballot (May 2015 Ballot)",
+            "path": "http://hl7.org/fhir/2015May/qicore.html",
+            "status": "ballot",
+            "sequence": "STU 1"
+        }
+    ]
+}
