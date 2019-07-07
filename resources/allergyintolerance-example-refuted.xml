@@ -21,8 +21,18 @@
     <value value="49476534"/>
   </identifier>
   <!--    this allergy has been refuted    -->
-  <clinicalStatus value="inactive"/>
-  <verificationStatus value="refuted"/>
+  <clinicalStatus>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical"/>
+			<code value="inactive"/>
+		</coding>
+	</clinicalStatus>
+  <verificationStatus>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/allergyintolerance-verification"/>
+			<code value="refuted"/>
+		</coding>
+	</verificationStatus>
   <type value="allergy"/>
   <!--    this categorisation is implied by "cashew nut" and therefore basically 
     redundant, but many systems collect this field anyway, since it's either 
@@ -45,7 +55,7 @@
     <reference value="Patient/example"/>
   </patient>
   <!--    the date that this entry was recorded    -->
-  <assertedDate value="2014-10-09T14:58:00+11:00"/>
+  <recordedDate value="2014-10-09T14:58:00+11:00"/>
   <!--    who made the record / last updated it    -->
   <recorder>
     <reference value="Practitioner/example"/>

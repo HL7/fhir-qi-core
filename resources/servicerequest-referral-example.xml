@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<ReferralRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/referralrequest.xsd">
-    <id value="example"/>
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/referralrequest.xsd">
+    <id value="referral-example"/>
   <meta>
-    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-referralrequest"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"/>
   </meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/referralrequest-reasonRefused">
+    <extension url="http://hl7.org/fhir/StructureDefinition/servicerequest-reasonRefused">
     <valueCodeableConcept>
       <coding>
         <system value="http://snomed.info/sct" />
@@ -15,27 +15,27 @@
     </extension>
     <status value="cancelled" />
     <intent value="order" />
-    <type>
+    <category>
         <coding>
           <system value="http://snomed.info/sct" />
           <code value="700274009"/>
           <display value="Referral for procedure" />
         </coding>
-    </type>
+    </category>
     <priority value="routine" />
-    <serviceRequested>
+    <code>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="172676009"/>
           <display value="Myringotomy and insertion of short-term tympanic ventilation tube (procedure)"/>
         </coding>
-    </serviceRequested>
+    </code>
     <subject>
         <reference value="Patient/example"/>
     </subject>
-    <context>
+    <encounter>
         <reference value="Encounter/example"/>
-    </context>
+    </encounter>
     <occurrenceDateTime value="2014-02-13" />
     <authoredOn value="2014-02-14" />
     <!--<requester>-->
@@ -43,13 +43,13 @@
           <!--<reference value="Practitioner/example"/>-->
         <!--</agent>-->
     <!--</requester>-->
-    <specialty>
+    <performerType>
         <coding>
           <system value="http://snomed.info/sct"/>
           <code value="417887005"/>
           <display value="Pediatric otolaryngology"/>
         </coding>
-    </specialty>
+    </performerType>
     <!--<recipient>-->
         <!--<reference value="Practitioner/example"/>-->
     <!--</recipient>-->
@@ -60,4 +60,4 @@
           <display value="Otitis media"/>
         </coding>
     </reasonCode>
-</ReferralRequest>
+</ServiceRequest>

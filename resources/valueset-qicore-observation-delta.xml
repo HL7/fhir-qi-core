@@ -5,6 +5,9 @@
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
+	<extension url="http://hl7.org/fhir/StructureDefinition/valueset-extensible">
+		<valueBoolean value="true"/>
+	</extension>
   <url value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-observation-delta"/>
   <version value="3.2.0"/>
   <name value="QICoreObservationDelta"/>
@@ -20,7 +23,6 @@
     </telecom>
   </contact>
   <description value="Code indicating how the current observation compares to previous observations - e.g., no change, rising trend, decreasing trend, etc..."/>
-  <extensible value="true"/>
   <compose>
     <include>
       <system value="http://hl7.org/fhir/v2/0078"/>

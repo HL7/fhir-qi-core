@@ -13,8 +13,18 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <clinicalStatus value="active"/>
-  <verificationStatus value="confirmed"/>
+  <clinicalStatus>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/condition-clinical"/>
+			<code value="active"/>
+		</coding>
+	</clinicalStatus>
+  <verificationStatus>
+		<coding>
+			<system value="http://terminology.hl7.org/CodeSystem/condition-ver-status"/>
+			<code value="confirmed"/>
+		</coding>
+	</verificationStatus>
   <category>
     <coding>
       <system value="http://hl7.org/fhir/condition-category"/>
@@ -54,12 +64,12 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  <context>
+  <encounter>
     <reference value="Encounter/example"/>
-  </context>
+  </encounter>
   <onsetDateTime value="2012-05-24T00:00:00+00:00"/>
   <!--<abatementBoolean value="false"/>-->
-  <assertedDate value="2012-05-24T00:00:00+00:00"/>
+  <recordedDate value="2012-05-24T00:00:00+00:00"/>
   <stage>
     <summary>
       <coding>

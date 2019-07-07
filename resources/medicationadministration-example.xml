@@ -4,7 +4,14 @@
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration"/>
   </meta>
-    <status value="on-hold"/>
+    <status value="not-done"/>
+    <statusReason>
+        <coding>
+            <system value="http://snomed.info/sct"/>
+            <code value="373147003"/>
+            <display value="Administration of medication not done due to contraindication (situation)"/>
+        </coding>
+    </statusReason>
     <medicationReference>
         <reference value="Medication/example"/>
     </medicationReference>
@@ -22,17 +29,9 @@
         <start value="2015-01-15T14:30:00+01:00"/>
         <end value="2015-01-15T14:30:00+01:00"/>
     </effectivePeriod>
-    <notGiven value="true"/>
-    <reasonNotGiven>
-        <coding>
-            <system value="http://snomed.info/sct"/>
-            <code value="373147003"/>
-            <display value="Administration of medication not done due to contraindication (situation)"/>
-        </coding>
-    </reasonNotGiven>
-    <prescription>
+    <request>
         <reference value="MedicationRequest/example"/>
-    </prescription>
+    </request>
     <note>
         <text value="Patient started Bupropion this morning - will administer in a reduced dose tomorrow"/>
     </note>

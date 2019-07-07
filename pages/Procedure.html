@@ -39,42 +39,42 @@
 <td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
 <td>Procedure, Order</td>
-<td>ProcedureRequest.intent</td>
+<td>ServiceRequest.intent</td>
 <td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to &#34;order&#34; from the intent value set for QDM datatypes with the order context.</td></tr>
 <tr>
 <td>Negation Rationale</td>
-<td>ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a>)</td>
+<td>ServiceRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/ServiceRequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/ServiceRequest-reasonRefused</a>)</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Reason</td>
-<td>ProcedureRequest.reasonCode</td>
+<td>ServiceRequest.reasonCode</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.authoredOn</td>
-<td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+<td>ServiceRequest.authoredOn</td>
+<td>Note - ServiceRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
 
 Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
-<td>ProcedureRequest.code</td>
+<td>ServiceRequest.code</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>AnatomicalLocation</td>
-<td>ProcedureRequest.bodySite</td>
+<td>ServiceRequest.bodySite</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Ordinality</td>
 <td>.</td>
-<td>Not addressed in FHIR ProcedureRequest</td></tr>
+<td>Not addressed in FHIR ServiceRequest</td></tr>
 <tr>
 <td>id</td>
-<td>ProcedureRequest.id</td>
+<td>ServiceRequest.id</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Source</td>
-<td>ProcedureRequest.requester</td>
-<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
+<td>ServiceRequest.requester</td>
+<td>Author, orderer - note also, ServiceRequest.requester.agent for device, practitioner or organization who initiated the request; or ServiceRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
 
 
 <a name="Procedure.2C_Recommended"> </a>
@@ -91,42 +91,42 @@ Note: FHIR Provenance generally addresses the author of the message; the identif
 <td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
 <tr valign="top">
 <td>Procedure, Recommended</td>
-<td>ProcedureRequest.intent</td>
-<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. &#34;Proposal&#34; is most consistent with the ProcedureRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ProcedureRequest.intent value of &#34;plan&#34; (an intension to ensure something occurs without providing an authorization to act).</td></tr>
+<td>ServiceRequest.intent</td>
+<td>Procedure Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. &#34;Proposal&#34; is most consistent with the ServiceRequest when applied to clinical decision support (CDS) in which the CDS proposes an action to a provider or to a patient. The QDM concept Recommended addresses expectations a provider gives to a patient. Such recommendations are most consistent with the ServiceRequest.intent value of &#34;plan&#34; (an intension to ensure something occurs without providing an authorization to act).</td></tr>
 <tr>
 <td>Negation Rationale</td>
-<td>ProcedureRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/procedurerequest-reasonRefused</a>)</td>
+<td>ServiceRequest.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/ServiceRequest-reasonRefused" rel="nofollow">http://hl7.org/fhir/StructureDefinition/ServiceRequest-reasonRefused</a>)</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Reason</td>
-<td>ProcedureRequest.reasonCode</td>
+<td>ServiceRequest.reasonCode</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Author dateTime</td>
-<td>ProcedureRequest.authoredOn</td>
-<td>Note - ProcedureRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
+<td>ServiceRequest.authoredOn</td>
+<td>Note - ServiceRequest.occurrence[x] defines a dateTime when the event should occur - not addressed in QDM
 
 Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
 <tr>
 <td>Code</td>
-<td>ProcedureRequest.code</td>
+<td>ServiceRequest.code</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>AnatomicalLocation</td>
-<td>ProcedureRequest.bodySite</td>
+<td>ServiceRequest.bodySite</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Ordinality</td>
 <td>.</td>
-<td>Not addressed in FHIR ProcedureRequest</td></tr>
+<td>Not addressed in FHIR ServiceRequest</td></tr>
 <tr>
 <td>id</td>
-<td>ProcedureRequest.id</td>
+<td>ServiceRequest.id</td>
 <td>QDM matched to QI Core / FHIR</td></tr>
 <tr>
 <td>Source</td>
-<td>ProcedureRequest.requester</td>
-<td>Author, orderer - note also, ProcedureRequest.requester.agent for device, practitioner or organization who initiated the request; or ProcedureRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
+<td>ServiceRequest.requester</td>
+<td>Author, orderer - note also, ServiceRequest.requester.agent for device, practitioner or organization who initiated the request; or ServiceRequest.requester.onBehalfOf  - the organization the device or practitioner was acting on behalf of</td></tr></table></div>
 
 
 <a name="Procedure.2C_Performed"> </a>

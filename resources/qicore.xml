@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ImplementationGuide xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/implementationguide.xsd">
-  <id value="us-qicore-3.2.0"/>
-  <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/us-qicore-3.2.0"/>
-  <version value="3.2.0"/>
+  <id value="us-qicore-4.0.0"/>
+  <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/us-qicore-4.0.0"/>
+  <version value="4.0.0"/>
   <name value="QICore"/>
-  <!--title value="QI-Core Implementation Guide"-->
+  <title value="QI-Core Implementation Guide"/>
   <status value="draft"/>
   <experimental value="true"/>
   <publisher value="HL7 International - Clinical Quality Improvement Work Group"/>
@@ -15,647 +15,631 @@
     </telecom>
   </contact>
   <description value="The QICore Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the [US Core](http://hl7.org/fhir/us/core) profiles to provide a common foundation for building, sharing, and evaluating knowledge artifacts across quality improvement efforts in the US Realm."/>
-  <dependency>
-    <type value="reference"/>
+	<packageId value="hl7.fhir.us.qicore"/>
+	<license value="CC0-1.0"/>
+	<fhirVersion value="4.0.0"/>
+  <dependsOn>
     <uri value="http://hl7.org/fhir/us/core"/>
-  </dependency>
-  <package>
-    <name value="base"/>
-
+  </dependsOn>
+  <definition>
 
     <!-- Examples -->
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="AdverseEvent/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="AllergyIntolerance/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="AllergyIntolerance/example-refuted"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
+		</resource>
+    <resource>
+      <reference>
+        <reference value="BodyStructure/example"/>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
-        <reference value="BodySite/example"/>
-      </sourceReference>
-    </resource>
-    <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Claim/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Communication/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="CommunicationRequest/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Condition/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Coverage/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Device/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="DeviceUseStatement/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="DiagnosticReport/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Encounter/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="FamilyMemberHistory/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Flag/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Goal/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="ImagingStudy/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Immunization/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="ImmunizationRecommendation/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Location/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Medication/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="MedicationAdministration/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="MedicationDispense/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="MedicationRequest/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="MedicationStatement/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Observation/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Organization/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Patient/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Practitioner/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="PractitionerRole/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Procedure/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
-        <reference value="ProcedureRequest/example"/>
-      </sourceReference>
+      <reference>
+        <reference value="ServiceRequest/example"/>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
-        <reference value="ReferralRequest/example"/>
-      </sourceReference>
+      <reference>
+        <reference value="ServiceRequest/referral-example"/>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="RelatedPerson/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Specimen/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Substance/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
     <resource>
-      <example value="true"/>
-      <sourceReference>
+      <reference>
         <reference value="Task/example"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="true"/>
     </resource>
 
 
     <!-- CodeSystems -->
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="CodeSystem/appropriateness-score"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="CodeSystem/communication-medium"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="CodeSystem/condition-criticality"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="CodeSystem/diagnosticorder-precondition"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="CodeSystem/military-service"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="CodeSystem/observation-verification"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
-
 
 
     <!-- ValueSets-->
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-allergyintolerance-reason-refuted" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-appropriateness-score" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
-        <reference value="ValueSet/qicore-bodysite-precoordinated" />
-      </sourceReference>
+      <reference>
+        <reference value="ValueSet/qicore-bodystructure-precoordinated" />
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-communication-reason-not-performed" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-condition-certainty" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-condition-criticality" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-condition-stage" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-encounter-canceled-reason" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-encounter-condition-role" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-encounter-diet" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-flag-category" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-goal-reason-rejected" />
-      </sourceReference>
-    </resource>
+      </reference>
+      <exampleBoolean value="false"/>
+		</resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-medication-dose-type" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-military-service" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-observation-body-position" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-observation-delta" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-observation-verification" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-patient-disability" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
+      <reference>
         <reference value="ValueSet/qicore-priority" />
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false" />
-      <sourceReference>
-        <reference value="ValueSet/qicore-referralrequest-reason-rejected" />
-      </sourceReference>
+      <reference>
+        <reference value="ValueSet/qicore-servicerequest-reason-rejected" />
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
-
 
     <!-- Profiles -->
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-adverseevent"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-allergyintolerance"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
-        <reference value="StructureDefinition/qicore-bodysite"/>
-      </sourceReference>
+      <reference>
+        <reference value="StructureDefinition/qicore-bodystructure"/>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-claim"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-communication"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-communicationrequest"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-condition"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-coverage"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-device"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-deviceusestatement"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
-        <reference value="StructureDefinition/qicore-diagnosticreport"/>
-      </sourceReference>
+      <reference>
+        <reference value="StructureDefinition/qicore-diagnosticreport-lab"/>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
+        <reference value="StructureDefinition/qicore-diagnosticreport-note"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="StructureDefinition/qicore-encounter"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-familymemberhistory"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-flag"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-goal"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-imagingstudy"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-immunization"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-immunizationrec"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-location"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-medication"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-medicationadministration"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-medicationdispense"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-medicationrequest"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-medicationstatement"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-observation"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-organization"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-patient"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-practitioner"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-practitionerrole"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-procedure"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
-        <reference value="StructureDefinition/qicore-procedurerequest"/>
-      </sourceReference>
+      <reference>
+        <reference value="StructureDefinition/qicore-servicerequest"/>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
-        <reference value="StructureDefinition/qicore-referralrequest"/>
-      </sourceReference>
-    </resource>
-    <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-relatedperson"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-specimen"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-substance"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-task"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
 
 
     <!-- Extensions -->
     <resource>
-      <example value="false"/>
-      <sourceReference>
+      <reference>
         <reference value="StructureDefinition/qicore-military-service"/>
-      </sourceReference>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
     <resource>
-      <example value="false"/>
-      <sourceReference>
-        <reference value="StructureDefinition/qicore-procedurerequest-appropriatenessScore"/>
-      </sourceReference>
+      <reference>
+        <reference value="StructureDefinition/qicore-servicerequest-appropriatenessScore"/>
+      </reference>
+      <exampleBoolean value="false"/>
     </resource>
-  </package>
-  <page>
-    <source value="index.html"/>
-    <title value="Home Page"/>
-    <kind value="page"/>
-    <page>
-      <source value="registry.html"/>
-      <title value="Registry"/>
-      <kind value="list"/>
-      <type value="CapabilityStatement"/>
-      <type value="StructureDefinition"/>
-      <type value="ValueSet"/>
-      <type value="ConceptMap"/>
-    </page>
-  </page>
+  </definition>
 </ImplementationGuide>

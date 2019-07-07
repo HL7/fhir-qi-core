@@ -27,6 +27,9 @@
     </coding>
   </category>
   <priority value="routine"/>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
   <medium>
     <coding>
       <system value="http://hl7.org/fhir/v3/ParticipationMode"/>
@@ -35,23 +38,20 @@
     </coding>
     <text value="written"/>
   </medium>
-  <recipient>
-    <reference value="Organization/example"/>
-  </recipient>
-  <context>
-    <reference value="Encounter/example"/>
-  </context>
   <payload>
     <contentString value="Please provide the accident report and any associated pictures to support your Claim #DEF5647."/>
   </payload>
   <occurrenceDateTime value="2016-06-10T11:01:10-08:00"/>
   <authoredOn value="2016-06-10T11:01:10-08:00"/>
-  <sender>
-    <reference value="Patient/example"/>
-  </sender>
   <!--<requester>-->
     <!--<agent>-->
       <!--<reference value="Practitioner/example"/>-->
     <!--</agent>-->
   <!--</requester>-->
+  <recipient>
+    <reference value="Organization/example"/>
+  </recipient>
+  <sender>
+    <reference value="Patient/example"/>
+  </sender>
 </CommunicationRequest> 

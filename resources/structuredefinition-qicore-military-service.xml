@@ -23,8 +23,10 @@
     </mapping>
     <kind value="complex-type"/>
     <abstract value="false"/>
-    <contextType value="resource"/>
-    <context value="Patient"/>
+		<context>
+			<type value="element"/>
+			<expression value="Patient"/>
+		</context>
     <type value="Extension"/>
     <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
     <derivation value="constraint"/>
@@ -139,9 +141,7 @@
             <binding>
                 <strength value="example"/>
                 <description value="The military service of the patient"/>
-                <valueSetReference>
-                    <reference value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-military-service"/>
-                </valueSetReference>
+                <valueSet value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-military-service"/>
             </binding>
             <mapping>
                 <identity value="rim"/>
@@ -173,9 +173,7 @@
             <binding>
                 <strength value="example"/>
                 <description value="The military service of the patient"/>
-                <valueSetReference>
-                    <reference value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-military-service"/>
-                </valueSetReference>
+                <valueSet value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-military-service"/>
             </binding>
         </element>
     </differential>

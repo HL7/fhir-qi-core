@@ -70,32 +70,32 @@
   </insurance>
   <item>
     <sequence value="1"/>
-    <careTeamLinkId value="1"/>
-    <service>
+    <careTeamSequence value="1"/>
+    <!--service>
       <coding>
         <system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
         <code value="glasses"/>
       </coding>
-    </service>
+    </service-->
     <servicedDate value="2014-08-16"/>
     <unitPrice>
       <value value="214.00"/>
       <system value="urn:iso:std:iso:4217"/>
       <code value="USD"/>
     </unitPrice>
-    <net>
+    <revenue>
       <value value="214.00"/>
       <system value="urn:iso:std:iso:4217"/>
       <code value="USD"/>
-    </net>
+    </revenue>
     <detail>
       <sequence value="1"/>
-      <service>
+      <productOrService>
         <coding>
           <system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
           <code value="frame"/>
         </coding>
-      </service>
+      </productOrService>
       <unitPrice>
         <value value="100.00"/>
         <system value="urn:iso:std:iso:4217"/>
@@ -109,12 +109,12 @@
     </detail>
     <detail>
       <sequence value="2"/>
-      <service>
+      <productOrService>
         <coding>
           <system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
           <code value="lens"/>
         </coding>
-      </service>
+      </productOrService>
       <quantity>
         <value value="2"/>
       </quantity>
@@ -131,12 +131,12 @@
     </detail>
     <detail>
       <sequence value="3"/>
-      <service>
+      <productOrService>
         <coding>
           <system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
           <code value="fst"/>
         </coding>
-      </service>
+      </productOrService>
       <unitPrice>
         <value value="200.00"/>
         <system value="urn:iso:std:iso:4217"/>

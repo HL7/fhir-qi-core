@@ -1,7 +1,7 @@
 <StructureDefinition xmlns="http://hl7.org/fhir">
-  <id value="qicore-procedurerequest-appropriatenessScore"/>
-  <url value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurerequest-appropriatenessScore"/>
-  <name value="QICoreProcedureRequestAppropriatenessScore"/>
+  <id value="qicore-servicerequest-appropriatenessScore"/>
+  <url value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest-appropriatenessScore"/>
+  <name value="QICoreServiceRequestAppropriatenessScore"/>
   <title value="RAND Appropriateness Score Extension"/>
   <status value="draft"/>
   <experimental value="false"/>
@@ -22,8 +22,10 @@
   </mapping>
   <kind value="complex-type"/>
   <abstract value="false"/>
-  <contextType value="resource"/>
-  <context value="ProcedureRequest"/>
+  <context>
+		<type value="element"/>
+		<expression value="ServiceRequest"/>
+	</context>
   <type value="Extension"/>
   <baseDefinition value="http://hl7.org/fhir/StructureDefinition/Extension"/>
   <derivation value="constraint"/>
@@ -122,9 +124,7 @@
       <binding>
         <strength value="required"/>
         <description value="The RAND scoring for appropriateness of the procedure."/>
-        <valueSetReference>
-          <reference value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
-        </valueSetReference>
+        <valueSet value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -164,9 +164,7 @@
       <binding>
         <strength value="required"/>
         <description value="The RAND scoring for appropriateness of the procedure."/>
-        <valueSetReference>
-          <reference value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
-        </valueSetReference>
+        <valueSet value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
       </binding>
     </element>
   </differential>

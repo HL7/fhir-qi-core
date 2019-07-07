@@ -1,11 +1,11 @@
 {
   "canonicalBase": "http://hl7.org/fhir/us/qicore",
-  "version": "3.0.1",
+  "version": "4.0.0",
   "sct-edition": "http://snomed.info/sct/731000124108",
   "source": "qicore.xml",
   "npm-name": "hl7.fhir.us.qicore",
   "jurisdiction": "us",
-  "fixed-business-version" : "3.2.0",
+  "fixed-business-version" : "4.0.0",
   "license": "CC0-1.0",
   "tool": "jekyll",
   "exemptHtmlPatterns" : ["quick\\/\\S*"],
@@ -27,7 +27,7 @@
     {
       "name": "uscore",
       "location": "http://hl7.org/fhir/us/core",
-      "version": "2.0.0"
+      "version": "3.0.0"
     }
   ],
   "defaults": {
@@ -37,7 +37,7 @@
     "AdverseEvent": {
       "template-base": "instance-template-example.html"
     },
-    "BodySite": {
+    "BodyStructure": {
       "template-base": "instance-template-example.html"
     },
     "Claim": {
@@ -112,13 +112,10 @@
     "Procedure": {
       "template-base": "instance-template-example.html"
     },
-    "ProcedureRequest": {
-      "template-base": "instance-template-example.html"
-    },
-    "ReferralRequest": {
-      "template-base": "instance-template-example.html"
-    },
     "RelatedPerson": {
+      "template-base": "instance-template-example.html"
+    },
+    "ServiceRequest": {
       "template-base": "instance-template-example.html"
     },
     "Specimen": {
@@ -149,7 +146,7 @@
   "spreadsheets": [
     "adverseevent-profile-spreadsheet.xml",
     "allergyintolerance-profile-spreadsheet.xml",
-    "bodysite-profile-spreadsheet.xml",
+    "bodystructure-profile-spreadsheet.xml",
     "claim-profile-spreadsheet.xml",
     "communication-profile-spreadsheet.xml",
     "communicationrequest-profile-spreadsheet.xml",
@@ -157,7 +154,8 @@
     "coverage-profile-spreadsheet.xml",
     "device-profile-spreadsheet.xml",
     "deviceusestatement-profile-spreadsheet.xml",
-    "diagnosticreport-profile-spreadsheet.xml",
+    "diagnosticreport-lab-profile-spreadsheet.xml",
+    "diagnosticreport-note-profile-spreadsheet.xml",
     "encounter-profile-spreadsheet.xml",
     "familymemberhistory-profile-spreadsheet.xml",
     "flag-profile-spreadsheet.xml",
@@ -177,9 +175,8 @@
     "practitioner-profile-spreadsheet.xml",
     "practitionerrole-profile-spreadsheet.xml",
     "procedure-profile-spreadsheet.xml",
-    "procedurerequest-profile-spreadsheet.xml",
-    "referralrequest-profile-spreadsheet.xml",
     "relatedperson-profile-spreadsheet.xml",
+    "servicerequest-profile-spreadsheet.xml",
     "specimen-profile-spreadsheet.xml",
     "substance-profile-spreadsheet.xml",
     "task-profile-spreadsheet.xml"
@@ -197,9 +194,9 @@
       "base": "AllergyIntolerance-example-refuted.html",
       "source": "allergyintolerance-example-refuted.xml"
     },
-    "BodySite/example": {
-      "base": "BodySite-example.html",
-      "source": "bodysite-example.xml"
+    "BodyStructure/example": {
+      "base": "BodyStructure-example.html",
+      "source": "bodystructure-example.xml"
     },
     "Claim/example": {
       "base": "Claim-example.html",
@@ -309,13 +306,13 @@
       "base": "Procedure-example.html",
       "source": "procedure-example.xml"
     },
-    "ProcedureRequest/example": {
-      "base": "ProcedureRequest-example.html",
-      "source": "procedurerequest-example.xml"
+    "ServiceRequest/example": {
+      "base": "ServiceRequest-example.html",
+      "source": "servicerequest-example.xml"
     },
-    "ReferralRequest/example": {
-      "base": "ReferralRequest-example.html",
-      "source": "referralrequest-example.xml"
+    "ServiceRequest/referral-example": {
+      "base": "ServiceRequest-referral-example.html",
+      "source": "servicerequest-referral-example.xml"
     },
     "RelatedPerson/example": {
       "base": "RelatedPerson-example.html",
@@ -341,9 +338,9 @@
       "base": "StructureDefinition-qicore-allergyintolerance.html",
       "defns": "StructureDefinition-qicore-allergyintolerance-definitions.html"
     },
-    "StructureDefinition/qicore-bodysite": {
-      "base": "StructureDefinition-qicore-bodysite.html",
-      "defns": "StructureDefinition-qicore-bodysite-definitions.html"
+    "StructureDefinition/qicore-bodystructure": {
+      "base": "StructureDefinition-qicore-bodystructure.html",
+      "defns": "StructureDefinition-qicore-bodystructure-definitions.html"
     },
     "StructureDefinition/qicore-claim": {
       "base": "StructureDefinition-qicore-claim.html",
@@ -373,9 +370,13 @@
       "base": "StructureDefinition-qicore-deviceusestatement.html",
       "defns": "StructureDefinition-qicore-deviceusestatement-definitions.html"
     },
-    "StructureDefinition/qicore-diagnosticreport": {
-      "base": "StructureDefinition-qicore-diagnosticreport.html",
-      "defns": "StructureDefinition-qicore-diagnosticreport-definitions.html"
+    "StructureDefinition/qicore-diagnosticreport-lab": {
+      "base": "StructureDefinition-qicore-diagnosticreport-lab.html",
+      "defns": "StructureDefinition-qicore-diagnosticreport-lab-definitions.html"
+    },
+    "StructureDefinition/qicore-diagnosticreport-note": {
+      "base": "StructureDefinition-qicore-diagnosticreport-note.html",
+      "defns": "StructureDefinition-qicore-diagnosticreport-note-definitions.html"
     },
     "StructureDefinition/qicore-encounter": {
       "base": "StructureDefinition-qicore-encounter.html",
@@ -453,13 +454,9 @@
       "base": "StructureDefinition-qicore-procedure.html",
       "defns": "StructureDefinition-qicore-procedure-definitions.html"
     },
-    "StructureDefinition/qicore-procedurerequest": {
-      "base": "StructureDefinition-qicore-procedurerequest.html",
-      "defns": "StructureDefinition-qicore-procedurerequest-definitions.html"
-    },
-    "StructureDefinition/qicore-referralrequest": {
-      "base": "StructureDefinition-qicore-referralrequest.html",
-      "defns": "StructureDefinition-qicore-referralrequest-definitions.html"
+    "StructureDefinition/qicore-servicerequest": {
+      "base": "StructureDefinition-qicore-servicerequest.html",
+      "defns": "StructureDefinition-qicore-servicerequest-definitions.html"
     },
     "StructureDefinition/qicore-relatedperson": {
       "base": "StructureDefinition-qicore-relatedperson.html",
@@ -477,10 +474,10 @@
       "base": "StructureDefinition-qicore-task.html",
       "defns": "StructureDefinition-qicore-task-definitions.html"
     },
-    "StructureDefinition/qicore-procedurerequest-appropriatenessScore": {
-      "base": "StructureDefinition-qicore-procedurerequest-appropriatenessScore.html",
-      "defns": "StructureDefinition-qicore-procedurerequest-appropriatenessScore-definitions.html",
-      "source": "structuredefinition-qicore-procedurerequest-appropriatenessscore.xml"
+    "StructureDefinition/qicore-servicerequest-appropriatenessScore": {
+      "base": "StructureDefinition-qicore-servicerequest-appropriatenessScore.html",
+      "defns": "StructureDefinition-qicore-servicerequest-appropriatenessScore-definitions.html",
+      "source": "structuredefinition-qicore-servicerequest-appropriatenessscore.xml"
     },
     "StructureDefinition/qicore-military-service": {
       "base": "StructureDefinition-qicore-military-service.html",
@@ -519,9 +516,9 @@
       "source": "valueset-qicore-appropriateness-score.xml",
       "base": "ValueSet-qicore-appropriateness-score.html"
     },
-    "ValueSet/qicore-bodysite-precoordinated": {
-      "source": "valueset-qicore-bodysite-precoordinated.xml",
-      "base": "ValueSet-qicore-bodysite-precoordinated.html"
+    "ValueSet/qicore-bodystructure-precoordinated": {
+      "source": "valueset-qicore-bodystructure-precoordinated.xml",
+      "base": "ValueSet-qicore-bodystructure-precoordinated.html"
     },
     "ValueSet/qicore-communication-reason-not-performed": {
       "source": "valueset-qicore-communication-reason-not-performed.xml",
@@ -587,9 +584,9 @@
       "source": "valueset-qicore-priority.xml",
       "base": "ValueSet-qicore-priority.html"
     },
-    "ValueSet/qicore-referralrequest-reason-rejected": {
-      "source": "valueset-qicore-referralrequest-reason-rejected.xml",
-      "base": "ValueSet-qicore-referralrequest-reason-rejected.html"
+    "ValueSet/qicore-servicerequest-reason-rejected": {
+      "source": "valueset-qicore-servicerequest-reason-rejected.xml",
+      "base": "ValueSet-qicore-servicerequest-reason-rejected.html"
     }
   }
 }
