@@ -1,0 +1,23 @@
+---
+# jekyll header
+---
+
+{% include header.html %}
+
+{% include container-start.html %}
+
+<a name="patterns"> </a>
+<h2><span class="sectioncount">2.0.0</span> QI-Core - Patterns <a href="patterns.html#top" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h2>
+<h3><span class="sectioncount">2.1.0</span> Observation <a href="patterns.html#observation" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+<p>For observations that have established profiles in US-Core, QI-Core uses those profiles:</p>
+<table class="list">
+    <tr><td>Vital Signs Profile</td><td><a class="external free" href="http://hl7.org/fhir/R4/observation-vitalsigns.html" rel="nofollow">"http://hl7.org/fhir/R4/observation-vitalsigns.html"</a></td></tr>
+    <tr><td>Smoking Status Profile</td><td><a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html" rel="nofollow">"http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html"</a></td></tr>
+    <tr><td>Laboratory Result Profile</td><td><a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html" rel="nofollow">"http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html"</a></td></tr>
+</table>
+
+<p>For all other observations, use the QICore-Observation profile.</p>
+
+{% include container-end.html %}
+
+{% include footer.html %}
