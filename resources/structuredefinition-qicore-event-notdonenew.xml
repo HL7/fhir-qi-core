@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <StructureDefinition xmlns="http://hl7.org/fhir">
-    <id value="qicore-event-notdone"/>
-    <url value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-event-notdone"/>
-    <name value="QICoreEventNotDone"/>
-    <title value="QICore Event Not Done Extension"/>
+    <id value="qicore-deviceusestatement-notdone"/>
+    <url value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceusestatement-notdone"/>
+    <name value="QICoreDeviceUseStatementNotDone"/>
+    <title value="QICore DeviceUseStatement Not Done Extension"/>
     <status value="draft"/>
     <experimental value="false"/>
     <date value="2018-08-22"/>
@@ -34,7 +34,7 @@
     <snapshot>
         <element id="Extension">
             <path value="Extension"/>
-            <sliceName value="event-notdone"/>
+            <sliceName value="deviceusestatement-notdone"/>
             <short value="Event did not occur"/>
             <definition value="If true, indicates that the described event (combination of code, timing, performer, etc.)
              did not actually occur."/>
@@ -62,7 +62,7 @@
             <type>
                 <code value="uri"/>
             </type>
-            <fixedUri value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-event-notdone"/>
+            <fixedUri value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceusestatement-notdone"/>
             <mapping>
                 <identity value="rim"/>
                 <map value="N/A"/>
@@ -102,7 +102,7 @@
         </element>
         <element id="Extension.url">
             <path value="Extension.url"/>
-            <fixedUri value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-event-notdone"/>
+            <fixedUri value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceusestatement-notdone"/>
         </element>
     </differential>
 </StructureDefinition>
