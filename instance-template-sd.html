@@ -22,8 +22,13 @@ tcode: {{[type]}}
   <a title="link to here" class="self-link" href="{{[type]}}-{{[id]}}.html#D.4.1"><img src="target.png"/></a>
 </h3>
 
+<h4 style="margin-top:1em">Introduction:</h4>
+<div>
+{% include StructureDefinition-{{page.id}}-introduction.html %}
+</div>
+
 <a name="examples"> </a>
-<h4>Examples:</h4>
+<h4 style="margin-top:1em">Examples:</h4>
 <table class="list">
   {% include {{[id]}}-ex.html %}
 </table>
