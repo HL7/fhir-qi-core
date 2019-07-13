@@ -6,18 +6,20 @@
 
 {% include container-start.html %}
 
-<a name="patterns"> </a>
-<h2><span class="sectioncount">2.0.0</span> QI-Core - Patterns <a href="patterns.html#top" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h2>
-<h3><span class="sectioncount">2.1.0</span> Observation <a href="patterns.html#observation" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h3>
-<p>For observations that have established profiles in US-Core, QI-Core uses those profiles:</p>
-<table class="list">
-    <tr><th>Profile</th><th>Description</th></tr>
-    <tr><td><a class="external free" href="http://hl7.org/fhir/R4/observation-vitalsigns.html" rel="nofollow">Vital Signs Profile</a></td><td>"A description here"</td></tr>
-    <tr><td><a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html" rel="nofollow">Smoking Status Profile</a></td><td>"A description here"</td></tr>
-    <tr><td><a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html" rel="nofollow">Laboratory Result Profile</a></td><td>"A description here"</td></tr>
-</table>
+<div class="col-12">
+  <a name="patterns"> </a>
+  <h2>QI-Core - Patterns<a href="patterns.html#top" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h2>
+  <h4><a class="external free" href="http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation.html" rel="nofollow">QI-Core - Observation</a> <a href="patterns.html#observation" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+  <p>For observations that have established profiles in US-Core, QI-Core uses those profiles:</p>
+  <table class="list">
+      <tr><th class="col-2">Profile</th><th class="col-10">Description</th></tr>
+      <tr><td><a class="external free" href="http://hl7.org/fhir/R4/observation-vitalsigns.html" rel="nofollow">Vital Signs Profile</a></td><td>"The FHIR Vital Signs profile sets minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient that include the primary vital signs plus additional measurements such as height, weight and BMI."</td></tr>
+      <tr><td><a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html" rel="nofollow">Smoking Status Profile</a></td><td>"This profile sets minimum expectations for the Observation resource to record, search and fetch smoking status data associated with a patient."</td></tr>
+      <tr><td><a class="external free" href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html" rel="nofollow">Laboratory Result Profile</a></td><td>"This profile sets minimum expectations for the Observation resource resource to record, search and fetch laboratory test results associated with a patient."</td></tr>
+  </table>
 
-<p>For all other observations, use the QICore-Observation profile.</p>
+  <p>For all other observations, use the QICore-Observation profile.</p>
+</div>
 
 {% include container-end.html %}
 
