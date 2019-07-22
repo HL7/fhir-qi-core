@@ -3,23 +3,28 @@
 ---
 {% include header.html %}
 {% include container-start.html %}
-<ul id="markdown-toc"><li><a href="#Medication.2C_Active">Medication, Active</a></li><li><a href="#Medication.2C_Administered">Medication, Administered</a></li><li><a href="#Medication.2C_Dispensed">Medication, Dispensed</a></li><li><a href="#Medication.2C_Discharge">Medication, Discharge</a></li><li><a href="#Medication.2C_Order">Medication, Order</a></li></ul>
+<ul id="markdown-toc"><li><a href="#Medication.2C_Active">Medication, Active</a></li><li><a href="#Medication.2C_Administered">Medication, Administered</a></li><li><a href="#Medication.2C_Dispensed">Medication, Dispensed</a></li><li><a href="#Medication.2C_Order">Medication, Order</a></li><li><a href="#Medication.2C_Discharge">Medication, Discharge</a></li></ul>
 <a name="Medication"> </a>
 <h2>
     <span class="sectioncount">7.16.0</span> Medication <a href="Medication.html#Medication" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
-
 <p>The CQI Workgroup reviewed this QDM category in April 2018 consistent with QDM version 5.3.  The content is updated on June 7, 2018 consistent with QDM version 5.4. The only differences between the two QDM versions are:
 </p>
-<ul>
-<li>Removal of the &#34;supply&#34; attribute from &#34;Medication, Active&#34;, and &#34;Medication, Administered&#34;. [&#34;supply&#34; is retained for &#34;Medication, Order&#34;, &#34;Medication, Dispensed&#34;, and &#34;Medication, Discharge&#34;.</li>
-<li>Addition of a &#34;setting&#34; attribute to &#34;Medication, Order&#34; to allow differentiation of the setting in which the patient is to use the medication (consistent with the MedicationRequest.category FHIR metadata element).</li>
-</ul>
-
-
-<p>QDM defines Medication as clinical drugs or chemical substances intended for use in the medical diagnosis, cure, treatment, or prevention of disease. Medications are defined as direct referenced values or value sets containing values derived from code systems such as RxNorm.  QDM defines five contexts for Medication: Medication, Active; Medication, Administered; Medication, Discharge; Medication, Dispensed; Medication, Order. 
-
+<p>
+    QDM defines Medication as clinical drugs or chemical substances intended for use in the medical diagnosis, cure, treatment, or prevention of disease.
+    Medications are defined as direct referenced values or value sets containing values derived from code systems such as RxNorm.
+    QDM defines five contexts for Medication, each of which is listed below referencing the US-Core or FHIR resource which provides the expected context:
 </p>
+<h2>Medication, Active</h2>
+<p>
+    This QDM context correlates with a medication on a patient’s active medication list and thus it maps to MedicationStatement.
+    Note that MedicationStatement does not include reference to the QDM attributes <em>route</em> or <em>frequency</em> or <em>recorder.</em>
+    These attributes may be important if the medication list is the only source of information about medication usage and quality measures or clinical decision support (CDS) expressions need to assess total daily dosage or cumulative dose over time.
+    Ordered medications (MedicationRequest) or dispensed medications (MedicationDispense) or administered medications (MedicationAsminstration) represent alternative mechanisms to determine such information.
+</p>
+
+
+
 
 <a name="Medication.2C_Active"> </a>
 <h3>
@@ -27,43 +32,59 @@
 </h3>
 
 <div style="page-break-inside: avoid;">
-<table border="1" cellpadding="2" cellspacing="0">
-<tr>
-<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
-<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
-<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
-<tr valign="top">
-<td>Medication, Active</td>
-<td>MedicationStatement (the .status metadata allows conformance to the specific QDM datatype context)</td>
-<td>The Medication, Active datatype requires use of the &#34;active&#34; status code from the FHIR value set</td></tr>
-<tr>
-<td>Dosage</td>
-<td>MedicationStatement.dosage.dose</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Frequency</td>
-<td>MedicationStatement.dosage.timing</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Route</td>
-<td>MedicationStatement.dosage.route</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Relevant Period</td>
-<td>MedicationStatement.effective</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Code</td>
-<td>MedicationStatement.medication[x]</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>id</td>
-<td>IMedicationStatement.id</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Source</td>
-<td>MedicationStatement.informationSource</td>
-<td>Source addressed by primarySource or reportOrigin</td></tr></table></div>
+    <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+            <td align="center" style="background:#f0f0f0;"><b>QDM Context</b></td>
+            <td align="center" style="background:#f0f0f0;"><b>QI-Core R4</b></td>
+            <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
+        <tr valign="top">
+            <td>Medication, Active</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement.html">Medicationstatement</a></td>
+            <td></td></tr><tr>
+        <td>Medication, Active context</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a></td>
+        <td>Constrain to "active"</td></tr>
+        <tr>
+            <td></td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.category">MedicationStatement.category</a></td>
+            <td>inpatient, outpatient, community, patient-specified</td></tr>
+        <tr>
+            <td>QDM Attribute</td>
+            <td></td>
+            <td></td></tr><tr>
+        <td>code</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.medication[x]">MedicationStatement.medication[x]</a></td>
+        <td></td></tr><tr>
+        <td>id</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.id">MedicationStatement.id</a></td>
+        <td></td></tr><tr>
+        <td>Dosage</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.dosage">MedicationStatement.dosage</a></td>
+        <td>Dosage contains all information about how medication is taken (datatype) - incorporates frequency and route but may be a string</td></tr>
+        <tr>
+            <td>frequency</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.dosage.timing">MedicationStatement.dosage.timing</a></td>
+            <td>Refer to MedicationRequest</td></tr>
+        <tr>
+            <td>route</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.dosage.site">MedicationStatement.dosage.site</a></td>
+            <td></td></tr><tr>
+        <td></td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.reasonCode">MedicationStatement.reasonCode</a></td>
+        <td></td></tr><tr>
+        <td>relevant dateTime</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.effective[x]">MedicationStatement.effective[x] dateTime</a></td>
+        <td></td></tr><tr>
+        <td>relevant period</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.effective[x]">MedicationStatement.effective[x] period</a></td>
+        <td></td></tr><tr>
+        <td></td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.dateAsserted">MedicationStatement.dateAsserted</a></td>
+        <td>Author dateTime not referenced in QDM</td></tr>
+        <tr>
+            <td>recorder</td>
+            <td></td>
+            <td></td></tr></table></div>
 
 
 <a name="Medication.2C_Administered"> </a>
@@ -71,52 +92,82 @@
     <span class="sectioncount">7.16.2</span> Medication, Administered <a href="Medication.html#Medication.2C_Administered" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
+<p>
+    This QDM context correlates with a record of a patient consuming or otherwise being administered a medication.
+    It references individual medication administration events and, therefore, may not reference frequency of administration.
+    Note that a separate QDM and US-Core profile address Immunization, Administered.
+</p>
+
 <div style="page-break-inside: avoid;">
-<table border="1" cellpadding="2" cellspacing="0">
-<tr>
-<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
-<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
-<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
-<tr valign="top">
-<td>Medication, Administered</td>
-<td>MedicationAdministration (the .status metadata allows conformance to the specific QDM datatype context)</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Dosage</td>
-<td>MedicationAdministration.dosage.dose</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Frequency</td>
-<td>MedicationStatement.dosage.timing</td>
-<td>Medication Administration documents a single administration, thus frequency is not a concept in the Medication Administered resource.</td></tr>
-<tr>
-<td>Negation Rationale</td>
-<td>MedicationAdministration.reasonNotGiven</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Reason</td>
-<td>MedicationAdministration.reasonCode</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Route</td>
-<td>MedicationAdministration.dosage.route</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Relevant Period</td>
-<td>MedicationAdministration.effective[x]</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Author dateTime</td>
-<td>FHIRprovenance.recorded</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources. Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). The FHIR MedicationAdministration resource does not reference an author dateTime. Hence, the QDM Medication, Administered datatype author dateTime references FHIR provenance.</td></tr>
-<tr>
-<td>Code</td>
-<td>MedicationAdministration.medication[x]</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>id</td>
-<td>MedicationAdministration.id</td>
-<td>QDM matched to QI Core / FHIR</td></tr></table></div>
+    <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+            <td align="center" style="background:#f0f0f0;"><b>QDM Context</b></td>
+            <td align="center" style="background:#f0f0f0;"><b>QI-Core R4</b></td>
+            <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
+        <tr valign="top">
+            <td>Medication, Administered</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration.html">MedicationAdministration</a></td>
+            <td></td></tr><tr>
+        <td></td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.status">MedicationAdministration.status</a></td>
+        <td>Constrain status to "In-progress" or "completed"</td></tr>
+        <tr>
+            <td></td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.category">MedicationAdministration.category</a></td>
+            <td>Allows specification of Inpatient, Outpatient, Community</td></tr>
+        <tr>
+            <td>QDM Attributes</td>
+            <td></td>
+            <td></td></tr><tr>
+        <td>code</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.medication[x]">MedicationAdministration.medication[x]</a></td>
+        <td>ֵExample uses SNOMED substance codes</td></tr>
+        <tr>
+            <td>id</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.id">MedicationAdministration.id</a></td>
+            <td></td></tr><tr>
+        <td>dosage</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.dosage.dose">MedicationAdministration.dosage.dose</a></td>
+        <td>Simple Quantity - Amount of medication for one administration</td></tr>
+        <tr>
+            <td></td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.dosage.rate[x]">MedicationAdministration.dosage.rate[x]</a></td>
+            <td>Simple Quantity</td></tr>
+        <tr>
+            <td>route</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.dosage.route">MedicationAdministration.dosage.route</a></td>
+            <td></td></tr><tr>
+        <td>frequency</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.request">MedicationAdministration.request</a></td>
+        <td>Reference to original MedicationRequest with content about prescription</td></tr>
+        <tr>
+            <td></td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing">MedicationRequest.dosageInstruction.timing</a></td>
+            <td>Timing schedule (e.g., every 8 hours)</td></tr>
+        <tr>
+            <td>reason</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.reasonCode">MedicationAdministration.reasonCode</a></td>
+            <td>None, given as ordered, emergency</td></tr>
+        <tr>
+            <td>relevant dateTime</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.effective[x]">MedicationAdministration.effective[x} dateTime</a></td>
+            <td></td></tr><tr>
+        <td>relevant Period</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.effective[x]">MedicationAdministration.effective[x} Period</a></td>
+        <td></td></tr><tr>
+        <td>author dateTime</td>
+        <td></td>
+        <td></td></tr><tr>
+        <td>Negation rationale</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.status">MedicationAdministration.status</a></td>
+        <td>Constrain status to "not-done"</td></tr>
+        <tr>
+            <td></td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.statusReason">MedicationAdministration.statusReason</a></td>
+            <td></td></tr><tr>
+        <td>Performer</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.performer.actor">MedicationAdministration.performer.actor</a></td>
+        <td></td></tr></table></div>
 
 
 <a name="Medication.2C_Dispensed"> </a>
@@ -124,62 +175,96 @@
     <span class="sectioncount">7.16.3</span> Medication, Dispensed <a href="Medication.html#Medication.2C_Dispensed" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
-<div style="page-break-inside: avoid;">
-<table border="1" cellpadding="2" cellspacing="0">
-<tr>
-<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
-<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
-<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
-<tr valign="top">
-<td>Medication, Dispensed</td>
-<td>MedicationDispense (the .status metadata allows conformance to the specific QDM datatype context)</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Dosage</td>
-<td>MedicationDispense.quantity</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Supply</td>
-<td>MedicationDispense.daysSupply</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Frequency</td>
-<td>MedicationDispense.dosageInstruction.timing</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Negation Rationale</td>
-<td>MedicationDispense.notDoneReason[x]</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Refills</td>
-<td>MedicationDispense.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/pharmacy-core-refillsRemaining" rel="nofollow">http://hl7.org/fhir/StructureDefinition/pharmacy-core-refillsRemaining</a>)</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Route</td>
-<td>MedicationDispense.dosageInstruction.route</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Relevant Period</td>
-<td>MedicationDispense.extension (<a class="external free" href="http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod" rel="nofollow">http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod</a>)</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Author dateTime</td>
-<td>FHIR.provenance.dateTime</td>
-<td>FHIR references authorDatetime as part of the provenance resource for all resources.
+<p>This QDM context maps to the FHIR MedicationDispense resource, indicating information about medications that have been dispensed.</p>
 
-Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>). FHIR MedicationDispense does not reference an author time. Hence, the QDM Medication, Dispensed datatype references FHIR provenance.  </td></tr>
-<tr>
-<td>Code</td>
-<td>MedicationDispense.medication[x]</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>id</td>
-<td>MedicationDispense.id</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Source</td>
-<td>MedicationDispense.performer</td>
-<td>QDM matched to QI Core / FHIR</td></tr></table></div>
+<div style="page-break-inside: avoid;">
+    <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+            <td align="center" style="background:#f0f0f0;"><b>QDM Context</b></td>
+            <td align="center" style="background:#f0f0f0;"><b>QI-Core R4</b></td>
+            <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
+        <tr valign="top">
+            <td>Medication, Dispensed</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense.html">MedicationDispense</a></td>
+            <td></td></tr><tr>
+        <td>Medication, Dispensed Contest</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.status">MedicationDIspense.status</a></td>
+        <td>Constrain MedicationDispense.status to active, completed, on-hold</td></tr>
+        <tr>
+            <td>QDM Attributes</td>
+            <td></td>
+            <td></td></tr><tr>
+        <td>code</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.medication[x]">MedicationDispense.medication[x]</a></td>
+        <td>SNOMED</td></tr>
+        <tr>
+            <td>id</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.id">MedicationDispense.id</a></td>
+            <td></td></tr><tr>
+        <td>dosage</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.dosageInstruction">MedicationDispense.dosageInstruction</a></td>
+        <td>ordered, calculated</td></tr>
+        <tr>
+            <td>supply</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.quantity">MedicationDispense.quantity</a></td>
+            <td></td></tr><tr>
+        <td>days supplied</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.daysSupply">MedicationDispense.daysSupply</a></td>
+        <td></td></tr><tr>
+        <td>frequency</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.dosageInstruction.timing">MedicationDispense.dosageInstruction.timing</a></td>
+        <td>See dosageInstruction</td></tr>
+        <tr>
+            <td>refills</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.authorizingPrescription">MedicationDispense.authorizingPrescription</a></td>
+            <td>Reference authorizing prescription (MedicationRequest) which contains Medication.Request.dispsenseRequest.numberOfRepeatsAllowed</td></tr>
+        <tr>
+            <td></td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed">MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</a></td>
+            <td></td></tr><tr>
+        <td>route</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.dosageInstruction.route">MedicationDispense.dosageInstruction.route</a></td>
+        <td>See dosageInstruction</td></tr>
+        <tr>
+            <td>setting</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.category">MedicationDispense.category</a></td>
+            <td>Inpatient, Outpatient, Community, Discharge</td></tr>
+        <tr>
+            <td>reason</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.statusReason[x]">MedicationDispense.statusReason[x[</a></td>
+            <td>The reason for ordering or not ordering the medication</td></tr>
+        <tr>
+            <td>relevant dateTime</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.whenHandedOver">MedicationDispense.whenHandedOver</a></td>
+            <td>When provided to patient or representative</td></tr>
+        <tr>
+            <td>relevant Period</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.extension:validityPeriod">MedicationDispense.extension:validityPeriod</a></td>
+            <td></td></tr><tr>
+        <td>author dateTime</td>
+        <td></td>
+        <td></td></tr><tr>
+        <td>Negation rationale</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.status">MedicationDIspense.status</a></td>
+        <td>Constrain MedicationDispense.status codes to "cancelled, declined</td></tr>
+        <tr>
+            <td></td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.statusReason">MedicationDispense.statusReason</a></td>
+            <td>The reason for ordering or not ordering the medication</td></tr>
+        <tr>
+            <td>Prescriber</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.authorizingPrescription">MedicationDispense.authorizingPrescription</a></td>
+            <td>Reference authorizing prescription (MedicationRequest) which contains Medication.Request.requester</td></tr>
+        <tr>
+            <td></td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester">MedicationRequest.requester</a></td>
+            <td></td></tr><tr>
+        <td>Dispenser</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.performer">MedicationDispense.performer</a></td>
+        <td></td></tr></table></div>
+
+<h2>Medication, Order</h2>
+<p>This QDM context references the US-Core MedicationRequest resource with the MedicationRequest.intent = <em>order</em> and MedicationRequest.setting set to the setting most appropriate for the intended meaning of the quality measure or clinical decision support (CDS) expression.</p>
 
 
 <a name="Medication.2C_Discharge"> </a>
@@ -187,130 +272,97 @@ Note: FHIR Provenance generally addresses the author of the message; the identif
     <span class="sectioncount">7.16.4</span> Medication, Discharge <a href="Medication.html#Medication.2C_Discharge" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
-<div style="page-break-inside: avoid;">
-<table border="1" cellpadding="2" cellspacing="0">
-<tr>
-<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
-<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
-<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
-<tr valign="top">
-<td>Medication, Discharge</td>
-<td>MedicationRequest.intent</td>
-<td>New profile created to address Medication-request-category = dischargeMedication (LOINC code 8654-6 Hospital Discharge medications) bound to RxNorm. The MedicationRequest.Intent is constrained to &#34;plan&#34; to address recommendations to the patient.  The MedicationRequest.category content does not yet include discharge medications.</td></tr>
-<tr>
-<td>Dosage</td>
-<td>MedicationRequest.dosageInstruction.dose[x]</td>
-<td>Note - modeled using MedicationRequest - could also be modeled as MedicationStatement with a status of &#34;intended&#34;.  May be modeled better as a component of a discharge instruction set but I can&#39;t find that in QI Core or FHIR</td></tr>
-<tr>
-<td>Supply</td>
-<td />
-<td>Supply shouldn&#39;t be required for Medication, Discharge since it is a set of medication instructions for a patient after departing from the hospital. However, in some cases, EHRs incorporate data from medication orders (prescriptions) written for post-discharge use into the discharge medication list provided to patients. In such cases, the supply may be present for newly prescribed medications. Such information is not covered in MedicationStatement in QI Core.</td></tr>
-<tr>
-<td>Frequency</td>
-<td>MedicationRequest.dosageInstruction.timing</td>
-<td>Note - MedicationRequest.dosageInstruction.timing includes both the frequency instruction (e.g., every 8 hours) and the start and stop dates for the amount included. </td></tr>
-<tr>
-<td>Negation Rationale</td>
-<td>MedicationStatement.reasonNotTaken</td>
-<td>Medication Request in QI Core does not reference negation rationale</td></tr>
-<tr>
-<td>Refills</td>
-<td>MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</td>
-<td>The mapping is somewhat problematic. The Medication, Discharge maps to MedicationRequest using the .intent metadata element constrained the &#34;plan&#34; - i.e., recommendation to the patient about which medications to take after discharge. While MedicationRequest has a .dispenseRequest.numberOfRepeatsAllowed, that metadata element is relevant for a prescription and not a medication list provided as a patient recommendation. Consider retiring this &#34;refills&#34; attribute for Medication, Discharge in QDM</td></tr>
-<tr>
-<td>Route</td>
-<td>MedicationRequest.dosageInstruction.route</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Author dateTime</td>
-<td>MedicationRequest.authoredOn</td>
-<td>Start of relevant period - no specific author time in QI Core. In the case of Medication, Discharge, the &#34;request&#34; is either to the patient (for medications present in the home or those obtained over-the-counter) or a reference to the prescription sent to the pharmacy that is included in the discharge medication instructions.
-<pre>Note MedicationRequest.dispenseRequest.validityPeriod (Consider prescription validity as a QDM attribute)
-MedicationRequest.dosageInstruction.timing (Note - MedicationRequest.dosageInstruction.timing includes both the frequency instruction (e.g., every 8 hours) and the start and stop dates for the amount included.)
-</pre></td></tr>
-<tr>
-<td>Code</td>
-<td>MedicationRequest.reasonCode</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>id</td>
-<td>MedicationRequest.id</td>
-<td>QDM matched to QI Core / FHIR</td></tr></table></div>
-
-
-<a name="Medication.2C_Order"> </a>
-<h3>
-    <span class="sectioncount">7.16.5</span> Medication, Order <a href="Medication.html#Medication.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
-</h3>
+<p>This QDM context specifically references the discharge medication list provided to a patient at the time of discharge from an inpatient setting. The list may include reference to new prescriptions sent to a pharmacy for dispensing and self-administration after discharge. It may also include over-the-counter medications and those medications already present in the patient’s home for which new prescriptions are not necessary.&nbsp; The QDM Medication, Discharge concept is mapped to MedicationRequest as a request to the patient to take the medication with MedicationRequest.intent = <em>plan</em> and MedicationRequest.setting = <em>discharge.</em></p>
 
 <div style="page-break-inside: avoid;">
-<table border="1" cellpadding="2" cellspacing="0">
-<tr>
-<td align="center" style="background:#f0f0f0;"><b>QDM Attribute</b></td>
-<td align="center" style="background:#f0f0f0;"><b>QI Core Metadata Element</b></td>
-<td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
-<tr valign="top">
-<td>Medication, Order</td>
-<td>MedicationRequest.intent</td>
-<td>Medication Request intent uses the concepts proposal, plan, order, original-order, reflex-order, filler-order, instance-order, option. Constrain to &#34;order&#34; from the intent value set for QDM datatypes with the order context.</td></tr>
-<tr>
-<td>Dosage</td>
-<td>MedicationRequest.dosageInstruction.dose[x]</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Supply</td>
-<td>MedicationRequest.dispenseRequest.quantity</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Frequency</td>
-<td>MedicationRequest.dosageInstruction.timing</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Setting</td>
-<td>MedicationRequest.category</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Code</td>
-<td>MedicationRequest.medication</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Method</td>
-<td>MedicationRequest.dosageInstruction.method</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Negation Rationale</td>
-<td>MedicationStatement.reasonNotTaken</td>
-<td>Medication Request in QI Core does not reference negation rationale. See FHIR Tracker Item <a class="external text" href="https://gforge.hl7.org/gf/project/fhir/tracker/?action=TrackerItemEdit&#38;tracker_item_id=15941" rel="nofollow">15941</a> addressing notDoneReason requirement.</td></tr>
-<tr>
-<td>Reason</td>
-<td>MedicationRequest.reasonCode</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Refills</td>
-<td>MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Relevant Period</td>
-<td>MedicationRequest.dispenseRequest.expectedSupplyDuration</td>
-<td>QDM matched to QI Core / FHIR, except that expectedSupplyDuration is an interval, to map to relevantPeriod, it needs to be anchored to a starting date. Use start of dispenseRequest.validityPeriod as the starting date for the expectedSupplyDuration.</td></tr>
-<tr>
-<td>Route</td>
-<td>MedicationRequest.dosageInstruction.route</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Author dateTime</td>
-<td>MedicationRequest.authoredOn</td>
-<td>QDM matched to QI Core / FHIR
+    <table border="1" cellpadding="2" cellspacing="0">
+        <tr>
+            <td align="center" style="background:#f0f0f0;"><b>QDM Context</b></td>
+            <td align="center" style="background:#f0f0f0;"><b>QI-Core R4</b></td>
+            <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
+        <tr valign="top">
+            <td>Medication, Order</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest">MedicationRequest</a></td>
+            <td></td></tr><tr>
+        <td>Medication, Order active</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.status">MedicationRequest.status</a></td>
+        <td>Constrain to active, completed, on-hold</td></tr>
+        <tr>
+            <td></td>
+            <td><a>MedicationRequest.statusReason</a></td>
+            <td></td></tr><tr>
+        <td>Request context (order Vs recommended)</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent">MedicationRequest.intent</a></td>
+        <td>Constrain to "order" for Medication, Order - note that QDM does not include Medication, Recommended - should that concept be desired, use MedicationRequest.intent constrained to "plan"</td></tr>
+        <tr>
+            <td>QDM Attributes</td>
+            <td></td>
+            <td></td></tr><tr>
+        <td>code</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication[x]</a></td>
+        <td>RsNorm</td></tr>
+        <tr>
+            <td>id</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.id">MedicationRequest.id</a></td>
+            <td></td></tr><tr>
+        <td>dosage</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.doseAndRate.dose[x]">MedicationRequest.dosageinstruction.doseAndRate.dose[x]</a></td>
+        <td>Range, quantity</td></tr>
+        <tr>
+            <td>supply</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity">MedicationRequest.dispenseRequest.quantity</a></td>
+            <td>Amount to be dispensed in one fill</td></tr>
+        <tr>
+            <td>days supplied</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.expectedSupplyDuration">MedicationRequest.dispenseRequest.expectedSupplyDuration</a></td>
+            <td>Duration</td></tr>
+        <tr>
+            <td>frequency</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing">MedicationRequest.dosageInstruction.timing</a></td>
+            <td>Timing schedule (e.g., every 8 hours)</td></tr>
+        <tr>
+            <td>refills</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.numberOfRepeatsAllowed">MedicationRequest.dispenseRequest.numberOfRepeatsAllowed</a></td>
+            <td>Integer</td></tr>
+        <tr>
+            <td>route</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.site">MedicationRequest.dosageInstruction.site</a></td>
+            <td></td></tr><tr>
+        <td>setting</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequset.category</a></td>
+        <td>Constrain category to: Inpatient, Outpatient, Community (see Medication Discharge row for QDM Medication, Discharge) </td></tr>
+        <tr>
+            <td>reason</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode">MedicationRequest.reasonCode</a></td>
+            <td>The reason for ordering or not ordering the medication</td></tr>
+        <tr>
+            <td>relevant dateTime</td>
+            <td></td>
+            <td></td></tr><tr>
+        <td>relevant Period</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod">MedicationRequest.dispenseRequest.validityPeriod</a></td>
+        <td></td></tr><tr>
+        <td>author dateTime</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn">MedicationRequest.authoredOn</a></td>
+        <td></td></tr><tr>
+        <td>Negation rationale</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.doNotPerform">MedicationRequest.doNotPerform</a></td>
+        <td></td></tr><tr>
+        <td></td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode">MedicationRequest.reasonCode</a></td>
+        <td>The reason for ordering or not ordering the medication</td></tr>
+        <tr>
+            <td>Prescriber</td>
+            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester">MedicationRequest.requester</a></td>
+            <td>Note - MedicationRequest.performer indicates the performer expected to administer the medication</td></tr>
+        <tr>
+            <td>Medication, Discharge</td>
+            <td></td>
+            <td></td></tr><tr>
+        <td>setting</td>
+        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequset.category</a></td>
+        <td>Constrain category to "Discharge" for QDM Medication, Discharge</td></tr></table></div>
 
-Note: FHIR Provenance generally addresses the author of the message; the identifier/source of the original resource element is defined by the resource. Individual resource element provenance is summarized in the FHIR W5 Report (<a class="external free" href="http://hl7.org/fhir/w5.html" rel="nofollow">http://hl7.org/fhir/w5.html</a>).</td></tr>
-<tr>
-<td>id</td>
-<td>MedicationRequest.id</td>
-<td>QDM matched to QI Core / FHIR</td></tr>
-<tr>
-<td>Source</td>
-<td>MedicationRequest.requester</td>
-<td>QDM matched to QI Core / FHIR</td></tr></table></div>
 
 {% include container-end.html %}
 {% include footer.html %}

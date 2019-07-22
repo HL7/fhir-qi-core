@@ -11,29 +11,26 @@
 <h2>
     <span class="sectioncount">7.0.0</span> QI-Core - QDM to QI Core Mapping <a href="qdm-to-qicore.html#qdmtoqicore" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
-
 <p>
     The CMS Quality Data Model (QDM) has been used to express electronic clinical quality measures (eCQMs) in HQMF since 2012.
     QDM is a conceptual data model that has evolved based on feedback, testing and use.
-    The current version (5.3) and QDM's complete history can be found on the <a href="https://ecqi.healthit.gov/qdm">eCQI Resource Center</a>.
-    Most of the QDM concepts map directly to FHIR resources and extensions represented in QI Core.
+    The current version (5.5) and QDM's complete history can be found on the&nbsp;<a href="https://ecqi.healthit.gov/qdm">eCQI Resource Center</a>.
+    Most of the QDM concepts map directly to US-Core R4, FHIR R4 resources or extensions represented in QI-Core.
 </p>
-
 <p>
-    This version of QI Core includes mappings from QI Core to QDM.
-    Reviewers can evaluate the comparisons, represented in the <em>Mappings</em> table for each QI Core resource.
-    Each <em>mapping</em> table shows the QI Core concept in the left-hand column and the corresponding QDM datatype(s) and attributes in the left-hand column.
-    Only QI Core metadata concepts represented in QDM are included in the <em>mapping</em> tables.
-    The effort mapped the intended meaning of each QDM datatype and attribute to a QI Core resource metadata element.
-    In some cases, multiple QDM datatypes map to a single QI Core resource as indicated in the QI Core <em>mapping</em> table.
+    This version of QI Core updates mappings from QI-Core to QDM based on US-Core R4 and FHIR R4 and QDM version 5.5.
+    Reviewers can evaluate the comparisons, represented in the&nbsp;<em>Mappings</em>&nbsp;table for each QI-Core resource.
+    Each&nbsp;<em>mapping</em>&nbsp;table shows the QI-Core concept in the left-hand column and the corresponding QDM datatype(s) and attributes in the left-hand column.
+    Only QI-Core metadata concepts represented in QDM are included in the&nbsp;<em>mapping</em>&nbsp;tables.
+    The effort mapped the intended meaning of each QDM datatype and attribute to a QI-Core resource metadata element.
+    In some cases, multiple QDM datatypes map to a single QI-Core resource as indicated in the QI-Core&nbsp;<em>mapping </em> table.
 </p>
-
 <p>
-    In addition to the QI Core to QDM comparisons presented with each QI Core resource, this section of the implementation guide presents the mapping directly from QDM concepts.
-    Thus, the IG provides a view of the mappings in both directions (QI Core to QDM, and QDM to QI Core).
+    In addition to the QI-Core to QDM comparisons presented with each QI-Core resource, this section of the implementation guide presents the mapping directly from QDM concepts.
+    Thus, the IG provides a view of the mappings in both directions (QI-Core to QDM, and QDM to QI-Core).
     This section is divided into 55 sections, one for each QDM concept, or QDM datatype.
-    Each QDM datatype includes a general description of the concept and a table mapping each of the QDM datatype-related attributes to QI Core metadata elements.
-    Refer to the <a href="https://ecqi.healthit.gov/qdm">eCQI Resource Center</a> for the full QDM 5.3 documentation.
+    Each QDM datatype includes a general description of the concept and a table mapping each of the QDM datatype-related attributes to QI-Core metadata elements.
+    Refer to the&nbsp;<a href="https://ecqi.healthit.gov/qdm">eCQI Resource Center</a>&nbsp;for the full QDM 5.5 documentation.
 </p>
 
 <table class="grid">
@@ -43,69 +40,69 @@
     </tr>
     </thead>
     <tbody>
-        <tr>
-            <td><a href="AdverseEvent.html">Adverse Event</a></td>
-        </tr>
-        <tr>
-            <td><a href="AllergyIntolerance.html">Allergy/Intolerance</a></td>
-        </tr>
-        <tr>
-            <td><a href="Assessment.html">Assessment</a></td>
-        </tr>
-        <tr>
-            <td><a href="CareExperience.html">Care Experience</a></td>
-        </tr>
-        <tr>
-            <td><a href="CareGoal.html">Care Goal</a></td>
-        </tr>
-        <tr>
-            <td><a href="Communication.html">Communication</a></td>
-        </tr>
-        <tr>
-            <td><a href="ConditionDiagnosisProblem.html">Condition/Diagnosis/Problem</a></td>
-        </tr>
-        <tr>
-            <td><a href="Device.html">Device</a></td>
-        </tr>
-        <tr>
-            <td><a href="DiagnosticStudy.html">Diagnostic Study</a></td>
-        </tr>
-        <tr>
-            <td><a href="Encounter.html">Encounter</a></td>
-        </tr>
-        <tr>
-            <td><a href="FamilyHistory.html">Family History</a></td>
-        </tr>
-        <tr>
-            <td><a href="Immunization.html">Immunization</a></td>
-        </tr>
-        <tr>
-            <td><a href="IndividualCharacteristic.html">Individual Characteristic</a></td>
-        </tr>
-        <tr>
-            <td><a href="Intervention.html">Intervention</a></td>
-        </tr>
-        <tr>
-            <td><a href="LaboratoryTest.html">Laboratory Test</a></td>
-        </tr>
-        <tr>
-            <td><a href="Medication.html">Medication</a></td>
-        </tr>
-        <tr>
-            <td><a href="Participation.html">Participation</a></td>
-        </tr>
-        <tr>
-            <td><a href="PhysicalExam.html">Physical Exam</a></td>
-        </tr>
-        <tr>
-            <td><a href="Procedure.html">Procedure</a></td>
-        </tr>
-        <tr>
-            <td><a href="Substance.html">Substance</a></td>
-        </tr>
-        <tr>
-            <td><a href="Symptom.html">Symptom</a></td>
-        </tr>
+    <tr>
+        <td><a href="AdverseEvent.html">Adverse Event</a></td>
+    </tr>
+    <tr>
+        <td><a href="AllergyIntolerance.html">Allergy/Intolerance</a></td>
+    </tr>
+    <tr>
+        <td><a href="Assessment.html">Assessment</a></td>
+    </tr>
+    <tr>
+        <td><a href="CareExperience.html">Care Experience</a></td>
+    </tr>
+    <tr>
+        <td><a href="CareGoal.html">Care Goal</a></td>
+    </tr>
+    <tr>
+        <td><a href="Communication.html">Communication</a></td>
+    </tr>
+    <tr>
+        <td><a href="ConditionDiagnosisProblem.html">Condition/Diagnosis/Problem</a></td>
+    </tr>
+    <tr>
+        <td><a href="Device.html">Device</a></td>
+    </tr>
+    <tr>
+        <td><a href="DiagnosticStudy.html">Diagnostic Study</a></td>
+    </tr>
+    <tr>
+        <td><a href="Encounter.html">Encounter</a></td>
+    </tr>
+    <tr>
+        <td><a href="FamilyHistory.html">Family History</a></td>
+    </tr>
+    <tr>
+        <td><a href="Immunization.html">Immunization</a></td>
+    </tr>
+    <tr>
+        <td><a href="IndividualCharacteristic.html">Individual Characteristic</a></td>
+    </tr>
+    <tr>
+        <td><a href="Intervention.html">Intervention</a></td>
+    </tr>
+    <tr>
+        <td><a href="LaboratoryTest.html">Laboratory Test</a></td>
+    </tr>
+    <tr>
+        <td><a href="Medication.html">Medication</a></td>
+    </tr>
+    <tr>
+        <td><a href="Participation.html">Participation</a></td>
+    </tr>
+    <tr>
+        <td><a href="PhysicalExam.html">Physical Exam</a></td>
+    </tr>
+    <tr>
+        <td><a href="Procedure.html">Procedure</a></td>
+    </tr>
+    <tr>
+        <td><a href="Substance.html">Substance</a></td>
+    </tr>
+    <tr>
+        <td><a href="Symptom.html">Symptom</a></td>
+    </tr>
     </tbody>
 </table>
 
