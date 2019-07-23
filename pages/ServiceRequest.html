@@ -1,0 +1,125 @@
+---
+# jekyll header
+---
+{% include header.html %}
+{% include container-start.html %}
+
+<a name="Service_Request"> </a>
+<h2>
+    <span class="sectioncount">7.3.0</span> Assessment <a href="ServiceRequest.html.html#Service_Request" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h2>
+
+
+
+<p>FHIR R4 uses the ServiceRequest resource to reference an order or recommendation for many resources including Encounter, Procedure and others. An order or recommendation to perform an observation is basically a request for a procedure to be performed.&nbsp; Starting with FHIR R4, all <em>requests</em> associated with QDM concepts are handled by ServiceRequest <em>except</em> MedicationRequest, DeviceRequest. QDM does not reference other FHIR options such as CommunicationRequest, CoverageEligibilityRequest, EnrollmentRequest, and SupplyRequest. Therefore this section of the QDM to QI-Core mapping references each of six observation-related QDM <em>datatypes</em> (assessment, care experience, diagnostic study, laboratory test, physical exam, and symptom) as well as intervention and procedure.&nbsp;&nbsp;</p>
+
+<div style="page-break-inside: avoid;">
+<table border="1" cellpadding="2" cellspacing="0">
+<tr>
+<td align="center" style="background:#f0f0f0;"><b>QDM Context</b></td>
+<td align="center" style="background:#f0f0f0;"><b>QI-Core R4</b></td>
+<td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
+<tr valign="top">
+<td>Service Request - Generic</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest">ServiceRequest</a></td>
+<td></td></tr><tr>
+<td>Service Request Activity (QDM implied active, on-hold, completed)</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.status">ServiceRequest.status</a></td>
+<td>Constrain to active, on-hold, completed</td></tr>
+<tr>
+<td>Recommended context</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.intent">ServiceRequest.intent</a></td>
+<td>Constrain to "plan"</td></tr>
+<tr>
+<td>Order context</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.intent">ServiceRequest.intent</a></td>
+<td>Constrain to "Order" (include children)</td></tr>
+<tr>
+<td></td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.category">ServiceRequest.category</a></td>
+<td>Helps differentiate "intervention" from "procedure" from QDM</td></tr>
+<tr>
+<td>QDM Attributes</td>
+<td></td>
+<td></td></tr><tr>
+<td>Code</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.code">ServiceRequest.code</a></td>
+<td></td></tr><tr>
+<td>id</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.id">ServiceRequest.id</a></td>
+<td></td></tr><tr>
+<td>Reason</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.reasonCode">ServiceRequest.reasonCode</a></td>
+<td></td></tr><tr>
+<td>Author dateTime</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.authoredOn">ServiceRequest.authoredOn</a></td>
+<td></td></tr><tr>
+<td>Negation Rationale</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.doNotPerform">ServiceRequest.doNotPerform</a></td>
+<td></td></tr><tr>
+<td></td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.extension:reasonRefused">ServiceRequest.extension:reasonRefused</a></td>
+<td></td></tr><tr>
+<td>Requester</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester">ServiceRequest.requester</a></td>
+<td></td></tr><tr>
+<td>Assessment, Order; Assessment, Recommended</td>
+<td></td>
+<td></td></tr><tr>
+<td>As in standard Service Request</td>
+<td></td>
+<td></td></tr><tr>
+<td>Diagnostic Study</td>
+<td></td>
+<td></td></tr><tr>
+<td>As in standard Service Request</td>
+<td></td>
+<td></td></tr><tr>
+<td>Encounter, Order</td>
+<td></td>
+<td></td></tr><tr>
+<td>As in standard Service Request Plus:</td>
+<td></td>
+<td></td></tr><tr>
+<td>Facility Location</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.locationCode">ServiceRequest.locationCode</a></td>
+<td></td></tr><tr>
+<td>Priority</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.priority">ServiceRequest.priority</a></td>
+<td></td></tr><tr>
+<td>Intervention, Order; Intervention, Recommended</td>
+<td></td>
+<td></td></tr><tr>
+<td>As in standard Service Request</td>
+<td></td>
+<td></td></tr><tr>
+<td>Laboratory Test, Order; Laboratory Test, Recommended</td>
+<td></td>
+<td></td></tr><tr>
+<td>As in standard Service Request</td>
+<td></td>
+<td></td></tr><tr>
+<td>Physical Exam, Order; Physical Exam, Recommended</td>
+<td></td>
+<td></td></tr><tr>
+<td>As in standard Service Request Plus:</td>
+<td></td>
+<td></td></tr><tr>
+<td>Anatomical Location Site</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.bodySite">ServiceRequest.bodySite</a></td>
+<td></td></tr><tr>
+<td>Procedure, Order; Procedure, Recommended</td>
+<td></td>
+<td></td></tr><tr>
+<td>ָAnatomical Location Site</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.bodySite">ServiceRequest.bodySite</a></td>
+<td></td></tr><tr>
+<td>Rank</td>
+<td></td>
+<td></td></tr><tr>
+<td>Priority</td>
+<td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.priority">ServiceRequest.priority</a></td>
+<td></td></tr></table></div>
+
+{% include container-end.html %}
+{% include footer.html %}
