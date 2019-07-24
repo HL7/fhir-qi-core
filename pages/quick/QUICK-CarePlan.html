@@ -30,13 +30,13 @@
     <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
 
 </head>
-<body><div><a name='Specimen.container'> </a>
-<h2> Specimen.container <a href='#Specimen.container' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
-<p>The container holding the specimen.  The recursive nature of containers; i.e. blood in tube in tray in rack is not addressed here.</p>
+<body><div><a name='CarePlan'> </a>
+<h2> CarePlan <a href='#CarePlan' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>The QI Core CarePlan is based upon the US Core CarePlan Profile which is based upon the core FHIR CarePlan Resource and created to meet the 2015 Edition Common Clinical Data Set 'Assessment and Plan of Treatment requirements.</p>
 <p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
 <table class='table table-striped table-bordered'>
 <tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
-<tr><th>additive[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a> | <a href='QUICK-Substance.html'>Substance</a></td><td>Introduced substance to preserve, maintain or enhance the specimen. Examples: Formalin, Citrate, EDTA.<br /><strong>Binding: </strong><a href='http://terminology.hl7.org/ValueSet/v2-0371' target='_blank'>Substance added to specimen container.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a></td><td>Who care plan is for.</td></tr>
 </table>
 </div>
 </body>
