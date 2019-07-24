@@ -3,12 +3,12 @@
 ---
 {% include header.html %}
 {% include container-start.html %}
-<ul id="markdown-toc"><li><a href="#Immunization.2C_Administered">Immunization, Administered</a></li><li><a href="#Immunization.2C_Order">Immunization, Order</a></li></ul>
+
 <a name="Immunization"> </a>
+<ul id="markdown-toc"><li><a href="#Immunization">Immunization</a></li><li><a href="#Immunization.2C_Administered">Immunization, Administered</a></li></ul>
 <h2>
     <span class="sectioncount">7.12.0</span> Immunization <a href="Immunization.html#Immunization" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
-<p>The HL7 CQI Workgroup reviewed and updated this content on April 24, 2018 based on QDM version 5.3. The content was updated on June 7, 2018 consistent with QDM version 5.4.  The only change between QDM versions 5.3 and 5.4 is that version 5.4 removes the &#34;supply&#34; attribute from &#34;Immunization, Administered&#34; and retains the &#34;supply&#34; attribute for &#34;Immunization, Order&#34;</p>
 <p>
     QDM defines Immunization as vaccines administered to patients in healthcare settings but does not include non-vaccine agents.
     The <a href="http://hl7.org/fhir/immunizationrecommendation.html">FHIR Immunization Recommendation</a> resource is specifically designed to provide an immunization forecast from a forecasting engine to a provider, basically to carry clinical decision support recommendations specific to immunizations and, therefore, is not consistent with the intent of the QDM datatype "Immunization, Order" or “Immunization, Administered.”
@@ -39,9 +39,9 @@
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-immunization-definitions.html#Immunization.status">Immunization.status</a></td>
         <td>Constrain to Completed, entered-in-error, not-done</td></tr>
         <tr>
-            <td>QDM Attributes</td>
-            <td></td>
-            <td></td></tr><tr>
+            <td align="center" style="background:#f0f0f0;"><strong>QDM Attributes</strong></td>
+            <td align="center" style="background:#f0f0f0;"></td>
+            <td align="center" style="background:#f0f0f0;"></td></tr><tr>
         <td>code</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-immunization-definitions.html#Immunization.vaccineCode">Immunization.vaccineCode</a></td>
         <td></td></tr><tr>
@@ -73,83 +73,6 @@
         <td>Performer</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-immunization-definitions.html#Immunization.performer">Immunization.performer.actor</a></td>
         <td></td></tr></table></div>
-
-
-
-
-<a name="Immunization.2C_Order"> </a>
-<h3>
-    <span class="sectioncount">7.12.1</span> Immunization, Order <a href="Immunization.html#Immunization.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
-</h3>
-
-<p>This QDM context references the US-Core MedicationRequest resource as there is no other FHIR resource to reference an order for an immunization. The mapping uses the US-Core MedicationRequest resource with the MedicationRequest.intent = <em>order</em> and MedicationRequest.setting set to the setting most appropriate for the intended meaning of the quality measure or clinical decision support (CDS) expression.</p>
-
-<div style="page-break-inside: avoid;">
-    <table border="1" cellpadding="2" cellspacing="0">
-        <tr>
-            <td align="center" style="background:#f0f0f0;"><b>QDM Context</b></td>
-            <td align="center" style="background:#f0f0f0;"><b>QI-Core R4</b></td>
-            <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
-        <tr valign="top">
-            <td>Immunization, Order</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest">MedicationRequest</a></td>
-            <td></td></tr><tr>
-        <td></td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.status">MedicationRequest.status</a></td>
-        <td>Constrain to active, completed, on-hold</td></tr>
-        <tr>
-            <td></td>
-            <td><a>MedicationRequest.statusReason</a></td>
-            <td>The reason for ordering or not ordering the medication</td></tr>
-        <tr>
-            <td></td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent">MedicationRequest.intent</a></td>
-            <td>Constrain to "order" for Medication, Order - note that QDM does not include Medication, Recommended - should that concept be desired, use MedicationRequest.intent constrained to "plan"</td></tr>
-        <tr>
-            <td>QDM Attributes</td>
-            <td></td>
-            <td></td></tr><tr>
-        <td>code</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication[x]</a></td>
-        <td>RxNorm</td></tr>
-        <tr>
-            <td>id</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.id">MedicationRequest.id</a></td>
-            <td></td></tr><tr>
-        <td>active dateTime</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod">MedicationRequest.dispenseRequest.validityPeriod</a></td>
-        <td></td></tr><tr>
-        <td>author dateTime</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn">MedicationRequest.authoredOn</a></td>
-        <td></td></tr><tr>
-        <td>dosage</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.doseAndRate.dose[x]">MedicationRequest.dosageinstruction.doseAndRate.dose[x]</a></td>
-        <td>Range, quantity</td></tr>
-        <tr>
-            <td>route</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.site">MedicationRequest.dosageInstruction.site</a></td>
-            <td></td></tr><tr>
-        <td>reason</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode">MedicationRequest.reasonCode</a></td>
-        <td>The reason for ordering or not ordering the medication</td></tr>
-        <tr>
-            <td>supply</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.quantity">MedicationRequest.dispenseRequest.quantity</a></td>
-            <td>Amount to be dispensed in one fill</td></tr>
-        <tr>
-            <td>Negation rationale</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.doNotPerform">MedicationRequest.doNotPerform</a></td>
-            <td>Boolean</td></tr>
-        <tr>
-            <td></td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode">MedicationRequest.reasonCode</a></td>
-            <td>The reason for ordering or not ordering the medication</td></tr>
-        <tr>
-            <td>Requester</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester">MedicationRequest.requester</a></td>
-            <td>Note - MedicationRequest.performer indicates the performer expected to administer the medication</td></tr></table></div>
-
-
 
 {% include container-end.html %}
 {% include footer.html %}
