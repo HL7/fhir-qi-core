@@ -33,9 +33,6 @@
 <body><div><a name='overview'> </a>
 <h2> QUICK Data Model <a href='#overview' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
 <p>The QUICK data model provides a logical view of clinical data from the persepctive of representing quality measurement and decision support knowledge.</p>
-
-<blockquote>The CDS, CQI, and CIMI Workgroups have agreed to represent the QUICK logical model to meet CDS and CQI use cases using the current CIMI models with adjustments as needed, and to work to convert to and from FHIR artifacts. Until such time as this effort is successful, QI-Core generation will continue manually to keep up with FHIR and US Core versions. The current section is an interim QUICK Logical View derived from the QI-Core profile definitions.</blockquote>
-
 <h2>Relationship to FHIR and QI-Core</h2>
           <p>The QUICK data model uses the QI-Core profiles to provide a physical representation for the data. QUICK provides a logical model that enables knowledge authors to ignore certain details of the FHIR Physical representation, including:</p>
           <ul>
@@ -50,19 +47,19 @@
 <tr><th>code</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
 <tr><th>CodeableConcept</th><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td></tr>
 <tr><th>Coding</th><td><a href='http://cql.hl7.org/02-authorsguide.html#code' target='_blank'>Code</a></td></tr>
-<tr><th>date</th><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td></tr>
-<tr><th>dateTime</th><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td></tr>
+<tr><th>date</th><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a></td></tr>
+<tr><th>dateTime</th><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a></td></tr>
 <tr><th>decimal</th><td><a href='http://cql.hl7.org/02-authorsguide.html#decimal' target='_blank'>Decimal</a></td></tr>
 <tr><th>id</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
-<tr><th>instant</th><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a></td></tr>
+<tr><th>instant</th><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a></td></tr>
 <tr><th>integer</th><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td></tr>
 <tr><th>markdown</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
 <tr><th>oid</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
-<tr><th>Period</th><td>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>DateTime</a>&gt;</td></tr>
+<tr><th>http://cql.hl7.org/02-authorsguide.html#interval-values</th><td><a href='Period' target='_blank'>Interval</a>&lt;<a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a>&gt;</td></tr>
 <tr><th>positiveInt</th><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td></tr>
-<tr><th>Range</th><td>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a>&gt;</td></tr>
+<tr><th>http://cql.hl7.org/02-authorsguide.html#interval-values</th><td><a href='Range' target='_blank'>Interval</a>&lt;<a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a>&gt;</td></tr>
 <tr><th>string</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
-<tr><th>time</th><td><a href='http://cql.hl7.org/02-authorsguide.html#datetime-and-time' target='_blank'>Time</a></td></tr>
+<tr><th>time</th><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>Time</a></td></tr>
 <tr><th>uri</th><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td></tr>
 </table>
 <p>To address the second issue, the QUICK model represents FHIR extensions as first-class attributes of the class. To address the third issue, the QUICK model represents FHIR references as direct appearances of the referenced class or classes. NOTE: The third issue is still being worked out, so current QUICK documentation still uses the Reference type to model references.</p>

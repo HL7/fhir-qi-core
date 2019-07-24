@@ -1,0 +1,54 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='DeviceRequest'> </a>
+<h2> DeviceRequest <a href='#DeviceRequest' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Represents a request for a patient to employ a medical device. The device may be an implantable device, or an external assistive device, such as a walker.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>doNotPerform</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/request-doNotPerform' target='_blank'>Extension</a></td><td>If true indicates that the request is asking for the specified action to not occur.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>identifier</th><td>0..*</td><td>List&lt;<a href='QUICK-Identifier.html'>Identifier</a>&gt;</td><td>Identifiers assigned to this order by the orderer or by the receiver.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The status of the request.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/request-status|4.0.0' target='_blank'>Codes representing the status of the request.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>intent</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Whether the request is a proposal, plan, an original order or a reflex order.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/request-intent|4.0.0' target='_blank'>The kind of diagnostic request.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>code[x]</th><td>1..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/Device' target='_blank'>Device</a> | <a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The details of the device to be used.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/device-kind' target='_blank'>Codes for devices that can be requested.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-Patient.html'>Patient</a></td><td>The patient who will use the device.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>encounter</th><td>0..1</td><td><a href='QUICK-Encounter.html'>Encounter</a></td><td>An encounter that provides additional context in which this request is made.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>occurrence[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime | <a href='http://cql.hl7.org/02-authorsguide.html#interval-values' target='_blank'>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime&gt; | <a href='QUICK-Timing.html'>Timing</td><td>The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>authoredOn</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a></td><td>When the request transitioned to being actionable.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>requester</th><td>0..1</td><td><a href='QUICK-Device.html'>Device</a> | <a href='QUICK-Practitioner.html'>Practitioner</a> | <a href='QUICK-PractitionerRole.html'>PractitionerRole</a> | <a href='QUICK-Organization.html'>Organization</a></td><td>The individual who initiated the request and has responsibility for its activation.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>performer</th><td>0..1</td><td><a href='QUICK-Practitioner.html'>Practitioner</a> | <a href='QUICK-PractitionerRole.html'>PractitionerRole</a> | <a href='QUICK-Organization.html'>Organization</a> | <a href='QUICK-CareTeam.html'>CareTeam</a> | <a href='QUICK-Patient.html'>Patient</a> | <a href='QUICK-Device.html'>Device</a> | <a href='QUICK-RelatedPerson.html'>RelatedPerson</a></td><td>The desired performer for doing the diagnostic testing.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>reasonReference</th><td>0..*</td><td>List&lt;<a href='QUICK-Condition.html'>Condition</a> | <a href='QUICK-Observation.html'>Observation</a>&gt;</td><td>Reason or justification for the use of this device.</td></tr>
+</table>
+</div>
+</body>
+</html>
