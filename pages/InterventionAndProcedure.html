@@ -3,29 +3,67 @@
 ---
 {% include header.html %}
 {% include container-start.html %}
-<a name="Procedure"> </a>
+
+<a name="InterventionAndProcedure"> </a>
 <h2>
-    <span class="sectioncount">7.19.0</span> Procedure <a href="Procedure.html#Procedure" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.3.0</span> Assessment <a href="InterventionAndProcedure.html#InterventionAndProcedure" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
-<p>The CQI Workgroup reviewed this page in April 2018 consistent with QDM version 5.3. QDM version 5.4 updates were applied on June 7, 2018:
-</p>
+
+<h1>Intervention and Procedure</h1>
+
+<p>QDM defines Intervention and Procedure as:</p>
+
 <ul>
-    <li>Removal of &#34;anatomical approach site&#34; from &#34;Procedure, Performed&#34;, &#34;Procedure, Order&#34;, and &#34;Procedure, Recommended&#34;</li>
-    <li>Removal of &#34;method&#34; from &#34;Procedure, Order&#34; and &#34;Procedure, Recommended&#34;</li>
+    <li>
+        <em>Intervention</em> is a course of action intended to achieve a result in the care of persons with health problems that does not involve direct physical contact with a patient.
+        Examples include patient education and therapeutic communication.
+    </li>
+    <li>
+        <em>Procedure</em> is an act whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the subject.
+        A<em> procedure</em> may be a surgery or other type of physical manipulation of a person’s body in whole or in part for purposes of making observations and diagnoses or providing treatment.
+    </li>
 </ul>
-<pre>Note that while the QDM categories Intervention and Procedure are modeled identically and interoperability standards do not differentiate between them, both are retained in the QDM as they are more clinically expressive for clinicians to understand the measure intent.
-</pre>
-<p>QDM defines Procedure as “An Act whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the subject. … Procedure is but one among several types of clinical activities such as observation, substance-administrations, and communicative interactions … Procedure does not comprise all acts of [sic] whose intent is intervention or treatment.”  A procedure may be a surgery or other type of physical manipulation of a person’s body in whole or in part for purposes of making observations and diagnoses or providing treatment.   QDM defines three contexts for Procedure: Procedure, Order; Procedure, Performed; Procedure, Recommended.</p>
-<h2>Procedure Priority</h2>
-<p>QDM 5.5 includes a new attribute for Procedure: <em>priority</em> with the following definition:</p>
+
+<h2>Procedure Vs Intervention</h2>
+
 <p>
-    <em>
-        Priority indicates the urgency of the procedure or the encounter referenced.
+    FHIR references both of these concepts using the <em>Procedure</em> resource, specifically noting a process that involves verification of the patient's comprehension or to change the patient's mental state would be a Procedure.
+    Therefore, both QDM <em>datatypes</em>, Procedure and Intervention are included in this section of the QDM to QI-Core mapping especially since all of the QDM attributes for each of these QDM <em>datatypes</em> are identical.
+</p>
+
+<h2>Procedure Vs Task</h2>
+
+<p>
+    Some use cases have considered differentiating a FHIR Procedure Resource from a FHIR core Task Resource.
+    For example, should a request to perform medication reconciliation be classified as a Task or a Procedure?
+    The FHIR <a href="http://hl7.org/fhir/procedure.html">Procedure Resource</a> Boundaries and Relationships (Section 9.3.2) provides some distinction between a <a href="http://hl7.org/fhir/task.html">Task</a> and a <a href="http://hl7.org/fhir/procedure.html">Procedure</a>:
+</p>
+
+<p>
+    <em>A&nbsp;</em><a href="http://hl7.org/fhir/task.html"><em>Task</em></a><em>&nbsp;is a workflow step such as cancelling an order, fulfilling an order, signing an order, merging a set of records, admitting a patient.
+    Procedures are actions that are intended to result in a physical or mental change to or for the subject (e.g. surgery, physiotherapy, training, counseling).
+    A&nbsp;</em><a href="http://hl7.org/fhir/task.html"><em>Task</em></a><em>&nbsp;resource often exists in parallel with clinical resources.
+    For example, a&nbsp;</em><a href="http://hl7.org/fhir/task.html"><em>Task</em></a><em>&nbsp;might request fulfillment of a&nbsp;</em><a href="http://hl7.org/fhir/servicerequest.html"><em>ServiceRequest</em></a><em>&nbsp;ordering a Procedure.</em>
+</p>
+
+<p>Based on the guidance provided above, the workflow step to reconcile medication lists may be considered a Task to perform the Procedure that includes reviewing the medication list with the patient to assure it is correct and to education the patient about proper medication usage.</p>
+
+<p>
+    QDM 5.5 does not address Task; therefore, there is no direct mapping from QDM Intervention or Procedure to the FHIR Task resource.&nbsp;
+    The mapping presented is from QDM to QI-Core referencing the FHIR Procedure resource.
+</p>
+
+<h2>Procedure Priority</h2>
+
+<p>QDM 5.5 includes a new attribute for Procedure: <em>priority</em> with the following definition:</p>
+
+<p>
+    <em>Priority indicates the urgency of the procedure or the encounter referenced.
         In [electronic clinical quality measures] (eCQMs) the priority attribute will help specify elective from urgent encounters (e.g., hospital admissions) or procedures.
         Priority is a codable concept (i.e., may use a direct reference code or a value set).
-        For example, priority is used to express an elective procedure or encounter from an emergency procedure or encounter.
-    </em>
+        For example, priority is used to express an elective procedure or encounter from an emergency procedure or encounter.</em>
 </p>
+
 <p>
     As noted in the QDM to QI-Core Mapping for Encounter-Related Diagnoses and Procedures, a specific measure may have interest in evaluating care provided for elective procedures (e.g., hip surgery due to osteoarthritis) while excluding emergency, non-planned procedures (e.g., hip surgery due to acute fracture).
     The procedure code does not necessarily allow differentiation of the two concepts.
@@ -36,13 +74,6 @@
     Therefore, based on the current use case QI-Core has not added an extension to address Procedure.priority and, as a result, there is no direct mapping from the QDM Procedure priority attribute to QI-Core.
 </p>
 
-
-<a name="Procedure"> </a>
-<h3>
-    <span class="sectioncount">7.19.1</span> Procedure<a href="Procedure.html#Procedure" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
-</h3>
-
-
 <div style="page-break-inside: avoid;">
     <table border="1" cellpadding="2" cellspacing="0">
         <tr>
@@ -50,26 +81,26 @@
             <td align="center" style="background:#f0f0f0;"><b>QI-Core R4</b></td>
             <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
         <tr valign="top">
-            <td>Procedure, Performed and Intervention, Performed</td>
+            <td><strong>Procedure, Performed and Intervention, Performed</strong></td>
             <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure.html">Procedure</a></td>
             <td></td></tr><tr>
         <td>Procedure, Performed Context</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.category">Procedure.category</a></td>
-        <td>Helps differentiate "intervention" from "procedure" from QDM</td></tr>
+        <td>Helps differentiate &quot;intervention&quot; from &quot;procedure&quot; from QDM</td></tr>
         <tr>
-            <td>QDM Attributes</td>
-            <td></td>
-            <td></td></tr><tr>
+            <td align="center" style="background:#f0f0f0;"><strong>QDM Attributes</strong></td>
+            <td align="center" style="background:#f0f0f0;"></td>
+            <td align="center" style="background:#f0f0f0;"></td></tr><tr>
         <td>status</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
-        <td>constrain to "completed"</td></tr>
+        <td>constrain to &quot;completed&quot;</td></tr>
         <tr>
             <td>Code</td>
             <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.code">Procedure.code</a></td>
             <td></td></tr><tr>
         <td></td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.category">Procedure.category</a></td>
-        <td>Helps differentiate "intervention" from "procedure" from QDM</td></tr>
+        <td>Helps differentiate &quot;intervention&quot; from &quot;procedure&quot; from QDM</td></tr>
         <tr>
             <td>id</td>
             <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.id">Procedure.id</a></td>
@@ -101,7 +132,7 @@
             <td></td></tr><tr>
         <td>Negation Rationale</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
-        <td>constrain status to "Not-done"</td></tr>
+        <td>constrain status to &quot;Not-done&quot;</td></tr>
         <tr>
             <td></td>
             <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a></td>
@@ -117,7 +148,7 @@
         <td></td></tr><tr>
         <td>Author dateTime</td>
         <td>N/A</td>
-        <td>The concept "author" requires a reference to a report about the procedure or about an indication the procedure was not performed.  Therefore, the procedure resource does not have a reference to author dateTime. Author dateTime can reference a report about the procedure or an observation describing that result (e.g., Observation with metadata Observation.partOf procedure).</td></tr>
+        <td>The concept &quot;author&quot; requires a reference to a report about the procedure or about an indication the procedure was not performed.  Therefore, the procedure resource does not have a reference to author dateTime. Author dateTime can reference a report about the procedure or an observation describing that result (e.g., Observation with metadata Observation.partOf procedure).</td></tr>
         <tr>
             <td>Components</td>
             <td>N/A</td>
@@ -138,3 +169,5 @@
 
 {% include container-end.html %}
 {% include footer.html %}
+
+
