@@ -7,7 +7,6 @@
 <h2>
     <span class="sectioncount">7.6.0</span> Communication <a href="Communication.html#Communication" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
-<p>The CQI Workgroup reviewed this content in April 2018 based on QDM version 5.3. The content has been updated to reflect a change in QDM version 5.4. QDM version 5.4 removes the previous QDM datatypes &#34;Communication, Patient to Provider&#34;, &#34;Communication, Provider to Patient&#34;, and &#34;Communication, Provider to Provider&#34;. QDM version 5.4 creates a new QDM datatype, &#34;Communication, Performed&#34;.  The previous QDM datatype mapping are retained for historical review. </p>
 <p>
     QDM defines Communication as the transmission, receipt, or acknowledgement of information sent from a source to a recipient, such as from one clinician to another regarding findings, assessments, plans of care, consultative advice, instructions, educational resources, etc.
     The following text from the FHIR Communication and Procedure Resources may help to differentiate when to use Communication.
@@ -53,7 +52,7 @@
 
 <a name="QDM_5.4_Communication"> </a>
 <h3>
-    <span class="sectioncount">7.6.1</span> <b><i>QDM 5.4</i></b> Communication<a href="Communication.html#QDM_5.4_Communication" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.6.1</span> Communication<a href="Communication.html#QDM_5.4_Communication" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
 
@@ -71,9 +70,9 @@
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-communication-definitions.html#Communication.status">Communication.status</a></td>
         <td>consider constraining to in-progress, completed, on-hold</td></tr>
         <tr>
-            <td>QDM Attributes</td>
-            <td></td>
-            <td></td></tr><tr>
+            <td align="center" style="background:#f0f0f0;">QDM Attributes</td>
+            <td align="center" style="background:#f0f0f0;"></td>
+            <td align="center" style="background:#f0f0f0;"></td></tr><tr>
         <td>Code</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-communication-definitions.html#Communication.reasonCode">Communicatoin.reasonCode</a></td>
         <td></td></tr><tr>
@@ -84,7 +83,7 @@
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-communication-definitions.html#Communication.category">Communication.category</a></td>
         <td>alert, notification, reminder, instruction</td></tr>
         <tr>
-            <td>Medium</td>
+            <td>medium</td>
             <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-communication-definitions.html#Communication.medium">Communciation.medium</a></td>
             <td></td></tr><tr>
         <td>sent dateTime</td>
@@ -113,7 +112,7 @@
         <td></td></tr><tr>
         <td>negation rationale</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-communication-definitions.html#Communication.status">Communication.status</a></td>
-        <td>Constrain status to "not-done"</td></tr>
+        <td>Constrain status to &quot;not-done&quot;</td></tr>
         <tr>
             <td></td>
             <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-communication-definitions.html#Communication.statusReason">Communication.statusReason</a></td>

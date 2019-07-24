@@ -3,17 +3,14 @@
 ---
 {% include header.html %}
 {% include container-start.html %}
-<ul id="markdown-toc"><li><a href="#QDM_Entities">QDM Entities</a></li><li><a href="#Patient_Characteristics">Patient Characteristics</a></li><li><a href="#QDM_new_datatype_.28QDM_v5.5.29_-_Related_Person">QDM new datatype (QDM v5.5) - Related Person</a></li></ul>
+
 <a name="IndividualCharacteristic"> </a>
+<ul id="markdown-toc"><li><a href="#IndividualCharacteristic">Individual Characteristic</a></li><li><a href="#QDM_Entities">QDM Entities</a></li><li><a href="#Patient_Characteristics">Patient Characteristics</a></li><li><a href="#QDM_new_datatype_.28QDM_v5.5.29_-_Related_Person">QDM new datatype (QDM v5.5) - Related Person</a></li></ul>
 <h2>
     <span class="sectioncount">7.13.0</span> Individual Characteristic <a href="IndividualCharacteristic.html#IndividualCharacteristic" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
 <p>
-    The CQI Workgroup reviewed this content based on QDM version 5.3 in April 2018.
-    There are no changes to the content for QDM version 5.4.
-</p>
-<p>
-    QDM’s approach to defining information about participants In the healthcare process by defining Individual Characteristics.
+    QDM's approach to defining information about participants In the healthcare process by defining Individual Characteristics.
     These properties of a patient, clinician, provider, or facility include demographics, behavioral factors, social or cultural factors, available resources, and preferences.
     Behaviors reference responses or actions that affect (either positively or negatively) health or healthcare.
     Included in this category are mental health issues, adherence issues unrelated to other factors or resources, coping ability, grief issues, and substance use/abuse.
@@ -49,16 +46,15 @@
 </p>
 <ul>
     <li>
-        Example 1: An infant’s gestational age at the time of birth may be calculated as the difference between the days between the mother’s estimated date of delivery (EDD) and the actual birth date.
-        The mother’s EDD might be entered directly on the infant’s record as an observable entity about a <em>Related Person</em> (the infant’s mother).
-        Alternatively, a cross-context query might request the information from the <em>Related Person’s </em>(mother’s) record.
+        Example 1: An infant's gestational age at the time of birth may be calculated as the difference between the days between the mother's estimated date of delivery (EDD) and the actual birth date.
+        The mother's EDD might be entered directly on the infant's record as an observable entity about a <em>Related Person</em> (the infant's mother).
+        Alternatively, a cross-context query might request the information from the <em>Related Person's </em>(mother's) record.
     </li>
     <li>
-        Example 2: An organ recipient risk factor may include a donor’s positive Hepatitis C antibody result.
-        The result relates to the donor (Related Person) whether that result is present on the recipient’s record or if the a cross-context query to the donor’s record retrieves the information.
+        Example 2: An organ recipient risk factor may include a donor's positive Hepatitis C antibody result.
+        The result relates to the donor (Related Person) whether that result is present on the recipient's record or if the a cross-context query to the donor's record retrieves the information.
     </li>
 </ul>
-
 
 <a name="QDM_Entities"> </a>
 <h3>
@@ -72,7 +68,7 @@
             <td align="center" style="background:#f0f0f0;"><b>QI-Core R4</b></td>
             <td align="center" style="background:#f0f0f0;"><b>Comment</b></td></tr>
         <tr valign="top">
-            <td>Patient</td>
+            <td><strong>Patient</strong></td>
             <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient">Patient</a></td>
             <td></td><tr>
         <td>identifier</td>
@@ -81,7 +77,7 @@
         <td>id</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-patient-definitions.html#Patient.id">Patient.id</a></td>
         <td></td></tr><tr>
-        <td>Care Partner</td>
+        <td><strong>Care Partner</strong></td>
         <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson">RelatedPerson</a></td>
         <td>Related Person</td></tr>
         <tr>
@@ -91,10 +87,10 @@
         <td>id</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-relatedperson-definitions.html#RelatedPerson.id">RelatedPerson.id</a></td>
         <td></td></tr><tr>
-        <td>Relationship</td>
+        <td><strong>Relationship</strong></td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-relatedperson-definitions.html#RelatedPerson.relationship">RelatedPerson.relationship</a></td>
         <td></td></tr><tr>
-        <td>Practitioner</td>
+        <td><strong>Practitioner</strong></td>
         <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner">Practitioner</a></td>
         <td></td></tr><tr>
         <td>identifier</td>
@@ -112,7 +108,7 @@
         <td>qualification</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-practitioner-definitions.html#Practitioner.qualification.identifier">Practitioner.qualificationIdentifier</a></td>
         <td></td></tr><tr>
-        <td>Organization</td>
+        <td><strong>Organization</strong></td>
         <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization">Organization</a></td>
         <td></td></tr><tr>
         <td>identifier</td>
@@ -127,9 +123,8 @@
 
 <a name="Patient_Characteristics"> </a>
 <h3>
-    <span class="sectioncount">7.13.1</span> Patient Characteristics <a href="IndividualCharacteristic.html#Patient_Characteristics" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.13.2</span> Patient Characteristics <a href="IndividualCharacteristic.html#Patient_Characteristics" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
-
 
 <div style="page-break-inside: avoid;">
     <table border="1" cellpadding="2" cellspacing="0">
@@ -138,7 +133,7 @@
             <td align="center" style="background:#f0f0f0;"><b>USCore R4</b></td>
             <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
         <tr valign="top">
-            <td>Race</td>
+            <td><strong>Race</strong></td>
             <td></td>
             <td></td></tr><tr>
         <td>code</td>
@@ -150,7 +145,7 @@
         <td>id</td>
         <td></td>
         <td></td></tr><tr>
-        <td>Ethnicity</td>
+        <td><strong>Ethnicity</strong></td>
         <td></td>
         <td></td></tr><tr>
         <td>code</td>
@@ -162,7 +157,7 @@
         <td>id</td>
         <td></td>
         <td></td></tr><tr>
-        <td>Sex</td>
+        <td><strong>Sex</strong></td>
         <td></td>
         <td></td></tr><tr>
         <td>code</td>
@@ -174,7 +169,7 @@
         <td>id</td>
         <td></td>
         <td></td></tr><tr>
-        <td>Birth date</td>
+        <td><strong>Birth date</strong></td>
         <td></td>
         <td></td></tr><tr>
         <td>Birth dateTime</td>
@@ -187,7 +182,7 @@
             <td>id</td>
             <td></td>
             <td></td></tr><tr>
-        <td>Clinical Trial Participant</td>
+        <td><strong>Clinical Trial Participant</strong></td>
         <td></td>
         <td></td></tr><tr>
         <td></td>
@@ -208,7 +203,7 @@
         <td></td>
         <td>Patient.extension.clinicalTrial.reason.valueCodeableConcept</td>
         <td></td></tr><tr>
-        <td>Expired</td>
+        <td><strong>Expired</strong></td>
         <td></td>
         <td></td></tr><tr>
         <td>code</td>
@@ -225,7 +220,7 @@
             <td></td>
             <td>Expiration dateTime requires use of Observation</td></tr>
         <tr>
-            <td>Payer</td>
+            <td><strong>Payer</strong></td>
             <td></td>
             <td></td></tr><tr>
         <td>Payor</td>
@@ -241,19 +236,17 @@
         <td>id</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-coverage-definitions.html#Coverage.id">Coverage.id</a></td>
         <td></td></tr><tr>
-        <td>Patient Characteristic (generic)</td>
+        <td><strong>Patient Characteristic (generic)</strong></td>
         <td></td>
         <td></td></tr><tr>
         <td>N/A</td>
         <td></td>
         <td>Requires definition for modeling a characteristic to QI-Core and FHIR</td></tr></table></div>
 
-
 <a name="QDM_new_datatype_.28QDM_v5.5.29_-_Related_Person"> </a>
 <h3>
-    <span class="sectioncount">7.13.1</span> QDM new datatype (QDM v5.5) - Related Person <a href="IndividualCharacteristic.html#QDM_new_datatype_.28QDM_v5.5.29_-_Related_Person" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.13.3</span> QDM new datatype (QDM v5.5) - Related Person <a href="IndividualCharacteristic.html#QDM_new_datatype_.28QDM_v5.5.29_-_Related_Person" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
-
 
 <div style="page-break-inside: avoid;">
     <table border="1" cellpadding="2" cellspacing="0">
@@ -263,11 +256,8 @@
             <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
         <tr valign="top">
             <td>Related Person</td>
-            <td></td>
+            <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson">RelatedPerson</a></td>
             <td></td></tr><tr>
-        <td>Related Person</td>
-        <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson">RelatedPerson</a></td>
-        <td></td></tr><tr>
         <td>RelatedPerson.Identifier</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-relatedperson-definitions.html#RelatedPerson.identifier">RelatedPerson.identifier</a></td>
         <td></td></tr><tr>
@@ -280,8 +270,6 @@
         <td>Code</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-relatedperson-definitions.html#RelatedPerson.relationship">RelatedPerson.relationship</a></td>
         <td></td></tr></table></div>
-
-
 
 {% include container-end.html %}
 {% include footer.html %}
