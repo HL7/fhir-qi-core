@@ -4,6 +4,8 @@
 {% include header.html %}
 {% include container-start.html %}
 
+<ul id="markdown-toc"><li><a href="#InterventionAndProcedure">Intervention And Procedure</a></li><li><a href="#Procedure_Vs_Intervention">Procedure Vs Intervention</a></li><li><a href="#Procedure_Vs_Task">Procedure Vs Task</a></li><li><a href="#Procedure_Priority">Procedure Priority</a></li><li><a href="#Intervention.2C_Order">Intervention, Order</a></li><li><a href="#Intervention.2C_Recommended">Intervention, Recommended</a></li><li><a href="#Procedure.2C_Order">Procedure, Order</a></li><li><a href="#Procedure.2C_Recommended">Procedure, Recommended</a></li></ul>
+
 <a name="InterventionAndProcedure"> </a>
 <h2>
     <span class="sectioncount">7.12.0</span> Intervention and Procedure <a href="InterventionAndProcedure.html#InterventionAndProcedure" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
@@ -22,14 +24,16 @@
     </li>
 </ul>
 
-<h2>Procedure Vs Intervention</h2>
+<a name="Procedure_Vs_Intervention"></a>
+<h2><span class="sectioncount">7.12.1</span> Procedure Vs Intervention<a href="InterventionAndProcedure.html#Procedure_Vs_Intervention" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h2>
 
 <p>
     FHIR references both of these concepts using the <em>Procedure</em> resource, specifically noting a process that involves verification of the patient's comprehension or to change the patient's mental state would be a Procedure.
     Therefore, both QDM <em>datatypes</em>, Procedure and Intervention are included in this section of the QDM to QI-Core mapping especially since all of the QDM attributes for each of these QDM <em>datatypes</em> are identical.
 </p>
 
-<h2>Procedure Vs Task</h2>
+<a name="Procedure_Vs_Task"></a>
+<h2><span class="sectioncount">7.12.2</span> Procedure Vs Task<a href="InterventionAndProcedure.html#Procedure_Vs_Task" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h2>
 
 <p>
     Some use cases have considered differentiating a FHIR Procedure Resource from a FHIR core Task Resource.
@@ -51,7 +55,8 @@
     The mapping presented is from QDM to QI-Core referencing the FHIR Procedure resource.
 </p>
 
-<h2>Procedure Priority</h2>
+<a name="Procedure_Priority"></a>
+<h2><span class="sectioncount">7.12.3</span> Procedure Priority<a href="InterventionAndProcedure.html#Procedure_Priority" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h2>
 
 <p>QDM 5.5 includes a new attribute for Procedure: <em>priority</em> with the following definition:</p>
 
@@ -163,6 +168,26 @@
             <td>Performer</td>
             <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.performer">Procedure.performer</a></td>
             <td></td></tr></table></div>
+
+<a name="Intervention.2C_Order"></a>
+<h3><span class="sectioncount">7.12.4</span> Intervention, Order<a href="InterventionAndProcedure.html#Intervention.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>To address the QDM attribute <em>Intervention, Order</em> see <a href="ServiceRequest.html#Service_Request">Service Request</a></p>
+
+<a name="Intervention.2C_Recommended"></a>
+<h3><span class="sectioncount">7.12.5</span> Intervention, Recommended<a href="InterventionAndProcedure.html#Intervention.2C_Recommended" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>To address the QDM attribute <em>Intervention, Recommended</em> see <a href="ServiceRequest.html#Service_Request">Service Request</a></p>
+
+<a name="Procedure.2C_Order"></a>
+<h3><span class="sectioncount">7.12.6</span> Procedure, Order<a href="InterventionAndProcedure.html#Procedure.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>To address the QDM attribute <em>Procedure, Order</em> see <a href="ServiceRequest.html#Service_Request">Service Request</a></p>
+
+<a name="Procedure.2C_Recommended"></a>
+<h3><span class="sectioncount">7.12.7</span> Procedure, Recommended<a href="InterventionAndProcedure.html#Procedure.2C_Recommended" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h3>
+
+<p>To address the QDM attribute <em>Procedure, Recommended</em> see <a href="ServiceRequest.html#Service_Request">Service Request</a></p>
 
 
 {% include container-end.html %}

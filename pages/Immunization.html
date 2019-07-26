@@ -17,7 +17,6 @@
     The mapping tables provided include mapping from QDM <em>Immunization, Administered</em> and a reference to the FHIR <a href="http://hl7.org/fhir/immunizationevaluation.html">Immunization Evaluation</a> resource.
     Note, the mapping table includes additional metadata about immunizations that QDM does not address, but that may be relevant to quality measures or clinical decision support (CDS) artifacts.
 </p>
-<p>To address the QDM datatype <em>Immunization, Order</em> see Medication, Order which references MedicationRequest, the most consistent FHIR resource with the intent.</p>
 
 
 <a name="Immunization.2C_Administered"> </a>
@@ -73,6 +72,10 @@
         <td>Performer</td>
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-immunization-definitions.html#Immunization.performer">Immunization.performer.actor</a></td>
         <td></td></tr></table></div>
+
+<h3><span class="sectioncount">7.12.2</span>Immunization, Order</h3>
+
+<p>To address the QDM datatype <em>Immunization, Order</em> see <a href="Medication.html#Immunization.2C_Order">Medication: Immunization, Order</a>. </p>
 
 {% include container-end.html %}
 {% include footer.html %}
