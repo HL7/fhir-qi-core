@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/procedure.xsd">
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure"/>
@@ -24,9 +24,9 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
-  <context>
+  <encounter>
     <reference value="Encounter/example"/>
-  </context>
+  </encounter>
   <performedPeriod>
     <start value="2013-04-05T09:20:00-04:00"/>
     <end value="2013-04-05T10:30:00-04:00"/>

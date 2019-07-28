@@ -1,25 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/location.xsd">
+<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
     <id value="example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"/>
   </meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/location-alias">
-        <valueString value="Mean Joe Greene University Medical Center, South Wing, second floor"/>
-    </extension>
-    <extension url="http://hl7.org/fhir/StructureDefinition/location-alias">
-        <valueString value="BU MC, SW, F2"/>
-    </extension>
     <identifier>
         <value value="B1-S.F2"/>
     </identifier>
     <status value="active"/>
     <name value="South Wing, second floor"/>
+		<alias value="Mean Joe Greene University Medical Center, South Wing, second floor"/>
+		<alias value="BU MC, SW, F2"/>
     <description value="Second floor of the Old South Wing, formerly in use by Psychiatry"/>
     <mode value="instance"/>
     <type>
         <coding>
-            <system value="http://hl7.org/fhir/v3/RoleCode"/>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
             <code value="HOSP"/>
             <display value="Hospital"/>
         </coding>
@@ -53,7 +49,7 @@
     </address>
     <physicalType>
         <coding>
-            <system value="http://hl7.org/fhir/location-physical-type"/>
+            <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"/>
             <code value="wi"/>
             <display value="Wing"/>
         </coding>

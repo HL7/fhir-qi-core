@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Communication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/communication.xsd">
+<Communication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication"/>
@@ -17,7 +17,7 @@
   <status value="not-done"/>
   <statusReason>
     <coding>
-      <system value="http://hl7.org/fhir/communication-not-done-reason"/>
+      <system value="http://terminology.hl7.org/CodeSystem/communication-not-done-reason"/>
       <code value="recipient-unavailable"/>
     </coding>
   </statusReason>
@@ -30,7 +30,7 @@
   </category>
   <medium>
     <coding>
-      <system value="http://hl7.org/fhir/v3/ParticipationMode"/>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"/>
       <code value="WRITTEN"/>
       <display value="written"/>
     </coding>
@@ -40,7 +40,7 @@
     <reference value="Patient/example"/>
   </subject>
   <topic>
-    <display value="Hyperkalemia"/>
+    <text value="Hyperkalemia"/>
   </topic>
   <encounter>
     <reference value="Encounter/example"/>

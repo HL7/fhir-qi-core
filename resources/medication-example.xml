@@ -1,78 +1,56 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../schema/medication.xsd">
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"/>
   </meta>
-  <contained>
-    <Medication xmlns="http://hl7.org/fhir">
-      <id value="med-1"/>
-      <code>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="408596005"/>
-          <display value="Alemtuzumab 30mg/3mL infusion concentrate (product)"/>
-        </coding>
-      </code>
-    </Medication>
+	<contained>
+    <Organization>
+      <id value="org6"/>
+      <name value="Genzyme"/>
+    </Organization>
   </contained>
   <code>
     <coding>
       <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
       <code value="1594660"/>
-      <display value="alemtuzumab 10 MG/ML [Lemtrada]"/>
+      <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
     </coding>
   </code>
-  <isBrand value="true"/>
+  
   <manufacturer>
-    <reference value="Organization/example"/>
+    <reference value="#org6"/>
   </manufacturer>
-  <form>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="385219001"/>
-      <display value="Injection solution (qualifier value)"/>
-    </coding>
-  </form>
-  <ingredient>
-    <itemReference>
-      <reference value="Substance/example"/>
-    </itemReference>
-    <isActive value="true"/>
-    <amount>
-      <numerator>
-        <value value="12"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mg"/>
-      </numerator>
-      <denominator>
-        <value value="1.2"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mL"/>
-      </denominator>
-    </amount>
-  </ingredient>
-  <package>
-    <container>
+    <form>
       <coding>
         <system value="http://snomed.info/sct"/>
-        <code value="415818006"/>
-        <display value="Vial"/>
+        <code value="385219001"/>
+        <display value="Injection solution (qualifier vallue)"/>
       </coding>
-    </container>
-    <content>
-      <itemReference>
-        <reference value="#med-1"/>
-      </itemReference>
-      <amount>
-        <value value="3"/>
-        <system value="http://unitsofmeasure.org"/>
-        <code value="mL"/>
-      </amount>
-    </content>
-    <batch>
-      <lotNumber value="9494788"/>
-      <expirationDate value="2017-05-22"/>
-    </batch>
-  </package>
+    </form>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="129472003"/>
+          <display value="Alemtuzamab (substance)"/>
+        </coding>
+      </itemCodeableConcept>
+      <strength>
+        <numerator>
+          <value value="12"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </numerator>
+        <denominator>
+          <value value="1.2"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mL"/>
+        </denominator>
+      </strength>
+    </ingredient>
+  <batch>
+    <lotNumber value="9494788"/>
+    <expirationDate value="2017-05-22"/>
+  </batch> 
 </Medication>

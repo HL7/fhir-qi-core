@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../schema/claim.xsd">
+<Claim xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claim"/>
@@ -11,11 +11,11 @@
   <status value="active"/>
   <type>
     <coding>
-      <system value="http://hl7.org/fhir/ex-claimtype"/>
+      <system value="http://terminology.hl7.org/CodeSystem/claim-type"/>
       <code value="vision"/>
     </coding>
   </type>
-  <use value="complete"/>
+  <use value="claim"/>
   <patient>
     <reference value="Patient/example"/>
   </patient>
@@ -26,9 +26,6 @@
   <provider>
     <reference value="Practitioner/example"/>
   </provider>
-  <organization>
-    <reference value="Organization/example"/>
-  </organization>
   <priority>
     <coding>
       <code value="normal"/>
@@ -71,23 +68,17 @@
   <item>
     <sequence value="1"/>
     <careTeamSequence value="1"/>
-    <!--service>
+    <productOrService>
       <coding>
         <system value="http://example.org/fhir/CodeSystem/ex-visionservice"/>
         <code value="glasses"/>
       </coding>
-    </service-->
+    </productOrService>
     <servicedDate value="2014-08-16"/>
     <unitPrice>
       <value value="214.00"/>
-      <system value="urn:iso:std:iso:4217"/>
-      <code value="USD"/>
+      <currency value="USD"/>
     </unitPrice>
-    <revenue>
-      <value value="214.00"/>
-      <system value="urn:iso:std:iso:4217"/>
-      <code value="USD"/>
-    </revenue>
     <detail>
       <sequence value="1"/>
       <productOrService>
@@ -98,13 +89,11 @@
       </productOrService>
       <unitPrice>
         <value value="100.00"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="USD"/>
+        <currency value="USD"/>
       </unitPrice>
       <net>
         <value value="100.00"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="USD"/>
+        <currency value="USD"/>
       </net>
     </detail>
     <detail>
@@ -120,13 +109,11 @@
       </quantity>
       <unitPrice>
         <value value="50.00"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="USD"/>
+        <currency value="USD"/>
       </unitPrice>
       <net>
         <value value="100.00"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="USD"/>
+        <currency value="USD"/>
       </net>
     </detail>
     <detail>
@@ -139,14 +126,12 @@
       </productOrService>
       <unitPrice>
         <value value="200.00"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="USD"/>
+        <currency value="USD"/>
       </unitPrice>
       <factor value="0.07"/>
       <net>
         <value value="14.00"/>
-        <system value="urn:iso:std:iso:4217"/>
-        <code value="USD"/>
+        <currency value="USD"/>
       </net>
     </detail>
   </item>

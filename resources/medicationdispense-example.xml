@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<MedicationDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ..\schema\medicationdispense.xsd">
+<MedicationDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense"/>
@@ -104,12 +104,14 @@
         <display value="oral administration of treatment"/>
       </coding>
     </route>
-    <doseQuantity>
-      <value value="5"/>
-      <unit value="ml"/>
-      <system value="http://unitsofmeasure.org"/>
-      <code value="ml"/>
-    </doseQuantity>
+    <doseAndRate>
+		<doseQuantity>
+		  <value value="5"/>
+		  <unit value="ml"/>
+		  <system value="http://unitsofmeasure.org"/>
+		  <code value="ml"/>
+		</doseQuantity>
+    </doseAndRate>
   </dosageInstruction>
   <substitution>
     <wasSubstituted value="false"/>
