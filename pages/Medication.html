@@ -15,7 +15,12 @@
     Medications are defined as direct referenced values or value sets containing values derived from code systems such as RxNorm.
     QDM defines five contexts for Medication, each of which is listed below referencing the US-Core or FHIR resource which provides the expected context:
 </p>
-<h2>Medication, Active</h2>
+
+<a name="Medication.2C_Active"> </a>
+<h3>
+    <span class="sectioncount">7.16.1</span> Medication, Active <a href="Medication.html#Medication.2C_Active" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+</h3>
+
 <p>
     This QDM context correlates with a medication on a patient’s active medication list and thus it maps to MedicationStatement.
     Note that MedicationStatement does not include reference to the QDM attributes <em>route</em> or <em>frequency</em> or <em>recorder.</em>
@@ -23,10 +28,7 @@
     Ordered medications (MedicationRequest) or dispensed medications (MedicationDispense) or administered medications (MedicationAsminstration) represent alternative mechanisms to determine such information.
 </p>
 
-<a name="Medication.2C_Active"> </a>
-<h3>
-    <span class="sectioncount">7.16.1</span> Medication, Active <a href="Medication.html#Medication.2C_Active" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
-</h3>
+
 
 <div style="page-break-inside: avoid;">
     <table border="1" cellpadding="2" cellspacing="0">
@@ -260,13 +262,14 @@
         <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.performer">MedicationDispense.performer</a></td>
         <td></td></tr></table></div>
 
-<h2>Medication, Order</h2>
+<a name="Medication.2C_Order"></a>
+<h2><span class="sectioncount">7.16.4</span> Medication, Order<a href="Medication.html#Medication.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h2>
 <p>This QDM context references the US-Core MedicationRequest resource with the MedicationRequest.intent = <em>order</em> and MedicationRequest.setting set to the setting most appropriate for the intended meaning of the quality measure or clinical decision support (CDS) expression.</p>
 
 
 <a name="Medication.2C_Discharge"> </a>
 <h3>
-    <span class="sectioncount">7.16.4</span> Medication, Discharge <a href="Medication.html#Medication.2C_Discharge" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.16.5</span> Medication, Discharge <a href="Medication.html#Medication.2C_Discharge" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
 <p>This QDM context specifically references the discharge medication list provided to a patient at the time of discharge from an inpatient setting. The list may include reference to new prescriptions sent to a pharmacy for dispensing and self-administration after discharge. It may also include over-the-counter medications and those medications already present in the patient’s home for which new prescriptions are not necessary.&nbsp; The QDM Medication, Discharge concept is mapped to MedicationRequest as a request to the patient to take the medication with MedicationRequest.intent = <em>plan</em> and MedicationRequest.setting = <em>discharge.</em></p>
@@ -362,7 +365,7 @@
 
 <a name="Immunization.2C_Order"> </a>
 <h3>
-    <span class="sectioncount">7.16.5</span> Immunization, Order <a href="Medication.html#Immunization.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.16.6</span> Immunization, Order <a href="Medication.html#Immunization.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
 <p>This QDM context references the US-Core MedicationRequest resource as there is no other FHIR resource to reference an order for an immunization. The mapping uses the US-Core MedicationRequest resource with the MedicationRequest.intent = <em>order</em> and MedicationRequest.setting set to the setting most appropriate for the intended meaning of the quality measure or clinical decision support (CDS) expression.</p>
