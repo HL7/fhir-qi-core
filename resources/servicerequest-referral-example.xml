@@ -4,14 +4,14 @@
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"/>
   </meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/servicerequest-reasonRefused">
-    <valueCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/sct" />
-        <code value="609589008" />
-        <display value="Refused by parents of subject" />
-      </coding>
-    </valueCodeableConcept>
+    <extension url="http://hl7.org/fhir/StructureDefinition/request-statusReason">
+	    <valueCodeableConcept>
+	      <coding>
+	        <system value="http://snomed.info/sct" />
+	        <code value="609589008" />
+	        <display value="Refused by parents of subject" />
+	      </coding>
+	    </valueCodeableConcept>
     </extension>
     <!-- NOTE: This isn't quite right, it wasn't revoked by the authorizing provider, it was refused by the patient... not clear how to represent this in the R4 resource -->
     <status value="revoked" />

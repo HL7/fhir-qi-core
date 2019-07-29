@@ -17,15 +17,7 @@
     <reference value="Practitioner/example"/>
   </requester>
   <dosageInstruction>
-    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-doseType" >
-      <valueCodeableConcept>
-        <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="440231000124106"/>
-          <display value="Maintenance dose"/>
-        </coding>
-      </valueCodeableConcept>
-    </extension>
+		<!-- Extension was removed in R4, not clear where this should appear...
     <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver" >
       <valueDuration>
         <value value="1" />
@@ -34,6 +26,8 @@
         <code value="m" />
       </valueDuration>
     </extension>
+		-->
+		<!-- Extension was removed in R4, not clear where this should appear...
     <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod" >
       <valueRatio>
         <numerator>
@@ -50,6 +44,8 @@
         </denominator>
       </valueRatio>
     </extension>
+		-->
+		<!-- Extension was removed in R4, not clear where this should appear...
     <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume" >
       <valueQuantity>
         <value value="15" />
@@ -58,6 +54,7 @@
         <code value="ml" />
       </valueQuantity>
     </extension>
+		-->
     <timing>
       <repeat>
         <frequency value="3"/>
@@ -79,12 +76,21 @@
       </coding>
     </route>
     <doseAndRate>
-		<doseQuantity>
-		  <value value="5"/>
-		  <unit value="ml"/>
-		  <system value="http://unitsofmeasure.org"/>
-		  <code value="ml"/>
-		</doseQuantity>
+			<!-- ERROR: Publication tooling says this isn't a valid SNOMED-CT code, but it is in the US Edition...
+			<type>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="440231000124106"/>
+          <display value="Maintenance dose"/>
+        </coding>
+			</type>
+			-->
+			<doseQuantity>
+			  <value value="5"/>
+			  <unit value="ml"/>
+			  <system value="http://unitsofmeasure.org"/>
+			  <code value="ml"/>
+			</doseQuantity>
     </doseAndRate>
   </dosageInstruction>
   <dispenseRequest>
