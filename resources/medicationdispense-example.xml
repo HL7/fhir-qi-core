@@ -106,20 +106,19 @@
       </coding>
     </route>
     <doseAndRate>
-			<!-- This is erroring with not a SNOMED-CT code, but it is a code in the US Edition... -->
-			<type> 
+      <type>
         <coding>
-          <system value="http://snomed.info/sct"/>
-          <code value="440231000124106"/>
-          <display value="Maintenance dose"/>
+          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+          <code value="ordered"/>
+          <display value="Ordered"/>
         </coding>
-			</type>
-			<doseQuantity>
-			  <value value="5"/>
-			  <unit value="ml"/>
-			  <system value="http://unitsofmeasure.org"/>
-			  <code value="ml"/>
-			</doseQuantity>
+      </type>
+      <doseQuantity>
+        <value value="5"/>
+        <unit value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+      </doseQuantity>
     </doseAndRate>
   </dosageInstruction>
   <substitution>
