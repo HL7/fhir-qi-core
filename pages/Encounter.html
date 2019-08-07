@@ -98,42 +98,42 @@
             <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
         <tr valign="top">
             <td>Encounter, Performed</td>
-            <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter">Encounter</a></td>
+            <td><a href="StructureDefinition-qicore-encounter.html">Encounter</a></td>
             <td></td></tr><tr>
         <td></td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.status">Encounter.status</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.status">Encounter.status</a></td>
         <td>consider constraint to - arrived, triaged, in-progress, on-leave, finished</td></tr>
         <tr>
             <td></td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.type">Encounter.type</a></td>
+            <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.type">Encounter.type</a></td>
             <td>type of service by CPT</td></tr>
         <tr>
             <td align="center" style="background:#f0f0f0;"><strong>QDM Attribute</strong></td>
             <td align="center" style="background:#f0f0f0;"></td>
             <td align="center" style="background:#f0f0f0;"></td></tr><tr>
         <td>Code</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.class">Encounter.class</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.class">Encounter.class</a></td>
         <td>ambulatory, ED, inpatient, etc.</td></tr>
         <tr>
             <td>id</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.id">Encounter.id</a></td>
+            <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.id">Encounter.id</a></td>
             <td></td></tr><tr>
         <td>Relevant Period</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.period">Encounter.period</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.period">Encounter.period</a></td>
         <td>start and end time of encounter</td></tr>
         <tr>
             <td>Diagnosis</td>
             <td></td>
             <td></td></tr><tr>
         <td>Diagnosis (code)</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.condition">Encounter.diagnosis.condition</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.condition">Encounter.diagnosis.condition</a></td>
         <td>can be used for coded diagnoses</td></tr>
         <tr>
             <td>PresentOnAdmissionIndicator (code)</td>
             <td></td>
             <td></td></tr><tr>
         <td>Rank (integer)</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.rank">Encounter.diagnosis.rank</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.rank">Encounter.diagnosis.rank</a></td>
         <td>for each diagnosis role</td></tr>
         <tr>
             <td>Procedures</td>
@@ -148,10 +148,10 @@
         <td>Extension for Procedure.sequence to be consistent with the FHIR Claim resource includes a Claim.procedure.sequence used to uniquely identify procedure entries. Claim.procedure.type  provides a relative ranking with two example concepts - primary (the first procedure in a series to produce an overall patient outcome) and secondary the second procedure in a series required to product an overally patient outcome). However, type refers to procedures within a serier for which one is first. Such a sequence does not assure that the first procedure is the principal procedure for an encounter.</td></tr>
         <tr>
             <td>Priority</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.priority">Encounter.priority</a></td>
+            <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.priority">Encounter.priority</a></td>
             <td></td></tr><tr>
         <td>Length of Stay</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.length">Encounter.length</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.length">Encounter.length</a></td>
         <td></td></tr><tr>
         <td>Negation Rationale</td>
         <td>Not Addressed</td>
@@ -160,10 +160,10 @@
         <td>Not Addressed</td>
         <td></td></tr><tr>
         <td>Admission Source</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.hospitalization.admitSource">Encounter.hospitalization.admitSource</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.hospitalization.admitSource">Encounter.hospitalization.admitSource</a></td>
         <td></td></tr><tr>
         <td>Discharge Disposition</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.hospitalization.dischargeDisposition">Encounter.hospitalization.dischargeDisposition</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.hospitalization.dischargeDisposition">Encounter.hospitalization.dischargeDisposition</a></td>
         <td>E.g., home, hospice, long-term care, etc.</td></tr>
         <tr>
             <td></td>
@@ -173,13 +173,13 @@
         <td></td>
         <td></td></tr><tr>
         <td>code</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.location.location">Encounter.location.location</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.location.location">Encounter.location.location</a></td>
         <td></td></tr><tr>
         <td>location period</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.location.period">Encounter.location.period</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.location.period">Encounter.location.period</a></td>
         <td></td></tr><tr>
         <td>Participant</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-encounter-definitions.html#Encounter.participant.individual">Encounter.participant.individual</a></td>
+        <td><a href="StructureDefinition-qicore-encounter-definitions.html#Encounter.participant.individual">Encounter.participant.individual</a></td>
         <td></td></tr></table></div>
 
 <a name="Encounter.2C_Order"></a>

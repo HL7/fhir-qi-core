@@ -85,28 +85,28 @@
             <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
         <tr valign="top">
             <td><strong>Procedure, Performed and Intervention, Performed</strong></td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure.html">Procedure</a></td>
+            <td><a href="StructureDefinition-qicore-procedure.html">Procedure</a></td>
             <td></td></tr><tr>
         <td>Procedure, Performed Context</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.category">Procedure.category</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.category">Procedure.category</a></td>
         <td>Helps differentiate &quot;intervention&quot; from &quot;procedure&quot; from QDM</td></tr>
         <tr>
             <td align="center" style="background:#f0f0f0;"><strong>QDM Attributes</strong></td>
             <td align="center" style="background:#f0f0f0;"></td>
             <td align="center" style="background:#f0f0f0;"></td></tr><tr>
         <td>status</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
         <td>constrain to &quot;completed&quot;</td></tr>
         <tr>
             <td>Code</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.code">Procedure.code</a></td>
+            <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.code">Procedure.code</a></td>
             <td></td></tr><tr>
         <td></td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.category">Procedure.category</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.category">Procedure.category</a></td>
         <td>Helps differentiate &quot;intervention&quot; from &quot;procedure&quot; from QDM</td></tr>
         <tr>
             <td>id</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.id">Procedure.id</a></td>
+            <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.id">Procedure.id</a></td>
             <td></td></tr><tr>
         <td>Method</td>
         <td>N/A</td>
@@ -121,33 +121,33 @@
             <td>Referenced as Encounter.priority to determine the elective nature of a procedure (i.e., a principal procedure performed as part of an encounter in which Encounter.priority=elective.</td></tr>
         <tr>
             <td>Anatomical Location Site</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite">Procedure.bodySite</a></td>
+            <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite">Procedure.bodySite</a></td>
             <td></td></tr><tr>
         <td>Reason</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.reasonCode">Procedure.reasonCode</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.reasonCode">Procedure.reasonCode</a></td>
         <td></td></tr><tr>
         <td>Result</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.report">Procedure.report</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.report">Procedure.report</a></td>
         <td>Procedure.report references DiagnosticReport, DocumentReference, Composition (histology result, pathology report, surgical report, etc.). However, based on feedback regarding the use of the Observation resource, a procedure result might be better referenced as an Observation that includes the element Observation.partOf to reference the procedure to which it applies.</td></tr>
         <tr>
             <td></td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-observation-definitions.html#Observation.partOf">Observation.partOf</a></td>
+            <td><a href="StructureDefinition-qicore-observation-definitions.html#Observation.partOf">Observation.partOf</a></td>
             <td></td></tr><tr>
         <td>Negation Rationale</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
         <td>constrain status to &quot;Not-done&quot;</td></tr>
         <tr>
             <td></td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a></td>
+            <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a></td>
             <td></td></tr><tr>
         <td>Relevant dateTime</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] dateTime</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] dateTime</a></td>
         <td></td></tr><tr>
         <td>Relevant Period</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] Period</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] Period</a></td>
         <td></td></tr><tr>
         <td>Incision dateTime</td>
-        <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:incisionDateTime">Procedure.extension:incisionDateTime</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:incisionDateTime">Procedure.extension:incisionDateTime</a></td>
         <td></td></tr><tr>
         <td>Author dateTime</td>
         <td>N/A</td>
@@ -166,7 +166,7 @@
             <td>N/A</td></tr>
         <tr>
             <td>Performer</td>
-            <td><a href="http://build.fhir.org/ig/cqframework/qi-core/StructureDefinition-qicore-procedure-definitions.html#Procedure.performer">Procedure.performer</a></td>
+            <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performer">Procedure.performer</a></td>
             <td></td></tr></table></div>
 
 <a name="Intervention.2C_Order"></a>
