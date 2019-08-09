@@ -6,15 +6,15 @@ The implementation guide is based on [FHIR version 4.0.0 (R4 release)](http://hl
 
 Commits to this repository will automatically trigger a new build of the IG, which will then be published to the following location:
 
-[http://build.fhir.org/ig/cqframework/qi-core](http://build.fhir.org/ig/cqframework/qi-core)
+[http://build.fhir.org/ig/HL7/fhir-qi-core](http://build.fhir.org/ig/HL7/fhir-qi-core)
 
 Build log is available here:
 
-[http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/cqframework/qi-core/](http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/cqframework/qi-core/)
+[http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/HL7/fhir-qi-core/](http://ig-build.fhir.org.s3-website-us-east-1.amazonaws.com/logs/HL7/fhir-qi-core/)
 
 Full debugging information is available here:
 
-[http://build.fhir.org/ig/cqframework/qi-core/debug.tgz](http://build.fhir.org/ig/cqframework/qi-core/debug.tgz)
+[http://build.fhir.org/ig/HL7/fhir-qi-core/debug.tgz](http://build.fhir.org/ig/HL7/fhir-qi-core/debug.tgz)
 
 ## Local Build
 
