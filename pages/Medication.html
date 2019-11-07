@@ -22,10 +22,8 @@
 </h3>
 
 <p>
-    This QDM context correlates with a medication on a patient’s active medication list and thus it maps to MedicationStatement.
-    Note that MedicationStatement does not include reference to the QDM attributes <em>route</em> or <em>frequency</em> or <em>recorder.</em>
-    These attributes may be important if the medication list is the only source of information about medication usage and quality measures or clinical decision support (CDS) expressions need to assess total daily dosage or cumulative dose over time.
-    Ordered medications (MedicationRequest) or dispensed medications (MedicationDispense) or administered medications (MedicationAsminstration) represent alternative mechanisms to determine such information.
+    This QDM context correlates with a medication on a patient’s active medication list. Consistent with the US Core STU Release 3.1.0 Medication List Guidance <http://hl7.org/fhir/us/core/all-meds.html> active medications for a medication list should be based on MedicationRequest. Each medication on the list should be referenced with a MedicationRequest.status = active or on-hold (completed, cancelled, entered-in-error, stopped, draft or unknown do not apply). Further, the MedicationRequest.intent = order for all medications on the list. To represent medications reported by a physician, a patient or a patient's care partner, use MedicationRequest.reported[x] indicating practitioner, patient or relatedPerson. For medications on the list derived directly from electronic prescriptions use MedicationRequest.reported[x] = organization.
+    Note that QDM's Medication, Active does not allow negation rationale, i.e., a reason that a medication is not on the list. To address such concepts, the eCQM expression should address the reason a MedicationRequest was not performed (see MedicationRequest negation rationale mapping.
 </p>
 
 
@@ -38,51 +36,57 @@
             <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
         <tr valign="top">
             <td>Medication, Active</td>
-            <td><a href="StructureDefinition-qicore-medicationstatement.html">MedicationStatement</a></td>
+            <td><a href="StructureDefinition-qicore-medicationrequest.html">MedicationRequest</a></td>
             <td></td></tr><tr>
         <td></td>
-        <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.status">MedicationStatement.status</a></td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.status">MedicationRequest.status</a></td>
         <td>Constrain to "active"</td></tr>
+        <td></td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent">MedicationRequest.intent</a></td>
+        <td>Constrain to "order"</td></tr>
         <tr>
             <td></td>
-            <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.category">MedicationStatement.category</a></td>
+            <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category">MedicationRequest.category</a></td>
             <td>inpatient, outpatient, community, patient-specified</td></tr>
         <tr>
             <td align="center" style="background:#f0f0f0;"><strong>QDM Attribute</strong></td>
             <td align="center" style="background:#f0f0f0;"></td>
             <td align="center" style="background:#f0f0f0;"></td></tr><tr>
         <td>code</td>
-        <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.medication[x]">MedicationStatement.medication[x]</a></td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.medication[x]">MedicationRequest.medication[x]</a></td>
         <td></td></tr><tr>
         <td>id</td>
-        <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.id">MedicationStatement.id</a></td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.id">MedicationRequest.id</a></td>
         <td></td></tr><tr>
+        <td>reported</td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reported[x]">MedicationRequest.reported[x]</a></td>
+        <td></td>The MedicationRequest.reported as referenced by the US Core STU3 Release 3.1.0 allows differntiation of medications on the medication list based on the following: (a) to indicate doctor/practitioner-reported, reference practitioner, (b) to reference patient or care partner-reported, reference patient or relatedPerson, (c) to reference prescriptions written for the ambulatory setting, reference organization.</tr><tr>
         <td>Dosage</td>
-        <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.dosage">MedicationStatement.dosage</a></td>
-        <td>Dosage contains all information about how medication is taken (datatype) - incorporates frequency and route but may be a string</td></tr>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.doseAndRate.dose[x]">MedicationRequest.dosageInstruction.doseAndRate.dose</a></td>
+        <td>Amount of medication per dose</td></tr>
         <tr>
             <td>frequency</td>
-            <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.dosage.timing">MedicationStatement.dosage.timing</a></td>
-            <td>Refer to MedicationRequest</td></tr>
+            <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing">MedicationRequest.dosageInstruction.timing</a></td>
+            <td>When medication should be administered. The timing schedule for giving the medication to the patient. This data type allows many different expressions. For example: "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013". Sometimes, a rate can imply duration when expressed as total volume / duration (e.g. 500mL/2 hours implies a duration of 2 hours). However, when rate doesn't imply duration (e.g. 250mL/hour), then the timing.repeat.duration is needed to convey the infuse over time period.</td></tr>
         <tr>
             <td>route</td>
-            <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.dosage.site">MedicationStatement.dosage.site</a></td>
+            <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.route">MedicationRequest.dosageInstruction.route</a></td>
             <td></td></tr><tr>
         <td></td>
-        <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.reasonCode">MedicationStatement.reasonCode</a></td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod">MedicationRequest.dispenseRequest.validityPeriod</a></td>
         <td></td></tr><tr>
         <td>relevant dateTime</td>
-        <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.effective[x]">MedicationStatement.effective[x] dateTime</a></td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod">MedicationRequest.dispenseRequest.validityPeriod</a></td>
         <td></td></tr><tr>
         <td>relevant period</td>
-        <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.effective[x]">MedicationStatement.effective[x] period</a></td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod">MedicationRequest.dispenseRequest.validityPeriod</a></td>
         <td></td></tr><tr>
-        <td></td>
-        <td><a href="StructureDefinition-qicore-medicationstatement-definitions.html#MedicationStatement.dateAsserted">MedicationStatement.dateAsserted</a></td>
+        <td>author dateTime</td>
+        <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn">MedicationRequest.authoredOn</a></td>
         <td>Author dateTime not referenced in QDM</td></tr>
         <tr>
             <td>recorder</td>
-            <td></td>
+            <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.recorder">MedicationRequest.recorder</a></td>
             <td></td></tr></table></div>
 
 
@@ -159,11 +163,13 @@
         <td></td></tr><tr>
         <td>Negation rationale</td>
         <td><a href="StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.status">MedicationAdministration.status</a></td>
-        <td>Constrain status to "not-done"</td></tr>
+        <td>Constrain status to "not-done". Create a MedicationAdministrationNotDone profile containing constraints: (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html 
+status = not-done, (b) statusReason = use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (c) 
+timing = extension for MedicationAdministration.recorded</td></tr>
         <tr>
             <td></td>
             <td><a href="StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.statusReason">MedicationAdministration.statusReason</a></td>
-            <td></td></tr><tr>
+            <td></td></tr>Use a value set created from a combination of existing eCQM rationale value set (still extensible binding)<tr>
         <td>Performer</td>
         <td><a href="StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.performer.actor">MedicationAdministration.performer.actor</a></td>
         <td></td></tr></table></div>
@@ -245,11 +251,13 @@
         <td></td></tr><tr>
         <td>Negation rationale</td>
         <td><a href="StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.status">MedicationDIspense.status</a></td>
-        <td>Constrain MedicationDispense.status codes to "cancelled, declined</td></tr>
+        <td>Constrain MedicationDispense.status code to "declined". Create a MedicationDispenseNotDone profile including the following constraints: (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html
+(b) status = declined, (c) MedicationDispense.statusReason = use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (d)
+ timing = extension for MedicationDispense.recorded</td></tr>
         <tr>
             <td></td>
             <td><a href="StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.statusReason">MedicationDispense.statusReason</a></td>
-            <td>The reason for ordering or not ordering the medication</td></tr>
+            <td>The reason for ordering or not ordering the medication. use a value set created from a combination of existing eCQM rationale value set (still extensible binding)</td></tr>
         <tr>
             <td>Prescriber</td>
             <td><a href="StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.authorizingPrescription">MedicationDispense.authorizingPrescription</a></td>
@@ -347,10 +355,11 @@
         <td></td></tr><tr>
         <td>Negation rationale</td>
         <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.doNotPerform">MedicationRequest.doNotPerform</a></td>
-        <td></td></tr><tr>
+        <td>Create a new Profile MedicationNotRequested containing the following constraints: (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html, (b) status ="completed", (c) doNotPerform is true, (d)
+MedicationRequest.reasonCode =  use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (e) timing = MedicationRequest.authoredOn</td></tr><tr>
         <td></td>
         <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode">MedicationRequest.reasonCode</a></td>
-        <td>The reason for ordering or not ordering the medication</td></tr>
+        <td>The reason for ordering or not ordering the medication. use a value set created from a combination of existing eCQM rationale value set (still extensible binding)</td></tr>
         <tr>
             <td>Prescriber</td>
             <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester">MedicationRequest.requester</a></td>
@@ -425,11 +434,12 @@
         <tr>
             <td>Negation rationale</td>
             <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.doNotPerform">MedicationRequest.doNotPerform</a></td>
-            <td>Boolean</td></tr>
+            <td>Boolean. Create a new Profile MedicationNotRequested containing the following constraints: (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html, (b) status ="completed", (c) doNotPerform is true, (d)
+MedicationRequest.reasonCode =  use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (e) timing = MedicationRequest.authoredOn</td></tr>
         <tr>
             <td></td>
             <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode">MedicationRequest.reasonCode</a></td>
-            <td>The reason for ordering or not ordering the medication</td></tr>
+            <td>The reason for ordering or not ordering the medication. use a value set created from a combination of existing eCQM rationale value set (still extensible binding)</td></tr>
         <tr>
             <td>Requester</td>
             <td><a href="StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester">MedicationRequest.requester</a></td>
