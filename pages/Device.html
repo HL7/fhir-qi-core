@@ -88,7 +88,7 @@
         <td>Device.type</td>
         <td></td></tr><tr>
         <td></td>
-        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id">Procedure.focalDevice.id</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id">Procedure.foca.Device.id</a></td>
         <td></td></tr><tr>
         <td>id</td>
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.id">Procedure.id</a></td>
@@ -113,7 +113,7 @@
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed%5Bx%5D">Procedure.performed[x] Period</a></td>
         <td></td></tr><tr>
         <td>Author dateTime</td>
-        <td><a>Procedure.authoredOn</a></td>
+        <td><a href="Missing">Procedure.authoredOn</a></td>
         <td></td></tr><tr>
         <td>Performer</td>
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor">Prcoedure.performer.actor</a></td>
@@ -135,7 +135,7 @@
         <tr valign="top">
             <td>Device Request</td>
             <td><a href="http://hl7.org/fhir/devicerequest.html">DeviceRequest</a></td>
-            <td></td></tr><tr>
+            <td>DeviceRequest is focused on orders/prescriptions for devices intended for use by patients. The QDM datatype Device, Order and Device, Recommended is focused on implantable devices. As such ServiceRequest is more appropriate for existing use cases. However, although not included in existing eCQMs, there is justification for using DeviceRequest especially for use cases such as appropriate orders for non-implantable devices such as Continuous Positive Airway Pressure (CPAP) machines for a diagnosis of obstructive sleep apnea.  The use case is already addressed in existing DaVinci examples: Templates and Rules (which references a sleep study procedure and a CPAP DeviceRequest), LookupServiceInitiative (referencing documentation requirements for CPAP use), and PayerCoverageDecisionExchangeUseCases (referencing CPAP machines and face masks as devices).  Therefore, QI-Core should retain Device and DeviceRequest and QI-Core should develop a profile for DeviceNotRequested consistent with the other QDM negation rationale concepts.</td></tr><tr>
         <td></td>
         <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.status">DeviceRequest.status</a></td>
         <td>Constrain to active, on-hold, completed</td></tr>
@@ -165,8 +165,9 @@
         <td>FHIR allows dateTime or Period for desired time or schedule for use.</td></tr>
         <tr>
             <td>Negation Rationale</td>
-            <td>DeviceRequest.doNotPerform</td>
-            <td>ServiceRequest includes a doNotPerform; DeviceRequest does not</td></tr>
+            <td>DeviceRequest.doNotPerform (ew extension)</td>
+            <td>ServiceRequest includes a doNotPerform; DeviceRequest does not. Create a new QI-Core profile for DeviceNotRequested with the following constraints (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html, (b) status ="completed", (c) doNotPerform (new extension) is true 
+DeviceRequest.reasonCode (new extension) =  use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (d) timing = DeviceRequest.authoredOn</td></tr>
         <tr>
             <td></td>
             <td>DeviceRequest.doNotPerform.reason</td>
