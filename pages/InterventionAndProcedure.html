@@ -135,7 +135,7 @@
             <td></td></tr><tr>
         <td>Negation Rationale</td>
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
-        <td>constrain status to &quot;Not-done&quot;</td></tr>
+        <td>constrain status to &quot;Not-done&quot; Add new profile ProcedureNotDone with constraints (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html, (b) status = not-done, (c) statusReason = use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (d) timing = Procedure.extension:recorded </td></tr>
         <tr>
             <td></td>
             <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a></td>
@@ -150,7 +150,7 @@
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:incisionDateTime">Procedure.extension:incisionDateTime</a></td>
         <td></td></tr><tr>
         <td>Author dateTime</td>
-        <td>N/A</td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:recorded">Procedure.extension:recorded<a></td>
         <td>The concept &quot;author&quot; requires a reference to a report about the procedure or about an indication the procedure was not performed.  Therefore, the procedure resource does not have a reference to author dateTime. Author dateTime can reference a report about the procedure or an observation describing that result (e.g., Observation with metadata Observation.partOf procedure).</td></tr>
         <tr>
             <td>Components</td>
