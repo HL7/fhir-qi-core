@@ -88,7 +88,7 @@
         <td>Device.type</td>
         <td></td></tr><tr>
         <td></td>
-        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id">Procedure.focalDevice.id</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id">Procedure.foca.Device.id</a></td>
         <td></td></tr><tr>
         <td>id</td>
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.id">Procedure.id</a></td>
@@ -103,7 +103,7 @@
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a>
         <td>Constrain to not=done for the QDM concept of negation rationale final modeling in QI Core</td></tr>
         <tr>
-            <td></td>
+            <td> Create new profile for ProcedureNotDone including constraints for (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html, (b) status = not-done, (c) statusReason = use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (d) timing = extension for Procedure.recorded</td>
             <td>Use "StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason" for reason</td>
             <td></td></tr><tr>
         <td>Relevant dateTime</td>
@@ -113,7 +113,7 @@
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] Period</a></td>
         <td></td></tr><tr>
         <td>Author dateTime</td>
-        <td><a>Procedure.authoredOn</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:recorded">Procedure.extension:recorded</a></td>
         <td></td></tr><tr>
         <td>Performer</td>
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor">Prcoedure.performer.actor</a></td>
@@ -121,7 +121,7 @@
     </table></div>
 
 
-<a name="Device.2C_Order"> </a>
+<a name="Device.3C_Order"> </a>
 <h3>
     <span class="sectioncount">7.8.2</span> Device, Order <a href="Device.html#Device.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
@@ -134,34 +134,34 @@
             <td align="center" style="background:#f0f0f0;"><b>Comments</b></td></tr>
         <tr valign="top">
             <td>Device Request</td>
-            <td><a href="http://hl7.org/fhir/devicerequest.html">DeviceRequest</a></td>
-            <td></td></tr><tr>
+            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest">DeviceRequest</a></td>
+            <td>DeviceRequest is focused on orders/prescriptions for devices intended for use by patients. The QDM datatype Device, Order and Device, Recommended is focused on implantable devices. As such ServiceRequest is more appropriate for existing use cases. However, although not included in existing eCQMs, there is justification for using DeviceRequest especially for use cases such as appropriate orders for non-implantable devices such as Continuous Positive Airway Pressure (CPAP) machines for a diagnosis of obstructive sleep apnea.  The use case is already addressed in existing DaVinci examples: Templates and Rules (which references a sleep study procedure and a CPAP DeviceRequest), LookupServiceInitiative (referencing documentation requirements for CPAP use), and PayerCoverageDecisionExchangeUseCases (referencing CPAP machines and face masks as devices).  Therefore, QI-Core should retain Device and DeviceRequest and QI-Core should develop a profile for DeviceNotRequested consistent with the other QDM negation rationale concepts.</td></tr><tr>
         <td></td>
-        <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.status">DeviceRequest.status</a></td>
+        <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.status">DeviceRequest.status</a></td>
         <td>Constrain to active, on-hold, completed</td></tr>
         <tr>
             <td>Device, Recommended</td>
-            <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.intent">DeviceRequest.intent</a></td>
+            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.intent">DeviceRequest.intent</a></td>
             <td>Constrain to &quot;plan&quot;</td></tr>
         <tr>
             <td>Device, Order</td>
-            <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.intent">DeviceRequest.intent</a></td>
+            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.intent">DeviceRequest.intent</a></td>
             <td>Constrain to &quot;order&quot; (include children)</td></tr>
         <tr>
             <td align="center" style="background:#f0f0f0;"><strong>QDM Attributes</strong></td>
             <td align="center" style="background:#f0f0f0;"></td>
             <td align="center" style="background:#f0f0f0;"></td></tr><tr>
         <td>Code</td>
-        <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.code_x_">DeviceRequest.code</a></td>
+        <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code[x]">DeviceRequest.code</a></td>
         <td></td></tr><tr>
         <td>id</td>
-        <td><a href="http://DeviceRequest.id">DeviceRequest.id</a></td>
+        <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.id">DeviceRequest.id</a></td>
         <td></td></tr><tr>
         <td>Reason</td>
-        <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.reasonCode">DeviceRequest.reasonCode</a></td>
+        <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.reasonCode">DeviceRequest.reasonCode</a></td>
         <td></td></tr><tr>
         <td>Author dateTime</td>
-        <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.authoredOn">DeviceRequest.authoredOn</a></td>
+        <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.authoredOn">DeviceRequest.authoredOn</a></td>
         <td>FHIR allows dateTime or Period for desired time or schedule for use.</td></tr>
         <tr>
             <td>Negation Rationale</td>
@@ -184,7 +184,7 @@
         </tr>
         <tr>
             <td>Requester</td>
-            <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.performer">DeviceRequest.performer</a></td>
+            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.performer">DeviceRequest.performer</a></td>
             <td></td></tr></table></div>
 
 
