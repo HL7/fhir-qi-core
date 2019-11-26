@@ -165,12 +165,23 @@
         <td>FHIR allows dateTime or Period for desired time or schedule for use.</td></tr>
         <tr>
             <td>Negation Rationale</td>
-            <td>DeviceRequest.doNotPerform</td>
-            <td>ServiceRequest includes a doNotPerform; DeviceRequest does not</td></tr>
+            <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/devicerequest-doNotPerform">DeviceRequest.extension:doNotPerform</a></td>
+            <td>Note that DeviceRequest.extension:doNotPerform is Boolean (yes/no), thus it does not provide the reason for not requesting.
+                <br>DeviceRequest.reasonCode indicates reason or justification for the use of this device. It does not reference a reason for NOT requesting the device.
+                <br>Thus, there is a gap for the reason for doNotPerform
+                <br>DeviceRequest.extension:doNotPerform.reason does not exist and it is likely needed.
+            </td>
+        </tr>
         <tr>
             <td></td>
-            <td>DeviceRequest.doNotPerform.reason</td>
-            <td>ServiceRequest includes a reason code, but not a doNotPerformReason</td></tr>
+            <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/devicerequest-doNotPerform-definitions.html#Extension.extension:reasonCode">DeviceRequest.extension:doNotPerform.reason</a></td>
+            <td>ServiceRequest includes a reason code, but not a doNotPerformReason</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><a href="http://hl7.org/fhir/us/qicore/StructureDefinition/devicerequest-doNotPerform-definitions.html#Extension.extension:timing">DeviceRequest.extension:doNotPerform.timing</a></td>
+            <td>DeviceRequest.authoredOn indicates when the request transitioned to being actionable and, therefore, it cannot be used to indicate the time of the doNotPerform action (which, by definition, is not actionable)</td>
+        </tr>
         <tr>
             <td>Requester</td>
             <td><a href="http://hl7.org/fhir/devicerequest-definitions.html#DeviceRequest.performer">DeviceRequest.performer</a></td>
