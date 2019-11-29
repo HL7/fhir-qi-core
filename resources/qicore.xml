@@ -17,7 +17,7 @@
   <description value="The QICore Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the [US Core](http://hl7.org/fhir/us/core) profiles to provide a common foundation for building, sharing, and evaluating knowledge artifacts across quality improvement efforts in the US Realm."/>
 	<packageId value="hl7.fhir.us.qicore"/>
 	<license value="CC0-1.0"/>
-	<fhirVersion value="4.0.0"/>
+	<fhirVersion value="4.0.1"/>
   <dependsOn>
     <uri value="http://hl7.org/fhir/us/core"/>
   </dependsOn>
@@ -662,6 +662,12 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/qicore-military-service"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
