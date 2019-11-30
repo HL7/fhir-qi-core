@@ -1,10 +1,11 @@
 ---
 # jekyll header
+topofpage: true
 ---
 {% include header.html %}
 {% include container-start.html %}
 <a name="Device"> </a>
-<ul id="markdown-toc"><li><a href="#Device">Device</a></li><li><a href="#Device.2C_Applied">Device, Applied</a></li><li><a href="#Device.2C_Order">Device, Order</a></li></ul>
+<ul id="markdown-toc"><li><a href="#Device">Device</a></li><li><a href="#Device.2C_Applied">Device, Applied</a></li><li><a href="#Device.3C_Order">Device, Order</a></li></ul>
 <h2>
     <span class="sectioncount">7.8.0</span> Device <a href="Device.html#Device" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h2>
@@ -67,7 +68,7 @@
             <td></td></tr><tr>
         <td></td>
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
-        <td>Probably constrain to &quot;active&quot;</td></tr>
+        <td>Constrain to &quot;completed&quot; (to reference the QDM concept of negation rationale, use status = not=done)</td></tr>
         <tr>
             <td align="center" style="background:#f0f0f0;"><strong>QDM Attributes</strong></td>
             <td align="center" style="background:#f0f0f0;"></td>
@@ -76,19 +77,25 @@
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.code">Procedure.code</a></td>
         <td></td></tr><tr>
         <td></td>
-        <td>StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.manipulated</td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.manipulated">Procedure.focalDevice.manipulated</a></td>
+        <td>The device that was manipulated (changed) during the procedure. (reference QI-Core Device)</td></tr><tr>
+        <td></td>
+        <td><a href="StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.deviceIdentifier">Device.udiCarrier.deviceIdentifier</a></td>
+        <td>The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.</td></tr><tr>
+        <td></td>
+        <td><a href="StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.carrierHRF">Device.udiCarrier.carrierHRF</a></td>
+        <td>The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.</td></tr><tr>
+        <td></td>
+        <td><a href="StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.carrierAIDC">Device.udiCarrier.carrierAIDC</a></td>
+        <td>The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation of the barcode string as printed on the packaging of the device - e.g., a barcode or RFID. Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats SHALL be base64 encoded.</td></tr><tr>
+        <td></td>
+        <td><a href="StructureDefinition-qicore-device-definitions.html#Device.type">Device.type</a></td>
         <td></td></tr><tr>
         <td></td>
-        <td>Device.udiCarrier.carrierHRF</td>
-        <td></td></tr><tr>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.action">Procedure.focalDevice.action</a></td>
+        <td>The kind of change that happened to the device during the procedure.</td></tr><tr>
         <td></td>
-        <td>Device.udiCarrier.carrierAIDC</td>
-        <td></td></tr><tr>
-        <td></td>
-        <td>Device.type</td>
-        <td></td></tr><tr>
-        <td></td>
-        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id">Procedure.foca.Device.id</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id">Procedure.focalDevice.id</a></td>
         <td></td></tr><tr>
         <td>id</td>
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.id">Procedure.id</a></td>
@@ -100,30 +107,35 @@
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.reasonCode">Procedure.reasonCode</a></td>
         <td></td></tr><tr>
         <td>Negation Rationale</td>
-        <td><a href="http://hl7.org/fhir/us/qicore/2019Sep/StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a>
-        <td>Constrain to not=done for the QDM concept of negation rationale final modeling in QI Core</td></tr>
-        <tr>
-            <td> Create new profile for ProcedureNotDone including constraints for (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html, (b) status = not-done, (c) statusReason = use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (d) timing = extension for Procedure.recorded</td>
-            <td>Use "StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason" for reason</td>
-            <td></td></tr><tr>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a>
+        <td>Constrain to not-done for the QDM concept of negation rationale final modeling in QI Core</td></tr>
+        <td></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a></td>
+        <td></td></tr><tr>
         <td>Relevant dateTime</td>
-        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed%5Bx%5D">Procedure.performed[x] dateTime</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] dateTime</a></td>
         <td></td></tr><tr>
         <td>Relevant Period</td>
-        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed%5Bx%5D">Procedure.performed[x] Period</a></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] Period</a></td>
         <td></td></tr><tr>
         <td>Author dateTime</td>
-        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:recorded">Procedure.extension:recorded</a></td>
-        <td></td></tr><tr>
+        <td></td>
+        <td>Required for timing of negation rationale - Not currently present in QI-Core</td></tr><tr>
         <td>Performer</td>
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor">Prcoedure.performer.actor</a></td>
         <td></td></tr>
+        <td></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.recorder">Procedure.recorder</a></td>
+        <td>Individual who recorded the record and takes responsibility for its content.</td></tr><tr>
+        <td></td>
+        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.asserter">Procedure.asserter</a></td>
+        <td>Individual who is making the procedure statement.</td></tr>
     </table></div>
 
 
 <a name="Device.3C_Order"> </a>
 <h3>
-    <span class="sectioncount">7.8.2</span> Device, Order <a href="Device.html#Device.2C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
+    <span class="sectioncount">7.8.2</span> Device, Order <a href="Device.html#Device.3C_Order" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a>
 </h3>
 
 <div style="page-break-inside: avoid;">
@@ -165,17 +177,24 @@
         <td>FHIR allows dateTime or Period for desired time or schedule for use.</td></tr>
         <tr>
             <td>Negation Rationale</td>
-            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.extension:doNotPerform">DeviceRequest.extension:doNotPerform</a<td>
-            <td>Create a QI-Core profile for DeviceNotRequested with the following constraints (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html, (b) status ="completed", (c) DeviceRequest.extension:doNotPerform is true 
-DeviceRequest.reasonCode (new extension) =  use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (d) timing = DeviceRequest.authoredOn</td></tr>
+            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.extension:doNotPerform">DeviceRequest.extension:doNotPerform</a>
+            <td>Create a QI-Core profile for DeviceNotRequested with the following constraints (a) Value set for negation: http://hl7.org/fhir/extension-valueset-reference.html, (b) status ="completed", (c) DeviceRequest.extension:doNotPerform is true
+                DeviceRequest.reasonCode (new extension) =  use a value set created from a combination of existing eCQM rationale value set (still extensible binding), (d) timing = DeviceRequest.authoredOn</td></tr>
         <tr>
             <td></td>
-            <td>StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.extension:doNotPerform.reason</td>
-            <td>use a value set created from a combination of existing eCQM rationale value set (still extensible binding)</td></tr>
+            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.occurrence[x]">DeviceRequest.occurrence[x]</a></td>
+            <td>The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example: &quot;Every 8 hours&quot;; &quot;Three times a day&quot;; &quot;1/2 an hour before breakfast for 10 days from 23-Dec 2011:&quot;; &quot;15 Oct 2013, 17 Oct 2013 and 1 Nov 2013&quot;.</td></tr>
+        <tr>
+            <td></td>
+            <td>DeviceRequest.extension:doNotPerform.reason</td>
+            <td>ServiceRequest includes a reason code, but not a doNotPerformReason. Consider: <a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.supportingInfo">DeviceRequest.supportingInfo</a> (Type is Reference)</td></tr>
         <tr>
             <td>Requester</td>
-            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.performer">DeviceRequest.performer</a></td>
-            <td></td></tr></table></div>
+            <td><a href="StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.requester">DeviceRequest.requester</a></td>
+            <td></td>
+        </tr>
+    </table>
+</div>
 
 
 {% include container-end.html %}

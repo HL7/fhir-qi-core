@@ -177,6 +177,9 @@ body {
     padding-right: 0px;
     margin-bottom: 0;
 }
+.navbar .nav > li {
+    margin-bottom: 0;
+}
 .navbar .nav > li > a {
     font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
 }
@@ -350,6 +353,9 @@ p > img {
 pre {
     font-size: 12px;
 }
+#content-pre {
+    max-width: 75%;
+}
 .icon-warning-sign {
     font-size: 30px;
     margin-right: 10px;
@@ -368,10 +374,36 @@ a.to-top {
     margin-top: -28px;
 }
 
+----------------------------------------------------------------------------------------*/
+/* D-I-D AREA
+----------------------------------------------------------------------------------------*/
+/* ----------note-to-balloters styling------*/
+
+.note-to-balloters::before {
+    white-space: pre;
+    content: "Note To Balloters\A ";
+    #background-color: yellow;
+    color: red;
+    font-weight: bold;}
+.note-to-balloters, .stu-note{
+    margin: 5px;
+    padding: 10px;
+    border-left-style: solid;
+    background-color: #fff2ff;
+    border-left-color: #ffa0ff;
+}
+
+.stu-note::before {
+    white-space: pre;
+    content: "STU Note\A ";
+    #background-color: yellow;
+    color: red;
+    font-weight: bold;}
+
 /* ----------TOC styling ------*/
 
-/* Adding 'Contents' headline to the TOC */
 #markdown-toc {
+
 }
 
 #markdown-toc::before {
@@ -397,14 +429,59 @@ ul#markdown-toc {
     font-size: 1em;
 }
 
+/*-----top of page arrow ----*/
+.back-to-top {
+    cursor: pointer;
+    position: fixed;
+    bottom: 100px;
+    right: 20px;
+    display:none;
+    background-color: #999999;
+}
+
+.card-body {
+    border: 1px solid;
+    border-color: #cccccc;
+    padding: 10px
+}
+
+/* ----------Publish box styling------*/
 
 
+#publish-box {
+    list-style: none;
+    padding: 0;
+    margin-left: 15px;
+    margin-right: 15px;
+}
 
-/* EXCEPTIONS FOR SPECIFIC SITUATIONS
-----------------------------------------------------------------------------------------*/
-/* D-I-D AREA
-----------------------------------------------------------------------------------------*/
+p#publish-box {
+    background-color: yellow;
+    border:1px solid maroon;
+    padding: 5px;
+}
 
-#publish-box {  list-style: none;  padding: 0; }
- p#publish-box { background-color: yellow; border:1px solid maroon; padding: 5px; }
- img#publish-box { text-align: baseline; }
+img#publish-box {
+    text-align: baseline;
+}
+
+#markdown-toc li{
+    font-size: 1em;
+
+}
+
+#contentDiv {
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5 {
+    padding-bottom: 5px;
+}
+
+details > summary:hover {
+    cursor: hand;
+}
+
+details > summary {
+    padding-bottom: 5px;
+}

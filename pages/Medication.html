@@ -1,5 +1,6 @@
 ---
 # jekyll header
+topofpage: true
 ---
 {% include header.html %}
 {% include container-start.html %}
@@ -22,11 +23,9 @@
 </h3>
 
 <p>
-    This QDM context correlates with a medication on a patient’s active medication list. Consistent with the US Core STU Release 3.1.0 Medication List Guidance <http://hl7.org/fhir/us/core/all-meds.html> active medications for a medication list should be based on MedicationRequest. Each medication on the list should be referenced with a MedicationRequest.status = active or on-hold (completed, cancelled, entered-in-error, stopped, draft or unknown do not apply). Further, the MedicationRequest.intent = order for all medications on the list. To represent medications reported by a physician, a patient or a patient's care partner, use MedicationRequest.reported[x] indicating practitioner, patient or relatedPerson. For medications on the list derived directly from electronic prescriptions use MedicationRequest.reported[x] = organization.
+    This QDM context correlates with a medication on a patient’s active medication list. Consistent with the US Core STU Release 3.1.0 <a href="http://hl7.org/fhir/us/core/all-meds.html">Medication List Guidance </a> active medications for a medication list should be based on MedicationRequest. Each medication on the list should be referenced with a MedicationRequest.status = active or on-hold (completed, cancelled, entered-in-error, stopped, draft or unknown do not apply). Further, the MedicationRequest.intent = order for all medications on the list. To represent medications reported by a physician, a patient or a patient's care partner, use MedicationRequest.reported[x] indicating practitioner, patient or relatedPerson. For medications on the list derived directly from electronic prescriptions use MedicationRequest.reported[x] = organization.
     Note that QDM's Medication, Active does not allow negation rationale, i.e., a reason that a medication is not on the list. To address such concepts, the eCQM expression should address the reason a MedicationRequest was not performed (see MedicationRequest negation rationale mapping.
 </p>
-
-
 
 <div style="page-break-inside: avoid;">
     <table border="1" cellpadding="2" cellspacing="0">
@@ -244,7 +243,7 @@ timing = extension for MedicationAdministration.recorded</td></tr>
             <td>When provided to patient or representative</td></tr>
         <tr>
             <td>relevant Period</td>
-            <td><a href="StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.extension:validityPeriod">MedicationDispense.extension:validityPeriod</a></td>
+            <td><a href="http://hl7.org/fhir/STU3/StructureDefinition/medicationdispense-validityPeriod">MedicationDispense.extension:validityPeriod</a></td>
             <td></td></tr><tr>
         <td>author dateTime</td>
         <td></td>
@@ -256,7 +255,7 @@ timing = extension for MedicationAdministration.recorded</td></tr>
  timing = extension for MedicationDispense.recorded</td></tr>
         <tr>
             <td></td>
-            <td><a href="StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.statusReason">MedicationDispense.statusReason</a></td>
+            <td><a href="StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.statusReason[x]">MedicationDispense.statusReason</a></td>
             <td>The reason for ordering or not ordering the medication. use a value set created from a combination of existing eCQM rationale value set (still extensible binding)</td></tr>
         <tr>
             <td>Prescriber</td>

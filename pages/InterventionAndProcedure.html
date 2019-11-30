@@ -1,5 +1,6 @@
 ---
 # jekyll header
+topofpage: true
 ---
 {% include header.html %}
 {% include container-start.html %}
@@ -73,7 +74,7 @@
     A ServiceRequest.priority does have the ability to differentiate the urgency with which the <em>request</em> (or order) should be fulfilled.
     However, there is no element within the FHIR Procedure resource to address the issue.
     Encounter.priority allows specification of whether the encounter is elective.
-    An encounter with Encounter.priority = <em>elective</em> <u>and </u>an Encounter.procedure.rank = 1 addresses the need to specify an elective encounter with a principal procedure.
+    An encounter with Encounter.priority = <em>elective</em> <u>and</u> an Encounter.procedure.rank = 1 addresses the need to specify an elective encounter with a principal procedure.
     Therefore, based on the current use case QI-Core has not added an extension to address Procedure.priority and, as a result, there is no direct mapping from the QDM Procedure priority attribute to QI-Core.
 </p>
 
@@ -150,7 +151,7 @@
         <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:incisionDateTime">Procedure.extension:incisionDateTime</a></td>
         <td></td></tr><tr>
         <td>Author dateTime</td>
-        <td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:recorded">Procedure.extension:recorded<a></td>
+        <td>N/A</td>
         <td>The concept &quot;author&quot; requires a reference to a report about the procedure or about an indication the procedure was not performed.  Therefore, the procedure resource does not have a reference to author dateTime. Author dateTime can reference a report about the procedure or an observation describing that result (e.g., Observation with metadata Observation.partOf procedure).</td></tr>
         <tr>
             <td>Components</td>
