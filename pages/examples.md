@@ -1,14 +1,17 @@
 ---
-# jekyll header
+layout: default
+title: Examples
 topofpage: true
 ---
 
-{% include header.html %}
+---
 
-{% include container-start.html %}
+<!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
 
-<a name="artifacts"> </a>
-<h2><span class="sectioncount">5.0.0</span> QI-Core - Artifacts <a href="artifacts.html#artifacts" title="link to here" class="self-link"> <img src="target.png" width="20" class="self-link" height="20"/></a></h2>
+* Do not remove this line (it will not be displayed)
+{:toc}
+
+## 6 QI-Core Examples
 
 <table class="list">
     <tr><td>AdverseEvent</td><td>{% include qicore-adverseevent-ex.html %}</td></tr>
@@ -48,6 +51,4 @@ topofpage: true
 
 </table>
 
-{% include container-end.html %}
 
-{% include footer.html %}

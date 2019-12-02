@@ -7,6 +7,8 @@ topofpage: true
 
 {% include header.html %}
 
+{% include navbar.html %}
+
 {% include container-start.html %}
 
 <ul class="nav nav-tabs">
@@ -133,8 +135,8 @@ Formal Views of Profile Content
 
 {% include container-end.html %}
 
-<script src="jquery.js"> </script>
-<script src="jquery-ui.min.js"> </script>
+<script src="dist/js/jquery.js"> </script>
+<script src="dist/js/jquery-ui.min.js"> </script>
 <script>
 try {
   var currentTabIndex = sessionStorage.getItem('fhir-resource-tab-index');
