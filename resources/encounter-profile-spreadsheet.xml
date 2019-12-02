@@ -924,8 +924,9 @@
         html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Aliases</Data><Comment
-      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
-        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Other names - semi-colon separated</Font>       </ss:Data></Comment><NamedCell
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Other names - semi-colon separated</Font><Font
+        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Card.</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -950,8 +951,9 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Binding for coded data - either from local Bindings tab or declared elsewhere</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Value</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">The fixed value for this element.  XML for complex elements, string for simple data types</Font>       </ss:Data></Comment><NamedCell
+       xmlns="http://www.w3.org/TR/REC-html40"><Font html:Color="#000000">        </Font><Font
+        html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">The fixed value for this element.  XML for complex elements, string for simple data types</Font><Font
+        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s89"><Data ss:Type="String">Pattern</Data><Comment
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
@@ -1098,7 +1100,7 @@
     <Cell ss:StyleID="s108"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:Index="2" ss:StyleID="s109"><Data ss:Type="String">reasonCancelled</Data><NamedCell
+    <Cell ss:Index="2" ss:StyleID="s109"><Data ss:Type="String">statusReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1106,9 +1108,10 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="7"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/encounter-reasonCancelled}</Data><NamedCell
+    <Cell ss:Index="9"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/request-statusReason}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="11"><Data ss:Type="String">QICoreCancelReason</Data><NamedCell
+    <Cell><Data ss:Type="String">Y</Data><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell><Data ss:Type="String">QICoreStatusReason</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="17" ss:StyleID="s110"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1116,8 +1119,7 @@
     <Cell ss:StyleID="s111"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s112"><Data ss:Type="String">negationRationale (when Encounter.status=&quot;cancelled&quot;)</Data><NamedCell
-      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s112"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s113"><NamedCell ss:Name="_FilterDatabase"/></Cell>
    </Row>
@@ -2414,9 +2416,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>29</ActiveRow>
-     <ActiveCol>0</ActiveCol>
-     <RangeSelection>R30</RangeSelection>
+     <ActiveRow>5</ActiveRow>
+     <ActiveCol>8</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4413,10 +4414,10 @@
     <Cell ss:Index="13" ss:StyleID="s126"/>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s85"><Data ss:Type="String">QICoreCancelReason</Data></Cell>
-    <Cell ss:StyleID="s85"><Data ss:Type="String">The reason the encounter was cancelled</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">QICoreStatusReason</Data></Cell>
+    <Cell ss:StyleID="s85"><Data ss:Type="String">The reason for the current status of the encounter</Data></Cell>
     <Cell><Data ss:Type="String">value set</Data></Cell>
-    <Cell><Data ss:Type="String">example</Data></Cell>
+    <Cell><Data ss:Type="String">extensible</Data></Cell>
     <Cell ss:StyleID="s62" ss:HRef="http://hl7.org/fhir/us/qicore/ValueSet/qicore-encounter-canceled-reason"><Data
       ss:Type="String">http://hl7.org/fhir/us/qicore/ValueSet/qicore-encounter-canceled-reason</Data></Cell>
    </Row>
@@ -4559,8 +4560,8 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>6</ActiveRow>
-     <ActiveCol>5</ActiveCol>
+     <ActiveRow>3</ActiveRow>
+     <ActiveCol>4</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
