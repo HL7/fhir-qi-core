@@ -1862,9 +1862,13 @@ noted in the second example provided, the resource is relatively new and
 it allows expressions to address only the type of diet ordered, not the
 foods or substances administered to a patient.
 
-The CQI Workgroup seeks comment and advice regarding the best method for
-addressing existing and new use cases regarding substance
-administration.
+The CQI Workgroup suggests use of the Procedure resource for QDM's Substance administered for nutritional and other 
+non-medication substances. Indicate the procedure (e.g., oral feeding) and the Procedure.UsedCode to indicate the direct 
+reference code or value set indicating the expected nutritional element expected. There is no current known eCQM use 
+case or common practice for documenting NutritionOrder "negation rationale". Further, the only expressed use cases for 
+substance other than those that are modeled similar to medications are nutritional substance administered (human breast 
+milk) and biologically-derived product administration (blood) - both of these use cases can use the Procedure resources 
+as noted. Further work in base FHIR will advise how to reference specific administration details in QI-Core.
 
 | **QDM Context**                                    | **FHIR R4**                                                                                                                                                         | **Comments**                                          |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
