@@ -23,6 +23,7 @@ topofpage: true
     <tr><td>Condition</td><td>{% include qicore-condition-ex.html %}</td></tr>
     <tr><td>Coverage</td><td>{% include qicore-coverage-ex.html %}</td></tr>
     <tr><td>Device</td><td>{% include qicore-device-ex.html %}</td></tr>
+    <tr><td>DeviceNotRequested</td><td>{% include qicore-devicenotrequested-ex.html %}</td></tr>
     <tr><td>DeviceRequest</td><td>{% include qicore-devicerequest-ex.html %}</td></tr>
     <tr><td>DeviceUseStatement</td><td>{% include qicore-deviceusestatement-ex.html %}</td></tr>
     <tr><td>DiagnosticReportLab</td><td>{% include qicore-diagnosticreport-lab-ex.html %}</td></tr>

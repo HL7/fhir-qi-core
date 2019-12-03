@@ -54,6 +54,7 @@ Schematrons are also available and listed below:
 -  [qicore-coverage](qicore-coverage.sch)
 -  [qicore-device](qicore-device.sch)
 -  [qicore-devicerequest](qicore-devicerequest.sch)
+-  [qicore-devicenotrequested](qicore-devicenotrequested.sch)
 -  [qicore-deviceusestatement](qicore-deviceusestatement.sch)
 -  [qicore-diagnosticreport-lab](qicore-diagnosticreport-lab.sch)
 -  [qicore-diagnosticreport-note](qicore-diagnosticreport-note.sch)

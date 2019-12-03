@@ -16,6 +16,7 @@ topofpage: true
 > NOTE: The examples throughout this topic have been simplified to illustrate specific usage. Refer to the originating context for complete expressions.
 
 ### 3.1 Observations
+{: #Observation_Examples}
 
 For observations that have established profiles in US-Core, QI-Core uses those profiles:
 
