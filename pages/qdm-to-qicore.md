@@ -118,7 +118,7 @@ substance.
 
 ### 8.4 Observations
 
-A number of QDM “datatypes” (i.e., information class with its
+A number of QDM "datatypes" (i.e., information class with its
 corresponding context of use) are basically observations. These include:
 
   - Assessment, Performed
@@ -135,7 +135,7 @@ This section addresses all of these QDM concepts since they use US-Core
 and FHIR Observation resources.  The mapping uses US-Core R4 where
 US-Core specifically defines a profile to reference the concept (e.g.,
 US Core Laboratory Result Observation Profile). In some cases, US-Core
-references some aspects of a “QDM datatype,” (e.g., US Core Smoking
+references some aspects of a "QDM datatype," (e.g., US Core Smoking
 Status Observation Profile) but no other related observations. In such
 cases, the QDM mapping table provides a generic mapping to the FHIR
 Observation resource and a specific reference for relevant profiles
@@ -580,13 +580,13 @@ Performed use the FHIR Observation resource
 
 #### 8.4.6 Symptom
 
-QDM defines “symptom” as an indication that a person has a condition or
+QDM defines "symptom" as an indication that a person has a condition or
 disease. Some examples include headache, fever, fatigue, nausea,
-vomiting, and pain. Also, symptoms are subjective manifestations of the
+vomiting, and pain. Symptoms are subjective manifestations of the
 disease perceived by the patient. As an example to differentiate symptom
 from finding, the patient’s subjective symptom of fever is distinguished
 from the temperature (a finding). For a finding, there is either a
-source of either a temperature-measuring device together with a recorder
+source of a temperature-measuring device together with a recorder
 of the device (electronically) or an individual (healthcare provider,
 patient, etc.).
 
@@ -815,7 +815,7 @@ various ways:
     
       - Example: QDM Device, Applied: Trans-telephonic monitoring of
         pacemaker assessment. Note that some current uses of the QDM
-        datatype “Device, Applied” references the procedure to “apply”
+        datatype "Device, Applied" references the procedure to "apply"
         the device (i.e., to use for the patient, to use on the
         patient’s body, or to implant in the patient’s body). Each of
         these current uses actually reference a procedure to place the
@@ -830,13 +830,13 @@ Given the variation in determining evidence of device usage, a measure
 developer may need to include multiple queries (or retrieves) to assure
 capture of all devices present in the measure population.
 
-Note that the current use of the QDM datatype “Device, Applied” usually
-references the procedure to “apply” the device (i.e., to use for the
+Note that the current use of the QDM datatype "Device, Applied" usually
+references the procedure to "apply" the device (i.e., to use for the
 patient, to use on the patient’s body, or to implant in the patient’s
 body). Each of these current uses should address the concept using the
 QDM datatypes, Intervention, Performed, or Procedure, Performed.
 
-1.  The original intent of the QDM datatype “Device, Applied” was to
+1.  The original intent of the QDM datatype "Device, Applied" was to
     reference the specific device or type of device of concern to the
     measure. And that reference might be as detailed a providing a
     device class as referenced in a Unique Device Identifier (UDI). The
@@ -1188,7 +1188,7 @@ resource is specifically designed to provide an immunization forecast
 from a forecasting engine to a provider, basically to carry clinical
 decision support recommendations specific to immunizations and,
 therefore, is not consistent with the intent of the QDM datatype
-"Immunization, Order" or “Immunization, Administered.” The FHIR
+"Immunization, Order" or "Immunization, Administered." The FHIR
 [Immunization
 Evaluation](http://hl7.org/fhir/immunizationevaluation.html) references
 an appraisal of an immunization that was administered to determine if it
@@ -1565,7 +1565,7 @@ eventuality:
 | ------------------ | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Medication, Active | [MedicationRequest](StructureDefinition-qicore-medicationrequest.html)                                |                                                                                                                                                                                                                                                                                                                                            |
 |                    | [MedicationRequest.status](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.status)                                                 | Constrain to "active"                                                                                                                                                                                                                                                                                                                      |
-|                    | [MedicationRequest.intent](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent)                                                 | Constrain to “order’                                                                                                                                                                                                                                                                                                                       |
+|                    | [MedicationRequest.intent](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent)                                                 | Constrain to "order’                                                                                                                                                                                                                                                                                                                       |
 |                    | [MedicationRequest.category](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category)                                             | inpatient, outpatient, community, patient-specified (used to specify if the medication active list is for inpatient, outpatient service, community (ambulatory) settings and most useful for identifying a discharge medication list using the community reference)                                                                        |
 | **QDM Attribute**  |                                                                                                       |                                                                                                                                                                                                                                                                                                                                            |
 | code               | [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.medication[x])                                 |                                                                                                                                                                                                                                                                                                                                            |
