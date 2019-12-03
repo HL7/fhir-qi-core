@@ -499,7 +499,7 @@ For specific physical examination observations inherited directly from US Core:
 
 ##### 8.4.5.3 Physical Exam, Performed - Pediatric BMI for Age
 
-NEED TO ADD Pediatric Weight for Height (US Core) and Pulse Oximetry (US Core Update)
+NEED TO ADD Pediatric Weight for Height (US Core) and Pulse Oximetry (in US Core Update)
 
 | **QDM Context**              | **USCore R3**                                                                                                                                           | **Comments**                                                                                                                                            |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
