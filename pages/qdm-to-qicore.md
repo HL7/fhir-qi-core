@@ -435,6 +435,15 @@ Performed use the FHIR Observation resource
 
 ##### 8.4.5.1 Physical Exam, Performed: General
 
+QDM defines Physical Exam as the evaluation of the patient's body and/or mental status exam to determine its state of 
+health. The techniques of examination can include palpation (feeling with the hands or fingers), percussion (tapping 
+with the fingers), auscultation (listening), visual inspection or observation, inquisition and smell. Measurements may 
+include vital signs (blood pressure, pulse, respiration) as well as other clinical measures (such as expiratory flow 
+rate and size of lesion). In the context of quality measurement, the physical exam category is also used to represent 
+calculations based upon measurements (such as body mass index (BMI)). Physical exam includes psychiatric examinations. 
+
+For specific physical examination observations inherited directly from US Core:
+
 | **QDM Context**                        | **QI-Core R4**                                                                                                                                                                        | **Comments**                                                                                                                                                                                                                          |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Physical Exam, Performed - General** | [Observation](StructureDefinition-qicore-observation.html)                                                       |                                                                                                                                                                                                                                       |
@@ -489,6 +498,8 @@ Performed use the FHIR Observation resource
 {: .grid}
 
 ##### 8.4.5.3 Physical Exam, Performed - Pediatric BMI for Age
+
+NEED TO ADD Pediatric Weight for Height (US Core) and Pulse Oximetry (US Core Update)
 
 | **QDM Context**              | **USCore R3**                                                                                                                                           | **Comments**                                                                                                                                            |
 | ---------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------- |
