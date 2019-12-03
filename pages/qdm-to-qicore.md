@@ -863,161 +863,48 @@ QDM datatypes, Intervention, Performed, or Procedure, Performed.
 
 #### 8.8.1 Device, Applied
 
-<table class="list">
-<thead>
-<tr class="header">
-<th><strong>QDM Context</strong></th>
-<th><strong>QI-Core R4</strong></th>
-<th><strong>Comments</strong></th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td><strong>Device, Applied</strong></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure">Procedure</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
-<td>Constrain to "completed" (to reference the QDM concept of negation rationale, use status = not=done)</td>
-</tr>
-<tr class="odd">
-<td><strong>QDM Attributes</strong></td>
-<td></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Code</td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.code">Procedure.code</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.category">Procedure.category</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.manipulated">Procedure.focalDevice.manipulated</a></td>
-<td>The device that was manipulated (changed) during the procedure. (reference QI-Core Device)</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><ul>
-<li><blockquote>
-<p><a href="StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.deviceIdentifier">Device.udiCarrier.deviceIdentifier</a></p>
-</blockquote></li>
-</ul></td>
-<td>The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device.</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><ul>
-<li><p><a href="StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.carrierHRF">Device.udiCarrier.carrierHRF</a></p></li>
-</ul></td>
-<td>The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><ul>
-<li><blockquote>
-<p><a href="StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.carrierAIDC">Device.udiCarrier.carrierAIDC</a></p>
-</blockquote></li>
-</ul></td>
-<td>The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation of the barcode string as printed on the packaging of the device - e.g., a barcode or RFID. Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats <em>SHALL</em> be base64 encoded.</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><ul>
-<li><p><a href="StructureDefinition-qicore-device-definitions.html#Device.type">Device.type</a></p></li>
-</ul></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.action">Procedure.focalDevice.action</a></td>
-<td>The kind of change that happened to the device during the procedure.</td>
-</tr>
-<tr class="even">
-<td></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id">Procedure.focalDevice.id</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>id</td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.id">Procedure.id</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Anatomical Location Site</td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite">Procedure.bodySite</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Reason</td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.reasonCode">Procedure.reasonCode</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Negation Rationale</td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.status">Procedure.status</a></td>
-<td>Constrain to not=done for the QDM concept of negation rationale</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason">Procedure.statusReason</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Relevant dateTime</td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] dateTime</a></td>
-<td></td>
-</tr>
-<tr class="odd">
-<td>Relevant Period</td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x]">Procedure.performed[x] Period</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td>Author dateTime</td>
-<td></td>
-<td>Required for timing of negation rationale - Not currently present in QI-Core</td>
-</tr>
-<tr class="odd">
-<td>Performer</td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor">Procedure.performer.actor</a></td>
-<td></td>
-</tr>
-<tr class="even">
-<td></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.recorder">Procedure.recorder</a></td>
-<td>Individual who recorded the record and takes responsibility for its content.</td>
-</tr>
-<tr class="odd">
-<td></td>
-<td><a href="StructureDefinition-qicore-procedure-definitions.html#Procedure.asserter">Procedure.asserter</a></td>
-<td>Individual who is making the procedure statement.</td>
-</tr>
-</tbody>
-</table>
+|**QDM Context**|**QI-Core R4**|**Comments**|
+|---|---|---|
+|**Device, Applied**|[Procedure](StructureDefinition-qicore-procedure-definitions.html#Procedure)| |
+| |[Procedure.status](StructureDefinition-qicore-procedure-definitions.html#Procedure.status)|Constrain to "completed" (to reference the QDM concept of negation rationale, use status = not=done)|
+|**QDM Attributes**|||
+|Code|[Procedure.code](StructureDefinition-qicore-procedure-definitions.html#Procedure.code)||
+||[Procedure.category](StructureDefinition-qicore-procedure-definitions.html#Procedure.category)||
+||[Procedure.focalDevice.manipulated](StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.manipulated)|The device that was manipulated (changed) during the procedure. (reference QI-Core Device)|
+||[Device.udiCarrier.deviceIdentifier](StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.deviceIdentifier)|The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device.|
+||[Device.udiCarrier.carrierHRF](StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.carrierHRF)|The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.|
+||[Device.udiCarrier.carrierAIDC](StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.carrierAIDC)|The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation of the barcode string as printed on the packaging of the device - e.g., a barcode or RFID. Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats *SHALL* be base64 encoded.|
+||[Device.type](StructureDefinition-qicore-device-definitions.html#Device.type)||
+||[Procedure.focalDevice.action](StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.action)|The kind of change that happened to the device during the procedure.|
+||[Procedure.focalDevice.id](StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id)||
+||[Procedure.id](StructureDefinition-qicore-procedure-definitions.html#Procedure.id)||
+|Anatomical Location Site|[Procedure.bodySite](StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite)||
+|Reason|[Procedure.reasonCode](StructureDefinition-qicore-procedure-definitions.html#Procedure.reasonCode)||
+|Negation Rationale|[Procedure.status](StructureDefinition-qicore-procedure-definitions.html#Procedure.status)|Constrain to not-done for the QDM concept of negation rationale|
+||[Procedure.statusReason](StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason)||
+|Relevant dateTime|[Procedure.performed\[x\] dateTime](StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x])||
+|Relevant Period|[Procedure.performed\[x\] Period](StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x])||
+|Author dateTime||Required for timing of negation rationale - Not currently present in QI-Core|
+|Performer|[Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)||
+||[Procedure.recorder](StructureDefinition-qicore-procedure-definitions.html#Procedure.recorder)|Individual who recorded the record and takes responsibility for its content.|
+||[Procedure.asserter](StructureDefinition-qicore-procedure-definitions.html#Procedure.asserter)|Individual who is making the procedure statement.|
 
 #### 8.8.2 Device, Order
 
 | **QDM Context**         | **FHIR R4**                                                                                                                                                                  | **Comments**                                                                                                                                                                                                                                                                                                                                                      |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| **Device Request**      | [DeviceRequest](StructureDefinition-qicore-devicerequest.html)                                           |                                                                                                                                                                                                                                                                                                                                                                   |
+| **Device Request**      | [DeviceRequest](StructureDefinition-qicore-devicerequest.html)                                                                         |                                                                                                                                                                                                                                                                                                                                                                   |
 |                         | [DeviceRequest.status](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.status)                                 | Constrain to active, on-hold, completed                                                                                                                                                                                                                                                                                                                           |
 | **Device, Recommended** | [DeviceRequest.intent](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.intent)                                 | Constrain to "plan"                                                                                                                                                                                                                                                                                                                                               |
 | **Device, Order**       | [DeviceRequest.intent](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.intent)                                 | Constrain to "Order" (include children)                                                                                                                                                                                                                                                                                                                           |
-| **QDM Attributes**      |                                                                                                                                                                              |                                                                                                                                                                                                                                                                                                                                                                   |
-| Code                    | [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code[x])                                                                          |                                                                                                                                                                                                                                                                                                                                                                   |
+| **QDM Attributes**      |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                   |
+| Code                    | [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code[x])                             |                                                                                                                                                                                                                                                                                                                                                                   |
 | id                      | [DeviceRequest.id](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.id)                                         |                                                                                                                                                                                                                                                                                                                                                                   |
 | Reason                  | [DeviceRequest.reasonCode](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.reasonCode)                         | Reason or justification for the use of this device.                                                                                                                                                                                                                                                                                                               |
 | Author dateTime         | [DeviceRequest.authoredOn](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.authoredOn)                         |                                                                                                                                                                                                                                                                                                                                                                   |
-| Negation Rationale      | [DeviceRequest.extension:doNotPerform](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.extension:doNotPerform) | The attributes provided with the request qualify what is not to be done. For example, if an effectiveTime is provided, the "do not" request only applies within the specified time. If a performerType is specified then the "do not" request only applies to performers of that type. Qualifiers include: code, subject, occurrence, perormerType and performer. |
-|                         | [DeviceRequest.occurrence\[x\]](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.occurrence[x])             | The timing schedule for the use of the device. The Schedule data type allows many different expressions, for example. "Every 8 hours"; "Three times a day"; "1/2 an hour before breakfast for 10 days from 23-Dec 2011:"; "15 Oct 2013, 17 Oct 2013 and 1 Nov 2013".                                                                                              |
-|                         | DeviceRequest.extension:doNotPerform.reason                                                                                                                                  | ServiceRequest includes a reason code, but not a doNotPerformReason. Consider: [DeviceRequest.supportingInfo](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.supportingInfo) (Type is Reference)                                                                                                   |
+| Negation Rationale      | [DeviceRequest.extension:doNotPerform](http://hl7.org/fhir/StructureDefinition/request-doNotPerform)                                   | Note that DeviceRequest.extension:doNotPerform is Boolean (yes/no), thus it does not provide the reason for not requesting.  DeviceRequest.reasonCode indicates reason or justification for the use of this device. It does not reference a reason for NOT requesting the device.  Thus, there is a gap for the reason for doNotPerform |
+|                         | [DeviceRequest.extension:doNotPerformReason](StructureDefinition-devicerequest-doNotPerformReason.html)                                | Reason for doNotPerform                                                                                                  |
+|                         | [DeviceRequest.extension:doNotPerformTiming](StructureDefinition-devicerequest-doNotPerformTiming.html)                                | Timing of doNotPerform                                                                                              |
 | Requester               | [DeviceRequest.requester](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.requester)                           |                                                                                                                                                                                                                                                                                                                                                                   |
 {: .grid}
 
