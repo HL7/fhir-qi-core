@@ -9,6 +9,7 @@
   "license": "CC0-1.0",
   "tool": "jekyll",
   "exemptHtmlPatterns" : ["quick\\/\\S*"],
+  "topofpage": "true",
   "paths": {
     "resources": "resources",
     "pages": "pages",
@@ -20,6 +21,7 @@
   },
   "logging": ["init", "progress", "context", "html", "tx"],
   "suppressedWarningFile": "SuppressedWarnings.txt",
+  "broken-links": "warning",
   "special-urls":[
     "urn:oid:2.16.840.1.113883.6.238"
   ],
@@ -167,6 +169,7 @@
     "condition-profile-spreadsheet.xml",
     "coverage-profile-spreadsheet.xml",
     "device-profile-spreadsheet.xml",
+    "devicenotrequested-profile-spreadsheet.xml",
     "devicerequest-profile-spreadsheet.xml",
     "deviceusestatement-profile-spreadsheet.xml",
     "diagnosticreport-lab-profile-spreadsheet.xml",
@@ -395,6 +398,10 @@
       "base": "StructureDefinition-qicore-device.html",
       "defns": "StructureDefinition-qicore-device-definitions.html"
     },
+    "StructureDefinition/qicore-devicenotrequested": {
+      "base": "StructureDefinition-qicore-devicenotrequested.html",
+      "defns": "StructureDefinition-qicore-devicenotrequested-definitions.html"
+    },
     "StructureDefinition/qicore-devicerequest": {
       "base": "StructureDefinition-qicore-devicerequest.html",
       "defns": "StructureDefinition-qicore-devicerequest-definitions.html"
@@ -531,6 +538,19 @@
       "defns": "StructureDefinition-qicore-deviceusestatement-notDone-definitions.html",
       "source": "structuredefinition-qicore-deviceusestatement-notdone.xml"
     },
+    "StructureDefinition/devicerequest-doNotPerformReason": {
+      "base": "StructureDefinition-devicerequest-doNotPerformReason.html",
+      "defns": "StructureDefinition-devicerequest-doNotPerformReason-definitions.html"
+    },
+    "StructureDefinition/devicerequest-doNotPerformTiming": {
+      "base": "StructureDefinition-devicerequest-doNotPerformTiming.html",
+      "defns": "StructureDefinition-devicerequest-doNotPerformTiming-definitions.html"
+    },
+    "StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission": {
+      "base": "StructureDefinition-qicore-encounter-diagnosisPresentOnAdmission.html",
+      "defns": "StructureDefinition-qicore-encounter-diagnosisPresentOnAdmission-definitions.html",
+      "source": "structuredefinition-qicore-encounter-diagnosisPresentOnAdmission.xml"
+    },
     "CodeSystem/appropriateness-score": {
       "base": "CodeSystem-appropriateness-score.html",
       "source": "codesystem-appropriateness-score.xml"
@@ -590,10 +610,6 @@
     "ValueSet/qicore-encounter-condition-role": {
       "source": "valueset-qicore-encounter-condition-role.xml",
       "base": "ValueSet-qicore-encounter-condition-role.html"
-    },
-    "ValueSet/qicore-encounter-diet": {
-      "source": "valueset-qicore-encounter-diet.xml",
-      "base": "ValueSet-qicore-encounter-diet.html"
     },
     "ValueSet/qicore-flag-category": {
       "source": "valueset-qicore-flag-category.xml",
