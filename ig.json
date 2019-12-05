@@ -165,6 +165,7 @@
     "careplan-profile-spreadsheet.xml",
     "careteam-profile-spreadsheet.xml",
     "communication-profile-spreadsheet.xml",
+    "communicationnotdone-profile-spreadsheet.xml",
     "communicationrequest-profile-spreadsheet.xml",
     "condition-profile-spreadsheet.xml",
     "coverage-profile-spreadsheet.xml",
@@ -190,11 +191,13 @@
     "medicationrequest-profile-spreadsheet.xml",
     "nutritionorder-profile-spreadsheet.xml",
     "observation-profile-spreadsheet.xml",
+    "observationnotdone-profile-spreadsheet.xml",
     "organization-profile-spreadsheet.xml",
     "patient-profile-spreadsheet.xml",
     "practitioner-profile-spreadsheet.xml",
     "practitionerrole-profile-spreadsheet.xml",
     "procedure-profile-spreadsheet.xml",
+    "procedurenotdone-profile-spreadsheet.xml",
     "relatedperson-profile-spreadsheet.xml",
     "servicerequest-profile-spreadsheet.xml",
     "specimen-profile-spreadsheet.xml",
@@ -382,6 +385,10 @@
       "base": "StructureDefinition-qicore-communication.html",
       "defns": "StructureDefinition-qicore-communication-definitions.html"
     },
+    "StructureDefinition/qicore-communicationnotdone": {
+      "base": "StructureDefinition-qicore-communicationnotdone.html",
+      "defns": "StructureDefinition-qicore-communicationnotdone-definitions.html"
+    },
     "StructureDefinition/qicore-communicationrequest": {
       "base": "StructureDefinition-qicore-communicationrequest.html",
       "defns": "StructureDefinition-qicore-communicationrequest-definitions.html"
@@ -478,6 +485,10 @@
       "base": "StructureDefinition-qicore-observation.html",
       "defns": "StructureDefinition-qicore-observation-definitions.html"
     },
+    "StructureDefinition/qicore-observationnotdone": {
+      "base": "StructureDefinition-qicore-observationnotdone.html",
+      "defns": "StructureDefinition-qicore-observationnotdone-definitions.html"
+    },
     "StructureDefinition/qicore-organization": {
       "base": "StructureDefinition-qicore-organization.html",
       "defns": "StructureDefinition-qicore-organization-definitions.html"
@@ -498,6 +509,10 @@
       "base": "StructureDefinition-qicore-procedure.html",
       "defns": "StructureDefinition-qicore-procedure-definitions.html"
     },
+    "StructureDefinition/qicore-procedurenotdone": {
+      "base": "StructureDefinition-qicore-procedurenotdone.html",
+      "defns": "StructureDefinition-qicore-procedurenotdone-definitions.html"
+    },
     "StructureDefinition/qicore-servicerequest": {
       "base": "StructureDefinition-qicore-servicerequest.html",
       "defns": "StructureDefinition-qicore-servicerequest-definitions.html"
@@ -517,6 +532,16 @@
     "StructureDefinition/qicore-task": {
       "base": "StructureDefinition-qicore-task.html",
       "defns": "StructureDefinition-qicore-task-definitions.html"
+    },
+    "StructureDefinition/doNotPerformReason": {
+      "base": "StructureDefinition-doNotPerformReason.html",
+      "defns": "StructureDefinition-doNotPerformReason-definitions.html",
+      "source": "structuredefinition-doNotPerformReason.json"
+    },
+    "StructureDefinition/doNotPerformTiming": {
+      "base": "StructureDefinition-doNotPerformTiming.html",
+      "defns": "StructureDefinition-doNotPerformTiming-definitions.html",
+      "source": "structuredefinition-doNotPerformTiming.json"
     },
     "StructureDefinition/qicore-servicerequest-appropriatenessScore": {
       "base": "StructureDefinition-qicore-servicerequest-appropriatenessScore.html",
@@ -627,6 +652,10 @@
       "source": "valueset-qicore-military-service.xml",
       "base": "ValueSet-qicore-military-service.html"
     },
+    "ValueSet/qicore-negation-reason": {
+      "source": "valueset-qicore-negation-reason.json",
+      "base": "ValueSet-qicore-negation-reason.html"
+    },
     "ValueSet/qicore-observation-body-position": {
       "source": "valueset-qicore-observation-body-position.xml",
       "base": "ValueSet-qicore-observation-body-position.html"
@@ -646,6 +675,10 @@
     "ValueSet/qicore-priority": {
       "source": "valueset-qicore-priority.xml",
       "base": "ValueSet-qicore-priority.html"
+    },
+    "ValueSet/qicore-procedure-type": {
+      "source": "valueset-qicore-procedure-type.json",
+      "base": "ValueSet-qicore-procedure-type.html"
     },
     "ValueSet/qicore-servicerequest-reason-rejected": {
       "source": "valueset-qicore-servicerequest-reason-rejected.xml",
