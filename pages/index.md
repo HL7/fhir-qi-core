@@ -60,13 +60,7 @@ consisting of objects, attributes, and relationships. QUICK provides a uniform w
 quality measures to refer to clinical data. Authors of quality measures and clinical decision support artifacts may use 
 QUICK, together with HL7's Clinical Quality Language (CQL), to create interoperable and executable knowledge artifacts.
 
-This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on 
-the vMR and QDM as sources of requirements. QIDAM gave rise to the QUICK logical model in 2014. Originally, QUICK was 
-entirely independent of FHIR. However, recognizing the broader community focus on FHIR, QUICK was aligned, structurally 
-and semantically, as closely as possible to FHIR. This alignment not only creates a common model for quality and 
-interoperability, but will also make it easier in the future to leverage other FHIR-related efforts, such as Clinical 
-Document Architecture (CDA) on FHIR. The conceptual, logical, and physical models in this initiative are, respectively, 
-QIDAM, QUICK, and the QI-Core FHIR Profiles.
+This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the vMR and QDM as sources of requirements. Subsequently, a set of QI Core profiles were developed directly on specific versions of FHIR and reference to the QUICK model in QI-Core has been the logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK was aligned, structurally and semantically, as closely as possible to FHIR. This alignment not only creates a common model for quality and interoperability for the version of FHIR under consideration, but will also make it easier in the future to leverage other FHIR-related efforts, such as Clinical Document Architecture (CDA) on FHIR. The conceptual, logical, and physical models in this initiative are, respectively, QIDAM, QUICK, and the QI-Core FHIR Profiles.
 
 This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The goal is 
 to have a single logical data model (QUICK), as well as a single logical processing language (CQL), for CDS and clinical 
