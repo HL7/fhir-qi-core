@@ -104,23 +104,7 @@ not automatically result in shareable artifacts without additional coordinating 
 It is expected that QI-Core will evolve over time to include some of the extensional content when the community 
 identifies a common need and the additional content has been validated.
 
-The QUICK model is the logical model used by quality artifact authors. To obtain data to evaluate the artifacts, the 
-interactions with the local EHR can use FHIR or implement a custom data mapping to local EHR data. In addition to 
-defining QUICK, the QI-Core profiles provide a bridge to using FHIR as QUICK's physical model. To correctly map between 
-FHIR and QUICK, the data instances retrieved from a FHIR interface must conform to the QI-Core profiles. The QI-Core 
-FHIR Profiles link the QUICK logical model to FHIR at the physical level.
-
-QI-Core FHIR profiles provide a physical model for core elements of the QUICK logical model. The QUICK model, derived 
-from QI-Core, provides a uniform way for clinical decision support and quality measures to refer to clinical data. 
-Simultaneously, the QI-Core profiles provide a physical implementation of QUICK, making data for quality improvement 
-applications accessible via the FHIR interface. However, using FHIR in the physical layer is optional. If the QI-Core 
-FHIR profiles are not used at the physical layer,  implementers are responsible for mapping their data directly into the 
-QUICK model via their own customized data access layer.
-
-For system implementers, using FHIR as the physical data model behind QUICK may provide several benefits. It may be that 
-the local EHR has already been mapped to FHIR. In this case, the same interface with minor modifications can be used for 
-quality applications. Implementers can also leverage future reference implementations based on FHIR. Using FHIR as a 
-common model for different applications (quality, interoperability, etc.) reduces the overall learning curve.
+Though the QUICK model was intended to be the logical model used by quality artifact authors, a comprehensive FHIR version-independent QUICK model is not currently available and its feasibility needs further clarification. QI-Core does provide a QUICK logical view of clinical data from the perspective of representing quality measurement and decision support knowledge. The QUICK logical view is FHIR version-specific and it enables knowledge authors to ignore certain details of the FHIR Physical representation. Quality measures can be written using the QUICK logical view or directly using QI-Core profiles.
 
 ### 1.5 Scope
 
