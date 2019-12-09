@@ -339,8 +339,7 @@ FHIR resources frequently contain references (pointers) to other FHIR resources.
 reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resources. For example, 
 QICore-Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any 
 extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by 
-Encounter.patient. References to QI-Core extensions accessed through references, such as 
-Encounter.patient.veteranMilitaryStatus, are guaranteed to be valid. References to resources that do not currently have 
+Encounter.patient. References to QI-Core extensions accessed through references are guaranteed to be valid. References to resources that do not currently have 
 QI-Core profiles are not constrained, and as such, only the core FHIR properties and bindings are guaranteed to exist.
 
 A particular problem occurs when a resource reference permits any type of resource, such as Encounter.indication. When 

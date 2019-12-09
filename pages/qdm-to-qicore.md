@@ -1182,13 +1182,6 @@ several elements including:
     artifact, or if treatments potentially used in the clinical trial or
     the measure or CDS intervention conflict.
 
-  - QI-Core also includes extensions to reference a patient military
-    service, nationality or if the patient is a cadaveric donor (i.e.,
-    has agreed to be an organ donor). None of these elements is included
-    as metadata elements in FHIR or US-Core. While they might be
-    referenced as observations about a patient, QI-Core includes them as
-    specific patient metadata.
-
 QDM 5.5 also added a new QDM *datatype Related Person* to allow
 reference to an individual who has a personal or non-healthcare-specific
 professional relationship with a patient. Modeled the same as the
