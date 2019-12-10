@@ -70,7 +70,7 @@ table includes adverseEvent.actuality.
 | type               | [AdverseEvent.category](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.category)         |                                                            |
 | severity           | [AdverseEvent.severity](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.severity)         |                                                            |
 | relevant dateTime  | [AdverseEvent.date](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.date)                 |                                                            |
-| FacilityLocations  | [AdverseEvent.location](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.location)         |                                                            |
+| FacilityLocation   | [AdverseEvent.location](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.location)         |                                                            |
 | Author dateTime    | [AdverseEvent.recordedDate](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.recordedDate) |                                                            |
 | id                 | [AdverseEVent.id](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.id)                     |                                                            |
 | recorder           | [AdverseEvent.recorder](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.recorder)         |                                                            |
@@ -1051,13 +1051,6 @@ several elements including:
     trial addresses the same clinical condition as the measure or CDS
     artifact, or if treatments potentially used in the clinical trial or
     the measure or CDS intervention conflict.
-
-  - QI-Core also includes extensions to reference a patient military
-    service, nationality or if the patient is a cadaveric donor (i.e.,
-    has agreed to be an organ donor). None of these elements is included
-    as metadata elements in FHIR or US-Core. While they might be
-    referenced as observations about a patient, QI-Core includes them as
-    specific patient metadata.
 
 QDM 5.5 also added a new QDM *datatype Related Person* to allow
 reference to an individual who has a personal or non-healthcare-specific

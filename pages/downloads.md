@@ -71,7 +71,6 @@ Schematrons are also available and listed below:
 -  [qicore-medicationdispense](qicore-medicationdispense.sch)
 -  [qicore-medicationrequest](qicore-medicationrequest.sch)
 -  [qicore-medicationstatement](qicore-medicationstatement.sch)
--  [qicore-military-service](qicore-military-service.sch)
 -  [qicore-observation](qicore-observation.sch)
 -  [qicore-organization](qicore-organization.sch)
 -  [qicore-patient](qicore-patient.sch)

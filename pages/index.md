@@ -60,13 +60,7 @@ consisting of objects, attributes, and relationships. QUICK provides a uniform w
 quality measures to refer to clinical data. Authors of quality measures and clinical decision support artifacts may use 
 QUICK, together with HL7's Clinical Quality Language (CQL), to create interoperable and executable knowledge artifacts.
 
-This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on 
-the vMR and QDM as sources of requirements. QIDAM gave rise to the QUICK logical model in 2014. Originally, QUICK was 
-entirely independent of FHIR. However, recognizing the broader community focus on FHIR, QUICK was aligned, structurally 
-and semantically, as closely as possible to FHIR. This alignment not only creates a common model for quality and 
-interoperability, but will also make it easier in the future to leverage other FHIR-related efforts, such as Clinical 
-Document Architecture (CDA) on FHIR. The conceptual, logical, and physical models in this initiative are, respectively, 
-QIDAM, QUICK, and the QI-Core FHIR Profiles.
+This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the vMR and QDM as sources of requirements. Subsequently, a set of QI Core profiles were developed directly on specific versions of FHIR and reference to the QUICK model in QI-Core has been the logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK was aligned, structurally and semantically, as closely as possible to FHIR. This alignment not only creates a common model for quality and interoperability for the version of FHIR under consideration, but will also make it easier in the future to leverage other FHIR-related efforts, such as Clinical Document Architecture (CDA) on FHIR. The conceptual, logical, and physical models in this initiative are, respectively, QIDAM, QUICK, and the QI-Core FHIR Profiles.
 
 This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The goal is 
 to have a single logical data model (QUICK), as well as a single logical processing language (CQL), for CDS and clinical 
@@ -104,23 +98,7 @@ not automatically result in shareable artifacts without additional coordinating 
 It is expected that QI-Core will evolve over time to include some of the extensional content when the community 
 identifies a common need and the additional content has been validated.
 
-The QUICK model is the logical model used by quality artifact authors. To obtain data to evaluate the artifacts, the 
-interactions with the local EHR can use FHIR or implement a custom data mapping to local EHR data. In addition to 
-defining QUICK, the QI-Core profiles provide a bridge to using FHIR as QUICK's physical model. To correctly map between 
-FHIR and QUICK, the data instances retrieved from a FHIR interface must conform to the QI-Core profiles. The QI-Core 
-FHIR Profiles link the QUICK logical model to FHIR at the physical level.
-
-QI-Core FHIR profiles provide a physical model for core elements of the QUICK logical model. The QUICK model, derived 
-from QI-Core, provides a uniform way for clinical decision support and quality measures to refer to clinical data. 
-Simultaneously, the QI-Core profiles provide a physical implementation of QUICK, making data for quality improvement 
-applications accessible via the FHIR interface. However, using FHIR in the physical layer is optional. If the QI-Core 
-FHIR profiles are not used at the physical layer,  implementers are responsible for mapping their data directly into the 
-QUICK model via their own customized data access layer.
-
-For system implementers, using FHIR as the physical data model behind QUICK may provide several benefits. It may be that 
-the local EHR has already been mapped to FHIR. In this case, the same interface with minor modifications can be used for 
-quality applications. Implementers can also leverage future reference implementations based on FHIR. Using FHIR as a 
-common model for different applications (quality, interoperability, etc.) reduces the overall learning curve.
+Though the QUICK model was intended to be the logical model used by quality artifact authors, a comprehensive FHIR version-independent QUICK model is not currently available and its feasibility needs further clarification. QI-Core does provide a QUICK logical view of clinical data from the perspective of representing quality measurement and decision support knowledge. The QUICK logical view is FHIR version-specific and it enables knowledge authors to ignore certain details of the FHIR Physical representation. Quality measures can be written using the QUICK logical view or directly using QI-Core profiles.
 
 ### 1.5 Scope
 
@@ -339,8 +317,7 @@ FHIR resources frequently contain references (pointers) to other FHIR resources.
 reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resources. For example, 
 QICore-Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any 
 extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by 
-Encounter.patient. References to QI-Core extensions accessed through references, such as 
-Encounter.patient.veteranMilitaryStatus, are guaranteed to be valid. References to resources that do not currently have 
+Encounter.patient. References to QI-Core extensions accessed through references are guaranteed to be valid. References to resources that do not currently have 
 QI-Core profiles are not constrained, and as such, only the core FHIR properties and bindings are guaranteed to exist.
 
 A particular problem occurs when a resource reference permits any type of resource, such as Encounter.indication. When 
