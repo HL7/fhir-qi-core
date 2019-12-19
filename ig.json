@@ -181,12 +181,15 @@
     "goal-profile-spreadsheet.xml",
     "imagingstudy-profile-spreadsheet.xml",
     "immunization-profile-spreadsheet.xml",
+    "immunizationnotdone-profile-spreadsheet.xml",
     "immunizationevaluation-profile-spreadsheet.xml",
     "immunizationrecommendation-profile-spreadsheet.xml",
     "location-profile-spreadsheet.xml",
     "medication-profile-spreadsheet.xml",
     "medicationadministration-profile-spreadsheet.xml",
+    "mednotadministered-profile-spreadsheet.xml",
     "medicationdispense-profile-spreadsheet.xml",
+    "medicationdispensenotdone-profile-spreadsheet.xml",
     "medicationstatement-profile-spreadsheet.xml",
     "medicationnotrequested-profile-spreadsheet.xml",
     "medicationrequest-profile-spreadsheet.xml",
@@ -200,6 +203,7 @@
     "procedure-profile-spreadsheet.xml",
     "procedurenotdone-profile-spreadsheet.xml",
     "relatedperson-profile-spreadsheet.xml",
+    "servicenotrequested-profile-spreadsheet.xml",
     "servicerequest-profile-spreadsheet.xml",
     "specimen-profile-spreadsheet.xml",
     "substance-profile-spreadsheet.xml",
@@ -450,6 +454,10 @@
       "base": "StructureDefinition-qicore-immunization.html",
       "defns": "StructureDefinition-qicore-immunization-definitions.html"
     },
+    "StructureDefinition/qicore-immunizationnotdone": {
+      "base": "StructureDefinition-qicore-immunizationnotdone.html",
+      "defns": "StructureDefinition-qicore-immunizationnotdone-definitions.html"
+    },
     "StructureDefinition/qicore-immunizationrec": {
       "base": "StructureDefinition-qicore-immunizationrec.html",
       "defns": "StructureDefinition-qicore-immunizationrec-definitions.html"
@@ -466,9 +474,17 @@
       "base": "StructureDefinition-qicore-medicationadministration.html",
       "defns": "StructureDefinition-qicore-medicationadministration-definitions.html"
     },
+    "StructureDefinition/qicore-mednotadministered": {
+      "base": "StructureDefinition-qicore-mednotadministered.html",
+      "defns": "StructureDefinition-qicore-mednotadministered-definitions.html"
+    },
     "StructureDefinition/qicore-medicationdispense": {
       "base": "StructureDefinition-qicore-medicationdispense.html",
       "defns": "StructureDefinition-qicore-medicationdispense-definitions.html"
+    },
+    "StructureDefinition/qicore-medicationnotdispensed": {
+      "base": "StructureDefinition-qicore-medicationnotdispensed.html",
+      "defns": "StructureDefinition-qicore-medicationnotdispensed-definitions.html"
     },
     "StructureDefinition/qicore-medicationnotrequested": {
       "base": "StructureDefinition-qicore-medicationnotrequested.html",
@@ -518,6 +534,10 @@
       "base": "StructureDefinition-qicore-procedurenotdone.html",
       "defns": "StructureDefinition-qicore-procedurenotdone-definitions.html"
     },
+    "StructureDefinition/qicore-servicenotrequested": {
+      "base": "StructureDefinition-qicore-servicenotrequested.html",
+      "defns": "StructureDefinition-qicore-servicenotrequested-definitions.html"
+    },
     "StructureDefinition/qicore-servicerequest": {
       "base": "StructureDefinition-qicore-servicerequest.html",
       "defns": "StructureDefinition-qicore-servicerequest-definitions.html"
@@ -539,10 +559,9 @@
       "defns": "StructureDefinition-qicore-task-definitions.html"
     },
 
-    "StructureDefinition/doNotPerformReason": {
-      "base": "StructureDefinition-doNotPerformReason.html",
-      "defns": "StructureDefinition-doNotPerformReason-definitions.html",
-      "source": "structuredefinition-doNotPerformReason.json"
+    "StructureDefinition/qicore-doNotPerformReason": {
+      "base": "StructureDefinition-qicore-doNotPerformReason.html",
+      "defns": "StructureDefinition-qicore-doNotPerformReason-definitions.html"
     },
     "StructureDefinition/doNotPerformTiming": {
       "base": "StructureDefinition-doNotPerformTiming.html",
