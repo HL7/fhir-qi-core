@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Communication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-example"/>
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone">
+    <valueBoolean value="true"/>
+  </extension>
+  <partOf>
+    <display value="Serum Potassium Observation"/>
+  </partOf>
+  <status value="not-done"/>
+  <statusReason>
+    <coding>
+      <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
+      <!-- TODO: Add code once ValueSet is populated -->
+      <!--<code value="recipient-unavailable"/>-->
+    </coding>
+  </statusReason>
+  <category>
+    <coding>
+      <system value="http://acme.org/messagetypes"/>
+      <code value="Alert"/>
+    </coding>
+    <text value="Alert"/>
+  </category>
+  <medium>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"/>
+      <code value="WRITTEN"/>
+      <display value="written"/>
+    </coding>
+    <text value="written"/>
+  </medium>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <topic>
+    <text value="Hyperkalemia"/>
+  </topic>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <sent value="2014-12-12T18:01:10-08:00"/>
+  <received value="2014-12-12T18:01:11-08:00"/>
+  <recipient>
+    <reference value="Practitioner/example"/>
+  </recipient>
+  <sender>
+    <reference value="Device/example"/>
+  </sender>
+  <payload>
+    <contentString value="Patient 1 has a very high serum potassium value (7.2 mmol/L on 2014-Dec-12 at 5:55 pm)"/>
+  </payload>
+  <payload>
+    <!--  Reference to the lab result   -->
+    <contentReference>
+      <display value="Serum Potassium Observation"/>
+    </contentReference>
+  </payload>
+</Communication>
