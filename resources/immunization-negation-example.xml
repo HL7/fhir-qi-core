@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-example"/>
+  <status value="not-done"/>
+  <statusReason>
+    <coding>
+      <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
+      <!-- TODO: Add code once ValueSet is populated -->
+      <!--<code value=""/>-->
+    </coding>
+  </statusReason>
+  <vaccineCode>
+    <coding>
+      <system value="urn:oid:1.2.36.1.2001.1005.17"/>
+      <code value="FLUVAX"/>
+    </coding>
+    <text value="Fluvax (Influenza)"/>
+  </vaccineCode>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <occurrenceDateTime value="2013-01-10"/>
+  <recorded value="2013-01-10"/>
+  <primarySource value="true"/>
+</Immunization>
