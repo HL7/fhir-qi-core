@@ -1085,7 +1085,7 @@ to the index patient. 
 | id                            | [RelatedPerson.id](StructureDefinition-qicore-relatedperson-definitions.html#RelatedPerson.id)                                         |                |
 | **Relationship**              | [RelatedPerson.relationship](StructureDefinition-qicore-relatedperson-definitions.html#RelatedPerson.relationship)                     |                |
 | **Practitioner**              | [Practitioner](StructureDefinition-qicore-practitioner.html)                                                                                               |                |
-| identifier                    | [Practitioner.identifierValue](StructureDefinition-qicore-practitioner-definitions.html#Practitioner.identifier:npislice.value)        |                |
+| identifier                    | [Practitioner.identifierValue](StructureDefinition-qicore-practitioner-definitions.html#Practitioner.identifier.value)        |                |
 | id                            | [Practitioner id](StructureDefinition-qicore-practitioner-definitions.html#Practitioner.id)                                            |                |
 | role                          | [Practitioner role](StructureDefinition-qicore-practitionerrole.html)                                                                                      |                |
 | specialty                     | [Practitioner specialty](StructureDefinition-qicore-practitionerrole-definitions.html#PractitionerRole.specialty:specialty)            |                |

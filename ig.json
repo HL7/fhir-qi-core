@@ -29,7 +29,7 @@
     {
       "name": "uscore",
       "location": "http://hl7.org/fhir/us/core",
-      "version": "3.0.0"
+      "version": "3.1.0"
     }
   ],
   "defaults": {
@@ -195,6 +195,7 @@
     "medicationrequest-profile-spreadsheet.xml",
     "nutritionorder-profile-spreadsheet.xml",
     "observation-profile-spreadsheet.xml",
+    "observation-pulse-oximetry-profile-spreadsheet.xml",
     "observationnotdone-profile-spreadsheet.xml",
     "organization-profile-spreadsheet.xml",
     "patient-profile-spreadsheet.xml",
@@ -234,6 +235,10 @@
       "base": "Communication-example.html",
       "source": "communication-example.xml"
     },
+    "Communication/negation-example": {
+      "base": "Communication-negation-example.html",
+      "source": "communication-negation-example.xml"
+    },
     "CommunicationRequest/example": {
       "base": "CommunicationRequest-example.html",
       "source": "communicationrequest-example.xml"
@@ -253,6 +258,10 @@
     "DeviceRequest/example": {
       "base": "DeviceRequest-example.html",
       "source": "devicerequest-example.xml"
+    },
+    "DeviceRequest/negation-example": {
+      "base": "DeviceRequest-negation-example.html",
+      "source": "devicerequest-negation-example.xml"
     },
     "DeviceUseStatement/example": {
       "base": "DeviceUseStatement-example.html",
@@ -282,6 +291,10 @@
       "base": "Immunization-example.html",
       "source": "immunization-example.xml"
     },
+    "Immunization/negation-example": {
+      "base": "Immunization-negation-example.html",
+      "source": "immunization-negation-example.xml"
+    },
     "ImmunizationEvaluation/example": {
       "base": "ImmunizationEvaluation-example.html",
       "source": "immunizationevaluation-example.xml"
@@ -302,13 +315,25 @@
       "base": "MedicationAdministration-example.html",
       "source": "medicationadministration-example.xml"
     },
+    "MedicationAdministration/negation-example": {
+      "base": "MedicationAdministration-negation-example.html",
+      "source": "medicationadministration-negation-example.xml"
+    },
     "MedicationDispense/example": {
       "base": "MedicationDispense-example.html",
       "source": "medicationdispense-example.xml"
     },
+    "MedicationDispense/negation-example": {
+      "base": "MedicationDispense-negation-example.html",
+      "source": "medicationdispense-negation-example.xml"
+    },
     "MedicationRequest/example": {
       "base": "MedicationRequest-example.html",
       "source": "medicationrequest-example.xml"
+    },
+    "MedicationRequest/negation-example": {
+      "base": "MedicationRequest-negation-example.html",
+      "source": "medicationrequest-negation-example.xml"
     },
     "MedicationStatement/example": {
       "base": "MedicationStatement-example.html",
@@ -317,6 +342,10 @@
     "Observation/example": {
       "base": "Observation-example.html",
       "source": "observation-example.xml"
+    },
+    "Observation/negation-example": {
+      "base": "Observation-negation-example.html",
+      "source": "observation-negation-example.xml"
     },
     "Organization/example": {
       "base": "Organization-example.html",
@@ -338,9 +367,17 @@
       "base": "Procedure-example.html",
       "source": "procedure-example.xml"
     },
+    "Procedure/negation-example": {
+      "base": "Procedure-negation-example.html",
+      "source": "procedure-negation-example.xml"
+    },
     "ServiceRequest/example": {
       "base": "ServiceRequest-example.html",
       "source": "servicerequest-example.xml"
+    },
+    "ServiceRequest/negation-example": {
+      "base": "ServiceRequest-negation-example.html",
+      "source": "servicerequest-negation-example.xml"
     },
     "ServiceRequest/referral-example": {
       "base": "ServiceRequest-referral-example.html",
@@ -505,6 +542,10 @@
     "StructureDefinition/qicore-observation": {
       "base": "StructureDefinition-qicore-observation.html",
       "defns": "StructureDefinition-qicore-observation-definitions.html"
+    },
+    "StructureDefinition/qicore-observationpulseoximetry": {
+      "base": "StructureDefinition-qicore-observationpulseoximetry.html",
+      "defns": "StructureDefinition-qicore-observationpulseoximetry-definitions.html"
     },
     "StructureDefinition/qicore-observationnotdone": {
       "base": "StructureDefinition-qicore-observationnotdone.html",
