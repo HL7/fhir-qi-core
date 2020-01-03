@@ -1471,7 +1471,7 @@ Definitions modeled similar to the FHIR R4
 | **QDM Context**         | **QI-Core R4**                                                                                                                       | **Comments**          |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ | --------------------- |
 | **Participation**       | [Coverage](StructureDefinition-qicore-coverage.html)                                    |                       |
-| Participation  activity | [Coverage.status](StructureDefinition-qicore-coverage-definitions.html#Coverage.status) | Constrain to "active" |
+|                         | [Coverage.status](StructureDefinition-qicore-coverage-definitions.html#Coverage.status) | Constrain to "active" |
 | **QDM Attributes**      |                                                                                                     |                       |
 | code                    | [Coverage.type](StructureDefinition-qicore-coverage-definitions.html#Coverage.type)     |                       |
 | id                      | [Coverage.id](StructureDefinition-qicore-coverage-definitions.html#Coverage.id)         |                       |
