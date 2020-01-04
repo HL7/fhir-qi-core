@@ -480,14 +480,14 @@ Boundaries and Relationships (Section 9.2.2:
     information about subjective and objective information that might
     lead to the recording of a Condition resource. Such signs and
     symptoms are typically captured using
-    the [Observation](http://hl7.org/fhir/observation.html)resource;
+    the [Observation](http://hl7.org/fhir/observation.html) resource;
     although in some cases a persistent symptom, e.g. fever, headache
     may be captured as a condition before a definitive diagnosis can be
     discerned by a clinician. By contrast, headache may be captured as
     an Observation when it contributes to the establishment of a
     meningitis Condition.
 
-  - Use the [Observation](http://hl7.org/fhir/observation.html)resource
+  - Use the [Observation](http://hl7.org/fhir/observation.html) resource
     when a symptom is resolved without long term management, tracking,
     or when a symptom contributes to the establishment of a condition.
 
@@ -1499,7 +1499,7 @@ as intervention and procedure.  
 | **Service Request - Generic**                                     | [ServiceRequest](StructureDefinition-qicore-servicerequest.html)                                                 |                                                              |
 | Service Request Activity (QDM implied active, on-hold, completed) | [ServiceRequest.status](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.status)                                   | Constrain to active, on-hold, completed                      |
 | Recommended context                                               | [ServiceRequest.intent](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.intent)                                   | Constrain to "plan"                                          |
-| Order context                                                     | [ServiceRequest.intent](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.intent)                                   | Constrain to "Order" (include children)                      |
+| Order context                                                     | [ServiceRequest.intent](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.intent)                                   | Constrain to "order" (include children)                      |
 |                                                                   | [ServiceRequest.category](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.category)                               | Helps differentiate "intervention" from "procedure" from QDM |
 | **QDM Attributes**                                                |                                                                                                                                                         |                                                              |
 | Code                                                              | [ServiceRequest.code](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.code)                                       |                                                              |
@@ -1525,7 +1525,7 @@ as intervention and procedure.  
 | As in standard Service Request Plus:                              |                                                                                                                                                                                          |                                                              |
 | Anatomical Location Site                                          | [ServiceRequest.bodySite](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.bodySite)                               |                                                              |
 | **Procedure, Order; Procedure, Recommended**                      |                                                                                                                                                                                          |                                                              |
-| ָAnatomical Location Site                                          | [ServiceRequest.bodySite](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.bodySite)                               |                                                              |
+| Anatomical Location Site                                          | [ServiceRequest.bodySite](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.bodySite)                               |                                                              |
 | Rank                                                              |                                                                                                                                                                                          |                                                              |
 | Priority                                                          | [ServiceRequest.priority](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.priority)                               | Indicates how quickly the ServiceRequest should be addressed with respect to other requests.                                                             |
 {: .grid}
