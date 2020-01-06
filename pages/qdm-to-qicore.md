@@ -536,8 +536,8 @@ Goal is found.
 | id                 | [Goal.id](StructureDefinition-qicore-goal-definitions.html#Goal.id)                               |              |
 | statusDate         |                                                                                                                                                |              |
 | Target outcome     | [Goal.target.detail\[x\]](StructureDefinition-qicore-goal-definitions.html#Goal.target.detail[x]) |              |
-| Relevant Period    | [Goal.startDate](StructureDefinition-qicore-goal-definitions.html#Goal.startDate)                 |              |
-|                    | [Goal.targetDue](StructureDefinition-qicore-goal-definitions.html#Goal.target.due[x])             |              |
+| Relevant Period    | [Goal.start\[x\]](StructureDefinition-qicore-goal-definitions.html#Goal.start[x])                 |              |
+|                    | [Goal.target.due\[x\]](StructureDefinition-qicore-goal-definitions.html#Goal.target.due[x])             |              |
 | statusDate         | [Goal.statusDate](StructureDefinition-qicore-goal-definitions.html#Goal.statusDate)               |              |
 | relatedTo          | [Goal.addresses](StructureDefinition-qicore-goal-definitions.html#Goal.addresses)                 |              |
 | Performer          | [Goal.expressedBy](StructureDefinition-qicore-goal-definitions.html#Goal.expressedBy)             |              |
