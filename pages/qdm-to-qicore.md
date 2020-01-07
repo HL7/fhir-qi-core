@@ -678,107 +678,171 @@ are implanted in a patient.
 The [Medication](http://hl7.org/fhir/R4/medication.html) resource
 should not be used to represent implanted devices.
 
+Implantable Device: This is the only type of device referenced in US Core. 
+These are devices implanted via a surgical or other procedure and the 
+implantation or explantation is represented in the Procedure or 
+ServiceRequest resources (see FHIR DeviceRequest Boundaries and 
+Relationships for this definition). The US Core Implantable Device 
+resource sets minimum expectations for the Device resource to record, 
+search, and fetch UDI information associated with a patient’s implantable 
+device(s).
+
+[Device](StructureDefinition-qicore-device.html): A type of a manufactured item that is used in the provision of 
+healthcare without being substantially changed through that activity. 
+The device may be a medical or non-medical device. In QI-Core, Device 
+should be used to reference a non-implantable device, which includes 
+patient-use devices as well as those non-implantable devices used to 
+perform a procedure or to generate an observation.
+
 Documented evidence of a device may exist in a clinical record in
 various ways:
 
+Procedure:
   - A provider may document placement of a device as an intervention or
     procedure (e.g., the QDM datatypes Intervention, Performed, or
     Procedure, Performed).
 
       - QDM Example: Procedure, Performed: Pacemaker insertion.
 
+Observation:
   - The provider may document presence of the device as a finding,
-    perhaps including the finding on the problem list. QDM Example:
-    Diagnosis: Pacemaker present, or Assessment, Performed: Pacemaker
-    present.
+    perhaps including the finding on the problem list.
+	
+	  - QDM Example: Diagnosis: Pacemaker present, or Assessment, Performed: 
+	  Pacemaker present.
 
-  - A provider may also document the device in a specific device use
-    statement or assessment.
+DeviceUseStatement:
+  - A provider may also document the device in a specific DeviceUseStatement
+  or assessment.
 
-      - Example: QDM Device, Applied: Trans-telephonic monitoring of
-        pacemaker assessment. Note that some current uses of the QDM
-        datatype "Device, Applied" references the procedure to "apply"
-        the device (i.e., to use for the patient, to use on the
-        patient’s body, or to implant in the patient’s body). Each of
-        these current uses actually reference a procedure to place the
-        device which might more effectively reference the Procedure
-        resource.
+      - QDM Example: Device, Applied: Trans-telephonic monitoring of
+        pacemaker assessment.
+		
+  - This resource has a maturity level of 0, so consideration regarding usage to request data retrieval from clinical software should be considered when using it in measure or clinical decision support (CDS) expressions.
 
-Thus, specific actions may reference the Device Resource, for example a
-Procedure, an Observation, a Condition, a DeviceUseStatement, a
-DeviceRequest, an AdverseEvent and others.
+QDM Device, Applied (Overview):
+  - QDM definition of Device, Applied: "Data elements that meet criteria using this datatype should document that the device indicated by the QDM category and its corresponding value set is in use, or impacts or alters the treatment, care plan, or encounter (e.g., an antithrombotic device has been placed on the patient's legs to prevent thromboembolism, or a cardiac pacemaker is in place)"
+  - The QDM datatype, Device, Applied, has been used primarily to reference the procedure to place/apply the device. Existing CMS program measures do not seek information about details about such "application," or the results expected.
 
-Given the variation in determining evidence of device usage, a measure
-developer may need to include multiple queries (or retrieves) to assure
-capture of all devices present in the measure population.
+QDM Device, Applied (for Implantable Devices or non-implantable Devices not intended for patient use) Option 1:
+  - Use the Procedure resource.
+  - To address a result of the procedure use Observation.partOf and reference the Procedure during which the observation should have occurred.
+  - Further, use the Observation.value[x] to reference a specifically desired result.
+  - To order or recommend a procedure an Implantable Device or a non-implantable Device not intended for patient use ServiceRequest.
 
-Note that the current use of the QDM datatype "Device, Applied" usually
-references the procedure to "apply" the device (i.e., to use for the
-patient, to use on the patient’s body, or to implant in the patient’s
-body). Each of these current uses should address the concept using the
-QDM datatypes, Intervention, Performed, or Procedure, Performed.
+QDM Device, Applied (for non-implantable, patient-use devices)
 
-1.  The original intent of the QDM datatype "Device, Applied" was to
-    reference the specific device or type of device of concern to the
-    measure. And that reference might be as detailed a providing a
-    device class as referenced in a Unique Device Identifier (UDI). The
-    US-Core Device resource
-    (<http://hl7.org/fhir/us/core/StructureDefinition-us-core-device.html>)
-    does have metadata elements for:
+*Option 1* to address QDM’s concept of Device, Applied for a non-implantable patient-use device:
+  - Use the Procedure resource.
+  - To address a result of the procedure use Observation.partOf and reference the Procedure during which the observation should have occurred.
+  - Further, use the Observation.value[x] to reference a specifically desired result.
+  - To order or recommend a procedure for an a patient-use device use DeviceRequest.
 
-    1.  full UDI carrier, Automatic Identification and Data Capture
-        (AIDC)
-        (<http://hl7.org/fhir/us/core/StructureDefinition-us-core-device-definitions.html#Device.udiCarrier.carrierAIDC>),
-        and
+*Option 2* to address QDM’s concept of Device, Applied for a non-implantable patient-use device:
+  - Use the DeviceUseStatement resource and use DeviceUseStatement.source to specify the expected source (patient, practitioner, etc.)
+  - Since DeviceUseStatement  does not address a specific result observed from use of the device, request results using Observation.partOf and reference the Procedure during which the observation should have occurred.
+  - Further, use the Observation.value[x] to reference a specifically desired result.
+  - To order or recommend a procedure for an a patient-use device use DeviceRequest.
 
-    2.  full UDI carrier as the human readable form (HRF) of the barcode
-        string on the device packaging
-        (<http://hl7.org/fhir/us/core/StructureDefinition-us-core-device-definitions.html#Device.udiCarrier.carrierHRF>).
+Some examples for device use result reporting to help consider which of the above options to consider for non-implantable devices:
 
-2.  The FHIR Resource DeviceUseStatement
-    (<http://hl7.org/fhir/deviceusestatement.html>) is defined as "A
-    record of a device being used by a patient where the record is the
-    result of a report from the patient or another clinician." It is an
-    event resource from a FHIR workflow perspective. Feedback at the
-    Atlanta September WGM suggests that the QDM concept of Device,
-    Applied best fits with the QI-Core Procedure Resource. 
+  - Continuous Positive Airway Pressure (CPAP):
+	- Usage hours: x hours
+	- Mask seal: value set – good, fair, poor
+	- Events per hour: x events
+	- Mask on/off: integer
+	- Total score: numerical
+	- Patient note: unstructured
+	- Observation
+
+  - Continuous Glucose Monitor (CGM):
+	- Serum glucose (various times)
+	- Observation
+
+  - Anti-thrombotic pneumatic devices:
+	- Device used
+	- No current requirement for quality or quantity of use
+	- Procedure – not patient-use device
+
+  - Wheelchair (or cane):
+	- Device used
+	- No current requirement for quality or quantity of use
+	- DeviceUseStatement or Observation
 
 #### 8.8.1 Device, Applied
 
+May be used for implantable, non-implantable and patient-use devices
+
 |**QDM Context**|**QI-Core R4**|**Comments**|
 |---|---|---|
-|**Device, Applied**|[Procedure](StructureDefinition-qicore-procedure-definitions.html#Procedure)| |
-| |[Procedure.status](StructureDefinition-qicore-procedure-definitions.html#Procedure.status)|Constrain to "completed" (to reference the QDM concept of negation rationale, use status = not=done)|
+|**Device, Applied**|[Procedure](StructureDefinition-qicore-procedure.html)| |
+||[Procedure.status](StructureDefinition-qicore-procedure-definitions.html#Procedure.status)|Constrain to "active"|
+||[Procedure.usedCode](StructureDefinition-qicore-procedure-definitions.html#Procedure.usedCode)|Specify the device (direct reference code or value set) used as part of the procedure|
 |**QDM Attributes**|||
 |Code|[Procedure.code](StructureDefinition-qicore-procedure-definitions.html#Procedure.code)||
-||[Procedure.category](StructureDefinition-qicore-procedure-definitions.html#Procedure.category)||
-||[Procedure.focalDevice.manipulated](StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.manipulated)|The device that was manipulated (changed) during the procedure. (reference QI-Core Device)|
-||[Device.udiCarrier.deviceIdentifier](StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.deviceIdentifier)|The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device.|
-||[Device.udiCarrier.carrierHRF](StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.carrierHRF)|The full UDI carrier as the human readable form (HRF) representation of the barcode string as printed on the packaging of the device.|
-||[Device.udiCarrier.carrierAIDC](StructureDefinition-qicore-device-definitions.html#Device.udiCarrier.carrierAIDC)|The full UDI carrier of the Automatic Identification and Data Capture (AIDC) technology representation of the barcode string as printed on the packaging of the device - e.g., a barcode or RFID. Because of limitations on character sets in XML and the need to round-trip JSON data through XML, AIDC Formats *SHALL* be base64 encoded.|
-||[Device.type](StructureDefinition-qicore-device-definitions.html#Device.type)||
-||[Procedure.focalDevice.action](StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.action)|The kind of change that happened to the device during the procedure.|
-||[Procedure.focalDevice.id](StructureDefinition-qicore-procedure-definitions.html#Procedure.focalDevice.id)||
-||[Procedure.id](StructureDefinition-qicore-procedure-definitions.html#Procedure.id)||
+|id|[Procedure.id](StructureDefinition-qicore-procedure-definitions.html#Procedure.id)||
 |Anatomical Location Site|[Procedure.bodySite](StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite)||
 |Reason|[Procedure.reasonCode](StructureDefinition-qicore-procedure-definitions.html#Procedure.reasonCode)||
-|Negation Rationale|[Procedure.status](StructureDefinition-qicore-procedure-definitions.html#Procedure.status)|Constrain to not-done for the QDM concept of negation rationale|
-||[Procedure.statusReason](StructureDefinition-qicore-procedure-definitions.html#Procedure.statusReason)||
+|Negation Rationale|[ProcedureNotDone.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason)|<ul><li>What was not performed (Procedure.code.extension:notDoneValueSet)</li><li>Procedure.status fixed as “not-done”</li><li>Procedure.statusReason uses qicore-negation-reason value set</li><li>Procedure.recorded as timing for documentation of the negation rationale</li></ul>|
 |Relevant dateTime|[Procedure.performed\[x\] dateTime](StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x])||
 |Relevant Period|[Procedure.performed\[x\] Period](StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x])||
-|Author dateTime||Required for timing of negation rationale - Not currently present in QI-Core|
+|Author dateTime|[Procedure.recorded](StructureDefinition-qicore-procedure-definitions.html#Procedure.recorded)||
 |Performer|[Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)||
-||[Procedure.recorder](StructureDefinition-qicore-procedure-definitions.html#Procedure.recorder)|Individual who recorded the record and takes responsibility for its content.|
-||[Procedure.asserter](StructureDefinition-qicore-procedure-definitions.html#Procedure.asserter)|Individual who is making the procedure statement.|
 {: .grid}
 
-#### 8.8.2 Device, Order
+#### 8.8.2 Device, Applied for Patient-Use Devices (only)
+
+Information available at publication time for this version of QI-Core suggests 
+that use of DeviceUseStatement is limited at best. The FHIR resource has a 
+maturity level of 0 while awaiting feedback.  Most information needed about 
+use of a patient-use device can be expressed as an observation.partOf referencing 
+the procedure using the device. QDM mapping to DeviceUseStatement in this version 
+of QDM to QI-Core mapping to allow testing and evaluation to determine 
+feasibility. Note that DeviceUseStatement has no way to reference the QDM concept 
+of negation rationale (i.e., to indicate a device was not used for an acceptable 
+reason). Most users will want to use Procedure to define use of a device 
+(especially if there is a need to reference the QDM concept of negation 
+rationale), and Observation.partOf to reference the result of such procedure.  
+
+|**QDM Context**|**QI-Core R4**|**Comments**|
+|---|---|---|
+|**Device, Applied**|[DeviceUseStatement](StructureDefinition-qicore-deviceusestatement.html)| |
+||[DeviceUseStatement.status](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.status)|Constrain to "active"|
+|**QDM Attributes**|||
+|Code|[DeviceUseStatement.device](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.device)||
+|id|[DeviceUseStatement.id](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.id)||
+|Anatomical Location Site|[DeviceUseStatement.bodySite](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.bodySite)||
+|Reason|[DeviceUseStatement.reasonCode](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.reasonCode)||
+|Negation Rationale|N/A|DeviceUseStatement is present to document use of a patient-use device. There is no clear use case for documenting reason not done using this resource. See the Procedure or Observation resources if there is a need to reference a reason for not using a patient-use device.|
+|Relevant dateTime|[DeviceUseStatement.timing\[x\] dateTime](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.timing[x])||
+|Relevant Period|[DeviceUseStatement.timing\[x\] Period](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.timing[x])||
+|Author dateTime|[DeviceUseStatement.recorded](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.recorded)||
+|Performer|[DeviceUseStatement.source](StructureDefinition-qicore-deviceusestatement-definitions.html#DeviceUseStatement.source)||
+{: .grid}
+
+#### 8.8.3 Device, Order (All Except Personal-Use Devices) fhir-qi-core\ValueSet-qicore-negation-reason.html
+
+| **QDM Context**         | **FHIR R4**                                                                                                                                                                  | **Comments**                                                                                                                                                                                                                                                                                                                                                      |
+| ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| **Device Request**      | [ServiceRequest](StructureDefinition-qicore-servicerequest.html)                                                                       |                                                                                                                                                                                                                                                                                                                                                                   |
+|                         | [ServiceRequest.status](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.status)                              | Constrain to active, on-hold, completed                                                                                                                                                                                                                                                                                                                           |
+| **Device, Order**       | [ServiceRequest.intent](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.intent)                              | Constrain to "order" (include children)                                                                                                                                                                                                                                                                                                                           |
+| **QDM Attributes**      |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                   |
+| Code                    | [ServiceRequest.code](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.code)                                  |                                                                                                                                                                                                                                                                                                                                                                   |
+| id                      | [ServiceRequest.id](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.id)                                      |                                                                                                                                                                                                                                                                                                                                                                   |
+| Reason                  | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.reasonCode)                      |                                                                                                                                                                                                                                                                                                                |
+| Author dateTime         | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.authoredOn)                      | FHIR allows dateTime or Period for desired time or schedule for use.                                                                                                                                                                                                                                                                                                                                                                  |
+| Negation Rationale      | [ServiceNotRequested.statusReason](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceNotRequested.statusReason)   | Use the ServiceNotRequested which specifies:<ul><li>What was not performed (ServiceRequest.code.extension:notDoneValueSet)</li><li>ServiceRequest.status fixed as “not-done”</li><li>ServiceRequest.statusReason uses qicore-negation-reason value set</li><li>ServiceRequest.authoredOn as timing for documentation of the negation rationale</li></ul>|
+| Requester               | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                        |                                                                                                                                                                                                                                                                                                                                                                   |
+{: .grid}
+
+
+#### 8.8.5 Device, Order (Personal Use Device Only)
 
 | **QDM Context**         | **FHIR R4**                                                                                                                                                                  | **Comments**                                                                                                                                                                                                                                                                                                                                                      |
 | ----------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | **Device Request**      | [DeviceRequest](StructureDefinition-qicore-devicerequest.html)                                                                         |                                                                                                                                                                                                                                                                                                                                                                   |
 |                         | [DeviceRequest.status](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.status)                                 | Constrain to active, on-hold, completed                                                                                                                                                                                                                                                                                                                           |
-| **Device, Recommended** | [DeviceRequest.intent](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.intent)                                 | Constrain to "plan"                                                                                                                                                                                                                                                                                                                                               |
 | **Device, Order**       | [DeviceRequest.intent](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.intent)                                 | Constrain to "Order" (include children)                                                                                                                                                                                                                                                                                                                           |
 | **QDM Attributes**      |                                                                                                                                        |                                                                                                                                                                                                                                                                                                                                                                   |
 | Code                    | [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code[x])                             |                                                                                                                                                                                                                                                                                                                                                                   |
@@ -789,6 +853,8 @@ QDM datatypes, Intervention, Performed, or Procedure, Performed.
 |                         | [DeviceRequest.extension:doNotPerformReason](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerformReason)                                              | Reason for doNotPerform                                                                                                  |
 | Requester               | [DeviceRequest.requester](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.requester)                           |                                                                                                                                                                                                                                                                                                                                                                   |
 {: .grid}
+
+
 
 ### 8.9 Encounter
 
