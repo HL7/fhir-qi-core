@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-example"/>
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
+        <!-- TODO: Add code once ValueSet is populated -->
+        <!--<code value=""/>-->
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <modifierExtension url="http://hl7.org/fhir/StructureDefinition/request-doNotPerform">
+    <valueBoolean value="true"/>
+  </modifierExtension>
+  <status value="completed"/> 
+  <intent value="original-order"/>
+  <codeReference>
+    <reference value="Device/example"/>
+  </codeReference>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+</DeviceRequest>

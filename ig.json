@@ -1,14 +1,15 @@
 {
   "canonicalBase": "http://hl7.org/fhir/us/qicore",
-  "version": "4.0.0",
+  "version": "4.0.1",
   "sct-edition": "http://snomed.info/sct/731000124108",
   "source": "qicore.xml",
   "npm-name": "hl7.fhir.us.qicore",
-  "jurisdiction": "us",
-  "fixed-business-version" : "4.0.0",
+  "jurisdiction": "US",
+  "fixed-business-version" : "3.3.0",
   "license": "CC0-1.0",
   "tool": "jekyll",
   "exemptHtmlPatterns" : ["quick\\/\\S*"],
+  "topofpage": "true",
   "paths": {
     "resources": "resources",
     "pages": "pages",
@@ -20,6 +21,7 @@
   },
   "logging": ["init", "progress", "context", "html", "tx"],
   "suppressedWarningFile": "SuppressedWarnings.txt",
+  "broken-links": "warning",
   "special-urls":[
     "urn:oid:2.16.840.1.113883.6.238"
   ],
@@ -27,7 +29,7 @@
     {
       "name": "uscore",
       "location": "http://hl7.org/fhir/us/core",
-      "version": "3.0.0"
+      "version": "3.1.0"
     }
   ],
   "defaults": {
@@ -163,10 +165,12 @@
     "careplan-profile-spreadsheet.xml",
     "careteam-profile-spreadsheet.xml",
     "communication-profile-spreadsheet.xml",
+    "communicationnotdone-profile-spreadsheet.xml",
     "communicationrequest-profile-spreadsheet.xml",
     "condition-profile-spreadsheet.xml",
     "coverage-profile-spreadsheet.xml",
     "device-profile-spreadsheet.xml",
+    "devicenotrequested-profile-spreadsheet.xml",
     "devicerequest-profile-spreadsheet.xml",
     "deviceusestatement-profile-spreadsheet.xml",
     "diagnosticreport-lab-profile-spreadsheet.xml",
@@ -177,22 +181,30 @@
     "goal-profile-spreadsheet.xml",
     "imagingstudy-profile-spreadsheet.xml",
     "immunization-profile-spreadsheet.xml",
+    "immunizationnotdone-profile-spreadsheet.xml",
     "immunizationevaluation-profile-spreadsheet.xml",
     "immunizationrecommendation-profile-spreadsheet.xml",
     "location-profile-spreadsheet.xml",
     "medication-profile-spreadsheet.xml",
     "medicationadministration-profile-spreadsheet.xml",
+    "mednotadministered-profile-spreadsheet.xml",
     "medicationdispense-profile-spreadsheet.xml",
+    "medicationdispensenotdone-profile-spreadsheet.xml",
     "medicationstatement-profile-spreadsheet.xml",
+    "medicationnotrequested-profile-spreadsheet.xml",
     "medicationrequest-profile-spreadsheet.xml",
     "nutritionorder-profile-spreadsheet.xml",
     "observation-profile-spreadsheet.xml",
+    "observation-pulse-oximetry-profile-spreadsheet.xml",
+    "observationnotdone-profile-spreadsheet.xml",
     "organization-profile-spreadsheet.xml",
     "patient-profile-spreadsheet.xml",
     "practitioner-profile-spreadsheet.xml",
     "practitionerrole-profile-spreadsheet.xml",
     "procedure-profile-spreadsheet.xml",
+    "procedurenotdone-profile-spreadsheet.xml",
     "relatedperson-profile-spreadsheet.xml",
+    "servicenotrequested-profile-spreadsheet.xml",
     "servicerequest-profile-spreadsheet.xml",
     "specimen-profile-spreadsheet.xml",
     "substance-profile-spreadsheet.xml",
@@ -223,6 +235,10 @@
       "base": "Communication-example.html",
       "source": "communication-example.xml"
     },
+    "Communication/negation-example": {
+      "base": "Communication-negation-example.html",
+      "source": "communication-negation-example.xml"
+    },
     "CommunicationRequest/example": {
       "base": "CommunicationRequest-example.html",
       "source": "communicationrequest-example.xml"
@@ -242,6 +258,10 @@
     "DeviceRequest/example": {
       "base": "DeviceRequest-example.html",
       "source": "devicerequest-example.xml"
+    },
+    "DeviceRequest/negation-example": {
+      "base": "DeviceRequest-negation-example.html",
+      "source": "devicerequest-negation-example.xml"
     },
     "DeviceUseStatement/example": {
       "base": "DeviceUseStatement-example.html",
@@ -267,13 +287,13 @@
       "base": "Goal-example.html",
       "source": "goal-example.xml"
     },
-    "ImagingStudy/example": {
-      "base": "ImagingStudy-example.html",
-      "source": "imagingstudy-example.xml"
-    },
     "Immunization/example": {
       "base": "Immunization-example.html",
       "source": "immunization-example.xml"
+    },
+    "Immunization/negation-example": {
+      "base": "Immunization-negation-example.html",
+      "source": "immunization-negation-example.xml"
     },
     "ImmunizationEvaluation/example": {
       "base": "ImmunizationEvaluation-example.html",
@@ -295,13 +315,25 @@
       "base": "MedicationAdministration-example.html",
       "source": "medicationadministration-example.xml"
     },
+    "MedicationAdministration/negation-example": {
+      "base": "MedicationAdministration-negation-example.html",
+      "source": "medicationadministration-negation-example.xml"
+    },
     "MedicationDispense/example": {
       "base": "MedicationDispense-example.html",
       "source": "medicationdispense-example.xml"
     },
+    "MedicationDispense/negation-example": {
+      "base": "MedicationDispense-negation-example.html",
+      "source": "medicationdispense-negation-example.xml"
+    },
     "MedicationRequest/example": {
       "base": "MedicationRequest-example.html",
       "source": "medicationrequest-example.xml"
+    },
+    "MedicationRequest/negation-example": {
+      "base": "MedicationRequest-negation-example.html",
+      "source": "medicationrequest-negation-example.xml"
     },
     "MedicationStatement/example": {
       "base": "MedicationStatement-example.html",
@@ -310,6 +342,10 @@
     "Observation/example": {
       "base": "Observation-example.html",
       "source": "observation-example.xml"
+    },
+    "Observation/negation-example": {
+      "base": "Observation-negation-example.html",
+      "source": "observation-negation-example.xml"
     },
     "Organization/example": {
       "base": "Organization-example.html",
@@ -331,9 +367,17 @@
       "base": "Procedure-example.html",
       "source": "procedure-example.xml"
     },
+    "Procedure/negation-example": {
+      "base": "Procedure-negation-example.html",
+      "source": "procedure-negation-example.xml"
+    },
     "ServiceRequest/example": {
       "base": "ServiceRequest-example.html",
       "source": "servicerequest-example.xml"
+    },
+    "ServiceRequest/negation-example": {
+      "base": "ServiceRequest-negation-example.html",
+      "source": "servicerequest-negation-example.xml"
     },
     "ServiceRequest/referral-example": {
       "base": "ServiceRequest-referral-example.html",
@@ -383,6 +427,10 @@
       "base": "StructureDefinition-qicore-communication.html",
       "defns": "StructureDefinition-qicore-communication-definitions.html"
     },
+    "StructureDefinition/qicore-communicationnotdone": {
+      "base": "StructureDefinition-qicore-communicationnotdone.html",
+      "defns": "StructureDefinition-qicore-communicationnotdone-definitions.html"
+    },
     "StructureDefinition/qicore-communicationrequest": {
       "base": "StructureDefinition-qicore-communicationrequest.html",
       "defns": "StructureDefinition-qicore-communicationrequest-definitions.html"
@@ -398,6 +446,10 @@
     "StructureDefinition/qicore-device": {
       "base": "StructureDefinition-qicore-device.html",
       "defns": "StructureDefinition-qicore-device-definitions.html"
+    },
+    "StructureDefinition/qicore-devicenotrequested": {
+      "base": "StructureDefinition-qicore-devicenotrequested.html",
+      "defns": "StructureDefinition-qicore-devicenotrequested-definitions.html"
     },
     "StructureDefinition/qicore-devicerequest": {
       "base": "StructureDefinition-qicore-devicerequest.html",
@@ -439,6 +491,14 @@
       "base": "StructureDefinition-qicore-immunization.html",
       "defns": "StructureDefinition-qicore-immunization-definitions.html"
     },
+	"StructureDefinition/qicore-immunizationevaluation": {
+      "base": "StructureDefinition-qicore-immunizationevaluation.html",
+      "defns": "StructureDefinition-qicore-immunizationevaluation-definitions.html"
+    },
+    "StructureDefinition/qicore-immunizationnotdone": {
+      "base": "StructureDefinition-qicore-immunizationnotdone.html",
+      "defns": "StructureDefinition-qicore-immunizationnotdone-definitions.html"
+    },
     "StructureDefinition/qicore-immunizationrec": {
       "base": "StructureDefinition-qicore-immunizationrec.html",
       "defns": "StructureDefinition-qicore-immunizationrec-definitions.html"
@@ -455,9 +515,21 @@
       "base": "StructureDefinition-qicore-medicationadministration.html",
       "defns": "StructureDefinition-qicore-medicationadministration-definitions.html"
     },
+    "StructureDefinition/qicore-mednotadministered": {
+      "base": "StructureDefinition-qicore-mednotadministered.html",
+      "defns": "StructureDefinition-qicore-mednotadministered-definitions.html"
+    },
     "StructureDefinition/qicore-medicationdispense": {
       "base": "StructureDefinition-qicore-medicationdispense.html",
       "defns": "StructureDefinition-qicore-medicationdispense-definitions.html"
+    },
+    "StructureDefinition/qicore-medicationnotdispensed": {
+      "base": "StructureDefinition-qicore-medicationnotdispensed.html",
+      "defns": "StructureDefinition-qicore-medicationnotdispensed-definitions.html"
+    },
+    "StructureDefinition/qicore-medicationnotrequested": {
+      "base": "StructureDefinition-qicore-medicationnotrequested.html",
+      "defns": "StructureDefinition-qicore-medicationnotrequested-definitions.html"
     },
     "StructureDefinition/qicore-medicationrequest": {
       "base": "StructureDefinition-qicore-medicationrequest.html",
@@ -474,6 +546,14 @@
     "StructureDefinition/qicore-observation": {
       "base": "StructureDefinition-qicore-observation.html",
       "defns": "StructureDefinition-qicore-observation-definitions.html"
+    },
+    "StructureDefinition/qicore-observationpulseoximetry": {
+      "base": "StructureDefinition-qicore-observationpulseoximetry.html",
+      "defns": "StructureDefinition-qicore-observationpulseoximetry-definitions.html"
+    },
+    "StructureDefinition/qicore-observationnotdone": {
+      "base": "StructureDefinition-qicore-observationnotdone.html",
+      "defns": "StructureDefinition-qicore-observationnotdone-definitions.html"
     },
     "StructureDefinition/qicore-organization": {
       "base": "StructureDefinition-qicore-organization.html",
@@ -495,6 +575,14 @@
       "base": "StructureDefinition-qicore-procedure.html",
       "defns": "StructureDefinition-qicore-procedure-definitions.html"
     },
+    "StructureDefinition/qicore-procedurenotdone": {
+      "base": "StructureDefinition-qicore-procedurenotdone.html",
+      "defns": "StructureDefinition-qicore-procedurenotdone-definitions.html"
+    },
+    "StructureDefinition/qicore-servicenotrequested": {
+      "base": "StructureDefinition-qicore-servicenotrequested.html",
+      "defns": "StructureDefinition-qicore-servicenotrequested-definitions.html"
+    },
     "StructureDefinition/qicore-servicerequest": {
       "base": "StructureDefinition-qicore-servicerequest.html",
       "defns": "StructureDefinition-qicore-servicerequest-definitions.html"
@@ -515,6 +603,16 @@
       "base": "StructureDefinition-qicore-task.html",
       "defns": "StructureDefinition-qicore-task-definitions.html"
     },
+
+    "StructureDefinition/qicore-doNotPerformReason": {
+      "base": "StructureDefinition-qicore-doNotPerformReason.html",
+      "defns": "StructureDefinition-qicore-doNotPerformReason-definitions.html"
+    },
+    "StructureDefinition/doNotPerformTiming": {
+      "base": "StructureDefinition-doNotPerformTiming.html",
+      "defns": "StructureDefinition-doNotPerformTiming-definitions.html",
+      "source": "structuredefinition-doNotPerformTiming.json"
+    },
     "StructureDefinition/qicore-servicerequest-appropriatenessScore": {
       "base": "StructureDefinition-qicore-servicerequest-appropriatenessScore.html",
       "defns": "StructureDefinition-qicore-servicerequest-appropriatenessScore-definitions.html",
@@ -525,16 +623,36 @@
       "defns": "StructureDefinition-qicore-encounter-procedure-definitions.html",
       "source": "structuredefinition-qicore-encounter-procedure.xml"
     },
-    "StructureDefinition/qicore-military-service": {
-      "base": "StructureDefinition-qicore-military-service.html",
-      "defns": "StructureDefinition-qicore-military-service-definitions.html",
-      "source": "structuredefinition-qicore-military-service.xml"
+    "StructureDefinition/qicore-notDone": {
+      "base": "StructureDefinition-qicore-notDone.html",
+      "defns": "StructureDefinition-qicore-notDone-definitions.html"
     },
-    "StructureDefinition/qicore-deviceusestatement-notDone": {
-      "base": "StructureDefinition-qicore-deviceusestatement-notDone.html",
-      "defns": "StructureDefinition-qicore-deviceusestatement-notDone-definitions.html",
-      "source": "structuredefinition-qicore-deviceusestatement-notdone.xml"
+    "StructureDefinition/qicore-notDoneReason": {
+      "base": "StructureDefinition-qicore-notDoneReason.html",
+      "defns": "StructureDefinition-qicore-notDoneReason-definitions.html"
     },
+    "StructureDefinition/qicore-isElective": {
+      "base": "StructureDefinition-qicore-isElective.html",
+      "defns": "StructureDefinition-qicore-isElective-definitions.html"
+    },
+    "StructureDefinition/qicore-recorded": {
+      "base": "StructureDefinition-qicore-recorded.html",
+      "defns": "StructureDefinition-qicore-recorded-definitions.html"
+    },
+    "StructureDefinition/devicerequest-doNotPerformReason": {
+      "base": "StructureDefinition-devicerequest-doNotPerformReason.html",
+      "defns": "StructureDefinition-devicerequest-doNotPerformReason-definitions.html"
+    },
+    "StructureDefinition/devicerequest-doNotPerformTiming": {
+      "base": "StructureDefinition-devicerequest-doNotPerformTiming.html",
+      "defns": "StructureDefinition-devicerequest-doNotPerformTiming-definitions.html"
+    },
+    "StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission": {
+      "base": "StructureDefinition-qicore-encounter-diagnosisPresentOnAdmission.html",
+      "defns": "StructureDefinition-qicore-encounter-diagnosisPresentOnAdmission-definitions.html",
+      "source": "structuredefinition-qicore-encounter-diagnosisPresentOnAdmission.xml"
+    },
+
     "CodeSystem/appropriateness-score": {
       "base": "CodeSystem-appropriateness-score.html",
       "source": "codesystem-appropriateness-score.xml"
@@ -550,10 +668,6 @@
     "CodeSystem/diagnosticorder-precondition": {
       "base": "CodeSystem-diagnosticorder-precondition.html",
       "source": "codesystem-diagnosticorder-precondition.xml"
-    },
-    "CodeSystem/military-service": {
-      "base": "CodeSystem-military-service.html",
-      "source": "codesystem-military-service.xml"
     },
     "CodeSystem/observation-verification": {
       "base": "CodeSystem-observation-verification.html",
@@ -595,10 +709,6 @@
       "source": "valueset-qicore-encounter-condition-role.xml",
       "base": "ValueSet-qicore-encounter-condition-role.html"
     },
-    "ValueSet/qicore-encounter-diet": {
-      "source": "valueset-qicore-encounter-diet.xml",
-      "base": "ValueSet-qicore-encounter-diet.html"
-    },
     "ValueSet/qicore-flag-category": {
       "source": "valueset-qicore-flag-category.xml",
       "base": "ValueSet-qicore-flag-category.html"
@@ -611,9 +721,9 @@
       "source": "valueset-qicore-medication-dose-type.xml",
       "base": "ValueSet-qicore-medication-dose-type.html"
     },
-    "ValueSet/qicore-military-service": {
-      "source": "valueset-qicore-military-service.xml",
-      "base": "ValueSet-qicore-military-service.html"
+    "ValueSet/qicore-negation-reason": {
+      "source": "valueset-qicore-negation-reason.json",
+      "base": "ValueSet-qicore-negation-reason.html"
     },
     "ValueSet/qicore-observation-body-position": {
       "source": "valueset-qicore-observation-body-position.xml",
@@ -634,6 +744,10 @@
     "ValueSet/qicore-priority": {
       "source": "valueset-qicore-priority.xml",
       "base": "ValueSet-qicore-priority.html"
+    },
+    "ValueSet/qicore-procedure-type": {
+      "source": "valueset-qicore-procedure-type.json",
+      "base": "ValueSet-qicore-procedure-type.html"
     },
     "ValueSet/qicore-servicerequest-reason-rejected": {
       "source": "valueset-qicore-servicerequest-reason-rejected.xml",
