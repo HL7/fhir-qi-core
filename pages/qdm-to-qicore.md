@@ -393,8 +393,6 @@ change the patient's mental state would be a Procedure.
 | sender                       | [Communication.sender](StructureDefinition-qicore-communication-definitions.html#Communication.sender)             |                                                                                               |
 | recipient                    | [Communication.recipient](StructureDefinition-qicore-communication-definitions.html#Communication.recipient)       |                                                                                               |
 | Negation Rationale           | See Below |
-|                              | [Communication.statusReason](StructureDefinition-qicore-communication-definitions.html#Communication.statusReason) |                                                                                               |
-|                              | [Communication.extension:doNotPerformTiming](StructureDefinition-doNotPerformTiming.html)                          | The date of the negation rationale                                                                                              |
 {: .grid}
 
 ##### 8.7.1.1 Negation Rationale for Communication, Performed
@@ -966,14 +964,22 @@ or clinical decision support (CDS) artifacts.
 | code                           | [Immunization.vaccineCode](StructureDefinition-qicore-immunization-definitions.html#Immunization.vaccineCode)       |                                                    |
 | id                             | [Immunization.id](StructureDefinition-qicore-immunization-definitions.html#Immunization.id)                         |                                                    |
 | Dosage                         | [Immunization.doseQuantity](StructureDefinition-qicore-immunization-definitions.html#Immunization.doseQuantity)     |                                                    |
-| Negation Rationale             | [Immunization.status](StructureDefinition-qicore-immunization-definitions.html#Immunization.status)                 | Constrain to "not-done"                            |
-|                                | [Immunization.statusReason](StructureDefinition-qicore-immunization-definitions.html#Immunization.statusReason)     |                                                    |
+| Negation Rationale              | See Below |
 | Route                          | [Immunization.route](StructureDefinition-qicore-immunization-definitions.html#Immunization.route)                   |                                                    |
 | Reason                         | [Immunization.reasonCode](StructureDefinition-qicore-immunization-definitions.html#Immunization.reasonCode)         |                                                    |
 | Relevant dateTime              | [Immunization.occurrence\[x\]](StructureDefinition-qicore-immunization-definitions.html#Immunization.occurrence[x]) |                                                    |
 | author dateTime                | [Immunization.recorded](StructureDefinition-qicore-immunization-definitions.html#Immunization.recorded)             |                                                    |
 | Performer                      | [Immunization.performer.actor](StructureDefinition-qicore-immunization-definitions.html#Immunization.performer)     |                                                    |
 {: .grid}
+
+##### 8.13.1.1 Immunization, Administered
+
+Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html), which contains:
+* [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.doNotPerform) - Value Boolean fixed to "true"
+* [MedicationRequest.status](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.status) - Fixed as "completed"
+* [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - When this was made available
+* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
 
 #### 8.13.2 Immunization, Order
 
