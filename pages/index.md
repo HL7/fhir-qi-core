@@ -219,7 +219,7 @@ any, and the underlying FHIR resources:
 | | [USCore Laboratory Result](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [USCore Pediatric BMI for Age](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-bmi-for-age.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [USCore Pediatric Weight for Height](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-weight-for-height.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| | [USCore Pulse Oximetry](http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-pulse-oximetry.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+| | [USCore Pulse Oximetry](http://hl7.org/fhir/us/core/StructureDefinition-us-core-pulse-oximetry.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 |[QICore-Organization](StructureDefinition-qicore-organization.html)| [USCore-Organization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-organization.html) |[Organization]({{site.data.fhir.path}}organization.html)|
 |[QICore-Patient](StructureDefinition-qicore-patient.html)| [USCore-Patient](http://hl7.org/fhir/us/core/StructureDefinition-us-core-patient.html) |[Patient]({{site.data.fhir.path}}patient.html)|
 |[QICore-Practitioner](StructureDefinition-qicore-practitioner.html)| [USCore-Practitioner](http://hl7.org/fhir/us/core/StructureDefinition-us-core-practitioner.html) |[Practitioner]({{site.data.fhir.path}}practitioner.html)|

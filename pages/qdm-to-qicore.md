@@ -492,7 +492,7 @@ QI-Core Observation.
 Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
 * [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.issued) - When this was made available
+* [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - When this was made available
 * [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
 
 #### 8.9.2 Device, Order – Non-Patient-use Devices
@@ -528,7 +528,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 |                         | [DeviceRequest.status](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.status)            | Constrain to active, on-hold, completed                                                                                    |
 | **Device, Order**       | [DeviceRequest.intent](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.intent)            | Constrain to "Order" (include children)                                                                                    |
 | **QDM Attributes**      |                               |                                                                                  |
-| Code                    | [DeviceRequest.code](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code)                |                                                                                  |
+| Code                    | [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code[x])       |                                                                                  |
 | id                      | [DeviceRequest.id](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.id)                    |                                                                                  |
 | Reason                  | [DeviceRequest.reasonCode](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.reasonCode)                         |                                                                                  |
 | Author dateTime         | [DeviceRequest.authoredOn](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.authoredOn)                         | FHIR allows dateTime or Period for deseired time or schedule for use.                                                                     |
@@ -578,7 +578,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 |                         | [DeviceRequest.status](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.status)            | Constrain to active, on-hold, completed                                                                                    |
 | **Device, Order**       | [DeviceRequest.intent](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.intent)            | Constrain to "Order" (include children)                                                                                    |
 | **QDM Attributes**      |                               |                                                                                  |
-| Code                    | [DeviceRequest.code](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code)                |                                                                                  |
+| Code                    | [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code[x])        |                                                                                  |
 | id                      | [DeviceRequest.id](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.id)                    |                                                                                  |
 | Reason                  | [DeviceRequest.reasonCode](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.reasonCode)                         |                                                                                  |
 | Author dateTime         | [DeviceRequest.authoredOn](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.authoredOn)                         | FHIR allows dateTime or Period for deseired time or schedule for use.                                                                     |
@@ -1245,7 +1245,7 @@ resource.
 Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
 * [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.issued) - When this was made available
+* [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - When this was made available
 * [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
 
 #### 8.15.4 Intervention, Order
@@ -1519,11 +1519,11 @@ profile address Immunization, Administered.
 
 ##### 8.4.3.1 Negation Rationale for Medication, Administered
 
-Use [QICoreMedicationNotAdministered](StructureDefinition-qicore-medicationnotadministered.html), which contains:
-* [MedicationAdministration.status](StructureDefinition-qicore-medicationnotadministered-definitions.html#MedicationAdministration.status) - Fixed as "not-done"
-* [MedicationAdministration.statusReason](StructureDefinition-qicore-medicationnotadministered-definitions.html#MedicationAdministration.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [MedicationAdministration.extension:recorded](StructureDefinition-qicore-medicationnotadministered-definitions.html#MedicationAdministration.extension:recorded) - When this was made available
-* [MedicationAdministration.medication\[x\]](StructureDefinition-qicore-medicationnotadministered-definitions.html#MedicationAdministration.medication[x]) - Use [MedicationAdministration.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotadministered-definitions.html#MedicationAdministration.medication[x].extension:notDoneValueSet) to indicate the specific MedicationAdministration that was not performed
+Use [QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html), which contains:
+* [MedicationAdministration.status](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.status) - Fixed as "not-done"
+* [MedicationAdministration.statusReason](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [MedicationAdministration.extension:recorded](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.extension:recorded) - When this was made available
+* [MedicationAdministration.medication\[x\]](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.medication[x]) - Use [MedicationAdministration.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.medication[x].extension:notDoneValueSet) to indicate the specific MedicationAdministration that was not performed
 
 #### 8.17.3 Medication, Discharge
 
@@ -1581,6 +1581,7 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 * [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - When this was made available
 * [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
+
 #### 8.17.4 Medication, Dispensed
 
 This QDM context maps to the QI-Core MedicationDispense resource,
@@ -1973,7 +1974,7 @@ QDM Procedure priority attribute to QI-Core.
 Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
 * [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.issued) - When this was made available
+* [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - When this was made available
 * [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
 
 #### 8.19.5 Procedure, Order
