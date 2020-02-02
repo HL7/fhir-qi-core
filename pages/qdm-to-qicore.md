@@ -136,7 +136,7 @@ evaluating smoking status, see subsection below.
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.2.1 Negation Rationale for Assessment, Order
+##### 8.4.1.1 Negation Rationale for Assessment, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -145,7 +145,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
-##### 8.4.2.2 QI-Core Smoking Status for Assessment, Order
+##### 8.4.1.2 QI-Core Smoking Status for Assessment, Order
 
 To capture an order for QI-Core Smoking Status, use the Assessment, Order
 mapping but constrain ServiceRequest.code to the value set
@@ -193,7 +193,7 @@ profile inherited from US Core.
 {: .grid}
 
 
-##### 8.4.1.1 Negation Rationale for Assessment, Performed
+##### 8.4.2.1 Negation Rationale for Assessment, Performed
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
 * [Observation.extension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDone) - Value Boolean fixed to "true"
 * [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
@@ -374,6 +374,8 @@ Mere disclosure of information would be considered a Communication. A
 process that involves verification of the patient's comprehension or to
 change the patient's mental state would be a Procedure.
 
+#### 8.7.1 Communication, Performed
+
 | **QDM Context**              | **QI-Core R4**                                                                                                                                                  | **Comments**                                                                                  |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | **Communication, Performed** | [Communication](StructureDefinition-qicore-communication.html)                                                     |                                                                                               |
@@ -395,7 +397,7 @@ change the patient's mental state would be a Procedure.
 |                              | [Communication.extension:doNotPerformTiming](StructureDefinition-doNotPerformTiming.html)                          | The date of the negation rationale                                                                                              |
 {: .grid}
 
-##### 8.6.1.1 Negation Rationale for Communication, Performed
+##### 8.7.1.1 Negation Rationale for Communication, Performed
 
 Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html), which contains:
 * [Communication.extension:notDone](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:notDone) - Value Boolean fixed to "true"
@@ -487,7 +489,7 @@ QI-Core Observation.
 |Performer|[Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)||
 {: .grid}
 
-##### 8.6.1.1 Negation Rationale for Device, Applied
+##### 8.9.1.1 Negation Rationale for Device, Applied
 
 Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
@@ -511,7 +513,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 | Requester               | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                        |                                                                                  |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Device, Order
+##### 8.9.2.1 Negation Rationale for Device, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -536,7 +538,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | Requester               | [DeviceRequest.requester](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.requester)      |                                                                                  |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Device, Order – Personal Use Devices
+##### 8.9.3.1 Negation Rationale for Device, Order – Personal Use Devices
 
 Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html), which contains:
 * [DeviceRequest.extension:doNotPerform](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerform) - Value Boolean fixed to "true"
@@ -561,7 +563,7 @@ Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.htm
 | Requester               | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                        |                                                                                  |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Device, Recommended
+##### 8.9.4.1 Negation Rationale for Device, Recommended
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -586,7 +588,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | Requester               | [DeviceRequest.requester](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.requester)      |                                                                                  |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Device, Recommended – Personal Use Devices
+##### 8.9.5.1 Negation Rationale for Device, Recommended – Personal Use Devices
 
 Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html), which contains:
 * [DeviceRequest.extension:doNotPerform](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerform) - Value Boolean fixed to "true"
@@ -613,7 +615,7 @@ Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.htm
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Diagnostic Study, Order
+##### 8.10.1.1 Negation Rationale for Diagnostic Study, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -686,7 +688,7 @@ provide sufficient fidelity to their requests.
 | Performer                       | [Observation.performer](StructureDefinition-qicore-observation-definitions.html#Observation.performer)                                   |                                                                                                                                                                                                                                                    |
 {: .grid}
 
-##### 8.6.1.1 Negation Rationale for Diagnostic Study, Performed
+##### 8.10.2.1 Negation Rationale for Diagnostic Study, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
 * [Observation.extension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDone) - Value Boolean fixed to "true"
@@ -711,7 +713,7 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Diagnostic Study, Recommended
+##### 8.10.3.1 Negation Rationale for Diagnostic Study, Recommended
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -841,7 +843,7 @@ Order with its priority.
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Encounter, Order
+##### 8.11.3.1 Negation Rationale for Encounter, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -900,7 +902,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Encounter, Recommended
+##### 8.11.5.1 Negation Rationale for Encounter, Recommended
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1003,7 +1005,7 @@ intended meaning of the quality measure or clinical decision support
 | Requester               | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note - MedicationRequest.performer indicates the performer expected to administer the medication                                                                                         |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Immunization, Order
+##### 8.13.2.1 Negation Rationale for Immunization, Order
 
 Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html), which contains:
 * [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1240,7 +1242,7 @@ resource.
 | Performer               | [Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)      |                                                                                                           |
 {: .grid}
 
-##### 8.6.1.1 Negation Rationale for Intervention, Performed
+##### 8.15.3.1 Negation Rationale for Intervention, Performed
 
 Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
@@ -1264,7 +1266,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Intervention, Order
+##### 8.15.4.1 Negation Rationale for Intervention, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1289,7 +1291,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Intervention, Recommended
+##### 8.15.5.1 Negation Rationale for Intervention, Recommended
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1300,7 +1302,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 ### 8.16 Laboratory Test
 
-#### 8.15.1 Laboratory Test, Order
+#### 8.16.1 Laboratory Test, Order
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1316,7 +1318,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Laboratory Test, Performed
+##### 8.16.1.1 Negation Rationale for Laboratory Test, Performed
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1325,7 +1327,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
-#### 8.15.2 Laboratory Test, Performed
+#### 8.16.2 Laboratory Test, Performed
 
 QDM defines Laboratory Test as a medical procedure that involves testing
 a sample of blood, urine, or other body fluids or specimens. Tests can
@@ -1387,7 +1389,7 @@ acceptable to provide sufficient fidelity to their requests.
 | Performer          | Observation.performer   | [Observation.performer](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.performer)           |                            |
 {: .grid}
 
-##### 8.6.1.1 Negation Rationale for Laboratory Test, Performed
+##### 8.16.2.1 Negation Rationale for Laboratory Test, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
 * [Observation.extension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDone) - Value Boolean fixed to "true"
@@ -1396,7 +1398,7 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
 * [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) to indicate the specific Observation that was not performed
 
-#### 8.15.3 Laboratory Test, Recommended
+#### 8.16.3 Laboratory Test, Recommended
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1412,7 +1414,7 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Laboratory Test, Recommended
+##### 8.16.3.1 Negation Rationale for Laboratory Test, Recommended
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1517,7 +1519,7 @@ profile address Immunization, Administered.
 | Performer                    | [MedicationAdministration.performer.actor](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.performer.actor)     |                                                                         |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Medication, Administered
+##### 8.17.2.1 Negation Rationale for Medication, Administered
 
 Use [QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html), which contains:
 * [MedicationAdministration.status](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.status) - Fixed as "not-done"
@@ -1573,7 +1575,7 @@ recommended or order should both use MedicationRequest.intent = *order*.
 | Prescriber                             | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note - MedicationRequest.performer indicates the performer expected to administer the medication                                                                                         |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Medication, Discharge
+##### 8.17.3.1 Negation Rationale for Medication, Discharge
 
 Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html), which contains:
 * [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1612,7 +1614,7 @@ indicating information about medications that have been dispensed.
 | Dispenser                     | [MedicationDispense.performer.actor](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.performer.actor)                                            |                                                                                                                                  |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Medication, Dispensed
+##### 8.17.4.1 Negation Rationale for Medication, Dispensed
 
 Use [QICoreMedicationDispenseNotDone](StructureDefinition-qicore-medicationnotdispensed.html), which contains:
 * [MedicationDispense.status](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.status) - Fixed as "declined"
@@ -1652,7 +1654,7 @@ measure or clinical decision support (CDS) expression.
 | Prescriber                             | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note - MedicationRequest.performer indicates the performer expected to administer the medication                                                                                         |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Medication, Order
+##### 8.17.5.1 Negation Rationale for Medication, Order
 
 Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html), which contains:
 * [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1718,7 +1720,7 @@ Note: QDM 5.5 removed the "method" attribute from "Physical Exam, Order" and
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Physical Exam, Order
+##### 8.19.1.1 Negation Rationale for Physical Exam, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1727,7 +1729,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
-##### 8.4.6.2 Codes for Negation of Certain Physical Exam, Order
+##### 8.19.1.2 Codes for Negation of Certain Physical Exam, Order
 
 To capture specific types of "Physical Exam, Order" as QICoreObservationNotDone, use the following ServiceRequest.codes:
 
@@ -1776,7 +1778,7 @@ To capture specific types of "Physical Exam, Order" as QICoreObservationNotDone,
 | Performer                              | [Observation.performer](StructureDefinition-qicore-observation-definitions.html#Observation.performer)                                   |                                                                                                                                                                                                                                       |
 {: .grid}
 
-##### 8.4.6.1 Negation Rationale for Physical Exam, Performed
+##### 8.19.2.1 Negation Rationale for Physical Exam, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
 * [Observation.extension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDone) - Value Boolean fixed to "true"
@@ -1785,7 +1787,7 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
 * [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) to indicate the specific Observation that was not performed
 
-##### 8.4.6.2 Codes for Negation of Certain Physical Exam, Performed
+##### 8.19.2.2 Codes for Negation of Certain Physical Exam, Performed
 
 To capture specific types of "Physical Exam, Performed" as QICoreObservationNotDone, use the following Observation.codes:
 
@@ -1822,7 +1824,7 @@ To capture specific types of "Physical Exam, Performed" as QICoreObservationNotD
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Physical Exam, Recommended
+##### 8.19.3.1 Negation Rationale for Physical Exam, Recommended
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1831,7 +1833,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
-##### 8.4.6.2 Codes for Negation of Certain Physical Exam, Recommended
+##### 8.19.3.2 Codes for Negation of Certain Physical Exam, Recommended
 
 To capture specific types of "Physical Exam, Recommended" as QICoreObservationNotDone, use the following ServiceRequest.codes:
 
@@ -1866,7 +1868,7 @@ QDM defines Intervention and Procedure as:
     manipulation of a person’s body in whole or in part for purposes of
     making observations and diagnoses or providing treatment.
 
-#### 8.19.1 Procedure Vs Intervention
+#### 8.20.1 Procedure Vs Intervention
 
 FHIR references both of these concepts using the *Procedure* resource,
 specifically noting a process that involves verification of the
@@ -1876,7 +1878,7 @@ are included in this section of the QDM to QI-Core mapping especially
 since all of the QDM attributes for each of these QDM *datatypes* are
 identical.
 
-#### 8.19.2 Procedure Vs Task
+#### 8.20.2 Procedure Vs Task
 
 Some use cases have considered differentiating a FHIR Procedure Resource
 from a FHIR core Task Resource. For example, should a request to perform
@@ -1909,7 +1911,7 @@ from QDM Intervention or Procedure to the FHIR Task resource.  The
 mapping presented is from QDM to QI-Core referencing the FHIR Procedure
 resource.
 
-#### 8.19.3 Procedure Priority
+#### 8.20.3 Procedure Priority
 
 QDM 5.5 includes a new attribute for Procedure: *priority* with the
 following definition:
@@ -1940,7 +1942,7 @@ use case QI-Core has not added an extension to address
 Procedure.priority and, as a result, there is no direct mapping from the
 QDM Procedure priority attribute to QI-Core.
 
-#### 8.19.4 Procedure, Performed
+#### 8.20.4 Procedure, Performed
 
 | **QDM Context**         | **QI-Core R4**                                              | **Comments**                   |
 | ----------------------- | ----------------------------------------------------------- | ------------------------------ |
@@ -1969,7 +1971,7 @@ QDM Procedure priority attribute to QI-Core.
 | Performer               | [Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)      |                                                                                                           |
 {: .grid}
 
-##### 8.6.1.1 Negation Rationale for Procedure, Performed
+##### 8.20.4.1 Negation Rationale for Procedure, Performed
 
 Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
@@ -1977,7 +1979,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 * [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - When this was made available
 * [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
 
-#### 8.19.5 Procedure, Order
+#### 8.20.5 Procedure, Order
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1993,7 +1995,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Procedure, Order
+##### 8.20.5.1 Negation Rationale for Procedure, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -2002,7 +2004,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
-#### 8.19.6 Procedure, Recommended
+#### 8.20.6 Procedure, Recommended
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -2018,7 +2020,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.4.3.1 Negation Rationale for Procedure, Recommended
+##### 8.20.6.1 Negation Rationale for Procedure, Recommended
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -2028,7 +2030,8 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ### 8.21 Substance
-#### 8.20.1 Substance, Administered; Substance, Order; Substance Recommended
+
+#### 8.21.1 Substance, Administered; Substance, Order; Substance Recommended
 
 QDM defines Substance as a homogeneous material with definite
 composition that includes allergens, biological materials, chemicals,
@@ -2132,8 +2135,6 @@ as noted. Further work in base FHIR will advise how to reference specific admini
 | route                                              | [NutritionOrder.enteralFormula.routeofAdministration](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.routeofAdministration)      |                                                       |
 | Requester                                          | [NutritionOrder.orderer](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.orderer)                                                                |                                                       |
 {: .grid}
-
-
 
 ### 8.22 Symptom
 
