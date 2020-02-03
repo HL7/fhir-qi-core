@@ -182,7 +182,7 @@ profile inherited from US Core.
 |                                               | [Observation.interpretation](StructureDefinition-qicore-observation-definitions.html#Observation.interpretation)                         |                                                                                                                                                                                                             |
 | Relevant dateTime                             | [Observation.effective\[x\] dateTime](StructureDefinition-qicore-observation-definitions.html#Observation.effective[x])                  |                                                                                                                                                                                                             |
 | Relevant Period                               | [Observation.effective\[x\] Period](StructureDefinition-qicore-observation-definitions.html#Observation.effective[x])                    |                                                                                                                                                                                                             |
-| Author dateTime                               | [Observation.issued](StructureDefinition-qicore-observation-definitions.html#Observation.issued)                                         | Consider if authorDatetime (intended for negation rationale) fits with observation.issued or FHIR provenance for docuemtnation of the dataAbsentReason.                                                     |
+| Author dateTime                               | [Observation.issued](StructureDefinition-qicore-observation-definitions.html#Observation.issued)                                         |                                                                                                                                                                                                             |
 | Component                                     | [Observation.component](StructureDefinition-qicore-observation-definitions.html#Observation.component)                                   |                                                                                                                                                                                                             |
 |                                               | [Observation.component.id](StructureDefinition-qicore-observation-definitions.html#Observation.component.id)                             |                                                                                                                                                                                                             |
 | Component code                                | [Observation.component.code](StructureDefinition-qicore-observation-definitions.html#Observation.component.code)                         |                                                                                                                                                                                                             |
@@ -483,7 +483,7 @@ QI-Core Observation.
 |Reason|[Procedure.reasonCode](StructureDefinition-qicore-procedure-definitions.html#Procedure.reasonCode)||
 | Negation Rationale              | See Below |
 |Relevant Period|[Procedure.performed\[x\] Period](StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x])||
-|Author dateTime|[Procedure.recorded](StructureDefinition-qicore-procedure-definitions.html#Procedure.recorded)||
+|Author dateTime| N/A | Only used when negated |
 |Performer|[Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)||
 {: .grid}
 
@@ -1164,17 +1164,10 @@ to the index patient. 
 
 ### 8.15 Intervention
 
-QDM defines Intervention and Procedure as:
-* *Intervention* is a course of action intended to achieve a result in
+QDM defines Intervention as a course of action intended to achieve a result in
 the care of persons with health problems that does not involve
 direct physical contact with a patient. Examples include patient
 education and therapeutic communication.
-
-* *Procedure* is an act whose immediate and primary outcome
-(post-condition) is the alteration of the physical condition of the
-subject. A *procedure* may be a surgery or other type of physical
-manipulation of a person’s body in whole or in part for purposes of
-making observations and diagnoses or providing treatment.
 
 #### 8.15.1 Procedure Vs Intervention
 
@@ -1186,40 +1179,7 @@ are included in this section of the QDM to QI-Core mapping especially
 since all of the QDM attributes for each of these QDM *datatypes* are
 identical.
 
-#### 8.15.2 Procedure Vs Task
-
-Some use cases have considered differentiating a FHIR Procedure Resource
-from a FHIR core Task Resource. For example, should a request to perform
-medication reconciliation be classified as a Task or a Procedure? The
-FHIR [Procedure Resource](http://hl7.org/fhir/procedure.html) Boundaries
-and Relationships (Section 9.3.2) provides some distinction between a
-[Task](http://hl7.org/fhir/task.html) and a
-[Procedure](http://hl7.org/fhir/procedure.html):
-
-*A [Task](http://hl7.org/fhir/task.html) is
-a workflow step such as cancelling an order, fulfilling an order,
-signing an order, merging a set of records, admitting a patient.
-Procedures are actions that are intended to result in a physical or
-mental change to or for the subject (e.g. surgery, physiotherapy,
-training, counseling).
-A [Task](http://hl7.org/fhir/task.html) resource
-often exists in parallel with clinical resources. For example,
-a [Task](http://hl7.org/fhir/task.html) might
-request fulfillment of
-a [ServiceRequest](http://hl7.org/fhir/servicerequest.html) ordering
-a Procedure.*
-
-Based on the guidance provided above, the workflow step to reconcile
-medication lists may be considered a Task to perform the Procedure that
-includes reviewing the medication list with the patient to assure it is
-correct and to education the patient about proper medication usage.
-
-QDM 5.5 does not address Task; therefore, there is no direct mapping
-from QDM Intervention or Procedure to the FHIR Task resource.  The
-mapping presented is from QDM to QI-Core referencing the FHIR Procedure
-resource.
-
-#### 8.15.3 Intervention, Performed
+#### 8.15.2 Intervention, Performed
 
 | **QDM Context**         | **QI-Core R4**                                              | **Comments**                   |
 | ----------------------- | ----------------------------------------------------------- | ------------------------------ |
@@ -1248,7 +1208,7 @@ resource.
 | Performer               | [Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)      |                                                                                                           |
 {: .grid}
 
-##### 8.15.3.1 Negation Rationale for Intervention, Performed
+##### 8.15.2.1 Negation Rationale for Intervention, Performed
 
 Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
@@ -1256,7 +1216,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 * [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - When this was made available
 * [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
 
-#### 8.15.4 Intervention, Order
+#### 8.15.3 Intervention, Order
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1272,7 +1232,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.15.4.1 Negation Rationale for Intervention, Order
+##### 8.15.3.1 Negation Rationale for Intervention, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1281,7 +1241,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
-#### 8.15.5 Intervention, Recommended
+#### 8.15.4 Intervention, Recommended
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1297,7 +1257,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### 8.15.5.1 Negation Rationale for Intervention, Recommended
+##### 8.15.4.1 Negation Rationale for Intervention, Recommended
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Value Boolean fixed to "true"
@@ -1441,12 +1401,21 @@ context:
 
 #### 8.17.1 Medication, Active
 
-This QDM context correlates with a medication on a patient’s active medication list and thus it maps to MedicationStatement. Note
-that MedicationStatement does not include reference to the QDM attributes *route* or *frequency* or *recorder*. These attributes may be
-important if the medication list is the only source of information about medication usage and quality measures or clinical decision
-support (CDS) expressions need to assess total daily dosage or cumulative dose over time. Ordered medications (MedicationRequest)
-or dispensed medications (MedicationDispense) or administered medications (MedicationAdminstration) represent alternative
-mechanisms to determine such information.
+This QDM context correlates with a medication on a patient’s active medication
+list. In QI-Core STU3, Medication, Active was mapped to MedicationStatement.
+However, consistent with US Core R4 Update, medication list should use
+MedicationRequest and not MedicationStatement. The mapping table provides
+guidance about how to use MedicationRequest.requester to specify medications
+ordered directly, those reported by a physician and those reported by the
+patient for a medication list.
+
+The rationale is that the MedicationStatement.status allows use of both active
+and not taken. That means there is no assurance the patient is actually taking
+the medication. The MedicationRequest.intent should always be order even if the
+medication is patient reported and the order is not processed as an
+e-prescription. The reporter is specified as MedicationRequest.reported[x]
+which is a reportedBoolean and uses reportedReference (patient, practitioner,
+practitionerRole, relatedPerson, organization).
 
 | **QDM Context**            | **QI-Core R4**                                                                                                                                                                                                                                   | **Comments**                                                                                                                                                  |
 | -------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1466,35 +1435,6 @@ mechanisms to determine such information.
 |                            | [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn)                                                                       | Author dateTime not referenced in QDM                                                                                                                         |
 | recorder                   | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                   | To address all medications on a medication list, use MedicationRequest with status = active; intent = order; and requester = organization (for prescribed medications for which an order exists), practitioner (for medications entered by clinicians but not ordered), and patient or RelatedPerson (for patient/related person reported)|
 {: .grid}
-
-The US Core update defines medication list referencing the following resources:
-
-* Old MedicationRequest: Represents an authorization to dispense and administer a
-medication (aka prescription or order)
-
-* New MedicationRequest: An order or request for both supply of the medication
-and the instructions for administration of the medication to a patient, and
-patient reported medications.
-
-* Old MedicationStatement: Represents the record for past, present, and future
-medications use. Not used for accessing a patient’s medications.
-
-* New MedicationStatement: Represents the record for past, present, and future
-medications use. The MedicationStatement Resource is NOT used in this guide.
-
-Therefore, Medication, Active should reference MedicationRequest and NOT
-MedicationStatement. The rationale is that the MedicationStatement.status
-allows use of both *active* and *not taken*. That means there is no assurance
-the patient is actually taking the medication. Discussion in the US Core Update
-reconciliation in Atlanta generated the change in MedicationRequest definition
-for US Core. The MedicationRequest.intent should always be *order* even if the
-medication is patient reported and the order is not processed as an
-e-prescription. The reporter is specified as MedicationRequest.reported[x]
-which is a reportedBoolean and uses reportedReference (patient, practitioner,
-  practitionerRole, relatedPerson, organization).
-
-  This change should also be used to reference the mapping from QDM Medication,
-  Order which can address order or recommended.
 
 #### 8.17.2 Medication, Administered
 
@@ -1612,7 +1552,7 @@ indicating information about medications that have been dispensed.
 | setting                       | [MedicationDispense.category](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.category)                                                          | Inpatient, Outpatient, Community, Discharge                                                                                      |
 | reason                        | [MedicationDispense.statusReason\[x\]](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.statusReason[x])                                          | The reason for ordering or not ordering the medication                                                                           |
 | relevant dateTime             | [MedicationDispense.whenHandedOver](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.whenHandedOver)                                              | When provided to patient or representative                                                                                       |
-| relevant Period               | [MedicationDispense.extension:validityPeriod](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.extension:validityPeriod)                          |                                                                                                                                  |
+| relevant Period               | [MedicationDispense.daysSupply](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.daysSupply)                          |                                                                                                                                  |
 | author dateTime               |                                                                                                                                                                                    |                                                                                                                                  |
 | Negation Rationale            | See Below |
 | Prescriber                    | [MedicationDispense.authorizingPrescription](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.authorizingPrescription)                            | Reference authorizing prescription (MedicationRequest) which contains Medication.Request.requester                               |
@@ -1862,27 +1802,17 @@ To capture specific types of "Physical Exam, Recommended" as QICoreObservationNo
 
 ### 8.20 Procedure
 
-QDM defines Intervention and Procedure as:
-* *Intervention* is a course of action intended to achieve a result in
-    the care of persons with health problems that does not involve
-    direct physical contact with a patient. Examples include patient
-    education and therapeutic communication.
-
-* *Procedure* is an act whose immediate and primary outcome
-    (post-condition) is the alteration of the physical condition of the
-    subject. A *procedure* may be a surgery or other type of physical
-    manipulation of a person’s body in whole or in part for purposes of
-    making observations and diagnoses or providing treatment.
+QDM defines Procedure an act whose immediate and primary outcome
+(post-condition) is the alteration of the physical condition of the subject. A
+*procedure* may be a surgery or other type of physical manipulation of a
+person’s body in whole or in part for purposes of making observations and
+diagnoses or providing treatment.
 
 #### 8.20.1 Procedure Vs Intervention
 
-FHIR references both of these concepts using the *Procedure* resource,
-specifically noting a process that involves verification of the
-patient's comprehension or to change the patient's mental state would be
-a Procedure. Therefore, both QDM *datatypes*, Procedure and Intervention
-are included in this section of the QDM to QI-Core mapping especially
-since all of the QDM attributes for each of these QDM *datatypes* are
-identical.
+FHIR references both of this concept using the Procedure resource, specifically
+noting a process that involves verification of the patient’s comprehension or
+to change the patient’s mental state would be a Procedure.
 
 #### 8.20.2 Procedure Vs Task
 

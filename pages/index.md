@@ -212,7 +212,7 @@ any, and the underlying FHIR resources:
 |[QICore-MedicationAdministration](StructureDefinition-qicore-medicationadministration.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICore-MedicationDispense](StructureDefinition-qicore-medicationdispense.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |[QICore-MedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [USCore-MedicationRequest](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
-|[QICore-MedicationStatement](StructureDefinition-qicore-medicationstatement.html)| [USCore-MedicationStatement](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationstatement.html) |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
+|[QICore-MedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
 |[QICore-Observation](StructureDefinition-qicore-observation.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
 | | [FHIR Vital Signs]({{site.data.fhir.path}}observation-vitalsigns.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [USCore Smoking Status](http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
