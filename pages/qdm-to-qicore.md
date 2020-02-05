@@ -1552,7 +1552,7 @@ indicating information about medications that have been dispensed.
 | setting                       | [MedicationDispense.category](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.category)                                                          | Inpatient, Outpatient, Community, Discharge                                                                                      |
 | reason                        | [MedicationDispense.statusReason\[x\]](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.statusReason[x])                                          | The reason for ordering or not ordering the medication                                                                           |
 | relevant dateTime             | [MedicationDispense.whenHandedOver](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.whenHandedOver)                                              | When provided to patient or representative                                                                                       |
-| relevant Period               | [MedicationDispense.daysSupply](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.daysSupply)                          |                                                                                                                                  |
+| relevant Period               | N/A                                             | The anticipated time from starting to stopping an ordered or dispensed medication can be computed in an expression and derived from the duration attribute             |
 | author dateTime               |                                                                                                                                                                                    |                                                                                                                                  |
 | Negation Rationale            | See Below |
 | Prescriber                    | [MedicationDispense.authorizingPrescription](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.authorizingPrescription)                            | Reference authorizing prescription (MedicationRequest) which contains Medication.Request.requester                               |
@@ -1594,7 +1594,7 @@ measure or clinical decision support (CDS) expression.
 | setting                                | [MedicationRequest.category](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category)                                                             | Constrain category to: Inpatient, Outpatient, Community                                                                    |
 | reason                                 | [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode)                                                         | The reason for ordering or not ordering the medication                                                                                                                                   |
 | relevant dateTime                      |                                                                                                                                                                                    |                                                                                                                                                                                          |
-| relevant Period                        | [MedicationRequest.dispenseRequest.validityPeriod](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dispenseRequest.validityPeriod)                 |                                                                                                                                                                                          |
+| relevant Period                        | N/A                                             | The anticipated time from starting to stopping an ordered or dispensed medication can be computed in an expression and derived from the duration attribute             |
 | author dateTime                        | [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn)                                                         |                                                                                                                                                                                          |
 | Negation Rationale                     | See Below |
 | Prescriber                             | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note - MedicationRequest.performer indicates the performer expected to administer the medication                                                                                         |
@@ -1802,7 +1802,7 @@ To capture specific types of "Physical Exam, Recommended" as QICoreObservationNo
 
 ### 8.20 Procedure
 
-QDM defines Procedure an act whose immediate and primary outcome
+QDM defines Procedure as an act whose immediate and primary outcome
 (post-condition) is the alteration of the physical condition of the subject. A
 *procedure* may be a surgery or other type of physical manipulation of a
 person’s body in whole or in part for purposes of making observations and
@@ -1810,7 +1810,7 @@ diagnoses or providing treatment.
 
 #### 8.20.1 Procedure Vs Intervention
 
-FHIR references both of this concept using the Procedure resource, specifically
+FHIR references both of these concepts using the Procedure resource, specifically
 noting a process that involves verification of the patient’s comprehension or
 to change the patient’s mental state would be a Procedure.
 
