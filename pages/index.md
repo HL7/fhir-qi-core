@@ -148,7 +148,19 @@ It is the responsibility of the server (data provider) to ensure that any necess
 reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in
 the same manner as other transactions, as discussed above under General Security Considerations.
 
-### 1.7 Relationship to Other Initiatives
+### 1.7 Provenance
+
+QI-Core addresses provenance at a data element level. We address data element provenance as defined with the individual
+FHIR resource.  Each FHIR resource has its own way to address provenance (author, performer, author or issued date,
+occurrence date, etc.). Therefore, we assure QI-Core can handle provenance based on the resource modeling.  The US
+domain Quality Data Model handles provenance in the same way and the mapping tables from QDM attributes to QI-Core/FHIR
+resource elements occurs at that level. There are some instances for which QI-Core creates extensions to ensure it
+captures the resource-specific data provenance. Decisions to create such extensions are intentionally consistent with
+each resource owner's future FHIR version direction and with discussions with the HL7 Work Groups responsible for the
+respective resource. QI-Core closely follows US Core and will address future US Core versions that enhance its
+approach to provenance.
+
+### 1.8 Relationship to Other Initiatives
 
 QI-Core has been harmonized with certain other FHIR-based initiatives, in particular, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
@@ -178,7 +190,7 @@ rather than infer the QUICK model from the definition of the QI-Core profiles as
 In addition, the QI-Core effort is actively working with the QDM to produce a mapping from QDM to QI-Core such that a
 CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
-### 1.8 Contents
+### 1.9 Contents
 {: #contents}
 
 The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if
@@ -234,17 +246,17 @@ any, and the underlying FHIR resources:
 
 The QUICK Logical View of these profiles is provided [here](quick/QUICK-index.html).
 
-### 1.9 Naming Conventions
+### 1.10 Naming Conventions
 
 QI-Core profiles are indicated by the prefix "QICore-". For example, the QI-Core profile of Patient is named QICore-Patient.
 
-### 1.10 Extensions and Mappings
+### 1.11 Extensions and Mappings
 
 QI-Core adds a variety of [extensions](extensions.html) to core FHIR classes. These extensions derive from two primary
 sources: the Quality Improvement Domain Analysis Model (QIDAM), and the Quality Data Model (QDM). Profile pages contain
 definitions of extensions and mappings to QDM as an aid for current users of QDM.
 
-### 1.11 MustSupport Flag
+### 1.12 MustSupport Flag
 
 QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core](http://hl7.org/fhir/us/core/general-guidance.html#must-support) must be respected.
 
@@ -280,7 +292,7 @@ applications, defined as follows:
 -  Quality artifact authors can use the MustSupport elements in their artifacts with the expectation that the model elements will be portable across all systems compliant with QI-Core, and
 -  Quality improvement artifact applications SHALL recognize and process all MustSupport elements in QI-Core.
 
-### 1.12 Modifying Attributes
+### 1.13 Modifying Attributes
 
 Is-Modifier is a boolean property of an element, indicating that the value of that element may change the interpretation
 of the resource. Examples of modifying elements include status (in many resources), negations
@@ -297,7 +309,7 @@ non-sustainable situation, particularly in light of the future need to expand QI
 profiles, such as those being developed by CIMI. The current approach requires quality improvement artifact authors to
 make explicit checks for modifying elements when dealing with classes that have modifying elements.
 
-### 1.13 Terminology Bindings
+### 1.14 Terminology Bindings
 
 Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data
 owners to translate local data into the required vocabulary. As a US Realm product, QI-Core requires value sets and
@@ -313,7 +325,7 @@ value set when used. For example, the code element of the MedicationRequest prof
 for the RxNorm code system, indicating that all MedicationRequest instances shall use codes from the RxNorm code system,
 but within any given artifact, instances will typically use a restricted value set.
 
-### 1.14 Resource References and "Any"
+### 1.15 Resource References and "Any"
 
 FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a
 reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resources. For example,
@@ -327,7 +339,7 @@ dealing with "Any" references, the current method of specifying profiles does no
 something to the effect of "a QI-Core resource when there is one, and a FHIR core resource if there isn't." In QI-Core,
 the resources in "Any" references SHALL conform to QI-Core profiles if the base resource has been profiled.
 
-### 1.15 Summary of Conformance Requirements
+### 1.16 Summary of Conformance Requirements
 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
@@ -342,7 +354,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 -  Applications SHOULD use the preferred value sets
 -  In the U.S. Realm, applications SHALL be simultaneously compliant with QI-Core profiles and US Core profiles. As such, the more restrictive bindings between US Core and QI-Core SHALL be adhered to. For example, all value sets that are required in US Core SHALL be required by QI-Core, regardless of the binding strength in QI-Core.
 
-### 1.16 Author Information
+### 1.17 Author Information
 
 |Author Name|Affiliation|Role|
 |---|---|---|

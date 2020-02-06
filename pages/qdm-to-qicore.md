@@ -469,7 +469,8 @@ about usage of a device occurs as an observation. Thus, information about an
 implanted pacemaker status check, utilization of a patient-use Continuous
 Positive Airway Pressure (CPAP) device, results from a glucometer, or use of a
 wheelchair or cane should use the QDM datatype, Assessment, Performed, or
-QI-Core Observation.
+QI-Core Observation. Current use of Device, Applied is synonymous with
+Procedure, Performed, i.e., placement of or adjustment to a device.
 
 |**QDM Context**|**QI-Core R4**|**Comments**|
 |---|---|---|
@@ -1460,7 +1461,7 @@ profile address Immunization, Administered.
 | reason                       | [MedicationAdministration.reasonCode](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.reasonCode)               | None, given as ordered, emergency                                       |
 | relevant dateTime            | [MedicationAdministration.effective\[x\] dateTime](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.effective[x])|                                                                         |
 | relevant Period              | [MedicationAdministration.effective\[x\] Period](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.effective[x])  |                                                                         |
-| author dateTime              |                                                                                                                                                               |                                                                         |
+| author dateTime              | N/A                                                                                                                                                              |                                                                         |
 | Negation Rationale           | See Below |
 | Performer                    | [MedicationAdministration.performer.actor](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.performer.actor)     |                                                                         |
 {: .grid}
@@ -1494,9 +1495,6 @@ practitionerRole, relatedPerson, organization).
 
 This change should also be used to reference the mapping from QDM Medication,
 Order which can address order or recommended.
-
-Consider how to address Medication, Order given this new information. Note that
-recommended or order should both use MedicationRequest.intent = *order*.
 
 | **QDM Context**                        | **QI-Core R4**                                                                                                                                                                                                                  | **Comments**                                                                                                                                                                             |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |

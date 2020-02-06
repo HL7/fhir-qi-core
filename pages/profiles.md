@@ -13,6 +13,8 @@ topofpage: true
 
 ## 2 QI-Core Profiles
 
+<li><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-implantable-device.html">USCoreImplantableDevice</a></li>
+
 {% include list-simple-profiles.xhtml %}
 
 <br>
