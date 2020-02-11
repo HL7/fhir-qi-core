@@ -28,7 +28,18 @@ As an HL7 FHIR Implementation Guide, changes to this specification are managed b
 standard balloting process. The current roadmap follows closely behind the base FHIR roadmap, and the US Core
 Implementation Guide.
 
-### 1.2 Background
+### 1.2 Contents
+{: #contents}
+
+This implementation guide defines:
+
+* [Profiles](profiles.html)
+* [Extensions](extensions.html)
+* [Terminology](terminology.html)
+* [QDM-to-QI-Core Mapping](qdm-to-qicore.html)
+* [QUICK](quick/QUICK-index.html)
+
+### 1.3 Background
 
 This Implementation Guide originated as a U.S. Realm Specification with support from the
 [Clinical Quality Framework (CQF) initiative](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
@@ -67,7 +78,7 @@ to have a single logical data model (QUICK), as well as a single logical process
 quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce
 the learning curve, and consolidate efforts to maintain multiple standards.
 
-### 1.3 Relationship Between QUICK, the QI-Core Profiles, and FHIR
+### 1.4 Relationship Between QUICK, the QI-Core Profiles, and FHIR
 
 The QUICK logical model was originally developed without reference to FHIR. However, when it became clear that FHIR
 would be the focus of interoperability efforts in HL7, it no longer made sense for the quality improvement community to
@@ -84,7 +95,7 @@ gaps such as missing attributes and unspecified value sets that might make QUICK
 applications. In turn, QUICK is derived from QI-Core profiles, rather than directly from FHIR, providing an
 author-focused view of the FHIR resources profiled by QI-Core.
 
-### 1.4 Relevance of QI-Core Profiles to Authors
+### 1.5 Relevance of QI-Core Profiles to Authors
 
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
 quality measures (CQM) and CDS, thus providing a common foundation for reusability. To the extent possible, QI-Core
@@ -100,7 +111,7 @@ identifies a common need and the additional content has been validated.
 
 Though the QUICK model was intended to be the logical model used by quality artifact authors, a comprehensive FHIR version-independent QUICK model is not currently available and its feasibility needs further clarification. QI-Core does provide a QUICK logical view of clinical data from the perspective of representing quality measurement and decision support knowledge. The QUICK logical view is FHIR version-specific and it enables knowledge authors to ignore certain details of the FHIR Physical representation. Quality measures can be written using the QUICK logical view or directly using QI-Core profiles.
 
-### 1.5 Scope
+### 1.6 Scope
 
 The QI-Core FHIR Implementation Guide provides requirements and guidance on the use of FHIR in quality measurement and
 decision support. The profiles in this implementation guide will be used to meet QI-Core project objectives of:
@@ -131,7 +142,7 @@ Some of the above topics are under active investigation and will be topics of fu
 the FHIR [Clinical Reasoning]({{site.data.fhir.path}}clinicalreasoning-module.html) module provides resources and
 guidance for how to represent and evaluate quality improvement artifacts within FHIR.
 
-### 1.6 Privacy, Security, and Consent
+### 1.7 Privacy, Security, and Consent
 
 Quality applications may make use of patient-specific information. For this reason, all transactions must be
 appropriately secured, limiting access to authorized individuals and protecting data while in transit (as laid out in
@@ -190,73 +201,17 @@ rather than infer the QUICK model from the definition of the QI-Core profiles as
 In addition, the QI-Core effort is actively working with the QDM to produce a mapping from QDM to QI-Core such that a
 CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
-### 1.9 Contents
-{: #contents}
+### 1.9 Naming Conventions
 
-The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if
-any, and the underlying FHIR resources:
+QI-Core profiles are indicated by the prefix "QICore". For example, the QI-Core profile of Patient is named QICorePatient.
 
-|QI-Core Profile|USCore Profile|Base Resource|
-|---|---|---|
-|[QICore-AdverseEvent](StructureDefinition-qicore-adverseevent.html)| |[AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
-|[QICore-AllergyIntolerance](StructureDefinition-qicore-allergyintolerance.html)| [USCore-AllergyIntolerance](http://hl7.org/fhir/us/core/StructureDefinition-us-core-allergyintolerance.html) |[AllergyIntolerance]({{site.data.fhir.path}}allergyintolerance.html)|
-|[QICore-BodyStructure](StructureDefinition-qicore-bodystructure.html)| |[BodyStructure]({{site.data.fhir.path}}bodystructure.html)|
-|[QICore-Claim](StructureDefinition-qicore-claim.html)| |[Claim]({{site.data.fhir.path}}claim.html)|
-|[QICore-Communication](StructureDefinition-qicore-communication.html)| |[Communication]({{site.data.fhir.path}}communication.html)|
-|[QICore-CommunicationRequest](StructureDefinition-qicore-communicationrequest.html)| |[CommunicationRequest]({{site.data.fhir.path}}communicationrequest.html)|
-|[QICore-Condition](StructureDefinition-qicore-condition.html)| [USCore-Condition](http://hl7.org/fhir/us/core/StructureDefinition-us-core-condition.html) |[Condition]({{site.data.fhir.path}}condition.html)|
-|[QICore-Coverage](StructureDefinition-qicore-coverage.html)| |[Coverage]({{site.data.fhir.path}}coverage.html)|
-|[QICore-Device](StructureDefinition-qicore-device.html)| |[Device]({{site.data.fhir.path}}device.html)|
-|[QICore-DeviceRequest](StructureDefinition-qicore-devicerequest.html)| |[DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
-|[QICore-DeviceUseStatement](StructureDefinition-qicore-deviceusestatement.html)| |[DeviceUseStatement]({{site.data.fhir.path}}deviceusestatement.html)|
-|[QICore-DiagnosticReportLab](StructureDefinition-qicore-diagnosticreport-lab.html)| [USCore-DiagnosticReportLab](http://hl7.org/fhir/us/core/StructureDefinition-us-core-diagnosticreport-lab.html) |[DiagnosticReport]({{site.data.fhir.path}}diagnosticreport.html)|
-|[QICore-DiagnosticReportNote](StructureDefinition-qicore-diagnosticreport-note.html)| [USCore-DiagnosticReportNote](http://hl7.org/fhir/us/core/StructureDefinition-us-core-diagnosticreport-note.html) |[DiagnosticReport]({{site.data.fhir.path}}diagnosticreport.html)|
-|[QICore-Encounter](StructureDefinition-qicore-encounter.html)| [USCore-Encounter](http://hl7.org/fhir/us/core/StructureDefinition-us-core-encounter.html) |[Encounter]({{site.data.fhir.path}}encounter.html)|
-|[QICore-FamilyMemberHistory](StructureDefinition-qicore-familymemberhistory.html)| |[FamilyMemberHistory]({{site.data.fhir.path}}familymemberhistory.html)|
-|[QICore-Flag](StructureDefinition-qicore-flag.html)| |[Flag]({{site.data.fhir.path}}flag.html)|
-|[QICore-Goal](StructureDefinition-qicore-goal.html)| [USCore-Goal](http://hl7.org/fhir/us/core/StructureDefinition-us-core-goal.html) |[Goal]({{site.data.fhir.path}}goal.html)|
-|[QICore-ImagingStudy](StructureDefinition-qicore-imagingstudy.html)| |[ImagingStudy]({{site.data.fhir.path}}imagingstudy.html)|
-|[QICore-Immunization](StructureDefinition-qicore-immunization.html)| [USCore-Immunization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html) |[Immunization]({{site.data.fhir.path}}immunization.html)|
-|[QICore-ImmunizationRecommendation](StructureDefinition-qicore-immunizationrec.html)| |[ImmunizationRecommendation]({{site.data.fhir.path}}immunizationrecommendation.html)|
-|[QICore-ImplantableDevice](StructureDefinition-qicore-device.html)| [USCore-ImplantableDevice](http://hl7.org/fhir/us/core/StructureDefinition-us-core-implantable-device.html) |[Device]({{site.data.fhir.path}}device.html)|
-|[QICore-Location](StructureDefinition-qicore-location.html)| [USCore-Location](http://hl7.org/fhir/us/core/StructureDefinition-us-core-location.html) |[Location]({{site.data.fhir.path}}location.html)|
-|[QICore-Medication](StructureDefinition-qicore-medication.html)| [USCore-Medication](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medication.html) |[Medication]({{site.data.fhir.path}}medication.html)|
-|[QICore-MedicationAdministration](StructureDefinition-qicore-medicationadministration.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
-|[QICore-MedicationDispense](StructureDefinition-qicore-medicationdispense.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICore-MedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [USCore-MedicationRequest](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
-|[QICore-MedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
-|[QICore-Observation](StructureDefinition-qicore-observation.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
-| | [FHIR Vital Signs]({{site.data.fhir.path}}observation-vitalsigns.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| | [USCore Smoking Status](http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| | [USCore Laboratory Result](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| | [USCore Pediatric BMI for Age](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-bmi-for-age.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| | [USCore Pediatric Weight for Height](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-weight-for-height.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| | [USCore Pulse Oximetry](http://hl7.org/fhir/us/core/StructureDefinition-us-core-pulse-oximetry.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-|[QICore-Organization](StructureDefinition-qicore-organization.html)| [USCore-Organization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-organization.html) |[Organization]({{site.data.fhir.path}}organization.html)|
-|[QICore-Patient](StructureDefinition-qicore-patient.html)| [USCore-Patient](http://hl7.org/fhir/us/core/StructureDefinition-us-core-patient.html) |[Patient]({{site.data.fhir.path}}patient.html)|
-|[QICore-Practitioner](StructureDefinition-qicore-practitioner.html)| [USCore-Practitioner](http://hl7.org/fhir/us/core/StructureDefinition-us-core-practitioner.html) |[Practitioner]({{site.data.fhir.path}}practitioner.html)|
-|[QICore-PractitionerRole](StructureDefinition-qicore-practitionerrole.html)| [USCore-PractitionerRole](http://hl7.org/fhir/us/core/StructureDefinition-us-core-practitionerrole.html) |[PractitionerRole]({{site.data.fhir.path}}practitionerrole.html)|
-|[QICore-Procedure](StructureDefinition-qicore-procedure.html)| [USCore-Procedure](http://hl7.org/fhir/us/core/StructureDefinition-us-core-procedure.html) |[Procedure]({{site.data.fhir.path}}procedure.html)|
-|[QICore-RelatedPerson](StructureDefinition-qicore-relatedperson.html)| |[RelatedPerson]({{site.data.fhir.path}}relatedperson.html)|
-|[QICore-ServiceRequest](StructureDefinition-qicore-servicerequest.html)| |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
-|[QICore-Specimen](StructureDefinition-qicore-specimen.html)| |[Specimen]({{site.data.fhir.path}}specimen.html)|
-|[QICore-Substance](StructureDefinition-qicore-substance.html)| |[Substance]({{site.data.fhir.path}}substance.html)|
-|[QICore-Task](StructureDefinition-qicore-task.html)| |[Task]({{site.data.fhir.path}}task.html)|
-{: .list}
-
-The QUICK Logical View of these profiles is provided [here](quick/QUICK-index.html).
-
-### 1.10 Naming Conventions
-
-QI-Core profiles are indicated by the prefix "QICore-". For example, the QI-Core profile of Patient is named QICore-Patient.
-
-### 1.11 Extensions and Mappings
+### 1.10 Extensions and Mappings
 
 QI-Core adds a variety of [extensions](extensions.html) to core FHIR classes. These extensions derive from two primary
 sources: the Quality Improvement Domain Analysis Model (QIDAM), and the Quality Data Model (QDM). Profile pages contain
 definitions of extensions and mappings to QDM as an aid for current users of QDM.
 
-### 1.12 MustSupport Flag
+### 1.11 MustSupport Flag
 
 QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core](http://hl7.org/fhir/us/core/general-guidance.html#must-support) must be respected.
 
@@ -292,22 +247,105 @@ applications, defined as follows:
 -  Quality artifact authors can use the MustSupport elements in their artifacts with the expectation that the model elements will be portable across all systems compliant with QI-Core, and
 -  Quality improvement artifact applications SHALL recognize and process all MustSupport elements in QI-Core.
 
-### 1.13 Modifying Attributes
+### 1.12 Modifying Attributes
 
-Is-Modifier is a boolean property of an element, indicating that the value of that element may change the interpretation
-of the resource. Examples of modifying elements include status (in many resources), negations
-(e.g. Immunization.wasNotGiven), and certainty qualifications (e.g. Observation.reliability). Decision support and
+Within FHIR resources, some elements are considered [Modifying Elements]({{site.data.fhir.path}}conformance-rules.html#isModifier),
+indicating that the value of that element may change the interpretation of the resource.
+Examples of modifying elements include status (in many resources), negations (e.g. Immunization.wasNotGiven),
+and certainty qualifications (e.g. Observation.reliability). Decision support and
 quality implementations MUST always check the values of modifying elements. For example, in processing an Immunization
 resource, the application must inspect the "wasNotGiven" element to determine whether the immunization was given or was
 not given to the patient. For this reason, modifying elements SHALL be treated as MustSupport, even if not declared.
 
-As an aside, inclusion of modifying elements is a departure from the previous (January 2014) informative version of the
-QI-Core profiles, where profiles were developed for each meaning of each modifying attribute. For example, the Condition
-resource was represented using two profiles, one representing the occurrence of the condition, and the other the
-non-occurrence of the condition. However, it was felt the proliferation of profiles under this approach would lead to a
-non-sustainable situation, particularly in light of the future need to expand QI-Core by incorporation of third-party
-profiles, such as those being developed by CIMI. The current approach requires quality improvement artifact authors to
-make explicit checks for modifying elements when dealing with classes that have modifying elements.
+### 1.13 Negation in QI-Core
+{: #negation-in-qi-core}
+
+Two commonly used patterns for negation in quality measurement and decision support are:
+
+* Absence of evidence for a particular event
+* Documentation of an event not occurring, together with a reason
+
+For the purposes of quality measurement, when looking for documentation that a particular event did not occur, it must
+be documented with a reason in order to meet the intent. If a reason is not part of the intent, then the absence of
+evidence pattern should be used, rather than documentation of an event not occurring.
+
+In particular, QI-Core defines several profiles that support explicit documentation of the
+fact that an activity or event did _not_ occur. For these cases, the profiles define at least the
+following information:
+
+* Explicit indication that action/event did not occur (such as `doNotPerform` or `notDone`)
+* What activity/event did not occur (typically in terms of a value set or list of codes)
+* The reason the activity/event did not occur (Preferably represented using one of an established set of [Negation Reason Codes](ValueSet-qicore-negation-reason.html))
+* When the fact that the activity/event did not occur was recorded
+
+Note that although these aspects are all present within each negation profile defined by QI-Core, they manifest differently in
+different resources. As a result, each negation profile uses a combination of constraints and extensions to provide consistent
+ representation of negated actions or events within QI-Core.
+
+The following examples differentiate methods to indicate (a) presence of evidence of an action, (b) absence of evidence
+of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
+of medication included within a value set for "Antithrombotic Therapy".
+
+#### 1.13.1 Presence
+{: #presence}
+
+Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
+
+    define "Antithrombotic Administered":
+      ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
+        where AntithromboticTherapy.status = 'completed'
+          and AntithromboticTherapy.category ~ "Inpatient Setting"
+
+#### 1.13.2 Absence
+{: #absence}
+
+No evidence that "Antithrombotic Therapy" medication was administered:
+
+    define "No Antithrombotic Therapy":
+      not exists (
+        ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
+          where AntithromboticTherapy.status = 'completed'
+            and AntithromboticTherapy.category ~ "Inpatient Setting"
+      )
+
+#### 1.13.3 Negation Rationale
+{: #negation-rationale}
+
+Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
+defined by a particular value set (i.e., negation rationale):
+
+    define "Antithrombotic Not Administered":
+      ["MedicationAdministration": "Antithrombotic Therapy"] NotAdministered
+        where NotAdministered.status = 'not-done'
+          and NotAdministered.statusReason in "Medical Reason"
+
+In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
+for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
+value set. To report Antithrombotic Therapy Not Administered, this is done by referencing uri of the "Antithrombotic
+Therapy" value set using the [value set extension](http://hl7.org/fhir/extension-valueset-reference.html) to indicate
+providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
+set uri to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
+not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
+did not administer in order to negate.
+
+Similarly, to report "Procedure, Not Performed": "Cardiac Surgery" with a reason, the uri of "Cardiac Surgery" value set
+is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
+specified in the "Cardiac Surgery" value set.
+
+QI-Core defines the following profiles specifically for representing negation rationale:
+
+|QI-Core Profile|Base Resource|
+|---|---|
+|[QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
+|[QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html)|[DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
+|[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)|[Immunization]({{site.data.fhir.path}}immunization.html)|
+|[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
+|[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-medicationnotdispensed.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
+|[QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html)|[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
+|[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
+{: .list}
 
 ### 1.14 Terminology Bindings
 
@@ -343,8 +381,8 @@ the resources in "Any" references SHALL conform to QI-Core profiles if the base 
 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
--  Implementations SHALL support all profile types in the QI-Core set (listed in the [table above](#contents)) for resources they exchange
--  Server implementations SHALL declare their support of the QI-Core profiles in a FHIR Conformance statement
+-  Implementations SHALL support all profile types in the QI-Core set (listed in the [profiles](profiles.html) page) for resources they exchange
+-  Server implementations SHALL declare their support of the QI-Core profiles in a FHIR CapabilityStatement
 -  Conformant servers will at minimum support FHIR's read and search operations
 -  Servers SHALL supply the MustSupport data elements whenever that data is available
 -  Quality improvement applications SHALL recognize and process all MustSupport elements in QI-Core
