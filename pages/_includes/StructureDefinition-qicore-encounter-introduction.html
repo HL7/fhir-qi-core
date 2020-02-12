@@ -1,3 +1,18 @@
 <tr>
     <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
 </tr>
+
+<code>
+    define "Outpatient Encounters with Advanced Illness":
+            ( [Encounter: "Outpatient"]
+                    union [Encounter: "Observation"]
+                    union [Encounter: "ED"]
+                    union [Encounter: "Nonacute Inpatient"] ) OutpatientEncounter
+                    with "Advanced Illness Diagnosis" AdvancedIllnessDiagnosis
+                such that exists (
+                    OutpatientEncounter.diagnosis.condition Condition
+                        where EndsWith(Condition.reference, AdvancedIllnessDiagnosis.id)
+                    )
+                and OutpatientEncounter.period starts 2 years or less before
+                            end of "Measurement Period"
+</code>

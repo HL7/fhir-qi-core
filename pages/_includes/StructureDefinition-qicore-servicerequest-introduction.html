@@ -1,3 +1,13 @@
 <p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
 <p>To create an expression specifically requesting information that a ServiceRequest intentionally did 
 not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-servicenotrequested.html">QICore-Servicenotrequested</a>.</p>
+
+<code>
+    define "Intervention Comfort Measures":
+            (["ServiceRequest": "Comfort Measures"] P
+                    where P.intent = 'order'
+        )
+            union
+            (["Procedure": "Comfort Measures"] InterventionPerformed
+            where InterventionPerformed.status in {'completed', 'in-progress'})
+</code>

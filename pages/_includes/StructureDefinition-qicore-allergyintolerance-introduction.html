@@ -1,3 +1,10 @@
 <tr>
     <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
 </tr>
+
+<code>
+    define "Statin Allergy":
+            ["AllergyIntolerance": "Statin Allergen"] StatinAllergy
+        where (StatinAllergy.clinicalStatus is null or FHIRHelpers.ToConcept(StatinAllergy.clinicalStatus) ~ Global."allergy-active")
+         and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) in { Global."allergy-unconfirmed", Global."allergy-confirmed" }
+</code>

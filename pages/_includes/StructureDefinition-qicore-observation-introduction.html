@@ -6,3 +6,25 @@
 <li><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-pulse-oximetry.html">Pulse Oximetry</a></li>
 <li><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html">Smoking Status</a></li></ul>
 <p>To create an expression specifically requesting information that an observation intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-observationnotdone.html">QICore-observationnotdone</a>.</p>
+
+<code>
+    define "Has Criteria Indicating Frailty":
+        exists ( [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
+                    where FrailtyDeviceOrder.authordOn during day of "Measurment Period"
+                )
+                or exists ( [DeviceUseStatement: "Frailty Device"] FrailtyDeviceUse
+                                where FrailtyDeviceUse.timing as Period overlaps "Measurment Period"
+                    or FrailtyDeviceUse.timing as dateTime during day of "Measurement Period"
+                )
+                or exists ( [Condition: "Frailty Diagnosis"] FrailtyDiagnosis
+                                where FrailtyDiagnosis.onset as Period overlaps "Measurement Period"
+                    or FrailtyDiagnosis.onset as dateTime during day of "Measurement Period"
+                )
+                or exists ( [Encounter: "Frailty Encounter"] FrailtyEncounter
+                                where FrailtyEncounter.period overlaps "Measurement Period"
+                )
+                or exists ( [Observation: "Frailty Symptom"] FrailtySymptomObservation
+                                where FrailtySymptomObservation.effective as Period overlaps "Measurement Period"
+                    or FrailtySymptomObservation as dateTime during day of "Measurement Period"
+                )
+</code>
