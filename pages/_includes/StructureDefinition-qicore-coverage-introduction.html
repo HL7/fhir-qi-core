@@ -1,3 +1,12 @@
 <tr>
     <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
 </tr>
+
+<code>
+    define "SDE Payer":
+        [Coverage: type in "Payer"] Payer
+            return {
+                code: Payer.type,
+                 period: Payer.period
+            }
+</code>

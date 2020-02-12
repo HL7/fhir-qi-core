@@ -5,3 +5,25 @@ wheelchair, hearing aids, or an insulin pump. The request may lead to the dispen
 or for use by the patient. Orders or recommendations for use of a device for a patient use the ServiceRequest resource.</p>
 <p>To create an expression specifically requesting information that a DeviceRequest intentionally did not occur for a 
 medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-devicenotrequested.html">QICore-Devicenotrequested</a>.</p>
+
+<code>
+    define "Has Criteria Indicating Frailty":
+        exists ( [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
+                        where FrailtyDeviceOrder.authordOn during day of "Measurment Period"
+        )
+                or exists ( [DeviceUseStatement: "Frailty Device"] FrailtyDeviceUse
+                                where FrailtyDeviceUse.timing as Period overlaps "Measurment Period"
+                    or FrailtyDeviceUse.timing as dateTime during day of "Measurement Period"
+                )
+                or exists ( [Condition: "Frailty Diagnosis"] FrailtyDiagnosis
+                                where FrailtyDiagnosis.onset as Period overlaps "Measurement Period"
+                    or FrailtyDiagnosis.onset as dateTime during day of "Measurement Period"
+                )
+                or exists ( [Encounter: "Frailty Encounter"] FrailtyEncounter
+                                where FrailtyEncounter.period overlaps "Measurement Period"
+                )
+                or exists ( [Observation: "Frailty Symptom"] FrailtySymptomObservation
+                                where FrailtySymptomObservation.effective as Period overlaps "Measurement Period"
+                    or FrailtySymptomObservation as dateTime during day of "Measurement Period"
+                )
+</code>

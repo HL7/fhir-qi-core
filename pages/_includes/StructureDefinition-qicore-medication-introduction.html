@@ -1,3 +1,11 @@
 <tr>
     <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
 </tr>
+
+<code>
+    define function "GetMedicationCode"(request MedicationRequest):
+        if request.medication is CodeableConcept then
+                request.medication as CodeableConcept
+            else
+                (singleton from ([Medication] M where M.id = GetId((request.medication as Reference).reference))).code
+</code>

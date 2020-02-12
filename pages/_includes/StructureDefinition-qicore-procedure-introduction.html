@@ -1,3 +1,15 @@
 <p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
 <p>To create an expression specifically requesting information that a procedure intentionally did not occur for 
 a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-procedurenotdone.html">QICore-Procedurenotdone</a>.</p>
+
+<code>
+    define "SCIP VTE Selected Surgery":
+        (	["Procedure": "General Surgery"]
+            union ["Procedure": "Gynecological Surgery"]
+            union ["Procedure": "Hip Fracture Surgery"]
+            union ["Procedure": "Hip Replacement Surgery"]
+            union ["Procedure": "Intracranial Neurosurgery"]
+            union ["Procedure": "Knee Replacement Surgery"]
+            union ["Procedure": "Urological Surgery"] ) Procedure
+        where Procedure.status = 'completed'
+</code>
