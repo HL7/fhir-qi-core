@@ -12,11 +12,13 @@ topofpage: true
 {:toc}
 
 ## 1 Quality Improvement Core (QI-Core) Implementation Guide
+{: #qi-core-implementation-guide}
 
 > This STU 4 update to the QI-Core profiles updates to FHIR R4 and US-Core STU 3. See the version history for a complete
 list of changes to this version.
 
 ### 1.1 Summary
+{: #summary}
 
 The QI-Core Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create
 interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the
@@ -31,15 +33,20 @@ Implementation Guide.
 ### 1.2 Contents
 {: #contents}
 
-This implementation guide defines:
+This guide is divided into pages which are listed at the top each page in the menu bar:
 
-* [Profiles](profiles.html)
-* [Extensions](extensions.html)
-* [Terminology](terminology.html)
-* [QDM-to-QI-Core Mapping](qdm-to-qicore.html)
-* [QUICK](quick/QUICK-index.html)
+* **[Home](index.html)**: The home page provides summary and background information
+* **[Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
+* **[Patterns](patterns.html)**: The patterns page describes patterns of usage for QI-Core applications
+* **[Extensions](extensions.html)**: The extensions page lists all the extensions defined as part of QI-Core
+* **[Terminology](terminology.html)**: The terminology page lists all terminology defined as part of QI-Core
+* **[Examples](examples.html)**: The examples page provides an index of all the examples defined as part of QI-Core
+* **[Downloads](downloads.html)**: Downloads for definitions, examples, as well as the entire IG
+* **[QDM-to-QI-Core Mapping](qdm-to-qicore.html)**: This page provides a detailed description of mapping from QDM to QI-Core
+* **[QUICK](quick/QUICK-index.html)**: This page provides an author-focused view of the QI-Core profiles
 
 ### 1.3 Background
+{: #background}
 
 This Implementation Guide originated as a U.S. Realm Specification with support from the
 [Clinical Quality Framework (CQF) initiative](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),

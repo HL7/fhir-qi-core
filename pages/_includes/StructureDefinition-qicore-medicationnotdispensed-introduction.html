@@ -1,3 +1,11 @@
+<pre>
+<code>
+define "Dementia Medications Not Dispensed":
+  ["MedicationDispense": "Dementia Medications"] MedicationDispense
+    where MedicationDispense.status = 'declined'
+</code>
+</pre>
+
 <tr>
     <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
 </tr>

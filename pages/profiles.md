@@ -21,6 +21,8 @@ any, and the underlying FHIR resources:
 |[QICoreAdverseEvent](StructureDefinition-qicore-adverseevent.html)| |[AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
 |[QICoreAllergyIntolerance](StructureDefinition-qicore-allergyintolerance.html)| [USCoreAllergyIntolerance](http://hl7.org/fhir/us/core/StructureDefinition-us-core-allergyintolerance.html) |[AllergyIntolerance]({{site.data.fhir.path}}allergyintolerance.html)|
 |[QICoreBodyStructure](StructureDefinition-qicore-bodystructure.html)| |[BodyStructure]({{site.data.fhir.path}}bodystructure.html)|
+|[QICoreCarePlan](StructureDefinition-qicore-careplan.html)| [USCoreCarePlan](http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-careplan.html) |[CarePlan]({{site.data.fhir.path}}careplan.html)|
+|[QICoreCareTeam](StructureDefinition-qicore-careteam.html)| [USCoreCareTeam](http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-careteam.html) |[CareTeam]({{site.data.fhir.path}}careteam.html)|
 |[QICoreClaim](StructureDefinition-qicore-claim.html)| |[Claim]({{site.data.fhir.path}}claim.html)|
 |[QICoreCommunication](StructureDefinition-qicore-communication.html)| |[Communication]({{site.data.fhir.path}}communication.html)|
 |[QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html)| |[Communication]({{site.data.fhir.path}}communication.html)|

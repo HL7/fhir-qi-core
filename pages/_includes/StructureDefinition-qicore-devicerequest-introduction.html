@@ -1,29 +1,20 @@
-<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
-<p>The FHIR R4 and the QI-Core DeviceRequest profile describes the request to use of a device by a patient.  The device 
+<p>The FHIR R4 and the QI-Core DeviceRequest profile describes the request to use of a device by a patient.  The device
 may be any pertinent device specified in the Device resource. Examples of devices that may be requested include a
-wheelchair, hearing aids, or an insulin pump. The request may lead to the dispensing of the device to the patient 
+wheelchair, hearing aids, or an insulin pump. The request may lead to the dispensing of the device to the patient
 or for use by the patient. Orders or recommendations for use of a device for a patient use the ServiceRequest resource.</p>
-<p>To create an expression specifically requesting information that a DeviceRequest intentionally did not occur for a 
+<p>To create an expression specifically requesting information that a DeviceRequest intentionally did not occur for a
 medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-devicenotrequested.html">QICore-Devicenotrequested</a>.</p>
 
+<p>The following example illustrates the use of DeviceRequest:</p>
+<pre>
 <code>
-    define "Has Criteria Indicating Frailty":
-        exists ( [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
-                        where FrailtyDeviceOrder.authordOn during day of "Measurment Period"
-        )
-                or exists ( [DeviceUseStatement: "Frailty Device"] FrailtyDeviceUse
-                                where FrailtyDeviceUse.timing as Period overlaps "Measurment Period"
-                    or FrailtyDeviceUse.timing as dateTime during day of "Measurement Period"
-                )
-                or exists ( [Condition: "Frailty Diagnosis"] FrailtyDiagnosis
-                                where FrailtyDiagnosis.onset as Period overlaps "Measurement Period"
-                    or FrailtyDiagnosis.onset as dateTime during day of "Measurement Period"
-                )
-                or exists ( [Encounter: "Frailty Encounter"] FrailtyEncounter
-                                where FrailtyEncounter.period overlaps "Measurement Period"
-                )
-                or exists ( [Observation: "Frailty Symptom"] FrailtySymptomObservation
-                                where FrailtySymptomObservation.effective as Period overlaps "Measurement Period"
-                    or FrailtySymptomObservation as dateTime during day of "Measurement Period"
-                )
+// connectathon/fhir4/cql/AdvancedIllnessandFrailtyExclusion_FHIR4-4.0.000.cql
+define "Device Indicating Frailty":
+  [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
+    where FrailtyDeviceOrder.status in { 'active', 'on-hold', 'completed' }
+      and FrailtyDeviceOrder.intent in { 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order' }
+
 </code>
+</pre>
+
+<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
