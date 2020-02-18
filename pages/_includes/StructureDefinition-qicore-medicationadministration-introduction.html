@@ -1,22 +1,16 @@
-<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
-<p>To create an expression specifically requesting information that a MedicationAdministration intentionally 
+<p>To create an expression specifically requesting information that a MedicationAdministration intentionally
 did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-mednotadministered.html">QICore-mednotadministered</a>.</p>
 
+<p>The following example illustrates the use of a MedicationAdministration resource:</p>
+
+<pre>
 <code>
-    define "VTE Prophylaxis by Medication Administered or Device Applied":
-        ( ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-            where VTEMedication.status ='completed'
-                                    and VTEMedication.dosage.route in "Subcutaneous route"
-        )
-            union (["MedicationAdministration": medication in "Low Molecular Weight Heparin for VTE Prophylaxis"] LMWH where LMWH.status = 'completed')
-                union (["MedicationAdministration": medication in "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] FactorXa where FactorXa.status = 'completed')
-                    union (["MedicationAdministration": medication in "Warfarin"] Warfarin where Warfarin.status = 'completed')
-                        union (
-                            ["Procedure": "Device Application"] DeviceApplied
-                            where DeviceApplied.status = 'complete'
-                                    and (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-                                        or DeviceApplied.usedCode in"Venous foot pumps (VFP)"
-                                        or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
-                                        )
-                            )
+// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
+define "Low Dose Unfractionated Heparin Administration":
+  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.status = 'completed'
+      and VTEMedication.category ~ "Inpatient"
 </code>
+</pre>
+
+<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>

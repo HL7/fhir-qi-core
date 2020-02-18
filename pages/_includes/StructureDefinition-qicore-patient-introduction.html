@@ -1,20 +1,3 @@
 <tr>
     <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
 </tr>
-
-<code>
-    define "Advanced Illness and Frailty Exclusion Including Over Age 80":
-            //If the measure includes populations age 80 and older, then use this logic:
-            (
-            Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period")in Interval[66, 80]
-                and "Has Criteria Indicating Frailty"
-                and ( Count("Outpatient Encounters with Advanced Illness")>= 2
-                    or exists ( "Inpatient Encounter with Advanced Illness" )
-                    or exists "Dementia Medications In Year Before or During Measurement Period"
-                )
-            )
-                    or (
-                Global."CalendarAgeInYearsAt"(FHIRHelpers.ToDate(Patient.birthDate), start of "Measurement Period")>= 81
-                                and "Has Criteria Indicating Frailty"
-                    )
-</code>
