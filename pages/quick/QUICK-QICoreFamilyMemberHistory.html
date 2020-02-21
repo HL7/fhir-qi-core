@@ -1,0 +1,62 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='QICoreFamilyMemberHistory'> </a>
+<h2> QICoreFamilyMemberHistory <a href='#QICoreFamilyMemberHistory' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Significant health conditions for a person related to the patient relevant in the context of care for the patient.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>identifier</th><td>0..*</td><td>List&lt;<a href='QUICK-Identifier.html'>Identifier</a>&gt;</td><td>Business identifiers assigned to this family member history by the performer or other systems which remain constant as the resource is updated and propagates from server to server.</td></tr>
+<tr><th>instantiatesCanonical</th><td>0..*</td><td>List&lt;canonical&gt;</td><td>The URL pointing to a FHIR-defined protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.</td></tr>
+<tr><th>instantiatesUri</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a>&gt;</td><td>The URL pointing to an externally maintained protocol, guideline, orderset or other definition that is adhered to in whole or in part by this FamilyMemberHistory.</td></tr>
+<tr><th><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A code specifying the status of the record of the family history of a specific family member.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/history-status|4.0.1' target='_blank'>A code that identifies the status of the family history record.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th>dataAbsentReason</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Describes why the family member's history is not available.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/history-absent-reason' target='_blank'>Codes describing the reason why a family member's history is not available.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>patient</th><td>1..1</td><td><a href='QUICK-QICorePatient.html'>QICorePatient</a></td><td>The person who this history concerns.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>date</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a></td><td>The date (and possibly time) when the family member history was recorded or last updated.</td></tr>
+<tr><th>name</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>This will either be a name or a description; e.g. &quot;Aunt Susan&quot;, &quot;my cousin with the red hair&quot;.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>relationship</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The type of relationship this person has to the patient (father, mother, brother etc.).<br /><strong>Binding: </strong><a href='http://terminology.hl7.org/ValueSet/v3-FamilyMember' target='_blank'>The nature of the relationship between the patient and the related person being described in the family member history.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>sex</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The birth sex of the family member.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/administrative-gender' target='_blank'>Codes describing the sex assigned at birth as documented on the birth registration.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#extensible' target='_blank'>extensible</a>)</td></tr>
+<tr><th>born[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#interval-values' target='_blank'>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime&gt; | <a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime | <a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</td><td>The actual or approximate date of birth of the relative.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>age[x]</th><td>0..1</td><td><a href='QUICK-Age.html'>Age | <a href='http://cql.hl7.org/02-authorsguide.html#interval-values' target='_blank'>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity&gt; | <a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</td><td>The age of the relative at the time the family member history is recorded.</td></tr>
+<tr><th>estimatedAge</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#boolean' target='_blank'>Boolean</a></td><td>If true, indicates that the age value specified is an estimated value.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>deceased[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#boolean' target='_blank'>Boolean | <a href='QUICK-Age.html'>Age | <a href='http://cql.hl7.org/02-authorsguide.html#interval-values' target='_blank'>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity&gt; | <a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime | <a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</td><td>Deceased flag or the actual or approximate age of the relative at the time of death for the family member history record.</td></tr>
+<tr><th>reasonCode</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>Describes why the family member history occurred in coded or textual form.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/clinical-findings' target='_blank'>Codes indicating why the family member history was done.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>reasonReference</th><td>0..*</td><td>List&lt;<a href='QUICK-QICoreCondition.html'>QICoreCondition</a> | <a href='QUICK-QICoreObservation.html'>QICoreObservation</a> | <a href='QUICK-QICoreAllergyIntolerance.html'>QICoreAllergyIntolerance</a> | <a href='http://hl7.org/fhir/StructureDefinition/QuestionnaireResponse' target='_blank'>QuestionnaireResponse</a> | <a href='QUICK-QICoreDiagnosticReportLab.html'>QICoreDiagnosticReportLab</a> | <a href='http://hl7.org/fhir/StructureDefinition/DocumentReference' target='_blank'>DocumentReference</a>&gt;</td><td>Indicates a Condition, Observation, AllergyIntolerance, or QuestionnaireResponse that justifies this family member history event.</td></tr>
+<tr><th>note</th><td>0..*</td><td>List&lt;<a href='QUICK-Annotation.html'>Annotation</a>&gt;</td><td>This property allows a non condition-specific note to the made about the related person. Ideally, the note would be in the condition property, but this is not always possible.</td></tr>
+<tr><th>condition</th><td>0..*</td><td>List&lt;<a href=QUICK-FamilyMemberHistory.condition.html>condition</a>&gt;</td><td>The significant Conditions (or condition) that the family member had. This is a repeating section to allow a system to represent more than one condition per resource, though there is nothing stopping multiple resources - one per condition.</td></tr>
+<tr><th>condition-abatement</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement' target='_blank'>Extension</a></td><td>The approximate date, age, or flag indicating that the condition of the family member resolved. The abatement should only be specified if the condition is stated in the positive sense, i.e., the didNotHave flag is false.</td></tr>
+<tr><th>condition-severity</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity' target='_blank'>Extension</a></td><td>A qualification of the seriousness or impact on health of the family member condition.</td></tr>
+</table>
+</div>
+</body>
+</html>
