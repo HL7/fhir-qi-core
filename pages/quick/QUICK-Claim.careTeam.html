@@ -36,7 +36,11 @@
 <p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
 <table class='table table-striped table-bordered'>
 <tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
-<tr><th>provider</th><td>1..1</td><td><a href='QUICK-Practitioner.html'>Practitioner</a> | <a href='QUICK-PractitionerRole.html'>PractitionerRole</a> | <a href='QUICK-Organization.html'>Organization</a></td><td>Member of the team who provided the product or service.</td></tr>
+<tr><th>sequence</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td><td>A number to uniquely identify care team entries.</td></tr>
+<tr><th>provider</th><td>1..1</td><td><a href='QUICK-QICorePractitioner.html'>QICorePractitioner</a> | <a href='QUICK-QICorePractitionerRole.html'>QICorePractitionerRole</a> | <a href='QUICK-QICoreOrganization.html'>QICoreOrganization</a></td><td>Member of the team who provided the product or service.</td></tr>
+<tr><th>responsible</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#boolean' target='_blank'>Boolean</a></td><td>The party who is billing and/or responsible for the claimed products or services.</td></tr>
+<tr><th>role</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The lead, assisting or supervising practitioner and their discipline if a multidisciplinary team.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/claim-careteamrole' target='_blank'>The role codes for the care team members.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>qualification</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The qualification of the practitioner which is applicable for this service.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/provider-qualification' target='_blank'>Provider professional qualifications.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
 </table>
 </div>
 </body>

@@ -1,0 +1,45 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Coverage.costToBeneficiary'> </a>
+<h2> Coverage.costToBeneficiary <a href='#Coverage.costToBeneficiary' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>A suite of codes indicating the cost category and associated amount which have been detailed in the policy and may have been  included on the health card.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>type</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The category of patient centric costs associated with treatment.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/coverage-copay-type' target='_blank'>The types of services to which patient copayments are specified.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#extensible' target='_blank'>extensible</a>)</td></tr>
+<tr><th>value[x]</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a> | <a href='QUICK-Money.html'>Money</a></td><td>The amount due from the patient for the cost category.</td></tr>
+<tr><th>exception</th><td>0..*</td><td>List&lt;<a href=QUICK-Coverage.costToBeneficiary.exception.html>costToBeneficiary.exception</a>&gt;</td><td>A suite of codes indicating exceptions or reductions to patient costs and their effective periods.</td></tr>
+</table>
+</div>
+</body>
+</html>
