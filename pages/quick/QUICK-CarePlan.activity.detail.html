@@ -1,0 +1,59 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='CarePlan.activity.detail'> </a>
+<h2> CarePlan.activity.detail <a href='#CarePlan.activity.detail' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>A simple summary of a planned activity suitable for a general care plan system (e.g. form driven) that doesn't know about specific resources such as procedure etc.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>kind</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A description of the kind of resource the in-line definition of a care plan activity is representing.  The CarePlan.activity.detail is an in-line definition when a resource is not referenced using CarePlan.activity.reference.  For example, a MedicationRequest, a ServiceRequest, or a CommunicationRequest.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/care-plan-activity-kind|4.0.1' target='_blank'>Resource types defined as part of FHIR that can be represented as in-line definitions of a care plan activity.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th>instantiatesCanonical</th><td>0..*</td><td>List&lt;canonical&gt;</td><td>The URL pointing to a FHIR-defined protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan activity.</td></tr>
+<tr><th>instantiatesUri</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a>&gt;</td><td>The URL pointing to an externally maintained protocol, guideline, questionnaire or other definition that is adhered to in whole or in part by this CarePlan activity.</td></tr>
+<tr><th>code</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Detailed description of the type of planned activity; e.g. what lab test, what procedure, what kind of encounter.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/procedure-code' target='_blank'>Detailed description of the type of activity; e.g. What lab test, what procedure, what kind of encounter.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>reasonCode</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>Provides the rationale that drove the inclusion of this particular activity as part of the plan or the reason why the activity was prohibited.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/clinical-findings' target='_blank'>Identifies why a care plan activity is needed.  Can include any health condition codes as well as such concepts as "general wellness", prophylaxis, surgical preparation, etc.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>reasonReference</th><td>0..*</td><td>List&lt;<a href='QUICK-QICoreCondition.html'>QICoreCondition</a> | <a href='QUICK-QICoreObservation.html'>QICoreObservation</a> | <a href='QUICK-QICoreDiagnosticReportLab.html'>QICoreDiagnosticReportLab</a> | <a href='http://hl7.org/fhir/StructureDefinition/DocumentReference' target='_blank'>DocumentReference</a>&gt;</td><td>Indicates another resource, such as the health condition(s), whose existence justifies this request and drove the inclusion of this particular activity as part of the plan.</td></tr>
+<tr><th>goal</th><td>0..*</td><td>List&lt;<a href='QUICK-QICoreGoal.html'>QICoreGoal</a>&gt;</td><td>Internal reference that identifies the goals that this activity is intended to contribute towards meeting.</td></tr>
+<tr><th><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Identifies what progress is being made for the specific activity.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/care-plan-activity-status|4.0.1' target='_blank'>Codes that reflect the current state of a care plan activity within its overall life cycle.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th>statusReason</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Provides reason why the activity isn't yet started, is on hold, was cancelled, etc.</td></tr>
+<tr><th><span class="glyphicon glyphicon-exclamation-sign"> </span>doNotPerform</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#boolean' target='_blank'>Boolean</a></td><td>If true, indicates that the described activity is one that must NOT be engaged in when following the plan.  If false, or missing, indicates that the described activity is one that should be engaged in when following the plan.</td></tr>
+<tr><th>scheduled[x]</th><td>0..1</td><td><a href='QUICK-Timing.html'>Timing | <a href='http://cql.hl7.org/02-authorsguide.html#interval-values' target='_blank'>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime&gt; | <a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</td><td>The period, timing or frequency upon which the described activity is to occur.</td></tr>
+<tr><th>location</th><td>0..1</td><td><a href='QUICK-QICoreLocation.html'>QICoreLocation</a></td><td>Identifies the facility where the activity will occur; e.g. home, hospital, specific clinic, etc.</td></tr>
+<tr><th>performer</th><td>0..*</td><td>List&lt;<a href='QUICK-QICorePractitioner.html'>QICorePractitioner</a> | <a href='QUICK-QICorePractitionerRole.html'>QICorePractitionerRole</a> | <a href='QUICK-QICoreOrganization.html'>QICoreOrganization</a> | <a href='QUICK-QICoreRelatedPerson.html'>QICoreRelatedPerson</a> | <a href='QUICK-QICorePatient.html'>QICorePatient</a> | <a href='QUICK-QICoreCareTeam.html'>QICoreCareTeam</a> | <a href='http://hl7.org/fhir/StructureDefinition/HealthcareService' target='_blank'>HealthcareService</a> | <a href='QUICK-QICoreDevice.html'>QICoreDevice</a>&gt;</td><td>Identifies who's expected to be involved in the activity.</td></tr>
+<tr><th>product[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a> | <a href='QUICK-QICoreMedication.html'>QICoreMedication</a> | <a href='QUICK-QICoreSubstance.html'>QICoreSubstance</a></td><td>Identifies the food, drug or other product to be consumed or supplied in the activity.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/medication-codes' target='_blank'>A product supplied or administered as part of a care plan activity.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>dailyAmount</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a></td><td>Identifies the quantity expected to be consumed in a given day.</td></tr>
+<tr><th>quantity</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a></td><td>Identifies the quantity expected to be supplied, administered or consumed by the subject.</td></tr>
+<tr><th>description</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>This provides a textual description of constraints on the intended activity occurrence, including relation to other activities.  It may also include objectives, pre-conditions and end-conditions.  Finally, it may convey specifics about the activity such as body site, method, route, etc.</td></tr>
+</table>
+</div>
+</body>
+</html>

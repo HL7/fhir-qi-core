@@ -36,8 +36,10 @@
 <p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
 <table class='table table-striped table-bordered'>
 <tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
-<tr><th><span class="glyphicon glyphicon-ok"> </span>procedure</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>A coded value specifying the procedure used to process the specimen.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/specimen-processing-procedure' target='_blank'>Type indicating the technique used to process the specimen.</a> (<a href='http://hl7.org/fhir/R4/terminologies.html#example' target='_blank'>example</a>)</td></tr>
-<tr><th>additive</th><td>0..*</td><td>List&lt;<a href='QUICK-Substance.html'>Substance</a>&gt;</td><td>Material used in the processing step.</td></tr>
+<tr><th>description</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Textual description of procedure.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>procedure</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>A coded value specifying the procedure used to process the specimen.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/specimen-processing-procedure' target='_blank'>Type indicating the technique used to process the specimen.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>additive</th><td>0..*</td><td>List&lt;<a href='QUICK-QICoreSubstance.html'>QICoreSubstance</a>&gt;</td><td>Material used in the processing step.</td></tr>
+<tr><th>time[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime | <a href='http://cql.hl7.org/02-authorsguide.html#interval-values' target='_blank'>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime&gt;</td><td>A record of the time or period when the specimen processing occurred.  For example the time of sample fixation or the period of time the sample was in formalin.</td></tr>
 </table>
 </div>
 </body>

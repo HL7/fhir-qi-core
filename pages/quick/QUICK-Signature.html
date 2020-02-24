@@ -1,0 +1,48 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Signature'> </a>
+<h2> Signature <a href='#Signature' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>A digital signature along with supporting context. The signature may be electronic/cryptographic in nature, or a graphical image representing a hand-written signature, or a signature process. Different signature approaches have different utilities.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>type</th><td>1..*</td><td><a href='http://cql.hl7.org/02-authorsguide.html#code' target='_blank'>Code</a></td><td>An indication of the reason that the entity signed this document. This may be explicitly included as part of the signature information and can be used when determining accountability for various actions concerning the document.</td></tr>
+<tr><th>when</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a></td><td>When the digital signature was signed.</td></tr>
+<tr><th>who[x]</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a> | <a href='QUICK-QICorePractitioner.html'>QICorePractitioner</a> | <a href='QUICK-QICoreRelatedPerson.html'>QICoreRelatedPerson</a> | <a href='QUICK-QICorePatient.html'>QICorePatient</a> | <a href='QUICK-QICoreDevice.html'>QICoreDevice</a> | <a href='QUICK-QICoreOrganization.html'>QICoreOrganization</a></td><td>A reference to an application-usable description of the identity that signed  (e.g. the signature used their private key).</td></tr>
+<tr><th>onBehalfOf[x]</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a> | <a href='QUICK-QICorePractitioner.html'>QICorePractitioner</a> | <a href='QUICK-QICoreRelatedPerson.html'>QICoreRelatedPerson</a> | <a href='QUICK-QICorePatient.html'>QICorePatient</a> | <a href='QUICK-QICoreDevice.html'>QICoreDevice</a> | <a href='QUICK-QICoreOrganization.html'>QICoreOrganization</a></td><td>A reference to an application-usable description of the identity that is represented by the signature.</td></tr>
+<tr><th>contentType</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A mime type that indicates the technical format of the signature. Important mime types are application/signature+xml for X ML DigSig, application/jwt for JWT, and image/* for a graphical image of a signature, etc.</td></tr>
+<tr><th>blob</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The base64 encoding of the Signature content. When signature is not recorded electronically this element would be empty.</td></tr>
+</table>
+</div>
+</body>
+</html>

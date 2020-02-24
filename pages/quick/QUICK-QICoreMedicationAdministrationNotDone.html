@@ -1,0 +1,63 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='QICoreMedicationAdministrationNotDone'> </a>
+<h2> QICoreMedicationAdministrationNotDone <a href='#QICoreMedicationAdministrationNotDone' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Describes the event of a patient consuming or otherwise being administered a medication.  This may be as simple as swallowing a tablet or it may be a long running infusion.  Related resources tie this event to the authorizing prescription, and the specific encounter between patient and health care practitioner.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-star"> </span>recorded</th><td>1..1</td><td><a href='../StructureDefinition-qicore-recorded.html' target='_blank'>Extension</a></td><td>An Extension</td></tr>
+<tr><th>identifier</th><td>0..*</td><td>List&lt;<a href='QUICK-Identifier.html'>Identifier</a>&gt;</td><td>Identifiers associated with this Medication Administration that are defined by business processes and/or used to refer to it when a direct URL reference to the resource itself is not appropriate. They are business identifiers assigned to this resource by the performer or other systems and remain constant as the resource is updated and propagates from server to server.</td></tr>
+<tr><th>instantiates</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a>&gt;</td><td>A protocol, guideline, orderset, or other definition that was adhered to in whole or in part by this event.</td></tr>
+<tr><th>partOf</th><td>0..*</td><td>List&lt;<a href='QUICK-QICoreMedicationAdministration.html'>QICoreMedicationAdministration</a> | <a href='QUICK-QICoreProcedure.html'>QICoreProcedure</a>&gt;</td><td>A larger event of which this particular event is a component or step.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Will generally be set to show that the administration has been completed.  For some long running administrations such as infusions, it is possible for an administration to be started but not completed or it may be paused while some other process is under way.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/medication-admin-status|4.0.1' target='_blank'>A set of codes indicating the current status of a MedicationAdministration.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>statusReason</th><td>1..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>A code indicating why the administration was not performed.<br /><strong>Binding: </strong><a href='../ValueSet-qicore-negation-reason.html' target='_blank'>The reason the event did not occur or was not performed</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#extensible' target='_blank'>extensible</a>)</td></tr>
+<tr><th>category</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Indicates where the medication is expected to be consumed or administered.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/medication-admin-category' target='_blank'>A coded concept describing where the medication administered is expected to occur.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>medication[x]</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a> | <a href='QUICK-QICoreMedication.html'>QICoreMedication</a></td><td>Identifies the medication that was administered. This is either a link to a resource representing the details of the medication or a simple attribute carrying a code that identifies the medication from a known list of medications.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/us/core/ValueSet-us-core-medication-codes.html' target='_blank'>The set of RxNorm codes to represent medications</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>notDoneValueSet</th><td>1..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/valueset-reference' target='_blank'>Extension</a></td><td>A logical reference (e.g. a reference to ValueSet.url) that identifies the value set/version that identifies the set of possible coded values this coding was chosen from or constrained by.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>subject</th><td>1..1</td><td><a href='QUICK-QICorePatient.html'>QICorePatient</a></td><td>The person or animal or group receiving the medication.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>context</th><td>0..1</td><td><a href='QUICK-QICoreEncounter.html'>QICoreEncounter</a> | <a href='http://hl7.org/fhir/StructureDefinition/EpisodeOfCare' target='_blank'>EpisodeOfCare</a></td><td>The visit, admission, or other contact between patient and health care provider during which the medication administration was performed.</td></tr>
+<tr><th>supportingInformation</th><td>0..*</td><td>List&lt;<a href='http://hl7.org/fhir/StructureDefinition/Resource' target='_blank'>Resource</a>&gt;</td><td>Additional information (for example, patient height and weight) that supports the administration of the medication.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>effective[x]</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime | <a href='http://cql.hl7.org/02-authorsguide.html#interval-values' target='_blank'>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime&gt;</td><td>A specific date/time or interval of time during which the administration took place (or did not take place, when the 'notGiven' attribute is true). For many administrations, such as swallowing a tablet the use of dateTime is more appropriate.</td></tr>
+<tr><th>performer</th><td>0..*</td><td>List&lt;<a href=QUICK-MedicationAdministration.performer.html>performer</a>&gt;</td><td>Indicates who or what performed the medication administration and how they were involved.</td></tr>
+<tr><th>reasonCode</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>A code indicating why the medication was given.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/reason-medication-given-codes' target='_blank'>A set of codes indicating the reason why the MedicationAdministration was made.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>reasonReference</th><td>0..*</td><td>List&lt;<a href='QUICK-QICoreCondition.html'>QICoreCondition</a> | <a href='QUICK-QICoreObservation.html'>QICoreObservation</a> | <a href='QUICK-QICoreDiagnosticReportLab.html'>QICoreDiagnosticReportLab</a>&gt;</td><td>Condition or observation that supports why the medication was administered.</td></tr>
+<tr><th>request</th><td>0..1</td><td><a href='QUICK-QICoreMedicationRequest.html'>QICoreMedicationRequest</a></td><td>The original request, instruction or authority to perform the administration.</td></tr>
+<tr><th>device</th><td>0..*</td><td>List&lt;<a href='QUICK-QICoreDevice.html'>QICoreDevice</a>&gt;</td><td>The device used in administering the medication to the patient.  For example, a particular infusion pump.</td></tr>
+<tr><th>note</th><td>0..*</td><td>List&lt;<a href='QUICK-Annotation.html'>Annotation</a>&gt;</td><td>Extra information about the medication administration that is not conveyed by the other attributes.</td></tr>
+<tr><th>dosage</th><td>0..1</td><td><a href=QUICK-MedicationAdministration.dosage.html>dosage</a></td><td>Describes the medication dosage information details e.g. dose, rate, site, route, etc.</td></tr>
+<tr><th>eventHistory</th><td>0..*</td><td>List&lt;<a href='http://hl7.org/fhir/StructureDefinition/Provenance' target='_blank'>Provenance</a>&gt;</td><td>A summary of the events of interest that have occurred, such as when the administration was verified.</td></tr>
+</table>
+</div>
+</body>
+</html>

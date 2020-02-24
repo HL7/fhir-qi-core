@@ -36,9 +36,13 @@
 <p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
 <table class='table table-striped table-bordered'>
 <tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>initialFill</th><td>0..1</td><td><a href=QUICK-MedicationRequest.dispenseRequest.initialFill.html>dispenseRequest.initialFill</a></td><td>Indicates the quantity or duration for the first dispense of the medication.</td></tr>
+<tr><th>dispenseInterval</th><td>0..1</td><td><a href='QUICK-Duration.html'>Duration</a></td><td>The minimum period of time that must occur between dispenses of the medication.</td></tr>
 <tr><th>validityPeriod</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#interval-values' target='_blank'>Interval&lt;<a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime&gt;</td><td>This indicates the validity period of a prescription (stale dating the Prescription).</td></tr>
+<tr><th>numberOfRepeatsAllowed</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td><td>An integer indicating the number of times, in addition to the original dispense, (aka refills or repeats) that the patient can receive the prescribed medication. Usage Notes: This integer does not include the original order dispense. This means that if an order indicates dispense 30 tablets plus &quot;3 repeats&quot;, then the order can be dispensed a total of 4 times and the patient can receive a total of 120 tablets.  A prescriber may explicitly say that zero refills are permitted after the initial dispense.</td></tr>
 <tr><th>quantity</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#quantities' target='_blank'>Quantity</a></td><td>The amount that is to be dispensed for one fill.</td></tr>
 <tr><th>expectedSupplyDuration</th><td>0..1</td><td><a href='QUICK-Duration.html'>Duration</a></td><td>Identifies the period time over which the supplied product is expected to be used, or the length of time the dispense is expected to last.</td></tr>
+<tr><th>performer</th><td>0..1</td><td><a href='QUICK-QICoreOrganization.html'>QICoreOrganization</a></td><td>Indicates the intended dispensing Organization specified by the prescriber.</td></tr>
 </table>
 </div>
 </body>

@@ -1,0 +1,68 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='QICoreDevice'> </a>
+<h2> QICoreDevice <a href='#QICoreDevice' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>A type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>identifier</th><td>0..*</td><td>List&lt;<a href='QUICK-Identifier.html'>Identifier</a>&gt;</td><td>Unique instance identifiers assigned to a device by manufacturers other organizations or owners.</td></tr>
+<tr><th>definition</th><td>0..1</td><td><a href='http://hl7.org/fhir/StructureDefinition/DeviceDefinition' target='_blank'>DeviceDefinition</a></td><td>The reference to the definition for the device.</td></tr>
+<tr><th>udiCarrier</th><td>0..*</td><td>List&lt;<a href=QUICK-Device.udiCarrier.html>udiCarrier</a>&gt;</td><td>Unique device identifier (UDI) assigned to device label or package.  Note that the Device may include multiple udiCarriers as it either may include just the udiCarrier for the jurisdiction it is sold, or for multiple jurisdictions it could have been sold.</td></tr>
+<tr><th><span class="glyphicon glyphicon-exclamation-sign"> </span>status</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Status of the Device availability.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/device-status|4.0.1' target='_blank'>The availability status of the device.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#required' target='_blank'>required</a>)</td></tr>
+<tr><th>statusReason</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>Reason for the dtatus of the Device availability.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/device-status-reason' target='_blank'>The availability status reason of the device.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#extensible' target='_blank'>extensible</a>)</td></tr>
+<tr><th>distinctIdentifier</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The distinct identification string as required by regulation for a human cell, tissue, or cellular and tissue-based product.</td></tr>
+<tr><th>manufacturer</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A name of the manufacturer.</td></tr>
+<tr><th>manufactureDate</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a></td><td>The date and time when the device was manufactured.</td></tr>
+<tr><th>expirationDate</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#date-datetime-and-time' target='_blank'>DateTime</a></td><td>The date and time beyond which this device is no longer valid or should not be used (if applicable).</td></tr>
+<tr><th>lotNumber</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>Lot number assigned by the manufacturer.</td></tr>
+<tr><th>serialNumber</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The serial number assigned by the organization when the device was manufactured.</td></tr>
+<tr><th>deviceName</th><td>0..*</td><td>List&lt;<a href=QUICK-Device.deviceName.html>deviceName</a>&gt;</td><td>This represents the manufacturer's name of the device as provided by the device, from a UDI label, or by a person describing the Device.  This typically would be used when a person provides the name(s) or when the device represents one of the names available from DeviceDefinition.</td></tr>
+<tr><th>modelNumber</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The model number for the device.</td></tr>
+<tr><th>partNumber</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>The part number of the device.</td></tr>
+<tr><th>type</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>The kind or type of device.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/device-type' target='_blank'>Codes to identify medical devices.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>specialization</th><td>0..*</td><td>List&lt;<a href=QUICK-Device.specialization.html>specialization</a>&gt;</td><td>The capabilities supported on a  device, the standards to which the device conforms for a particular purpose, and used for the communication.</td></tr>
+<tr><th>version</th><td>0..*</td><td>List&lt;<a href=QUICK-Device.version.html>version</a>&gt;</td><td>The actual design of the device or software version running on the device.</td></tr>
+<tr><th>property</th><td>0..*</td><td>List&lt;<a href=QUICK-Device.property.html>property</a>&gt;</td><td>The actual configuration settings of a device as it actually operates, e.g., regulation status, time properties.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>patient</th><td>1..1</td><td><a href='QUICK-QICorePatient.html'>QICorePatient</a></td><td>Patient information, If the device is affixed to a person.</td></tr>
+<tr><th>owner</th><td>0..1</td><td><a href='QUICK-QICoreOrganization.html'>QICoreOrganization</a></td><td>An organization that is responsible for the provision and ongoing maintenance of the device.</td></tr>
+<tr><th>contact</th><td>0..*</td><td>List&lt;<a href='QUICK-ContactPoint.html'>ContactPoint</a>&gt;</td><td>Contact details for an organization or a particular human that is responsible for the device.</td></tr>
+<tr><th>location</th><td>0..1</td><td><a href='QUICK-QICoreLocation.html'>QICoreLocation</a></td><td>The place where the device can be found.</td></tr>
+<tr><th>url</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#string' target='_blank'>String</a></td><td>A network address on which the device may be contacted directly.</td></tr>
+<tr><th>note</th><td>0..*</td><td>List&lt;<a href='QUICK-Annotation.html'>Annotation</a>&gt;</td><td>Descriptive information, usage information or implantation information that is not captured in an existing element.</td></tr>
+<tr><th>safety</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>Provides additional safety characteristics about a medical device.  For example devices containing latex.</td></tr>
+<tr><th>parent</th><td>0..1</td><td><a href='QUICK-QICoreDevice.html'>QICoreDevice</a></td><td>The parent device.</td></tr>
+</table>
+</div>
+</body>
+</html>
