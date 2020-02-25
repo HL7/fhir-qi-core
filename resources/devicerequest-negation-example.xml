@@ -10,15 +10,23 @@
       </coding>
     </valueCodeableConcept>
   </extension>
-  <modifierExtension url="http://hl7.org/fhir/StructureDefinition/request-doNotPerform">
+  <extension url="http://hl7.org/fhir/StructureDefinition/request-doNotPerform">
     <valueBoolean value="true"/>
-  </modifierExtension>
+  </extension>
   <status value="completed"/>
   <intent value="original-order"/>
-  <codeReference>
-    <reference value="Device/example"/>
-  </codeReference>
+  <codeCodeableConcept>
+    <coding>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
+        <valueUri value="http://example.org"/>
+      </extension>
+      <system value="http://snomed.info/sct"/>
+      <code value="86184003"/>
+      <display value="Electrocardiographic monitor and recorder"/>
+    </coding>
+  </codeCodeableConcept>
   <subject>
     <reference value="Patient/example"/>
   </subject>
+  <authoredOn value="2016-04-05T09:20:00-04:00"/>
 </DeviceRequest>
