@@ -50,7 +50,7 @@ any, and the underlying FHIR resources:
 |[QICoreMedicationAdministration](StructureDefinition-qicore-medicationadministration.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICoreMedicationDispense](StructureDefinition-qicore-medicationdispense.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-medicationnotdispensed.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICoreMedicationNotDispensed](StructureDefinition-qicore-medicationnotdispensed.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |[QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html)| |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreMedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [USCoreMedicationRequest](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreMedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|

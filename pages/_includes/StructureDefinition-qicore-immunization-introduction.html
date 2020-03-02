@@ -1,3 +1,10 @@
 <tr>
     <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
 </tr>
+
+<pre><code>
+// connectathon/fhir3/cql/EXM117_FHIR3-1.0.1.cql
+define "Polio Immunizations or Procedures":
+ ( ["Immunization": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
+     where PolioVaccination.status = 'completed' )
+</code></pre>

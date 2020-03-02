@@ -56,7 +56,7 @@ define "SDE Payer":
 define "Device Indicating Frailty":
   [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
     where FrailtyDeviceOrder.status in { 'active', 'on-hold', 'completed' }
-      and FrailtyDeviceOrder.status in { 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order' }
+      and FrailtyDeviceOrder.intent in { 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order' }
 
 // QICoreDeviceUseStatement
 
@@ -81,6 +81,10 @@ define "Inpatient Encounter":
 // QICoreImagingStudy
 
 // QICoreImmunization
+// connectathon/fhir3/cql/EXM117_FHIR3-1.0.1.cql
+define "Polio Immunizations or Procedures":
+ ( ["Immunization": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
+     where PolioVaccination.status = 'completed' )
 
 // QICoreImmunizationEvaluation
 
