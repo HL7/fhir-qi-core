@@ -4,20 +4,18 @@
   <status value="not-done"/>
   <statusReason>
     <coding>
-      <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
-      <!-- TODO: Add code once ValueSet is populated -->
-      <!--<code value=""/>-->
+      <system value="http://snomed.info/sct"/>
+      <code value="183945002"/>
+      <display value="Procedure refused for religious reason (situation)"/>
     </coding>
   </statusReason>
   <vaccineCode>
     <coding>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
-        <valueUri value="http://example.org"/>
+        <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.464.1003.196.12.1218"/>
       </extension>
-      <system value="urn:oid:1.2.36.1.2001.1005.17"/>
-      <code value="FLUVAX"/>
     </coding>
-    <text value="Fluvax (Influenza)"/>
+    <text value="Influenze Vaccine value set"/>
   </vaccineCode>
   <patient>
     <reference value="Patient/example"/>

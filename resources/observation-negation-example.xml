@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="negation-example"/>
-  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone">
-    <valueBoolean value="true"/>
-  </extension>
   <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason">
     <valueCodeableConcept>
       <coding>
-        <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
-        <!-- TODO: Add code once ValueSet is populated -->
-        <!--<code value="recipient-unavailable"/>-->
+        <system value="http://snomed.info/sct"/>
+        <code value="410536001"/>
+        <display value="Contraindicated (qualifier value)"/>
       </coding>
     </valueCodeableConcept>
   </extension>
+  <modifierExtension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone">
+    <valueBoolean value="true"/>
+  </modifierExtension>
   <status value="final"/>
   <category>
     <coding>
@@ -24,12 +24,10 @@
   <code>
     <coding>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
-        <valueUri value="http://example.org"/>
+        <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1045.131"/>
       </extension>
-      <system value="http://loinc.org"/>
-      <code value="30350-3"/>
-      <display value="Hemoglobin [Mass/volume] in Venous blood"/>
     </coding>
+    <text value="Hemoglobin lab test"/>
   </code>
   <subject>
     <reference value="Patient/example"/>

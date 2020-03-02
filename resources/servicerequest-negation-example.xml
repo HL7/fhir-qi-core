@@ -4,24 +4,21 @@
   <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason">
     <valueCodeableConcept>
       <coding>
-        <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
-        <!-- TODO: Add code once ValueSet is populated -->
-        <!--<code value="recipient-unavailable"/>-->
+        <system value="http://snomed.info/sct"/>
+        <code value="416406003"/>
+        <display value="Procedure discontinued (situation)"/>
       </coding>
     </valueCodeableConcept>
   </extension>
   <status value="completed"/>
-  <intent value="order"/> 
+  <intent value="order"/>
   <priority value="urgent"/>
   <doNotPerform value="true"/>
   <code>
     <coding>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
-        <valueUri value="http://example.org"/>
+        <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1018.240"/>
       </extension>
-      <system value="http://snomed.info/sct"/>
-      <code value="80146002"/>
-      <display value="Excision of appendix (procedure)"/>
     </coding>
     <text value="Excision of appendix (procedure)"/>
   </code>

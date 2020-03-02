@@ -4,26 +4,24 @@
   <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason">
     <valueCodeableConcept>
       <coding>
-        <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
-        <!-- TODO: Add code once ValueSet is populated -->
-        <!--<code value=""/>-->
+        <system value="http://snomed.info/sct"/>
+        <code value="410534003"/>
+        <display value="Not indicated (qualifier value)"/>
       </coding>
     </valueCodeableConcept>
   </extension>
-  <extension url="http://hl7.org/fhir/StructureDefinition/request-doNotPerform">
+  <modifierExtension url="http://hl7.org/fhir/StructureDefinition/request-doNotPerform">
     <valueBoolean value="true"/>
-  </extension>
+  </modifierExtension>
   <status value="completed"/>
   <intent value="original-order"/>
   <codeCodeableConcept>
     <coding>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
-        <valueUri value="http://example.org"/>
+        <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.117.1.7.1.230"/>
       </extension>
-      <system value="http://snomed.info/sct"/>
-      <code value="86184003"/>
-      <display value="Electrocardiographic monitor and recorder"/>
     </coding>
+    <text value="Venous Foot Pumps (VFP) value set"/>
   </codeCodeableConcept>
   <subject>
     <reference value="Patient/example"/>

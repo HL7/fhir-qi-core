@@ -1,28 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="negation-example"/>
-  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone">
-    <valueBoolean value="true"/>
-  </extension>
   <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded">
     <valueDateTime value="2013-04-05T10:30:00-04:00"/>
   </extension>
+  <modifierExtension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone">
+    <valueBoolean value="true"/>
+  </modifierExtension>
   <status value="not-done"/>
   <statusReason>
     <coding>
-      <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
-      <!-- TODO: Add code once ValueSet is populated -->
-      <!--<code value="recipient-unavailable"/>-->
+      <system value="http://snomed.info/sct"/>
+      <code value="35688006"/>
+      <display value="Complication of medical care (disorder)"/>
     </coding>
   </statusReason>
   <code>
     <coding>
       <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
-        <valueUri value="http://example.org"/>
+        <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1018.240"/>
       </extension>
-      <system value="http://snomed.info/sct"/>
-      <code value="80146002"/>
-      <display value="Excision of appendix (procedure)"/>
     </coding>
     <text value="Excision of appendix (procedure)"/>
   </code>

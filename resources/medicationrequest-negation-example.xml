@@ -15,6 +15,7 @@
         <valueUri value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.117.1.7.1.201"/>
       </extension>
     </coding>
+    <text value="Antithrombotic Therapy value set"/>
   </medicationCodeableConcept>
   <subject>
     <reference value="Patient/example"/>
@@ -25,9 +26,9 @@
   </requester>
   <reasonCode>
     <coding>
-      <system value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
-      <!-- TODO: Add code once ValueSet is populated -->
-      <!--<code value=""/>-->
+      <system value="http://snomed.info/sct"/>
+      <code value="183966005"/>
+      <display value="Drug treatment not indicated (situation)"/>
     </coding>
   </reasonCode>
 </MedicationRequest>
