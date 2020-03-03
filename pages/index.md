@@ -14,7 +14,7 @@ topofpage: true
 ## 1 Quality Improvement Core (QI-Core) Implementation Guide
 {: #qi-core-implementation-guide}
 
-> This STU 4 update to the QI-Core profiles updates to FHIR R4 and US-Core STU 3. See the version history for a complete
+> This STU 4 update to the QI-Core profiles updates to FHIR R4 (technical correction 1 (v4.0.1)) and US-Core STU 3 (v3.1.0). See the version history for a complete
 list of changes to this version.
 
 ### 1.1 Summary
