@@ -143,7 +143,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ##### 8.4.1.2 QI-Core Smoking Status for Assessment, Order
 
@@ -195,11 +195,11 @@ profile inherited from US Core.
 
 ##### 8.4.2.1 Negation Rationale for Assessment, Performed
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.extension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDone) - Value Boolean fixed to "true"
+* [Observation.modifierExtension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.modifierExtension:notDone) - Value Boolean fixed to "true"
 * [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
-* [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.coding.extension:notDoneValueSet) to indicate the specific Observation that was not performed
+* [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.coding.extension:notDoneValueSet) to indicate the specific Observation that was not performed
 
 #### 8.4.3 Assessment, Recommended
 
@@ -227,7 +227,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ##### 8.4.3.2 QI-Core Smoking Status for Assessment, Recommended
 
@@ -398,11 +398,11 @@ change the patient's mental state would be a Procedure.
 ##### 8.7.1.1 Negation Rationale for Communication, Performed
 
 Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html), which contains:
-* [Communication.extension:notDone](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:notDone) - Value Boolean fixed to "true"
+* [Communication.modifierExtension:notDone](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.modifierExtension:notDone) - Value Boolean fixed to "true"
 * [Communication.status](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.status) - Fixed as "not-done"
 * [Communication.statusReason](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) - When this was made available
-* [Communication.reasonCode](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.reasonCode) - Use [Communication.reasonCode.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.reasonCode.extension:notDoneValueSet) to indicate the specific Communication that was not performed
+* [Communication.reasonCode](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.reasonCode) - Use [Communication.reasonCode.coding.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.reasonCode.coding.extension:notDoneValueSet) to indicate the specific Communication that was not performed
 
 ### 8.8 Diagnosis
 
@@ -494,7 +494,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
 * [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - When this was made available
-* [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.coding.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
+* [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.coding.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
 
 #### 8.9.2 Device, Order – Non-Patient-use Devices
 
@@ -519,7 +519,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### 8.9.3 Device, Order – Personal Use Devices
 
@@ -540,11 +540,11 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 ##### 8.9.3.1 Negation Rationale for Device, Order – Personal Use Devices
 
 Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html), which contains:
-* [DeviceRequest.extension:doNotPerform](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerform) - Value Boolean fixed to "true"
+* [DeviceRequest.modifierExtension:doNotPerform](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.modifierExtension:doNotPerform) - Value Boolean fixed to "true"
 * [DeviceRequest.status](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.status) - Fixed as "completed"
 * [DeviceRequest.extension:doNotPerformReason](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerformReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [DeviceRequest.authoredOn](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.authoredOn) - When this was made available
-* [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code[x]) - Use [DeviceRequest.code\[x\].extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code[x].extension:doNotPerformValueSet) to indicate the specific DeviceRequest that was not performed
+* [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code[x]) - Use [DeviceRequest.code\[x\].coding.extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code[x].coding.extension:doNotPerformValueSet) to indicate the specific DeviceRequest that was not performed
 
 #### 8.9.4 Device, Recommended – Non-Patient-use Devices
 
@@ -590,11 +590,11 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 ##### 8.9.5.1 Negation Rationale for Device, Recommended – Personal Use Devices
 
 Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html), which contains:
-* [DeviceRequest.extension:doNotPerform](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerform) - Value Boolean fixed to "true"
+* [DeviceRequest.modifierExtension:doNotPerform](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.modifierExtension:doNotPerform) - Value Boolean fixed to "true"
 * [DeviceRequest.status](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.status) - Fixed as "completed"
 * [DeviceRequest.extension:doNotPerformReason](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerformReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [DeviceRequest.authoredOn](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.authoredOn) - When this was made available
-* [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code[x]) - Use [DeviceRequest.code\[x\].extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code[x].extension:doNotPerformValueSet) to indicate the specific DeviceRequest that was not performed
+* [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code[x]) - Use [DeviceRequest.code\[x\].coding.extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code[x].coding.extension:doNotPerformValueSet) to indicate the specific DeviceRequest that was not performed
 
 ### 8.10 Diagnostic Study
 
@@ -621,7 +621,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### 8.10.2 Diagnostic Study, Performed
 
@@ -690,11 +690,11 @@ provide sufficient fidelity to their requests.
 ##### 8.10.2.1 Negation Rationale for Diagnostic Study, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.extension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDone) - Value Boolean fixed to "true"
+* [Observation.modifierExtension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.modifierExtension:notDone) - Value Boolean fixed to "true"
 * [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
-* [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.coding.extension:notDoneValueSet) to indicate the specific Observation that was not performed
+* [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.coding.extension:notDoneValueSet) to indicate the specific Observation that was not performed
 
 #### 8.10.3 Diagnostic Study, Recommended
 
@@ -719,7 +719,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 
 ### 8.11 Encounter
@@ -849,7 +849,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### 8.11.4 Encounter, Performed
 
@@ -908,7 +908,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ### 8.12 Family History
 
@@ -980,7 +980,7 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 * [MedicationRequest.status](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.status) - Fixed as "completed"
 * [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - When this was made available
-* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
+* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].coding.extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].coding.extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
 
 #### 8.13.2 Immunization, Order
 
@@ -1019,7 +1019,7 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 * [MedicationRequest.status](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.status) - Fixed as "completed"
 * [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - When this was made available
-* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
+* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].coding.extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].coding.extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
 
 ### 8.14 Individual Characteristics
 
@@ -1215,7 +1215,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
 * [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - When this was made available
-* [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.coding.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
+* [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.coding.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
 
 #### 8.15.3 Intervention, Order
 
@@ -1240,7 +1240,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### 8.15.4 Intervention, Recommended
 
@@ -1265,7 +1265,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ### 8.16 Laboratory Test
 
@@ -1292,7 +1292,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### 8.16.2 Laboratory Test, Performed
 
@@ -1359,11 +1359,11 @@ acceptable to provide sufficient fidelity to their requests.
 ##### 8.16.2.1 Negation Rationale for Laboratory Test, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.extension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDone) - Value Boolean fixed to "true"
+* [Observation.modifierExtension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.modifierExtension:notDone) - Value Boolean fixed to "true"
 * [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
-* [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.coding.extension:notDoneValueSet) to indicate the specific Observation that was not performed
+* [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.coding.extension:notDoneValueSet) to indicate the specific Observation that was not performed
 
 #### 8.16.3 Laboratory Test, Recommended
 
@@ -1388,7 +1388,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ### 8.17 Medication
 
@@ -1472,7 +1472,7 @@ Use [QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadm
 * [MedicationAdministration.status](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.status) - Fixed as "not-done"
 * [MedicationAdministration.statusReason](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [MedicationAdministration.extension:recorded](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.extension:recorded) - When this was made available
-* [MedicationAdministration.medication\[x\]](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.medication[x]) - Use [MedicationAdministration.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.medication[x].extension:notDoneValueSet) to indicate the specific MedicationAdministration that was not performed
+* [MedicationAdministration.medication\[x\]](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.medication[x]) - Use [MedicationAdministration.medication\[x\].coding.extension:notDoneValueSet](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.medication[x].coding.extension:notDoneValueSet) to indicate the specific MedicationAdministration that was not performed
 
 #### 8.17.3 Medication, Discharge
 
@@ -1526,7 +1526,7 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 * [MedicationRequest.status](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.status) - Fixed as "completed"
 * [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - When this was made available
-* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
+* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].coding.extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].coding.extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
 
 #### 8.17.4 Medication, Dispensed
 
@@ -1564,7 +1564,7 @@ Use [QICoreMedicationDispenseNotDone](StructureDefinition-qicore-medicationnotdi
 * [MedicationDispense.status](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.status) - Fixed as "declined"
 * [MedicationDispense.statusReason\[x\]](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.statusReason[x]) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [MedicationDispense.extension:recorded](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.extension:recorded) - When this was made available
-* [MedicationDispense.medication\[x\]](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.medication[x]) - Use [MedicationDispense.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.medication[x].extension:notDoneValueSet) to indicate the specific MedicationDispense that was not performed
+* [MedicationDispense.medication\[x\]](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.medication[x]) - Use [MedicationDispense.medication\[x\].coding.extension:notDoneValueSet](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.medication[x].coding.extension:notDoneValueSet) to indicate the specific MedicationDispense that was not performed
 
 #### 8.17.5 Medication, Order
 
@@ -1604,7 +1604,7 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 * [MedicationRequest.status](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.status) - Fixed as "completed"
 * [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - When this was made available
-* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
+* [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x]) - Use [MedicationRequest.medication\[x\].coding.extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].coding.extension:notDoneValueSet) to indicate the specific MedicationRequest that was not performed
 
 
 ### 8.18 Participation
@@ -1670,7 +1670,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ##### 8.19.1.2 Codes for Negation of Certain Physical Exam, Order
 
@@ -1724,11 +1724,11 @@ To capture specific types of "Physical Exam, Order" as QICoreObservationNotDone,
 ##### 8.19.2.1 Negation Rationale for Physical Exam, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.extension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDone) - Value Boolean fixed to "true"
+* [Observation.modifierExtension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.modifierExtension:notDone) - Value Boolean fixed to "true"
 * [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
-* [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.coding.extension:notDoneValueSet) to indicate the specific Observation that was not performed
+* [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.coding.extension:notDoneValueSet) to indicate the specific Observation that was not performed
 
 ##### 8.19.2.2 Codes for Negation of Certain Physical Exam, Performed
 
@@ -1774,7 +1774,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ##### 8.19.3.2 Codes for Negation of Certain Physical Exam, Recommended
 
@@ -1910,7 +1910,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 * [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed as "not-done"
 * [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - When this was made available
-* [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.coding.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
+* [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [Procedure.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.coding.extension:notDoneValueSet) to indicate the specific Procedure that was not performed
 
 #### 8.20.5 Procedure, Order
 
@@ -1935,7 +1935,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### 8.20.6 Procedure, Recommended
 
@@ -1960,7 +1960,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed as "completed"
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - When this was made available
-* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
+* [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.coding.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.coding.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 ### 8.21 Substance
 
