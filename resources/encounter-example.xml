@@ -4,6 +4,26 @@
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"/>
   </meta>
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-procedure">
+    <extension url="type">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="80146002"/>
+          <display value="Excision of appendix (procedure)"/>
+        </coding>
+        <text value="Excision of appendix (procedure)"/>
+      </valueCodeableConcept>
+    </extension>
+    <extension url="rank">
+      <valuePositiveInt value="1"/>
+    </extension>
+    <extension url="procedure">
+      <valueReference>
+        <reference value="Procedure/example"/>
+      </valueReference>
+    </extension>
+  </extension>
   <status value="in-progress"/>
   <class>
     <system value="http://terminology.hl7.org/CodeSystem/v3-ActCode"/>
@@ -20,4 +40,18 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
+  <diagnosis>
+    <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission">
+      <valueCodeableConcept>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/ex-diagnosis-on-admission"/>
+          <code value="y"/>
+          <display value="Yes"/>
+        </coding>
+      </valueCodeableConcept>
+    </extension>
+    <condition>
+      <reference value="Condition/appendicitis-example"/>
+    </condition>
+  </diagnosis>
 </Encounter>

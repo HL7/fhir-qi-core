@@ -94,6 +94,11 @@
     </resource>
     <resource>
       <reference>
+        <reference value="Condition/appendicitis-example"/>
+      </reference>
+    </resource>
+    <resource>
+      <reference>
         <reference value="Coverage/example"/>
       </reference>
       <exampleBoolean value="true"/>
@@ -126,7 +131,13 @@
       <reference>
         <reference value="DiagnosticReport/example"/>
       </reference>
-      <exampleBoolean value="true"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DiagnosticReport/note-example"/>
+      </reference>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note"/>
     </resource>
     <resource>
       <reference>
@@ -238,6 +249,12 @@
     </resource>
     <resource>
       <reference>
+        <reference value="NutritionOrder/example"/>
+      </reference>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="Observation/example"/>
       </reference>
       <exampleBoolean value="true"/>
@@ -292,6 +309,12 @@
     </resource>
     <resource>
       <reference>
+        <reference value="ServiceRequest/appropriateness-example"/>
+      </reference>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="ServiceRequest/negation-example"/>
       </reference>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested"/>
@@ -299,6 +322,12 @@
     <resource>
       <reference>
         <reference value="ServiceRequest/referral-example"/>
+      </reference>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/elective-example"/>
       </reference>
       <exampleBoolean value="true"/>
     </resource>
@@ -790,12 +819,6 @@
     <resource>
       <reference>
         <reference value="StructureDefinition/qicore-doNotPerformReason"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="StructureDefinition/doNotPerformTiming"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
