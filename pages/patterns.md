@@ -266,8 +266,8 @@ Example source: EXM72_FHIR-8.1.0_TJC.cql
 
 ```sql
 define "Condition of Intravenous or Intra arterial Thrombolytic (tPA) Therapy Prior to Arrival":
-    Condition: "Intravenous or Intra arterial Thrombolytic (tPA) Therapy Prior to Arrival"] PriorTPA
-        where clinicalStatus in { 'active', 'recurrence', 'relapse' }
+  Condition: "Intravenous or Intra arterial Thrombolytic (tPA) Therapy Prior to Arrival"] PriorTPA
+    where clinicalStatus in { 'active', 'recurrence', 'relapse' }
 ```
 
 Note that verificationStatus is not being checked due to feedback received that it may be difficult for implementers to retrieve the element.
@@ -278,9 +278,9 @@ Example source: EXM108_FHIR
 
 ```sql
 define "VTE Prophylaxis by Medication Administered":
-    ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-        where VTEMedication.status = 'completed'
-            and VTEMedication.dosage.route in "Subcutaneous route"
+  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.status = 'completed'
+      and VTEMedication.dosage.route in "Subcutaneous route"
 ```
 
 #### 3.4.1 Medications at discharge
@@ -289,9 +289,9 @@ Example source: EXM104_FHIR-8.1.000_TJC.cql
 
 ```sql
 define "Antithrombotic Therapy at Discharge":
-    ["MedicationRequest": "Antithrombotic Therapy"] Antithrombotic
-        where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-            and Antithrombotic.intent = 'order'
+  ["MedicationRequest": "Antithrombotic Therapy"] Antithrombotic
+    where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
+      and Antithrombotic.intent = 'order'
 ```
 
 Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be unnecessary once QUICK is fully supported.
@@ -300,10 +300,10 @@ Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be
 
 ```sql
 define "Antithrombotic Not Given at Discharge":
-["MedicationRequest": "Antithrombotic Therapy"] NoAntithromboticDischarge
-  where NoAntithromboticDischarge.doNotPerform is true
-    and (singleton from NoAntithromboticDischarge.reasonCode in "Medical Reason"
-      or singleton from NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+  ["MedicationRequest": "Antithrombotic Therapy"] NoAntithromboticDischarge
+    where NoAntithromboticDischarge.doNotPerform is true
+      and (singleton from NoAntithromboticDischarge.reasonCode in "Medical Reason"
+        or singleton from NoAntithromboticDischarge.reasonCode in "Patient Refusal")
 ```
 
 #### 3.4.3 Medication not administered
@@ -335,11 +335,12 @@ Example source: EXM108_FHIR
 
 ```sql
 define "Intervention Comfort Measures":
-    (["ServiceRequest": "Comfort Measures"] P
-        where P.intent = 'order')
-    union
-    (["Procedure": "Comfort Measures"] IntervetionPerformed
-        where IntervetionPerformed.status = 'completed')
+  (["ServiceRequest": "Comfort Measures"] P
+    where P.intent = 'order'
+  )
+    union (["Procedure": "Comfort Measures"] InterventionPerformed
+      where InterventionPerformed.status in {'completed', 'in-progress'}
+    )
 ```
 
 #### 3.5.1 Device Use
@@ -348,13 +349,13 @@ Example source: EXM108_FHIR
 
 ```sql
 define "VTE Prophylaxis by Device Applied":
-  (
-    ["DeviceUseStatement": code in "Intermittent pneumatic compression devices (IPC)"]
-      union ["DeviceUseStatement": code in "Venous foot pumps (VFP)"]
-      union ["DeviceUseStatement": code in "Graduated compression stockings (GCS)"]
-  ) DeviceApplied
-      where DeviceApplied.status = 'completed'
-```
+  ["Procedure": "Device Application"] DeviceApplied
+    where DeviceApplied.status = 'complete'
+      and (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+        or DeviceApplied.usedCode in"Venous foot pumps (VFP)"
+        or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+)
+ ```
 
 #### 3.5.2 Device Not Used
 
@@ -362,11 +363,14 @@ Example source: EXM108_FHIR
 
 ```sql
 define "No VTE Prophylaxis Device Applied":
-  (["DeviceUseStatement": code in "Venous foot pumps (VFP)"]
-    union ["DeviceUseStatement": code in "Intermittent pneumatic compression devices (IPC)"]
-    union ["DeviceUseStatement": code in "Graduated compression stockings (GCS)"]
-  ) DeviceApplied
-    where GetExtension(DeviceApplied.extension, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceusestatement-notDone').value is true
+  ["Procedure": "Device Application"] DeviceApplied
+    let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value
+    where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+      or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
+      or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+    )
+      and  DeviceApplied.status = 'not-done'
+    return {id: DeviceApplied.id, requestStatusReason: DeviceApplied.statusReason, authoredOn: DeviceNotDoneTiming}
 ```
 
 #### 3.5.3 Device Not Ordered
@@ -374,11 +378,11 @@ define "No VTE Prophylaxis Device Applied":
 Example source: EXM108_FHIR
 
 ```sql
-define "No VTE Prophylaxis Device Ordered":
-  ["DeviceRequest": code in "Venous foot pumps (VFP)"]
-    union ["DeviceRequest": code in "Intermittent pneumatic compression devices (IPC)"]
-    union ["DeviceRequest": code in "Graduated compression stockings (GCS)"]
-  ) DevideOrder
-    where DevideOrder.intent = 'Order'
-      and GetExtension(DevideOrder.extension, 'http://hl7.org/fhir/StructureDefinition/request-doNotPerform').value is true
+define "No VTE Prophylaxis Device Order":
+  (["ServiceRequest": "Venous foot pumps (VFP)"]
+    union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
+    union ["ServiceRequest": "Graduated compression stockings (GCS)"]
+  ) DeviceOrder
+    where DeviceOrder.status = 'completed'
+      and DeviceOrder.doNotPerform is true
 ```

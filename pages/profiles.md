@@ -44,13 +44,13 @@ any, and the underlying FHIR resources:
 |[QICoreImmunizationEvaluation](StructureDefinition-qicore-immunizationevaluation.html)| |[ImmunizationEvaluation]({{site.data.fhir.path}}immunizationevaluation.html)|
 |[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)| |[Immunization]({{site.data.fhir.path}}immunization.html)|
 |[QICoreImmunizationRecommendation](StructureDefinition-qicore-immunizationrec.html)| |[ImmunizationRecommendation]({{site.data.fhir.path}}immunizationrecommendation.html)|
-| | [USCoreImplantableDevice](http://hl7.org/fhir/us/core/StructureDefinition-us-core-implantable-device.html) |[Device]({{site.data.fhir.path}}device.html)|
+| | [USCoreImplantableDeviceProfile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-implantable-device.html) |[Device]({{site.data.fhir.path}}device.html)|
 |[QICoreLocation](StructureDefinition-qicore-location.html)| [USCoreLocation](http://hl7.org/fhir/us/core/StructureDefinition-us-core-location.html) |[Location]({{site.data.fhir.path}}location.html)|
 |[QICoreMedication](StructureDefinition-qicore-medication.html)| [USCoreMedication](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medication.html) |[Medication]({{site.data.fhir.path}}medication.html)|
 |[QICoreMedicationAdministration](StructureDefinition-qicore-medicationadministration.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICoreMedicationDispense](StructureDefinition-qicore-medicationdispense.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICoreMedicationNotDispensed](StructureDefinition-qicore-medicationnotdispensed.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-medicationnotdispensed.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |[QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html)| |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreMedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [USCoreMedicationRequest](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreMedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
