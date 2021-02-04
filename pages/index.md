@@ -414,7 +414,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 |Yanyan Hu||Contributor|
 |Mark Kramer|The MITRE Corporation|Originator|
 |Jason Mathews|The MITRE Corporation|Originator|
-|Lloyd McKenzie||Contributor|
+|Lloyd McKenzie|Gevity Consulting|Contributor|
 |Chris Moesel|The MITRE Corporation|Contributor|
 |Peter Muir|ESAC, Inc.|Contributor|
 |Claude Nanjo||Originator|
