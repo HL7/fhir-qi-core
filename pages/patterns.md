@@ -228,7 +228,7 @@ Example source: EXM105
 define "Inpatient Encounter with Principal Diagnosis of Ischemic Stroke":
   "Inpatient Encounter" Encounter
     let PrincipalDiagnosis:
-      (singleton from (Encounter.diagnosis D where D.role ~ ToConcept("Billing") and D.rank = 1)) PD
+      (singleton from (Encounter.diagnosis D where D.use ~ ToConcept("Billing") and D.rank = 1)) PD
         return singleton from ([Condition: id in Last(Split(PD.condition.reference, '/'))])
     where PrincipalDiagnosis.code in "Ischemic Stroke"
 ```
