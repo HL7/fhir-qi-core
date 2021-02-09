@@ -55,11 +55,13 @@ with the clinical care delivery, whether or not considered drug related.
 The concepts aligns with the FHIR R4 resource Adverse Event
 (<http://hl7.org/fhir/adverseevent-definitions.html#AdverseEvent>).
 The FHIR resource provides clearer expressivity as compared with QDM. 
-QDM AdverseEvent references only the suspectEntity.instance (as *code*)
-and category (as *type*).  It does not include any reference to an
-event’s actuality (i.e., potential Vs actual) which is available in
-FHIR. To expand on the ability to express such a concept, the mapping
-table includes adverseEvent.actuality.
+QDM includes an attribute code that represents the specific type of event that occurred, consistent with AdverseEvent.event. QDM does not include an attribute to address the additional elements available in QI-Core: AdverseEvent.suspectEntity (the suspected cause), or the AdverseEvent.resultingCondition. As an example to differentiate these elements:
+* AdverseEvent.event = fall
+* AdverseEvent.resultingCondition = fracture
+* AdverseEvent.suspectEntity = area rug
+
+QDM version 5.6 (and earlier versions) only address one of these elements, the event.
+Therefore, QDM AdverseEvent code maps to AdverseEvent.event. Measure developers seeking to retrieve data about the cause of an AdverseEvent may be able to relate the occurrence timing of a potential causative event and the AdverseEvent.event timing. Further detail about the AdverseEvent will require use of FHIR or potentially a subsequent version of QDM after QDM 5.6.
 
 | **QDM Context**    | **QI-Core R4**                                                                                                                                               | **Comments**                                               |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
