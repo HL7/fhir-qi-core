@@ -43,7 +43,7 @@ This guide is divided into pages which are listed at the top each page in the me
 * **[Examples](examples.html)**: The examples page provides an index of all the examples defined as part of QI-Core
 * **[Downloads](downloads.html)**: Downloads for definitions, examples, as well as the entire IG
 * **[QDM-to-QI-Core Mapping](qdm-to-qicore.html)**: This page provides a detailed description of mapping from QDM to QI-Core
-* **[QUICK](quick/QUICK-index.html)**: This page provides an author-focused view of the QI-Core profiles
+* **[Authoring](quick/QUICK-index.html)**: This page provides an author-focused view of the QI-Core profiles
 
 ### 1.3 Background
 {: #background}
