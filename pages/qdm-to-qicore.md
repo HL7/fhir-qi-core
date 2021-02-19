@@ -68,14 +68,16 @@ Therefore, QDM AdverseEvent code maps to AdverseEvent.event. Measure developers 
 | Adverse Event      | [AdverseEvent](StructureDefinition-qicore-adverseevent.html)                                                                         |                                                            |
 |                    | [AdverseEvent.actuality](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.actuality)                          |                                                            |
 | **QDM Attributes** |                                                                                                                                                              |                                                            |
-| code               | [AdverseEvent.event](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.event)               | FHIR R4 replaces AdverseEvent.type with AdverseEvent.event |
+| code               | [AdverseEvent.event](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.event)               | Type of the event itself in relation to the subject; reference SNOMED-CT event hierarchy to represent the event in an eCQM. |
 | type               | [AdverseEvent.category](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.category)         |                                                            |
 | severity           | [AdverseEvent.severity](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.severity)         |                                                            |
 | relevant dateTime  | [AdverseEvent.date](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.date)                 |                                                            |
 | FacilityLocations  | [AdverseEvent.location](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.location)         |                                                            |
 | Author dateTime    | [AdverseEvent.recordedDate](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.recordedDate) |                                                            |
-| id                 | [AdverseEVent.id](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.id)                     |                                                            |
+| id                 | [AdverseEvent.id](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.id)                     |                                                            |
 | recorder           | [AdverseEvent.recorder](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.recorder)         |                                                            |
+|                    | [AdverseEvent.suspectEntity.instance](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.suspectEntity.instance)         | The actual instance of what caused the adverse event. May be a substance, medication, medication administration, medication statement or a device.              |
+|                    | [AdverseEvent.resultingCondition](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.resultingCondition)         | Effect on the subject due to this event              |
 {: .grid}
 
 ### 8.3 Allergy/Intolerance
