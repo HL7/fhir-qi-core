@@ -13,8 +13,8 @@ topofpage: true
 
 ## 2 QI-Core Profiles
 
-The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if
-any, and the underlying FHIR resources:
+The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if any, and the underlying FHIR resources:
+
 
 |QI-Core Profile|USCore Profile|Base Resource|
 |---|---|---|
@@ -78,6 +78,10 @@ any, and the underlying FHIR resources:
 {: .list}
 
 The QUICK Logical View of these profiles is provided [here](quick/QUICK-index.html).
+
+### 2.1 Referencing QI-Core Profiles
+
+There are a number of  QI-Core profiles inherit directly from US Core profiles, if any, or other FHIR resources (i.e. USCoreImplantableDeviceProfile, FHIR VitalSigns, USCore Smoking Status etc.) and the underlying Reference elements can address the US Core or FHIR profiles for the items referenced. For any other references to base FHIR resources or not formally defined in a QI-Core Profile, the referenced resource **SHOULD** be a QI-Core Profile if a QI-Core Profile exists for the resource type. For example, USCore Smoking Status references US Core Patient profile, the reference to Patient **SHOULD** be a valid QI-Core Patient.
 
 <br>
 STU Note: Mappings from the QI Core Profiles to Quality Data Model have been removed from this version of the QI Core IG. The CQI Work Group is seeking implementer feedback on the value of these mappings and whether they would be useful to include in a future version of the specification. Mappings from QDM-to-QI-Core are still available on the [QDM-to-QI-Core](qdm-to-qicore.html) page, and the FHIR-to-QDM mappings are still available in the mappings section for each profile in the [STU3.2 version](http://hl7.org/fhir/us/qicore/STU32/) of this implementation guide.
