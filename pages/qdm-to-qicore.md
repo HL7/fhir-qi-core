@@ -11,20 +11,20 @@ topofpage: true
 * Do not remove this line (it will not be displayed)
 {:toc}
 
-## 8 Quality Data Model (QDM) v5.5 to QI-Core R4 Draft Mapping
+## 8 Quality Data Model (QDM) v5.6 to QI-Core R4 Draft Mapping
 
 ### 8.1 Introduction
 
 The CMS Quality Data Model (QDM) has been used to express electronic
 clinical quality measures (eCQMs) in HQMF since 2012. QDM is a
 conceptual data model that has evolved based on feedback, testing and
-use. The current version (5.5) and QDM's complete history can be found
+use. The current version (Version 5.6 for eCQM implementation 2023) and QDM's complete history can be found
 on the [eCQI Resource Center](https://ecqi.healthit.gov/qdm). Most of
 the QDM concepts map directly to US Core R4, FHIR R4 resources or
 extensions represented in QI-Core.
 
 This version of QI Core updates mappings from QI-Core to QDM based on
-US Core R4 and FHIR R4 and QDM version 5.5. Reviewers can evaluate the
+US Core R4 and FHIR R4 and QDM version 5.6. Reviewers can evaluate the
 comparisons, represented in the *Mappings* table for each QI-Core
 resource. Each *mapping* table shows the QI-Core concept in the
 left-hand column and the corresponding QDM datatype(s) and attributes in
@@ -42,7 +42,7 @@ section is divided into 55 sections, one for each QDM concept, or QDM
 datatype. Each QDM datatype includes a general description of the
 concept and a table mapping each of the QDM datatype-related attributes
 to QI-Core metadata elements. Refer to the [eCQI Resource
-Center](https://ecqi.healthit.gov/qdm) for the full QDM 5.5
+Center](https://ecqi.healthit.gov/qdm) for the full QDM 5.6
 documentation.
 
 ### 8.2 Adverse Event
