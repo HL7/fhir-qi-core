@@ -48,7 +48,7 @@ documentation.
 ### 8.2 Adverse Event
 
 This QDM to QI-Core Mapping for the QDM Datatype "Adverse Event" has
-been updated from QDM 5.4 to QDM 5.5.
+been updated from QDM 5.5 to QDM 5.6.
 
 QDM defines Adverse Event as any untoward medical occurrence associated
 with the clinical care delivery, whether or not considered drug related.
@@ -69,14 +69,14 @@ Therefore, QDM AdverseEvent code maps to AdverseEvent.event. Measure developers 
 | **QDM Context**    | **QI-Core R4**                                                                                                                                               | **Comments**                                               |
 | ------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ | ---------------------------------------------------------- |
 | Adverse Event      | [AdverseEvent](StructureDefinition-qicore-adverseevent.html)                                                                         |                                                            |
-|                    | [AdverseEvent.actuality](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.actuality)                          |                                                            |
+|                    | [AdverseEvent.actuality](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.actuality)                          |    Although not specified in QDM, QI-Core provides the ability to differentiate between potential versus actual events                                                        |
 | **QDM Attributes** |                                                                                                                                                              |                                                            |
-| code               | [AdverseEvent.event](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.event)               | Type of the event itself in relation to the subject; reference SNOMED-CT event hierarchy to represent the event in an eCQM. |
+| code               | [AdverseEvent.event](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.event)               | Type of the event itself in relation to the subject; reference SNOMED-CT event hierarchy to represent the event in an eCQM. Note: QDM does not include an attribute to address additional elements available in QI-Core: AdverseEvent.suspectEntity (the suspected cause), or the AdverseEvent.resultingCondition. |
 | type               | [AdverseEvent.category](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.category)         |                                                            |
 | severity           | [AdverseEvent.severity](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.severity)         |                                                            |
 | relevant dateTime  | [AdverseEvent.date](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.date)                 |                                                            |
-| FacilityLocations  | [AdverseEvent.location](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.location)         |                                                            |
-| Author dateTime    | [AdverseEvent.recordedDate](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.recordedDate) |                                                            |
+| facilityLocations  | [AdverseEvent.location](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.location)         |                                                            |
+| author dateTime    | [AdverseEvent.recordedDate](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.recordedDate) |                                                            |
 | id                 | [AdverseEvent.id](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.id)                     |                                                            |
 | recorder           | [AdverseEvent.recorder](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.recorder)         |                                                            |
 |                    | [AdverseEvent.suspectEntity.instance](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.suspectEntity.instance)         | The actual instance of what caused the adverse event. May be a substance, medication, medication administration, medication statement or a device.              |
