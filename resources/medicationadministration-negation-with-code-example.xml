@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <MedicationAdministration xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-    <id value="negation-example"/>
+    <id value="negation-with-code-example"/>
     <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded">
         <valueDateTime value="2015-01-15"/>
     </extension>
@@ -13,10 +13,11 @@
       </coding>
     </statusReason>
     <medicationCodeableConcept>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
-        <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.88.12.80.16"/>
-      </extension>
-      <text value="Medication Brand Name value set"/>
+      <coding> 
+        <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+        <code value="1594660"/>
+        <display value="Alemtuzumab 10mg/ml (Lemtrada)"/>
+      </coding>
     </medicationCodeableConcept>
     <subject>
         <reference value="Patient/example"/>
