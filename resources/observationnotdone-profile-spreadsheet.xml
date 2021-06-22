@@ -8,9 +8,9 @@
  xmlns:html="http://www.w3.org/TR/REC-html40">
  <DocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
   <Author>Grahame</Author>
-  <LastAuthor>Bryn</LastAuthor>
+  <LastAuthor>Microsoft Office User</LastAuthor>
   <Created>2012-03-19T11:12:07Z</Created>
-  <LastSaved>2019-12-10T03:42:01Z</LastSaved>
+  <LastSaved>2021-06-22T00:16:57Z</LastSaved>
   <Version>16.00</Version>
  </DocumentProperties>
  <CustomDocumentProperties xmlns="urn:schemas-microsoft-com:office:office">
@@ -20,10 +20,10 @@
   <AllowPNG/>
  </OfficeDocumentSettings>
  <ExcelWorkbook xmlns="urn:schemas-microsoft-com:office:excel">
-  <WindowHeight>13425</WindowHeight>
-  <WindowWidth>28800</WindowWidth>
-  <WindowTopX>32767</WindowTopX>
-  <WindowTopY>32767</WindowTopY>
+  <WindowHeight>13940</WindowHeight>
+  <WindowWidth>25240</WindowWidth>
+  <WindowTopX>23180</WindowTopX>
+  <WindowTopY>8960</WindowTopY>
   <ActiveSheet>2</ActiveSheet>
   <FirstVisibleSheet>1</FirstVisibleSheet>
   <RefModeR1C1/>
@@ -1075,9 +1075,9 @@
    x:FullRows="1" ss:StyleID="s85" ss:DefaultColumnWidth="66"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s85" ss:Width="111"/>
-   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="36.75"/>
+   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="37"/>
    <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="45"/>
-   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="171.75"/>
+   <Column ss:StyleID="s86" ss:AutoFitWidth="0" ss:Width="172"/>
    <Column ss:StyleID="s85" ss:AutoFitWidth="0" ss:Width="78"/>
    <Column ss:StyleID="s85" ss:Width="30"/>
    <Column ss:StyleID="s85" ss:Width="36"/>
@@ -1205,7 +1205,7 @@
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">Not published</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
-   <Row ss:AutoFitHeight="0" ss:Height="50.0625">
+   <Row ss:AutoFitHeight="0" ss:Height="50">
     <Cell ss:StyleID="s93"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s94"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1355,6 +1355,8 @@
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell><Data ss:Type="String">Observation.code</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="9"><Data ss:Type="String">Y</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="18" ss:StyleID="s105"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -1373,9 +1375,9 @@
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s85"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell><Data ss:Type="String">Observation.code.coding.extension</Data><NamedCell
+    <Cell><Data ss:Type="String">Observation.code.extension</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:Index="6"><Data ss:Type="String">1..1</Data><NamedCell
+    <Cell ss:Index="6"><Data ss:Type="String">0..1</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:Index="8"><Data ss:Type="String">Extension{http://hl7.org/fhir/StructureDefinition/valueset-reference}</Data><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
@@ -2573,7 +2575,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveCol>10</ActiveCol>
+     <ActiveRow>11</ActiveRow>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -2581,10 +2583,10 @@
    <x:PageLayoutZoom>0</x:PageLayoutZoom>
   </WorksheetOptions>
  </Worksheet>
- <Worksheet ss:Name="SomeStructure-Inv">
+ <Worksheet ss:Name="QICore-ObservationNotDone-Inv">
   <Names>
    <NamedRange ss:Name="_FilterDatabase"
-    ss:RefersTo="='SomeStructure-Inv'!R1C1:R100C7" ss:Hidden="1"/>
+    ss:RefersTo="='QICore-ObservationNotDone-Inv'!R1C1:R100C7" ss:Hidden="1"/>
   </Names>
   <Table ss:ExpandedColumnCount="7" ss:ExpandedRowCount="50" x:FullColumns="1"
    x:FullRows="1" ss:StyleID="s125" ss:DefaultColumnWidth="66"
@@ -2616,9 +2618,11 @@
       ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40">        <Font
         html:Face="Tahoma" x:Family="Swiss" html:Size="8" html:Color="#000000">English description of constraint</Font>       </ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s89"><Data ss:Type="String">OCL</Data><Comment ss:Author=""><ss:Data
-       xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
-        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font>       </ss:Data></Comment><NamedCell
+    <Cell ss:StyleID="s89"><Data ss:Type="String">Expression</Data><Comment
+      ss:Author=""><ss:Data xmlns="http://www.w3.org/TR/REC-html40"><Font
+        html:Color="#000000">        </Font><Font html:Face="Tahoma"
+        x:Family="Swiss" html:Size="8" html:Color="#000000">Optional - OCL expression of the rule</Font><Font
+        html:Color="#000000">       </Font></ss:Data></Comment><NamedCell
       ss:Name="_FilterDatabase"/></Cell>
     <Cell ss:StyleID="s92"><Data ss:Type="String">XPath</Data><Comment ss:Author=""><ss:Data
        xmlns="http://www.w3.org/TR/REC-html40">        <Font html:Face="Tahoma"
@@ -2626,13 +2630,20 @@
       ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
-    <Cell ss:StyleID="s126"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s101"><NamedCell ss:Name="_FilterDatabase"/></Cell>
-    <Cell ss:StyleID="s127"><NamedCell ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s126"><Data ss:Type="String">ond-1</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">ond-negation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">error</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">Observation</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s101"><Data ss:Type="String">to indicate what observation was not recorded, either at least one coding in the codeableconcept or valueset-reference extension shall be provided</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">observation.extension(&quot;http://hl7.org/fhir/StructureDefinition/valueset-reference&quot;).exists() xor observation.coding.exists()</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
+    <Cell ss:StyleID="s127"><Data ss:Type="String">exists(f:extension)</Data><NamedCell
+      ss:Name="_FilterDatabase"/></Cell>
    </Row>
    <Row ss:AutoFitHeight="0">
     <Cell ss:StyleID="s128"><NamedCell ss:Name="_FilterDatabase"/></Cell>
@@ -3090,8 +3101,7 @@
     </Pane>
     <Pane>
      <Number>0</Number>
-     <ActiveRow>16</ActiveRow>
-     <ActiveCol>1</ActiveCol>
+     <ActiveCol>5</ActiveCol>
     </Pane>
    </Panes>
    <ProtectObjects>False</ProtectObjects>
@@ -4929,7 +4939,7 @@
    x:FullRows="1" ss:StyleID="s107" ss:DefaultColumnWidth="66"
    ss:DefaultRowHeight="15">
    <Column ss:StyleID="s107" ss:AutoFitWidth="0" ss:Width="207"/>
-   <Column ss:StyleID="s107" ss:AutoFitWidth="0" ss:Width="324.75"/>
+   <Column ss:StyleID="s107" ss:AutoFitWidth="0" ss:Width="325"/>
    <Column ss:StyleID="s107" ss:Width="51"/>
    <Column ss:StyleID="s107" ss:Width="69"/>
    <Column ss:StyleID="s107" ss:Width="333"/>

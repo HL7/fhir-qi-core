@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-  <id value="negation-example"/>
+  <id value="negation-with-code-example"/>
   <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason">
     <valueCodeableConcept>
       <coding>
@@ -22,10 +22,11 @@
     </coding>
   </category>
   <code>
-      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
-        <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1045.131"/>
-      </extension>
-    <text value="Hemoglobin lab test"/>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="30313-1"/>
+      <display value="Hemoglobin [Mass/volume] in Arterial blood"/>
+    </coding>
   </code>
   <subject>
     <reference value="Patient/example"/>
