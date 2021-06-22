@@ -42,7 +42,7 @@ topofpage: true
     <tr><td>QICoreMedicationAdministration</td><td>{% include qicore-medicationadministration-ex.html %}</td></tr>
     <tr><td>QICoreMedicationAdministrationNotDone</td><td>{% include qicore-mednotadministered-ex.html %}</td></tr>
     <tr><td>QICoreMedicationDispense</td><td>{% include qicore-medicationdispense-ex.html %}</td></tr>
-    <tr><td>QICoreMedicationDispenseNotDone</td><td>{% include qicore-medicationnotdispensed-ex.html %}</td></tr>
+    <tr><td>QICoreMedicationDispenseNotDone</td><td>{% include qicore-mednotdispensed-ex.html %}</td></tr>
     <tr><td>QICoreMedicationNotRequested</td><td>{% include qicore-medicationnotrequested-ex.html %}</td></tr>
     <tr><td>QICoreMedicationRequest</td><td>{% include qicore-medicationrequest-ex.html %}</td></tr>
     <tr><td>QICoreMedicationStatement</td><td>{% include qicore-medicationstatement-ex.html %}</td></tr>
