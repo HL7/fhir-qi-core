@@ -60,5 +60,6 @@ topofpage: true
     <tr><td>QICoreSpecimen</td><td>{% include qicore-specimen-ex.html %}</td></tr>
     <tr><td>QICoreSubstance</td><td>{% include qicore-substance-ex.html %}</td></tr>
     <tr><td>QICoreTask</td><td>{% include qicore-task-ex.html %}</td></tr>
+    <tr><td>QICoreTaskNotDone</td><td>{% include qicore-tasknotdone-ex.html %}</td></tr>
 
 </table>

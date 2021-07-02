@@ -1833,10 +1833,27 @@ medication lists may be considered a Task to perform the Procedure that
 includes reviewing the medication list with the patient to assure it is
 correct and to education the patient about proper medication usage.
 
-QDM 5.5 does not address Task; therefore, there is no direct mapping
+The sponsoring work group is specifically seeking feedback on the following
+suggestions for use of Task rather than Procedure for workflow steps that require
+attestation such as medication list review or reconciliation:
+Example: A workflow step to review or to reconcile medication lists may be considered
+a Task to perform the Procedure that includes reviewing the medication list with the
+patient to assure it is correct and to educate the patient about proper medication usage.
+Thus, a Task can reference the Task.focus as a procedure.
+
+QDM 5.6 does not address Task; therefore, there is no direct mapping
 from QDM Intervention or Procedure to the FHIR Task resource.  The
 mapping presented is from QDM to QI-Core referencing the FHIR Procedure
 resource.
+
+Consistent with the method for specifying QDM’s concept negation rationale, a [TaskNotDone](StructureDefinition-qicore-tasknotdone.html) is represented with the following content:
+* [Task.status:status](StructureDefinition-qicore-tasknotdone-definitions.html#Task.status:status) with valueset-task-status constrained to "rejected" (The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.)
+* [Task.statusReason](StructureDefinition-qicore-tasknotdone-definitions.html#Task.statusReason) binding to Negation Reason Codes (extensible)
+* [Task.code:code](StructureDefinition-qicore-tasknotdone-definitions.html#Task.code:code) (Codes to identify how the task manages fulfillment of activities - the specific choice depends on the measure context) the direct reference code, it needs a cardinality of 1..1 and binding to the code or value set (it would need a valueset-reference URL: [http://hl7.org/fhir/StructureDefinition/valueset-reference](http://hl7.org/fhir/StructureDefinition/valueset-reference) to reference the value set not performed
+* [Task.focus](StructureDefinition-qicore-tasknotdone-definitions.html#Task.focus) to reference the Resource (likely procedure) the task was acting on
+* [Task.encounter](StructureDefinition-qicore-tasknotdone-definitions.html#Task.encounter) (Healthcare event during which this task originated)
+* [Task.for](StructureDefinition-qicore-tasknotdone-definitions.html#Task.for) (Beneficiary of the Task) Reference (qicore-patient)
+* [Task.executionPeriod:executionPeriod](StructureDefinition-qicore-tasknotdone-definitions.html#Task.executionPeriod:executionPeriod) for the period/dateTime - the timing the task was rejected and the reason.
 
 #### 8.20.3 Procedure Priority
 

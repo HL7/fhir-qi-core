@@ -75,6 +75,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreSpecimen](StructureDefinition-qicore-specimen.html)| |[Specimen]({{site.data.fhir.path}}specimen.html)|
 |[QICoreSubstance](StructureDefinition-qicore-substance.html)| |[Substance]({{site.data.fhir.path}}substance.html)|
 |[QICoreTask](StructureDefinition-qicore-task.html)| |[Task]({{site.data.fhir.path}}task.html)|
+|[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)| |[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
 The QUICK Logical View of these profiles is provided [here](quick/QUICK-index.html).
