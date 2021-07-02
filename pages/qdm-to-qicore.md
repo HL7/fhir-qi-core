@@ -385,7 +385,7 @@ change the patient's mental state would be a Procedure.
 | **QDM Context**              | **QI-Core R4**                                                                                                                                                  | **Comments**                                                                                  |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | **Communication, Performed** | [Communication](StructureDefinition-qicore-communication.html)                                                     |                                                                                               |
-|                              | [Communication.status](StructureDefinition-qicore-communication-definitions.html#Communication.status)             | consider constraining to in-progress, completed                                               |
+|                              | [Communication.status](StructureDefinition-qicore-communication-definitions.html#Communication.status)             | constrain to completed                                               |
 | **QDM Attributes**           |                                                                                                                    |                                                                                               |
 | code                         | [Communication.reasonCode](StructureDefinition-qicore-communication-definitions.html#Communication.reasonCode)     |                                                                                               |
 | id                           | [Communication.id](StructureDefinition-qicore-communication-definitions.html#Communication.id)                     |                                                                                               |
@@ -393,7 +393,7 @@ change the patient's mental state would be a Procedure.
 | medium                       | [Communication.medium](StructureDefinition-qicore-communication-definitions.html#Communication.medium)             |                                                                                               |
 | sentDatetime                 | [Communication.sent](StructureDefinition-qicore-communication-definitions.html#Communication.sent)                 |                                                                                               |
 | receivedDatetime             | [Communication.received](StructureDefinition-qicore-communication-definitions.html#Communication.received)         |                                                                                               |
-| authorDatetime               | N/A                                                                                                                | No timing exists in FHIR to address timing of negation (i.e., Communication.status = not-done |
+| authorDatetime               | [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) | for use with negationRationale                                             |
 | relatedTo                    | [Communication.basedOn](StructureDefinition-qicore-communication-definitions.html#Communication.basedOn)           | An order, proposal or plan fulfilled in whole or in part by this Communication.               |
 |                              | [Communication.inResponseTo](StructureDefinition-qicore-communication-definitions.html#Communication.inResponseTo) | Response to a communication                                                                   |
 | sender                       | [Communication.sender](StructureDefinition-qicore-communication-definitions.html#Communication.sender)             |                                                                                               |
@@ -1551,11 +1551,11 @@ indicating information about medications that have been dispensed.
 
 ##### 8.17.4.1 Negation Rationale for Medication, Dispensed
 
-Use [QICoreMedicationDispenseNotDone](StructureDefinition-qicore-medicationnotdispensed.html), which contains:
-* [MedicationDispense.status](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.status) - Fixed as "declined"
-* [MedicationDispense.statusReason\[x\]](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.statusReason[x]) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [MedicationDispense.extension:recorded](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.extension:recorded) - When this was made available
-* [MedicationDispense.medication\[x\]](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.medication[x]) - Use [MedicationDispense.medication\[x\].coding.extension:notDoneValueSet](StructureDefinition-qicore-medicationnotdispensed-definitions.html#MedicationDispense.medication[x].coding.extension:notDoneValueSet) to indicate the specific MedicationDispense that was not performed
+Use [QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed.html), which contains:
+* [MedicationDispense.status](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.status) - Fixed as "declined"
+* [MedicationDispense.statusReason\[x\]](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.statusReason[x]) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [MedicationDispense.extension:recorded](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.extension:recorded) - When this was made available
+* [MedicationDispense.medication\[x\]](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.medication[x]) - Use [MedicationDispense.medication\[x\].coding.extension:notDoneValueSet](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.medication[x].coding.extension:notDoneValueSet) to indicate the specific MedicationDispense that was not performed
 
 The MedicationDispensed.status is fixed to "declined" which is defined as "The dispense was declined and not performed."  Considering the clinical workflow, only the pharmacist likely performs the "decline" status - based on medication interaction or on failure of insurance authorization (perhaps due to patient declining when the cost/co-pay is identified). But the patient would not enter the status, only the pharmacist would do so. The use case likely still works for the measure developer intent (that a valid reason exists for not dispensing the medication). However, if the measure developer wants to address patient's decisions to avoid dispensing, the patient will likely not show up at the pharmacy for the medication to be dispensed - hence, there will be no dispensing event. The best way to capture that scenario may be to assure the MedicationRequest includes a Patient reason.
 
@@ -1833,10 +1833,27 @@ medication lists may be considered a Task to perform the Procedure that
 includes reviewing the medication list with the patient to assure it is
 correct and to education the patient about proper medication usage.
 
-QDM 5.5 does not address Task; therefore, there is no direct mapping
+The sponsoring work group is specifically seeking feedback on the following
+suggestions for use of Task rather than Procedure for workflow steps that require
+attestation such as medication list review or reconciliation:
+Example: A workflow step to review or to reconcile medication lists may be considered
+a Task to perform the Procedure that includes reviewing the medication list with the
+patient to assure it is correct and to educate the patient about proper medication usage.
+Thus, a Task can reference the Task.focus as a procedure.
+
+QDM 5.6 does not address Task; therefore, there is no direct mapping
 from QDM Intervention or Procedure to the FHIR Task resource.  The
 mapping presented is from QDM to QI-Core referencing the FHIR Procedure
 resource.
+
+Consistent with the method for specifying QDM’s concept negation rationale, a [TaskNotDone](StructureDefinition-qicore-tasknotdone.html) is represented with the following content:
+* [Task.status:status](StructureDefinition-qicore-tasknotdone-definitions.html#Task.status:status) with valueset-task-status constrained to "rejected" (The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.)
+* [Task.statusReason](StructureDefinition-qicore-tasknotdone-definitions.html#Task.statusReason) binding to Negation Reason Codes (extensible)
+* [Task.code:code](StructureDefinition-qicore-tasknotdone-definitions.html#Task.code:code) (Codes to identify how the task manages fulfillment of activities - the specific choice depends on the measure context) the direct reference code, it needs a cardinality of 1..1 and binding to the code or value set (it would need a valueset-reference URL: [http://hl7.org/fhir/StructureDefinition/valueset-reference](http://hl7.org/fhir/StructureDefinition/valueset-reference) to reference the value set not performed
+* [Task.focus](StructureDefinition-qicore-tasknotdone-definitions.html#Task.focus) to reference the Resource (likely procedure) the task was acting on
+* [Task.encounter](StructureDefinition-qicore-tasknotdone-definitions.html#Task.encounter) (Healthcare event during which this task originated)
+* [Task.for](StructureDefinition-qicore-tasknotdone-definitions.html#Task.for) (Beneficiary of the Task) Reference (qicore-patient)
+* [Task.executionPeriod:executionPeriod](StructureDefinition-qicore-tasknotdone-definitions.html#Task.executionPeriod:executionPeriod) for the period/dateTime - the timing the task was rejected and the reason.
 
 #### 8.20.3 Procedure Priority
 

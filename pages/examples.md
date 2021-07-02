@@ -42,7 +42,7 @@ topofpage: true
     <tr><td>QICoreMedicationAdministration</td><td>{% include qicore-medicationadministration-ex.html %}</td></tr>
     <tr><td>QICoreMedicationAdministrationNotDone</td><td>{% include qicore-mednotadministered-ex.html %}</td></tr>
     <tr><td>QICoreMedicationDispense</td><td>{% include qicore-medicationdispense-ex.html %}</td></tr>
-    <tr><td>QICoreMedicationDispenseNotDone</td><td>{% include qicore-medicationnotdispensed-ex.html %}</td></tr>
+    <tr><td>QICoreMedicationDispenseNotDone</td><td>{% include qicore-mednotdispensed-ex.html %}</td></tr>
     <tr><td>QICoreMedicationNotRequested</td><td>{% include qicore-medicationnotrequested-ex.html %}</td></tr>
     <tr><td>QICoreMedicationRequest</td><td>{% include qicore-medicationrequest-ex.html %}</td></tr>
     <tr><td>QICoreMedicationStatement</td><td>{% include qicore-medicationstatement-ex.html %}</td></tr>
@@ -60,5 +60,6 @@ topofpage: true
     <tr><td>QICoreSpecimen</td><td>{% include qicore-specimen-ex.html %}</td></tr>
     <tr><td>QICoreSubstance</td><td>{% include qicore-substance-ex.html %}</td></tr>
     <tr><td>QICoreTask</td><td>{% include qicore-task-ex.html %}</td></tr>
+    <tr><td>QICoreTaskNotDone</td><td>{% include qicore-tasknotdone-ex.html %}</td></tr>
 
 </table>
