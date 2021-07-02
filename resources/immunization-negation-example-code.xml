@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-  <id value="negation-example"/>
+  <id value="negation-example-code"/>
   <status value="not-done"/>
   <statusReason>
     <coding>
@@ -10,10 +10,12 @@
     </coding>
   </statusReason>
   <vaccineCode>
-    <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
-      <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.464.1003.196.12.1218"/>
-    </extension>
-    <text value="Influenze Vaccine value set"/>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/cvx"/>
+      <code value="160"/>
+      <display value="Influenza A monovalent (H5N1), ADJUVANTED-2013"/>
+    </coding>
+    <text value="Influenze Vaccine A"/>
   </vaccineCode>
   <patient>
     <reference value="Patient/example"/>
