@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"/>
+  </meta>
+	<!-- Extension removed in R4, not clear where this should appear
+  <extension url="http://hl7.org/fhir/StructureDefinition/procedurerequest-authorizedBy">
+    <valueReference>
+      <reference value="Practitioner/example"/>
+    </valueReference>
+  </extension>
+	-->
+  <status value="completed"/>
+  <intent value="order"/> 
+  <priority value="urgent"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="80146002"/>
+      <display value="Excision of appendix (procedure)"/>
+    </coding>
+    <text value="Excision of appendix (procedure)"/>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <occurrenceDateTime value="2013-04-05"/>
+  <asNeededBoolean value="true"/>
+  <authoredOn value="2013-04-04"/>
+  <reasonCode>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="163220003"/>
+      <display value="On examination - abdominal pain - right iliac"/>
+    </coding>
+  </reasonCode>
+  <bodySite>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="66754008"/>
+        <display value="Appendix structure"/>
+      </coding>
+  </bodySite>
+</ServiceRequest>

@@ -1,0 +1,69 @@
+<CodeSystem xmlns="http://hl7.org/fhir">
+    <id value="appropriateness-score"/>
+    <meta>
+      <profile value="http://hl7.org/fhir/StructureDefinition/shareablecodesystem"/>
+    </meta>
+    <url value="http://hl7.org/fhir/us/qicore/CodeSystem/appropriateness-score"/>
+  <version value="3.2.0"/>
+    <name value="AppropriatenessScore"/>
+    <title value="RAND Appropriateness Scores"/>
+    <status value="draft"/>
+    <experimental value="false"/>
+    <date value="2018-08-22"/>
+    <publisher value="Health Level Seven, Inc. - CQI WG"/>
+    <contact>
+      <telecom>
+        <system value="url"/>
+        <value value="http://hl7.org/special/committees/CQI"/>
+      </telecom>
+    </contact>
+    <description value="The RAND scoring for appropriateness of the procedure."/>
+    <caseSensitive value="true"/>
+    <valueSet value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
+    <content value="complete"/>
+    <concept>
+        <code value="extremely-inappropriate"/>
+        <display value="Extremely Inappropriate"/>
+        <definition value="The procedure is extremely inappropriate"/>
+    </concept>
+    <concept>
+        <code value="inappropriate"/>
+        <display value="Inappropriate"/>
+        <definition value="The procedure is inappropriate"/>
+    </concept>
+    <concept>
+        <code value="probably-inappropriate"/>
+        <display value="Probably Inappropriate"/>
+        <definition value="The procedure is probably inappropriate"/>
+    </concept>
+    <concept>
+        <code value="uncertain-inappropriate"/>
+        <display value="Uncertain Inappropriate"/>
+        <definition value="The appropriateness of the procedure is uncertain, leaning towards inappropriate"/>
+    </concept>
+    <concept>
+        <code value="uncertain"/>
+        <display value="Uncertain"/>
+        <definition value="The appropriateness of the procedure is uncertain"/>
+    </concept>
+    <concept>
+        <code value="uncertain-appropriate"/>
+        <display value="Uncertain Appropriate"/>
+        <definition value="The appropriateness of the procedure is uncertain, leaning towards appropriate"/>
+    </concept>
+    <concept>
+        <code value="probably-appropriate"/>
+        <display value="Probably Appropriate"/>
+        <definition value="The procedure is probably appropriate"/>
+    </concept>
+    <concept>
+        <code value="appropriate"/>
+        <display value="Appropriate"/>
+        <definition value="The procedure is appropriate"/>
+    </concept>
+    <concept>
+        <code value="extremely-appropriate"/>
+        <display value="Extremely Appropriate"/>
+        <definition value="The procedure is extremely appropriate"/>
+    </concept>
+</CodeSystem>

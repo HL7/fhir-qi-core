@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-example"/>
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded">
+    <valueDateTime value="2017-01-17"/>
+  </extension>
+  <status value="declined"/>
+  <statusReasonCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="183966005"/>
+      <display value="Drug treatment not indicated (situation)"/>
+    </coding>
+  </statusReasonCodeableConcept>
+  <medicationCodeableConcept>
+      <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
+        <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.88.12.80.16"/>
+      </extension>
+    <text value="Medication Brand Name value set"/>
+  </medicationCodeableConcept>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <authorizingPrescription>
+    <reference value="MedicationRequest/example"/>
+  </authorizingPrescription>
+  <dosageInstruction>
+    <timing>
+      <repeat>
+        <frequency value="3"/>
+        <period value="1"/>
+        <periodUnit value="d"/>
+      </repeat>
+    </timing>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="394899003"/>
+        <display value="oral administration of treatment"/>
+      </coding>
+    </route>
+    <doseAndRate>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+          <code value="ordered"/>
+          <display value="Ordered"/>
+        </coding>
+      </type>
+      <doseQuantity>
+        <value value="5"/>
+        <unit value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+      </doseQuantity>
+    </doseAndRate>
+  </dosageInstruction>
+</MedicationDispense>

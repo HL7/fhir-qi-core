@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Procedure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-with-code-example"/>
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded">
+    <valueDateTime value="2013-04-05T10:30:00-04:00"/>
+  </extension>
+  <modifierExtension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone">
+    <valueBoolean value="true"/>
+  </modifierExtension>
+  <status value="not-done"/>
+  <statusReason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="35688006"/>
+      <display value="Complication of medical care (disorder)"/>
+    </coding>
+  </statusReason>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <version value="http://snomed.info/sct/731000124108"/>
+      <code value="10050004"/>
+      <display value="Contusion of chest (disorder)"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <performer>
+    <actor>
+      <reference value="Practitioner/example"/>
+      <display value="Dr Cecil Surgeon"/>
+    </actor>
+  </performer>
+</Procedure>

@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ImagingStudy xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy"/>
+  </meta>
+  <text>
+    <status value="generated"/>
+    <div 
+      xmlns="http://www.w3.org/1999/xhtml">
+      <p><strong>CT Chest. John Smith (MRN: 09236). Accession: W12342398. Performed: 2011-01-01. 3 series, 12 images.</strong></p>
+      <p>
+        <strong>uid</strong>: urn:oid:2.16.124.113543.6003.1154777499.30246.19789.3503430045
+      </p>
+      <p>
+        <strong>patient</strong>: 
+        <a href="Patient-example.html">Patient/example</a>
+      </p>
+      <p>
+        <strong>started</strong>: 01/01/2011
+      </p>
+      <p>
+        <strong>numberOfSeries</strong>: 1
+      </p>
+      <p>
+        <strong>numberOfInstances</strong>: 1
+      </p>
+      <blockquote>
+        <p><strong>series</strong></p>
+        <p>
+          <strong>uid</strong>: urn:oid:2.16.124.113543.6003.2588828330.45298.17418.2723805630
+        </p>
+        <p>
+          <strong>number</strong>: 3
+        </p>
+        <p>
+          <strong>modality</strong>: CT
+        </p>
+        <p>
+          <strong>description</strong>: CT Surview 180
+        </p>
+        <p>
+          <strong>numberOfInstances</strong>: 1
+        </p>
+        <p>
+          <strong>bodySite</strong>: { SNOMED CT code '67734004' = 'Upper Trunk Structure' })
+        </p>
+        <blockquote>
+          <p><strong>instance</strong></p>
+          <p>
+            <strong>uid</strong>: urn:oid:2.16.124.113543.6003.189642796.63084.16748.2599092903
+          </p>
+          <p>
+            <strong>number</strong>: 1
+          </p>
+          <p>
+            <strong>sopClass</strong>: urn:oid:1.2.840.10008.5.1.4.1.1.2
+          </p>
+        </blockquote>
+      </blockquote>
+    </div>
+  </text>
+  <status value="available"/>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <started value="2011-01-01T11:01:20+03:00"/>
+  <numberOfSeries value="1"/>
+  <numberOfInstances value="1"/>
+  <series>
+    <uid value="2.16.124.113543.6003.2588828330.45298.17418.2723805630"/>
+    <number value="3"/>
+    <modality>
+      <system value="http://dicom.nema.org/resources/ontology/DCM"/>
+      <code value="CT"/>
+    </modality>
+    <description value="CT Surview 180"/>
+    <numberOfInstances value="1"/>
+    <bodySite>
+      <!--   Added body site to support duplicate checking example   -->
+      <system value="http://snomed.info/sct"/>
+      <code value="67734004"/>
+      <display value="Upper Trunk Structure"/>
+    </bodySite>
+    <!--<instance>-->
+      <!--<uid value="2.16.124.113543.6003.189642796.63084.16748.2599092903"/>-->
+      <!--<sopClass>-->
+		<!--<code value="urn:oid:1.2.840.10008.5.1.4.1.1.2"/>-->
+      <!--</sopClass>-->
+      <!--<number value="1"/>-->
+    <!--</instance>-->
+  </series>
+</ImagingStudy>

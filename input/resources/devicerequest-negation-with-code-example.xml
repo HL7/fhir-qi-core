@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<DeviceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-with-code-example"/>
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason">
+    <valueCodeableConcept>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="410534003"/>
+        <display value="Not indicated (qualifier value)"/>
+      </coding>
+    </valueCodeableConcept>
+  </extension>
+  <modifierExtension url="http://hl7.org/fhir/StructureDefinition/request-doNotPerform">
+    <valueBoolean value="true"/>
+  </modifierExtension>
+  <status value="completed"/>
+  <intent value="original-order"/>
+  <codeCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <version value="http://snomed.info/sct/731000124108"/>
+      <code value="442023007"/>
+      <display value="Venous foot pump, device (physical object)"/>
+    </coding>
+  </codeCodeableConcept>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <authoredOn value="2016-04-05T09:20:00-04:00"/>
+</DeviceRequest>

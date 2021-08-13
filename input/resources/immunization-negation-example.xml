@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-example"/>
+  <status value="not-done"/>
+  <statusReason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="183945002"/>
+      <display value="Procedure refused for religious reason (situation)"/>
+    </coding>
+  </statusReason>
+  <vaccineCode>
+    <extension url="http://hl7.org/fhir/StructureDefinition/valueset-reference">
+      <valueUri value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.464.1003.196.12.1218"/>
+    </extension>
+    <text value="Influenze Vaccine value set"/>
+  </vaccineCode>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <occurrenceDateTime value="2013-01-10"/>
+  <recorded value="2013-01-10"/>
+  <primarySource value="true"/>
+</Immunization>

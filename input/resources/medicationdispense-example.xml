@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<MedicationDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense"/>
+  </meta>
+	<!-- Extension was removed in R4, not clear where this should appear...
+  <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-refillsRemaining">
+    <valueInteger value="0"/>
+  </extension>
+	-->
+	<!-- Extension was removed in R4, not clear where this should appear...
+  <extension url="http://hl7.org/fhir/StructureDefinition/medicationdispense-validityPeriod">
+    <valuePeriod>
+      <start value="2012-05-30"/>
+      <end value="2012-06-10"/>
+    </valuePeriod>
+  </extension>
+	-->
+  <status value="completed" />
+  <medicationReference>
+    <reference value="Medication/example"/>
+  </medicationReference>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <performer>
+    <actor>
+      <reference value="Practitioner/example"/>
+    </actor>
+  </performer>
+  <authorizingPrescription>
+    <reference value="MedicationRequest/example"/>
+  </authorizingPrescription>
+  <quantity>
+    <value value="100"/>
+    <unit value="ml"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="ml"/>
+  </quantity>
+  <daysSupply>
+    <value value="30"/>
+    <unit value="Day"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="d"/>
+  </daysSupply>
+  <whenPrepared value="2012-05-30T16:20:00+00:00"/>
+  <whenHandedOver value="2012-05-31T10:20:00+00:00"/>
+  <destination>
+    <reference value="Location/example"/>
+  </destination>
+  <receiver>
+    <reference value="Patient/example"/>
+  </receiver>
+  <dosageInstruction>
+		<!-- Extension removed in R4, not clear where this should appear now...
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-infuseOver">
+      <valueDuration>
+        <value value="1"/>
+        <unit value="min"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="min"/>
+      </valueDuration>
+    </extension>
+		-->
+		<!-- Extension removed in R4, not clear where this should appear now...
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-minDosePerPeriod">
+      <valueRatio>
+        <numerator>
+          <value value="15"/>
+          <unit value="ml"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="ml"/>
+        </numerator>
+        <denominator>
+          <value value="1"/>
+          <unit value="day"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="day"/>
+        </denominator>
+      </valueRatio>
+    </extension>
+		-->
+		<!-- Extension removed in R4, not clear where this should appear now...
+    <extension url="http://hl7.org/fhir/StructureDefinition/pharmacy-core-maxDeliveryVolume">
+      <valueQuantity>
+        <value value="15"/>
+        <unit value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+      </valueQuantity>
+    </extension>
+		-->
+    <timing>
+      <repeat>
+        <frequency value="3"/>
+        <period value="1"/>
+        <periodUnit value="d"/>
+      </repeat>
+    </timing>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="394899003"/>
+        <display value="oral administration of treatment"/>
+      </coding>
+    </route>
+    <doseAndRate>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+          <code value="ordered"/>
+          <display value="Ordered"/>
+        </coding>
+      </type>
+      <doseQuantity>
+        <value value="5"/>
+        <unit value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+      </doseQuantity>
+    </doseAndRate>
+  </dosageInstruction>
+  <substitution>
+    <wasSubstituted value="false"/>
+    <type>
+      <coding>
+        <system value="http://example.org/MedDispSubType"/>
+        <code value="NoSub"/>
+        <display value="No substitution made or expected"/>
+      </coding>
+    </type>
+  </substitution>
+</MedicationDispense>

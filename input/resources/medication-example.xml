@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Medication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"/>
+  </meta>
+	<contained>
+    <Organization>
+      <id value="org6"/>
+			<identifier>
+				<system value="http://example.org/identifier"/>
+				<value value="ORG-006"/>
+			</identifier>
+			<active value="true"/>
+      <name value="Genzyme"/>
+			<telecom>
+				<system value="url"/>
+				<value value="https://www.sanofigenzyme.com/"/>
+				<use value="work"/>
+			</telecom>
+			<address>
+				<use value="work"/>
+				<city value="Cambridge"/>
+				<state value="MA"/>
+				<country value="USA"/>
+			</address>	
+    </Organization>
+  </contained>
+  <code>
+    <coding>
+      <system value="http://www.nlm.nih.gov/research/umls/rxnorm"/>
+      <code value="1594660"/>
+      <display value="alemtuzumab 10 MG/ML [Lemtrada]"/>
+    </coding>
+  </code>
+  
+  <manufacturer>
+    <reference value="#org6"/>
+  </manufacturer>
+    <form>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="385219001"/>
+        <display value="Conventional release solution for injection (dose form)"/>
+      </coding>
+    </form>
+    <ingredient>
+      <itemCodeableConcept>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="129472003"/>
+          <display value="Alemtuzumab (substance)"/>
+        </coding>
+      </itemCodeableConcept>
+      <strength>
+        <numerator>
+          <value value="12"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mg"/>
+        </numerator>
+        <denominator>
+          <value value="1.2"/>
+          <system value="http://unitsofmeasure.org"/>
+          <code value="mL"/>
+        </denominator>
+      </strength>
+    </ingredient>
+  <batch>
+    <lotNumber value="9494788"/>
+    <expirationDate value="2017-05-22"/>
+  </batch> 
+</Medication>

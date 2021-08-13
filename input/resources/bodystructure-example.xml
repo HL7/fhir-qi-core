@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<BodyStructure xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-bodystructure"/>
+  </meta>
+  <identifier>
+    <system value="http://goodhealth.org/bodystructure/identifiers"/>
+    <value value="12345"/>
+  </identifier>
+	<active value="true"/>
+  <morphology>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="4147007"/>
+      <display value="Mass (morphologic abnormality)"/>
+    </coding>
+    <text value="Splenic mass"/>
+  </morphology>
+  <location>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="78961009"/>
+      <display value="Splenic structure (body structure)"/>
+    </coding>
+    <text value="Splenic mass"/>
+  </location>
+  <description value="7 cm maximum diameter"/>
+  <image>
+    <!-- The actual image could be anywhere. This is a WADO example using a ficitious url -->
+    <contentType value="application/dicom"/>
+    <url value="http://imaging.acme.com/wado/server?requestType=WADO&amp;amp;wado_details"/>
+  </image>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+</BodyStructure>
