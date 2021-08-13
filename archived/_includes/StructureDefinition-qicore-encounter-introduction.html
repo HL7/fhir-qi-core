@@ -1,0 +1,15 @@
+<p>The following example illustrates an inpatient encounter reference.</p>
+
+<pre>
+<code>
+define "Inpatient Encounter":
+  [Encounter: "Encounter Inpatient"] EncounterInpatient
+    where EncounterInpatient.status = 'finished'
+      and "LengthInDays"(EncounterInpatient.period) &lt;= 120
+      and EncounterInpatient.period ends during "Measurement Period"
+</code>
+</pre>
+
+<tr>
+    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>

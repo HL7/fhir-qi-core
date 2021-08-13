@@ -1,0 +1,15 @@
+<pre>
+<code>
+define "No VTE Prophylaxis Device Order":
+  (["ServiceRequest": "Venous foot pumps (VFP)"]
+    union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
+    union ["ServiceRequest": "Graduated compression stockings (GCS)"]
+  ) DeviceOrder
+    where DeviceOrder.status = 'completed'
+      and DeviceOrder.doNotPerform is true
+</code>
+</pre>
+
+<tr>
+    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>

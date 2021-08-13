@@ -1,0 +1,13 @@
+<p>The following example illustrates a MedicationAdministration not done:</p>
+<pre>
+<code>
+// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
+define "No Low Dose Unfractionated Heparin Administration":
+  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.status = 'not-done'
+</code>
+</pre>
+
+<tr>
+    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>

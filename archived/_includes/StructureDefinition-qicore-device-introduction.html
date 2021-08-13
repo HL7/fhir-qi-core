@@ -1,0 +1,10 @@
+<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
+<p>FHIR defines the <a href="http://hl7.org/fhir/R4/device.html">Device Resource</a> as a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.
+FHIR and US Core further differentiate devices into two “classes”:
+<ul>
+<li>Devices that interact with the human body but do not stay in it are referred to as non-implantable medical devices.</li>
+<li>Implantable devices are those which stay in the human body with a medical objective for an extended period of time, or even a lifetime.<br>
+<font size="2">[Definition reference: Imam W. How to use ISO 13485:2016 to manage implantable devices, ISO 13485 Blog. July 4, 2016. Available at: <a href="https://advisera.com/13485academy/blog/2017/07/04/how-to-use-iso-134852016-to-manage-implantable-medical-devices/">https://advisera.com/13485academy/blog/2017/07/04/how-to-use-iso-134852016-to-manage-implantable-medical-devices/</a>. Accessed 28 January 2020.]</font></li></ul></p>
+<p>The FHIR Device Resource addresses both implantable and non-implantable devices. US Core only references Implantable Device. QI-Core inherits Implantable Device from US Core and builds directly from FHIR for the QI-Core Device Resource.</p>
+<p>Therefore, when creating an expression for an eCQM or a CDS artifact, assure you are using the appropriate Device or Implantable Device resource.</p>
+

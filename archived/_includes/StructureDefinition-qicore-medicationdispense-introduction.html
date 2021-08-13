@@ -1,0 +1,13 @@
+<p>To create an expression specifically requesting information that a MedicationDispense intentionally
+did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-mednotdispensed.html">QICore-medicationnotdispensed</a>.</p>
+
+<pre>
+<code>
+// connectathon/fhir4/cql/AdvancedIllnessandFrailtyExclusion_FHIR4-4.0.000.cql
+define "Dementia Medications Dispensed":
+  ["MedicationDispense": "Dementia Medications"] MedicationDispense
+    where MedicationDispense.status in { 'active', 'completed', 'on-hold' }
+</code>
+</pre>
+
+<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>

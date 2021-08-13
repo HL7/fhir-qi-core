@@ -1,0 +1,18 @@
+<p>See the <a href="patterns.html#Observation_Examples">patterns</a> page for implementation and usage patterns.</p>
+<p>Note: US-Core define precise profiles for specific observations. QI-Core inherits these specific profiles directly. When creating expressions for eCQMs or CDS artifacts with QI-Core for the following clinical data, use the applicable profile directly rather than the generic Observation resource:<ul>
+<li><a href="http://hl7.org/fhir/R4/observation-vitalsigns.html">FHIR Vital Signs Profile</a></li>
+<li><a href="http://hl7.org/fhir/us/core/StructureDefinition-pediatric-bmi-for-age.html">Pediatric-BMI-for Age</a></li>
+<li><a href="http://hl7.org/fhir/us/core/StructureDefinition-head-occipital-frontal-circumference-percentile.html">Pediatric Head Occipital-frontal Circumference Percentile</a></li>
+<li><a href="http://hl7.org/fhir/us/core/StructureDefinition-pediatric-weight-for-height.html">Pediatric Weight for Height</a></li>
+<li><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-pulse-oximetry.html">Pulse Oximetry</a></li>
+<li><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html">Smoking Status</a></li></ul>
+<p>To create an expression specifically requesting information that an observation intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-observationnotdone.html">QICore-observationnotdone</a>.</p>
+
+<pre>
+<code>
+define "Pap Test with Results":
+	[Observation: "Pap Test"] PapTest
+		where PapTest.value is not null
+			and PapTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
+</code>
+</pre>

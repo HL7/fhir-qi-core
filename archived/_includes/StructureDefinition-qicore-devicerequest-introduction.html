@@ -1,0 +1,20 @@
+<p>The FHIR R4 and the QI-Core DeviceRequest profile describes the request to use of a device by a patient.  The device
+may be any pertinent device specified in the Device resource. Examples of devices that may be requested include a
+wheelchair, hearing aids, or an insulin pump. The request may lead to the dispensing of the device to the patient
+or for use by the patient. Orders or recommendations for use of a device for a patient use the ServiceRequest resource.</p>
+<p>To create an expression specifically requesting information that a DeviceRequest intentionally did not occur for a
+medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-devicenotrequested.html">QICore-Devicenotrequested</a>.</p>
+
+<p>The following example illustrates the use of DeviceRequest:</p>
+<pre>
+<code>
+// connectathon/fhir4/cql/AdvancedIllnessandFrailtyExclusion_FHIR4-4.0.000.cql
+define "Device Indicating Frailty":
+  [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
+    where FrailtyDeviceOrder.status in { 'active', 'on-hold', 'completed' }
+      and FrailtyDeviceOrder.intent in { 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order' }
+
+</code>
+</pre>
+
+<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
