@@ -1,0 +1,47 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Claim.diagnosis'> </a>
+<h2> Claim.diagnosis <a href='#Claim.diagnosis' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Information about diagnoses relevant to the claim items.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>sequence</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#integer' target='_blank'>Integer</a></td><td>A number to uniquely identify diagnosis entries.</td></tr>
+<tr><th>diagnosis[x]</th><td>1..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a> | <a href='QUICK-QICoreCondition.html'>QICoreCondition</a></td><td>The nature of illness or problem in a coded form or as a reference to an external defined Condition.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/icd-10' target='_blank'>Example ICD10 Diagnostic codes.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>type</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>When the condition was observed or the relative ranking.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/ex-diagnosistype' target='_blank'>The type of the diagnosis: admitting, principal, discharge.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>onAdmission</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Indication of whether the diagnosis was present on admission to a facility.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/ex-diagnosis-on-admission' target='_blank'>Present on admission.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>packageCode</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>A package billing code or bundle code used to group products and services to a particular health condition (such as heart attack) which is based on a predetermined grouping code system.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/ex-diagnosisrelatedgroup' target='_blank'>The DRG codes associated with the diagnosis.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+</table>
+</div>
+</body>
+</html>

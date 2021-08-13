@@ -1,0 +1,51 @@
+<html>
+<head>
+    <meta charset="UTF-8"/>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+    <link href="../fhir.css" rel="stylesheet"> </link>
+
+    <!-- Bootstrap core CSS -->
+    <link href="../dist/css/bootstrap.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-fhir.css" rel="stylesheet"> </link>
+    <link href="../assets/css/bootstrap-glyphicons.css" rel="stylesheet"> </link>
+
+    <!-- Project extras -->
+    <link href="../assets/css/project.css" rel="stylesheet"> </link>
+    <link href="../assets/css/pygments-manni.css" rel="stylesheet"> </link>
+    <link href="../jquery-ui.css" rel="stylesheet"> </link>
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+    <script src="../assets/js/html5shiv.js"> </script>
+    <script src="../assets/js/respond.min.js"> </script>
+    <![endif]-->
+
+    <!-- Favicons -->
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="../assets/ico/apple-touch-icon-144-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="../assets/ico/apple-touch-icon-114-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="../assets/ico/apple-touch-icon-72-precomposed.png"> </link>
+    <link rel="apple-touch-icon-precomposed" href="../assets/ico/apple-touch-icon-57-precomposed.png"> </link>
+    <link rel="shortcut icon" href="../assets/ico/favicon.png"> </link>
+
+</head>
+<body><div><a name='Encounter.hospitalization'> </a>
+<h2> Encounter.hospitalization <a href='#Encounter.hospitalization' title='link to here' class='self-link'> <img src='../target.png' width='20' class='self-link' height='20'/></a></h2>
+<p>Details about the admission to a healthcare service.</p>
+<p><span class="glyphicon glyphicon-ok"> </span> = Must Support, <span class="glyphicon glyphicon-exclamation-sign"> </span> = Is Modifier, <span class="glyphicon glyphicon-star"> </span> = QiCore defined extension</p>
+<table class='table table-striped table-bordered'>
+<tr><th>Field</th><th>Card.</th><th>Type</th><th>Description</th></tr>
+<tr><th>preAdmissionIdentifier</th><td>0..1</td><td><a href='QUICK-Identifier.html'>Identifier</a></td><td>Pre-admission identifier.</td></tr>
+<tr><th>origin</th><td>0..1</td><td><a href='QUICK-QICoreLocation.html'>QICoreLocation</a></td><td>The location/organization from which the patient came before admission.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>admitSource</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>From where patient was admitted (physician referral, transfer).<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/encounter-admit-source' target='_blank'>From where the patient was admitted.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>reAdmission</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Whether this hospitalization is a readmission and why if known.<br /><strong>Binding: </strong><a href='http://terminology.hl7.org/ValueSet/v2-0092' target='_blank'>The reason for re-admission of this hospitalization encounter.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>dietPreference</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>Diet preferences reported by the patient.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/encounter-diet' target='_blank'>Medical, cultural or ethical food preferences to help with catering requirements.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+<tr><th>specialCourtesy</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>Special courtesies (VIP, board member).<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/encounter-special-courtesy' target='_blank'>Special courtesies.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th>specialArrangement</th><td>0..*</td><td>List&lt;<a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a>&gt;</td><td>Any special requests that have been made for this hospitalization encounter, such as the provision of specific equipment or other things.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/encounter-special-arrangements' target='_blank'>Special arrangements.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#preferred' target='_blank'>preferred</a>)</td></tr>
+<tr><th>destination</th><td>0..1</td><td><a href='QUICK-QICoreLocation.html'>QICoreLocation</a></td><td>Location/organization to which the patient is discharged.</td></tr>
+<tr><th><span class="glyphicon glyphicon-ok"> </span>dischargeDisposition</th><td>0..1</td><td><a href='http://cql.hl7.org/02-authorsguide.html#concept' target='_blank'>Concept</a></td><td>Category or kind of location after discharge.<br /><strong>Binding: </strong><a href='http://hl7.org/fhir/ValueSet/encounter-discharge-disposition' target='_blank'>Discharge Disposition.</a> (<a href='http://hl7.org/fhir/STU3/terminologies.html#example' target='_blank'>example</a>)</td></tr>
+</table>
+</div>
+</body>
+</html>
