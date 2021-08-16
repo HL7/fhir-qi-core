@@ -1,23 +1,19 @@
----
-layout: default
-title: Home
-topofpage: true
----
-
----
-
-<!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
-
-* Do not remove this line (it will not be displayed)
 {:toc}
+Where possible, new and updated content will be highlighted with green text and background.
+{:.new-content}
 
-## 1 Quality Improvement Core (QI-Core) Implementation Guide
+<div markdown="1" class="bg-info">
+
+{{ site.data.package_list.list[0].desc }}
+
+</div>
+
 {: #qi-core-implementation-guide}
 
 > This STU 4.1 update to the QI-Core profiles updates to FHIR R4 (technical correction 1 (v4.0.1)) and US-Core STU 3.1 (w/ Errata) (v3.1.1). See the version history for a complete
 list of changes to this version.
 
-### 1.1 Summary
+### Summary
 {: #summary}
 
 The QI-Core Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create
@@ -30,7 +26,7 @@ As an HL7 FHIR Implementation Guide, changes to this specification are managed b
 standard balloting process. The current roadmap follows closely behind the base FHIR roadmap, and the US Core
 Implementation Guide.
 
-### 1.2 Contents
+### Contents
 {: #contents}
 
 This guide is divided into pages which are listed at the top each page in the menu bar:
@@ -45,7 +41,7 @@ This guide is divided into pages which are listed at the top each page in the me
 * **[QDM-to-QI-Core Mapping](qdm-to-qicore.html)**: This page provides a detailed description of mapping from QDM to QI-Core
 * **[Authoring](quick/QUICK-index.html)**: This page provides an author-focused view of the QI-Core profiles
 
-### 1.3 Background
+### Background
 {: #background}
 
 This Implementation Guide originated as a U.S. Realm Specification with support from the
@@ -85,7 +81,7 @@ to have a single logical data model (QUICK), as well as a single logical process
 quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce
 the learning curve, and consolidate efforts to maintain multiple standards.
 
-### 1.4 Relationship Between QUICK, the QI-Core Profiles, and FHIR
+### Relationship Between QUICK, the QI-Core Profiles, and FHIR
 
 The QUICK logical model was originally developed without reference to FHIR. However, when it became clear that FHIR
 would be the focus of interoperability efforts in HL7, it no longer made sense for the quality improvement community to
@@ -102,7 +98,7 @@ gaps such as missing attributes and unspecified value sets that might make QUICK
 applications. In turn, QUICK is derived from QI-Core profiles, rather than directly from FHIR, providing an
 author-focused view of the FHIR resources profiled by QI-Core.
 
-### 1.5 Relevance of QI-Core Profiles to Authors
+### Relevance of QI-Core Profiles to Authors
 
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
 quality measures (CQM) and CDS, thus providing a common foundation for reusability. To the extent possible, QI-Core
@@ -118,7 +114,7 @@ identifies a common need and the additional content has been validated.
 
 Though the QUICK model was intended to be the logical model used by quality artifact authors, a comprehensive FHIR version-independent QUICK model is not currently available and its feasibility needs further clarification. QI-Core does provide a QUICK logical view of clinical data from the perspective of representing quality measurement and decision support knowledge. The QUICK logical view is FHIR version-specific and it enables knowledge authors to ignore certain details of the FHIR Physical representation. Quality measures can be written using the QUICK logical view or directly using QI-Core profiles.
 
-### 1.6 Scope
+### Scope
 
 The QI-Core FHIR Implementation Guide provides requirements and guidance on the use of FHIR in quality measurement and
 decision support. The profiles in this implementation guide will be used to meet QI-Core project objectives of:
@@ -149,7 +145,7 @@ Some of the above topics are under active investigation and will be topics of fu
 the FHIR [Clinical Reasoning]({{site.data.fhir.path}}clinicalreasoning-module.html) module provides resources and
 guidance for how to represent and evaluate quality improvement artifacts within FHIR.
 
-### 1.7 Privacy, Security, and Consent
+### Privacy, Security, and Consent
 
 Quality applications may make use of patient-specific information. For this reason, all transactions must be
 appropriately secured, limiting access to authorized individuals and protecting data while in transit (as laid out in
@@ -166,7 +162,7 @@ It is the responsibility of the server (data provider) to ensure that any necess
 reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in
 the same manner as other transactions, as discussed above under General Security Considerations.
 
-### 1.7 Provenance
+### Provenance
 
 QI-Core addresses provenance at a data element level. We address data element provenance as defined with the individual
 FHIR resource.  Each FHIR resource has its own way to address provenance (author, performer, author or issued date,
@@ -178,7 +174,7 @@ each resource owner's future FHIR version direction and with discussions with th
 respective resource. QI-Core closely follows US Core and will address future US Core versions that enhance its
 approach to provenance.
 
-### 1.8 Relationship to Other Initiatives
+### Relationship to Other Initiatives
 
 QI-Core has been harmonized with certain other FHIR-based initiatives, in particular, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
@@ -208,17 +204,17 @@ rather than infer the QUICK model from the definition of the QI-Core profiles as
 In addition, the QI-Core effort is actively working with the QDM to produce a mapping from QDM to QI-Core such that a
 CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
-### 1.9 Naming Conventions
+### Naming Conventions
 
 QI-Core profiles are indicated by the prefix "QICore". For example, the QI-Core profile of Patient is named QICorePatient.
 
-### 1.10 Extensions and Mappings
+### Extensions and Mappings
 
 QI-Core adds a variety of [extensions](extensions.html) to core FHIR classes. These extensions derive from two primary
 sources: the Quality Improvement Domain Analysis Model (QIDAM), and the Quality Data Model (QDM). Profile pages contain
 definitions of extensions and mappings to QDM as an aid for current users of QDM.
 
-### 1.11 MustSupport Flag
+### MustSupport Flag
 
 QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core](http://hl7.org/fhir/us/core/general-guidance.html#must-support) must be respected.
 
@@ -254,7 +250,7 @@ applications, defined as follows:
 -  Quality artifact authors can use the MustSupport elements in their artifacts with the expectation that the model elements will be portable across all systems compliant with QI-Core, and
 -  Quality improvement artifact applications SHALL recognize and process all MustSupport elements in QI-Core.
 
-### 1.12 Modifying Attributes
+### Modifying Attributes
 
 Within FHIR resources, some elements are considered [Modifying Elements]({{site.data.fhir.path}}conformance-rules.html#isModifier),
 indicating that the value of that element may change the interpretation of the resource.
@@ -264,7 +260,7 @@ quality implementations MUST always check the values of modifying elements. For 
 resource, the application must inspect the "wasNotGiven" element to determine whether the immunization was given or was
 not given to the patient. For this reason, modifying elements SHALL be treated as MustSupport, even if not declared.
 
-### 1.13 Negation in QI-Core
+### Negation in QI-Core
 {: #negation-in-qi-core}
 
 Two commonly used patterns for negation in quality measurement and decision support are:
@@ -293,7 +289,7 @@ The following examples differentiate methods to indicate (a) presence of evidenc
 of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
 of medication included within a value set for "Antithrombotic Therapy".
 
-#### 1.13.1 Presence
+#### Presence
 {: #presence}
 
 Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
@@ -303,7 +299,7 @@ Evidence that "Antithrombotic Therapy" (defined by a medication-specific value s
         where AntithromboticTherapy.status = 'completed'
           and AntithromboticTherapy.category ~ "Inpatient Setting"
 
-#### 1.13.2 Absence
+#### Absence
 {: #absence}
 
 No evidence that "Antithrombotic Therapy" medication was administered:
@@ -315,7 +311,7 @@ No evidence that "Antithrombotic Therapy" medication was administered:
             and AntithromboticTherapy.category ~ "Inpatient Setting"
       )
 
-#### 1.13.3 Negation Rationale
+#### Negation Rationale
 {: #negation-rationale}
 
 Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
@@ -354,7 +350,7 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 {: .list}
 
-### 1.14 Terminology Bindings
+### Terminology Bindings
 
 Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data
 owners to translate local data into the required vocabulary. As a US Realm product, QI-Core requires value sets and
@@ -370,7 +366,7 @@ value set when used. For example, the code element of the MedicationRequest prof
 for the RxNorm code system, indicating that all MedicationRequest instances shall use codes from the RxNorm code system,
 but within any given artifact, instances will typically use a restricted value set.
 
-### 1.15 Resource References and "Any"
+### Resource References and "Any"
 
 FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a
 reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resources. For example,
@@ -384,7 +380,7 @@ dealing with "Any" references, the current method of specifying profiles does no
 something to the effect of "a QI-Core resource when there is one, and a FHIR core resource if there isn't." In QI-Core,
 the resources in "Any" references SHALL conform to QI-Core profiles if the base resource has been profiled.
 
-### 1.16 Summary of Conformance Requirements
+### Summary of Conformance Requirements
 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
@@ -399,7 +395,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 -  Applications SHOULD use the preferred value sets
 -  In the U.S. Realm, applications SHALL be simultaneously compliant with QI-Core profiles and US Core profiles. As such, the more restrictive bindings between US Core and QI-Core SHALL be adhered to. For example, all value sets that are required in US Core SHALL be required by QI-Core, regardless of the binding strength in QI-Core.
 
-### 1.17 Author Information
+### Author Information
 
 |Author Name|Affiliation|Role|
 |---|---|---|

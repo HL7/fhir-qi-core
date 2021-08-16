@@ -1,24 +1,12 @@
----
-layout: default
-title: Profiles
-topofpage: true
----
-
----
-
-<!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
-
-* Do not remove this line (it will not be displayed)
 {:toc}
 
-## 2 QI-Core Profiles
 
 The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if any, and the underlying FHIR resources:
 
 
 |QI-Core Profile|USCore Profile|Base Resource|
 |---|---|---|
-|[QICoreAdverseEvent](StructureDefinition-qicore-adverseevent.html)| |[AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
+|{:.new-content #FHIR}[QICoreAdverseEvent](StructureDefinition-qicore-adverseevent.html)| |[AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
 |[QICoreAllergyIntolerance](StructureDefinition-qicore-allergyintolerance.html)| [USCoreAllergyIntolerance](http://hl7.org/fhir/us/core/StructureDefinition-us-core-allergyintolerance.html) |[AllergyIntolerance]({{site.data.fhir.path}}allergyintolerance.html)|
 |[QICoreBodyStructure](StructureDefinition-qicore-bodystructure.html)| |[BodyStructure]({{site.data.fhir.path}}bodystructure.html)|
 |[QICoreCarePlan](StructureDefinition-qicore-careplan.html)| [USCoreCarePlan](http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-careplan.html) |[CarePlan]({{site.data.fhir.path}}careplan.html)|
@@ -40,7 +28,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreFlag](StructureDefinition-qicore-flag.html)| |[Flag]({{site.data.fhir.path}}flag.html)|
 |[QICoreGoal](StructureDefinition-qicore-goal.html)| [USCoreGoal](http://hl7.org/fhir/us/core/StructureDefinition-us-core-goal.html) |[Goal]({{site.data.fhir.path}}goal.html)|
 |[QICoreImagingStudy](StructureDefinition-qicore-imagingstudy.html)| |[ImagingStudy]({{site.data.fhir.path}}imagingstudy.html)|
-|[QICoreImmunization](StructureDefinition-qicore-immunization.html)| [USCoreImmunization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html) |[Immunization]({{site.data.fhir.path}}immunization.html)|
+|**[QICoreImmunization](StructureDefinition-qicore-immunization.html)**| [USCoreImmunization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html) |[Immunization]({{site.data.fhir.path}}immunization.html)|
 |[QICoreImmunizationEvaluation](StructureDefinition-qicore-immunizationevaluation.html)| |[ImmunizationEvaluation]({{site.data.fhir.path}}immunizationevaluation.html)|
 |[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)| |[Immunization]({{site.data.fhir.path}}immunization.html)|
 |[QICoreImmunizationRecommendation](StructureDefinition-qicore-immunizationrec.html)| |[ImmunizationRecommendation]({{site.data.fhir.path}}immunizationrecommendation.html)|
@@ -78,9 +66,10 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)| |[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
+
 The QUICK Logical View of these profiles is provided [here](quick/QUICK-index.html).
 
-### 2.1 Referencing QI-Core Profiles
+### Referencing QI-Core Profiles
 
 There are a number of  QI-Core profiles inherit directly from US Core profiles, if any, or other FHIR resources (i.e. USCoreImplantableDeviceProfile, FHIR VitalSigns, USCore Smoking Status etc.) and the underlying Reference elements can address the US Core or FHIR profiles for the items referenced. For any other references to base FHIR resources or not formally defined in a QI-Core Profile, the referenced resource **SHOULD** be a QI-Core Profile if a QI-Core Profile exists for the resource type. For example, USCore Smoking Status references US Core Patient profile, the reference to Patient **SHOULD** be a valid QI-Core Patient.
 

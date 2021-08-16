@@ -1,23 +1,11 @@
----
-layout: default
-title: Patterns
-topofpage: true
----
-
----
-
-<!-- TOC  the css styling for this is \pages\assets\css\project.css under 'markdown-toc'-->
-
-* Do not remove this line (it will not be displayed)
 {:toc}
 
-## 3 QI-Core Patterns
 {: #QICore-Patterns}
 
 The patterns described here have been developed through usage of QI-Core profiles in the development of
 CQL-based quality measures and decision support.
 
-### 3.1 FHIR and CQL
+### FHIR and CQL
 
 Although the QI-Core profiles define additional constraints and extensions for use in clinical quality improvement
 applications, the CQL written for those applications is currently written against FHIR structures. The QUICK Logical
@@ -187,7 +175,7 @@ Note that these functions make use of the FHIRHelpers library to ensure correct 
 
 > NOTE: The examples throughout this topic have been simplified to illustrate specific usage. Refer to the originating context for complete expressions.
 
-### 3.1 Observations
+### Observations
 {: #Observation_Examples}
 
 For observations that have established profiles in US-Core, QI-Core uses those profiles:
@@ -206,9 +194,9 @@ For all other observations, use the [QICore-Observation](StructureDefinition-qic
 
 For any observations _not_ done, including the observations identified in the profiles above, use the [Observation Not Done Profile](StructureDefinition-qicore-observationnotdone.html).
 
-### 3.2 Encounter Examples
+### Encounter Examples
 
-#### 3.2.1 Inpatient Encounter Example
+#### Inpatient Encounter Example
 
 Example source: MATGlobalCommonFunctions
 
@@ -220,10 +208,10 @@ define "Inpatient Encounter":
       and EncounterInpatient.period ends during "Measurement Period"
 ```
 
-#### 3.2.2 Inpatient Encounter with Principal Diagnosis
+#### Inpatient Encounter with Principal Diagnosis
 
 Example source: EXM105
-
+<div class="new-content" markdown="1">
 ```sql
 define "Inpatient Encounter with Principal Diagnosis of Ischemic Stroke":
   "Inpatient Encounter" Encounter
@@ -232,10 +220,10 @@ define "Inpatient Encounter with Principal Diagnosis of Ischemic Stroke":
         return singleton from ([Condition: id in Last(Split(PD.condition.reference, '/'))])
     where PrincipalDiagnosis.code in "Ischemic Stroke"
 ```
-
+</div>
 Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be unnecessary once QUICK is fully supported.
 
-#### 3.2.3 Inpatient Encounter with Principal Procedure
+#### Inpatient Encounter with Principal Procedure
 
 Example source: VTE-1
 
@@ -260,7 +248,7 @@ define function GetId(uri String):
   Last(Split(uri, '/'))
 ```
 
-### 3.3 Diagnosis Examples
+### Diagnosis Examples
 
 Example source: EXM72_FHIR-8.1.0_TJC.cql
 
@@ -272,7 +260,7 @@ define "Condition of Intravenous or Intra arterial Thrombolytic (tPA) Therapy Pr
 
 Note that verificationStatus is not being checked due to feedback received that it may be difficult for implementers to retrieve the element.
 
-### 3.4 Medications
+### Medications
 
 Example source: EXM108_FHIR
 
@@ -283,7 +271,7 @@ define "VTE Prophylaxis by Medication Administered":
       and VTEMedication.dosage.route in "Subcutaneous route"
 ```
 
-#### 3.4.1 Medications at discharge
+#### Medications at discharge
 
 Example source: EXM104_FHIR-8.1.000_TJC.cql
 
@@ -296,7 +284,7 @@ define "Antithrombotic Therapy at Discharge":
 
 Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be unnecessary once QUICK is fully supported.
 
-#### 3.4.2 Medication not discharged
+#### Medication not discharged
 
 ```sql
 define "Antithrombotic Not Given at Discharge":
@@ -306,7 +294,7 @@ define "Antithrombotic Not Given at Discharge":
         or singleton from NoAntithromboticDischarge.reasonCode in "Patient Refusal")
 ```
 
-#### 3.4.3 Medication not administered
+#### Medication not administered
 
 Example source: EXM108_FHIR
 
@@ -316,7 +304,7 @@ define "No VTE Prophylaxis Medication Administered":
     where MedicationAdm.status = 'not-done'
 ```
 
-#### 3.4.4 Medication not ordered
+#### Medication not ordered
 
 Example source: EXM108_FHIR
 
@@ -329,7 +317,7 @@ define "No VTE Prophylaxis Medication Ordered":
 
 Ballot-note: Note that the MedicationRequest status element is not being checked here. What is the status element expected to be for a MedicationRequest with doNotPerform set to true?
 
-### 3.5 Procedures/Interventions
+### Procedures/Interventions
 
 Example source: EXM108_FHIR
 
@@ -343,7 +331,7 @@ define "Intervention Comfort Measures":
     )
 ```
 
-#### 3.5.1 Device Use
+#### Device Use
 
 Example source: EXM108_FHIR
 
@@ -357,7 +345,7 @@ define "VTE Prophylaxis by Device Applied":
 )
  ```
 
-#### 3.5.2 Device Not Used
+#### Device Not Used
 
 Example source: EXM108_FHIR
 
@@ -373,7 +361,7 @@ define "No VTE Prophylaxis Device Applied":
     return {id: DeviceApplied.id, requestStatusReason: DeviceApplied.statusReason, authoredOn: DeviceNotDoneTiming}
 ```
 
-#### 3.5.3 Device Not Ordered
+#### Device Not Ordered
 
 Example source: EXM108_FHIR
 
