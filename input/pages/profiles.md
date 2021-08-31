@@ -67,7 +67,6 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 {: .list}
 
 
-The QUICK Logical View of these profiles is provided [here](quick/QUICK-index.html).
 
 ### Referencing QI-Core Profiles
 
