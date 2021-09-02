@@ -6,7 +6,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 
 |QI-Core Profile|USCore Profile|Base Resource|
 |---|---|---|
-|{:.new-content #FHIR}[QICoreAdverseEvent](StructureDefinition-qicore-adverseevent.html)| |[AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
+|[QICoreAdverseEvent](StructureDefinition-qicore-adverseevent.html)| |[AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
 |[QICoreAllergyIntolerance](StructureDefinition-qicore-allergyintolerance.html)| [USCoreAllergyIntolerance](http://hl7.org/fhir/us/core/StructureDefinition-us-core-allergyintolerance.html) |[AllergyIntolerance]({{site.data.fhir.path}}allergyintolerance.html)|
 |[QICoreBodyStructure](StructureDefinition-qicore-bodystructure.html)| |[BodyStructure]({{site.data.fhir.path}}bodystructure.html)|
 |[QICoreCarePlan](StructureDefinition-qicore-careplan.html)| [USCoreCarePlan](http://hl7.org/fhir/us/core/STU3.1/StructureDefinition-us-core-careplan.html) |[CarePlan]({{site.data.fhir.path}}careplan.html)|
@@ -28,7 +28,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreFlag](StructureDefinition-qicore-flag.html)| |[Flag]({{site.data.fhir.path}}flag.html)|
 |[QICoreGoal](StructureDefinition-qicore-goal.html)| [USCoreGoal](http://hl7.org/fhir/us/core/StructureDefinition-us-core-goal.html) |[Goal]({{site.data.fhir.path}}goal.html)|
 |[QICoreImagingStudy](StructureDefinition-qicore-imagingstudy.html)| |[ImagingStudy]({{site.data.fhir.path}}imagingstudy.html)|
-|**[QICoreImmunization](StructureDefinition-qicore-immunization.html)**| [USCoreImmunization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html) |[Immunization]({{site.data.fhir.path}}immunization.html)|
+|[QICoreImmunization](StructureDefinition-qicore-immunization.html)| [USCoreImmunization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html) |[Immunization]({{site.data.fhir.path}}immunization.html)|
 |[QICoreImmunizationEvaluation](StructureDefinition-qicore-immunizationevaluation.html)| |[ImmunizationEvaluation]({{site.data.fhir.path}}immunizationevaluation.html)|
 |[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)| |[Immunization]({{site.data.fhir.path}}immunization.html)|
 |[QICoreImmunizationRecommendation](StructureDefinition-qicore-immunizationrec.html)| |[ImmunizationRecommendation]({{site.data.fhir.path}}immunizationrecommendation.html)|
