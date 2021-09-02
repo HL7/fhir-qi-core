@@ -343,11 +343,15 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)|[Immunization]({{site.data.fhir.path}}immunization.html)|
 |[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
+|[QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html)|[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
 |[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 {: .list}
+
+{:.new-content}
+[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html) &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; [Task]({{site.data.fhir.path}}task.html)
+
 
 ### Terminology Bindings
 
