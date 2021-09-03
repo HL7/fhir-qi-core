@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Immunization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-example-code"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone"/>
+  </meta>
+  <status value="not-done"/>
+  <statusReason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="183945002"/>
+      <display value="Procedure refused for religious reason (situation)"/>
+    </coding>
+  </statusReason>
+  <vaccineCode>
+    <coding>
+      <system value="http://hl7.org/fhir/sid/cvx"/>
+      <code value="160"/>
+      <display value="Influenza A monovalent (H5N1), ADJUVANTED-2013"/>
+    </coding>
+    <text value="Influenze Vaccine A"/>
+  </vaccineCode>
+  <patient>
+    <reference value="Patient/example"/>
+  </patient>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <occurrenceDateTime value="2013-01-10"/>
+  <recorded value="2013-01-10"/>
+  <primarySource value="true"/>
+</Immunization>

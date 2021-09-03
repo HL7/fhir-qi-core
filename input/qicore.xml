@@ -1,0 +1,1164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<ImplementationGuide xmlns="http://hl7.org/fhir">
+  <id value="us-qicore-4.1.0"/>
+  <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/us-qicore-4.1.0"/>
+  <version value="4.1.0"/>
+  <name value="QICore"/>
+  <title value="QI-Core Implementation Guide"/>
+  <status value="draft"/>
+  <experimental value="false"/>
+  <publisher value="Clinical Quality Improvement WG"/>
+  <contact>
+    <telecom>
+      <system value="url"/>
+      <value value="http://hl7.org/Special/committees/CQI"/>
+    </telecom>
+  </contact>
+  <description value="The QICore Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the [US Core](http://hl7.org/fhir/us/core) profiles to provide a common foundation for building, sharing, and evaluating knowledge artifacts across quality improvement efforts in the US Realm."/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <packageId value="hl7.fhir.us.qicore"/>
+  <license value="CC0-1.0"/>
+  <fhirVersion value="4.0.1"/>
+  <dependsOn id="uscore">
+    <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
+    <packageId value="hl7.fhir.us.core"/>
+    <version value="3.1.1"/>
+  </dependsOn>
+  <definition>
+    <resource>
+      <reference>
+        <reference value="AdverseEvent/example"/>
+      </reference>
+      <name value="AdverseEvent example"/>
+      <description value="Example of an allergic reaction adverse event"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="AllergyIntolerance/example"/>
+      </reference>
+      <name value="AllergyIntrolerance example"/>
+      <description value="Example of a clinical assesment record of an allergy"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="AllergyIntolerance/example-refuted"/>
+      </reference>
+      <name value="AllergyIntrolerance refuted example"/>
+      <description value="Example of a clinical assesment record of an allergy that has been refuted"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="BodyStructure/example"/>
+      </reference>
+      <name value="BodyStructure example"/>
+      <description value="Example of a BodyStructure resource to identify a mass in the spleen"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CarePlan/example"/>
+      </reference>
+      <name value="CarePlan example"/>
+      <description value="Example of an assessment and care plan for a pregnancy"/>
+      <exampleBoolean value="true"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CareTeam/example"/>
+      </reference>
+      <name value="CareTeam example"/>
+      <description value="Example of a CareTeam involved in the delivery of care for a pregnancy"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Claim/example"/>
+      </reference>
+      <name value="Claim example"/>
+      <description value="Example of a vision claim"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Communication/example"/>
+      </reference>
+      <name value="Communication example"/>
+      <description value="Example of a notification sent to a patient about an abnormal test result"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Communication/negation-example"/>
+      </reference>
+      <name value="Communication negation example"/>
+      <description value="Example of a notification that failed to be sent to a patient and reason why"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationnotdone"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CommunicationRequest/example"/>
+      </reference>
+      <name value="CommunicationRequest example"/>
+      <description value="Example of a record of request to provide additional information for a claim"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Condition/example"/>
+      </reference>
+      <name value="Condition example"/>
+      <description value="Example of a condition resource used to record information about a burn of the left ear"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Condition/appendicitis-example"/>
+      </reference>
+      <name value="Condition example - appendicitis"/>
+      <description value="Example of a condition resource used to record information about an appendicitis"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Coverage/example"/>
+      </reference>
+      <name value="Coverage example"/>
+      <description value="Example of a coverage resource used to provide information about an individuals specific plan"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Device/example"/>
+      </reference>
+      <name value="Device example"/>
+      <description value="Device example for an ECG"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DeviceRequest/example"/>
+      </reference>
+      <name value="DeviceRequest example"/>
+      <description value="Request to employ a medical device"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequest"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DeviceRequest/negation-example"/>
+      </reference>
+      <name value="DeviceRequest negation example"/>
+      <description value="Example of a request to employ a medical device that was not performed"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DeviceRequest/negation-with-code-example"/>
+      </reference>
+      <name value="DeviceRequest negation with code example"/>
+      <description value="Example of a request to employ a medical device that was not performed"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DeviceUseStatement/example"/>
+      </reference>
+      <name value="DeviceUseStatement example"/>
+      <description value="Example of a record of device use by a patient"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DiagnosticReport/example"/>
+      </reference>
+      <name value="DiagnosticReportLab example"/>
+      <description value="Example of a the findings and interpretation of a laboratory diagnostic test"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DiagnosticReport/note-example"/>
+      </reference>
+      <name value="DiagnosticReportNote example"/>
+      <description value="Example of a DiagnosticReport Note"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Encounter/example"/>
+      </reference>
+      <name value="Encounter example"/>
+      <description value="Example of an Encounter"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="FamilyMemberHistory/example"/>
+      </reference>
+      <name value="FamilyMemberHistory example"/>
+      <description value="Example of Family Member History for a patient"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Flag/example"/>
+      </reference>
+      <name value="Flag example"/>
+      <description value="Warning/Notification when providing care example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Goal/example"/>
+      </reference>
+      <name value="Goal example"/>
+      <description value="Example of weight loss goal/objective for a patient"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ImagingStudy/example"/>
+      </reference>
+      <name value="ImagingStudy example"/>
+      <description value="Example of ImagingStudy based on CT imaging study"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Immunization/example"/>
+      </reference>
+      <name value="Immunization example"/>
+      <description value="Immunization example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Immunization/negation-example"/>
+      </reference>
+      <name value="Immunization negation example"/>
+      <description value="Example of immunization that was refused/failed to be administered using valuset"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Immunization/negation-example-code"/>
+      </reference>
+      <name value="Immunization negation with code example"/>
+      <description value="Example of immunization that was refused/failed to be administered using code"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ImmunizationEvaluation/example"/>
+      </reference>
+      <name value="ImmunizationEvaluaion example"/>
+      <description value="Example of ImmunizationEvaluation"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ImmunizationRecommendation/example"/>
+      </reference>
+      <name value="ImmunizationRecommendation example"/>
+      <description value="Example of ImmunizationRecommendation for Hepatitis A vaccine"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Location/example"/>
+      </reference>
+      <name value="Location example"/>
+      <description value="Example of Location of a provider - south wing of Mean Joe Greene University Medical Center"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Medication/example"/>
+      </reference>
+      <name value="Medication example"/>
+      <description value="Example of Alemtuzumab Medication"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationAdministration/example"/>
+      </reference>
+      <name value="MedicationAdministration example"/>
+      <description value="Inhalent example of MedicationAdministration"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationAdministration/negation-example"/>
+      </reference>
+      <name value="MedicationAdministration negation example"/>
+      <description value="Example of medication not administered using a value set to indicate what was not administered"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotadministered"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationAdministration/negation-with-code-example"/>
+      </reference>
+      <name value="MedicationAdministration negation with code example"/>
+      <description value="Example of medication not administered using a code to indicate that a particular medication was not administered"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotadministered"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationDispense/example"/>
+      </reference>
+      <name value="MedicationDispense example"/>
+      <description value="Penicillin MedicationDispense Example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationDispense/negation-example"/>
+      </reference>
+      <name value="MedicationDispense negation example"/>
+      <description value="Example of medication not dispensed using a valuetset to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotdispensed"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationDispense/negation-with-code-example"/>
+      </reference>
+      <name value="MedicationDispense negation with code example"/>
+      <description value="Example of medication not dispensed using a code to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotdispensed"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationRequest/cmd-example"/>
+      </reference>
+      <name value="MedicationRequest Cumulative Duration"/>
+      <description value="Cumulative Medication Duration Example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationRequest/example"/>
+      </reference>
+      <name value="MedicationRequest example"/>
+      <description value="Penicillin MedicationRequest Example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationRequest/negation-example"/>
+      </reference>
+      <name value="MedicationNotRequested using valueset example"/>
+      <description value="Example of medication not requested using a valuetset to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotrequested"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationRequest/negation-example-code"/>
+      </reference>
+      <name value="MedicationNotRequested using code example"/>
+      <description value="Example of medication not requested using a code to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotrequested"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationStatement/example"/>
+      </reference>
+      <name value="MedicationStatment example"/>
+      <description value="Penicillin MedicationStatement Example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="NutritionOrder/example"/>
+      </reference>
+      <name value="NutrientOrder example"/>
+      <description value="Example of NutrientOrder for diabetic diet"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example"/>
+      </reference>
+      <name value="Observation example"/>
+      <description value="Example of Decreased Hemoglobin Observation"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/negation-example"/>
+      </reference>
+      <name value="ObservationNotDone with valueset example"/>
+      <description value="Example of observation not done using a valueset to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationnotdone"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/negation-with-code-example"/>
+      </reference>
+      <name value="ObservationNotDone with code example"/>
+      <description value="Example of observation not done using a code to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationnotdone"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Organization/example"/>
+      </reference>
+      <name value="Organization example"/>
+      <description value="HL7 Organization example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Patient/example"/>
+      </reference>
+      <name value="Patient example"/>
+      <description value="Basic Patient example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Practitioner/example"/>
+      </reference>
+      <name value="Practitioner example"/>
+      <description value="Referring Practitioner example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="PractitionerRole/example"/>
+      </reference>
+      <name value="PractitionerRole example"/>
+      <description value="PractitionerRole example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Procedure/example"/>
+      </reference>
+      <name value="Procedure example"/>
+      <description value="Appendectomy Procedure example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Procedure/negation-example"/>
+      </reference>
+      <name value="ProcedureNotDone with valueset example"/>
+      <description value="Example of procedure not done using a valueset to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Procedure/negation-with-code-example"/>
+      </reference>
+      <name value="ProcedureNotDone with code example"/>
+      <description value="Example of procedure not done using a code to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/example"/>
+      </reference>
+      <name value="ServiceRequest example"/>
+      <description value="Request for Appendectomy ServiceRequest example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/appropriateness-example"/>
+      </reference>
+      <name value="ServiceRequest appropiateness example"/>
+      <description value="ServiceRequest appropiateness example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/negation-example"/>
+      </reference>
+      <name value="ServiceNotRequested with valueset example"/>
+      <description value="Example of service not requested using a valueset to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/negation-example-code"/>
+      </reference>
+      <name value="ServiceNotRequested with code example"/>
+      <description value="Example of service not requested using a code to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/referral-example"/>
+      </reference>
+      <name value="ServiceRequest referral example"/>
+      <description value="Referral for Procedure ServiceRequest example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/elective-example"/>
+      </reference>
+      <name value="ServiceRequest elective example"/>
+      <description value="Elective procedure ServiceRequest example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="RelatedPerson/example"/>
+      </reference>
+      <name value="RelatedPerson example"/>
+      <description value="Emergency contact example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Specimen/example"/>
+      </reference>
+      <name value="Specimen example"/>
+      <description value="Blood sample example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Substance/example"/>
+      </reference>
+      <name value="Substance example"/>
+      <description value="Honey Bee venom (apitoxin) Substance example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Task/example"/>
+      </reference>
+      <name value="Task example"/>
+      <description value="Task example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Task/negation-example"/>
+      </reference>
+      <name value="TaskNotDone with valueset example"/>
+      <description value="Example of task not done using a valueset to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-tasknotdone"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Task/negation-with-code-example"/>
+      </reference>
+      <name value="TaskNotDone with code example"/>
+      <description value="Example of task not done using a code to indicate the reason"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-tasknotdone"/>
+    </resource>
+
+    <resource>
+      <reference>
+        <reference value="CodeSystem/appropriateness-score"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/communication-medium"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/condition-criticality"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/diagnosticorder-precondition"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="CodeSystem/observation-verification"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-allergyintolerance-reason-refuted"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-appropriateness-score"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-bodystructure-precoordinated"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-communication-reason-not-performed"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-condition-certainty"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-condition-criticality"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-condition-stage"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-encounter-canceled-reason"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-encounter-condition-role"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-flag-category"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-goal-reason-rejected"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-medication-dose-type"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-negation-reason"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-observation-body-position"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-observation-delta"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-observation-verification"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-patient-disability"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-priority"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-procedure-type"/>
+      </reference>
+      <name value="QICoreProcedureType"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-present-on-admission"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-servicerequest-reason-rejected"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/hl7-payer"/>
+      </reference>
+      <name value="Payer"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <!-- Extensions -->
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/doNotPerformReason"/>
+      </reference>
+      <name value="DoNotPerformReason"/>
+      <description value="DoNotPerformReason Extension"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission"/>
+      </reference>
+      <name value="QICoreDiagnosisPresentOnAdmission"/>
+      <exampleBoolean value="false"/>
+    </resource>
+    <!--resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-adverseevent"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-allergyintolerance"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-bodystructure"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-claim"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-communication"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-communicationnotdone"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-communicationrequest"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-condition"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-coverage"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-device"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-devicenotrequested"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-devicerequest"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-deviceusestatement"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-diagnosticreport-lab"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-diagnosticreport-note"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-encounter"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-familymemberhistory"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-flag"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-goal"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-imagingstudy"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-immunization"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-immunizationnotdone"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-immunizationevaluation"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-immunizationrec"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-location"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-medication"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-medicationadministration"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-mednotadministered"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-medicationdispense"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-mednotdispensed"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-mednotrequested"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-medicationrequest"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-medicationstatement"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-nutritionorder"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-observation"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-observationnotdone"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-organization"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-patient"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-practitioner"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-practitionerrole"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-procedure"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-procedurenotdone"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-relatedperson"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-servicenotrequested"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-servicerequest"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-specimen"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-substance"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-task"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-tasknotdone"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-encounter-procedure"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-doNotPerformReason"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-servicerequest-appropriatenessScore"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-notDone"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-notDoneReason"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-isElective"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="StructureDefinition/qicore-recorded"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>-->
+    <page>
+      <nameUrl value="index.html"/>
+      <title value="Quality Improvement Core (QI-Core) Implementation Guide"/>
+      <generation value="markdown"/>
+    <page>
+    <nameUrl value="profiles.html"/>
+    <title value="QI-Core Profiles"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="patterns.html"/>
+    <title value="QI-Core Patterns"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="extensions.html"/>
+    <title value="QI-Core Extensions"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="terminology.html"/>
+    <title value="QI-Core Terminology"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="examples.html"/>
+    <title value="QI-Core Examples"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="downloads.html"/>
+    <title value="QI-Core Downloads"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
+    <nameUrl value="qdm-to-qicore.html"/>
+    <title value="Quality Data Model (QDM)v5.6 to QI-Core R4 Draft Mapping"/>
+    <generation value="markdown"/>
+  </page>
+</page>
+
+<parameter>
+  <code value="releaselabel"/>
+  <value value="ballot"/>
+</parameter>
+<parameter>
+  <code value="copyrightyear"/>
+  <value value="2019+"/>
+</parameter>
+<parameter>
+  <code value="path-resource"/>
+  <value value="resources"/>
+</parameter>
+<parameter>
+      <code value="apply-version"/>
+      <value value="true"/>
+    </parameter>
+    <parameter>
+       <code value="path-expansion-params"/>
+       <value value="_resources/exp-params.json"/>
+     </parameter>
+    <parameter>
+    <code value="find-other-resources"/>
+    <value value="true"/>
+    </parameter>
+    <parameter>
+      <code value="apply"/>
+      <value value="jurisdiction"/>
+    </parameter>
+    <parameter>
+      <code value="generate"/>
+      <value value="xml"/>
+    </parameter>
+    <parameter>
+      <code value="generate"/>
+      <value value="JSON"/>
+    </parameter>
+  </definition>
+</ImplementationGuide>

@@ -1,0 +1,10 @@
+== Suppressed Messages ==
+
+# Known issues with VSAC value sets
+WARNING: Coverage/example: Coverage.type: ValueSet https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 not found by validator
+# Known issues with VSAC value sets
+ERROR: qicore-negation-reason: Error from server: Unable to find value set "http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.56"
+# Submitted https://jira.hl7.org/browse/FHIR-26526 to address this:
+ERROR: DeviceRequest/negation-example: DeviceRequest: The extension http://hl7.org/fhir/StructureDefinition/request-doNotPerform is not allowed to be used at this point (allowed = e:NutritionOrder; this element is [[DeviceRequest])
+# This error code is present in the US-Core example as well, we are using that example here, so we also have the error
+ERROR: DiagnosticReport/note-example: DiagnosticReport.category[0].coding[0]: The code "LP29684-5" is not valid in the system http://loinc.org; The code provided (http://loinc.org#LP29684-5) is not valid in the value set All codes known to the system for "http://loinc.org#LP29684-5"

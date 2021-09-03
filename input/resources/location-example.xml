@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Location xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+    <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"/>
+  </meta>
+    <identifier>
+        <use value="temp"/>
+        <system value="http://exampleoflocation.com"/>
+        <value value="B1-S.F2"/>
+    </identifier>
+    <status value="active"/>
+    <name value="South Wing, second floor"/>
+		<alias value="Mean Joe Greene University Medical Center, South Wing, second floor"/>
+		<alias value="BU MC, SW, F2"/>
+    <description value="Second floor of the Old South Wing, formerly in use by Psychiatry"/>
+    <mode value="instance"/>
+    <type>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/v3-RoleCode"/>
+            <code value="HOSP"/>
+            <display value="Hospital"/>
+        </coding>
+    </type>
+    <telecom>
+        <system value="phone"/>
+        <value value="2328"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <system value="fax"/>
+        <value value="2329"/>
+        <use value="work"/>
+    </telecom>
+    <telecom>
+        <system value="email"/>
+        <value value="secondwing@meanjoegreeneuniversitymedicalcenter.com"/>
+    </telecom>
+    <telecom>
+        <system value="url"/>
+        <value value="http://sampleorg.com/southwing"/>
+        <use value="work"/>
+    </telecom>
+    <address>
+        <use value="work"/>
+        <line value="Iron Curtain 75, Building A"/>
+        <city value="Pittsburgh"/>
+        <state value="PA"/>
+        <postalCode value="15016"/>
+        <country value="US"/>
+    </address>
+    <physicalType>
+        <coding>
+            <system value="http://terminology.hl7.org/CodeSystem/location-physical-type"/>
+            <code value="wi"/>
+            <display value="Wing"/>
+        </coding>
+    </physicalType>
+    <position>
+        <longitude value="-83.6945691"/>
+        <latitude value="42.25475478"/>
+        <altitude value="0"/>
+    </position>
+    <managingOrganization>
+        <reference value="Organization/example"/>
+    </managingOrganization>
+</Location>

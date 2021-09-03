@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Communication xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="negation-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationnotdone"/>
+  </meta>
+  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded">
+    <valueDateTime value="2014-12-12T18:01:10-08:00"/>
+  </extension>
+  <modifierExtension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone">
+    <valueBoolean value="true"/>
+  </modifierExtension>
+  <status value="not-done"/>
+  <statusReason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="184081006"/>
+      <display value="Patient has moved away (finding)"/>
+    </coding>
+  </statusReason>
+  <category>
+    <coding>
+      <system value="http://acme.org/messagetypes"/>
+      <code value="Alert"/>
+    </coding>
+    <text value="Alert"/>
+  </category>
+  <medium>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/v3-ParticipationMode"/>
+      <code value="WRITTEN"/>
+      <display value="written"/>
+    </coding>
+    <text value="written"/>
+  </medium>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <sent value="2014-12-12T18:01:10-08:00"/>
+  <received value="2014-12-12T18:01:11-08:00"/>
+  <recipient>
+    <reference value="Practitioner/example"/>
+  </recipient>
+  <sender>
+    <reference value="Device/example"/>
+  </sender>
+  <reasonCode>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="1201005"/>
+      <display value="Benign essential hypertension"/>
+    </coding>
+  </reasonCode>
+  <payload>
+    <contentString value="Patient 1 has moved away"/>
+  </payload>
+</Communication>

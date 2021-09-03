@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<PractitionerRole xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"/>
+  </meta>
+  <identifier>
+    <use value="temp"/>
+    <system value="http://www.acme.org/practitionerroles"/>
+    <value value="31"/>
+  </identifier>
+  <active value="true"/>
+  <period>
+    <start value="1995"/>
+  </period>
+  <practitioner>
+    <reference value="Practitioner/example"/>
+    <display value="Dr Adam Careful"/>
+  </practitioner>
+  <organization>
+    <reference value="Organization/example"/>
+  </organization>
+  <code>
+    <coding>
+      <system value="http://nucc.org/provider-taxonomy"/>
+      <code value="261QP2300X"/>
+      <display value="Primary Care Clinic/Center"/>
+    </coding>
+  </code>
+  <specialty>
+    <coding>
+      <system value="http://nucc.org/provider-taxonomy"/>
+      <code value="1223G0001X"/>
+      <display value="General Practice Dentistry"/>
+    </coding>
+  </specialty>
+  <location>
+    <reference value="Location/example"/>
+  </location>
+	<telecom>
+		<system value="phone"/>
+		<value value="801-123-4567"/>
+	</telecom>
+</PractitionerRole>
