@@ -7,8 +7,12 @@
 	<contained>
     <Organization>
       <id value="org6"/>
-			<identifier>
-				<system value="http://example.org/identifier"/>
+      <meta>
+        <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"/>
+      </meta>
+      <identifier>
+        <use value="temp"/>
+				<system value="urn:oid:2.16.840.1.113883.4.336"/>
 				<value value="ORG-006"/>
 			</identifier>
 			<active value="true"/>
@@ -23,7 +27,7 @@
 				<city value="Cambridge"/>
 				<state value="MA"/>
 				<country value="USA"/>
-			</address>	
+			</address>
     </Organization>
   </contained>
   <code>
@@ -33,9 +37,9 @@
       <display value="alemtuzumab 10 MG/ML [Lemtrada]"/>
     </coding>
   </code>
-  
+
   <manufacturer>
-    <reference value="#org6"/>
+    <reference value="org6"/>
   </manufacturer>
     <form>
       <coding>
@@ -68,5 +72,5 @@
   <batch>
     <lotNumber value="9494788"/>
     <expirationDate value="2017-05-22"/>
-  </batch> 
+  </batch>
 </Medication>
