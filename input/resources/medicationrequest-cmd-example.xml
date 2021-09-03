@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- 
+<!--
 This example MedicationRequest models QDM Medication, Order. Cooking with CQL session 49 discusses how to calculate cumulative medication duration:
 https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/blob/master/Source/Cooking%20With%20CQL/49/36_CumulativeMedicationDuration.cql
 
@@ -65,12 +65,12 @@ http://hl7.org/fhir/us/qicore/qdm-to-qicore.html
     </doseAndRate>
   </dosageInstruction>
   <dispenseRequest>
+    <numberOfRepeatsAllowed value="2"/>
     <quantity>
       <value value="100"/>
       <unit value="ml"/>
       <system value="http://unitsofmeasure.org"/>
       <code value="ml"/>
     </quantity>
-	<numberOfRepeatsAllowed value="2"/>
   </dispenseRequest>
 </MedicationRequest>
