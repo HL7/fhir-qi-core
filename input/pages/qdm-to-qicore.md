@@ -1118,7 +1118,7 @@ to the index patient. 
 | **Practitioner**              | [Practitioner](StructureDefinition-qicore-practitioner.html)                                                                                               |                |
 | identifier                    | [Practitioner.identifier.value](StructureDefinition-qicore-practitioner-definitions.html#Practitioner.identifier.value)        |                |
 | id                            | [Practitioner.id](StructureDefinition-qicore-practitioner-definitions.html#Practitioner.id)                                            |                |
-| role                          | [PractitionerRole.code:code](StructureDefinition-qicore-practitionerrole-definitions.html#PractitionerRole.code:code)                                                                                      |                |
+| role                          | [PractitionerRole.code](StructureDefinition-qicore-practitionerrole-definitions.html#PractitionerRole.code)                                                                                      |                |
 | specialty                     | [PractitionerRole.specialty](StructureDefinition-qicore-practitionerrole-definitions.html#PractitionerRole.specialty)            |                |
 | qualification                 | [Practitioner.qualification.code](StructureDefinition-qicore-practitioner-definitions.html#Practitioner.qualification.code) |                |
 | **Organization**              | [Organization](StructureDefinition-qicore-organization.html)                                                                                               |                |
