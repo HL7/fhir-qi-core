@@ -7,26 +7,25 @@ CQL-based quality measures and decision support.
 
 ### FHIR and CQL
 
-Although the QI-Core profiles define additional constraints and extensions for use in clinical quality improvement
-applications, the CQL written for those applications is currently written against FHIR structures. The QUICK Logical
-Model and the QUICK Author-Focused View provided in this implementation guide are intended to support CQL written
-directly against the QUICK model, but until tooling is completed to support that, the following patterns have emerged to
-facilitate the use of FHIR with CQL.
+<div class="new-content" markdown="1">
+Clinical Quality Language ([CQL](http://cql.hl7.org)) is a high-level, domain-specific language focused on clinical quality and targeted at clinical knowledge artifact authors such as quality measure and decision support artifact developers. In addition, the CQL specification provides a machine-readable canonical representation called Expression Logical Model ([ELM](https://cql.hl7.org/04-logicalspecification.html)) targeted at implementations and designed to enable automated sharing of clinical knowledge.
 
-#### ModelInfo
+To use CQL with FHIR, [model information](https://cql.hl7.org/07-physicalrepresentation.html#data-model-references) must be provided to the implementation environment. The [CQF Common](http://build.fhir.org/ig/cqframework/cqf) IG provides a FHIR-ModelInfo library that provides this information for the base FHIR specification, as well as FHIRHelpers and FHIRCommon libraries that provide commonly used functions and declarations for clinical knowledge artifact development. To use FHIR directly, follow the documentation provided in that implementation guide.
 
-To support the use of FHIR, the CQL-to-ELM translator is packaged with a ModelInfo for each version of FHIR.
-As new versions of FHIR are released, the translator is updated with new versions. The examples in this section
-are using the `4.0.0` version of FHIR, the original R4 release version. Consult the CQL-to-ELM translator documentation
-for the availability of newer versions of FHIR model info.
+However, this implementation guide includes a [QICore-ModelInfo](library-QICore-ModelInfo.html) library that provides model information for the profiles and extensions defined in QI-Core. To use this model, include a [using declaration](https://cql.hl7.org/02-authorsguide.html#data-models) as shown in the example below:
+
+```cql
+using QICore version '4.1.0'
+```
+
+Although not required by CQL, current best-practice is to include the version of the QICore model. For more information about how this library is constructed, refer to the [ModelInfo](modelinfo.html) topic.
+</div>
 
 #### Primitives
 
-Primitive elements in FHIR, such as String, Integer, DateTime, and so on, may have extensions, and so have more complex
-structure than primitive elements typically have in other models. This means that when accessing a FHIR primitive element
- directly, a `.value` accessor must be used to get at the CQL primitive value:
+Primitive elements in FHIR, such as String, Integer, DateTime, and so on, may have extensions, and so have more complex structure than primitive elements typically have in other models. This means that when accessing a FHIR primitive element directly, a `.value` accessor must be used to get at the CQL primitive value:
 
-```sql
+```cql
 define "Completed Encounter":
   ["Encounter"] E
     where E.status.value = 'finished'
@@ -35,82 +34,77 @@ define "Completed Encounter":
 To avoid this need, a `FHIRHelpers` library has been defined (and is included by default in the CQL-to-ELM translator). To
 use this library, add the following include:
 
-```sql
-include FHIRHelpers version '4.0.0'
+```cql
+include FHIRHelpers version '4.0.1'
 ```
 
 Note that the FHIRHelpers version must match the FHIR version being used.
 
 With this include, the above simplifies to:
 
-```sql
+```cql
 define "Completed Encounter":
   ["Encounter"] E
     where E.status = 'finished'
 ```
 
-Note that the additional `.value` is no longer required.
+Note that the additional `.value` is no longer required. In addition, the QICore model info represents FHIR primitive elements using the system types directly, so when using QICore, no `.value` accessor is required.
 
 #### Extensions
 
 Extensions in FHIR provide a standard mechanism to describe additional content that is not part of the base
-FHIR resources. By defining extensions in a uniform way as part of the base specification, FHIR enables extension-based
-functionality to be introduced through the use of profiles and implementation guidance. QI-Core, for example, includes
-several extensions related to quality improvement applications.
+FHIR resources. By defining extensions in a uniform way as part of the base specification, FHIR enables extension-based functionality to be introduced through the use of profiles and implementation guidance. QI-Core includes several extensions related to quality improvement applications.
 
-The QUICK Logical Model and the QUICK Author-focused View are intended to provide first-class access to extensions defined
-in the QI-Core profiles, but until these mechanisms are fully available, the following functions have been defined as useful
-short-hands to support accessing extension data in FHIR:
+When using FHIR directly, these extensions must be accessed explicitly, using functions such as the following:
 
-```sql
-define function "GetExtensions"(domainResource DomainResource, url String):
+```cql
+define function "Extensions"(domainResource DomainResource, url String):
   domainResource.extension E
 	  where E.url = ('http://hl7.org/fhir/us/qicore/StructureDefinition/' + url)
 		return E
 
-define function "GetExtension"(domainResource DomainResource, url String):
-  singleton from "GetExtensions"(domainResource, url)
+define function "Extension"(domainResource DomainResource, url String):
+  singleton from "Extensions"(domainResource, url)
 
-define function "GetExtensions"(element Element, url String):
+define function "Extensions"(element Element, url String):
   element.extension E
 	  where E.url = url
 		return E
 
-define function "GetExtension"(element Element, url String):
-  singleton from "GetExtensions"(element, url)
-
-define function "GetBaseExtensions"(domainResource DomainResource, url String):
-  domainResource.extension E
-	  where E.url = ('http://hl7.org/fhir/StructureDefinition/' + url)
-		return E
-
-define function "GetBaseExtension"(domainResource DomainResource, url String):
-  singleton from "GetBaseExtensions"(domainResource, url)
-
-define function "GetUSExtensions"(domainResource DomainResource, url String):
-  domainResource.extension E
-	  where E.url = ('http://hl7.org/fhir/us/core/StructureDefinition/' + url)
-		return E
-
-define function "GetUSExtension"(domainResource DomainResource, url String):
-  singleton from "GetUSExtensions"(domainResource, url)
+define function "Extension"(element Element, url String):
+  singleton from "Extensions"(element, url)
 ```
+
+<div class="new-content" markdown="1">
+However, when using QICore, extensions and slices defined in profiles are represented directly as elements in the types. For example:
+
+```cql
+define TestSlices:
+  ["observation-bp"] BP
+    where BP.SystolicBP.value < 140 'mm[Hg]'
+      and BP.DiastolicBP.value < 90 'mm[Hg]'
+
+define TestSimpleExtensions:
+  Patient P
+    where P.birthsex = 'M'
+
+define TestComplexExtensions:
+  Patient P
+    where P.race.ombCategory contains "American Indian or Alaska Native"
+      and P.race.detailed contains "Alaska Native"
+```
+</div>
 
 #### Choice Types
 
 FHIR includes the notion of Choice Types, or elements that can be of any of a number of types. For example,
-the `Patient.deceased` element can be specified as a `Boolean` or as a `DateTime`. Since CQL also supports choice
-types, these are manifest directly as Choice Types within the FHIR Model Info.
+the `Patient.deceased` element can be specified as a `Boolean` or as a `DateTime`. Since CQL also supports choice types, these are manifest directly as Choice Types within the Model Info.
 
-Where appropriate, the QICoreProfiles restrict choice types to those that are appropriate for the quality improvement
-use case. For example, The `QICoreCondition` profile removes `String` as a possible type for the `onset` element, to
-communicate the expectation that a computable representation of onset is required for quality improvement applications.
+Where appropriate, the QICoreProfiles restrict choice types to those that are appropriate for the quality improvement use case. For example, The `QICoreCondition` profile removes `String` as a possible type for the `onset` element, to communicate the expectation that a computable representation of onset is required for quality improvement applications.
 
-However, because systems may communicate instances contain any of these types, quality improvement logic must be prepared
-to deal with choice elements of any of the available types. To support the most common usages of choice types (for timing
-  elements), the following functions have been defined:
+However, because systems may communicate instances contain any of these types, quality improvement logic must be prepared to deal with choice elements of any of the available types. To support the most common usages of choice types (for timing elements), the following functions have been defined:
 
-```sql
+```cql
 define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
   if onset is FHIR.dateTime then
       Interval[FHIRHelpers.ToDateTime(onset as FHIR.dateTime), FHIRHelpers.ToDateTime(onset as FHIR.dateTime)]
@@ -200,7 +194,7 @@ For any observations _not_ done, including the observations identified in the pr
 
 Example source: MATGlobalCommonFunctions
 
-```sql
+```cql
 define "Inpatient Encounter":
   [Encounter: "Encounter Inpatient"] EncounterInpatient
     where EncounterInpatient.status = 'finished'
@@ -212,7 +206,7 @@ define "Inpatient Encounter":
 
 Example source: EXM105
 <div class="new-content" markdown="1">
-```sql
+```cql
 define "Inpatient Encounter with Principal Diagnosis of Ischemic Stroke":
   "Inpatient Encounter" Encounter
     let PrincipalDiagnosis:
@@ -227,7 +221,7 @@ Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be
 
 Example source: VTE-1
 
-```sql
+```cql
 define "Inpatient Encounter With Principal Procedure of SCIP VTE Selected Surgery":
   "Inpatient Encounter" Encounter
 	  let PrincipalProcedure:
@@ -252,7 +246,7 @@ define function GetId(uri String):
 
 Example source: EXM72_FHIR-8.1.0_TJC.cql
 
-```sql
+```cql
 define "Condition of Intravenous or Intra arterial Thrombolytic (tPA) Therapy Prior to Arrival":
   Condition: "Intravenous or Intra arterial Thrombolytic (tPA) Therapy Prior to Arrival"] PriorTPA
     where clinicalStatus in { 'active', 'recurrence', 'relapse' }
@@ -264,7 +258,7 @@ Note that verificationStatus is not being checked due to feedback received that 
 
 Example source: EXM108_FHIR
 
-```sql
+```cql
 define "VTE Prophylaxis by Medication Administered":
   ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
     where VTEMedication.status = 'completed'
@@ -275,7 +269,7 @@ define "VTE Prophylaxis by Medication Administered":
 
 Example source: EXM104_FHIR-8.1.000_TJC.cql
 
-```sql
+```cql
 define "Antithrombotic Therapy at Discharge":
   ["MedicationRequest": "Antithrombotic Therapy"] Antithrombotic
     where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
@@ -286,7 +280,7 @@ Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be
 
 #### Medication not discharged
 
-```sql
+```cql
 define "Antithrombotic Not Given at Discharge":
   ["MedicationRequest": "Antithrombotic Therapy"] NoAntithromboticDischarge
     where NoAntithromboticDischarge.doNotPerform is true
@@ -298,7 +292,7 @@ define "Antithrombotic Not Given at Discharge":
 
 Example source: EXM108_FHIR
 
-```sql
+```cql
 define "No VTE Prophylaxis Medication Administered":
   ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] MedicationAdm
     where MedicationAdm.status = 'not-done'
@@ -308,7 +302,7 @@ define "No VTE Prophylaxis Medication Administered":
 
 Example source: EXM108_FHIR
 
-```sql
+```cql
 define "No VTE Prophylaxis Medication Ordered":
   ["MedicationRequest": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] MedicationOrder
     where MedicationOrder.intent = 'order'
@@ -321,7 +315,7 @@ Ballot-note: Note that the MedicationRequest status element is not being checked
 
 Example source: EXM108_FHIR
 
-```sql
+```cql
 define "Intervention Comfort Measures":
   (["ServiceRequest": "Comfort Measures"] P
     where P.intent = 'order'
@@ -335,7 +329,7 @@ define "Intervention Comfort Measures":
 
 Example source: EXM108_FHIR
 
-```sql
+```cql
 define "VTE Prophylaxis by Device Applied":
   ["Procedure": "Device Application"] DeviceApplied
     where DeviceApplied.status = 'complete'
@@ -349,7 +343,7 @@ define "VTE Prophylaxis by Device Applied":
 
 Example source: EXM108_FHIR
 
-```sql
+```cql
 define "No VTE Prophylaxis Device Applied":
   ["Procedure": "Device Application"] DeviceApplied
     let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value
@@ -365,7 +359,7 @@ define "No VTE Prophylaxis Device Applied":
 
 Example source: EXM108_FHIR
 
-```sql
+```cql
 define "No VTE Prophylaxis Device Order":
   (["ServiceRequest": "Venous foot pumps (VFP)"]
     union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
