@@ -1,0 +1,29 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <a name="usage"><b>Usage</b></a>
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
+  <pre>
+<code>
+define "Dementia Medications Not Dispensed":
+  ["MedicationDispense": "Dementia Medications"] MedicationDispense
+    where MedicationDispense.status = 'declined'
+</code>
+</pre>
+  <a name="examples"> </a>
+  <h3>Examples</h3>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+          <td><a href="MedicationDispense-negation-example.html">Negation Example with valueset</a></td>
+        </tr>
+        <tr>
+          <td><a href="MedicationDispense-negation-with-code-example.html">Negation Example with code</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+</div>

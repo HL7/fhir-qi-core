@@ -1,0 +1,27 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <a name="usage"><b>Usage</b></a>
+  <pre><code>
+  // connectathon/fhir3/cql/EXM117_FHIR3-1.0.1.cql
+  define "Polio Immunizations or Procedures":
+   ( ["Immunization": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
+       where PolioVaccination.status = 'completed' )
+  </code></pre>
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
+  <a name="examples"> </a>
+  <h3>Examples</h3>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+          <td><a href="Immunization-example.html">Example of Influenza immunization shot</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+
+
+</div>

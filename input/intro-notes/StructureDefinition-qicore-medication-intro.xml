@@ -1,0 +1,31 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <a name="usage"><b>Usage</b></a>
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
+  <pre>
+  <code>
+  define function "GetMedicationCode"(request MedicationRequest):
+    if request.medication is CodeableConcept then
+      request.medication as CodeableConcept
+    else
+      (singleton from ([Medication] M where M.id = GetId((request.medication as Reference).reference))).code
+  </code>
+  </pre>
+  <a name="examples"> </a>
+  <h3>Examples</h3>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+          <td><a href="Medication-example.html">Example of an IV medication - Alemtuzumab</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+
+
+
+</div>

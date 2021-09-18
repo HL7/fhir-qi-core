@@ -1,0 +1,32 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <a name="usage"><b>Usage</b></a>
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  <pre>
+  <code>
+  define "Absence of Cervix":
+  	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
+  		where Global."Normalize Onset"(NoCervixBirth.onset) starts before end of "Measurement Period"
+        and NoCervixBirth.clinicalStatus ~ ToConcept(Global."active")
+  </code>
+  </pre>
+  </p>
+  <a name="examples"> </a>
+<h3>Examples</h3>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+          <td><a href="Condition-example.html">Severe Burn Example</a></td>
+      </tr>
+      <tr>
+          <td><a href="Condition-appendicitis-example.html">Appendicitis Example</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+
+
+</div>

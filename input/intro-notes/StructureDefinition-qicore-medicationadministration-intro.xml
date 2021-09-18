@@ -1,0 +1,34 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <a name="usage"><b>Usage</b></a>
+<p>To create an expression specifically requesting information that a MedicationAdministration intentionally
+did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-mednotadministered.html">QICore-mednotadministered</a>.</p>
+
+<p>The following example illustrates the accessing MedicationAdministration data:</p>
+
+<pre>
+<code>
+// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
+define "Low Dose Unfractionated Heparin Administration":
+  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.status = 'completed'
+      and VTEMedication.category ~ "Inpatient"
+</code>
+</pre>
+
+<p>
+<tr>
+    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>
+</p>
+<a name="examples"> </a>
+<h3>Examples</h3>
+<p>
+<table>
+  <tbody>
+    <tr>
+        <td><a href="MedicationAdministration-example.html">Inhalant Example</a></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+</div>

@@ -1,0 +1,36 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+
+
+<a name="usage"><b>Usage</b></a>
+<pre>
+<code>
+define "No VTE Prophylaxis Device Order":
+  (["ServiceRequest": "Venous foot pumps (VFP)"]
+    union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
+    union ["ServiceRequest": "Graduated compression stockings (GCS)"]
+  ) DeviceOrder
+    where DeviceOrder.status = 'completed'
+      and DeviceOrder.doNotPerform is true
+</code>
+</pre>
+<p>
+<tr>
+    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>
+</p>
+<a name="examples"> </a>
+<h3>Examples</h3>
+<p>
+<table>
+  <tbody>
+    <tr>
+        <td><a href="ServiceRequest-negation-example.html">Negation Example with valueset</a></td>
+      </tr>
+      <tr>
+        <td><a href="ServiceRequest-negation-example-code.html">Negation Example with code</a></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+
+</div>

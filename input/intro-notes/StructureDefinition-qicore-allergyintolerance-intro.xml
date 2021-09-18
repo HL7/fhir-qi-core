@@ -1,0 +1,31 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <a name="usage"><b>Usage</b></a>
+  <p>
+<tr>
+    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>
+
+<pre>
+<code>
+define "Statin Allergy":
+  ["AllergyIntolerance": "Statin Allergen"] StatinAllergy
+    where (StatinAllergy.clinicalStatus is null or FHIRHelpers.ToConcept(StatinAllergy.clinicalStatus) ~ Global."allergy-active")
+      and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) in { Global."allergy-unconfirmed", Global."allergy-confirmed" }
+</code>
+</pre>
+</p>
+<a name="examples"> </a>
+<h3>Examples</h3>
+<p>
+  <table>
+    <tbody>
+      <tr>
+          <td><a href="AllergyIntolerance-example.html">Typical Food Allergy</a></td>
+      </tr>
+      <tr>
+          <td><a href="AllergyIntolerance-example-refuted.html">Refuted Food Allergy</a></td>
+      </tr>
+    </tbody>
+  </table>
+</p>
+</div>
