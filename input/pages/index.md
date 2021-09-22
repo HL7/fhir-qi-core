@@ -94,8 +94,13 @@ physical model. This is true, and has been the source of some controversy. Witho
 line is whether the QUICK model has the right set of objects and attributes that are needed for quality improvement
 applications. To assure that QUICK does meet those requirements, the QI-Core profiles were created. QI-Core fills any
 gaps such as missing attributes and unspecified value sets that might make QUICK insufficient for quality improvement
-applications. In turn, QUICK is derived from QI-Core profiles, rather than directly from FHIR, providing an
-author-focused view of the FHIR resources profiled by QI-Core.
+applications.
+
+Using FHIR to define the QUICK logical model seems to reverse the usual flow from conceptual model to logical model to physical model. This is true, and has been the source of some controversy. Without revisiting that debate, the bottom line is whether the QUICK model has the right set of objects and attributes that are needed for quality improvement applications. To assure that QUICK does meet those requirements, the QI-Core profiles were created. QI-Core fills any gaps such as missing attributes and unspecified value sets that might make QUICK insufficient for quality improvement applications.
+
+The QUICK tab previously included in QI-Core publications (through QI-Core 4.0) has been retired. That tab basically provided the Must Support content of each QI-Core profile to assist measure and CDS artifact authoring. The content of that tab is now available directly in the publication tooling, adding a new tab in the detail section that lists all of the Must Support items for each profile: Snapshot Table (Must Support). Work on profile authoring using QI-Core and other FHIR IG profiles continues and will be made available in the future.
+
+Continued discussion of the original concept of QUICK as a conceptual data model will progress with consideration of the Observational Medical Outcomes Partnership (OMOP) data model.
 
 ### Relevance of QI-Core Profiles to Authors
 
