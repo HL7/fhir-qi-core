@@ -33,11 +33,9 @@
 **QICoreDevice**
 * [General Device Example](Device-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreDeviceNotRequested**
 * [Negation Example with valueset](DeviceRequest-negation-example.html)
 * [Negation Example with code](DeviceRequest-negation-with-code-example.html)
-</div>
 
 **QICoreDeviceRequest**
 * [General DeviceRequest Example](DeviceRequest-example.html)
@@ -72,11 +70,9 @@
 **QICoreImmunizationEvaluation**
 * [Example of immunization evaluation](ImmunizationEvaluation-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreImmunizationNotDone**
 * [Negation Example using valueset reference](Immunization-negation-example.html)
 * [Negation Example using coding](Immunization-negation-example-code.html)
-</div>
 
 **QICoreImmunizationRecommendation**
 * [Example of immunizationrecommendation using a vaccine code](ImmunizationRecommendation-example.html)
@@ -87,30 +83,24 @@
 **QICoreMedicationAdministration**
 * [Inhalant Example](MedicationAdministration-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreMedicationAdministrationNotDone**
 * [Medication not administered using a value set to indicate what was not administered](MedicationAdministration-negation-example.html)
 * [Medication not administered using a code to indicate that a particular medication was not administered](MedicationAdministration-negation-with-code-example.html)
-</div>
 
 **QICoreMedicationDispense**
 * [Penicillin MedicationDispense Example](MedicationDispense-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreMedicationDispenseNotDone**
 * [Negation Example with valueset](MedicationDispense-negation-example.html)
 * [Negation Example with code](MedicationDispense-negation-with-code-example.html)
-</div>
 
-<div class="new-content" markdown="1">
 **QICoreMedicationNotRequested**
 * [Negation Example using Valueset](MedicationRequest-negation-example.html)
 * [Negation Example using code](MedicationRequest-negation-example-code.html)
-</div>
 
 **QICoreMedicationRequest**
 * [Penicillin MedicationRequest Example](MedicationRequest-example.html)
-* {:.new-content #FHIR}[Cumulative Medication Duration Example](MedicationRequest-cmd-example.html)
+* [Cumulative Medication Duration Example](MedicationRequest-cmd-example.html)
 
 **QICoreMedicationStatement**
 * [Penicillin MedicationStatement Example](MedicationStatement-example.html)
@@ -121,11 +111,9 @@
 **QICoreObservation**
 * [Decreased Hemoglobin Example](Observation-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreObservationNotDone**
 * [Negation Example with valueset](Observation-negation-example.html)
 * [Negation Example with code](Observation-negation-with-code-example.html)
-</div>
 
 **QICoreOrganization**
 * [HL7 Example](Organization-example.html)
@@ -139,20 +127,16 @@
 **QICoreProcedure**
 * [Appendectomy Example](Procedure-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreProcedureNotDone**
 * [Negation Example with valuset](Procedure-negation-example.html)
 * [Negation Example with code](Procedure-negation-with-code-example.html)
-</div>
 
 **QICoreRelatedPerson**
 * [Emergency Contact Example](RelatedPerson-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreServiceNotRequested**
 * [Negation Example with valueset](ServiceRequest-negation-example.html)
 * [Negation Example with code](ServiceRequest-negation-example-code.html)
-</div>
 
 **QICoreServiceRequest**
 * [Request for Appendectomy Example](ServiceRequest-example.html)
@@ -167,8 +151,6 @@
 **QICoreTask**
 * [Task Example](Task-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreTaskNotDone**
 * [Task not done using a value set to indicate what was not done](Task-negation-example.html)
 * [Task not done using a code to indicate what was not done](Task-negation-with-code-example.html)
-</div>

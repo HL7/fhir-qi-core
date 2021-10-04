@@ -7,7 +7,6 @@ CQL-based quality measures and decision support.
 
 ### FHIR and CQL
 
-<div class="new-content" markdown="1">
 Clinical Quality Language ([CQL](http://cql.hl7.org)) is a high-level, domain-specific language focused on clinical quality and targeted at clinical knowledge artifact authors such as quality measure and decision support artifact developers. In addition, the CQL specification provides a machine-readable canonical representation called Expression Logical Model ([ELM](https://cql.hl7.org/04-logicalspecification.html)) targeted at implementations and designed to enable automated sharing of clinical knowledge.
 
 To use CQL with FHIR, [model information](https://cql.hl7.org/07-physicalrepresentation.html#data-model-references) must be provided to the implementation environment. The [CQF Common](http://build.fhir.org/ig/cqframework/cqf) IG provides a FHIR-ModelInfo library that provides this information for the base FHIR specification, as well as FHIRHelpers and FHIRCommon libraries that provide commonly used functions and declarations for clinical knowledge artifact development. To use FHIR directly, follow the documentation provided in that implementation guide.
@@ -19,7 +18,6 @@ using QICore version '4.1.0'
 ```
 
 Although not required by CQL, current best-practice is to include the version of the QICore model. For more information about how this library is constructed, refer to the [ModelInfo](modelinfo.html) topic.
-</div>
 
 #### Primitives
 
@@ -75,7 +73,6 @@ define function "Extension"(element Element, url String):
   singleton from "Extensions"(element, url)
 ```
 
-<div class="new-content" markdown="1">
 However, when using QICore, extensions and slices defined in profiles are represented directly as elements in the types. For example:
 
 ```cql
@@ -93,7 +90,6 @@ define TestComplexExtensions:
     where P.race.ombCategory contains "American Indian or Alaska Native"
       and P.race.detailed contains "Alaska Native"
 ```
-</div>
 
 #### Choice Types
 
@@ -205,7 +201,7 @@ define "Inpatient Encounter":
 #### Inpatient Encounter with Principal Diagnosis
 
 Example source: EXM105
-<div class="new-content" markdown="1">
+
 ```cql
 define "Inpatient Encounter with Principal Diagnosis of Ischemic Stroke":
   "Inpatient Encounter" Encounter
@@ -214,7 +210,6 @@ define "Inpatient Encounter with Principal Diagnosis of Ischemic Stroke":
         return singleton from ([Condition: id in Last(Split(PD.condition.reference, '/'))])
     where PrincipalDiagnosis.code in "Ischemic Stroke"
 ```
-</div>
 Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be unnecessary once QUICK is fully supported.
 
 #### Inpatient Encounter with Principal Procedure
