@@ -1,12 +1,4 @@
 {:toc}
-Where possible, new and updated content will be highlighted with green text and background.
-{:.new-content}
-
-<div markdown="1" class="bg-info">
-
-{{ site.data.package_list.list[0].desc }}
-
-</div>
 
 {: #qi-core-implementation-guide}
 
@@ -352,10 +344,8 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html)|[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
 |[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
+[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
-
-{:.new-content}
-[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html) &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; &emsp; [Task]({{site.data.fhir.path}}task.html)
 
 
 ### Terminology Bindings

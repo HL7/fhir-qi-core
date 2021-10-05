@@ -37,14 +37,14 @@ documentation.
 
 This QDM to QI-Core Mapping for the QDM Datatype "Adverse Event" has
 been updated from QDM 5.5 to QDM 5.6.
-{:.new-content #FHIR}
+
 
 QDM defines Adverse Event as any untoward medical occurrence associated
 with the clinical care delivery, whether or not considered drug related.
 The concepts aligns with the FHIR R4 resource Adverse Event
 (<http://hl7.org/fhir/adverseevent-definitions.html#AdverseEvent>).
 The FHIR resource provides clearer expressivity as compared with QDM.
-<div class="new-content" markdown="1">
+
 QDM includes an attribute code that represents the specific type of event that occurred, consistent with AdverseEvent.event.
 
 QDM does not include an attribute to address the additional elements available in QI-Core: AdverseEvent.suspectEntity (the suspected cause), or the AdverseEvent.resultingCondition. As an example to differentiate these elements:
@@ -71,12 +71,11 @@ Therefore, QDM AdverseEvent code maps to AdverseEvent.event. Measure developers 
 |                    | [AdverseEvent.suspectEntity.instance](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.suspectEntity.instance)         | The actual instance of what caused the adverse event. May be a substance, medication, medication administration, medication statement or a device.              |
 |                    | [AdverseEvent.resultingCondition](StructureDefinition-qicore-adverseevent-definitions.html#AdverseEvent.resultingCondition)         | Effect on the subject due to this event              |
 {: .grid}
-</div>
 
 ### Allergy/Intolerance
 
 This QDM to QI-Core Mapping for the QDM Datatype “Allergy/Intolerance” is updated from QDM 5.5 to QDM 5.6
-{:.new-content #FHIR}
+
 
 Allergy is used to address immune-mediated reactions to a substance such
 as type 1 hypersensitivity reactions, other allergy-like reactions,
@@ -86,7 +85,7 @@ Intolerance is a record of a clinical assessment of a propensity, or a
 potential risk to an individual, to have a non-immune mediated adverse
 reaction on future exposure to the specified substance, or class of
 substance.
-<div class="new-content" markdown="1">
+
 | **QDM Context**     | **QI-Core R4**                                                                                                                                                                                       | **Comments**                                                                                                                                                                                                                                     |
 | ------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | Allergy/Intolerance | [AllergyIntolerance](StructureDefinition-qicore-allergyintolerance.html)                                                                         |                                                                                                                                                                                                                                                  |
@@ -111,7 +110,7 @@ substance.
 | recorder            | [AllergyIntolerance.asserter](StructureDefinition-qicore-allergyintolerance-definitions.html#AllergyIntolerance.asserter)                               |                                                                                                                                                                                                                                                  |
 |                     | [AllergyIntolerance.recorder](StructureDefinition-qicore-allergyintolerance-definitions.html#AllergyIntolerance.recorder)                               |                                                                                                                                                                                                                                                  |
 {: .grid}
-</div>
+
 
 ### Assessment
 
@@ -120,7 +119,6 @@ substance.
 Assessment, Order uses the ServiceRequest resource. However, specifically for
 evaluating smoking status, see subsection below.
 
-<div class="new-content" markdown="1">
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | **Assessment, Order**                                             | [ServiceRequest](StructureDefinition-qicore-servicerequest.html)                                                                            |                                                              |
@@ -134,7 +132,6 @@ evaluating smoking status, see subsection below.
 | Negation Rationale                                                | See Below |
 | Requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Assessment, Order
 
@@ -164,7 +161,6 @@ Assessment, Performed uses the Observation resource. However, specifically for
 evaluating smoking status, use the specific [QI-Core smoking status assessment](http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus)
 profile inherited from US Core.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**                               | **QI-Core R4**                                                                                                                                                                        | **Comments**                                                                                                                                                                                                |
 | --------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -193,7 +189,6 @@ profile inherited from US Core.
 |                                               | [Observation.component.dataAbsentReason](StructureDefinition-qicore-observation-definitions.html#Observation.component.dataAbsentReason) |                                                                                                                                                                                                             |
 | performer                                     | [Observation.performer](StructureDefinition-qicore-observation-definitions.html#Observation.performer)                                   |                                                                                                                                                                                                             |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Assessment, Performed
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
@@ -208,7 +203,6 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 Assessment, Recommended uses the ServiceRequest resource. However, specifically for
 evaluating smoking status, see subsection below.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -223,7 +217,6 @@ evaluating smoking status, see subsection below.
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Assessment, Recommended
 
@@ -381,7 +374,6 @@ change the patient's mental state would be a Procedure.
 
 #### Communication, Performed
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**              | **QI-Core R4**                                                                                                                                                  | **Comments**                                                                                  |
 | ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
@@ -401,7 +393,6 @@ change the patient's mental state would be a Procedure.
 | recipient                    | [Communication.recipient](StructureDefinition-qicore-communication-definitions.html#Communication.recipient)       |                                                                                               |
 | negationRationale            | See Below |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Communication, Performed
 
@@ -482,7 +473,6 @@ Procedure, Performed, i.e., placement of or adjustment to a device.
 
 "Device Applied" has been retired in QDM 5.6 in favor of using "Procedure, Performed" or
 "Assessment, Performed" as appropriate.
-{:.new-content #FHIR}
 
 #### Device, Order – Non-Patient-use Devices
 
@@ -646,7 +636,6 @@ developers can reference direct reference codes or value sets using the
 such LOINC codes to specify the type of testing considered acceptable to
 provide sufficient fidelity to their requests.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**                 | **QI-Core  R4**                                                                                                                                                                       | **Comments**                                                                                                                                                                                                                                       |
 | ------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -677,7 +666,6 @@ provide sufficient fidelity to their requests.
 |                                 | [Observation.component.dataAbsentReason](StructureDefinition-qicore-observation-definitions.html#Observation.component.dataAbsentReason) |                                                                                                                                                                                                                                                    |
 | performer                       | [Observation.performer](StructureDefinition-qicore-observation-definitions.html#Observation.performer)                                   |                                                                                                                                                                                                                                                    |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Diagnostic Study, Performed
 
@@ -690,7 +678,6 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 
 #### Diagnostic Study, Recommended
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -705,7 +692,6 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Diagnostic Study, Recommended
 
@@ -847,7 +833,6 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### Encounter, Performed
-<div class="new-content" markdown="1">
 
 | **QDM Context**                    | **QI-Core R4**  | **Comments**  |
 | ---------------------------------- | --------------- | ------------- |
@@ -878,10 +863,8 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | participant                        | [Encounter.participant.individual](StructureDefinition-qicore-encounter-definitions.html#Encounter.participant.individual)    |                                                                                             |
 |                                    | [Encounter.serviceProvider](StructureDefinition-qicore-encounter-definitions.html#Encounter.serviceProvider)|Encounter.serviceProvider identifies the organization that is primarily responsible for the Encounter’s services. |
 {: .grid}
-</div>
 
 #### Encounter, Recommended
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -898,7 +881,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
+
 
 ##### Negation Rationale for Encounter, Recommended
 
@@ -955,7 +938,6 @@ that QDM does not address, but that may be relevant to quality measures
 or clinical decision support (CDS) artifacts.
 
 #### Immunization, Administered
-<div class="new-content" markdown="1">
 
 | **QDM Context**                | **US Core R4**                                                                                                                                                    | **Comments**                                       |
 | ------------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------- |
@@ -972,17 +954,15 @@ or clinical decision support (CDS) artifacts.
 | authorDatetime                 | [Immunization.recorded](StructureDefinition-qicore-immunization-definitions.html#Immunization.recorded)             |                                                    |
 | performer                      | [Immunization.performer.actor](StructureDefinition-qicore-immunization-definitions.html#Immunization.performer)     |                                                    |
 {: .grid}
-</div>
 
 ##### Immunization, Administered
-<div class="new-content" markdown="1">
 
 Use [QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html), which contains:
 * [QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html) - Value Boolean fixed to "true"
 * [Immunization.status](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.status) - Fixed as "not-done"
 * [Immunization.statusReason](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Immunization.vaccineCode.extension:notDoneValueSet](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.vaccineCode.extension:notDoneValueSet) - to indicate the specific immunization that was not administered
-</div>
+
 
 #### Immunization, Order
 
@@ -994,7 +974,6 @@ MedicationRequest.setting set to the setting most appropriate for the
 intended meaning of the quality measure or clinical decision support
 (CDS) expression.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**         | **QI-Core R4**                                                                                                                                                                                                                  | **Comments**                                                                                                                                                                             |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1015,7 +994,6 @@ intended meaning of the quality measure or clinical decision support
 |                         | [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode)                                                         | The reason for ordering or not ordering the medication.                                                                                                                                  |
 | requester               | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note - MedicationRequest.performer indicates the performer expected to administer the medication                                                                                         |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Immunization, Order
 
@@ -1104,7 +1082,6 @@ to the index patient. 
     record retrieves the information.
 
 #### QDM Entities
-<div class="new-content" markdown="1">
 
 | **QDM Entities & Attributes** | **QI-Core R4**                                                                                                                                                                      | **Comment**    |
 | ----------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------- |
@@ -1130,7 +1107,6 @@ to the index patient. 
 | id                            | [Location.id](StructureDefinition-qicore-location-definitions.html#Location.id)                                            | New in QDM 5.6 |
 | locationType                  | [Location.type](StructureDefinition-qicore-location-definitions.html#Location.type)                             | New in QDM 5.6   |
 {: .grid}
-</div>
 
 #### Patient Characteristics
 
@@ -1192,7 +1168,6 @@ since all of the QDM attributes for each of these QDM *datatypes* are
 identical.
 
 #### Intervention, Performed
-<div class="new-content" markdown="1">
 
 | **QDM Context**         | **QI-Core R4**                                              | **Comments**                   |
 | ----------------------- | ----------------------------------------------------------- | ------------------------------ |
@@ -1220,7 +1195,6 @@ identical.
 | component.result        | N/A                            | N/A                                                                                                       |
 | performer               | [Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)      |                                                                                                           |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Intervention, Performed
 
@@ -1256,7 +1230,6 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### Intervention, Recommended
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1271,7 +1244,6 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Intervention, Recommended
 
@@ -1285,7 +1257,6 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 ### Laboratory Test
 
 #### Laboratory Test, Order
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1300,7 +1271,6 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Laboratory Test, Performed
 
@@ -1341,7 +1311,6 @@ CDS developers can reference direct reference codes or value sets using
 the such LOINC codes to specify the type of testing considered
 acceptable to provide sufficient fidelity to their requests.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**    | **US Core R4**           | **US Core R3 Observation-Lab**                  |**Comments**                           |
 | ------------------ | ----------------------- | ----------------------------------------------- | ------------------------------------- |
@@ -1375,7 +1344,6 @@ acceptable to provide sufficient fidelity to their requests.
 | component.referenceRangeLow  | Observation.component.referenceRange            | [Observation.component.referenceRange](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.referenceRange)     |                            |
 | performer          | Observation.performer   | [Observation.performer](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.performer)           |                            |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Laboratory Test, Performed
 
@@ -1387,7 +1355,6 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 * [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) to indicate the specific Observation that was not performed
 
 #### Laboratory Test, Recommended
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1402,7 +1369,6 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Laboratory Test, Recommended
 
@@ -1433,7 +1399,6 @@ guidance about how to use MedicationRequest.requester to specify medications
 ordered directly, those reported by a physician and those reported by the
 patient for a medication list.
 
-<div class="new-content" markdown="1">
 
 The MedicationRequest SHALL include all prescribed and “self-prescribed” medications reported by the Provider, Patient or Related Person.
 
@@ -1460,7 +1425,6 @@ The MedicationRequest SHALL include all prescribed and “self-prescribed” med
 |                            | [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn)                                                                       | Author dateTime not referenced in QDM                                                                                                                         |
 | recorder                   | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                   | To address all medications on a medication list, use MedicationRequest with status = active; intent = order; and requester = organization (for prescribed medications for which an order exists), requester = practitioner (for medications entered by clinicians but not ordered), and intent = plan and requester = patient or RelatedPerson (for patient/related person reported)|
 {: .grid}
-</div>
 
 #### Medication, Administered
 
@@ -1470,7 +1434,6 @@ medication administration events and, therefore, may not reference
 frequency of administration. Note that a separate QDM and US Core
 profile address Immunization, Administered.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**              | **QI-Core R4**                                                                                                                                                                                             | **Comments**                                                            |
 | ---------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------- |
@@ -1492,7 +1455,7 @@ profile address Immunization, Administered.
 | Negation Rationale           | See Below |
 | Performer                    | [MedicationAdministration.performer.actor](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.performer.actor)     |                                                                         |
 {: .grid}
-</div>
+
 
 ##### Negation Rationale for Medication, Administered
 
@@ -1524,7 +1487,6 @@ practitionerRole, relatedPerson, organization).
 This change should also be used to reference the mapping from QDM Medication,
 Order which can address order or recommended.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**                        | **QI-Core R4**                                                                                                                                                                                                                  | **Comments**                                                                                                                                                                             |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1548,7 +1510,7 @@ Order which can address order or recommended.
 | negationRationale                      | See Below |
 | prescriber                             | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note - MedicationRequest.performer indicates the performer expected to administer the medication                                                                                         |
 {: .grid}
-</div>
+
 
 ##### Negation Rationale for Medication, Discharge
 
@@ -1564,7 +1526,6 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.ht
 This QDM context maps to the QI-Core MedicationDispense resource,
 indicating information about medications that have been dispensed.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**               | **QI-Core R4**                                                                                                                                                                                                                  | **Comments**                                                                                                                     |
 | ----------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------- |
@@ -1592,7 +1553,6 @@ indicating information about medications that have been dispensed.
 | dispenser                     | [MedicationDispense.performer.actor](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.performer.actor)                                            |                                                                                                                                  |
 {: .grid}
 
-</div>
 
 ##### Negation Rationale for Medication, Dispensed
 
@@ -1602,7 +1562,6 @@ Use [QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed
 * [MedicationDispense.extension:recorded](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.extension:recorded) - When this was made available
 * [MedicationDispense.medication\[x\]](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.medication[x]) - Use [MedicationDispense.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.medication[x].extension:notDoneValueSet) to indicate the specific MedicationDispense that was not performed
 
-{:.new-content #FHIR}
 The MedicationDispensed.status is fixed to "declined" which is defined as "The dispense was declined and not performed."  Considering the clinical workflow, only the pharmacist likely performs the "decline" status - based on medication interaction or on failure of insurance authorization (perhaps due to patient declining when the cost/co-pay is identified). But the patient would not enter the status, only the pharmacist would do so. The use case likely still works for the measure developer intent (that a valid reason exists for not dispensing the medication). However, if the measure developer wants to address patient's decisions to avoid dispensing, the patient will likely not show up at the pharmacy for the medication to be dispensed - hence, there will be no dispensing event. The best way to capture that scenario may be to assure the MedicationRequest includes a Patient reason.
 
 #### Medication, Order
@@ -1612,7 +1571,6 @@ MedicationRequest.intent = *order* and MedicationRequest.setting
 as the most appropriate for the intended meaning of the quality
 measure or clinical decision support (CDS) expression.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**                        | **QI-Core R4**                                                                                                                                                                                                                  | **Comments**                                                                                                                                                                             |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1639,7 +1597,6 @@ measure or clinical decision support (CDS) expression.
 | negationRationale                      | See Below |
 | prescriber                             | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note - MedicationRequest.performer indicates the performer expected to administer the medication                                                                                         |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Medication, Order
 
@@ -1690,7 +1647,6 @@ Note: QDM 5.5 removed the "method" attribute from "Physical Exam, Order" and
 "Physical Exam, Recommended"
 
 #### Physical Exam, Order
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1706,7 +1662,6 @@ Note: QDM 5.5 removed the "method" attribute from "Physical Exam, Order" and
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Physical Exam, Order
 
@@ -1738,7 +1693,6 @@ To capture specific types of "Physical Exam, Order" as QICoreObservationNotDone,
 1.	Vital Signs – Diastolic Blood Pressure – 8462-4
 
 #### Physical Exam, Performed
-<div class="new-content" markdown="1">
 
 | **QDM Context**                        | **QI-Core R4**                                                                                                                                                                        | **Comments**                                                                                                                                                                                                                          |
 | -------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
@@ -1766,7 +1720,6 @@ To capture specific types of "Physical Exam, Order" as QICoreObservationNotDone,
 |                                        | [Observation.component.dataAbsentReason](StructureDefinition-qicore-observation-definitions.html#Observation.component.dataAbsentReason) |                                                                                                                                                                                                                                       |
 | performer                              | [Observation.performer](StructureDefinition-qicore-observation-definitions.html#Observation.performer)                                   |                                                                                                                                                                                                                                       |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Physical Exam, Performed
 
@@ -1798,7 +1751,6 @@ To capture specific types of "Physical Exam, Performed" as QICoreObservationNotD
 1.	Vital Signs – Diastolic Blood Pressure – 8462-4
 
 #### Physical Exam, Recommended
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1814,7 +1766,6 @@ To capture specific types of "Physical Exam, Performed" as QICoreObservationNotD
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Physical Exam, Recommended
 
@@ -1888,7 +1839,6 @@ medication lists may be considered a Task to perform the Procedure that
 includes reviewing the medication list with the patient to assure it is
 correct and to education the patient about proper medication usage.
 
-<div class="new-content" markdown="1">
 
 The sponsoring work group is specifically seeking feedback on the following
 suggestions for use of Task rather than Procedure for workflow steps that require
@@ -1911,13 +1861,11 @@ Consistent with the method for specifying QDM’s concept negation rationale, a 
 * [Task.encounter](StructureDefinition-qicore-tasknotdone-definitions.html#Task.encounter) (Healthcare event during which this task originated)
 * [Task.for](StructureDefinition-qicore-tasknotdone-definitions.html#Task.for) (Beneficiary of the Task) Reference (qicore-patient)
 * [Task.executionPeriod:executionPeriod](StructureDefinition-qicore-tasknotdone-definitions.html#Task.executionPeriod:executionPeriod) for the period/dateTime - the timing the task was rejected and the reason.
-</div>
 
 #### Procedure Priority
 
 QDM 5.6 includes a new attribute for Procedure: *priority* with the
 following definition:
-{:.new-content #FHIR}
 
 *Priority indicates the urgency of the procedure or the encounter
 referenced. In \[electronic clinical quality measures\] (eCQMs) the
@@ -1947,7 +1895,6 @@ QDM Procedure priority attribute to QI-Core.
 
 #### Procedure, Performed
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**         | **QI-Core R4**                                              | **Comments**                   |
 | ----------------------- | ----------------------------------------------------------- | ------------------------------ |
@@ -1975,7 +1922,6 @@ QDM Procedure priority attribute to QI-Core.
 | Component result        | N/A                            | N/A                                                                                                       |
 | Performer               | [Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)      |                                                                                                           |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Procedure, Performed
 
@@ -2011,7 +1957,6 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.code](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code) - Use [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
 #### Procedure, Recommended
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -2026,7 +1971,6 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | negationRationale                                                 | See Below |
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
-</div>
 
 ##### Negation Rationale for Procedure, Recommended
 
@@ -2107,7 +2051,6 @@ substance other than those that are modeled similar to medications are nutrition
 milk) and biologically-derived product administration (blood) - both of these use cases can use the Procedure resources
 as noted. Further work in base FHIR will advise how to reference specific administration details in QI-Core.
 
-<div class="new-content" markdown="1">
 
 | **QDM Context**                                    | **FHIR R4**                                                                                                                                                         | **Comments**                                          |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
@@ -2145,7 +2088,6 @@ as noted. Further work in base FHIR will advise how to reference specific admini
 | route                                              | [NutritionOrder.enteralFormula.routeofAdministration](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.routeofAdministration)      |                                                       |
 | requester                                          | [NutritionOrder.orderer](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.orderer)                                                                |                                                       |
 {: .grid}
-</div>
 
 ### Symptom
 
