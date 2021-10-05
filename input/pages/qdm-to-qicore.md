@@ -397,7 +397,6 @@ change the patient's mental state would be a Procedure.
 ##### Negation Rationale for Communication, Performed
 
 Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html), which contains:
-* [Communication.modifierExtension:notDone](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.modifierExtension:notDone) - Value Boolean fixed to "true"
 * [Communication.status](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.status) - Fixed as "not-done"
 * [Communication.statusReason](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) - When this was made available
