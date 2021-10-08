@@ -1,10 +1,30 @@
 == Suppressed Messages ==
 
-# Known issues with VSAC value sets
-WARNING: Coverage/example: Coverage.type: ValueSet https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 not found by validator
-# Known issues with VSAC value sets
-ERROR: qicore-negation-reason: Error from server: Unable to find value set "http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.56"
+# Proposed jira specification file was reviewed and it is less correct than the one that is currently committed
+WARNING: The jira specification file appears to be out of date with the versions, artifacts and pages currently defined in the IG.  A proposed revised file to be reviewed and, if appropriate, submitted as a pull request against the XML folder in https://github.com/HL7/JIRA-Spec-Artifacts.  To see the differences, perform a file compare on 'template/jira-current.xml' (a normalized view of what is in Github) and 'template/jira-new.xml' (reflects current IG content)
+
+# Known issue with the IG publisher
+ERROR: StructureDefinition-qicore-communicationnotdone-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 505, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-devicenotrequested-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 449, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-immunizationnotdone-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 351, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-mednotadministered-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 385, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-mednotdispensed-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 381, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-mednotrequested-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 415, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-observationnotdone-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 433, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-procedurenotdone-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 413, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-servicenotrequested-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 473, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+ERROR: StructureDefinition-qicore-communicationnotdone-definitions.html#/html/body/div/div/div/div/div/table/tr/td/p/a at Line 505, column 67: The link 'terminologies.html#extensible' for "extensible binding" cannot be resolved
+
 # Submitted https://jira.hl7.org/browse/FHIR-26526 to address this:
-ERROR: DeviceRequest/negation-example: DeviceRequest: The extension http://hl7.org/fhir/StructureDefinition/request-doNotPerform is not allowed to be used at this point (allowed = e:NutritionOrder; this element is [[DeviceRequest])
-# This error code is present in the US-Core example as well, we are using that example here, so we also have the error
-ERROR: DiagnosticReport/note-example: DiagnosticReport.category[0].coding[0]: The code "LP29684-5" is not valid in the system http://loinc.org; The code provided (http://loinc.org#LP29684-5) is not valid in the value set All codes known to the system for "http://loinc.org#LP29684-5"
+ERROR: DeviceRequest (l2/c193): The extension http://hl7.org/fhir/StructureDefinition/request-doNotPerform is not allowed to be used at this point (allowed = e:NutritionOrder; this element is [[DeviceRequest])
+
+# Submitted https://jira.hl7.org/browse/FHIR-32903 to address this:
+ERROR: DeviceRequest.code.ofType(CodeableConcept) (l21/c24): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[DeviceRequest.code.ofType(CodeableConcept), CodeableConcept])
+ERROR: Immunization.vaccineCode (l15/c16): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[Immunization.vaccineCode, CodeableConcept])
+ERROR: MedicationAdministration.medication.ofType(CodeableConcept) (l18/c32): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[MedicationAdministration.medication.ofType(CodeableConcept), CodeableConcept])
+ERROR: MedicationDispense.medication.ofType(CodeableConcept) (l18/c30): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[MedicationDispense.medication.ofType(CodeableConcept), CodeableConcept])
+ERROR: MedicationRequest.medication.ofType(CodeableConcept) (l16/c30): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[MedicationRequest.medication.ofType(CodeableConcept), CodeableConcept])
+ERROR: Observation.code (l24/c9): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[Observation.code, CodeableConcept])
+ERROR: Procedure.code (l18/c9): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[Procedure.code, CodeableConcept])
+ERROR: ServiceRequest.code (l17/c9): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[ServiceRequest.code, CodeableConcept])
+ERROR: Task.code (l20/c9): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[Task.code, CodeableConcept])
