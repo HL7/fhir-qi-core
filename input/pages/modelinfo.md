@@ -2,7 +2,7 @@
 
 {: #modelinfo}
 
-<div class="new-content" markdown="1">
+
 
 Clinical Quality Language ([CQL](http://cql.hl7.org)) is a high-level, domain-specific language focused on clinical quality and targeted at clinical knowledge artifact authors such as quality measure and decision support artifact developers. In addition, the CQL specification provides a machine-readable canonical representation called Expression Logical Model ([ELM](https://cql.hl7.org/04-logicalspecification.html)) targeted at implementations and designed to enable automated sharing of clinical knowledge.
 
@@ -19,5 +19,3 @@ As an example, to generate the ModelInfo file for QICore version 4.1.0, the foll
 ```
 -GenerateMIs -ip=C:\Users\Bryn\Documents\Src\HL7\FHIR-Spec -rp="4.0.1;US-Core/3.1.1;QI-Core/4.1.0" -mn=QICore -mv=4.1.0 -im=false -ucp=true
 ```
-
-</div>
