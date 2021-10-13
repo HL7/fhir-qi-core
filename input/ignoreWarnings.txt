@@ -1,6 +1,6 @@
 == Suppressed Messages ==
 
-# Proposed jira specification file was reviewed and it is less correct than the one that is currently committed
+# JIRA Specification file will be submitted as a PR to that JIRA-Spec-Artifacts repository
 WARNING: The jira specification file appears to be out of date with the versions, artifacts and pages currently defined in the IG.  A proposed revised file to be reviewed and, if appropriate, submitted as a pull request against the XML folder in https://github.com/HL7/JIRA-Spec-Artifacts.  To see the differences, perform a file compare on 'template/jira-current.xml' (a normalized view of what is in Github) and 'template/jira-new.xml' (reflects current IG content)
 
 # Known issue with the IG publisher, see the following zulip chat https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/.22Extensible.20binding.22.20link.20cannot.20be.20resolved
@@ -28,3 +28,31 @@ ERROR: Observation.code (l24/c9): The extension http://hl7.org/fhir/StructureDef
 ERROR: Procedure.code (l18/c9): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[Procedure.code, CodeableConcept])
 ERROR: ServiceRequest.code (l17/c9): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[ServiceRequest.code, CodeableConcept])
 ERROR: Task.code (l20/c9): The extension http://hl7.org/fhir/StructureDefinition/valueset-reference is not allowed to be used at this point (allowed = e:Coding; this element is [[Task.code, CodeableConcept])
+WARNING: Immunization.vaccineCode (l15/c16): No code provided, and a code should be provided from the value set http://hl7.org/fhir/us/core/ValueSet/us-core-vaccines-cvx (http://hl7.org/fhir/us/core/ValueSet/us-core-vaccines-cvx)
+
+# Known issue with VSAC value settings
+WARNING: Coverage.type (l12/c9): ValueSet https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 not found by validator
+WARNING: StructureDefinition.differential.element[2].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
+WARNING: StructureDefinition.snapshot.element[11].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
+
+# In progress UTG proposals: https://jira.hl7.org/browse/UP-160 and https://jira.hl7.org/browse/UP-214
+WARNING: ValueSet.compose[0].include[0].concept[0]: The code Y is not valid in the system https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding
+WARNING: ValueSet.compose[0].include[0].concept[1]: The code Y is not valid in the system https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding
+WARNING: ValueSet.compose[0].include[0].concept[2]: The code Y is not valid in the system https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding
+WARNING: ValueSet.compose[0].include[0].concept[3]: The code Y is not valid in the system https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding
+WARNING: ValueSet.where(id = 'qicore-present-on-admission'): Error from server: Unable to provide support for code system https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding
+WARNING: Encounter.diagnosis[0].extension[0].value.ofType(CodeableConcept) (l45/c29): [Unable to determine whether the provided codes are in the value set http://hl7.org/fhir/us/qicore/ValueSet/qicore-present-on-admission because the value set or code system is not known to the validator]
+
+# Issue within the ImagingStudy snapshot and brought to attention in the following thread: https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/ValueSet.20not.20found.20by.20validator.20or.20cannot.20be.20checked
+WARNING: StructureDefinition.snapshot.element[11].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html on element ImagingStudy.modality could not be resolved
+WARNING: StructureDefinition.snapshot.element[22].binding: The valueSet reference http://www.rsna.org/RadLex_Playbook.aspx on element ImagingStudy.procedureCode could not be resolved
+WARNING: StructureDefinition.snapshot.element[34].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html on element ImagingStudy.series.modality could not be resolved
+WARNING: StructureDefinition.snapshot.element[53].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1 on element ImagingStudy.series.instance.sopClass could not be resolved
+WARNING: ImagingStudy.series[0].modality (l73/c15): ValueSet http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html not found by validator
+
+# Profiles not based on US Core
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. Comparison with US Core Implantable Device Profile
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotrequested').baseDefinition: US FHIR Usage rules require that all profiles on MedicationRequest derive from the core US profile. Comparison with US Core MedicationRequest Profile
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. Comparison with US Core Pediatric Head Occipital-frontal Circumference Percentile Profile. Comparison with US Core Pediatric BMI for Age Observation Profile. Comparison with US Core Pediatric Weight for Height Observation Profile. Comparison with US Core Blood Pressure Profile. Comparison with US Core BMI Profile. Comparison with US Core Body Height Profile. Comparison with US Core Body Temperature Profile. Comparison with US Core Body Weight Profile. Comparison with US Core Head Circumference Profile. Comparison with US Core Heart Rate Profile. Comparison with US Core Laboratory Result Observation Profile. Comparison with US Core Pulse Oximetry Profile. Comparison with US Core Respiratory Rate Profile. Comparison with US Core Smoking Status Observation Profile. Comparison with US Core Vital Signs Profile
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationnotdone').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. Comparison with US Core Pediatric Head Occipital-frontal Circumference Percentile Profile. Comparison with US Core Pediatric BMI for Age Observation Profile. Comparison with US Core Pediatric Weight for Height Observation Profile. Comparison with US Core Blood Pressure Profile. Comparison with US Core BMI Profile. Comparison with US Core Body Height Profile. Comparison with US Core Body Temperature Profile. Comparison with US Core Body Weight Profile. Comparison with US Core Head Circumference Profile. Comparison with US Core Heart Rate Profile. Comparison with US Core Laboratory Result Observation Profile. Comparison with US Core Pulse Oximetry Profile. Comparison with US Core Respiratory Rate Profile. Comparison with US Core Smoking Status Observation Profile. Comparison with US Core Vital Signs Profile
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone').baseDefinition: US FHIR Usage rules require that all profiles on Procedure derive from the core US profile. Comparison with US Core Procedure Profile
