@@ -1,173 +1,278 @@
 library ProfilePatterns version '0.1.0'
 
-using FHIR version '4.0.0'
+using FHIR version '4.0.1'
 
-include FHIRHelpers version '4.0.0'
+include FHIRHelpers version '4.0.1'
+include QICoreElements
 
 context Patient
 
 // Profiles
 
 // QICoreAdverseEvent
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-adverseevent
+define AdverseEvent:
+  [AdverseEvent]
 
 // QICoreAllergyIntolerance
-// connectathon/fhir4/cql/EXM105_FHIR4-8.1.000.cql
-define "Statin Allergy":
-  ["AllergyIntolerance": "Statin Allergen"] StatinAllergy
-    where (StatinAllergy.clinicalStatus is null or FHIRHelpers.ToConcept(StatinAllergy.clinicalStatus) ~ Global."allergy-active")
-      and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) in { Global."allergy-unconfirmed", Global."allergy-confirmed" }
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance
+define AllergyIntolerance:
+  [AllergyIntolerance]
 
 // QICoreBodyStructure
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-bodystructure
+define BodyStructure:
+  [BodyStructure]
 
 // QICoreCarePlan
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan
+define CarePlan:
+  [CarePlan]
 
 // QICoreCareTeam
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam
+define CareTeam:
+  [CareTeam]
 
 // QICoreClaim
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claim
+define Claim:
+  [Claim]
 
 // QICoreCommunication
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication
+define Communication:
+  [Communication] C
+    where C.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
 
 // QICoreCommunicationNotDone
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationnotdone
+define CommunicationNotDone:
+  [Communication] C
+    where C.status = 'not-done'
 
 // QICoreCommunicationRequest
+// @profile: 	http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationrequest
+define CommunicationRequest:
+  [CommunicationRequest]
 
 // QICoreCondition
-// draft-measures/pages/cql/in-progress/fhir4/EXM124-FHIR4-8.2.000.cql
-define "Absence of Cervix":
-	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
-		where Global."Normalize Onset"(NoCervixBirth.onset) starts before end of "Measurement Period"
-      and NoCervixBirth.clinicalStatus ~ ToConcept(Global."active")
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition
+define Condition:
+  [Condition]
 
 // QICoreCoverage
-// connectathon/fhir4/cql/SupplementalDataElements_FHIR4-1.0.0.cql
-define "SDE Payer":
-    [Coverage: type in "Payer"] Payer
-      return {
-        code: Payer.type,
-         period: Payer.period
-      }
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage
+define Coverage:
+  [Coverage]
 
 // QICoreDevice
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device
+define Device:
+  [Device]
 
 // QICoreDeviceNotRequested
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested
+define DeviceNotRequested:
+  [DeviceRequest] D
+    where D.status = 'completed'
+      and D.doNotPerform() is true
 
 // QICoreDeviceRequest
-// connectathon/fhir4/cql/AdvancedIllnessandFrailtyExclusion_FHIR4-4.0.000.cql
-define "Device Indicating Frailty":
-  [DeviceRequest: "Frailty Device"] FrailtyDeviceOrder
-    where FrailtyDeviceOrder.status in { 'active', 'on-hold', 'completed' }
-      and FrailtyDeviceOrder.intent in { 'order', 'original-order', 'reflex-order', 'filler-order', 'instance-order' }
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequest
+define DeviceRequest:
+  [DeviceRequest] D
+    where D.status in { 'draft', 'active', 'on-hold', 'revoked', 'completed' }
+      and D.doNotPerform() is not true
 
 // QICoreDeviceUseStatement
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceusestatement
+define DeviceUseStatement:
+  [DeviceUseStatement]
 
 // QICoreDiagnosticReportLab
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab
+define DiagnosticReportLab:
+  [DiagnosticReport] D
+    //where D.category ~ "http://terminology.hl7.org/CodeSystem/v2-0074#LAB"
 
 // QICoreDiagnosticReportNote
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note
+define DiagnosticReportNote:
+  [DiagnosticReport] D
 
 // QICoreEncounter
-// connectathon/fhir4/cql/MATGlobalCommonFunctions_FHIR4-4.0.000.cql
-define "Inpatient Encounter":
-  [Encounter: "Encounter Inpatient"] EncounterInpatient
-    where EncounterInpatient.status = 'finished'
-      and "LengthInDays"(EncounterInpatient.period) <= 120
-      and EncounterInpatient.period ends during "Measurement Period"
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter
+define Encounter:
+  [Encounter]
+
+define EncounterPerformed:
+  Encounter E
+    where E.status = 'finished'
 
 // QICoreFamilyMemberHistory
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-familymemberhistory
+define FamilyMemberHistory:
+  [FamilyMemberHistory]
 
 // QICoreFlag
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-flag
+define Flag:
+  [Flag]
 
 // QICoreGoal
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-goal
+define Goal:
+  [Goal]
 
 // QICoreImagingStudy
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy
+define ImagingStudy:
+  [ImagingStudy]
 
 // QICoreImmunization
-// connectathon/fhir3/cql/EXM117_FHIR3-1.0.1.cql
-define "Polio Immunizations or Procedures":
- ( ["Immunization": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
-     where PolioVaccination.status = 'completed' )
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization
+define Immunization:
+  [Immunization] I
+    where I.status = 'completed'
 
 // QICoreImmunizationEvaluation
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationevaluation
+define ImmunizationEvaluation:
+  [ImmunizationEvaluation]
 
 // QICoreImmunizationNotDone
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone
+define ImmunizationNotDone:
+  [Immunization] I
+    where I.status = 'not-done'
 
 // QICoreImmunizationRecommendation
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrec
+define ImmunizationRecommendation:
+  [ImmunizationRecommendation]
 
 // USCoreImplantableDevice
+// @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device
+define ImplantableDevice:
+  [Device]
 
 // QICoreLocation
-// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
-define "Encounter With ICU Location Stay 1 Day or More":
-  "Encounter With Age Range and Without VTE Diagnosis or Obstetrical Conditions" QualifyingEncounter
-    where exists ( QualifyingEncounter.location Location
-      where Global.GetLocation(Location.location).type in "Intensive Care Unit"
-        and Global."LengthInDays"(Location.period)>= 1
-        and Location.period starts during TJC."CalendarDayOfOrDayAfter"(start of QualifyingEncounter.period)
-   )
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location
+define Location:
+  [Location]
 
 // QICoreMedication
-// connectathon/fhir4/cql/MATGlobalCommonFunctions_FHIR4-4.0.000.cql
-define function "GetMedicationCode"(request MedicationRequest):
-  if request.medication is CodeableConcept then
-    request.medication as CodeableConcept
-  else
-    (singleton from ([Medication] M where M.id = GetId((request.medication as Reference).reference))).code
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication
+define Medication:
+  [Medication]
 
 // QICoreMedicationAdministration
-// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
-define "Low Dose Unfractionated Heparin Administration":
-  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-    where VTEMedication.status = 'completed'
-      and VTEMedication.category ~ "Inpatient"
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration
+define MedicationAdministration:
+  [MedicationAdministration] M
+    where M.status in { 'in-progress', 'on-hold', 'completed' }
 
 // QICoreMedicationAdministrationNotDone
-// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
-define "No Low Dose Unfractionated Heparin Administration":
-  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-    where VTEMedication.status = 'not-done'
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotadministered
+define MedicationAdministrationNotDone:
+  [MedicationAdministration] M
+    where M.status = 'not-done'
 
 // QICoreMedicationDispense
-// connectathon/fhir4/cql/AdvancedIllnessandFrailtyExclusion_FHIR4-4.0.000.cql
-define "Dementia Medications Dispensed":
-  ["MedicationDispense": "Dementia Medications"] MedicationDispense
-    where MedicationDispense.status in { 'active', 'completed', 'on-hold' }
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense
+define MedicationDispense:
+  [MedicationDispense] D
+    where D.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
 
 // QICoreMedicationDispenseNotDone
-define "Dementia Medications Not Dispensed":
-  ["MedicationDispense": "Dementia Medications"] MedicationDispense
-    where MedicationDispense.status = 'declined'
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotdispensed
+define MedicationDispenseNotDone:
+  [MedicationDispense] D
+    where D.status in { 'cancelled', 'declined' }
 
 // QICoreMedicationNotRequested
-// connectathon/fhir4/cql/EXM104_FHIR4-8.1.000.cql
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotrequested
+define MedicationNotRequested:
+  [MedicationRequest] R
+    where R.status = 'completed'
+      and R.doNotPerform is true
+
+/*
 define "Antithrombotic Not Given at Discharge":
-	["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
+  ["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
     where NoAntithromboticDischarge.doNotPerform is true
 			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
 				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
-      and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
+      and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) ~ FC."Community" or FHIRHelpers.ToConcept(C) ~ FC."Discharge")
       and NoAntithromboticDischarge.status = 'completed'
       and NoAntithromboticDischarge.intent = 'order'
 
+define "Antithrombotic Not Given at Discharge":
+  QICore.MedicationNotRequested NoAntithromboticDischarge
+    where NoAntithromboticDischarge.medication in "Antithrombotic Therapy"
+      and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
+        or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+      and (NoAntithromboticDischarge.isCommunity() or NoAntithromboticDischarge.isDischarge())
+      and NoAntithromboticDischarge.intent = 'order'
+
+define "Antithrombotic Not Given at Discharge":
+  ["MedicationNotRequested": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
+    where (NoAntithromboticDischarge.reasonCode in "Medical Reason"
+        or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+      and (NoAntithromboticDischarge.isCommunity() or NoAntithromboticDischarge.isDischarge())
+      and NoAntithromboticDischarge.intent = 'order'
+*/
 
 // QICoreMedicationRequest
-// connectathon/fhir4/cql/EXM104_FHIR4-8.1.000.cql
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest
+define MedicationRequest:
+  [MedicationRequest] R
+    where R.status in { 'active', 'on-hold', 'completed', 'draft' }
+      and R.doNotPerform is not true
+
+/*
 define "Antithrombotic Therapy at Discharge":
   ["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
     where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
       and Antithrombotic.status in { 'active', 'completed' }
+      and Antithrombotic.intent.value = 'order'
+
+define "Antithrombotic Therapy at Discharge":
+  QICore.MedicationRequest Antithrombotic
+    where Antithrombotic.medication in "Antithrombotic Therapy"
+      and (Antithrombotic.isCommunity() or Antithrombotic.isDischarge())
+      and Antithrombotic.status in { 'active', 'completed' }
       and Antithrombotic.intent = 'order'
 
+define "Antithrombotic Therapy at Discharge":
+  [MedicationRequest: medication in "Antithrombotic Therapy"] Antithrombotic
+    where (Antithrombotic.isCommunity() or Antithrombotic.isDischarge())
+      and Antithrombotic.status in { 'active', 'completed' }
+      and Antithrombotic.intent = 'order'
+*/
+
 // QICoreMedicationStatement
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement
+define MedicationStatement:
+  [MedicationStatement]
 
 // QICoreNutritionOrder
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder
+define NutritionOrder:
+  [NutritionOrder]
 
 // QICoreObservation
-// connectathon/fhir4/cql/EXM124_FHIR4-8.2.000.cql
-define "Pap Test with Results":
-	[Observation: "Pap Test"] PapTest
-		where PapTest.value is not null
-			and PapTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation
+define Observation:
+  [Observation] O
+    where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
 
 // QICoreObservationNotDone
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationnotdone
+define ObservationNotDone:
+  [Observation] O
+    where O.status = 'cancelled'
 
 // FHIR Vital Signs
 
@@ -182,20 +287,54 @@ define "Pap Test with Results":
 // USCore Pulse Oximetry
 
 // QICoreOrganization
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization
+define Organization:
+  [Organization]
 
 // QICorePatient
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient
+define Patient:
+  [Patient]
 
 // QICorePractitioner
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner
+define Practitioner:
+  [Practitioner]
 
 // QICorePractitionerRole
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole
+define PractitionerRole:
+  [PractitionerRole]
 
 // QICoreProcedure
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure
+define Procedure:
+  [Procedure] P
+    where P.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
+
+define ProcedurePerformed:
+  Procedure P
+    where P.status = 'completed'
+
+/*
 define "Flexible Sigmoidoscopy Performed":
-	[Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
-		where FlexibleSigmoidoscopy.status = 'completed'
-			and Global."Normalize Interval"(FlexibleSigmoidoscopy.performed) ends 5 years or less on or before end of "Measurement Period"
+ [Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
+	 where FlexibleSigmoidoscopy.status = 'completed'
+		 and Global."Normalize Interval"(FlexibleSigmoidoscopy.performed) ends 5 years or less on or before end of "Measurement Period"
+
+define "Flexible Sigmoidoscopy Performed":
+  QICore.ProcedurePerformed FlexibleSigmoidoscopy
+    where FlexibleSigmoidoscopy.code in "Flexible Sigmoidoscopy"
+      and FlexibleSigmoidoscopy.performed.toInterval() ends 5 years or less on or before end of "Measurement Period"
+*/
 
 // QICoreProcedureNotDone
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone
+define ProcedureNotDone:
+  [Procedure] P
+    where P.status = 'not-done'
+
+/*
 define "No VTE Prophylaxis Device Applied":
   ["Procedure": "Device Application"] DeviceApplied
     let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value
@@ -206,9 +345,33 @@ define "No VTE Prophylaxis Device Applied":
       and  DeviceApplied.status = 'not-done'
     return {id: DeviceApplied.id, requestStatusReason: DeviceApplied.statusReason, authoredOn: DeviceNotDoneTiming}
 
+define "No VTE Prophylaxis Device Applied":
+  QICore.ProcedureNotDone DeviceApplied
+    where DeviceApplied.code in "Device Application"
+      and (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+        or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
+        or DeviceApplied.usedCode in "Graduated compression stockings (GCS)")
+    return {
+      id: DeviceApplied.id,
+      requestStatusReason: DeviceApplied.statusReason,
+      authoredOn: DeviceApplied.recorded()
+    }
+
+*/
+
 // QICoreRelatedPerson
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson
+define RelatedPerson:
+  [RelatedPerson]
 
 // QICoreServiceNotRequested
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
+define ServiceNotRequested:
+  [ServiceRequest] SR
+    where SR.status = 'completed'
+      and SR.doNotPerform is true
+
+/*
 define "No VTE Prophylaxis Device Order":
   (["ServiceRequest": "Venous foot pumps (VFP)"]
     union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
@@ -217,8 +380,21 @@ define "No VTE Prophylaxis Device Order":
     where DeviceOrder.status = 'completed'
       and DeviceOrder.doNotPerform is true
 
+define "No VTE Prophylaxis Device Order":
+  QICore.ServiceNotRequested DeviceOrder
+    where DeviceOrder.code in "Venous foot pumps (VFP)"
+      or DeviceOrder.code in "Intermittent pneumatic compression devices (IPC)"
+      or DeviceOrder.code in "Graduated compression stockings (GCS)"
+*/
+
 // QICoreServiceRequest
-// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
+define ServiceRequest:
+  [ServiceRequest] SR
+    where SR.status in { 'draft', 'active', 'on-hold', 'completed' }
+      and SR.doNotPerform is not true
+
+/*
 define "Intervention Comfort Measures":
   (["ServiceRequest": "Comfort Measures"] P
     where P.intent = 'order'
@@ -227,8 +403,37 @@ define "Intervention Comfort Measures":
       where InterventionPerformed.status in {'completed', 'in-progress'}
     )
 
+define "Intervention Comfort Measures":
+  (QICore.ServiceRequest SR
+    where SR.code in "Comfort Measures"
+      and SR.intent = 'order'
+  )
+    union (
+      QICore.Procedure InterventionPerformed
+        where InterventionPerformed.code in "Comfort Measures"
+          and InterventionPerformed.status in { 'completed', 'in-progress' }
+    )
+*/
+
 // QICoreSpecimen
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen
+define Specimen:
+  [Specimen]
 
 // QICoreSubstance
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance
+define Substance:
+  [Substance]
 
 // QICoreTask
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-task
+define Task:
+  [Task] T
+    where T.status in { 'draft', 'requested', 'received', 'accepted', 'ready', 'in-progress', 'on-hold', 'completed' }
+
+// QICoreTaskNotDone
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-tasknotdone
+// TODO: What about cancelled and failed?
+define TaskNotDone:
+  [Task] T
+    where T.status = 'rejected'
