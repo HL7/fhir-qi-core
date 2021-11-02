@@ -192,8 +192,7 @@ profile inherited from US Core.
 
 ##### Negation Rationale for Assessment, Performed
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.modifierExtension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.modifierExtension:notDone) - Value Boolean fixed to "true"
-* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
+* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "cancelled"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
 * [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) to indicate the specific Observation that was not performed
@@ -669,8 +668,7 @@ provide sufficient fidelity to their requests.
 ##### Negation Rationale for Diagnostic Study, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.modifierExtension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.modifierExtension:notDone) - Value Boolean fixed to "true"
-* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
+* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "cancelled"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
 * [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) to indicate the specific Observation that was not performed
@@ -1347,8 +1345,7 @@ acceptable to provide sufficient fidelity to their requests.
 ##### Negation Rationale for Laboratory Test, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.modifierExtension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.modifierExtension:notDone) - Value Boolean fixed to "true"
-* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
+* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "cancelled"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
 * [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) to indicate the specific Observation that was not performed
@@ -1723,8 +1720,7 @@ To capture specific types of "Physical Exam, Order" as QICoreObservationNotDone,
 ##### Negation Rationale for Physical Exam, Performed
 
 Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.modifierExtension:notDone](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.modifierExtension:notDone) - Value Boolean fixed to "true"
-* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "final"
+* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "cancelled"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
 * [Observation.code](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code) - Use [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) to indicate the specific Observation that was not performed
@@ -1853,13 +1849,13 @@ mapping presented is from QDM to QI-Core referencing the FHIR Procedure
 resource.
 
 Consistent with the method for specifying QDM’s concept negation rationale, a [TaskNotDone](StructureDefinition-qicore-tasknotdone.html) is represented with the following content:
-* [Task.status:status](StructureDefinition-qicore-tasknotdone-definitions.html#Task.status:status) with valueset-task-status constrained to "rejected" (The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.)
+* [Task.status](StructureDefinition-qicore-tasknotdone-definitions.html#Task.status) with valueset-task-status constrained to "rejected" (The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.)
 * [Task.statusReason](StructureDefinition-qicore-tasknotdone-definitions.html#Task.statusReason) binding to Negation Reason Codes (extensible)
-* [Task.code:code](StructureDefinition-qicore-tasknotdone-definitions.html#Task.code:code) (Codes to identify how the task manages fulfillment of activities - the specific choice depends on the measure context) the direct reference code, it needs a cardinality of 1..1 and binding to the code or value set (it would need a valueset-reference URL: [http://hl7.org/fhir/StructureDefinition/valueset-reference](http://hl7.org/fhir/StructureDefinition/valueset-reference) to reference the value set not performed
+* [Task.code](StructureDefinition-qicore-tasknotdone-definitions.html#Task.code) (Codes to identify how the task manages fulfillment of activities - the specific choice depends on the measure context) the direct reference code, it needs a cardinality of 1..1 and binding to the code or value set (it would need a notDoneValueSet URL: [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to reference the value set not performed
 * [Task.focus](StructureDefinition-qicore-tasknotdone-definitions.html#Task.focus) to reference the Resource (likely procedure) the task was acting on
 * [Task.encounter](StructureDefinition-qicore-tasknotdone-definitions.html#Task.encounter) (Healthcare event during which this task originated)
 * [Task.for](StructureDefinition-qicore-tasknotdone-definitions.html#Task.for) (Beneficiary of the Task) Reference (qicore-patient)
-* [Task.executionPeriod:executionPeriod](StructureDefinition-qicore-tasknotdone-definitions.html#Task.executionPeriod:executionPeriod) for the period/dateTime - the timing the task was rejected and the reason.
+* [Task.executionPeriod](StructureDefinition-qicore-tasknotdone-definitions.html#Task.executionPeriod) for the period/dateTime - the timing the task was rejected and the reason.
 
 #### Procedure Priority
 

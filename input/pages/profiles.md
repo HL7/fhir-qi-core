@@ -30,7 +30,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreImagingStudy](StructureDefinition-qicore-imagingstudy.html)| |[ImagingStudy]({{site.data.fhir.path}}imagingstudy.html)|
 |[QICoreImmunization](StructureDefinition-qicore-immunization.html)| [USCoreImmunization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html) |[Immunization]({{site.data.fhir.path}}immunization.html)|
 |[QICoreImmunizationEvaluation](StructureDefinition-qicore-immunizationevaluation.html)| |[ImmunizationEvaluation]({{site.data.fhir.path}}immunizationevaluation.html)|
-|[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)| |[Immunization]({{site.data.fhir.path}}immunization.html)|
+|[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)| [USCoreImmunization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html) |[Immunization]({{site.data.fhir.path}}immunization.html)|
 |[QICoreImmunizationRecommendation](StructureDefinition-qicore-immunizationrec.html)| |[ImmunizationRecommendation]({{site.data.fhir.path}}immunizationrecommendation.html)|
 | | [USCoreImplantableDeviceProfile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-implantable-device.html) |[Device]({{site.data.fhir.path}}device.html)|
 |[QICoreLocation](StructureDefinition-qicore-location.html)| [USCoreLocation](http://hl7.org/fhir/us/core/StructureDefinition-us-core-location.html) |[Location]({{site.data.fhir.path}}location.html)|
@@ -39,7 +39,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICoreMedicationDispense](StructureDefinition-qicore-medicationdispense.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html)| |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
+|[QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html)| [USCoreMedicationRequest](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreMedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [USCoreMedicationRequest](http://hl7.org/fhir/us/core/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreMedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
 |[QICoreNutritionOrder](StructureDefinition-qicore-nutritionorder.html)| |[NutritionOrder]({{site.data.fhir.path}}nutritionorder.html)|
@@ -56,7 +56,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICorePractitioner](StructureDefinition-qicore-practitioner.html)| [USCorePractitioner](http://hl7.org/fhir/us/core/StructureDefinition-us-core-practitioner.html) |[Practitioner]({{site.data.fhir.path}}practitioner.html)|
 |[QICorePractitionerRole](StructureDefinition-qicore-practitionerrole.html)| [USCorePractitionerRole](http://hl7.org/fhir/us/core/StructureDefinition-us-core-practitionerrole.html) |[PractitionerRole]({{site.data.fhir.path}}practitionerrole.html)|
 |[QICoreProcedure](StructureDefinition-qicore-procedure.html)| [USCoreProcedure](http://hl7.org/fhir/us/core/StructureDefinition-us-core-procedure.html) |[Procedure]({{site.data.fhir.path}}procedure.html)|
-|[QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html)| |[Procedure]({{site.data.fhir.path}}procedure.html)|
+|[QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html)| [USCoreProcedure](http://hl7.org/fhir/us/core/StructureDefinition-us-core-procedure.html) |[Procedure]({{site.data.fhir.path}}procedure.html)|
 |[QICoreRelatedPerson](StructureDefinition-qicore-relatedperson.html)| |[RelatedPerson]({{site.data.fhir.path}}relatedperson.html)|
 |[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)| |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |[QICoreServiceRequest](StructureDefinition-qicore-servicerequest.html)| |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|

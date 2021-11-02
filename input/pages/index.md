@@ -277,9 +277,7 @@ following information:
 * The reason the activity/event did not occur (Preferably represented using one of an established set of [Negation Reason Codes](ValueSet-qicore-negation-reason.html))
 * When the fact that the activity/event did not occur was recorded
 
-Note that although these aspects are all present within each negation profile defined by QI-Core, they manifest differently in
-different resources. As a result, each negation profile uses a combination of constraints and extensions to provide consistent
- representation of negated actions or events within QI-Core.
+Note that although these aspects are all present within each negation profile defined by QI-Core, they manifest differently in different resources. As a result, each negation profile uses a combination of constraints and extensions to provide consistent representation of negated actions or events within QI-Core.
 
 The following examples differentiate methods to indicate (a) presence of evidence of an action, (b) absence of evidence
 of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
@@ -321,7 +319,7 @@ defined by a particular value set (i.e., negation rationale):
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
 value set. To report Antithrombotic Therapy Not Administered, this is done by referencing uri of the "Antithrombotic
-Therapy" value set using the [value set extension](http://hl7.org/fhir/extension-valueset-reference.html) to indicate
+Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
 set uri to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
 not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
@@ -330,6 +328,13 @@ did not administer in order to negate.
 Similarly, to report "Procedure, Not Performed": "Cardiac Surgery" with a reason, the uri of "Cardiac Surgery" value set
 is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
 specified in the "Cardiac Surgery" value set.
+
+Note that the negation profiles can be used by instances to make two different types of negative statements:
+
+1. Documentation that a specific activity was not performed for a given reason (e.g. [MedicationRequest example negative a specific code](MedicationRequest-negation-example-code.html))
+2. Documentation that none of the activities in a given value set were performed for a given reason (e.g. [MedicationRequest example negating a value set](MedicationRequest-negation-example.html))
+
+Each of the negation profiles provides an example illustrating both types of negative statement.
 
 QI-Core defines the following profiles specifically for representing negation rationale:
 
