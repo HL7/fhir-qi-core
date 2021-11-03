@@ -4,18 +4,19 @@
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
-  <pre>
-  <code>
-  define "SDE Payer":
-    [Coverage: type in "Payer"] Payer
-      return {
-        code: Payer.type,
-        period: Payer.period
-      }
-  </code>
-  </pre>
   </p>
-  <a name="examples"> </a>
+
+<pre>
+<code>define "SDE Payer":
+  [Coverage: type in "Payer"] Payer
+    return {
+      code: Payer.type,
+      period: Payer.period
+    }
+</code>
+</pre>
+
+<a name="examples"> </a>
 <h3>Examples</h3>
   <p>
   <table>

@@ -5,6 +5,19 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+
+  <p>The Immunization and ImmunizationNotDone profiles represent the positive and
+    negative statements for an immunization event. To ensure instances retrieved meet
+    negative intent, applications should check the status element as illustrated in
+    this example:</p>
+
+<pre>
+<code>define ImmunizationNotDone:
+  [Immunization] I
+    where I.status = 'not-done'
+</code>
+</pre>
+
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>

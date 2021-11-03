@@ -2,9 +2,23 @@
 
 
 <a name="usage"><b>Usage</b></a>
+
+<p>The ServiceRequest and ServiceNotRequested profiles represent the positive and
+  negative statements for a service request. To ensure instances retrieved meet
+  negative intent, applications should check the status and doNotPerform elements as illustrated in
+  this example:</p>
+
 <pre>
-<code>
-define "No VTE Prophylaxis Device Order":
+<code>define ServiceNotRequested:
+  [ServiceRequest] SR
+    where SR.status = 'completed'
+      and SR.doNotPerform is true
+</code>
+</pre>
+
+<p>The following example illustrates the use of the ServiceNotRequested profile:</p>
+<pre>
+<code>define "No VTE Prophylaxis Device Order":
   (["ServiceRequest": "Venous foot pumps (VFP)"]
     union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
     union ["ServiceRequest": "Graduated compression stockings (GCS)"]

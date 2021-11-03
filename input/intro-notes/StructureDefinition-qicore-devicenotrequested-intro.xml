@@ -5,6 +5,20 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+
+  <p>The DeviceRequest and DeviceNotRequested profiles represent the positive and
+    negative statements for a device request. To ensure instances retrieved meet
+    negative intent, applications should check the status and doNotPerform elements
+    as illustrated in this example:</p>
+
+<pre>
+<code>define DeviceNotRequested:
+  [DeviceRequest] D
+    where D.status = 'completed'
+      and D.doNotPerform() is true
+</code>
+</pre>
+
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>

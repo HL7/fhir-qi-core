@@ -5,6 +5,19 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+
+  <p>The Task and TaskNotDone profiles represent the positive and
+    negative statements for a task. To ensure instances retrieved meet
+    negative intent, applications should check the status element as illustrated in
+    this example:</p>
+
+<pre>
+<code>define TaskNotDone:
+  [Task] T
+    where T.status = 'rejected'
+</code>
+</pre>
+
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>

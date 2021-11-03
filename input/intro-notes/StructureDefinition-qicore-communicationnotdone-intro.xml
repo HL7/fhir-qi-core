@@ -5,6 +5,18 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+
+  <p>The Communication and CommunicationNotDone profiles represent the positive and
+    negative statements for a communication event. To ensure instances retrieved meet
+    negative intent, applications should check the status as illustrated in this example:</p>
+
+<pre>
+<code>define CommunicationNotDone:
+  [Communication] C
+    where C.status = 'not-done'
+</code>
+</pre>
+
   <a name="examples"> </a>
 <h3>Examples</h3>
   <p>

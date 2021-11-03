@@ -2,15 +2,30 @@
   <a name="usage"><b>Usage</b></a>
   <p>To create an expression specifically requesting information that a MedicationRequest intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-mednotrequested.html">QICore-Medicationnotrequested</a>.</p>
 
-  <pre>
-  <code>
-  define "Antithrombotic Therapy at Discharge":
-    ["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
-      where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
-        and Antithrombotic.status in { 'active', 'completed' }
-        and Antithrombotic.intent.value = 'order'
-  </code>
-  </pre>
+  <p>The MedicationRequest and MedicationNotRequested profiles represent the positive and
+    negative statements for a medication order. To ensure instances retrieved meet
+    positive intent, applications should check the status and doNotPerform elements as illustrated in
+    this example:</p>
+
+<pre>
+<code>define MedicationRequest:
+  [MedicationRequest] R
+    where R.status in { 'active', 'on-hold', 'completed', 'draft' }
+      and R.doNotPerform is not true
+</code>
+</pre>
+
+<p>The following example illustrates the use of the MedicationRequest profile:</p>
+<pre>
+<code>define "Antithrombotic Therapy at Discharge":
+  [MedicationRequest: medication in "Antithrombotic Therapy"] Antithrombotic
+    where (Antithrombotic.isCommunity() or Antithrombotic.isDischarge())
+      and Antithrombotic.status in { 'active', 'completed' }
+      and Antithrombotic.intent = 'order'
+      and Antithrombotic.doNotPerform is not true
+</code>
+</pre>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>

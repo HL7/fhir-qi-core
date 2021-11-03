@@ -5,6 +5,33 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+
+  <p>The MedicationRequest and MedicationNotRequested profiles represent the positive and
+    negative statements for a medication order. To ensure instances retrieved meet
+    negative intent, applications should check the status and doNotPerform elements as illustrated in
+    this example:</p>
+
+<pre>
+<code>define MedicationNotRequested:
+  [MedicationRequest] R
+    where R.status = 'completed'
+      and R.doNotPerform is true
+</code>
+</pre>
+
+<p>The following example illustrates the use of the MedicationNotRequested profile:</p>
+<pre>
+<code>define "Antithrombotic Not Given at Discharge":
+  ["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
+    where NoAntithromboticDischarge.doNotPerform is true
+			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
+				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+      and (NoAntithromboticDischarge.isCommunity() or NoAntimthromboticDischarge.isDischarge())
+      and NoAntithromboticDischarge.status = 'completed'
+      and NoAntithromboticDischarge.intent = 'order'
+</code>
+</pre>
+
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>

@@ -5,6 +5,23 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+
+<p>The Observation and ObservationNotDone profiles represent the positive and
+  negative statements for an observation. To ensure instances retrieved meet
+  negative intent, applications should check the status element as illustrated in
+  this example:</p>
+
+<pre>
+<code>define ObservationNotDone:
+  [Observation] O
+    where O.status = 'cancelled'
+</code>
+</pre>
+
+<p>Note that when a more specific observation, such as a Blood Pressure, is negated, the
+	resource instance should conform to both the specific observation profile AND the
+	general negation profile.</p>
+
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>

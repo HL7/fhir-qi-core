@@ -1,18 +1,35 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
   <a name="usage"><b>Usage</b></a>
-  <pre>
-  <code>
-  define "No VTE Prophylaxis Device Applied":
-    ["Procedure": "Device Application"] DeviceApplied
-      let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value
-      where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-        or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
-        or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
-      )
-        and  DeviceApplied.status = 'not-done'
-      return {id: DeviceApplied.id, requestStatusReason: DeviceApplied.statusReason, authoredOn: DeviceNotDoneTiming}
-  </code>
-  </pre>
+
+  <p>The Procedure and ProcedureNotDone profiles represent the positive and
+    negative statements for a procedure. To ensure instances retrieved meet
+    negative intent, applications should check the status element as illustrated in
+    this example:</p>
+
+<pre>
+<code>define ProcedureNotDone:
+  [Procedure] P
+    where P.status = 'not-done'
+</code>
+</pre>
+
+<p>The following example illustrates the use of the ProcedureNotDone profile:</p>
+<pre>
+<code>define "No VTE Prophylaxis Device Applied":
+  ["Procedure": "Device Application"] DeviceApplied
+    where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+      or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
+      or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+    )
+      and  DeviceApplied.status = 'not-done'
+    return
+      {
+        id: DeviceApplied.id,
+        requestStatusReason: DeviceApplied.statusReason,
+        authoredOn: DeviceApplied.recorded()
+      }
+</code>
+</pre>
 
   <p>
   <tr>

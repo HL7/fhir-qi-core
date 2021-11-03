@@ -5,9 +5,22 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+
+  <p>The MedicationDispense and MedicationDispenseNotDone profiles represent the positive and
+    negative statements for a medication dispensing event. To ensure instances retrieved meet
+    negative intent, applications should check the status element as illustrated in
+    this example:</p>
+
   <pre>
-<code>
-define "Dementia Medications Not Dispensed":
+<code>define MedicationDispenseNotDone:
+  [MedicationDispense] D
+    where D.status in { 'cancelled', 'declined' }
+</code>
+</pre>
+
+<p>The following example illustrates the use of the MedicationNotDispensed profile:</p>
+<pre>
+<code>define "Dementia Medications Not Dispensed":
   ["MedicationDispense": "Dementia Medications"] MedicationDispense
     where MedicationDispense.status = 'declined'
 </code>

@@ -3,9 +3,21 @@
 <p>To create an expression specifically requesting information that a MedicationDispense intentionally
 did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-mednotdispensed.html">QICore-medicationnotdispensed</a>.</p>
 
+<p>The MedicationDispense and MedicationDispenseNotDone profiles represent the positive and
+  negative statements for a medication dispensing event. To ensure instances retrieved meet
+  positive intent, applications should check the status element as illustrated in
+  this example:</p>
+
 <pre>
-<code>
-// connectathon/fhir4/cql/AdvancedIllnessandFrailtyExclusion_FHIR4-4.0.000.cql
+<code>define MedicationDispense:
+  [MedicationDispense] D
+    where D.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
+</code>
+</pre>
+
+<p>The following example illustrates the use of the MedicationDispense profile</p>
+<pre>
+<code>// connectathon/fhir4/cql/AdvancedIllnessandFrailtyExclusion_FHIR4-4.0.000.cql
 define "Dementia Medications Dispensed":
   ["MedicationDispense": "Dementia Medications"] MedicationDispense
     where MedicationDispense.status in { 'active', 'completed', 'on-hold' }

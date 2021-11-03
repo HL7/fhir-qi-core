@@ -3,14 +3,27 @@
 	<p>To create an expression specifically requesting information that a procedure intentionally did not occur for
 	a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-procedurenotdone.html">QICore-Procedurenotdone</a>.</p>
 
-	<pre>
-	<code>
-	define "Flexible Sigmoidoscopy Performed":
-	 [Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
-		 where FlexibleSigmoidoscopy.status = 'completed'
-			 and Global."Normalize Interval"(FlexibleSigmoidoscopy.performed) ends 5 years or less on or before end of "Measurement Period"
-	</code>
-	</pre>
+	<p>The Procedure and ProcedureNotDone profiles represent the positive and
+    negative statements for a procedure. To ensure instances retrieved meet
+    positive intent, applications should check the status element as illustrated in
+    this example:</p>
+
+<pre>
+<code>define Procedure:
+  [Procedure] P
+    where P.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
+</code>
+</pre>
+
+<p>The following example illustrates the use of the Procedure profile:</p>
+
+<pre>
+<code>define "Flexible Sigmoidoscopy Performed":
+ [Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
+	 where FlexibleSigmoidoscopy.status = 'completed'
+		 and FlexibleSigmoidoscopy.performed.toInterval() ends 5 years or less on or before end of "Measurement Period"
+</code>
+</pre>
 	<p>
    <tr>
        <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>

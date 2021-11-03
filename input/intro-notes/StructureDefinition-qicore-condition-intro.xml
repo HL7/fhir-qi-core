@@ -4,15 +4,14 @@
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
-  <pre>
-  <code>
-  define "Absence of Cervix":
-  	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
-  		where Global."Normalize Onset"(NoCervixBirth.onset) starts before end of "Measurement Period"
-        and NoCervixBirth.clinicalStatus ~ ToConcept(Global."active")
-  </code>
-  </pre>
   </p>
+<pre>
+<code>define "Absence of Cervix":
+	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
+		where NoCervixBirth.onset.toInterval() starts before end of "Measurement Period"
+      and NoCervixBirth.clinicalStatus ~ Global."active"
+</code>
+</pre>
   <a name="examples"> </a>
 <h3>Examples</h3>
   <p>

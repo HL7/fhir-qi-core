@@ -6,11 +6,13 @@
 </tr>
 
 <pre>
-<code>
-define "Statin Allergy":
+<code>define "Statin Allergy":
   ["AllergyIntolerance": "Statin Allergen"] StatinAllergy
-    where (StatinAllergy.clinicalStatus is null or FHIRHelpers.ToConcept(StatinAllergy.clinicalStatus) ~ Global."allergy-active")
-      and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) in { Global."allergy-unconfirmed", Global."allergy-confirmed" }
+    where (StatinAllergy.clinicalStatus is null or StatinAllergy.clinicalStatus ~ Global."allergy-active")
+      and (
+        StatinAllergy.verificationStatus ~ Global."allergy-unconfirmed"
+         or StatinAllergy.verificationStatus ~ Global."allergy-confirmed"
+      )
 </code>
 </pre>
 </p>

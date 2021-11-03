@@ -9,14 +9,27 @@
 	<li><a href="http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html">Smoking Status</a></li></ul></p>
 	<p>To create an expression specifically requesting information that an observation intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-observationnotdone.html">QICore-observationnotdone</a>.</p>
 
-	<pre>
-	<code>
-	define "Pap Test with Results":
-		[Observation: "Pap Test"] PapTest
-			where PapTest.value is not null
-				and PapTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
-	</code>
-	</pre>
+	<p>The Observation and ObservationNotDone profiles represent the positive and
+    negative statements for an observation. To ensure instances retrieved meet
+    positive intent, applications should check the status element as illustrated in
+    this example:</p>
+
+<pre>
+<code>define Observation:
+  [Observation] O
+    where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
+</code>
+</pre>
+
+<p>The following example illustrates the use of the observation profile.</p>
+<pre>
+<code>define "Pap Test with Results":
+	[Observation: "Pap Test"] PapTest
+		where PapTest.value is not null
+			and PapTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
+</code>
+</pre>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
