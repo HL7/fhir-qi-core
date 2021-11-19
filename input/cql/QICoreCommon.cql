@@ -1,14 +1,69 @@
 /*
 @author: Bryn Rhodes
 @description: This library defines functions to expose extensions defined
-in QICore as fluent functions in CQL.
+in QICore as fluent functions in CQL, as well as common terminology and functions
+used in writing CQL with FHIR and QICore profiles.
 */
-library QICoreElements version '4.1.0'
+library QICoreCommon version '4.1.0'
 
 using FHIR version '4.0.1'
 
 include FHIRHelpers version '4.0.1'
-include FHIRCommon version '4.1.0' called FC
+
+codesystem "LOINC": 'http://loinc.org'
+codesystem "SNOMEDCT": 'http://snomed.info/sct'
+codesystem "RoleCode": 'http://terminology.hl7.org/CodeSystem/v3-RoleCode'
+codesystem "Diagnosis Role": 'http://terminology.hl7.org/CodeSystem/diagnosis-role'
+codesystem "RequestIntent": 'http://terminology.hl7.org/CodeSystem/request-intent'
+codesystem "MedicationRequestCategory": 'http://terminology.hl7.org/CodeSystem/medicationrequest-category'
+codesystem "ConditionClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-clinical'
+codesystem "ConditionVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
+codesystem "AllergyIntoleranceClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical'
+codesystem "AllergyIntoleranceVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification'
+
+code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
+code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
+code "ER": 'ER' from "RoleCode" display 'Emergency room'
+code "ICU": 'ICU' from "RoleCode" display 'Intensive care unit'
+code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
+
+// Condition Clinical Status Codes - Consider value sets for these
+code "active": 'active' from "ConditionClinicalStatusCodes"
+code "recurrence": 'recurrence' from "ConditionClinicalStatusCodes"
+code "relapse": 'relapse' from "ConditionClinicalStatusCodes"
+code "inactive": 'inactive' from "ConditionClinicalStatusCodes"
+code "remission": 'remission' from "ConditionClinicalStatusCodes"
+code "resolved": 'resolved' from "ConditionClinicalStatusCodes"
+
+// Condition Verification Status Codes - Consider value sets for these
+code "unconfirmed": 'unconfirmed' from ConditionVerificationStatusCodes
+code "provisional": 'provisional' from ConditionVerificationStatusCodes
+code "differential": 'differential' from ConditionVerificationStatusCodes
+code "confirmed": 'confirmed' from ConditionVerificationStatusCodes
+code "refuted": 'refuted' from ConditionVerificationStatusCodes
+code "entered-in-error": 'entered-in-error' from ConditionVerificationStatusCodes
+
+code "allergy-active": 'active' from "AllergyIntoleranceClinicalStatusCodes"
+code "allergy-inactive": 'inactive' from "AllergyIntoleranceClinicalStatusCodes"
+code "allergy-resolved": 'resolved' from "AllergyIntoleranceClinicalStatusCodes"
+
+// Allergy/Intolerance Verification Status Codes - Consider value sets for these
+code "allergy-unconfirmed": 'unconfirmed' from AllergyIntoleranceVerificationStatusCodes
+code "allergy-confirmed": 'confirmed' from AllergyIntoleranceVerificationStatusCodes
+code "allergy-refuted": 'refuted' from AllergyIntoleranceVerificationStatusCodes
+
+// MedicationRequest Category Codes
+code "Community": 'community' from "MedicationRequestCategory" display 'Community'
+code "Discharge": 'discharge' from "MedicationRequestCategory" display 'Discharge'
+
+// Diagnosis Role Codes
+code "AD": 'AD' from "Diagnosis Role" display 'Admission diagnosis'
+code "DD": 'DD' from "Diagnosis Role" display 'Discharge diagnosis'
+code "CC": 'CC' from "Diagnosis Role" display 'Chief complaint'
+code "CM": 'CM' from "Diagnosis Role" display 'Comorbidity diagnosis'
+code "pre-op": 'pre-op' from "Diagnosis Role" display 'pre-op diagnosis'
+code "post-op": 'post-op' from "Diagnosis Role" display 'post-op diagnosis'
+code "billing": 'billing' from "Diagnosis Role" display 'billing diagnosis'
 
 context Patient
 
@@ -19,7 +74,7 @@ context Patient
 */
 define fluent function isCommunity(medicationRequest MedicationRequest):
   exists (medicationRequest.category C
-    where C ~ FC.Community
+    where C ~ Community
   )
 
 /*
@@ -27,7 +82,7 @@ define fluent function isCommunity(medicationRequest MedicationRequest):
 */
 define fluent function isDischarge(medicationRequest MedicationRequest):
   exists (medicationRequest.category C
-    where C ~ FC.Discharge
+    where C ~ Discharge
   )
 
 /*
@@ -39,7 +94,26 @@ complexity of determining a single interval from a Timing or String type, this f
 with a Timing or String.
 */
 define fluent function toInterval(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
-  FC.ToInterval(choice)
+  case
+    when choice is FHIR.dateTime then
+      Interval[FHIRHelpers.ToDateTime(choice as FHIR.dateTime), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]
+    when choice is FHIR.Period then
+      FHIRHelpers.ToInterval(choice as FHIR.Period)
+    when choice is FHIR.instant then
+      Interval[FHIRHelpers.ToDateTime(choice as FHIR.instant), FHIRHelpers.ToDateTime(choice as FHIR.instant)]
+    when choice is FHIR.Age then
+      Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age),
+        FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age) + 1 year)
+    when choice is FHIR.Range then
+      Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).low),
+        FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).high) + 1 year)
+    when choice is FHIR.Timing then
+      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute a single interval from a Timing type')
+    when choice is FHIR.string then
+      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
+    else
+      null as Interval<DateTime>
+  end
 
 /*
 @description: Returns an interval representing the normalized Abatement of a given Condition resource.
@@ -47,7 +121,21 @@ define fluent function toInterval(choice Choice<FHIR.dateTime, FHIR.Period, FHIR
 a run-time exception if used with a Condition instance that has a String as the abatement value.
 */
 define fluent function abatementInterval(condition Condition):
-  FC.ToAbatementInterval(condition)
+  if condition.abatement is FHIR.dateTime then
+    Interval[FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime), FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime)]
+  else if condition.abatement is FHIR.Period then
+    FHIRHelpers.ToInterval(condition.abatement as FHIR.Period)
+  else if condition.abatement is FHIR.string then
+    Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
+  else if condition.abatement is FHIR.Age then
+    Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age),
+      FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age) + 1 year)
+  else if condition.abatement is FHIR.Range then
+    Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).low),
+      FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).high) + 1 year)
+  else if condition.abatement is FHIR.boolean then
+    Interval[end of condition.onset.toInterval(), condition.recordedDate)
+  else null
 
 /*
 @description: Returns an interval representing the normalized prevalence period of a given Condition resource.
@@ -55,7 +143,12 @@ define fluent function abatementInterval(condition Condition):
 onset to abatement as specified in the given Condition.
 */
 define fluent function prevalenceInterval(condition Condition):
-  FC.ToPrevalenceInterval(condition)
+  if condition.clinicalStatus ~ "active"
+    or condition.clinicalStatus ~ "recurrence"
+    or condition.clinicalStatus ~ "relapse" then
+    Interval[start of condition.onset.toInterval(), end of condition.abatementInterval()]
+  else
+    Interval[start of condition.onset.toInterval(), end of condition.abatementInterval())
 
 /*
 @description: Given an interval, return true if the interval has a starting boundary specified (i.e. the start of the interval is not null and not the minimum DateTime value)
@@ -94,13 +187,87 @@ define fluent function earliest(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.T
 /* FHIR Extensions */
 
 /*
+@description: Returns any extensions defined on the given resource with the specified url.
+@comment: NOTE: Extensions are not the preferred approach, but are used as a way to access
+content that is defined by extensions but not yet surfaced in the
+CQL model info.
+*/
+define fluent function extensions(domainResource DomainResource, url String):
+  domainResource.extension E
+	  where E.url = url
+		return E
+
+/*
+@description: Returns the single extension (if present) on the given resource with the specified url.
+@comment: This function uses singleton from to ensure that a run-time exception is thrown if there
+is more than one extension on the given resource with the specified url.
+*/
+define fluent function extension(domainResource DomainResource, url String):
+  singleton from domainResource.extensions(url)
+
+/*
+@description: Returns any extensions defined on the given element with the specified url.
+@comment: NOTE: Extensions are not the preferred approach, but are used as a way to access
+content that is defined by extensions but not yet surfaced in the CQL model info.
+*/
+define fluent function extensions(element Element, url String):
+  element.extension E
+	  where E.url = url
+		return E
+
+/*
+@description: Returns the single extension (if present) on the given element with the specified url.
+@comment: This function uses singleton from to ensure that a run-time exception is thrown if there
+is more than one extension on the given resource with the specified url.
+*/
+define fluent function extension(element Element, url String):
+  singleton from element.extensions(url)
+
+/*
+@description: Returns any modifier extensions defined on the given resource with the specified url.
+@comment: NOTE: Extensions are not the preferred approach, but are used as a way to access
+content that is defined by extensions but not yet surfaced in the
+CQL model info.
+*/
+define fluent function modifierExtensions(domainResource DomainResource, url String):
+  domainResource.modifierExtension E
+	  where E.url = url
+		return E
+
+/*
+@description: Returns the single modifier extension (if present) on the given resource with the specified url.
+@comment: This function uses singleton from to ensure that a run-time exception is thrown if there
+is more than one extension on the given resource with the specified url.
+*/
+define fluent function modifierExtension(domainResource DomainResource, url String):
+  singleton from domainResource.modifierExtensions(url)
+
+/*
+@description: Returns any modifier extensions defined on the given element with the specified url.
+@comment: NOTE: Extensions are not the preferred approach, but are used as a way to access
+content that is defined by extensions but not yet surfaced in the CQL model info.
+*/
+define fluent function modifierExtensions(element BackboneElement, url String):
+  element.modifierExtension E
+	  where E.url = url
+		return E
+
+/*
+@description: Returns the single modifier extension (if present) on the given element with the specified url.
+@comment: This function uses singleton from to ensure that a run-time exception is thrown if there
+is more than one extension on the given resource with the specified url.
+*/
+define fluent function modifierExtension(element BackboneElement, url String):
+  singleton from element.modifierExtensions(url)
+
+/*
 @description: Surfaces the [resolutionAge](http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge)
 extension defined in FHIR.
 @comment: This function returns the value of the extension as an Age.
 @extension: http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge
 */
 define fluent function resolutionAge(allergyIntolerance AllergyIntolerance):
-  FC.Extension(allergyIntolerance, 'http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge').value as Age
+  allergyIntolerance.extension('http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge').value as Age
 
 /*
 @description: Surfaces the [reasonRefuted](http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted)
@@ -109,7 +276,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted
 */
 define fluent function reasonRefuted(allergyIntolerance AllergyIntolerance):
-  FC.Extension(allergyIntolerance, 'http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted').value as CodeableConcept
+  allergyIntolerance.extension('http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted').value as CodeableConcept
 
 /*
 @description: Surfaces the [duration](http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration)
@@ -118,7 +285,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration
 */
 define fluent function duration(allergyIntolerance BackboneElement):
-  FC.Extension(allergyIntolerance, 'http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration').value as Duration
+  allergyIntolerance.extension('http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration').value as Duration
 
 /*
 @description: Surfaces the [dueTo](http://hl7.org/fhir/StructureDefinition/condition-dueTo)
@@ -127,7 +294,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/condition-dueTo
 */
 define fluent function dueTo(condition Condition):
-  FC.Extension(condition, 'http://hl7.org/fhir/StructureDefinition/condition-dueTo').value as Choice<CodeableConcept, Reference>
+  condition.extension('http://hl7.org/fhir/StructureDefinition/condition-dueTo').value as Choice<CodeableConcept, Reference>
 
 /*
 @description: Surfaces the [occurredFollowing](http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing)
@@ -136,16 +303,16 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing
 */
 define fluent function occurredFollowing(condition Condition):
-  FC.Extension(condition, 'http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing').value as Choice<CodeableConcept, Reference>
+  condition.extension('http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing').value as Choice<CodeableConcept, Reference>
 
 /*
-@description: Surfaces the [doNotPerform](http://hl7.org/fhir/StructureDefinition/request-doNotPerform)
+@description: Surfaces the [doNotPerform](http://hl7.org/fhir/5.0/StructureDefinition/extension-DeviceRequest.doNotPerform)
 modifier extension defined in FHIR.
 @comment: This function returns the value of the modifier extension as a boolean
 @extension: http://hl7.org/fhir/StructureDefinition/request-doNotPerform
 */
 define fluent function doNotPerform(requestResource DomainResource):
-  FC.ModifierExtension(requestResource, 'http://hl7.org/fhir/StructureDefinition/request-doNotPerform').value as boolean
+  requestResource.modifierExtension('http://hl7.org/fhir/5.0/StructureDefinition/extension-DeviceRequest.doNotPerform').value as boolean
 
 /*
 @description: Surfaces the [statusReason](http://hl7.org/fhir/StructureDefinition/request-statusReason)
@@ -154,7 +321,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/request-statusReason
 */
 define fluent function statusReason(requestResource DomainResource):
-  FC.Extension(requestResource, 'http://hl7.org/fhir/StructureDefinition/request-statusReason').value as CodeableConcept
+  requestResource.extension('http://hl7.org/fhir/StructureDefinition/request-statusReason').value as CodeableConcept
 
 /*
 @description: Surfaces the [locationPerformed](http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed)
@@ -163,7 +330,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed
 */
 define fluent function locationPerformed(diagnosticReport DiagnosticReport):
-  FC.Extension(diagnosticReport, 'http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed').value as Reference
+  diagnosticReport.extension('http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed').value as Reference
 
 /*
 @description: Surfaces the [abatement](http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement)
@@ -172,7 +339,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement
 */
 define fluent function abatement(familyMemberHistory FamilyMemberHistory):
-  FC.Extension(familyMemberHistory, 'http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement').value as Choice<date, Age, boolean>
+  familyMemberHistory.extension('http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement').value as Choice<date, Age, boolean>
 
 /*
 @description: Surfaces the [severity](http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity)
@@ -181,7 +348,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity
 */
 define fluent function severity(familyMemberHistory FamilyMemberHistory):
-  FC.Extension(familyMemberHistory, 'http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity').value as CodeableConcept
+  familyMemberHistory.extension('http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity').value as CodeableConcept
 
 /*
 @description: Surfaces the [reasonRejected](http://hl7.org/fhir/StructureDefinition/goal-reasonRejected)
@@ -190,7 +357,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/goal-reasonRejected
 */
 define fluent function reasonRejected(goal Goal):
-  FC.Extension(goal, 'http://hl7.org/fhir/StructureDefinition/goal-reasonRejected').value as CodeableConcept
+  goal.extension('http://hl7.org/fhir/StructureDefinition/goal-reasonRejected').value as CodeableConcept
 
 /*
 @description: Surfaces the [bodyPosition](http://hl7.org/fhir/StructureDefinition/observation-bodyPosition)
@@ -199,7 +366,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/observation-bodyPosition
 */
 define fluent function bodyPosition(observation Observation):
-  FC.Extension(observation, 'http://hl7.org/fhir/StructureDefinition/observation-bodyPosition').value as CodeableConcept
+  observation.extension('http://hl7.org/fhir/StructureDefinition/observation-bodyPosition').value as CodeableConcept
 
 /*
 @description: Surfaces the [delta](http://hl7.org/fhir/StructureDefinition/observation-delta)
@@ -208,7 +375,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/observation-delta
 */
 define fluent function delta(observation Observation):
-  FC.Extension(observation, 'http://hl7.org/fhir/StructureDefinition/observation-delta').value as CodeableConcept
+  observation.extension('http://hl7.org/fhir/StructureDefinition/observation-delta').value as CodeableConcept
 
 /*
 @description: Surfaces the [preferred](http://hl7.org/fhir/StructureDefinition/iso21090-preferred) extension defined in USCore.
@@ -216,7 +383,7 @@ define fluent function delta(observation Observation):
 @extension: http://hl7.org/fhir/StructureDefinition/iso21090-preferred
 */
 define fluent function preferred(contactPoint ContactPoint):
-  FC.Extension(contactPoint, 'http://hl7.org/fhir/StructureDefinition/iso21090-preferred').value as boolean
+  contactPoint.extension('http://hl7.org/fhir/StructureDefinition/iso21090-preferred').value as boolean
 
 /*
 @description: Surfaces the [approachBodyStructure](http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure)
@@ -225,7 +392,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure
 */
 define fluent function approachBodyStructure(procedure Procedure):
-  FC.Extension(procedure, 'http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure').value as Reference
+  procedure.extension('http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure').value as Reference
 
 /*
 @description: Surfaces the [incisionDateTime](http://hl7.org/fhir/StructureDefinition/procedure-incisionDateTime)
@@ -234,7 +401,7 @@ extension defined in FHIR.
 @extension: http://hl7.org/fhir/StructureDefinition/procedure-incisionDateTime
 */
 define fluent function incisionDateTime(procedure Procedure):
-  FC.Extension(procedure, 'http://hl7.org/fhir/StructureDefinition/procedure-incisionDateTime').value as dateTime
+  procedure.extension('http://hl7.org/fhir/StructureDefinition/procedure-incisionDateTime').value as dateTime
 
 /* USCore Extensions */
 /*
@@ -245,14 +412,14 @@ extension defined in USCore.
 */
 define fluent function ethnicity(patient Patient):
   patient P
-    let ethnicityEx: FC.Extension(P, 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity')
+    let ethnicityEx: P.extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity')
     return
       {
-        ombCategory: FC.Extension(ethnicityEx, 'ombCategory').value as Coding,
+        ombCategory: ethnicityEx.extension('ombCategory').value as Coding,
         detailed:
-          (FC.Extensions(ethnicityEx, 'detailed')) E
+          (ethnicityEx.extensions('detailed')) E
             return E.value as Coding,
-        text: FC.Extension(ethnicityEx, 'text').value as string
+        text: ethnicityEx.extension('text').value as string
       }
 
 /*
@@ -262,16 +429,16 @@ define fluent function ethnicity(patient Patient):
 */
 define fluent function race(patient Patient):
   patient P
-    let raceEx: FC.Extension(P, 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-race')
+    let raceEx: P.extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-race')
     return
       {
         ombCategory:
-          (FC.Extensions(raceEx, 'ombCategory')) E
+          (raceEx.extensions('ombCategory')) E
             return E.value as Coding,
         detailed:
-          (FC.Extensions(raceEx, 'detailed')) E
+          (raceEx.extensions('detailed')) E
             return E.value as Coding,
-        text: FC.Extension(raceEx, 'text').value as string
+        text: raceEx.extension('text').value as string
       }
 
 /*
@@ -280,7 +447,7 @@ define fluent function race(patient Patient):
 @extension: http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex
 */
 define fluent function birthsex(patient Patient):
-  FC.Extension(patient, 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex').value as code
+  patient.extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex').value as code
 
 /*
 @description: Surfaces the [direct](http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct) extension defined in USCore.
@@ -288,7 +455,7 @@ define fluent function birthsex(patient Patient):
 @extension: http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct
 */
 define fluent function direct(contactPoint ContactPoint):
-  FC.Extension(contactPoint, 'http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct').value as boolean
+  contactPoint.extension('http://hl7.org/fhir/us/core/StructureDefinition/us-core-direct').value as boolean
 
 /* QICore Extensions */
 
@@ -299,7 +466,7 @@ modifier extension defined in QICore.
 @extension: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-isElective
 */
 define fluent function isElective(serviceRequest ServiceRequest):
-  FC.ModifierExtension(serviceRequest, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-isElective').value as boolean
+  serviceRequest.modifierExtension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-isElective').value as boolean
 
 /*
 @description: Surfaces the [procedure](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-procedure)
@@ -308,11 +475,11 @@ extension defined in QICore.
 @extension: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-procedure
 */
 define fluent function procedure(encounter Encounter):
-  (FC.Extensions(encounter, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-procedure')) E
+  (encounter.extensions('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-procedure')) E
     return {
-      type: FC.Extension(E, 'type').value as CodeableConcept,
-      rank: FC.Extension(E, 'rank').value as positiveInt,
-      procedure: FC.Extension(E, 'procedure').value as Reference
+      type: E.extension('type').value as CodeableConcept,
+      rank: E.extension('rank').value as positiveInt,
+      procedure: E.extension('procedure').value as Reference
     }
 
 /*
@@ -322,7 +489,7 @@ extension defined in QICore.
 @extension: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason
 */
 define fluent function doNotPerformReason(requestResource DomainResource):
-  FC.Extension(requestResource, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason').value as CodeableConcept
+  requestResource.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason').value as CodeableConcept
 
 /*
 @description: Surfaces the [recorded](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded)
@@ -331,7 +498,7 @@ extension defined in QICore.
 @extension: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded
 */
 define fluent function recorded(domainResource DomainResource):
-  FC.Extension(domainResource, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded').value as dateTime
+  domainResource.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded').value as dateTime
 
 /*
 @description: Surfaces the [notDone](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone)
@@ -340,7 +507,7 @@ modifier extension defined in QICore.
 @extension: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone
 */
 define fluent function notDone(eventResource DomainResource):
-  FC.ModifierExtension(eventResource, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone').value as boolean
+  eventResource.modifierExtension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDone').value as boolean
 
 /*
 @description: Surfaces the [notDoneReason](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason)
@@ -349,7 +516,7 @@ extension defined in QICore.
 @extension: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason
 */
 define fluent function notDoneReason(eventResource DomainResource):
-  FC.Extension(eventResource, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason').value as CodeableConcept
+  eventResource.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason').value as CodeableConcept
 
 /*
 @description: Surfaces the [notDoneValueSet](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet)
@@ -358,7 +525,7 @@ extension defined in QICore.
 @extension: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet
 */
 define fluent function notDoneValueSet(concept CodeableConcept):
-  FC.Extension(concept, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').value as canonical
+  concept.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').value as canonical
 
 /*
 @description: Surfaces the [presentOnAdmission](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission)
@@ -367,4 +534,4 @@ extension defined in QICore.
 @extension: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission
 */
 define fluent function presentOnAdmission(element Element):
-  FC.Extension(element, 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission').value as CodeableConcept
+  element.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission').value as CodeableConcept

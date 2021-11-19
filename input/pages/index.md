@@ -338,18 +338,18 @@ Each of the negation profiles provides an example illustrating both types of neg
 
 QI-Core defines the following profiles specifically for representing negation rationale:
 
-|QI-Core Profile|Base Resource|
-|---|---|
-|[QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
-|[QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html)|[DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
-|[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)|[Immunization]({{site.data.fhir.path}}immunization.html)|
-|[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
-|[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
-|[QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html)|[Observation]({{site.data.fhir.path}}observation.html)|
-|[QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
-|[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
-[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)|[Task]({{site.data.fhir.path}}task.html)|
+|QI-Core Positive Profile|QI-Core Negation Profile|Base Resource|
+|---|---|---|
+|[QICoreCommunication](StructureDefinition-qicore-communication.html)|[QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
+|[QICoreDeviceRequest](StructureDefinition-qicore-devicerequest.html)|[QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html)|[DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
+|[QICoreImmunization](StructureDefinition-qicore-immunization.html)|[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)|[Immunization]({{site.data.fhir.path}}immunization.html)|
+|[QICoreMedicationAdministration](StructureDefinition-qicore-medicationadministration.html)|[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
+|[QICoreMedicationDispense](StructureDefinition-qicore-medicationdispense.html)|[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICoreMedicationRequest](StructureDefinition-qicore-medicationrequest.html)|[QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
+|[QICoreObservation](StructureDefinition-qicore-observation.html)|[QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html)|[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICoreProcedure](StructureDefinition-qicore-procedure.html)|[QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
+|[QICoreServiceRequest](StructureDefinition-qicore-servicerequest.html)|[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
+|[QICoreTask](StructureDefinition-qicore-task.html)|[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
 
