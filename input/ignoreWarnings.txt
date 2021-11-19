@@ -1,6 +1,5 @@
 == Suppressed Messages ==
 
-
 # Issue within the ImagingStudy snapshot and brought to attention in the following thread: https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/ValueSet.20not.20found.20by.20validator.20or.20cannot.20be.20checked
 WARNING: ImagingStudy/example: ImagingStudy.series[0].modality: ValueSet http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html not found by validator
 WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[11].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html on element ImagingStudy.modality could not be resolved
@@ -22,17 +21,22 @@ WARNING: ValueSet/qicore-present-on-admission: ValueSet.compose[0].include[0]: U
 ERROR: DeviceRequest/negation-example: DeviceRequest: The extension http://hl7.org/fhir/StructureDefinition/request-doNotPerform is not allowed to be used at this point (allowed = e:NutritionOrder; this element is [[DeviceRequest])
 ERROR: DeviceRequest/negation-with-code-example: DeviceRequest: The extension http://hl7.org/fhir/StructureDefinition/request-doNotPerform is not allowed to be used at this point (allowed = e:NutritionOrder; this element is [[DeviceRequest])
 
-# Updated the VSAC dependency but the following issue is still known and is a valid valueset
+# Updated the VSAC dependency but the following issues are still known and is a valid valueset,code systems and codes within
 WARNING: Coverage/example: Coverage.type: ValueSet https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 not found by validator
 WARNING: StructureDefinition/qicore-coverage: StructureDefinition.differential.element[1].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
 WARNING: StructureDefinition/qicore-coverage: StructureDefinition.snapshot.element[11].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
+INFORMATION: Coverage/example: Coverage.type: None of the codings provided are in the value set http://hl7.org/fhir/ValueSet/coverage-type (http://hl7.org/fhir/ValueSet/coverage-type), and a coding is recommended to come from this value set) (codes = https://nahdo.org/sopt#59)
+INFORMATION: Coverage/example: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
+INFORMATION: Medication/example: Medication.code: None of the codings provided are in the value set http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes (http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes), and a coding is recommended to come from this value set) (codes = http://www.nlm.nih.gov/research/umls/rxnorm#1594660)
+INFORMATION: Observation/example: Observation.value.ofType(Quantity): The Coding provided (http://unitsofmeasure.org#g/dL) is not in the value set http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes, and a code is recommended to come from this value set.  (error message = Not in value set http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes)
+INFORMATION: PractitionerRole/example: PractitionerRole.specialty[0]: None of the codings provided are in the value set http://hl7.org/fhir/ValueSet/c80-practice-codes (http://hl7.org/fhir/ValueSet/c80-practice-codes), and a coding is recommended to come from this value set) (codes = http://nucc.org/provider-taxonomy#122300000X)
 
 # The following errors in the examples are being generated due to no code within the codeable concept but referencing a valueset
 WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set http://hl7.org/fhir/us/core/ValueSet/us-core-vaccines-cvx (http://hl7.org/fhir/us/core/ValueSet/us-core-vaccines-cvx)
 WARNING: MedicationRequest/negation-example: MedicationRequest.medication.ofType(CodeableConcept): No code provided, and a code should be provided from the value set http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes (http://hl7.org/fhir/us/core/ValueSet/us-core-medication-codes)
 WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code)
 
-# The following information messages are being generated with using 'example' code systems in the examples
+# The following information messages are being generated with using 'example' code systems or example bindings
 INFORMATION: CarePlan/example: CarePlan.activity[8].detail.code.coding[0]: Code System URI 'http://example.org/mySystem' is unknown so the code cannot be validated
 INFORMATION: Claim/example: Claim.diagnosis[0].diagnosis.ofType(CodeableConcept).coding[0]: Code System URI 'http://example.org/diagnosis/CodeSystem' is unknown so the code cannot be validated
 INFORMATION: Claim/example: Claim.item[0].productOrService.coding[0]: Code System URI 'http://example.org/fhir/CodeSystem/ex-visionservice' is unknown so the code cannot be validated
@@ -42,16 +46,20 @@ INFORMATION: Claim/example: Claim.item[0].detail[2].productOrService.coding[0]: 
 INFORMATION: Communication/example: Communication.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
 INFORMATION: Communication/negation-example: Communication.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
 INFORMATION: CommunicationRequest/example: CommunicationRequest.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
-
 INFORMATION: Encounter/example: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 INFORMATION: Encounter/example: Encounter.diagnosis[0].extension[0].value.ofType(CodeableConcept).coding[0]: Code System URI 'https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding' is unknown so the code cannot be validated
 INFORMATION: Flag/example: Flag.category[0].coding[0]: Code System URI 'http://example.org/local' is unknown so the code cannot be validated
 INFORMATION: Flag/example: Flag.code.coding[0]: Code System URI 'http://example.org/local' is unknown so the code cannot be validated
-
+INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[0].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
+INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[1].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
+INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[2].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
 INFORMATION: MedicationDispense/example: MedicationDispense.substitution.type.coding[0]: Code System URI 'http://example.org/MedDispSubType' is unknown so the code cannot be validated
 INFORMATION: MedicationDispense/example: MedicationDispense.dosageInstruction[0].doseAndRate[0].type: None of the codings provided are in the value set http://hl7.org/fhir/us/qicore/ValueSet/qicore-medication-dose-type (http://hl7.org/fhir/us/qicore/ValueSet/qicore-medication-dose-type), and a coding is recommended to come from this value set) (codes = http://terminology.hl7.org/CodeSystem/dose-rate-type#ordered)
 INFORMATION: NutritionOrder/example: NutritionOrder.oralDiet.type[0].coding[1]: Code System URI 'http://goodhealthhospital.org/diet-type-codes' is unknown so the code cannot be validated
 INFORMATION: Observation/example: Observation.component[0].code.coding[2]: Code System URI 'http://acme.org/devices/clinical-codes' is unknown so the code cannot be validated
-
 INFORMATION: ServiceRequest/appropriateness-example: ServiceRequest.code.coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 INFORMATION: Specimen/example: Specimen.collection.extension[0].value.ofType(CodeableConcept).coding[0]: Code System URI 'http://example.com' is unknown so the code cannot be validated
+
+# The following informatino messages are being generated from the base resource snapshot
+INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[28].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: StructureDefinition/qicore-mednotdispensed: StructureDefinition.snapshot.element[34].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
