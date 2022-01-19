@@ -14,7 +14,7 @@ To use CQL with FHIR, [model information](https://cql.hl7.org/07-physicalreprese
 However, this implementation guide includes a [QICore-ModelInfo](Library-QICore-ModelInfo.html) library that provides model information for the profiles and extensions defined in QI-Core. To use this model, include a [using declaration](https://cql.hl7.org/02-authorsguide.html#data-models) as shown in the example below:
 
 ```cql
-using QICore version '4.1.0'
+using QICore version '4.2.0'
 ```
 
 Although not required by CQL, current best-practice is to include the version of the QICore model. For more information about how this library is constructed, refer to the [ModelInfo](modelinfo.html) topic.

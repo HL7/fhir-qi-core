@@ -1,4 +1,4 @@
-library UsagePatterns version '4.1.0'
+library UsagePatterns
 
 using FHIR version '4.0.1'
 
