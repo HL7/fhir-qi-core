@@ -354,8 +354,6 @@ QI-Core defines the following profiles specifically for representing negation ra
 
 #### Guidance for the use of Negation Profiles
 
-<p>Note for implementers that because the <code>notDoneValueSet</code> extension is an indication that <i>none</i> of the items in the value set occurred, case must be taken to ensure that inconsistent data is not presented. For example, an instance that indicates none of the medications in an Antithrombotic Therapy value set were administered must not appear in the same record as an event that indicates a specific medication in the Antithrombotic Therapy value set <i>was</i> administered, as this would represent inconsistent/conflicting data.</p>
-
 <p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set as indication that the reason applies to all valueset members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all valueset members were selected.</p>
 
 <p>This would be the most common use case. A less frequent need is to indicate that they did not do ONE of the members of the valueset. Stakeholders should understand that either a reason for not acting on a valueset or a single member from that value set meet criteria for the notDone expression.</p>
