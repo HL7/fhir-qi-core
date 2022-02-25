@@ -47,7 +47,7 @@
   POSSIBILITY OF SUCH DAMAGE.
   
 
-  Generated on Fri, Feb 11, 2022 19:08+0000 for FHIR v4.6.0 
+  Generated on Fri, Feb 25, 2022 08:08+0000 for FHIR v4.6.0 
 -->
 <xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns="http://hl7.org/fhir" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:xml="http://www.w3.org/XML/1998/namespace" targetNamespace="http://hl7.org/fhir" elementFormDefault="qualified" version="4.6.0">
   <!-- Note: When using this schema with some tools, it may also be necessary to declare xmlns:xml="http://www.w3.org/XML/1998/namespace", however this causes performance issues with other tools and thus is not in the base schemas. -->
@@ -791,6 +791,56 @@
     <xs:complexContent>
        <xs:extension base="Element">
          <xs:attribute name="value" type="EventResourceTypeEnum" use="optional"/>
+       </xs:extension>
+     </xs:complexContent>
+  </xs:complexType>
+  <xs:simpleType name="FHIRPathTypesEnum">
+    <xs:restriction base="code-primitive">
+      <xs:enumeration value="http://hl7.org/fhirpath/System.String">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">String</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://hl7.org/fhirpath/System.Boolean">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Boolean</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://hl7.org/fhirpath/System.Date">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Date</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://hl7.org/fhirpath/System.DateTime">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">DateTime</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://hl7.org/fhirpath/System.Decimal">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Decimal</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://hl7.org/fhirpath/System.Integer">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Integer</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+      <xs:enumeration value="http://hl7.org/fhirpath/System.Time">
+        <xs:annotation>
+          <xs:documentation xml:lang="en">Time</xs:documentation>
+        </xs:annotation>
+      </xs:enumeration>
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:complexType name="FHIRPathTypes">
+    <xs:annotation>
+      <xs:documentation xml:lang="en"></xs:documentation>
+      <xs:documentation xml:lang="en">If the element is present, it must have either a @value, an @id, or extensions</xs:documentation>
+    </xs:annotation>
+    <xs:complexContent>
+       <xs:extension base="Element">
+         <xs:attribute name="value" type="FHIRPathTypesEnum" use="optional"/>
        </xs:extension>
      </xs:complexContent>
   </xs:complexType>
@@ -5976,7 +6026,7 @@ The type is the Canonical URL of Resource Definition that is the type this refer
   </xs:complexType>
   <xs:complexType name="CodeableReference">
     <xs:annotation>
-      <xs:documentation xml:lang="en">A reference to a resource (by instance), or instead, a reference to a cencept defined in a terminology or ontology (by class).</xs:documentation>
+      <xs:documentation xml:lang="en">A reference to a resource (by instance), or instead, a reference to a concept defined in a terminology or ontology (by class).</xs:documentation>
       <xs:documentation xml:lang="en">If the element is present, it must have a value for at least one of the defined elements, an @id referenced from the Narrative, or extensions</xs:documentation>
     </xs:annotation>
     <xs:complexContent>
@@ -5984,7 +6034,7 @@ The type is the Canonical URL of Resource Definition that is the type this refer
         <xs:sequence>
           <xs:element name="concept" type="CodeableConcept" minOccurs="0" maxOccurs="1">
             <xs:annotation>
-              <xs:documentation xml:lang="en">A reference to a concept - e.g. the information is identified by it's general classto the degree of precision found in the terminology.</xs:documentation>
+              <xs:documentation xml:lang="en">A reference to a concept - e.g. the information is identified by its general class to the degree of precision found in the terminology.</xs:documentation>
             </xs:annotation>
           </xs:element>
           <xs:element name="reference" type="Reference" minOccurs="0" maxOccurs="1">
@@ -19780,7 +19830,7 @@ into another (possibly the same) biological entity.</xs:documentation>
           </xs:element>
           <xs:element name="parent" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
-              <xs:documentation xml:lang="en">The device that this device is attached to or is part of.</xs:documentation>
+              <xs:documentation xml:lang="en">The higher level or encompassing device that this device is a logical part of.</xs:documentation>
            </xs:annotation>
           </xs:element>
         </xs:sequence>
@@ -19799,7 +19849,7 @@ into another (possibly the same) biological entity.</xs:documentation>
               <xs:documentation xml:lang="en">The device identifier (DI) is a mandatory, fixed portion of a UDI that identifies the labeler and the specific version or model of a device.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:element name="issuer" minOccurs="0" maxOccurs="1" type="uri">
+          <xs:element name="issuer" minOccurs="1" maxOccurs="1" type="uri">
             <xs:annotation>
               <xs:documentation xml:lang="en">Organization that is charged with issuing UDIs for devices. For example, the US FDA issuers include: 
 1) GS1: http://hl7.org/fhir/NamingSystem/gs1-di, 
@@ -27742,13 +27792,11 @@ RegisteredName | UserFriendlyName | PatientReportedName.</xs:documentation>
               <xs:documentation xml:lang="en">Indicates whether this record was captured as an original primary source-of-truth record rather than a secondary 'reported' record. A value &quot;true&quot; means this is a primary record of the immunization.</xs:documentation>
            </xs:annotation>
           </xs:element>
-          <xs:choice minOccurs="0" maxOccurs="1" >
+          <xs:element name="informationSource" minOccurs="0" maxOccurs="1" type="CodeableReference">
             <xs:annotation>
               <xs:documentation xml:lang="en">Typically the source of the data when the report of the immunization event is not based on information from the person who administered the vaccine.</xs:documentation>
-            </xs:annotation>
-            <xs:element name="informationSourceCodeableConcept" type="CodeableConcept"/>
-            <xs:element name="informationSourceReference" type="Reference"/>
-          </xs:choice>
+           </xs:annotation>
+          </xs:element>
           <xs:element name="location" minOccurs="0" maxOccurs="1" type="Reference">
             <xs:annotation>
               <xs:documentation xml:lang="en">The service delivery location where the vaccine administration occurred.</xs:documentation>
@@ -44526,7 +44574,7 @@ Deceased patients may also be marked as inactive for the same reasons, but may b
     <xs:complexContent>
       <xs:extension base="BackboneElement">
         <xs:sequence>
-          <xs:element name="type" minOccurs="0" maxOccurs="1" type="CodeableConcept">
+          <xs:element name="classifier" minOccurs="0" maxOccurs="1" type="CodeableConcept">
             <xs:annotation>
               <xs:documentation xml:lang="en">Describes the nature of the location being specified.</xs:documentation>
            </xs:annotation>
