@@ -29,12 +29,33 @@ define "No Low Dose Unfractionated Heparin Administration":
   <table>
     <tbody>
       <tr>
-        <td><a href="MedicationAdministration-negation-example.html">Medication not administered using a value set to indicate what was not administered</a></td>
+        <td><a href="MedicationAdministration-negation-example.html">Negation example using a valueset</a></td><td>Medication not administered using a value set to indicate what was not administered; indicates that none of the medications in the given value set were administered</td>
       </tr>
       <tr>
-        <td><a href="MedicationAdministration-negation-with-code-example.html">Medication not administered using a code to indicate that a particular medication was not administered</a></td>
+        <td><a href="MedicationAdministration-negation-with-code-example.html">Negation example using a code</a></td><td>Medication not administered using a code to indicate that a particular medication was not administered; indicates that a specific medication, by code, was not administered</td>
       </tr>
     </tbody>
   </table>
   </p>
+
+  <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
+  </p>
+
+  <pre><code>define "No VTE Prophylaxis Medication Administered or Ordered":
+    ( ["MedicationAdministration": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+      union ["MedicationAdministration": "Low Molecular Weight Heparin for VTE Prophylaxis"]
+      union ["MedicationAdministration": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+      union ["MedicationAdministration": "Warfarin"]
+      union ["MedicationAdministration": "Rivaroxaban for VTE Prophylaxis"]
+    ) MedicationAdm
+      let MedicationNotDoneTiming: Global.GetExtension ( MedicationAdm, 'qicore-recorded' ).value
+      where MedicationAdm.status = 'not-done'
+      return {
+        id: MedicationAdm.id,
+        MedicationStatusReason: MedicationAdm.statusReason,
+        authoredOn: MedicationNotDoneTiming
+      }</code></pre>
+
+  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
+
 </div>

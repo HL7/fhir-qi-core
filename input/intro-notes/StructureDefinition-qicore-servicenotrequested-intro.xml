@@ -16,17 +16,6 @@
 </code>
 </pre>
 
-<p>The following example illustrates the use of the ServiceNotRequested profile:</p>
-<pre>
-<code>define "No VTE Prophylaxis Device Order":
-  (["ServiceRequest": "Venous foot pumps (VFP)"]
-    union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
-    union ["ServiceRequest": "Graduated compression stockings (GCS)"]
-  ) DeviceOrder
-    where DeviceOrder.status = 'completed'
-      and DeviceOrder.doNotPerform is true
-</code>
-</pre>
 <p>
 <tr>
     <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
@@ -38,13 +27,27 @@
 <table>
   <tbody>
     <tr>
-        <td><a href="ServiceRequest-negation-example.html">Negation Example with valueset</a></td>
+        <td><a href="ServiceRequest-negation-example.html">Negation Example with valueset</a></td><td>Service discontinued; indicates that none of the services in the given not done value set were requested.</td>
       </tr>
       <tr>
-        <td><a href="ServiceRequest-negation-example-code.html">Negation Example with code</a></td>
+        <td><a href="ServiceRequest-negation-example-code.html">Negation Example with code</a></td><td>Service discontinued; indicates that the given service, by code, was not requested.</td>
     </tr>
   </tbody>
 </table>
 </p>
+
+<p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
+</p>
+
+<pre><code>define "No VTE Prophylaxis Device Order":
+  (["ServiceRequest": "Venous foot pumps (VFP)"]
+    union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
+    union ["ServiceRequest": "Graduated compression stockings (GCS)"]
+  ) DeviceOrder
+    where DeviceOrder.status = 'completed'
+      and DeviceOrder.doNotPerform is true</code></pre>
+
+<p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
+
 
 </div>

@@ -23,9 +23,22 @@
   <table>
     <tbody>
       <tr>
-          <td><a href="Communication-negation-example.html">Negation Example</a></td>
+          <td><a href="Communication-negation-example.html">Negation Example using a single coded concept</a></td><td>Communication of finding of Macular Edema absent not done because patient moved away.</td>
       </tr>
     </tbody>
   </table>
   </p>
+
+  <p>This example meets measure intent for exclusion as defined in the following example CQL:</p>
+
+  <pre><code>["Communication": "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
+    with "Diabetic Retinopathy Encounter" EncounterDiabeticRetinopathy
+      such that MacularEdemaAbsentNotCommunicated.sent during EncounterDiabeticRetinopathy.period
+    where MacularEdembaAbsentNotCommunicated.status = 'not-done'
+      and ( MacularEdemaAbsentNotCommunicated.statusReason in "Medical Reason"
+        or MacularEdemaAbsentNotCommunicated.statusReason in "Patient Reason"
+      )</code></pre>
+
+  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
+
 </div>

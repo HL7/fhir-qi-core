@@ -42,12 +42,32 @@
   <table>
     <tbody>
       <tr>
-          <td><a href="Procedure-negation-example.html">Negation Example with valuset</a></td>
+          <td><a href="Procedure-negation-example.html">Negation Example with valuset</a></td><td>Procedure not performed due to complications; indicates that none of the procedures in the given not done value set were performed.</td>
         </tr>
         <tr>
-          <td><a href="Procedure-negation-with-code-example.html">Negation Example with code</a></td>
+          <td><a href="Procedure-negation-with-code-example.html">Negation Example with code</a></td><td>Procedure not performed due to complications; indicates that a specific procedure, by code, was not performed.</td>
       </tr>
     </tbody>
   </table>
   </p>
+
+  <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
+  </p>
+
+  <pre><code>define "No VTE Prophylaxis Device Applied":
+  ["Procedure": "Device Application"] DeviceApplied
+    let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value
+    where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+      or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
+      or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+    )
+      and  DeviceApplied.status = 'not-done'
+    return {
+      id: DeviceApplied.id,
+      requestStatusReason: DeviceApplied.statusReason,
+      authoredOn: DeviceNotDoneTiming
+    }</code></pre>
+
+  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
+
 </div>
