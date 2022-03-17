@@ -1,125 +1,134 @@
 {
-    "package-id": "hl7.fhir.us.qicore",
-    "title": "Quality Improvement Core Framework",
-    "category": "Quality / CDS",
-    "canonical": "http://hl7.org/fhir/us/qicore",
-    "introduction": "The QI-Core (Quality Improvement Core Framework) Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the [US Core](http://hl7.org/fhir/us/core) profiles to provide a common foundation for building, sharing, and evaluating knowledge artifacts across quality improvement efforts in the US Realm.",
-    "list": [
-        {
-            "version": "current",
-            "date": "Latest Build",
-            "desc": "Continuous Integration Build (latest in version control)",
-            "path": "http://build.fhir.org/ig/HL7/fhir-qi-core",
-            "status": "ci-build",
-						"fhirversion": "4.0.1",
-            "current": true
-        },
-        {
-            "version": "4.1.0",
-            "date": "TBD",
-            "descmd": "#### STU4 (v4.1.0)\r\n* 1. **Applied**:Broken Link for QUICK AdverseEvent actuality value set binding ([FHIR-23934](https:\/\/jira.hl7.org\/browse\/FHIR-23934))\r\n1. **Applied**:Immunization.occurrence should remove the String choice ([FHIR-26407](https:\/\/jira.hl7.org\/browse\/FHIR-26407))\r\n1. **Applied**:MedicationNotDispensed ([FHIR-26409](https:\/\/jira.hl7.org\/browse\/FHIR-26409))\r\n1. **Applied**:Naming of QUICK vs QI-Core Logical View  ([FHIR-26592](https:\/\/jira.hl7.org\/browse\/FHIR-26592))\r\n1.  **Applied**:Medication list patient reported medications use Intent = Plan (not order) ([FHIR-26829](https:\/\/jira.hl7.org\/browse\/FHIR-26829))\r\n1. **Applied**:wrong link in QDM to QICore mapping ([FHIR-27031](https:\/\/jira.hl7.org\/browse\/FHIR-27031))\r\n1. **Applied**:Remove imagingStudy must support from the QICoreDiagnosticReportLab profile ([FHIR-27163](https:\/\/jira.hl7.org\/browse\/FHIR-27163))\r\n1. **Applied**:Add TIN to QICore Organization Profile ([FHIR-27804](https:\/\/jira.hl7.org\/browse\/FHIR-27804))\r\n1. **Applied**:DEQM Practitioner and DEQM Organization Profile should be added to QI Core ([FHIR-28157](https:\/\/jira.hl7.org\/browse\/FHIR-28157))\r\n1. **Applied**:Patient resource generalpractitioner needs to consider PractitionerRole (https:\/\/jira.hl7.org\/browse\/FHIR-28220))\r\n1. **Applied**:Can you add my affiliation? ([FHIR-28231](https:\/\/jira.hl7.org\/browse\/FHIR-28231))\r\n1. **Applied**:change D.role to D.use in example with Encounter.diagnosis ([FHIR-28241](https:\/\/jira.hl7.org\/browse\/FHIR-28241))\r\n1. **Applied**:Add MUST HAVE for MedicationRequest timing elements ([FHIR-28286](https:\/\/jira.hl7.org\/browse\/FHIR-28286))\r\n1. **Applied**:Update Present On Admission in QDM to QI Core Mapping ([FHIR-29703](https:\/\/jira.hl7.org\/browse\/FHIR-29703))\r\n1. **Applied**:Change mapping of \\\"Encounter, Performed\\\" code from Encounter.class to Encounter.type ([FHIR-29819](https:\/\/jira.hl7.org\/browse\/FHIR-29819))\r\n1. **Applied**:QDM to QI-Core mapping for AdverseEvent error ([FHIR-30098](https:\/\/jira.hl7.org\/browse\/FHIR-30098))\r\n1. **Applied**:Add QICoreModelInfo ([FHIR-30771](https:\/\/jira.hl7.org\/browse\/FHIR-30771))\r\n1. **Applied**:Include US Core errata (3.1.1) to QI-Core Update process ([FHIR-31350](https:\/\/jira.hl7.org\/browse\/FHIR-31350))\r\n1. **Applied**:Add MedicationDispense.whenPrepared MUST SUPPORT ([FHIR-31609](https:\/\/jira.hl7.org\/browse\/FHIR-31609))\r\n1. **Applied**:Update QDM to QI-Core Mapping to address QDM 5.6 ([FHIR-31629](https:\/\/jira.hl7.org\/browse\/FHIR-31649))\r\n1. **Applied**:Add guidance about use of references in profiles QI-Core inherits from US Core and FHIR ([FHIR-31738](https:\/\/jira.hl7.org\/browse\/FHIR-31738))\r\n1. **Applied**:Update QDM to QI-Core mapping for ([FHIR-31740](https:\/\/jira.hl7.org\/browse\/FHIR-31740))\r\n1. **Applied**:Profile Procedure NOT Done - why is element code not required ([FHIR-31929](https:\/\/jira.hl7.org\/browse\/FHIR-31929))\r\n1. **Applied**:Procedure NOT Done - what is the intent of the valueset-reference in Code element ([FHIR-31930](https:\/\/jira.hl7.org\/browse\/FHIR-31930))\r\n1. **Applied**:Procedure NOT Done - recorded does not have a clear description ([FHIR-31931](https:\/\/jira.hl7.org\/browse\/FHIR-31931))\r\n1. **Applied**:Coverage.period shows in Differential but we cannot identify the change from FHIR Core ([FHIR-31932](https:\/\/jira.hl7.org\/browse\/FHIR-31932))\r\n1. **Applied**:QI Core Observation.code binding is just example to LOINC ([FHIR-31933](https:\/\/jira.hl7.org\/browse\/FHIR-31933))\r\n1. **Applied**:QI Core IG does not have a Table of Contents page ([FHIR-31935](https:\/\/jira.hl7.org\/browse\/FHIR-31935))\r\n1. **Applied**:QDM to QI-Core mapping Section 8.1 correct text to QDM 5.6 ([FHIR-31974](https:\/\/jira.hl7.org\/browse\/FHIR-31974))\r\n1. **Applied**:Adverse Event QDM-to-QI-Core mapping errata ([FHIR-31975](https:\/\/jira.hl7.org\/browse\/FHIR-31975))\r\n1. **Applied**:QDM to Qi-Core mapping AllergyIntolerance ([FHIR-31976](https:\/\/jira.hl7.org\/browse\/FHIR-31976))\r\n1. **Applied**:QDM to Qi-Core sections 8.4.1, 8.4.3 Assessment Order/Recommended ([FHIR-31977](https:\/\/jira.hl7.org\/browse\/FHIR-31977))\r\n1. **Applied**:QDM to QI-Core mapping Communication, Performed ([FHIR-31978](https:\/\/jira.hl7.org\/browse\/FHIR-31978))\r\n1. **Applied**:QDM to Qi-Core mapping for Device Order, Device Recommended ([FHIR-31979](https:\/\/jira.hl7.org\/browse\/FHIR-31979))\r\n1. **Applied**:QDM to QI-Core mapping Diagnostic Study corrections ([FHIR-31980](https:\/\/jira.hl7.org\/browse\/FHIR-31980))\r\n1. **Applied**:QDM to QI-Core mapping - Encounter ([FHIR-31981](https:\/\/jira.hl7.org\/browse\/FHIR-31981))\r\n1. **Applied**:QDM to QI-Core mapping Immunization Administered status error ([FHIR-31982](https:\/\/jira.hl7.org\/browse\/FHIR-31982))\r\n1. **Applied**:QDM to QI-Core mapping Intervention performed errors ([FHIR-31983](https:\/\/jira.hl7.org\/browse\/FHIR-31983))\r\n1. **Applied**:QDM to QI-Core mapping Laboratory order and recommended error ([FHIR-31984](https:\/\/jira.hl7.org\/browse\/FHIR-31984))\r\n1. **Applied**:QDM to QI-Core mapping Medication Administered error ([FHIR-31985](https:\/\/jira.hl7.org\/browse\/FHIR-31985))\r\n1. **Applied**:QDM to QI-Core mapping Medication, Discharge error ([FHIR-31987](https:\/\/jira.hl7.org\/browse\/FHIR-31987))\r\n1. **Applied**:QDM to QI-Core mapping update for Medication, Dispensed ([FHIR-31988](https:\/\/jira.hl7.org\/browse\/FHIR-31988))\r\n1. **Applied**:QDM to QI-Core mapping Physical Exam Order and Recommended error ([FHIR-31989](https:\/\/jira.hl7.org\/browse\/FHIR-31989))\r\n1. **Applied**:QDM to QI Core mapping changes for Procedure, Order, Procedure, Recommended and Procedure, Performed ([FHIR-31990](https:\/\/jira.hl7.org\/browse\/FHIR-31990))\r\n1. **Applied**:QDM to QI-Core mapping - error in Immunization, Administered not done mapping ([FHIR-32005](https:\/\/jira.hl7.org\/browse\/FHIR-32005\r\n1. **Applied**:QDM to QI-Core mapping for \\\"Medication, Order\\\" status constraints ([FHIR-32037](https:\/\/jira.hl7.org\/browse\/FHIR-32037\r\n1. **Applied**:CommunicationNotDone code requires change in cardinality and modeling ([FHIR-32052](https:\/\/jira.hl7.org\/browse\/FHIR-32052))\r\n1. **Applied**:DeviceRequestNotDone code binding and cardinality may require a specific slice for the eCQM use case ([FHIR-32053](https:\/\/jira.hl7.org\/browse\/FHIR-32053))\r\n1. **Applied**:ImmunizationNotDone should allow indication an individual immunization was not performed and a slice to indicate none of the members of a value set was performed ([FHIR-32054](https:\/\/jira.hl7.org\/browse\/FHIR-32054))\r\n1. **Applied**:MedicationNotAdministered requires ability to specify a single medication or an entire value set slice ([FHIR-32055](https:\/\/jira.hl7.org\/browse\/FHIR-32055))\r\n1. **Applied**:MedicationNotDispensed should allow indication of a single medication not dispensed or a slice to indicate an entire value set was not dispensed ([FHIR-32056](https:\/\/jira.hl7.org\/browse\/FHIR-32056))\r\n1. **Applied**:MedicationNotRequested should allow reference to a single medication not requested or a slice for a value set of all medications not requested ([FHIR-32057](https:\/\/jira.hl7.org\/browse\/FHIR-32057))\r\n1. **Applied**:ObservationNotDone should allow reference to a single observation not performed or a slice for a value set for which none of the items were performed ([FHIR-32058](https:\/\/jira.hl7.org\/browse\/FHIR-32058))\r\n1. **Applied**:ServiceNotRequested requires ability to specify a single service not requested or a slice for any one of a value set of services not requested ([FHIR-32059](https:\/\/jira.hl7.org\/browse\/FHIR-32059))\r\n1. **Applied**:DiagnosticReportLab does not have Performer or Issued as Must Support even though the US Core Specification Does ([FHIR-32235](https:\/\/jira.hl7.org\/browse\/FHIR-32235))\r\n1. **Applied**:How to reference TaskNotDone ([FHIR-32273](https:\/\/jira.hl7.org\/browse\/FHIR-32273))\r\n1. **Applied**:Create QICorePresentOnAdmission value set ([FHIR-32378](https:\/\/jira.hl7.org\/browse\/FHIR-32378))\r\n1. **Applied**:Add Must Support to Procedure.usedCode ([FHIR-32991](https:\/\/jira.hl7.org\/browse\/FHIR-32991))\r\n1. **Applied**:Add Must Support for ServiceRequest.intent, MedicationRequest.intent, NutritionOrder.intent, NutritionOrder.status ([FHIR-33027](https:\/\/jira.hl7.org\/browse\/FHIR-33027))\r\n1. **Applied**:Update identifiers throughout ([FHIR-33085](https:\/\/jira.hl7.org\/browse\/FHIR-33085))\r\n1. **Applied**:Remove Authoring section ([FHIR-33260](https:\/\/jira.hl7.org\/browse\/FHIR-33260))\r\n\r\n1. #### The following tickets listed below were incorporated from the **US Core errata (3.1.1)**:\r\n* Add guidance for representing patient name suffix and previous patient name to the US Core Patient Profile ([FHIR-28129](https:\/\/jira.hl7.org\/browse\/FHIR-28129))\r\n* Correct copy/paste error in Goal Profile ([FHIR-28109](https:\/\/jira.hl7.org\/browse\/FHIR-28109))\r\n* Correct US Core Provider Speciality (NUCC) ValueSet to hide abstract grouping codes ([FHIR-27975](https:\/\/jira.hl7.org\/browse\/FHIR-27975))\r\n* Added example of US Core Direct Extension to Practitioner-2 Example ([FHIR-27947](https:\/\/jira.hl7.org\/browse\/FHIR-27947))\r\n* Corrected technical errors in pediatric profiles StructureDefinitions ([FHIR-27946](https:\/\/jira.hl7.org\/browse\/FHIR-27946))\r\n* Corrected errors in DiagnosticReport Cardiology Example ([FHIR-27913](https:\/\/jira.hl7.org\/browse\/FHIR-27913))\r\n* Update Federal Register link for OMB race and ethnicity category classifications. ([FHIR-27907](https:\/\/jira.hl7.org\/browse\/FHIR-27907))\r\n* Clarified token search syntax ([FHIR-27897](https:\/\/jira.hl7.org\/browse\/FHIR-27897))\r\n* Corrected US Core DocumentReference Profile to support multiple attachments ([FHIR-25778](https:\/\/jira.hl7.org\/browse\/FHIR-25778))\r\n* Fix FHIRPath Expression in USCoreGoalTargetDate ([FHIR-27892](https:\/\/jira.hl7.org\/browse\/FHIR-27892))\r\n* Fix FHIRPath Expression in USCoreProcedureDate ([FHIR-27887](https:\/\/jira.hl7.org\/browse\/FHIR-27887))\r\n* Add omitted ge comparators to SearchParameters ([FHIR-27893](https:\/\/jira.hl7.org\/browse\/FHIR-27893))\r\n* Remove Must Support References to non US Core Profiles ([FHIR-27876](https:\/\/jira.hl7.org\/browse\/FHIR-27876))\r\n* Add missing reaction to the US Core AllergyIntolerance Profile ([FHIR-27867](https:\/\/jira.hl7.org\/browse\/FHIR-27867))\r\n* Clarify reference to US Core Patient in Vitals Signs Profiles ([FHIR-27857](https:\/\/jira.hl7.org\/browse\/FHIR-27857))\r\n* Corrected US Core Pulse Oximetry Profile component.valueQuantity.code and component.valueQuantity.unit min from 0 to 1 to be consistent with the valueQuantity constraints within US Core ([FHIR-27846](https:\/\/jira.hl7.org\/browse\/FHIR-27846))\r\n* Correct UCUM Unit in US Core Pulse Oximetry Profile Text Summary ([FHIR-27845](https:\/\/jira.hl7.org\/browse\/FHIR-27845))\r\n* Update Procedure Codes Value Set to include ICD-10 PCS codes ([FHIR-27836](https:\/\/jira.hl7.org\/browse\/FHIR-27836))\r\n* Update Procedure Codes Value Set to include CDT codes ([FHIR-27737](https:\/\/jira.hl7.org\/browse\/FHIR-27737))\r\n* Clarify that pediatric vital sign percentile Observations should reference growth chart ([FHIR-27549](https:\/\/jira.hl7.org\/browse\/FHIR-27549))\r\n* Added Missing US core Head Occipital-frontal Circumference Percentile Profile ([FHIR-27542](https:\/\/jira.hl7.org\/browse\/FHIR-27542))\r\n* Correct requirements for supporting CLIA identifiers ([FHIR-27158](https:\/\/jira.hl7.org\/browse\/FHIR-27158))\r\n* Change Description of ICD-10-PCS Value Set ([FHIR-27116](https:\/\/jira.hl7.org\/browse\/FHIR-27176))\r\n* Correct AllergyIntolerance guidance for verificationStatus ([FHIR-27096](https:\/\/jira.hl7.org\/browse\/FHIR-27096))\r\n* Fix example US Core heart-rate example ([FHIR-27086](https:\/\/jira.hl7.org\/browse\/FHIR-27086))\r\n* Review period comments Update smoking status codes to align with USCDI ([FHIR-27082](https:\/\/jira.hl7.org\/browse\/FHIR-27082))\r\n* Fix invariant provenance-1 ([FHIR-27065](https:\/\/jira.hl7.org\/browse\/FHIR-27065))\r\n* Fix invalid json snippet ([FHIR-27001](https:\/\/jira.hl7.org\/browse\/FHIR-27001))\r\n* Review period comments Remove Provenance requirement from Medication, Location, Practitioner, PractitionerRole, and Organization and correct copy and paste error to Medication and Provenance searchType support in CapabilityStatement ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840)),([FHIR-28161](https:\/\/jira.hl7.org\/browse\/FHIR-28161))\r\n* Correction on USCDI Table change MedicationStatement to MedicationRequest and remove references to MedicationStatement in the Medication Profile and CapabilityStatements ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840))\r\n* Clarify that US Core Location/PractitionerRole are not being referenced by other resources ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840))\r\n* Correct editing error restoring Write and Operation capability guidance into DocumentReference QuickStart ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840))\r\n* Clarify guidance that servers SHALL support search with status if status required ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840))\r\n* Correct canonical url for ImplementationGuide ([FHIR-26686](https:\/\/jira.hl7.org\/browse\/FHIR-26686))\r\n* Correct system URI for ICD-10 procedure codes ([FHIR-26679](https:\/\/jira.hl7.org\/browse\/FHIR-26679))\r\n* Fix invariant us-core-1 ([FHIR-26605](https:\/\/jira.hl7.org\/browse\/FHIR-26605))\r\n* Change valueCode min from 0 to 1 for US Core Birth Sex Extension and valueBoolean min from 0 to 1 forUS Core Direct email Extension ([FHIR-26459](https:\/\/jira.hl7.org\/browse\/FHIR-26459))\r\n* Change valueQuantity min from 1 to 0 for US Core Pediatric BMI for Age Observation Profile and US Core Pediatric Weight for Height Observation Profile ([FHIR-26363](https:\/\/jira.hl7.org\/browse\/FHIR-26363))\r\n* Add page contents to Clinical Notes and Basic Provenance pages ([FHIR-25785](https:\/\/jira.hl7.org\/browse\/FHIR-25785))\r\n* Fix duplicate URL causing validation failure. ([FHIR-25536](https:\/\/jira.hl7.org\/browse\/FHIR-25536))\r\n* Fix Invariant us-core-8 ([FHIR-25459](https:\/\/jira.hl7.org\/browse\/FHIR-25459))\r\n* Corrected the wording should support to shall support in Clinical Notes Guidance ([FHIR-25455](https:\/\/jira.hl7.org\/browse\/FHIR-25455))\r\n* Fix Invariant us-core-8 to allow for Data Absent Reason Extension on Patient name.([FHIR-25249](https:\/\/jira.hl7.org\/browse\/FHIR-25249))\r\n* Fix Link to LOINC LP29708-2 ([FHIR-25213](https:\/\/jira.hl7.org\/browse\/FHIR-25213))\r\n* Corrected guidance for conveying Patient-Reported medications ([FHIR-25035](https:\/\/jira.hl7.org\/browse\/FHIR-25035))\r\n",
-            "desc": "STU4 (v4.1.0)",
-            "path": "http://hl7.org/fhir/us/qicore/STU4.1",
-            "status": "trial-use",
-            "sequence": "STU 4",
-            "fhirversion": "4.0.1",
-            "current": true
-        },
-        {
-            "version": "4.0.0",
-            "date": "2020-03-19",
-            "descmd": "STU4 (v4.0.0)\r\n* Created negation profiles\r\n* Added patterns pages and CQL examples\r\n* Corrections throughout\r\n* Updated QDM-to-QI-Core mapping\r\n* Added negation reason value set and bindings",
-            "desc": "STU4 (v4.0.0)",
-            "path": "http://hl7.org/fhir/us/qicore/STU4",
-            "status": "trial-use",
-            "sequence": "STU 4",
-            "fhirversion": "4.0.1"
-        },
-        {
-            "version": "3.3.0",
-            "date": "2019-08-06",
-            "descmd": "STU4 Ballot (v3.3.0)\r\n* Updated profiles to be based on FHIR R4 and US Core STU 3\r\n* #22645 Added profiles on Immunization and Evaluation\r\n* #15012 Added a profile on NutritionOrder\r\n* #20727 Updated Observation documentation to provide clarity on use of FHIR and US Core profiles\r\n\r\n* #20610 Created the notDone extension and modified the DeviceUseStatement profile to use it; added the DeviceRequest profile, use the doNotPerform extension\r\n* #22646 Relaxed Must Support requirement on some fields of Immunization and ImmunizationRecommendation profiles\r\n* #14991 Added an example of using body position with an Observation",
-            "desc": "STU4 Ballot (v3.3.0)",
-            "path": "http://hl7.org/fhir/us/qicore/2019Sep",
-            "status": "ballot",
-						"fhirversion": "4.0.0",
-            "sequence": "STU 4"
-        },
-        {
-            "version": "3.2.0",
-            "date": "2019-04-14",
-            "descmd": "STU 3.2 (v3.2.0)\r\n* Updated profiles to be based on US Core 2.0.0\r\n* Derived Encounter and PractitionerRole profiles from US Core profiles",
-            "desc": "STU 3.2 (v3.2.0)",
-            "path": "http://hl7.org/fhir/us/qicore/STU32",
-            "status": "trial-use",
-            "sequence": "STU 3",
-						"fhirversion": "3.0.1",
-            "current": true
-        },
-        {
-            "version": "3.1.0",
-            "date": "2018-08-21",
-            "descmd": "STU 3 (v3.1.0)\r\n* Added profile for PractitionerRole and removed Practitioner.role extension\r\n* Added profile for Task\r\n* Established pattern for representing QDM Principal Diagnosis in Encounters\r\n* Relaxed conformance requirements from all profiles to profiles that are relevant to a particular use case",
-            "desc": "STU 3 (v3.1.0)",
-            "path": "http://hl7.org/fhir/us/qicore/STU3",
-            "status": "trial-use",
-						"fhirversion": "3.0.1",
-            "sequence": "STU 3"
-        },
-        {
-            "version": "2.1.0",
-            "date": "2017-12-20",
-            "descmd": "STU 3 Ballot (v3.0.0)\r\n* Incorporates ballot reconciliation from all comments from the September 2016 ballot which have been applied to FHIR 3.0 and US Core Release 1.0.1\r\n* Includes mapping to QDM Version 5.3 Annotated available at: https://ecqi.healthit.gov/qdm\r\n* ncludes an updated Mapping table from the QI-Core metadata to QDM 5.3\r\n* \r\n* Includes a direct mapping from QDM version 5.3 to QI Core",
-            "path": "http://hl7.org/fhir/us/qicore/2018Jan",
-            "status": "ballot",
-						"fhirversion": "3.0.1",
-            "sequence": "STU 3"
-        },
-        {
-            "version": "2.0.0",
-            "date": "2017-12-12",
-            "descmd": "STU 2 (v2.0.0)\r\n* Updated to FHIR STU3 (3.0.1)\r\n* Changed from Universal Realm to US Realm\r\n* Derived from US Core profiles where possible\r\n* Added support for Claim and Coverage resources\r\n* Changed AdverseEvent profile to use the base resource\r\n* Numerous typographical and technical errors corrected",
-            "path": "http://hl7.org/fhir/us/qicore/STU2",
-            "status": "trial-use",
-						"fhirversion": "3.0.1",
-            "sequence": "STU 2"
-        },
-        {
-            "version": "1.6.0",
-            "date": "2016-08-11",
-            "descmd": "STU 2 Ballot\r\n* Moved out of main FHIR publication package to its own home\r\n* Updated QI-Core profiles for changes to underlying specification\r\n* Added an additional profile on Condition\r\n* The QUICK logical model is included",
-            "path": "http://hl7.org/fhir/us/qicore/2016Sep",
-            "status": "ballot",
-						"fhirversion": "1.6.0",
-            "sequence": "STU 2"
-        },
-        {
-            "version": "1.0.2",
-            "date": "2015-10-24",
-            "desc": "DSTU 1 (Permanent home)",
-            "path": "http://hl7.org/fhir/DSTU2/qicore/qicore.html",
-            "status": "trial-use",
-            "sequence": "STU 1",
-						"fhirversion": "1.0.2",
-            "sequence-note": "Note: for this sequence, QI-Core was balloted as part of the FHIR specification, and these links are into the QI-Core page of the FHIR specification. Also note that this was DSTU 2 for the FHIR specification, but DSTU 1 for the QI-Core specification."
-        },
-        {
-            "version": "1.0.0",
-            "date": "2015-08-31",
-            "desc": "DSTU 1 Preview",
-            "path": "http://hl7.org/fhir/2015Sep/qicore/qicore.html",
-            "status": "preview",
-						"fhirversion": "1.0.0",
-            "sequence": "STU 1"
-        },
-        {
-            "version": "0.5.0",
-            "date": "2015-04-02",
-            "desc": "DSTU 1 Ballot (May 2015 Ballot)",
-            "path": "http://hl7.org/fhir/2015May/qicore.html",
-            "status": "ballot",
-						"fhirversion": "0.5.0",
-            "sequence": "STU 1"
-        }
-    ]
+  "package-id": "hl7.fhir.us.qicore",
+  "title": "Quality Improvement Core Framework",
+  "canonical": "http://hl7.org/fhir/us/qicore",
+  "introduction": "The QI-Core (Quality Improvement Core Framework) Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the [US Core](http://hl7.org/fhir/us/core) profiles to provide a common foundation for building, sharing, and evaluating knowledge artifacts across quality improvement efforts in the US Realm.",
+  "category": "Quality / CDS",
+  "list": [
+    {
+      "version": "current",
+      "date": "Latest Build",
+      "desc": "Continuous Integration Build (latest in version control)",
+      "path": "http://build.fhir.org/ig/HL7/fhir-qi-core",
+      "status": "ci-build",
+      "fhirversion": "4.0.1",
+      "current": true
+    },
+    {
+      "version": "4.1.1",
+      "descmd": "* [FHIR-35873](https:\/\/jira.hl7.org\/browse\/FHIR-35873): Corrected version-independent links to USCore throughout\r\n* [FHIR-35802](https:\/\/jira.hl7.org\/browse\/FHIR-35802): Corrected negation examples and added guidance for usage of valueset-based negation\r\n\r\n* *Technical Errata Archive (zip): [v4.1.0, as published January 18th, 2022](http:\/\/hl7.org\/fhir\/us\/qicore\/qicore-4.1.0-full-ig.zip)*\r\n",
+      "desc": "STU4.1 with 1 Technical Errata (v4.1.1)",
+      "path": "http://hl7.org/fhir/us/qicore/STU4.1",
+      "status": "trial-use",
+      "sequence": "STU 4",
+      "fhirversion": "4.0.1",
+      "date": "TBD",
+      "current": true
+    },
+    {
+      "version": "4.1.0",
+      "descmd": "#### STU4.1 (v4.1.0)\r\n* 1. **Applied**:Broken Link for QUICK AdverseEvent actuality value set binding ([FHIR-23934](https:\/\/jira.hl7.org\/browse\/FHIR-23934))\r\n1. **Applied**:Immunization.occurrence should remove the String choice ([FHIR-26407](https:\/\/jira.hl7.org\/browse\/FHIR-26407))\r\n1. **Applied**:MedicationNotDispensed ([FHIR-26409](https:\/\/jira.hl7.org\/browse\/FHIR-26409))\r\n1. **Applied**:Naming of QUICK vs QI-Core Logical View  ([FHIR-26592](https:\/\/jira.hl7.org\/browse\/FHIR-26592))\r\n1.  **Applied**:Medication list patient reported medications use Intent = Plan (not order) ([FHIR-26829](https:\/\/jira.hl7.org\/browse\/FHIR-26829))\r\n1. **Applied**:wrong link in QDM to QICore mapping ([FHIR-27031](https:\/\/jira.hl7.org\/browse\/FHIR-27031))\r\n1. **Applied**:Remove imagingStudy must support from the QICoreDiagnosticReportLab profile ([FHIR-27163](https:\/\/jira.hl7.org\/browse\/FHIR-27163))\r\n1. **Applied**:Add TIN to QICore Organization Profile ([FHIR-27804](https:\/\/jira.hl7.org\/browse\/FHIR-27804))\r\n1. **Applied**:DEQM Practitioner and DEQM Organization Profile should be added to QI Core ([FHIR-28157](https:\/\/jira.hl7.org\/browse\/FHIR-28157))\r\n1. **Applied**:Patient resource generalpractitioner needs to consider PractitionerRole (https:\/\/jira.hl7.org\/browse\/FHIR-28220))\r\n1. **Applied**:Can you add my affiliation? ([FHIR-28231](https:\/\/jira.hl7.org\/browse\/FHIR-28231))\r\n1. **Applied**:change D.role to D.use in example with Encounter.diagnosis ([FHIR-28241](https:\/\/jira.hl7.org\/browse\/FHIR-28241))\r\n1. **Applied**:Add MUST HAVE for MedicationRequest timing elements ([FHIR-28286](https:\/\/jira.hl7.org\/browse\/FHIR-28286))\r\n1. **Applied**:Update Present On Admission in QDM to QI Core Mapping ([FHIR-29703](https:\/\/jira.hl7.org\/browse\/FHIR-29703))\r\n1. **Applied**:Change mapping of \\\"Encounter, Performed\\\" code from Encounter.class to Encounter.type ([FHIR-29819](https:\/\/jira.hl7.org\/browse\/FHIR-29819))\r\n1. **Applied**:QDM to QI-Core mapping for AdverseEvent error ([FHIR-30098](https:\/\/jira.hl7.org\/browse\/FHIR-30098))\r\n1. **Applied**:Add QICoreModelInfo ([FHIR-30771](https:\/\/jira.hl7.org\/browse\/FHIR-30771))\r\n1. **Applied**:Include US Core errata (3.1.1) to QI-Core Update process ([FHIR-31350](https:\/\/jira.hl7.org\/browse\/FHIR-31350))\r\n1. **Applied**:Add MedicationDispense.whenPrepared MUST SUPPORT ([FHIR-31609](https:\/\/jira.hl7.org\/browse\/FHIR-31609))\r\n1. **Applied**:Update QDM to QI-Core Mapping to address QDM 5.6 ([FHIR-31629](https:\/\/jira.hl7.org\/browse\/FHIR-31649))\r\n1. **Applied**:Add guidance about use of references in profiles QI-Core inherits from US Core and FHIR ([FHIR-31738](https:\/\/jira.hl7.org\/browse\/FHIR-31738))\r\n1. **Applied**:Update QDM to QI-Core mapping for ([FHIR-31740](https:\/\/jira.hl7.org\/browse\/FHIR-31740))\r\n1. **Applied**:Profile Procedure NOT Done - why is element code not required ([FHIR-31929](https:\/\/jira.hl7.org\/browse\/FHIR-31929))\r\n1. **Applied**:Procedure NOT Done - what is the intent of the valueset-reference in Code element ([FHIR-31930](https:\/\/jira.hl7.org\/browse\/FHIR-31930))\r\n1. **Applied**:Procedure NOT Done - recorded does not have a clear description ([FHIR-31931](https:\/\/jira.hl7.org\/browse\/FHIR-31931))\r\n1. **Applied**:Coverage.period shows in Differential but we cannot identify the change from FHIR Core ([FHIR-31932](https:\/\/jira.hl7.org\/browse\/FHIR-31932))\r\n1. **Applied**:QI Core Observation.code binding is just example to LOINC ([FHIR-31933](https:\/\/jira.hl7.org\/browse\/FHIR-31933))\r\n1. **Applied**:QI Core IG does not have a Table of Contents page ([FHIR-31935](https:\/\/jira.hl7.org\/browse\/FHIR-31935))\r\n1. **Applied**:QDM to QI-Core mapping Section 8.1 correct text to QDM 5.6 ([FHIR-31974](https:\/\/jira.hl7.org\/browse\/FHIR-31974))\r\n1. **Applied**:Adverse Event QDM-to-QI-Core mapping errata ([FHIR-31975](https:\/\/jira.hl7.org\/browse\/FHIR-31975))\r\n1. **Applied**:QDM to Qi-Core mapping AllergyIntolerance ([FHIR-31976](https:\/\/jira.hl7.org\/browse\/FHIR-31976))\r\n1. **Applied**:QDM to Qi-Core sections 8.4.1, 8.4.3 Assessment Order/Recommended ([FHIR-31977](https:\/\/jira.hl7.org\/browse\/FHIR-31977))\r\n1. **Applied**:QDM to QI-Core mapping Communication, Performed ([FHIR-31978](https:\/\/jira.hl7.org\/browse\/FHIR-31978))\r\n1. **Applied**:QDM to Qi-Core mapping for Device Order, Device Recommended ([FHIR-31979](https:\/\/jira.hl7.org\/browse\/FHIR-31979))\r\n1. **Applied**:QDM to QI-Core mapping Diagnostic Study corrections ([FHIR-31980](https:\/\/jira.hl7.org\/browse\/FHIR-31980))\r\n1. **Applied**:QDM to QI-Core mapping - Encounter ([FHIR-31981](https:\/\/jira.hl7.org\/browse\/FHIR-31981))\r\n1. **Applied**:QDM to QI-Core mapping Immunization Administered status error ([FHIR-31982](https:\/\/jira.hl7.org\/browse\/FHIR-31982))\r\n1. **Applied**:QDM to QI-Core mapping Intervention performed errors ([FHIR-31983](https:\/\/jira.hl7.org\/browse\/FHIR-31983))\r\n1. **Applied**:QDM to QI-Core mapping Laboratory order and recommended error ([FHIR-31984](https:\/\/jira.hl7.org\/browse\/FHIR-31984))\r\n1. **Applied**:QDM to QI-Core mapping Medication Administered error ([FHIR-31985](https:\/\/jira.hl7.org\/browse\/FHIR-31985))\r\n1. **Applied**:QDM to QI-Core mapping Medication, Discharge error ([FHIR-31987](https:\/\/jira.hl7.org\/browse\/FHIR-31987))\r\n1. **Applied**:QDM to QI-Core mapping update for Medication, Dispensed ([FHIR-31988](https:\/\/jira.hl7.org\/browse\/FHIR-31988))\r\n1. **Applied**:QDM to QI-Core mapping Physical Exam Order and Recommended error ([FHIR-31989](https:\/\/jira.hl7.org\/browse\/FHIR-31989))\r\n1. **Applied**:QDM to QI Core mapping changes for Procedure, Order, Procedure, Recommended and Procedure, Performed ([FHIR-31990](https:\/\/jira.hl7.org\/browse\/FHIR-31990))\r\n1. **Applied**:QDM to QI-Core mapping - error in Immunization, Administered not done mapping ([FHIR-32005](https:\/\/jira.hl7.org\/browse\/FHIR-32005\r\n1. **Applied**:QDM to QI-Core mapping for \\\"Medication, Order\\\" status constraints ([FHIR-32037](https:\/\/jira.hl7.org\/browse\/FHIR-32037\r\n1. **Applied**:CommunicationNotDone code requires change in cardinality and modeling ([FHIR-32052](https:\/\/jira.hl7.org\/browse\/FHIR-32052))\r\n1. **Applied**:DeviceRequestNotDone code binding and cardinality may require a specific slice for the eCQM use case ([FHIR-32053](https:\/\/jira.hl7.org\/browse\/FHIR-32053))\r\n1. **Applied**:ImmunizationNotDone should allow indication an individual immunization was not performed and a slice to indicate none of the members of a value set was performed ([FHIR-32054](https:\/\/jira.hl7.org\/browse\/FHIR-32054))\r\n1. **Applied**:MedicationNotAdministered requires ability to specify a single medication or an entire value set slice ([FHIR-32055](https:\/\/jira.hl7.org\/browse\/FHIR-32055))\r\n1. **Applied**:MedicationNotDispensed should allow indication of a single medication not dispensed or a slice to indicate an entire value set was not dispensed ([FHIR-32056](https:\/\/jira.hl7.org\/browse\/FHIR-32056))\r\n1. **Applied**:MedicationNotRequested should allow reference to a single medication not requested or a slice for a value set of all medications not requested ([FHIR-32057](https:\/\/jira.hl7.org\/browse\/FHIR-32057))\r\n1. **Applied**:ObservationNotDone should allow reference to a single observation not performed or a slice for a value set for which none of the items were performed ([FHIR-32058](https:\/\/jira.hl7.org\/browse\/FHIR-32058))\r\n1. **Applied**:ServiceNotRequested requires ability to specify a single service not requested or a slice for any one of a value set of services not requested ([FHIR-32059](https:\/\/jira.hl7.org\/browse\/FHIR-32059))\r\n1. **Applied**:DiagnosticReportLab does not have Performer or Issued as Must Support even though the US Core Specification Does ([FHIR-32235](https:\/\/jira.hl7.org\/browse\/FHIR-32235))\r\n1. **Applied**:How to reference TaskNotDone ([FHIR-32273](https:\/\/jira.hl7.org\/browse\/FHIR-32273))\r\n1. **Applied**:Create QICorePresentOnAdmission value set ([FHIR-32378](https:\/\/jira.hl7.org\/browse\/FHIR-32378))\r\n1. **Applied**:Add Must Support to Procedure.usedCode ([FHIR-32991](https:\/\/jira.hl7.org\/browse\/FHIR-32991))\r\n1. **Applied**:Add Must Support for ServiceRequest.intent, MedicationRequest.intent, NutritionOrder.intent, NutritionOrder.status ([FHIR-33027](https:\/\/jira.hl7.org\/browse\/FHIR-33027))\r\n1. **Applied**:Update identifiers throughout ([FHIR-33085](https:\/\/jira.hl7.org\/browse\/FHIR-33085))\r\n1. **Applied**:Remove Authoring section ([FHIR-33260](https:\/\/jira.hl7.org\/browse\/FHIR-33260))\r\n\r\n1. #### The following tickets listed below were incorporated from the **US Core errata (3.1.1)**:\r\n* Add guidance for representing patient name suffix and previous patient name to the US Core Patient Profile ([FHIR-28129](https:\/\/jira.hl7.org\/browse\/FHIR-28129))\r\n* Correct copy/paste error in Goal Profile ([FHIR-28109](https:\/\/jira.hl7.org\/browse\/FHIR-28109))\r\n* Correct US Core Provider Speciality (NUCC) ValueSet to hide abstract grouping codes ([FHIR-27975](https:\/\/jira.hl7.org\/browse\/FHIR-27975))\r\n* Added example of US Core Direct Extension to Practitioner-2 Example ([FHIR-27947](https:\/\/jira.hl7.org\/browse\/FHIR-27947))\r\n* Corrected technical errors in pediatric profiles StructureDefinitions ([FHIR-27946](https:\/\/jira.hl7.org\/browse\/FHIR-27946))\r\n* Corrected errors in DiagnosticReport Cardiology Example ([FHIR-27913](https:\/\/jira.hl7.org\/browse\/FHIR-27913))\r\n* Update Federal Register link for OMB race and ethnicity category classifications. ([FHIR-27907](https:\/\/jira.hl7.org\/browse\/FHIR-27907))\r\n* Clarified token search syntax ([FHIR-27897](https:\/\/jira.hl7.org\/browse\/FHIR-27897))\r\n* Corrected US Core DocumentReference Profile to support multiple attachments ([FHIR-25778](https:\/\/jira.hl7.org\/browse\/FHIR-25778))\r\n* Fix FHIRPath Expression in USCoreGoalTargetDate ([FHIR-27892](https:\/\/jira.hl7.org\/browse\/FHIR-27892))\r\n* Fix FHIRPath Expression in USCoreProcedureDate ([FHIR-27887](https:\/\/jira.hl7.org\/browse\/FHIR-27887))\r\n* Add omitted ge comparators to SearchParameters ([FHIR-27893](https:\/\/jira.hl7.org\/browse\/FHIR-27893))\r\n* Remove Must Support References to non US Core Profiles ([FHIR-27876](https:\/\/jira.hl7.org\/browse\/FHIR-27876))\r\n* Add missing reaction to the US Core AllergyIntolerance Profile ([FHIR-27867](https:\/\/jira.hl7.org\/browse\/FHIR-27867))\r\n* Clarify reference to US Core Patient in Vitals Signs Profiles ([FHIR-27857](https:\/\/jira.hl7.org\/browse\/FHIR-27857))\r\n* Corrected US Core Pulse Oximetry Profile component.valueQuantity.code and component.valueQuantity.unit min from 0 to 1 to be consistent with the valueQuantity constraints within US Core ([FHIR-27846](https:\/\/jira.hl7.org\/browse\/FHIR-27846))\r\n* Correct UCUM Unit in US Core Pulse Oximetry Profile Text Summary ([FHIR-27845](https:\/\/jira.hl7.org\/browse\/FHIR-27845))\r\n* Update Procedure Codes Value Set to include ICD-10 PCS codes ([FHIR-27836](https:\/\/jira.hl7.org\/browse\/FHIR-27836))\r\n* Update Procedure Codes Value Set to include CDT codes ([FHIR-27737](https:\/\/jira.hl7.org\/browse\/FHIR-27737))\r\n* Clarify that pediatric vital sign percentile Observations should reference growth chart ([FHIR-27549](https:\/\/jira.hl7.org\/browse\/FHIR-27549))\r\n* Added Missing US core Head Occipital-frontal Circumference Percentile Profile ([FHIR-27542](https:\/\/jira.hl7.org\/browse\/FHIR-27542))\r\n* Correct requirements for supporting CLIA identifiers ([FHIR-27158](https:\/\/jira.hl7.org\/browse\/FHIR-27158))\r\n* Change Description of ICD-10-PCS Value Set ([FHIR-27116](https:\/\/jira.hl7.org\/browse\/FHIR-27176))\r\n* Correct AllergyIntolerance guidance for verificationStatus ([FHIR-27096](https:\/\/jira.hl7.org\/browse\/FHIR-27096))\r\n* Fix example US Core heart-rate example ([FHIR-27086](https:\/\/jira.hl7.org\/browse\/FHIR-27086))\r\n* Review period comments Update smoking status codes to align with USCDI ([FHIR-27082](https:\/\/jira.hl7.org\/browse\/FHIR-27082))\r\n* Fix invariant provenance-1 ([FHIR-27065](https:\/\/jira.hl7.org\/browse\/FHIR-27065))\r\n* Fix invalid json snippet ([FHIR-27001](https:\/\/jira.hl7.org\/browse\/FHIR-27001))\r\n* Review period comments Remove Provenance requirement from Medication, Location, Practitioner, PractitionerRole, and Organization and correct copy and paste error to Medication and Provenance searchType support in CapabilityStatement ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840)),([FHIR-28161](https:\/\/jira.hl7.org\/browse\/FHIR-28161))\r\n* Correction on USCDI Table change MedicationStatement to MedicationRequest and remove references to MedicationStatement in the Medication Profile and CapabilityStatements ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840))\r\n* Clarify that US Core Location/PractitionerRole are not being referenced by other resources ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840))\r\n* Correct editing error restoring Write and Operation capability guidance into DocumentReference QuickStart ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840))\r\n* Clarify guidance that servers SHALL support search with status if status required ([FHIR-26840](https:\/\/jira.hl7.org\/browse\/FHIR-26840))\r\n* Correct canonical url for ImplementationGuide ([FHIR-26686](https:\/\/jira.hl7.org\/browse\/FHIR-26686))\r\n* Correct system URI for ICD-10 procedure codes ([FHIR-26679](https:\/\/jira.hl7.org\/browse\/FHIR-26679))\r\n* Fix invariant us-core-1 ([FHIR-26605](https:\/\/jira.hl7.org\/browse\/FHIR-26605))\r\n* Change valueCode min from 0 to 1 for US Core Birth Sex Extension and valueBoolean min from 0 to 1 forUS Core Direct email Extension ([FHIR-26459](https:\/\/jira.hl7.org\/browse\/FHIR-26459))\r\n* Change valueQuantity min from 1 to 0 for US Core Pediatric BMI for Age Observation Profile and US Core Pediatric Weight for Height Observation Profile ([FHIR-26363](https:\/\/jira.hl7.org\/browse\/FHIR-26363))\r\n* Add page contents to Clinical Notes and Basic Provenance pages ([FHIR-25785](https:\/\/jira.hl7.org\/browse\/FHIR-25785))\r\n* Fix duplicate URL causing validation failure. ([FHIR-25536](https:\/\/jira.hl7.org\/browse\/FHIR-25536))\r\n* Fix Invariant us-core-8 ([FHIR-25459](https:\/\/jira.hl7.org\/browse\/FHIR-25459))\r\n* Corrected the wording should support to shall support in Clinical Notes Guidance ([FHIR-25455](https:\/\/jira.hl7.org\/browse\/FHIR-25455))\r\n* Fix Invariant us-core-8 to allow for Data Absent Reason Extension on Patient name.([FHIR-25249](https:\/\/jira.hl7.org\/browse\/FHIR-25249))\r\n* Fix Link to LOINC LP29708-2 ([FHIR-25213](https:\/\/jira.hl7.org\/browse\/FHIR-25213))\r\n* Corrected guidance for conveying Patient-Reported medications ([FHIR-25035](https:\/\/jira.hl7.org\/browse\/FHIR-25035))\r\n",
+      "desc": "STU4 (v4.1.0)",
+      "path": "http://hl7.org/fhir/us/qicore/STU4.1",
+      "status": "trial-use",
+      "sequence": "STU 4",
+      "fhirversion": "4.0.1",
+      "date": "2022-01-18"
+    },
+    {
+      "version": "4.0.0",
+      "date": "2020-03-19",
+      "descmd": "STU 4 (v4.0.0)\r\n* Created negation profiles\r\n* Added patterns pages and CQL examples\r\n* Corrections throughout\r\n* Updated QDM-to-QI-Core mapping\r\n* Added negation reason value set and bindings",
+      "desc": "STU 4 (v4.0.0)",
+      "path": "http://hl7.org/fhir/us/qicore/STU4",
+      "status": "trial-use",
+      "sequence": "STU 4",
+      "fhirversion": "4.0.1"
+    },
+    {
+      "version": "3.3.0",
+      "date": "2019-08-06",
+      "descmd": "STU 4 Ballot (v3.3.0)\r\n* Updated profiles to be based on FHIR R4 and US Core STU 3\r\n* #22645 Added profiles on Immunization and Evaluation\r\n* #15012 Added a profile on NutritionOrder\r\n* #20727 Updated Observation documentation to provide clarity on use of FHIR and US Core profiles\r\n\r\n* #20610 Created the notDone extension and modified the DeviceUseStatement profile to use it; added the DeviceRequest profile, use the doNotPerform extension\r\n* #22646 Relaxed Must Support requirement on some fields of Immunization and ImmunizationRecommendation profiles\r\n* #14991 Added an example of using body position with an Observation",
+      "desc": "STU 4 Ballot (v3.3.0)",
+      "path": "http://hl7.org/fhir/us/qicore/2019Sep",
+      "status": "ballot",
+      "fhirversion": "4.0.0",
+      "sequence": "STU 4"
+    },
+    {
+      "version": "3.2.0",
+      "date": "2019-04-14",
+      "descmd": "STU 3.2 (v3.2.0)\r\n* Updated profiles to be based on US Core 2.0.0\r\n* Derived Encounter and PractitionerRole profiles from US Core profiles",
+      "desc": "STU 3.2 (v3.2.0)",
+      "path": "http://hl7.org/fhir/us/qicore/STU32",
+      "status": "trial-use",
+      "sequence": "STU 3",
+      "fhirversion": "3.0.1"
+    },
+    {
+      "version": "3.1.0",
+      "date": "2018-08-21",
+      "descmd": "STU 3 (v3.1.0)\r\n* Added profile for PractitionerRole and removed Practitioner.role extension\r\n* Added profile for Task\r\n* Established pattern for representing QDM Principal Diagnosis in Encounters\r\n* Relaxed conformance requirements from all profiles to profiles that are relevant to a particular use case",
+      "desc": "STU 3 (v3.1.0)",
+      "path": "http://hl7.org/fhir/us/qicore/STU3",
+      "status": "trial-use",
+      "fhirversion": "3.0.1",
+      "sequence": "STU 3"
+    },
+    {
+      "version": "2.1.0",
+      "date": "2017-12-20",
+      "descmd": "STU 3 Ballot (v3.0.0)\r\n* Incorporates ballot reconciliation from all comments from the September 2016 ballot which have been applied to FHIR 3.0 and US Core Release 1.0.1\r\n* Includes mapping to QDM Version 5.3 Annotated available at: https://ecqi.healthit.gov/qdm\r\n* ncludes an updated Mapping table from the QI-Core metadata to QDM 5.3\r\n* \r\n* Includes a direct mapping from QDM version 5.3 to QI Core",
+      "path": "http://hl7.org/fhir/us/qicore/2018Jan",
+      "status": "ballot",
+      "fhirversion": "3.0.1",
+      "sequence": "STU 3"
+    },
+    {
+      "version": "2.0.0",
+      "date": "2017-12-12",
+      "descmd": "STU 2 (v2.0.0)\r\n* Updated to FHIR STU3 (3.0.1)\r\n* Changed from Universal Realm to US Realm\r\n* Derived from US Core profiles where possible\r\n* Added support for Claim and Coverage resources\r\n* Changed AdverseEvent profile to use the base resource\r\n* Numerous typographical and technical errors corrected",
+      "path": "http://hl7.org/fhir/us/qicore/STU2",
+      "status": "trial-use",
+      "fhirversion": "3.0.1",
+      "sequence": "STU 2"
+    },
+    {
+      "version": "1.6.0",
+      "date": "2016-08-11",
+      "descmd": "STU 2 Ballot\r\n* Moved out of main FHIR publication package to its own home\r\n* Updated QI-Core profiles for changes to underlying specification\r\n* Added an additional profile on Condition\r\n* The QUICK logical model is included",
+      "path": "http://hl7.org/fhir/us/qicore/2016Sep",
+      "status": "ballot",
+      "fhirversion": "1.6.0",
+      "sequence": "STU 2"
+    },
+    {
+      "version": "1.0.2",
+      "date": "2015-10-24",
+      "desc": "DSTU 1 (Permanent home)",
+      "path": "http://hl7.org/fhir/DSTU2/qicore/qicore.html",
+      "status": "trial-use",
+      "sequence": "STU 1",
+      "fhirversion": "1.0.2",
+      "sequence-note": "Note: for this sequence, QI-Core was balloted as part of the FHIR specification, and these links are into the QI-Core page of the FHIR specification. Also note that this was DSTU 2 for the FHIR specification, but DSTU 1 for the QI-Core specification."
+    },
+    {
+      "version": "1.0.0",
+      "date": "2015-08-31",
+      "desc": "DSTU 1 Preview",
+      "path": "http://hl7.org/fhir/2015Sep/qicore/qicore.html",
+      "status": "preview",
+      "fhirversion": "1.0.0",
+      "sequence": "STU 1"
+    },
+    {
+      "version": "0.5.0",
+      "date": "2015-04-02",
+      "desc": "DSTU 1 Ballot (May 2015 Ballot)",
+      "path": "http://hl7.org/fhir/2015May/qicore.html",
+      "status": "ballot",
+      "fhirversion": "0.5.0",
+      "sequence": "STU 1"
+    }
+  ]
 }
