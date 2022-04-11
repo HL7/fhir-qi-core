@@ -146,7 +146,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 To capture an order for QI-Core Smoking Status, use the Assessment, Order
 mapping but constrain ServiceRequest.code to the value set
-[us-core-smoking-status-observation-codes](https://www.hl7.org/fhir/us/core/ValueSet-us-core-smoking-status-observation-codes.html)
+[us-core-smoking-status-observation-codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-smoking-status-observation-codes.html)
 
 #### Assessment, Performed
 
@@ -158,7 +158,7 @@ solicit information from patients, providers or other individuals, or a
 single observable entity that is part of such a collection of questions.
 
 Assessment, Performed uses the Observation resource. However, specifically for
-evaluating smoking status, use the specific [QI-Core smoking status assessment](http://hl7.org/fhir/us/core/StructureDefinition/us-core-smokingstatus)
+evaluating smoking status, use the specific [QI-Core smoking status assessment]({{site.data.fhir.ver.uscore}}/StructureDefinition/us-core-smokingstatus)
 profile inherited from US Core.
 
 
@@ -230,7 +230,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 To capture a recommendation for QI-Core Smoking Status, use the Assessment,
 Recommended mapping but constrain ServiceRequest.code to the value set
-[us-core-smoking-status-observation-codes](https://www.hl7.org/fhir/us/core/ValueSet-us-core-smoking-status-observation-codes.html)
+[us-core-smoking-status-observation-codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-smoking-status-observation-codes.html)
 
 ### Care Experience
 
@@ -455,7 +455,7 @@ Accessed 28 January 2020.]
 
 The FHIR [Device Resource](http://hl7.org/fhir/R4/device.html) addresses both
 implantable and non-implantable devices. US Core only references [Implantable
-Device](http://hl7.org/fhir/us/core/StructureDefinition-us-core-implantable-device.html).
+Device]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-implantable-device.html).
 QI-Core inherits Implantable Device from US Core and builds directly from FHIR
 for the QI-Core Device Resource.
 
@@ -618,7 +618,7 @@ Thus far, consensus opinion suggests that the FHIR Observation Resource
 best fits the diagnostic study use case for querying clinical data to
 retrieve information about the event and/or the result of the study.
 Individual studies may use the US Core DiagnosticReport-note
-(<http://hl7.org/fhir/us/core/StructureDefinition-us-core-diagnosticreport-note.html>)
+(<{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-diagnosticreport-note.html>)
 to provide information about an individual study (e.g., a cardiac
 ultrasound, MRI, etc.) although some have considered use of other
 reporting resources and artifacts. Since new studies regularly become
@@ -925,7 +925,7 @@ Evaluation](http://hl7.org/fhir/immunizationevaluation.html) references
 an appraisal of an immunization that was administered to determine if it
 is valid with respect to the expected immunization schedule. The
 [US Core
-Immunization](http://hl7.org/fhir/us/core/StructureDefinition-us-core-immunization.html)
+Immunization]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-immunization.html)
 profile is most consistent with the QDM datatype *Immunization,
 Administered*.  The mapping tables provided include mapping from QDM
 *Immunization, Administered* and a reference to the FHIR [Immunization
@@ -1291,7 +1291,7 @@ Thus far, consensus opinion suggests that the US Core Observation-Lab
 Profile best fits the laboratory test use case for querying clinical
 data to retrieve information about the event and/or the result of the
 study. Individual studies may use the US Core DiagnosticReport-lab
-(<http://hl7.org/fhir/us/core/StructureDefinition-us-core-diagnosticreport-lab.html>)
+(<{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-diagnosticreport-lab.html>)
 to provide information about an individual laboratory test although some
 have considered use of other reporting resources and artifacts. Each
 laboratory test may be ordered individually or in a panel. Many use
@@ -1311,35 +1311,35 @@ acceptable to provide sufficient fidelity to their requests.
 
 | **QDM Context**    | **US Core R4**           | **US Core R3 Observation-Lab**                  |**Comments**                           |
 | ------------------ | ----------------------- | ----------------------------------------------- | ------------------------------------- |
-| **Laboratory Test, Performed** | Observation-lab         | [Observation-Lab](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab.html)               |                            |
-|         | Observation.status      | [Observation.status](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.status)     | Constrain status to -  final, amended, corrected                          |
+| **Laboratory Test, Performed** | Observation-lab         | [Observation-Lab]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html)               |                            |
+|         | Observation.status      | [Observation.status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.status)     | Constrain status to -  final, amended, corrected                          |
 | **QDM Attribute**  |             |                  |                            |
-| code   | Observation.code        | [Observation.code](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.code)         |                            |
-| id     | Observation.id          | [Observation.id](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.id)             |                            |
-| method             | Observation.method      | [Observation.method](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.method)     |                            |
-|        | Observation.bodySite    | [Observation.bodySite](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.bodySite)             |                            |
+| code   | Observation.code        | [Observation.code]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.code)         |                            |
+| id     | Observation.id          | [Observation.id]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.id)             |                            |
+| method             | Observation.method      | [Observation.method]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.method)     |                            |
+|        | Observation.bodySite    | [Observation.bodySite]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.bodySite)             |                            |
 | negationRationale  | See Below |
-| reason             | Observation.basedOn     | [Observation.basedOn](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.basedOn)   | the observation fulfills a plan, proposal or order - trace for authorization. Possibly not a fit for the intent in QDM (e.g., observation "reason" = a diagnosis)  Is an extension needed?         |
-| result             | value\[x\]              | [Observation.value\[x\]](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.value[x])           |                            |
-| interpretation       | Observation.interpretation          | [Observation.interpretation](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.value[x])       |  New in QDM 5.6                |
-|        | Observation.specimen    | [Observation.specimen](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.value[x])             |                         |
-| relatedTo          | Observation.basedOn     | [Observation.basedOn](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.basedOn)   | the observation fulfills a plan, proposal or order - trace for authorization. Possibly not a fit for the intent in QDM (e.g., observation "reason" = a diagnosis)  Is an extension needed?         |
-| resultDatetime    | Observation.issued      | [Observation.issued](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.issued)   |                            |
-| relevantDatetime  | Observation.effective\[x\] dateTime             | [Observation.effective\[x\]](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.effective[x])   |                            |
-| relevantPeriod    | Observation.effective\[x\] Period   | [Observation.effective\[x\]](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.effective[x])   |                            |
-| status             | Observation.status      | [Observation.status](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.status)     | Constrain status to -  final, amended, corrected               |
-| authorDatetime    | Observation.issued      | [Observation.issued](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.issued)     | Issued - the date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified. Consider if QI-Core should include an extension to manage timing of the dataAbsentReason. |
-| referenceRangeHigh           | Observation.referenceRange.high     | [Observation.referenceRange.high](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.referenceRange.high)   |                            |
-| referenceRangeLow            | Observation.referenceRange.low      | [Observation.referenceRange.low](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.referenceRange.low)     |                            |
-| component          | Observation.component   | [Observation.component](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.effective[x])        |                            |
-|        | Observation.Component.id            | [Observation.component.id](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.id)     |                            |
-| component.code     | Observation.component.code          | [Observation.component.code](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.code)             |                            |
-| component.result   | Observation.component.value\[x\]    | [Observation.component.value\[x\]](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.value[x])   |                            |
-|        | Observation.component.interpretation            | [Observation.component.interpretation](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.interpretation)     |                   |
-|        | Observation.component.dataAbsentReason          | [Observation.component.dataAbsentReason](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.dataAbsentReason) |                            |
-| component.referenceRangeHigh | Observaton.component.referenceRange             | [Observation.component.referenceRange](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.referenceRange)     |                            |
-| component.referenceRangeLow  | Observation.component.referenceRange            | [Observation.component.referenceRange](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.referenceRange)     |                            |
-| performer          | Observation.performer   | [Observation.performer](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-lab-definitions.html#Observation.performer)           |                            |
+| reason             | Observation.basedOn     | [Observation.basedOn]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.basedOn)   | the observation fulfills a plan, proposal or order - trace for authorization. Possibly not a fit for the intent in QDM (e.g., observation "reason" = a diagnosis)  Is an extension needed?         |
+| result             | value\[x\]              | [Observation.value\[x\]]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.value[x])           |                            |
+| interpretation       | Observation.interpretation          | [Observation.interpretation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.value[x])       |  New in QDM 5.6                |
+|        | Observation.specimen    | [Observation.specimen]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.value[x])             |                         |
+| relatedTo          | Observation.basedOn     | [Observation.basedOn]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.basedOn)   | the observation fulfills a plan, proposal or order - trace for authorization. Possibly not a fit for the intent in QDM (e.g., observation "reason" = a diagnosis)  Is an extension needed?         |
+| resultDatetime    | Observation.issued      | [Observation.issued]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.issued)   |                            |
+| relevantDatetime  | Observation.effective\[x\] dateTime             | [Observation.effective\[x\]]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.effective[x])   |                            |
+| relevantPeriod    | Observation.effective\[x\] Period   | [Observation.effective\[x\]]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.effective[x])   |                            |
+| status             | Observation.status      | [Observation.status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.status)     | Constrain status to -  final, amended, corrected               |
+| authorDatetime    | Observation.issued      | [Observation.issued]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.issued)     | Issued - the date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified. Consider if QI-Core should include an extension to manage timing of the dataAbsentReason. |
+| referenceRangeHigh           | Observation.referenceRange.high     | [Observation.referenceRange.high]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.referenceRange.high)   |                            |
+| referenceRangeLow            | Observation.referenceRange.low      | [Observation.referenceRange.low]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.referenceRange.low)     |                            |
+| component          | Observation.component   | [Observation.component]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.effective[x])        |                            |
+|        | Observation.Component.id            | [Observation.component.id]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.id)     |                            |
+| component.code     | Observation.component.code          | [Observation.component.code]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.code)             |                            |
+| component.result   | Observation.component.value\[x\]    | [Observation.component.value\[x\]]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.value[x])   |                            |
+|        | Observation.component.interpretation            | [Observation.component.interpretation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.interpretation)     |                   |
+|        | Observation.component.dataAbsentReason          | [Observation.component.dataAbsentReason]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.dataAbsentReason) |                            |
+| component.referenceRangeHigh | Observaton.component.referenceRange             | [Observation.component.referenceRange]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.referenceRange)     |                            |
+| component.referenceRangeLow  | Observation.component.referenceRange            | [Observation.component.referenceRange]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.component.referenceRange)     |                            |
+| performer          | Observation.performer   | [Observation.performer]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab-definitions.html#Observation.performer)           |                            |
 {: .grid}
 
 ##### Negation Rationale for Laboratory Test, Performed
@@ -1634,9 +1634,9 @@ other clinical measures (such as expiratory flow rate and size of lesion).
 Physical exam includes psychiatric examinations.
 
 US Core defines a resources for vital signs (referencing the [FHIR Vital Signs Profile](http://hl7.org/fhir/R4/observation-vitalsigns.html))
-and three additional profiles – [Pediatric-BMI-for Age](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-bmi-for-age.html),
-[Pediatric Weight for Height](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-weight-for-height.html)
-and [Pulse Oximetry](http://hl7.org/fhir/us/core/StructureDefinition-us-core-pulse-oximetry.html). Other observations that meet the QDM
+and three additional profiles – [Pediatric-BMI-for Age]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html),
+[Pediatric Weight for Height]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)
+and [Pulse Oximetry]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html). Other observations that meet the QDM
 definition of Physical Exam, Performed use the FHIR Observation resource.
 
 Note: QDM 5.5 removed the "method" attribute from "Physical Exam, Order" and

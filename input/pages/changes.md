@@ -137,7 +137,6 @@ STU 4 Ballot (v3.3.0)
 * #22645 Added profiles on Immunization and Evaluation
 * #15012 Added a profile on NutritionOrder
 * #20727 Updated Observation documentation to provide clarity on use of FHIR and US Core profiles
-
 * #20610 Created the notDone extension and modified the DeviceUseStatement profile to use it; added the DeviceRequest profile, use the doNotPerform extension
 * #22646 Relaxed Must Support requirement on some fields of Immunization and ImmunizationRecommendation profiles
 * #14991 Added an example of using body position with an Observation

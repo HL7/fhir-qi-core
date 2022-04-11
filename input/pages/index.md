@@ -10,7 +10,7 @@ list of changes to this version.
 
 The QI-Core Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create
 interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the
-[US Core](https://hl7.org/fhir/us/core/STU3.1.1/) profiles to provide a common foundation for building, sharing, and evaluating
+[US Core]({{site.data.fhir.ver.uscore}}) profiles to provide a common foundation for building, sharing, and evaluating
 knowledge artifacts across quality improvement efforts in the US Realm.
 
 As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring workgroup,
@@ -174,7 +174,7 @@ approach to provenance.
 
 QI-Core has been harmonized with certain other FHIR-based initiatives, in particular, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
-[US Core](http://hl7.org/fhir/us/core) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
+[US Core]({{site.data.fhir.ver.uscore}}) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
 maps ONC Common Clinical Data Set elements to FHIR resources. The data elements in US Core are also in QI-Core, and
 whenever possible, profiles defined in QI-Core are derived from the profiles in US Core. As a result, conforming to US
 Core automatically satisfies a significant subset of the conformance requirements of QI-Core. QI-Core conformance
@@ -212,7 +212,7 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 ### MustSupport Flag
 
-QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core](http://hl7.org/fhir/us/core/general-guidance.html#must-support) must be respected.
+QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/general-guidance.html#must-support) must be respected.
 
 In addition to the requirements defined in the US Core base, QI Core further describes and constrains the "MustSupport"
 functionality.
