@@ -246,6 +246,9 @@ applications, defined as follows:
 -  Quality artifact authors can use the MustSupport elements in their artifacts with the expectation that the model elements will be portable across all systems compliant with QI-Core, and
 -  Quality improvement artifact applications SHALL recognize and process all MustSupport elements in QI-Core.
 
+Throughout the QI-Core profiles elements that are marked as required, meaning they have a minimum cardinality of 1, will also
+be marked as MustSupport. In the case of complex elements if the top level element is marked as MustSupport then any required
+sub-elements will be marked as MustSupport as well.
 ### Modifying Attributes
 
 Within FHIR resources, some elements are considered [Modifying Elements]({{site.data.fhir.path}}conformance-rules.html#isModifier),
