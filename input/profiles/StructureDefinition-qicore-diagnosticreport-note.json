@@ -1,9 +1,10 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "qicore-diagnosticreport-lab",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab",
-  "version" : "4.1.1",
-  "name" : "QICoreDiagnosticReportLab",
+  "id" : "qicore-diagnosticreport-note",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
+  "version" : "5.0.0",
+  "name" : "QICoreDiagnosticReportNote",
+  "title" : "QICore DiagnosticReport Profile for Report and Note Exchange",
   "status" : "draft",
   "experimental" : false,
   "date" : "2018-08-22",
@@ -19,7 +20,7 @@
       ]
     }
   ],
-  "description" : "Profile of DiagnosticReport for laboratory results for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "description" : "Profile of DiagnosticReport for Note exchange for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
   "jurisdiction" : [
     {
       "coding" : [
@@ -56,7 +57,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "DiagnosticReport",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note",
   "derivation" : "constraint",
   "differential" : {
     "element" : [
@@ -64,6 +65,41 @@
         "id" : "DiagnosticReport",
         "path" : "DiagnosticReport",
         "mustSupport" : false
+      },
+      {
+        "id" : "DiagnosticReport.category",
+        "path" : "DiagnosticReport.category",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "pattern",
+              "path" : "$this"
+            }
+          ],
+          "rules" : "open"
+        },
+        "min" : 1,
+        "mustSupport" : true
+      },
+      {
+        "id" : "DiagnosticReport.category",
+        "path" : "DiagnosticReport.category",
+        "sliceName" : "category",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "example",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+        }
+      },
+      {
+        "id" : "DiagnosticReport.category_uscore",
+        "path" : "DiagnosticReport.category",
+        "sliceName" : "category_uscore",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+        }
       },
       {
         "id" : "DiagnosticReport.extension:locationPerformed",
@@ -97,7 +133,7 @@
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport" : true
       },
       {
         "id" : "DiagnosticReport.basedOn",
@@ -117,110 +153,26 @@
         "mustSupport" : false
       },
       {
-        "id" : "DiagnosticReport.category",
-        "path" : "DiagnosticReport.category",
-        "slicing" : {
-          "discriminator" : [
-            {
-              "type" : "pattern",
-              "path" : "$this"
-            }
-          ],
-          "rules" : "open"
-        },
-        "short" : "Service category",
-        "definition" : "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
-        "comment" : "Multiple categories are allowed using various categorization schemes.   The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.",
+        "id" : "DiagnosticReport.code",
+        "path" : "DiagnosticReport.code",
+        "short" : "QI Core Report Code",
+        "definition" : "The test, panel, report, or note that was ordered.",
+        "comment" : "The typical patterns for codes are:  1)  a LOINC code either as a translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists.",
         "alias" : [
-          "Department",
-          "Sub-department",
-          "Service",
-          "Discipline"
-        ],
-        "min" : 1,
-        "max" : "*",
-        "base" : {
-          "path" : "DiagnosticReport.category",
-          "min" : 0,
-          "max" : "*"
-        },
-        "type" : [
-          {
-            "code" : "CodeableConcept"
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "mustSupport" : true,
-        "isModifier" : false,
-        "isSummary" : true,
-        "binding" : {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString" : "DiagnosticServiceSection"
-            }
-          ],
-          "strength" : "preferred",
-          "description" : "Codes for diagnostic service sections.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
-        },
-        "mapping" : [
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.class"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBR-24"
-          },
-          {
-            "identity" : "rim",
-            "map" : "inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code < LabService].code"
-          }
-        ]
-      },
-      {
-        "id" : "DiagnosticReport.category:LaboratorySlice",
-        "path" : "DiagnosticReport.category",
-        "sliceName" : "LaboratorySlice",
-        "short" : "Service category",
-        "definition" : "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
-        "comment" : "Multiple categories are allowed using various categorization schemes.   The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.",
-        "alias" : [
-          "Department",
-          "Sub-department",
-          "Service",
-          "Discipline"
+          "Type"
         ],
         "min" : 1,
         "max" : "1",
         "base" : {
-          "path" : "DiagnosticReport.category",
-          "min" : 0,
-          "max" : "*"
+          "path" : "DiagnosticReport.code",
+          "min" : 1,
+          "max" : "1"
         },
         "type" : [
           {
             "code" : "CodeableConcept"
           }
         ],
-        "patternCodeableConcept" : {
-          "coding" : [
-            {
-              "system" : "http://terminology.hl7.org/CodeSystem/v2-0074",
-              "code" : "LAB"
-            }
-          ]
-        },
         "constraint" : [
           {
             "key" : "ele-1",
@@ -235,28 +187,26 @@
         "isModifier" : false,
         "isSummary" : true,
         "binding" : {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString" : "DiagnosticServiceSection"
-            }
-          ],
-          "strength" : "preferred",
-          "description" : "Codes for diagnostic service sections.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+          "strength" : "extensible",
+          "description" : "LOINC codes",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes"
         },
         "mapping" : [
           {
+            "identity" : "workflow",
+            "map" : "Event.code"
+          },
+          {
             "identity" : "w5",
-            "map" : "FiveWs.class"
+            "map" : "FiveWs.what[x]"
           },
           {
             "identity" : "v2",
-            "map" : "OBR-24"
+            "map" : "OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"
           },
           {
             "identity" : "rim",
-            "map" : "inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code < LabService].code"
+            "map" : "code"
           }
         ]
       },
@@ -284,7 +234,77 @@
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport" : true
+      },
+      {
+        "id" : "DiagnosticReport.effective[x]",
+        "path" : "DiagnosticReport.effective[x]",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "DiagnosticReport.effective[x]",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "dateTime"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Period"
+          }
+        ],
+        "condition" : [
+          "us-core-10"
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "workflow",
+            "map" : "Event.occurrence[x]"
+          },
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.done[x]"
+          },
+          {
+            "identity" : "v2",
+            "map" : "OBR-7"
+          },
+          {
+            "identity" : "rim",
+            "map" : "effectiveTime"
+          }
+        ]
+      },
+      {
+        "id" : "DiagnosticReport.issued",
+        "path" : "DiagnosticReport.issued",
+        "mustSupport" : true
       },
       {
         "id" : "DiagnosticReport.performer",
@@ -314,6 +334,19 @@
         "mustSupport" : false
       },
       {
+        "id" : "DiagnosticReport.result",
+        "path" : "DiagnosticReport.result",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
         "id" : "DiagnosticReport.imagingStudy",
         "path" : "DiagnosticReport.imagingStudy",
         "type" : [
@@ -324,7 +357,17 @@
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport" : true
+      },
+      {
+        "id" : "DiagnosticReport.media",
+        "path" : "DiagnosticReport.media",
+        "mustSupport" : true
+      },
+      {
+        "id" : "DiagnosticReport.media.link",
+        "path" : "DiagnosticReport.media.link",
+        "mustSupport" : true
       },
       {
         "id" : "DiagnosticReport.conclusion",
