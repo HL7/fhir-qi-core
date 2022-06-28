@@ -1,0 +1,293 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-condition-problems-health-concerns",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+  "version" : "5.0.0",
+  "name" : "QICoreConditionProblemsHealthConcerns",
+  "title" : "QICore Condition Problems Health Concerns",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of Condition for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "argonaut-dq-dstu2",
+      "uri" : "http://unknown.org/Argonaut-DQ-DSTU2",
+      "name" : "Argonaut-DQ-DSTU2"
+    },
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "sct-concept",
+      "uri" : "http://snomed.info/conceptdomain",
+      "name" : "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "sct-attr",
+      "uri" : "http://snomed.org/attributebinding",
+      "name" : "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Condition",
+  "baseDefinition" : "http://hl7.org/fhir/us/core//StructureDefinition/us-core-condition-problems-health-concerns",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "Condition",
+        "path" : "Condition",
+        "definition" : "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Condition.extension:dueTo",
+        "path" : "Condition.extension",
+        "sliceName" : "dueTo",
+        "short" : "What caused the Condition?",
+        "definition" : "Further conditions, problems, diagnoses, procedures or events or the substance that caused/triggered this Condition.",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/condition-dueTo"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "Condition.extension:occurredFollowing",
+        "path" : "Condition.extension",
+        "sliceName" : "occurredFollowing",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/condition-occurredFollowing"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "Condition.severity",
+        "path" : "Condition.severity",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "Codes describing anatomical locations. May include laterality.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/condition-severity"
+        }
+      },
+      {
+        "id" : "Condition.bodySite",
+        "path" : "Condition.bodySite",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "Codes describing anatomical locations. May include laterality.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
+        }
+      },
+      {
+        "id" : "Condition.subject",
+        "path" : "Condition.subject",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Condition.encounter",
+        "path" : "Condition.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Condition.onset[x]",
+        "path" : "Condition.onset[x]",
+        "type" : [
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "dateTime"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Age"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Period"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Range"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Condition.abatement[x]",
+        "path" : "Condition.abatement[x]",
+        "type" : [
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "dateTime"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Age"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Period"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Range"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Condition.asserter",
+        "path" : "Condition.asserter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "Condition.stage",
+        "path" : "Condition.stage",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Condition.stage.summary",
+        "path" : "Condition.stage.summary",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "Codes describing condition stages (e.g. Cancer stages).",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/condition-stage"
+        }
+      },
+      {
+        "id" : "Condition.stage.assessment",
+        "path" : "Condition.stage.assessment",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/StructureDefinition/ClinicalImpression",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      }
+    ]
+  }
+}
