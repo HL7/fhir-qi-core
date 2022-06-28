@@ -183,7 +183,7 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 ### MustSupport Flag
 
-QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core](http://hl7.org/fhir/us/core/must-support.html) must be respected.
+QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
 
 In addition to the requirements defined in the US Core base, QI Core further describes and constrains the "MustSupport"
 functionality.
@@ -216,8 +216,8 @@ In summary, MustSupport elements represent the minimal set of data elements that
 applications, defined as follows:
 
 -  data elements whenever that data is available,
--  Quality artifact authors can use the MustSupport elements in their artifacts with the expectation that the model elements will be portable across all systems compliant with QI-Core, and
--  Quality improvement artifact applications SHALL recognize and process all MustSupport elements in QI-Core.
+-  Quality artifact authors **SHOULD** reference only elements that are marked must support, especially in the left-hand side of artifacts (measure criteria, decision support inclusion/exclusion criteria, etc.). However, additional expectations for the data requirements of artifacts MAY be communicated via the dataRequirements elements of knowledge artifacts, and
+-  Quality improvement artifact applications **SHALL** recognize and process all MustSupport elements in QI-Core.
 
 Throughout the QI-Core profiles elements that are marked as required, meaning they have a minimum cardinality of 1, will also
 be marked as MustSupport. In the case of complex elements if the top level element is marked as MustSupport then any required
@@ -327,6 +327,30 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICoreServiceRequest](StructureDefinition-qicore-servicerequest.html)|[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |[QICoreTask](StructureDefinition-qicore-task.html)|[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
+
+
+The QICore ObservationNotDone profile SHOULD be used for all specific observation profile content including:
+
+-  [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+-  [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
+-  [US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html)
+-  [US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html)
+-  [US Core Body Temperature Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html)
+-  [US Core Body Weight Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html)
+-  [US Core Head Circumference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html)
+-  [US Core Heart Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html)
+-  [US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html)
+-  [US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)
+-  [US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)
+-  [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
+-  [US Core Laboratory Result Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html)
+-  [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
+-  QICore Observation Clinical Test Result Profile
+-  QICore Observation Imaging Result Profile
+-  QICore Observation Sexual Orientation Profile
+-  QICore Observation Social History Profile
+-  QICore Observation Survey Profile
+-  QICore Observation SDOH Assessment Profile
 
 #### Guidance for the use of Negation Profiles
 
