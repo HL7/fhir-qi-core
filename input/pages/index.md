@@ -355,6 +355,7 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICoreTask](StructureDefinition-qicore-task.html)|[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
+
 The QICore ObservationNotDone profile SHOULD be used for all specific observation profile content including:
 
 -  [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
