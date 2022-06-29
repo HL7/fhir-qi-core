@@ -19,7 +19,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |*Claim*|
 |[QICoreClaim](StructureDefinition-qicore-claim.html)| |[Claim]({{site.data.fhir.path}}claim.html)|
 |*ClaimResponse*|
-|[QICoreClaim](StructureDefinition-qicore-claimresponse.html)| |[Claim]({{site.data.fhir.path}}claimresponse.html)|
+|[QICoreClaimResponse](StructureDefinition-qicore-claimresponse.html)| |[Claim]({{site.data.fhir.path}}claimresponse.html)|
 |*Communication*|
 |[QICoreCommunication](StructureDefinition-qicore-communication.html)| |[Communication]({{site.data.fhir.path}}communication.html)|
 |[QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html)| |[Communication]({{site.data.fhir.path}}communication.html)|
