@@ -345,12 +345,13 @@ The QICore ObservationNotDone profile SHOULD be used for all specific observatio
 -  [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
 -  [US Core Laboratory Result Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html)
 -  [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
--  QICore Observation Clinical Test Result Profile
--  QICore Observation Imaging Result Profile
--  QICore Observation Sexual Orientation Profile
--  QICore Observation Social History Profile
--  QICore Observation Survey Profile
--  QICore Observation SDOH Assessment Profile
+- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Observation Social History Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-social-history.html)
+- [US Core Observation SDOH Assessment Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sdoh-assessment.html)
+- [QICore Observation Clinical Test Result](StructureDefinition-qicore-observation-clinical-test.html)
+- [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
+- [QICore Observation Imaging Result](StructureDefinition-qicore-observation-imaging.html)
+- [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)
 
 #### Guidance for the use of Negation Profiles
 
