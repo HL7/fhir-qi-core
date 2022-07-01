@@ -1,5 +1,15 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
-
+  <a name="guidance"></a>
+  <h3>Guidance</h3>
+  <p>
+  <tr>
+      <td>Reference Guidance for use of the Service Not Requested profile can be found <a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html#mandatory-and-must-support-data-elements">here.</a></td>
+      <ul><li>See the <a href="https://hl7.org/fhir/us/core/sdoh.html">Social Determinants of Health (SDOH)</a> Guidance Page for more information when exchanging Social Determinants of Health (SDOH) Service Requests.</li>
+      <li>The <code class="highlighter-rouge">ServiceRequest.category</code> binding must support at a minimum the <a href="{{site.data.fhir.ver.uscore}}/ValueSet-us-core-servicerequest-category.html">US Core ServiceRequest Category Codes</a>.  However, this valueset can be treated as <a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a> and other category codes can be used instead.</li>
+      <li>The <code class="highlighter-rouge">ServiceRequest.code.extension:notDoneValueSet</code> valueset identifies a set of possible coded values representing activities that were not requested, ordered, or performed.</li>
+      <li>The <code class="highlighter-rouge">ServiceRequest.subject</code> is Must Support with Must Support reference to QI Core Patient</li></ul>
+  </tr>
+  </p>
 
 <a name="usage"><b>Usage</b></a>
 
