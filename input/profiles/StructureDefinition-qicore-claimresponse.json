@@ -5,7 +5,7 @@
   "version" : "5.0.0",
   "name" : "QICoreClaimResponse",
   "title" : "QICore Claim Response",
-  "status" : "active",
+  "status" : "draft",
   "experimental" : false,
   "date" : "2022-04-20",
   "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
@@ -543,20 +543,8 @@
                   ],
                   "isModifier" : false,
                   "mustSupport" : true,
-                  "isSummary" : false,
-                  "binding" : {
-                    "extension" : [
-                      {
-                        "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-                        "valueString" : "Adjudication"
-                      }
-                    ],
-                    "strength" : "preferred",
-                    "description" : "The adjudication codes.",
-                    "valueSet" : "http://hl7.org/fhir/ValueSet/adjudication"
-                  }
+                  "isSummary" : false
                 },
-
                 {
                     "id" : "ClaimResponse.item.detail.detailSequence",
                     "path" : "ClaimResponse.item.detail.detailSequence",
@@ -621,7 +609,7 @@
         "isModifier" : false,
         "isSummary" : false,
         "mustSupport" : true
-      },
+      }
   ]
 }
 }
