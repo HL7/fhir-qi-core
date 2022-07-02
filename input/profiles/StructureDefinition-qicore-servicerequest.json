@@ -429,6 +429,50 @@
         ]
       },
       {
+        "id" : "ServiceRequest.specimen",
+        "path" : "ServiceRequest.specimen",
+        "short" : "Procedure Samples",
+        "definition" : "One or more specimens that the laboratory procedure will use.",
+        "comment" : "Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, if the request is entered first with an unknown specimen, then the [Specimen](http://hl7.org/fhir/R4/specimen.html) resource points to the ServiceRequest.",
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "ServiceRequest.specimen",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen"
+            ]
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "v2",
+            "map" : "SPM"
+          },
+          {
+            "identity" : "rim",
+            "map" : ".participation[typeCode=SPC].role"
+          }
+        ]
+      },
+      {
         "id" : "ServiceRequest.bodySite",
         "path" : "ServiceRequest.bodySite",
         "mustSupport" : true,
