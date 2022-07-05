@@ -19,7 +19,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |*Claim*|
 |[QICoreClaim](StructureDefinition-qicore-claim.html)| |[Claim]({{site.data.fhir.path}}claim.html)|
 |*ClaimResponse*|
-|[QICoreClaim](StructureDefinition-qicore-claimresponse.html)| |[Claim]({{site.data.fhir.path}}claimresponse.html)|
+|[QICoreClaimResponse](StructureDefinition-qicore-claimresponse.html)| |[Claim]({{site.data.fhir.path}}claimresponse.html)|
 |*Communication*|
 |[QICoreCommunication](StructureDefinition-qicore-communication.html)| |[Communication]({{site.data.fhir.path}}communication.html)|
 |[QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html)| |[Communication]({{site.data.fhir.path}}communication.html)|
@@ -115,8 +115,8 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |*RelatedPerson*|
 |[QICoreRelatedPerson](StructureDefinition-qicore-relatedperson.html)| |[RelatedPerson]({{site.data.fhir.path}}relatedperson.html)|
 |*ServiceRequest*|
-|[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)| |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
-|[QICoreServiceRequest](StructureDefinition-qicore-servicerequest.html)| |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
+|[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[USCore ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html)  |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
+|[QICoreServiceRequest](StructureDefinition-qicore-servicerequest.html)|[USCore ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html) |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |*Specimen*|
 |[QICoreSpecimen](StructureDefinition-qicore-specimen.html)| |[Specimen]({{site.data.fhir.path}}specimen.html)|
 |*Substance*|

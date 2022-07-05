@@ -1,0 +1,405 @@
+{
+	"resourceType": "StructureDefinition",
+	"id": "qicore-encounter",
+	"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter",
+	"version": "5.0.0",
+	"name": "QICoreEncounter",
+	"title": "QICore Encounter",
+	"status": "draft",
+	"experimental": false,
+	"date": "2018-08-22",
+	"publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+	"contact": [{
+		"name": "Clinical Quality Information WG",
+		"telecom": [{
+			"system": "url",
+			"value": "http://www.hl7.org/Special/committees/cqi"
+		}]
+	}],
+	"description": "Profile of Encounter for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+	"jurisdiction": [{
+		"coding": [{
+			"system": "urn:iso:std:iso:3166",
+			"code": "US"
+		}]
+	}],
+	"fhirVersion": "4.0.1",
+	"mapping": [{
+			"identity": "workflow",
+			"uri": "http://hl7.org/fhir/workflow",
+			"name": "Workflow Pattern"
+		},
+		{
+			"identity": "rim",
+			"uri": "http://hl7.org/v3",
+			"name": "RIM Mapping"
+		},
+		{
+			"identity": "w5",
+			"uri": "http://hl7.org/fhir/fivews",
+			"name": "FiveWs Pattern Mapping"
+		},
+		{
+			"identity": "v2",
+			"uri": "http://hl7.org/v2",
+			"name": "HL7 v2 Mapping"
+		}
+	],
+	"kind": "resource",
+	"abstract": false,
+	"type": "Encounter",
+	"baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter",
+	"derivation": "constraint",
+	"differential": {
+		"element": [{
+				"id": "Encounter",
+				"path": "Encounter",
+				"mustSupport": false
+			},
+			{
+				"id": "Encounter.extension:statusReason",
+				"path": "Encounter.extension",
+				"sliceName": "statusReason",
+				"min": 0,
+				"max": "1",
+				"type": [{
+					"code": "Extension",
+					"profile": [
+						"http://hl7.org/fhir/StructureDefinition/request-statusReason"
+					]
+				}],
+				"mustSupport": true,
+				"binding": {
+					"strength": "extensible",
+					"description": "The reason for the current status of the encounter",
+					"valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-encounter-canceled-reason"
+				}
+			},
+			{
+				"id": "Encounter.extension:procedure",
+				"path": "Encounter.extension",
+				"sliceName": "procedure",
+				"min": 0,
+				"max": "*",
+				"type": [{
+					"code": "Extension",
+					"profile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-procedure"
+					]
+				}],
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.priority",
+				"path": "Encounter.priority",
+				"mustSupport": true,
+				"binding": {
+					"strength": "preferred",
+					"description": "The priority of the encounter (e.g., Urgent, Normal, etc.)",
+					"valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-priority"
+				}
+			},
+			{
+				"id": "Encounter.subject",
+				"path": "Encounter.subject",
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+					]
+				}],
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.basedOn",
+				"path": "Encounter.basedOn",
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
+					]
+				}],
+				"mustSupport": false
+			},
+			{
+				"id": "Encounter.participant",
+				"path": "Encounter.participant",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.participant.individual",
+				"path": "Encounter.participant.individual",
+				"comment": "Should include QICore-RelatedPerson as a possible participant, but USCore-Encounter only allows USCore-Practitioner.",
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+					],
+					"_targetProfile": [{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": true
+							}]
+						},
+						{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": false
+							}]
+						},
+						{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": false
+							}]
+						}
+					]
+				}],
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.length",
+				"path": "Encounter.length",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.diagnosis",
+				"path": "Encounter.diagnosis",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.reasonReference",
+				"path": "Encounter.reasonReference",
+				"short": "Reason the encounter takes place (reference)",
+				"definition": "Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.",
+				"comment": "For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis).",
+				"alias": [
+					"Indication",
+					"Admission diagnosis"
+				],
+				"min": 0,
+				"max": "*",
+				"base": {
+					"path": "Encounter.reasonReference",
+					"min": 0,
+					"max": "*"
+				},
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation",
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrec"
+					],
+					"_targetProfile": [{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": true
+							}]
+						},
+						{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": true
+							}]
+						},
+						{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": true
+							}]
+						},
+						{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": true
+							}]
+						},
+						{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": true
+							}]
+						}
+					]
+				}],
+				"constraint": [{
+					"key": "ele-1",
+					"severity": "error",
+					"human": "All FHIR elements must have a @value or children",
+					"expression": "hasValue() or (children().count() > id.count())",
+					"xpath": "@value|f:*|h:div",
+					"source": "http://hl7.org/fhir/StructureDefinition/Element"
+				}],
+				"mustSupport": true,
+				"isModifier": false,
+				"isSummary": true,
+				"mapping": [{
+						"identity": "workflow",
+						"map": "Event.reasonCode"
+					},
+					{
+						"identity": "w5",
+						"map": "FiveWs.why[x]"
+					},
+					{
+						"identity": "v2",
+						"map": "EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )"
+					},
+					{
+						"identity": "rim",
+						"map": ".reasonCode"
+					}
+				]
+			},
+			{
+				"id": "Encounter.diagnosis.extension:diagnosisPresentOnAdmission",
+				"path": "Encounter.diagnosis.extension",
+				"sliceName": "diagnosisPresentOnAdmission",
+				"min": 0,
+				"max": "1",
+				"type": [{
+					"code": "Extension",
+					"profile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission"
+					]
+				}],
+				"mustSupport": true,
+				"binding": {
+					"strength": "required",
+					"description": "Indicator of whether the Encounter diagnosis was present at the time of admission",
+					"valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-present-on-admission"
+				}
+			},
+			{
+				"id": "Encounter.diagnosis.condition",
+				"path": "Encounter.diagnosis.condition",
+				"alias": [
+					"Admission diagnosis",
+					"discharge diagnosis",
+					"indication"
+				],
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure"
+					],
+					"_targetProfile": [{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": true
+							}]
+						},
+						{
+							"extension": [{
+								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"valueBoolean": true
+							}]
+						}
+					]
+				}],
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.diagnosis.use",
+				"path": "Encounter.diagnosis.use",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.diagnosis.rank",
+				"path": "Encounter.diagnosis.rank",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.hospitalization",
+				"path": "Encounter.hospitalization",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.hospitalization.origin",
+				"path": "Encounter.hospitalization.origin",
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
+					]
+				}],
+				"mustSupport": false
+			},
+			{
+				"id": "Encounter.hospitalization.admitSource",
+				"path": "Encounter.hospitalization.admitSource",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.hospitalization.reAdmission",
+				"path": "Encounter.hospitalization.reAdmission",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.hospitalization.destination",
+				"path": "Encounter.hospitalization.destination",
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
+					]
+				}],
+				"mustSupport": false
+			},
+			{
+				"id": "Encounter.hospitalization.dischargeDisposition",
+				"path": "Encounter.hospitalization.dischargeDisposition",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.location",
+				"path": "Encounter.location",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.location.location",
+				"path": "Encounter.location.location",
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
+					]
+				}],
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.location.period",
+				"path": "Encounter.location.period",
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.serviceProvider",
+				"path": "Encounter.serviceProvider",
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
+					]
+				}],
+				"mustSupport": true
+			},
+			{
+				"id": "Encounter.partOf",
+				"path": "Encounter.partOf",
+				"type": [{
+					"code": "Reference",
+					"targetProfile": [
+						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+					]
+				}],
+				"mustSupport": false
+			}
+		]
+	}
+}
