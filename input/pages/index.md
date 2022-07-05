@@ -2,7 +2,7 @@
 
 {: #qi-core-implementation-guide}
 
-> This STU 4.1 update to the QI-Core profiles updates to FHIR R4 (technical correction 1 (v4.0.1)) and US-Core STU 3.1 (w/ Errata) (v3.1.1). See the version history for a complete
+> This STU 5.0 update to the QI-Core profiles updates to FHIR R4 (technical correction 1 (v5.0.0)) and US-Core STU v5. See the version history for a complete
 list of changes to this version.
 
 ### Summary
@@ -60,39 +60,13 @@ Specifically, decision support provides guidance for clinical best practices, an
 clinical best practices have been followed. It therefore makes intuitive sense to use the same common reference model
 for both types of applications.
 
-The resulting unified model is known as Quality Information and Clinical Knowledge (QUICK). QUICK is a logical model
-consisting of objects, attributes, and relationships. QUICK provides a uniform way for clinical decision support and
-quality measures to refer to clinical data. Authors of quality measures and clinical decision support artifacts may use
-QUICK, together with HL7's Clinical Quality Language (CQL), to create interoperable and executable knowledge artifacts.
 
-This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the vMR and QDM as sources of requirements. Subsequently, a set of QI Core profiles were developed directly on specific versions of FHIR and reference to the QUICK model in QI-Core has been the logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK was aligned, structurally and semantically, as closely as possible to FHIR. This alignment not only creates a common model for quality and interoperability for the version of FHIR under consideration, but will also make it easier in the future to leverage other FHIR-related efforts, such as Clinical Document Architecture (CDA) on FHIR. The conceptual, logical, and physical models in this initiative are, respectively, QIDAM, QUICK, and the QI-Core FHIR Profiles.
+This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the vMR and QDM as sources of requirements. The goal was to align on a unified logical model, Quality Information and Clinical Knowledge (QUICK), consisting of objects, attributes, and relationships such that the QUICK model could reference specific Quality Improvement Core (QI-Core) profiles aligned with specific versions of FHIR. The first QUICK model representations included a logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK logical view was aligned, structurally and semantically, as closely as possible to FHIR. While this alignment creates a common model for quality and interoperability that more easily leverages future FHIR-related efforts including Clinical Document Architecture (CDA) on FHIR. However, we. recognize that defining a different conceptual/logical model for quality improvement capability splits focus of the community. The appropriate place for the mindshare and consensus development of the exchange semantics for quality improvement use cases is the QI-Core profiles directly. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles, and a Must Support view indicating all Must Support elements for each respective QI-Core profile.
 
-This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The goal is
-to have a single logical data model (QUICK), as well as a single logical processing language (CQL), for CDS and clinical
+This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The long-term goal remains a single logical data model (QUICK), as well as a single logical processing language (CQL), for CDS and clinical
 quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce
 the learning curve, and consolidate efforts to maintain multiple standards.
 
-### Relationship Between QUICK, the QI-Core Profiles, and FHIR
-
-The QUICK logical model was originally developed without reference to FHIR. However, when it became clear that FHIR
-would be the focus of interoperability efforts in HL7, it no longer made sense for the quality improvement community to
-maintain its own model of clinical information, for example, having a procedure model with different attributes than the
-FHIR procedure resource. The decision was made by the CDS and CQI working groups to align QUICK with FHIR, and use the
-FHIR resources to define the QUICK model. This decision means that QUICK benefits from all the thought and effort being
-put into FHIR, and stays in synchronization with the development and evolution of FHIR.
-
-Using FHIR to define the QUICK logical model seems to reverse the usual flow from conceptual model to logical model to
-physical model. This is true, and has been the source of some controversy. Without revisiting that debate, the bottom
-line is whether the QUICK model has the right set of objects and attributes that are needed for quality improvement
-applications. To assure that QUICK does meet those requirements, the QI-Core profiles were created. QI-Core fills any
-gaps such as missing attributes and unspecified value sets that might make QUICK insufficient for quality improvement
-applications.
-
-Using FHIR to define the QUICK logical model seems to reverse the usual flow from conceptual model to logical model to physical model. This is true, and has been the source of some controversy. Without revisiting that debate, the bottom line is whether the QUICK model has the right set of objects and attributes that are needed for quality improvement applications. To assure that QUICK does meet those requirements, the QI-Core profiles were created. QI-Core fills any gaps such as missing attributes and unspecified value sets that might make QUICK insufficient for quality improvement applications.
-
-The QUICK tab previously included in QI-Core publications (through QI-Core 4.0) has been retired. That tab basically provided the Must Support content of each QI-Core profile to assist measure and CDS artifact authoring. The content of that tab is now available directly in the publication tooling, adding a new tab in the detail section that lists all of the Must Support items for each profile: Snapshot Table (Must Support). Work on profile authoring using QI-Core and other FHIR IG profiles continues and will be made available in the future.
-
-Continued discussion of the original concept of QUICK as a conceptual data model will progress with consideration of the Observational Medical Outcomes Partnership (OMOP) data model.
 
 ### Relevance of QI-Core Profiles to Authors
 
@@ -108,7 +82,8 @@ not automatically result in shareable artifacts without additional coordinating 
 It is expected that QI-Core will evolve over time to include some of the extensional content when the community
 identifies a common need and the additional content has been validated.
 
-Though the QUICK model was intended to be the logical model used by quality artifact authors, a comprehensive FHIR version-independent QUICK model is not currently available and its feasibility needs further clarification. QI-Core does provide a QUICK logical view of clinical data from the perspective of representing quality measurement and decision support knowledge. The QUICK logical view is FHIR version-specific and it enables knowledge authors to ignore certain details of the FHIR Physical representation. Quality measures can be written using the QUICK logical view or directly using QI-Core profiles.
+QI-Core profile authoring will provide a more facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion. 
+
 
 ### Scope
 
@@ -124,8 +99,8 @@ QI-Core. Not all FHIR resources are profiled, especially those that do not have 
 improvement, or do not map to QIDAM. Additional extensions may be added to the current set of profiles, and additional
 profiles may be added at a later time. In particular, QI-Core represents a subset of the semantics covered in QIDAM,
 vMR, and QDM. The parts of the latter specifications that are not in the QI-Core profiles could be handled with
-additional profiles, if the DSTU period reveals the need for such additions. Keeping the QI-Core profiles (and QUICK) in
-line with FHIR and FHIR's "80%" rule is one way to make sure that the quality artifacts produced from QUICK and QI-Core
+additional profiles, if the DSTU period reveals the need for such additions. Keeping the QI-Core profiles in
+line with FHIR and FHIR's "80%" rule is one way to make sure that the quality artifacts produced from QI-Core
 are computable, based on commonly-collected clinical data. The current set of profiles will evolve to reflect changes to
 the underlying FHIR resources.
 
@@ -189,13 +164,9 @@ analysis and effort would be required.
 
 QI-Core's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QI-Core
 extensions will not create future conflicts. Other initiatives that the QI-Core effort is aligning with include the
-[Clinical Information Modeling Initiative (CIMI)](https://www.hl7.org/Special/Committees/cimi/overview.cfm) and the
-[Healthcare Services Platform Consortium (HSPC)](http://hspconsortium.org).
+[Clinical Information Modeling Initiative (CIMI)](https://www.hl7.org/Special/Committees/cimi/overview.cfm) and [Graphite Health](https://www.graphitehealth.io/).
 
-For the CIMI effort in particular, the QI-Core effort is engaged in the same work to identify and develop tooling to
-automatically generate FHIR profiles from a logical model, ideally resulting in a scenario where the CIMI modeling tools
-can be used to express the QUICK logical model, and then use the same tool chain to generate the QI-Core profiles,
-rather than infer the QUICK model from the definition of the QI-Core profiles as is currently done.
+For the CIMI effort in particular, the QI-Core effort’s vision is to develop tooling to automatically generate FHIR profiles form a logical model (QUICK) and use that same tool chain to generate FHIR-version-specific QI-Core profiles rather than the bottom-up approach currently used to define QI-Core profiles.
 
 In addition, the QI-Core effort is actively working with the QDM to produce a mapping from QDM to QI-Core such that a
 CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
@@ -212,7 +183,7 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 ### MustSupport Flag
 
-QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core](http://hl7.org/fhir/us/core/must-support.html) must be respected.
+QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
 
 In addition to the requirements defined in the US Core base, QI Core further describes and constrains the "MustSupport"
 functionality.
@@ -239,12 +210,14 @@ improvement application will try to retrieve the data and process it if the data
 Specific applications can modify the profiles and set MustSupport flags to true if they will process additional
 elements, but setting a MustSupport flag from true to false is noncompliant.
 
+A number of  QI-Core profiles inherit directly from US Core profiles, if any, or other FHIR resources (i.e. USCoreImplantableDeviceProfile, USCore Pediatric BMI for Age, USCore Smoking Status etc.) and the underlying Reference elements can address the US Core or FHIR profiles for the items referenced. For any other references to base FHIR resources or those not formally defined in a QI-Core Profile, the referenced resource SHALL be a QI-Core Profile if a QI-Core Profile exists for the resource type. For example, USCore Smoking Status references US Core Patient profile, the reference to Patient SHALL be a valid QI-Core Patient.
+
 In summary, MustSupport elements represent the minimal set of data elements that must be supported in quality
 applications, defined as follows:
 
 -  data elements whenever that data is available,
--  Quality artifact authors can use the MustSupport elements in their artifacts with the expectation that the model elements will be portable across all systems compliant with QI-Core, and
--  Quality improvement artifact applications SHALL recognize and process all MustSupport elements in QI-Core.
+-  Quality artifact authors **SHOULD** reference only elements that are marked must support, especially in the left-hand side of artifacts (measure criteria, decision support inclusion/exclusion criteria, etc.). However, additional expectations for the data requirements of artifacts MAY be communicated via the dataRequirements elements of knowledge artifacts, and
+-  Quality improvement artifact applications **SHALL** recognize and process all MustSupport elements in QI-Core.
 
 Throughout the QI-Core profiles elements that are marked as required, meaning they have a minimum cardinality of 1, will also
 be marked as MustSupport. In the case of complex elements if the top level element is marked as MustSupport then any required
@@ -355,6 +328,31 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICoreTask](StructureDefinition-qicore-task.html)|[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
+
+The QICore ObservationNotDone profile SHOULD be used for all specific observation profile content including:
+
+-  [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+-  [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
+-  [US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html)
+-  [US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html)
+-  [US Core Body Temperature Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html)
+-  [US Core Body Weight Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html)
+-  [US Core Head Circumference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html)
+-  [US Core Heart Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html)
+-  [US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html)
+-  [US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)
+-  [US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)
+-  [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
+-  [US Core Laboratory Result Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html)
+-  [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
+- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Observation Social History Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-social-history.html)
+- [US Core Observation SDOH Assessment Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sdoh-assessment.html)
+- [QICore Observation Clinical Test Result](StructureDefinition-qicore-observation-clinical-test.html)
+- [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
+- [QICore Observation Imaging Result](StructureDefinition-qicore-observation-imaging.html)
+- [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)
+
 #### Guidance for the use of Negation Profiles
 
 <p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set as indication that the reason applies to all valueset members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all valueset members were selected.</p>
@@ -434,27 +432,28 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 
 |Author Name|Affiliation|Role|
 |---|---|---|
-|Lisa Anderson| |Contributor|
-|James Bradley|The MITRE Corporation|Contributor|
-|Paul Denning|The MITRE Corporation|Contributor|
-|Floyd Eisenberg||Primary|
-|Marc Hadley|The MITRE Corporation|Contributor|
+|Anne Smith|NCQA|Contributor|
+|Ben Hamlin|NCQA|Contributor|
+|Bryn Rhodes|Alphora|Editor|
+|Chris Moesel|The MITRE Corporation|Contributor|
+|Claude Nanjo||Originator|
 |Claudia Hall||Contributor|
-|Ben Hamlin, MPH|NCQA|Contributor|
-|Yan Heras||Contributor|
-|Yanyan Hu||Contributor|
+|Floyd Eisenberg|iParsimony, LLC|Primary|
+|James Bradley|The MITRE Corporation|Contributor|
+|Jason Walonoski|The MITRE Corporation|Contributor|
+|Juliet Rubini|Mathematica|Contributor|
+|Linda Michaelsen|Optum|Contributor|
 |Mark Kramer|The MITRE Corporation|Originator|
 |Jason Mathews|The MITRE Corporation|Originator|
+|Lisa Anderson|Mathematica|Contributor|
 |Lloyd McKenzie|Gevity Consulting|Contributor|
-|Chris Moesel|The MITRE Corporation|Contributor|
-|Peter Muir|ESAC, Inc.|Contributor|
-|Claude Nanjo||Originator|
-|Stan Rankins|Telligen|Contributor|
-|Bryn Rhodes|Alphora|Editor|
-|Juliet Rubini|Mathematica|Contributor|
-|Robert Samples|ESAC, Inc.|Contributor|
-|Sam Sayer|The MITRE Corporation|Contributor|
-|Anne Smith|NCQA|Contributor|
+|Marc Hadley|The MITRE Corporation|Contributor|
+|Paul Denning|The MITRE Corporation|Contributor|
+|Peter Muir|ICF, Inc.|Contributor|
 |Raman Srinivasan|IBM Watson Health|Contributor|
-|Jason Walonoski|The MITRE Corporation|Contributor|
+|Robert Samples||Contributor|
+|Sam Sayer|The MITRE Corporation|Contributor|
+|Stan Rankins|Telligen|Contributor|
+|Yan Heras|Optimum eHealth, LLC|Contributor|
+|Yanyan Hu|The Joint Commission|Contributor|
 {: .list}

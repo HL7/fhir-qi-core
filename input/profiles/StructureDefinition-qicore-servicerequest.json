@@ -1,0 +1,487 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-servicerequest",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest",
+  "version" : "5.0.0",
+  "name" : "QICoreServiceRequest",
+  "title" : "QICore Service Request",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of ServiceRequest for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "qidam",
+      "uri" : "http://hl7.org/qidam",
+      "name" : "Mapping to Quality Improvement Domain Analysis Model"
+    },
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "quick",
+      "uri" : "http://siframework.org/cqf",
+      "name" : "Quality Improvement and Clinical Knowledge (QUICK)"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ServiceRequest",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "ServiceRequest",
+        "path" : "ServiceRequest",
+        "mustSupport" : false
+      },
+      {
+        "id" : "ServiceRequest.extension:approachBodyStructure",
+        "path" : "ServiceRequest.extension",
+        "sliceName" : "approachBodyStructure",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure"
+            ]
+          }
+        ],
+        "mustSupport" : false,
+        "mapping" : [
+          {
+            "identity" : "qidam",
+            "map" : "Not in QIDAM, but should have been included because the procedure request might include a requested approach, for example, to distinguish between urethral and supra-pubic urinary catheterization."
+          }
+        ]
+      },
+      {
+        "id" : "ServiceRequest.extension:appropriatenessScore",
+        "path" : "ServiceRequest.extension",
+        "sliceName" : "appropriatenessScore",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest-appropriatenessScore"
+            ]
+          }
+        ],
+        "mustSupport" : false,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "The RAND scoring for appropriateness of the procedure.",
+          "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"
+        },
+        "mapping" : [
+          {
+            "identity" : "qidam",
+            "map" : "Not in QIDAM, but added because of a persuasive ballot comment (May 2015)."
+          }
+        ]
+      },
+      {
+        "id" : "ServiceRequest.modifierExtension:isElective",
+        "path" : "ServiceRequest.modifierExtension",
+        "sliceName" : "isElective",
+        "comment" : "The reason this extension is a modifier is because, if true, this element marks the specified request as elective.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-isElective"
+            ]
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : true,
+        "isModifierReason" : "The reason this extension is a modifier is because, if true, this element marks the specified request as elective."
+      },
+      {
+        "id" : "ServiceRequest.subject",
+        "path" : "ServiceRequest.subject",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "ServiceRequest.encounter",
+        "path" : "ServiceRequest.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "ServiceRequest.occurrence[x]",
+        "path" : "ServiceRequest.occurrence[x]",
+        "type" : [
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "dateTime"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Period"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Timing"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "ServiceRequest.asNeeded[x]",
+        "path" : "ServiceRequest.asNeeded[x]",
+        "short" : "Preconditions for service",
+        "definition" : "If a CodeableConcept is present, it indicates the pre-condition for performing the service.  For example \"pain\", \"on flare-up\", etc.",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "ServiceRequest.asNeeded[x]",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "code" : "boolean"
+          },
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : true,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ProcedureAsNeededReason"
+            }
+          ],
+          "strength" : "preferred",
+          "description" : "A coded concept identifying the pre-condition that should hold prior to performing a procedure.  For example \"pain\", \"on flare-up\", etc.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/medication-as-needed-reason"
+        },
+        "mapping" : [
+          {
+            "identity" : "rim",
+            "map" : "boolean: precondition.negationInd (inversed - so negationInd = true means asNeeded=false CodeableConcept: precondition.observationEventCriterion[code=\"Assertion\"].value"
+          },
+          {
+            "identity" : "quick",
+            "map" : "Proposal.prnReason.reason"
+          }
+        ]
+      },
+      {
+        "id" : "ServiceRequest.authoredOn",
+        "path" : "ServiceRequest.authoredOn",
+        "mustSupport" : true
+      },
+      {
+        "id" : "ServiceRequest.requester",
+        "path" : "ServiceRequest.requester",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"
+            ],
+            "_targetProfile" : [
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : false
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : false
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : false
+                  }
+                ]
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "ServiceRequest.performer",
+        "path" : "ServiceRequest.performer",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
+              "http://hl7.org/fhir/StructureDefinition/HealthcareService"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "ServiceRequest.reasonCode",
+        "path" : "ServiceRequest.reasonCode",
+        "mustSupport" : false,
+        "binding" : {
+          "strength" : "example",
+          "description" : "Explanation/Justification for procedure or service",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/procedure-reason"
+        }
+      },
+      {
+        "id" : "ServiceRequest.reasonReference",
+        "path" : "ServiceRequest.reasonReference",
+        "short" : "Explanation/Justification for service or service",
+        "definition" : "Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in `supportingInfo`.",
+        "comment" : "This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.conclusionCode`.   When using a reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this service request.  Use  the CodeableConcept text element in `ServiceRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).",
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "ServiceRequest.reasonReference",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns"
+            ],
+            "_targetProfile" : [
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "workflow",
+            "map" : "Request.reasonReference"
+          },
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.why[x]"
+          },
+          {
+            "identity" : "v2",
+            "map" : "ORC.16"
+          },
+          {
+            "identity" : "rim",
+            "map" : ".outboundRelationship[typeCode=RSON].target"
+          }
+        ]
+      },
+      {
+        "id" : "ServiceRequest.specimen",
+        "path" : "ServiceRequest.specimen",
+        "short" : "Procedure Samples",
+        "definition" : "One or more specimens that the laboratory procedure will use.",
+        "comment" : "Many diagnostic procedures need a specimen, but the request itself is not actually about the specimen. This element is for when the diagnostic is requested on already existing specimens and the request points to the specimen it applies to.    Conversely, if the request is entered first with an unknown specimen, then the [Specimen](http://hl7.org/fhir/R4/specimen.html) resource points to the ServiceRequest.",
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "ServiceRequest.specimen",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen"
+            ]
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "v2",
+            "map" : "SPM"
+          },
+          {
+            "identity" : "rim",
+            "map" : ".participation[typeCode=SPC].role"
+          }
+        ]
+      },
+      {
+        "id" : "ServiceRequest.bodySite",
+        "path" : "ServiceRequest.bodySite",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "Anatomic location where the procedure should be performed. This is the target site",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
+        }
+      }
+    ]
+  }
+}

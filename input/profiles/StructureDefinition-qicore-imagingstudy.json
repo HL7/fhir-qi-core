@@ -1,0 +1,403 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-imagingstudy",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy",
+  "version" : "5.0.0",
+  "name" : "QICoreImagingStudy",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of ImagingStudy for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "dicom",
+      "uri" : "http://nema.org/dicom",
+      "name" : "DICOM Tag Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ImagingStudy",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "ImagingStudy",
+        "path" : "ImagingStudy",
+        "mustSupport" : false
+      },
+      {
+        "id" : "ImagingStudy.subject",
+        "path" : "ImagingStudy.subject",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "ImagingStudy.encounter",
+        "path" : "ImagingStudy.encounter",
+        "short" : "Encounter with which this imaging study is associated",
+        "definition" : "The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made.",
+        "comment" : "This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission test).",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "ImagingStudy.encounter",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "workflow",
+            "map" : "Event.encounter"
+          },
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.context"
+          },
+          {
+            "identity" : "rim",
+            "map" : "inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"
+          }
+        ]
+      },
+      {
+        "id" : "ImagingStudy.started",
+        "path" : "ImagingStudy.started",
+        "mustSupport" : true
+      },
+      {
+        "id" : "ImagingStudy.basedOn",
+        "path" : "ImagingStudy.basedOn",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "ImagingStudy.referrer",
+        "path" : "ImagingStudy.referrer",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "ImagingStudy.interpreter",
+        "path" : "ImagingStudy.interpreter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "ImagingStudy.procedureReference",
+        "path" : "ImagingStudy.procedureReference",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "ImagingStudy.location",
+        "path" : "ImagingStudy.location",
+        "short" : "Where ImagingStudy occurred",
+        "definition" : "The principal physical location where the ImagingStudy was performed.",
+        "requirements" : "Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting).",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "ImagingStudy.location",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
+            ]
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "workflow",
+            "map" : "Event.location"
+          },
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.where[x]"
+          },
+          {
+            "identity" : "v2",
+            "map" : "EVN.7"
+          },
+          {
+            "identity" : "rim",
+            "map" : ".participation[typeCode=LOC].role"
+          },
+          {
+            "identity" : "dicom",
+            "map" : "(0008,1040) | (0040,0243)"
+          }
+        ]
+      },
+      {
+       "id" : "ImagingStudy.reasonReference",
+       "path" : "ImagingStudy.reasonReference",
+       "short" : "Why was study performed",
+       "definition" : "Indicates another resource whose existence justifies this Study.",
+       "min" : 0,
+       "max" : "*",
+       "base" : {
+         "path" : "ImagingStudy.reasonReference",
+         "min" : 0,
+         "max" : "*"
+       },
+       "type" : [
+         {
+           "code" : "Reference",
+           "targetProfile" : [
+             "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+             "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation",
+             "http://hl7.org/fhir/StructureDefinition/Media",
+             "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
+             "http://hl7.org/fhir/StructureDefinition/DocumentReference"
+           ]
+         }
+       ],
+       "constraint" : [
+         {
+           "key" : "ele-1",
+           "severity" : "error",
+           "human" : "All FHIR elements must have a @value or children",
+           "expression" : "hasValue() or (children().count() > id.count())",
+           "xpath" : "@value|f:*|h:div",
+           "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+         }
+       ],
+       "isModifier" : false,
+       "isSummary" : true,
+       "mapping" : [
+         {
+           "identity" : "workflow",
+           "map" : "Event.reasonReference"
+         },
+         {
+           "identity" : "w5",
+           "map" : "FiveWs.why[x]"
+         },
+         {
+           "identity" : "v2",
+           "map" : "EVN.4 or by domain"
+         },
+         {
+           "identity" : "rim",
+           "map" : ".outboundRelationship[typeCode=RSON].target"
+         }
+       ]
+     },
+      {
+        "id" : "ImagingStudy.series.specimen",
+        "path" : "ImagingStudy.series.specimen",
+        "short" : "Specimen imaged",
+        "definition" : "The specimen imaged, e.g., for whole slide imaging of a biopsy.",
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "ImagingStudy.series.specimen",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen"
+            ]
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "rim",
+            "map" : "Role[classCode=SPEC]"
+          },
+          {
+            "identity" : "dicom",
+            "map" : "(0040,0551) + (0040,0562)"
+          }
+        ]
+      },
+      {
+        "id" : "ImagingStudy.series.performer.actor",
+        "path" : "ImagingStudy.series.performer.actor",
+        "short" : "Who performed the series",
+        "definition" : "Indicates who or what performed the series.",
+        "min" : 1,
+        "max" : "1",
+        "base" : {
+          "path" : "ImagingStudy.series.performer.actor",
+          "min" : 1,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.actor"
+          },
+          {
+            "identity" : "v2",
+            "map" : "EVN.5 or by domain"
+          },
+          {
+            "identity" : "rim",
+            "map" : ".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"
+          }
+        ]
+      }
+    ]
+  }
+}

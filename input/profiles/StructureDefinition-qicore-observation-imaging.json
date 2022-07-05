@@ -1,0 +1,381 @@
+{
+	"resourceType": "StructureDefinition",
+	"id": "qicore-observation-imaging",
+	"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-imaging",
+	"version": "5.0.0",
+	"name": "QICoreObservationImagingResult",
+	"title": "QICore Observation Imaging Result",
+	"status": "active",
+	"date": "2022-04-20",
+	"publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+	"contact": [{
+		"name": "Clinical Quality Information WG",
+		"telecom": [{
+			"system": "url",
+			"value": "http://www.hl7.org/Special/committees/cqi"
+		}]
+	}],
+	"description": "The QI Core Observation Imaging Result Profile is based upon the US Core Observation Imaging Profile. To promote interoperability and adoption through common implementation, this profile sets minimum expectations for components of diagnostic imaging test results for a patient and defines the core set of elements and extensions for quality rule and measure authors.",
+	"jurisdiction": [{
+		"coding": [{
+			"system": "urn:iso:std:iso:3166",
+			"code": "US"
+		}]
+	}],
+	"copyright": "Used by permission of HL7 International, all rights reserved Creative Commons License",
+	"fhirVersion": "4.0.1",
+	"mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "sct-concept",
+      "uri" : "http://snomed.info/conceptdomain",
+      "name" : "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "sct-attr",
+      "uri" : "http://snomed.org/attributebinding",
+      "name" : "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Observation",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-imaging",
+  "derivation" : "constraint",
+	"differential" : {
+    "element" : [
+			{
+			"id": "Observation.subject",
+			"path": "Observation.subject",
+			"min": 1,
+			"type": [{
+				"code": "Reference",
+				"targetProfile": [
+					"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+				]
+			}],
+			"mustSupport": true
+		},
+		{
+			"id": "Observation.encounter",
+			"path": "Observation.encounter",
+			"short": "Healthcare event during which this observation is made",
+			"definition": "The healthcare event  (e.g. a patient and healthcare provider interaction) during which this observation is made.",
+			"comment": "This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission laboratory tests).",
+			"requirements": "For some observations it may be important to know the link between an observation and a particular encounter.",
+			"alias": [
+				"Context"
+			],
+			"min": 0,
+			"max": "1",
+			"base": {
+				"path": "Observation.encounter",
+				"min": 0,
+				"max": "1"
+			},
+			"type": [{
+				"code": "Reference",
+				"targetProfile": [
+					"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+				]
+			}],
+			"constraint": [{
+				"key": "ele-1",
+				"severity": "error",
+				"human": "All FHIR elements must have a @value or children",
+				"expression": "hasValue() or (children().count() > id.count())",
+				"xpath": "@value|f:*|h:div",
+				"source": "http://hl7.org/fhir/StructureDefinition/Element"
+			}],
+			"isModifier": false,
+			"isSummary": true,
+			"mapping": [{
+					"identity": "workflow",
+					"map": "Event.context"
+				},
+				{
+					"identity": "w5",
+					"map": "FiveWs.context"
+				},
+				{
+					"identity": "v2",
+					"map": "PV1"
+				},
+				{
+					"identity": "rim",
+					"map": "inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"
+				}
+			],
+			"mustSupport": true
+		},
+		{
+			"id": "Observation.performer",
+			"path": "Observation.performer",
+			"short": "Who is responsible for the observation",
+			"definition": "Who was responsible for asserting the observed value as \"true\".",
+			"requirements": "May give a degree of confidence in the observation and also indicates where follow-up questions should be directed.",
+			"min": 0,
+			"max": "*",
+			"base": {
+				"path": "Observation.performer",
+				"min": 0,
+				"max": "*"
+			},
+			"type": [{
+				"code": "Reference",
+				"targetProfile": [
+					"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+					"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+					"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+					"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam",
+					"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+					"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+				],
+				"_targetProfile": [{
+						"extension": [{
+							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+							"valueBoolean": true
+						}]
+					},
+					{
+						"extension": [{
+							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+							"valueBoolean": true
+						}]
+					},
+					{
+						"extension": [{
+							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+							"valueBoolean": true
+						}]
+					},
+					{
+						"extension": [{
+							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+							"valueBoolean": false
+						}]
+					},
+					{
+						"extension": [{
+							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+							"valueBoolean": false
+						}]
+					},
+					{
+						"extension": [{
+							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+							"valueBoolean": false
+						}]
+					}
+				]
+			}],
+			"constraint": [{
+				"key": "ele-1",
+				"severity": "error",
+				"human": "All FHIR elements must have a @value or children",
+				"expression": "hasValue() or (children().count() > id.count())",
+				"xpath": "@value|f:*|h:div",
+				"source": "http://hl7.org/fhir/StructureDefinition/Element"
+			}],
+			"isModifier": false,
+			"isSummary": true,
+			"mapping": [{
+					"identity": "workflow",
+					"map": "Event.performer.actor"
+				},
+				{
+					"identity": "w5",
+					"map": "FiveWs.actor"
+				},
+				{
+					"identity": "v2",
+					"map": "OBX.15 / (Practitioner)  OBX-16,  PRT-5:PRT-4='RO' /  (Device)  OBX-18 , PRT-10:PRT-4='EQUIP' / (Organization)  OBX-23,  PRT-8:PRT-4='PO'"
+				},
+				{
+					"identity": "rim",
+					"map": "participation[typeCode=PRF]"
+				}
+			],
+			"mustSupport": true
+		},
+		{
+			"id": "Observation.interpretation",
+			"path": "Observation.interpretation",
+			"short": "High, low, normal, etc.",
+			"definition": "A categorical assessment of an observation value.  For example, high, low, normal.",
+			"comment": "Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
+			"requirements": "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",
+			"alias": [
+				"Abnormal Flag"
+			],
+			"min": 0,
+			"max": "*",
+			"base": {
+				"path": "Observation.interpretation",
+				"min": 0,
+				"max": "*"
+			},
+			"type": [{
+				"code": "CodeableConcept"
+			}],
+			"constraint": [{
+				"key": "ele-1",
+				"severity": "error",
+				"human": "All FHIR elements must have a @value or children",
+				"expression": "hasValue() or (children().count() > id.count())",
+				"xpath": "@value|f:*|h:div",
+				"source": "http://hl7.org/fhir/StructureDefinition/Element"
+			}],
+			"isModifier": false,
+			"isSummary": false,
+			"binding": {
+				"extension": [{
+					"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+					"valueString": "ObservationInterpretation"
+				}],
+				"strength": "extensible",
+				"description": "Codes identifying interpretations of observations.",
+				"valueSet": "http://hl7.org/fhir/ValueSet/observation-interpretation"
+			},
+			"mapping": [{
+					"identity": "sct-concept",
+					"map": "< 260245000 |Findings values|"
+				},
+				{
+					"identity": "v2",
+					"map": "OBX-8"
+				},
+				{
+					"identity": "rim",
+					"map": "interpretationCode"
+				},
+				{
+					"identity": "sct-attr",
+					"map": "363713009 |Has interpretation|"
+				}
+			],
+			"mustSupport": true
+		},
+		{
+			"id": "Observation.bodySite",
+			"path": "Observation.bodySite",
+			"short": "Observed body part",
+			"definition": "Indicates the site on the subject's body where the observation was made (i.e. the target site).",
+			"comment": "Only used if not implicit in code found in Observation.code.  In many systems, this may be represented as a related observation instead of an inline component.   \n\nIf the use case requires BodySite to be handled as a separate resource (e.g. to identify and track separately) then use the standard extension[ bodySite](http://hl7.org/fhir/R4/extension-bodysite.html).",
+			"min": 0,
+			"max": "1",
+			"base": {
+				"path": "Observation.bodySite",
+				"min": 0,
+				"max": "1"
+			},
+			"type": [{
+				"code": "CodeableConcept"
+			}],
+			"constraint": [{
+				"key": "ele-1",
+				"severity": "error",
+				"human": "All FHIR elements must have a @value or children",
+				"expression": "hasValue() or (children().count() > id.count())",
+				"xpath": "@value|f:*|h:div",
+				"source": "http://hl7.org/fhir/StructureDefinition/Element"
+			}],
+			"isModifier": false,
+			"isSummary": false,
+			"binding": {
+				"extension": [{
+					"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+					"valueString": "BodySite"
+				}],
+				"strength": "preferred",
+				"description": "Codes describing anatomical locations. May include laterality.",
+				"valueSet": "http://hl7.org/fhir/ValueSet/body-site"
+			},
+			"mapping": [{
+					"identity": "sct-concept",
+					"map": "< 123037004 |Body structure|"
+				},
+				{
+					"identity": "v2",
+					"map": "OBX-20"
+				},
+				{
+					"identity": "rim",
+					"map": "targetSiteCode"
+				},
+				{
+					"identity": "sct-attr",
+					"map": "718497002 |Inherent location|"
+				}
+			],
+			"mustSupport": true
+		},
+		{
+			"id": "Observation.method",
+			"path": "Observation.method",
+			"short": "How it was done",
+			"definition": "Indicates the mechanism used to perform the observation.",
+			"comment": "Only used if not implicit in code for Observation.code.",
+			"requirements": "In some cases, method can impact results and is thus used for determining whether results can be compared or determining significance of results.",
+			"min": 0,
+			"max": "1",
+			"base": {
+				"path": "Observation.method",
+				"min": 0,
+				"max": "1"
+			},
+			"type": [{
+				"code": "CodeableConcept"
+			}],
+			"constraint": [{
+				"key": "ele-1",
+				"severity": "error",
+				"human": "All FHIR elements must have a @value or children",
+				"expression": "hasValue() or (children().count() > id.count())",
+				"xpath": "@value|f:*|h:div",
+				"source": "http://hl7.org/fhir/StructureDefinition/Element"
+			}],
+			"isModifier": false,
+			"isSummary": false,
+			"binding": {
+				"extension": [{
+					"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+					"valueString": "ObservationMethod"
+				}],
+				"strength": "preferred",
+				"description": "Methods for simple observations.",
+				"valueSet": "http://hl7.org/fhir/ValueSet/observation-methods"
+			},
+			"mapping": [{
+					"identity": "v2",
+					"map": "OBX-17"
+				},
+				{
+					"identity": "rim",
+					"map": "methodCode"
+				}
+			],
+			"mustSupport": true
+		}
+	]
+}
+}
