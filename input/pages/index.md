@@ -2,8 +2,7 @@
 
 {: #qi-core-implementation-guide}
 
-> This STU 5.0 update to the QI-Core profiles updates to FHIR R4 (technical correction 1 (v5.0.0)) and US-Core STU v5. See the version history for a complete
-list of changes to this version.
+> This STU 5.0 update to the QI-Core profiles updates to US-Core STU v5. See the version history for a complete listing of changes to this version.
 
 ### Summary
 {: #summary}
@@ -36,10 +35,10 @@ This guide is divided into pages which are listed at the top each page in the me
 {: #background}
 
 This Implementation Guide originated as a U.S. Realm Specification with support from the
-[Clinical Quality Framework (CQF) initiative](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
+Clinical Quality Framework (CQF) initiative [(that concluded in 2017)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
 which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S.
 Office of the National Coordinator (ONC) to harmonize standards for clinical decision support and electronic clinical
-quality measurement. The [Clinical Quality Framework](http://wiki.hl7.org/index.php?title=Clinical_Quality_Framework)
+quality measurement. The [Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework)
 effort transitioned to HL7's Clinical Quality Information (CQI) and Clinical Decision Support (CDS) Work Groups in 2016.
 The HL7 CQI Work Group maintains this Implementation Guide, co-sponsored by the Clinical Decision Support (CDS) HL7 Work
 Group to inform electronic clinical quality improvement (i.e., measurement and decision support). This Quality
@@ -82,7 +81,7 @@ not automatically result in shareable artifacts without additional coordinating 
 It is expected that QI-Core will evolve over time to include some of the extensional content when the community
 identifies a common need and the additional content has been validated.
 
-QI-Core profile authoring will provide a more facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion. 
+QI-Core profile authoring will provide a more facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
 
 
 ### Scope
