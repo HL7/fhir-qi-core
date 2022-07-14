@@ -165,6 +165,9 @@ QI-Core's extensions have also been reviewed by HL7 Work Groups and other initia
 extensions will not create future conflicts. Other initiatives that the QI-Core effort is aligning with include the
 [Clinical Information Modeling Initiative (CIMI)](https://www.hl7.org/Special/Committees/cimi/overview.cfm) and [Graphite Health](https://www.graphitehealth.io/).
 
+For the [Occupational Data Health (ODH)](http://hl7.org/fhir/us/odh/index.html) effort, QI Core would like to have used the endeavor but is unable because the current version of the IG has a dependency on US Core STU3 (v3.1.1) not STU5. The [following is an example](Observation-example-odh.html) how occupational data can be added to a stratified measure (e.g. breast cancer screening, colorectal cancer screening) by high risk occupations. It can provide a way to reference [ODH Usual Work observation](http://hl7.org/fhir/us/odh/StructureDefinition-odh-UsualWork.html) using [QICore Observation profile](StructureDefinition-qicore-observation.html) (i.e., a single observation). If one were representing an evaluation tool that includes multiple ODH items, the [QICore ObservationSurvey](StructureDefinition-qicore-observation-survey.html) profile would be appropriate.
+
+
 For the CIMI effort in particular, the QI-Core effort’s vision is to develop tooling to automatically generate FHIR profiles form a logical model (QUICK) and use that same tool chain to generate FHIR-version-specific QI-Core profiles rather than the bottom-up approach currently used to define QI-Core profiles.
 
 In addition, the QI-Core effort is actively working with the QDM to produce a mapping from QDM to QI-Core such that a
