@@ -36,6 +36,34 @@
     <packageId value="us.nlm.vsac"/>
     <version value="0.4.0"/>
   </dependsOn>
+  <global>
+    <type value="Patient"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"/>
+  </global>
+  <global>
+    <type value="Encounter"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"/>
+  </global>
+  <global>
+    <type value="Practitioner"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"/>
+  </global>
+  <global>
+    <type value="PractitionerRole"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"/>
+  </global>
+  <global>
+    <type value="Immunization"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization"/>
+  </global>
+  <global>
+    <type value="Observation"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"/>
+  </global>
+  <global>
+    <type value="Organization"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"/>
+  </global>
   <definition>
     <resource>
       <reference>
@@ -399,6 +427,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="Observation/example-odh"/>
+      </reference>
+      <name value="ODH Observation example"/>
+      <description value="Example of occupational data added to observation measure"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="Observation/negation-example"/>
       </reference>
       <name value="ObservationNotDone with valueset example"/>
@@ -648,6 +684,12 @@
     <resource>
       <reference>
         <reference value="ValueSet/qicore-encounter-condition-role"/>
+      </reference>
+      <exampleBoolean value="false"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ValueSet/qicore-encounter-discharge-disposition"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
@@ -1123,7 +1165,7 @@
   </page>
   <page>
     <nameUrl value="qdm-to-qicore.html"/>
-    <title value="Quality Data Model (QDM)v5.6 to QI-Core R4 Mapping"/>
+    <title value="Quality Data Model (QDM)v5.6 to QI-Core R5 Mapping"/>
     <generation value="markdown"/>
   </page>
   <page>

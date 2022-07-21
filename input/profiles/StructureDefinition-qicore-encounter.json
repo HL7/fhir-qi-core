@@ -353,10 +353,16 @@
 				"mustSupport": false
 			},
 			{
-				"id": "Encounter.hospitalization.dischargeDisposition",
-				"path": "Encounter.hospitalization.dischargeDisposition",
-				"mustSupport": true
-			},
+			 "id" : "Encounter.hospitalization.dischargeDisposition",
+			 "path" : "Encounter.hospitalization.dischargeDisposition",
+			 "short" : "Category or kind of location after discharge",
+			 "definition" : "Category or kind of location after discharge.",
+			 "mustSupport" : true,
+			 "binding" : {
+				 "strength" : "extensible",
+				 "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-encounter-discharge-disposition"
+			 }
+		 },
 			{
 				"id": "Encounter.location",
 				"path": "Encounter.location",
