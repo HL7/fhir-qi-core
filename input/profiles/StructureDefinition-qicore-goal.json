@@ -111,10 +111,10 @@
         "id" : "Goal.description",
         "path" : "Goal.description",
         "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "This value set includes all the \"Clinical finding\" SNOMED CT codes - concepts where concept is-a 404684003 (Clinical finding (finding)).",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/clinical-findings"
+        "binding": {
+          "strength": "extensible",
+          "description": "Value set to describe the Goal. Allowed to use .description.text with or without .description.coding.",
+          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-goal-description"
         }
       },
       {
