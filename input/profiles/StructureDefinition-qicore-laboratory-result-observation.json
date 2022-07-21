@@ -79,9 +79,7 @@
           {
             "code" : "Reference",
             "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
         ],
@@ -394,6 +392,71 @@
           }
         ],
         "mustSupport": true
+      },
+      {
+        "id" : "Observation.component.interpretation",
+        "path" : "Observation.component.interpretation",
+        "short" : "High, low, normal, etc.",
+        "definition" : "A categorical assessment of an observation value.  For example, high, low, normal.",
+        "comment" : "Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
+        "requirements" : "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",
+        "alias" : [
+          "Abnormal Flag"
+        ],
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "Observation.component.interpretation",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : false,
+        "mustSupport": true,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ObservationInterpretation"
+            }
+          ],
+          "strength" : "extensible",
+          "description" : "Codes identifying interpretations of observations.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-interpretation"
+        },
+        "mapping" : [
+          {
+            "identity" : "sct-concept",
+            "map" : "< 260245000 |Findings values|"
+          },
+          {
+            "identity" : "v2",
+            "map" : "OBX-8"
+          },
+          {
+            "identity" : "rim",
+            "map" : "interpretationCode"
+          },
+          {
+            "identity" : "sct-attr",
+            "map" : "363713009 |Has interpretation|"
+          }
+        ]
       },
       {
         "id" : "Observation.component.value[x]",
