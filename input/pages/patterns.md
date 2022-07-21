@@ -184,6 +184,37 @@ For all other observations, use the [QICore-Observation](StructureDefinition-qic
 
 For any observations _not_ done, including the observations identified in the profiles above, use the [Observation Not Done Profile](StructureDefinition-qicore-observationnotdone.html).
 
+#### Observation Vital Signs - Blood Pressure Example
+
+Example Source: EXM22
+
+```cql
+code "Blood pressure panel with all children optional": '85354-9' from "LOINC" display 'Blood pressure panel with all children optional'
+code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood pressure'
+code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
+
+define "Qualifying Diastolic Blood Pressure Reading":
+  [Observation: "Blood pressure panel with all children optional"] BloodPressure
+                                  where BloodPressure.status.value in {'final', 'amended'}
+                                  and Global."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
+    and not ((GetEncounter(BloodPressure.encounter)).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})
+                                  and exists (BloodPressure.component DiastolicBP
+                                  where FHIRHelpers.ToConcept(DiastolicBP.code) ~ "Diastolic blood pressure"
+                                  and DiastolicBP.value.unit = 'mm[Hg]')
+
+define "Qualifying Systolic Blood Pressure Reading":
+  [Observation: "Blood pressure panel with all children optional"] BloodPressure
+                                    where BloodPressure.status.value in {'final', 'amended'}
+                                    and Global."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
+    and not (GetEncounter(BloodPressure.encounter).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})
+                                    and exists (BloodPressure.component SystolicBP
+                                    where FHIRHelpers.ToConcept(SystolicBP.code) ~ "Systolic blood pressure"
+                                    and SystolicBP.value.unit = 'mm[Hg]')
+
+define function "GetEncounter"(ref Reference):
+  singleton from (AdultOutpatientEncounters."Qualifying Encounters" x where x.id = Global."GetId"(ref.reference))
+```
+
 ### Encounter Examples
 
 #### Inpatient Encounter Example
