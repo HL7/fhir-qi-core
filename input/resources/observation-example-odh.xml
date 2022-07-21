@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example-odh"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"/>
+  </meta>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="social-history"/>
+      <display value="Social History"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="21843-8"/>
+      <display value="History of Usual Occupation"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <valueCodeableConcept>
+    <coding>
+      <system value="https://phinvads.cdc.gov/vads/ViewValueSet.action?oid=2.16.840.1.114222.4.11.7186"/>
+      <code value="47-2131.00.022249"/>
+      <display value="Insulation Worker [Insulation Workers, Floor, Ceiling, and Wall]"/>
+    </coding>
+  </valueCodeableConcept>
+</Observation>

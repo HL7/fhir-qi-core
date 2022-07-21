@@ -2,8 +2,7 @@
 
 {: #qi-core-implementation-guide}
 
-> This STU 5.0 update to the QI-Core profiles updates to FHIR R4 (technical correction 1 (v5.0.0)) and US-Core STU v5. See the version history for a complete
-list of changes to this version.
+> This STU 5.0 update to the QI-Core profiles updates to US-Core STU v5. See the version history for a complete listing of changes to this version.
 
 ### Summary
 {: #summary}
@@ -36,10 +35,10 @@ This guide is divided into pages which are listed at the top each page in the me
 {: #background}
 
 This Implementation Guide originated as a U.S. Realm Specification with support from the
-[Clinical Quality Framework (CQF) initiative](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
+Clinical Quality Framework (CQF) initiative [(that concluded in 2017)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
 which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S.
 Office of the National Coordinator (ONC) to harmonize standards for clinical decision support and electronic clinical
-quality measurement. The [Clinical Quality Framework](http://wiki.hl7.org/index.php?title=Clinical_Quality_Framework)
+quality measurement. The [Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework)
 effort transitioned to HL7's Clinical Quality Information (CQI) and Clinical Decision Support (CDS) Work Groups in 2016.
 The HL7 CQI Work Group maintains this Implementation Guide, co-sponsored by the Clinical Decision Support (CDS) HL7 Work
 Group to inform electronic clinical quality improvement (i.e., measurement and decision support). This Quality
@@ -61,7 +60,7 @@ clinical best practices have been followed. It therefore makes intuitive sense t
 for both types of applications.
 
 
-This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the vMR and QDM as sources of requirements. The goal was to align on a unified logical model, Quality Information and Clinical Knowledge (QUICK), consisting of objects, attributes, and relationships such that the QUICK model could reference specific Quality Improvement Core (QI-Core) profiles aligned with specific versions of FHIR. The first QUICK model representations included a logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK logical view was aligned, structurally and semantically, as closely as possible to FHIR. While this alignment creates a common model for quality and interoperability that more easily leverages future FHIR-related efforts including Clinical Document Architecture (CDA) on FHIR. However, we. recognize that defining a different conceptual/logical model for quality improvement capability splits focus of the community. The appropriate place for the mindshare and consensus development of the exchange semantics for quality improvement use cases is the QI-Core profiles directly. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles, and a Must Support view indicating all Must Support elements for each respective QI-Core profile.
+This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the vMR and QDM as sources of requirements. The goal was to align on a unified logical model, Quality Information and Clinical Knowledge (QUICK), consisting of objects, attributes, and relationships such that the QUICK model could reference specific Quality Improvement Core (QI-Core) profiles aligned with specific versions of FHIR. The first QUICK model representations included a logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK logical view was aligned, structurally and semantically, as closely as possible to FHIR. While this alignment creates a common model for quality and interoperability that more easily leverages future FHIR-related efforts including Clinical Document Architecture (CDA) on FHIR. However, we recognize that defining a different conceptual/logical model for quality improvement capability splits focus of the community. The appropriate place for the mindshare and consensus development of the exchange semantics for quality improvement use cases is the QI-Core profiles directly. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles, and a Must Support view indicating all Must Support elements for each respective QI-Core profile.
 
 This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The long-term goal remains a single logical data model (QUICK), as well as a single logical processing language (CQL), for CDS and clinical
 quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce
@@ -82,7 +81,7 @@ not automatically result in shareable artifacts without additional coordinating 
 It is expected that QI-Core will evolve over time to include some of the extensional content when the community
 identifies a common need and the additional content has been validated.
 
-QI-Core profile authoring will provide a more facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion. 
+QI-Core profile authoring will provide a more facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
 
 
 ### Scope
@@ -165,6 +164,9 @@ analysis and effort would be required.
 QI-Core's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QI-Core
 extensions will not create future conflicts. Other initiatives that the QI-Core effort is aligning with include the
 [Clinical Information Modeling Initiative (CIMI)](https://www.hl7.org/Special/Committees/cimi/overview.cfm) and [Graphite Health](https://www.graphitehealth.io/).
+
+For the [Occupational Data Health (ODH)](http://hl7.org/fhir/us/odh/index.html) effort, QI Core would like to have used the endeavor but is unable because the current version of the IG has a dependency on US Core STU3 (v3.1.1) not STU5. The [following is an example](Observation-example-odh.html) how occupational data can be added to a stratified measure (e.g. breast cancer screening, colorectal cancer screening) by high risk occupations. It can provide a way to reference [ODH Usual Work observation](http://hl7.org/fhir/us/odh/StructureDefinition-odh-UsualWork.html) using [QICore Observation profile](StructureDefinition-qicore-observation.html) (i.e., a single observation). If one were representing an evaluation tool that includes multiple ODH items, the [QICore ObservationSurvey](StructureDefinition-qicore-observation-survey.html) profile would be appropriate.
+
 
 For the CIMI effort in particular, the QI-Core effort’s vision is to develop tooling to automatically generate FHIR profiles form a logical model (QUICK) and use that same tool chain to generate FHIR-version-specific QI-Core profiles rather than the bottom-up approach currently used to define QI-Core profiles.
 
