@@ -1,147 +1,147 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-diagnosticreport-note",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
-  "version" : "5.0.0",
-  "name" : "QICoreDiagnosticReportNote",
-  "title" : "QICore DiagnosticReport Profile for Report and Note Exchange",
-  "status" : "draft",
-  "experimental" : false,
-  "date" : "2018-08-22",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-diagnosticreport-note",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
+  "version": "5.0.0",
+  "name": "QICoreDiagnosticReportNote",
+  "title": "QICore DiagnosticReport Profile for Report and Note Exchange",
+  "status": "draft",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-      "name" : "Clinical Quality Information WG",
-      "telecom" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "system" : "url",
-          "value" : "http://www.hl7.org/Special/committees/cqi"
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
       ]
     }
   ],
-  "description" : "Profile of DiagnosticReport for Note exchange for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
+  "description": "Profile of DiagnosticReport for Note exchange for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "coding" : [
+      "coding": [
         {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
       ]
     }
   ],
-  "fhirVersion" : "4.0.1",
-  "mapping" : [
+  "fhirVersion": "4.0.1",
+  "mapping": [
     {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
+      "identity": "workflow",
+      "uri": "http://hl7.org/fhir/workflow",
+      "name": "Workflow Pattern"
     },
     {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
+      "identity": "v2",
+      "uri": "http://hl7.org/v2",
+      "name": "HL7 v2 Mapping"
     },
     {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
+      "identity": "rim",
+      "uri": "http://hl7.org/v3",
+      "name": "RIM Mapping"
     },
     {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
+      "identity": "w5",
+      "uri": "http://hl7.org/fhir/fivews",
+      "name": "FiveWs Pattern Mapping"
     }
   ],
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "DiagnosticReport",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-note",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
       {
-        "id" : "DiagnosticReport",
-        "path" : "DiagnosticReport",
-        "mustSupport" : false
+        "id": "DiagnosticReport",
+        "path": "DiagnosticReport",
+        "mustSupport": false
       },
       {
-        "id" : "DiagnosticReport.category",
-        "path" : "DiagnosticReport.category",
-        "slicing" : {
-          "discriminator" : [
+        "id": "DiagnosticReport.category",
+        "path": "DiagnosticReport.category",
+        "slicing": {
+          "discriminator": [
             {
-              "type" : "pattern",
-              "path" : "$this"
+              "type": "pattern",
+              "path": "$this"
             }
           ],
-          "rules" : "open"
+          "rules": "open"
         },
-        "min" : 1,
-        "mustSupport" : true
+        "min": 1,
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.category",
-        "path" : "DiagnosticReport.category",
-        "sliceName" : "category",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "example",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+        "id": "DiagnosticReport.category",
+        "path": "DiagnosticReport.category",
+        "sliceName": "category",
+        "mustSupport": true,
+        "binding": {
+          "strength": "example",
+          "valueSet": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
         }
       },
       {
-        "id" : "DiagnosticReport.category_uscore",
-        "path" : "DiagnosticReport.category",
-        "sliceName" : "category_uscore",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "required",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+        "id": "DiagnosticReport.category_uscore",
+        "path": "DiagnosticReport.category",
+        "sliceName": "category_uscore",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
         }
       },
       {
-        "id" : "DiagnosticReport.extension:locationPerformed",
-        "path" : "DiagnosticReport.extension",
-        "sliceName" : "locationPerformed",
-        "short" : "Location Performed",
-        "definition" : "Facility location where this report was prepared.",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
+        "id": "DiagnosticReport.extension:locationPerformed",
+        "path": "DiagnosticReport.extension",
+        "sliceName": "locationPerformed",
+        "short": "Location Performed",
+        "definition": "Facility location where this report was prepared.",
+        "min": 0,
+        "max": "1",
+        "type": [
           {
-            "code" : "Extension",
-            "profile" : [
+            "code": "Extension",
+            "profile": [
               "http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed"
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "DiagnosticReport.extension:locationPerformed.value[x]:valueReference",
-        "path" : "DiagnosticReport.extension.value[x]",
-        "sliceName" : "valueReference",
-        "min" : 1,
-        "max" : "1",
-        "type" : [
+        "id": "DiagnosticReport.extension:locationPerformed.value[x]:valueReference",
+        "path": "DiagnosticReport.extension.value[x]",
+        "sliceName": "valueReference",
+        "min": 1,
+        "max": "1",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
             ]
           }
         ],
-        "mustSupport" : true
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.basedOn",
-        "path" : "DiagnosticReport.basedOn",
-        "type" : [
+        "id": "DiagnosticReport.basedOn",
+        "path": "DiagnosticReport.basedOn",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/StructureDefinition/CarePlan",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrec",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",
@@ -150,238 +150,233 @@
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "DiagnosticReport.code",
-        "path" : "DiagnosticReport.code",
-        "short" : "QI Core Report Code",
-        "definition" : "The test, panel, report, or note that was ordered.",
-        "comment" : "The typical patterns for codes are:  1)  a LOINC code either as a translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists.",
-        "alias" : [
+        "id": "DiagnosticReport.code",
+        "path": "DiagnosticReport.code",
+        "short": "QI Core Report Code",
+        "definition": "The test, panel, report, or note that was ordered.",
+        "comment": "The typical patterns for codes are:  1)  a LOINC code either as a translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists.",
+        "alias": [
           "Type"
         ],
-        "min" : 1,
-        "max" : "1",
-        "base" : {
-          "path" : "DiagnosticReport.code",
-          "min" : 1,
-          "max" : "1"
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "DiagnosticReport.code",
+          "min": 1,
+          "max": "1"
         },
-        "type" : [
+        "type": [
           {
-            "code" : "CodeableConcept"
+            "code": "CodeableConcept"
           }
         ],
-        "constraint" : [
+        "constraint": [
           {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() > id.count())",
+            "xpath": "@value|f:*|h:div",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
           }
         ],
-        "mustSupport" : true,
-        "isModifier" : false,
-        "isSummary" : true,
-        "binding" : {
-          "strength" : "extensible",
-          "description" : "LOINC codes",
-          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes"
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "strength": "extensible",
+          "description": "LOINC codes",
+          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes"
         },
-        "mapping" : [
+        "mapping": [
           {
-            "identity" : "workflow",
-            "map" : "Event.code"
+            "identity": "workflow",
+            "map": "Event.code"
           },
           {
-            "identity" : "w5",
-            "map" : "FiveWs.what[x]"
+            "identity": "w5",
+            "map": "FiveWs.what[x]"
           },
           {
-            "identity" : "v2",
-            "map" : "OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"
+            "identity": "v2",
+            "map": "OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"
           },
           {
-            "identity" : "rim",
-            "map" : "code"
+            "identity": "rim",
+            "map": "code"
           }
         ]
       },
       {
-        "id" : "DiagnosticReport.subject",
-        "path" : "DiagnosticReport.subject",
-        "type" : [
+        "id": "DiagnosticReport.subject",
+        "path": "DiagnosticReport.subject",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
         ],
-        "mustSupport" : true
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.encounter",
-        "path" : "DiagnosticReport.encounter",
-        "type" : [
+        "id": "DiagnosticReport.encounter",
+        "path": "DiagnosticReport.encounter",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
             ]
           }
         ],
-        "mustSupport" : true
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.effective[x]",
-        "path" : "DiagnosticReport.effective[x]",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "DiagnosticReport.effective[x]",
-          "min" : 0,
-          "max" : "1"
+        "id": "DiagnosticReport.effective[x]",
+        "path": "DiagnosticReport.effective[x]",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "DiagnosticReport.effective[x]",
+          "min": 0,
+          "max": "1"
         },
-        "type" : [
+        "type": [
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean": true
               }
             ],
-            "code" : "dateTime"
+            "code": "dateTime"
           },
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean": true
               }
             ],
-            "code" : "Period"
+            "code": "Period"
           }
         ],
-        "condition" : [
+        "condition": [
           "us-core-10"
         ],
-        "constraint" : [
+        "constraint": [
           {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() > id.count())",
+            "xpath": "@value|f:*|h:div",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
           }
         ],
-        "mustSupport" : true,
-        "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
+        "mustSupport": true,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
           {
-            "identity" : "workflow",
-            "map" : "Event.occurrence[x]"
+            "identity": "workflow",
+            "map": "Event.occurrence[x]"
           },
           {
-            "identity" : "w5",
-            "map" : "FiveWs.done[x]"
+            "identity": "w5",
+            "map": "FiveWs.done[x]"
           },
           {
-            "identity" : "v2",
-            "map" : "OBR-7"
+            "identity": "v2",
+            "map": "OBR-7"
           },
           {
-            "identity" : "rim",
-            "map" : "effectiveTime"
+            "identity": "rim",
+            "map": "effectiveTime"
           }
         ]
       },
       {
-        "id" : "DiagnosticReport.issued",
-        "path" : "DiagnosticReport.issued",
-        "mustSupport" : true
+        "id": "DiagnosticReport.issued",
+        "path": "DiagnosticReport.issued",
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.performer",
-        "path" : "DiagnosticReport.performer",
-        "type" : [
+        "id": "DiagnosticReport.performer",
+        "path": "DiagnosticReport.performer",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
             ]
           }
         ],
-        "mustSupport" : true
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.specimen",
-        "path" : "DiagnosticReport.specimen",
-        "type" : [
+        "id": "DiagnosticReport.specimen",
+        "path": "DiagnosticReport.specimen",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen"
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "DiagnosticReport.result",
-        "path" : "DiagnosticReport.result",
-        "type" : [
+        "id": "DiagnosticReport.result",
+        "path": "DiagnosticReport.result",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"
             ]
           }
         ],
-        "mustSupport" : true
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.imagingStudy",
-        "path" : "DiagnosticReport.imagingStudy",
-        "type" : [
+        "id": "DiagnosticReport.imagingStudy",
+        "path": "DiagnosticReport.imagingStudy",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy"
             ]
           }
         ],
-        "mustSupport" : true
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.media",
-        "path" : "DiagnosticReport.media",
-        "mustSupport" : true
+        "id": "DiagnosticReport.media",
+        "path": "DiagnosticReport.media",
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.media.link",
-        "path" : "DiagnosticReport.media.link",
-        "mustSupport" : true
+        "id": "DiagnosticReport.conclusion",
+        "path": "DiagnosticReport.conclusion",
+        "mustSupport": true
       },
       {
-        "id" : "DiagnosticReport.conclusion",
-        "path" : "DiagnosticReport.conclusion",
-        "mustSupport" : true
-      },
-      {
-        "id" : "DiagnosticReport.conclusionCode",
-        "path" : "DiagnosticReport.conclusionCode",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "This value set includes all the \"Clinical finding\" SNOMED CT codes - concepts where concept is-a 404684003 (Clinical finding (finding)).",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/clinical-findings"
+        "id": "DiagnosticReport.conclusionCode",
+        "path": "DiagnosticReport.conclusionCode",
+        "mustSupport": true,
+        "binding": {
+          "strength": "preferred",
+          "description": "This value set includes all the \"Clinical finding\" SNOMED CT codes - concepts where concept is-a 404684003 (Clinical finding (finding)).",
+          "valueSet": "http://hl7.org/fhir/ValueSet/clinical-findings"
         }
       }
     ]

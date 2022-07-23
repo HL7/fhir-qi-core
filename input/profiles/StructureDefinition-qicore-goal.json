@@ -1,0 +1,246 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-goal",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-goal",
+  "version" : "5.0.0",
+  "name" : "QICoreGoal",
+  "title": "QICore Goal",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of Goal for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Goal",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-goal",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "Goal",
+        "path" : "Goal",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Goal.id",
+        "path" : "Goal.id",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Goal.extension:reasonRejected",
+        "path" : "Goal.extension",
+        "sliceName" : "reasonRejected",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/goal-reasonRejected"
+            ]
+          }
+        ],
+        "mustSupport" : false,
+        "binding" : {
+          "strength" : "example",
+          "description" : "The value set to instantiate this attribute should be drawn from a terminologically robust code system that consists of or contains concepts to support the goal process, in particular the process and reasons for rejecting a goal. This value set is provided as a suggestive example.",
+          "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-goal-reason-rejected"
+        }
+      },
+      {
+        "id" : "Goal.lifecycleStatus",
+        "path" : "Goal.lifecycleStatus",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Goal.achievementStatus",
+        "path" : "Goal.achievementStatus",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Goal.category",
+        "path" : "Goal.category",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "Codes for grouping and sorting goals.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/goal-category"
+        }
+      },
+      {
+        "id" : "Goal.description",
+        "path" : "Goal.description",
+        "mustSupport" : true,
+        "binding": {
+          "strength": "extensible",
+          "description": "Value set to describe the Goal. Allowed to use .description.text with or without .description.coding.",
+          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-goal-description"
+        }
+      },
+      {
+        "id" : "Goal.subject",
+        "path" : "Goal.subject",
+        "comment" : "Should include QICore-Organization, but the base profile only allows USCore-Patient derivatives.",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Goal.start[x]",
+        "path" : "Goal.start[x]",
+        "type" : [
+          {
+            "code" : "date"
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "Goal.target",
+        "path" : "Goal.target",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Goal.target.measure",
+        "path" : "Goal.target.measure",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "LOINC codes",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-codes"
+        }
+      },
+      {
+        "id" : "Goal.target.detail[x]",
+        "path" : "Goal.target.detail[x]",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Goal.target.due[x]",
+        "path" : "Goal.target.due[x]",
+        "min": 0,
+        "max": 1,
+        "type" : [
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "date",
+            "mustSupport" : true
+
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : false
+              }
+            ],
+            "code" : "Duration"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Goal.statusDate",
+        "path" : "Goal.statusDate",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Goal.expressedBy",
+        "path" : "Goal.expressedBy",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "Goal.addresses",
+        "path" : "Goal.addresses",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement",
+              "http://hl7.org/fhir/StructureDefinition/NutritionOrder",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest",
+              "http://hl7.org/fhir/StructureDefinition/RiskAssessment"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      }
+    ]
+  }
+}
