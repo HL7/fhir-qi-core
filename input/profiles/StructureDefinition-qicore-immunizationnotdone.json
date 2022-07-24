@@ -104,35 +104,6 @@
                 }
             },
             {
-                "id": "Immunization.vaccineCode",
-                "path": "Immunization.vaccineCode",
-                "condition": [
-                    "ind-1"
-                ],
-                "mustSupport": true,
-                "binding": {
-                    "strength": "extensible",
-                    "description": "This identifies the CVX code system",
-                    "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-vaccines-cvx"
-                }
-            },
-            {
-                "id": "mmunization.occurrence[x]",
-                "path": "mmunization.occurrence[x]",
-                "type": [
-                    {
-                        "extension": [
-                            {
-                                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                                "valueBoolean": true
-                            }
-                        ],
-                        "code": "DateTime",
-                        "mustSupport": true
-                    }
-                ]
-            },
-            {
                 "id": "Immunization.vaccineCode.extension:notDoneValueSet",
                 "path": "Immunization.vaccineCode.extension",
                 "sliceName": "notDoneValueSet",

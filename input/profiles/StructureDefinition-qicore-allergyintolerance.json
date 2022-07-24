@@ -1,0 +1,259 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-allergyintolerance",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance",
+  "version" : "5.0.0",
+  "name" : "QICoreAllergyIntolerance",
+  "title" : "QICore Allergy Intolerance",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of AllergyIntolerance for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "AllergyIntolerance",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "AllergyIntolerance",
+        "path" : "AllergyIntolerance",
+        "definition" : "The QI Core AllergyIntolerance Profile is based upon the US Core AllergyIntolerance Profile which is based upon the core FHIR AllergyIntolerance Resource and created to meet the 2015 Edition Common Clinical Data Set 'Medical allergies' requirements.",
+        "constraint" : [
+          {
+            "key" : "1",
+            "severity" : "error",
+            "human" : "extension: reasonRefuted is only permitted if status is refuted",
+            "expression" : "verificationStatus.coding.code = 'refuted' or extension.where(url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted').empty()",
+            "xpath" : "not(f:verificationStatus/coding/code/@value != 'refuted' and f:extension/@url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted')"
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "AllergyIntolerance.extension:resolutionAge",
+        "path" : "AllergyIntolerance.extension",
+        "sliceName" : "resolutionAge",
+        "definition" : "The estimated patient age at which the allergy or intolerance resolved. Should be specified only if the status is resolved.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "AllergyIntolerance.extension:reasonRefuted",
+        "path" : "AllergyIntolerance.extension",
+        "sliceName" : "reasonRefuted",
+        "definition" : "A code capturing the explanation of why the allergy or intolerance has been refuted. Should be specified only if the status is refuted.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted"
+            ]
+          }
+        ],
+        "condition" : [
+          "1"
+        ],
+        "mustSupport" : false,
+        "binding" : {
+          "strength" : "example",
+          "description" : "The value set to instantiate this attribute should be drawn from a terminologically robust code system for reasons of refuting an allergy or intolerance. This value set is provided as a suggestive example.",
+          "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-allergyintolerance-reason-refuted"
+        }
+      },
+      {
+        "id" : "AllergyIntolerance.type",
+        "path" : "AllergyIntolerance.type",
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.category",
+        "path" : "AllergyIntolerance.category",
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.criticality",
+        "path" : "AllergyIntolerance.criticality",
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.patient",
+        "path" : "AllergyIntolerance.patient",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.encounter",
+        "path" : "AllergyIntolerance.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.onset[x]",
+        "path" : "AllergyIntolerance.onset[x]",
+        "type" : [
+          {
+            "code" : "dateTime"
+          },
+          {
+            "code" : "Age"
+          },
+          {
+            "code" : "Period"
+          },
+          {
+            "code" : "Range"
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "AllergyIntolerance.recordedDate",
+        "path" : "AllergyIntolerance.recordedDate",
+        "type" : [
+          {
+            "code" : "dateTime"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.recorder",
+        "path" : "AllergyIntolerance.recorder",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "AllergyIntolerance.asserter",
+        "path" : "AllergyIntolerance.asserter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "AllergyIntolerance.reaction",
+        "path" : "AllergyIntolerance.reaction",
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.reaction.extension:reaction-duration",
+        "path" : "AllergyIntolerance.reaction.extension",
+        "sliceName" : "reaction-duration",
+        "definition" : "The amount of time that the Adverse Reaction persisted.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.reaction.manifestation",
+        "path" : "AllergyIntolerance.reaction.manifestation",
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.reaction.onset",
+        "path" : "AllergyIntolerance.reaction.onset",
+        "mustSupport" : true
+      },
+      {
+        "id" : "AllergyIntolerance.reaction.severity",
+        "path" : "AllergyIntolerance.reaction.severity",
+        "mustSupport" : true
+      }
+    ]
+  }
+}

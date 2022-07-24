@@ -65,8 +65,7 @@ QI-Core 5.0.0 includes 22 profiles based on the FHIR Observation resource, some 
 * r)	[US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html) – generally used with QDM “Physical Exam, Performed”
 * s)	[US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html) – generally used with QDM “Physical Exam, Performed”
 * t)	[US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html) – generally used with QDM “Physical Exam, Performed”
-* u)	[US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html) – generally used with QDM “Assessment, Performed”
-* v)	[QICore Observation Profile](StructureDefinition-qicore-observation.html) – generally used with QDM “Assessment, Performed” and only if the specific observation is not addressed by one of the more specific observation profiles. QDM “Care Experience” is an example of such an observation.
+* u)	[QICore Observation Profile](StructureDefinition-qicore-observation.html) – generally used with QDM “Assessment, Performed” and only if the specific observation is not addressed by one of the more specific observation profiles. QDM “Care Experience” is an example of such an observation.
 
 3.ServiceRequest – [QI-Core 5.0.0 ServiceRequest](StructureDefinition-qicore-servicerequest.html) adds constraints to the US Core STU5 ServiceRequest rather than the base FHIR 4.0.1 ServiceRequest.
 
@@ -684,7 +683,7 @@ Individual studies may use the [US Core DiagnosticReport Profile for Report and 
 
 ##### Negation Rationale for Diagnostic Study, Performed
 
-Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html)and reference the code element specified in the respective observation profile:
+Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html) and reference the code element specified in the respective observation profile:
 * [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed value: "cancelled"
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - dateTime when this was made available
@@ -861,7 +860,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | relatedTo                          | [Encounter.basedOn](StructureDefinition-qicore-encounter-definitions.html#Encounter.basedOn)           | New in QDM 5.6                                                                                      |
 | relevantPeriod                     | [Encounter.period](StructureDefinition-qicore-encounter-definitions.html#Encounter.period)           | start and end time of encounter                                                                                      |
 | diagnoses                          |                                               |                                                                                             |
-| diagnosis (code)                   | [Encounter.diagnosis.condition](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.condition)          | can be used for coded diagnoses  [Note for balloters](https://jira.hl7.org/browse/FHIR-37535)                                                                                      |
+| diagnosis (code)                   | [Encounter.diagnosis.condition](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.condition) with reference to:<br> •[QICore Encounter Condition Diagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html) AND<br>•[QICore Condition Problems and Health Concerns](StructureDefinition-qicore-condition-problems-health-concerns.html)          | can be used for coded diagnoses  [Note for balloters](https://jira.hl7.org/browse/FHIR-37535)                                                                                      |
 | presentOnAdmissionIndicator (code) | [Encounter.diagnosis.extension:diagnosisPresentOnAdmission](StructureDefinition-qicore-encounter-diagnosisPresentOnAdmission.html)              | Indicator of whether the Encounter diagnosis was present at the time of admission. Note: this element uses the value set (required) diagnosis-on-admission (the same value set as used with the claim resource)  |
 | rank (Integer)                     | [Encounter.diagnosis.rank](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.rank)                    | for each diagnosis role                                                                                              |
 | procedures                         | [qicore-encounter-procedure](StructureDefinition-qicore-encounter-procedure.html)                                              | QIcore-encounter-procedure                                                                  |
@@ -1309,7 +1308,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 #### Laboratory Test, Performed
 
 
-| **QDM Context**    | **US Core R5**           |**Comments**                           |
+| **QDM Context**    | **QI Core R5**           |**Comments**                           |
 | ------------------ | -----------------------  | ------------------------------------- |
 | **Laboratory Test, Performed** | [Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)               |                            |
 |         | [Observation.status](StructureDefinition-qicore-observation-lab-definitions.html#Observation.status)     | Constrain status to -  final, amended, corrected                          |
@@ -1319,16 +1318,16 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | method              | [Observation.method](StructureDefinition-qicore-observation-lab-definitions.html#Observation.method)     |                            |
 |         | [Observation.bodySite](StructureDefinition-qicore-observation-lab-definitions.html#Observation.bodySite)             |                            |
 | negationRationale  | See Below |
-| reason             | [Observation.basedOn](StructureDefinition-qicore-observation-lab-definitions.html#Observation.basedOn)   | the observation fulfills a plan, proposal or order - trace for authorization. Possibly not a fit for the intent in QDM (e.g., observation "reason" = a diagnosis)  Is an extension needed?         |
+| reason             | [Observation.basedOn](StructureDefinition-qicore-observation-lab-definitions.html#Observation.basedOn)   | Allows reference to [QICore CarePlan](StructureDefinition-qicore-careplan.html), [QICore DeviceRequest](StructureDefinition-qicore-devicerequest.html), [QICore ImmunizationRecommendation](StructureDefinition-qicore-immunizationrec.html), [QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html), [QICore NutritionOrder](StructureDefinition-qicore-nutritionorder.html), [QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)         |
 | result                | [Observation.value\[x\]](StructureDefinition-qicore-observation-lab-definitions.html#Observation.value[x])           |                            |
 | interpretation        | [Observation.interpretation](StructureDefinition-qicore-observation-lab-definitions.html#Observation.interpretation)       |  New in QDM 5.6                |
 |            | [Observation.specimen](StructureDefinition-qicore-observation-lab-definitions.html#Observation.specimen)             |                         |
-| relatedTo             | [Observation.basedOn](StructureDefinition-qicore-observation-lab-definitions.html#Observation.basedOn)   | the observation fulfills a plan, proposal or order - trace for authorization. Possibly not a fit for the intent in QDM (e.g., observation "reason" = a diagnosis)  Is an extension needed?         |
+| relatedTo             | [Observation.partOf](StructureDefinition-qicore-observation-lab-definitions.html#Observation.partOf)   | Allows reference to [QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html), [QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html), [QICore MedicationStatement](StructureDefinition-qicore-medicationstatement.html), [QICore Procedure](StructureDefinition-qicore-procedure.html), [QICore Immunization](StructureDefinition-qicore-immunization.html), [QICore ImagingStudy](StructureDefinition-qicore-imagingstudy.html)         |
 | resultDatetime       | [Observation.issued](StructureDefinition-qicore-observation-lab-definitions.html#Observation.issued)   |                            |
 | relevantDatetime      | [Observation.effective\[x\]](StructureDefinition-qicore-observation-lab-definitions.html#Observation.effective[x])   |                            |
 | relevantPeriod     | [Observation.effective\[x\]](StructureDefinition-qicore-observation-lab-definitions.html#Observation.effective[x])   |                            |
 | status               | [Observation.status](StructureDefinition-qicore-observation-lab-definitions.html#Observation.status)     | Constrain status to -  final, amended, corrected               |
-| authorDatetime     | [Observation.issued](StructureDefinition-qicore-observation-lab-definitions.html#Observation.issued)     | Issued - the date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified. Consider if QI-Core should include an extension to manage timing of the dataAbsentReason. |
+| authorDatetime     | [Observation.issued](StructureDefinition-qicore-observation-lab-definitions.html#Observation.issued)     | Issued - the date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified. The *.issued* element also addresses the time for capture of dataAbsentReason. |
 | referenceRangeHigh             | [Observation.referenceRange.high](StructureDefinition-qicore-observation-lab-definitions.html#Observation.referenceRange.high)   |                            |
 | referenceRangeLow              | [Observation.referenceRange.low](StructureDefinition-qicore-observation-lab-definitions.html#Observation.referenceRange.low)     |                            |
 | component            | [Observation.component](StructureDefinition-qicore-observation-lab-definitions.html#Observation.component)        |                            |
@@ -1591,7 +1590,7 @@ measure or clinical decision support (CDS) expression.
 | relevantPeriod                         | [MedicationRequest.dosageInstruction.timing](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing) with [Timing.repeat.bounds\[x\]](http://hl7.org/fhir/R4/datatypes-definitions.html#Timing.repeat.bounds_x_) Period     | The anticipated time from starting to stopping an ordered or dispensed medication can also be computed in an expression and derived from the duration attribute             |
 | authorDatetime                         | [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn)                                                         |                                                                                                                                                                                          |
 | negationRationale                      | See Below |
-| prescriber                             | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note - MedicationRequest.performer indicates the performer expected to administer the medication                                                                                         |
+| prescriber                             | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           | Note – The prescriber is the MedicationRequest.requester and not the MedicationRequest.performer which indicates the performer expected to administer the medication                                                                                         |
 {: .grid}
 
 ##### Negation Rationale for Medication, Order
