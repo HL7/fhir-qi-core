@@ -1,5 +1,7 @@
 {:toc}
 
+<div class="new-content" markdown="1">
+
 This page is part of the Quality Improvement Core Framework (v5.0.0: [STU](https://confluence.hl7.org/display/HL7/HL7+Balloting) 5) based on [FHIR R4](http://hl7.org/fhir/R4/). This is the current published version. For a full list of available versions, see the [Directory of published versions](http://hl7.org/fhir/us/qicore/history.html).  
 
 ### Introduction
@@ -296,7 +298,7 @@ QDM “Patient Care Experience” maps to [QICore Observation Survey Profile](St
 
 QDM “Provider Care Experience” maps to [QICore Observation Survey Profile](StructureDefinition-qicore-observation-survey.html) or [QICore Observation](StructureDefinition-qicore-observation.html), as applicable, for the information desired:
 
-| **QDM Context**              | **FHIR R4**                                                                                                                                                          | **Comments**                                                |
+| **QDM Context**              | **QI-Core R5**                                                                                                                                                          | **Comments**                                                |
 | ---------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------- |
 | **Provider Care Experience** | [Observation](StructureDefinition-qicore-observation-definitions.html#Observation)                                      |                                                             |
 |                              | [Observation.status](StructureDefinition-qicore-observation-definitions.html#Observation.status)                        | Constrain status to -  final, amended, corrected            |
@@ -308,6 +310,7 @@ QDM “Provider Care Experience” maps to [QICore Observation Survey Profile](S
 | authorDatetime               | [Observation.issued](StructureDefinition-qicore-observation-definitions.html#Observation.issued)                        |                                                             |
 | recorder                     | [Observation.performer](StructureDefinition-qicore-observation-definitions.html#Observation.performer)                  | who was responsible for asserting the observation as "true" |
 {: .grid}
+</div>
 
 ### Care Goal
 
@@ -325,7 +328,7 @@ processes can be organized, planned, communicated, and checked for
 completion, is represented in QDM as a Record Artifact in which Care
 Goal is found.
 
-| **QDM Context**    | **QI-Core R4**                                                                                                                                 | **Comments** |
+| **QDM Context**    | **QI-Core R5**                                                                                                                                 | **Comments** |
 | ------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------- | ------------ |
 | **Care Goal**      | [Goal](StructureDefinition-qicore-goal.html)                                                                          |              |
 |                    | [Goal.achievementStatus](StructureDefinition-qicore-goal-definitions.html#Goal.achievementStatus) |              |
@@ -436,6 +439,7 @@ Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone
 * [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) - dateTime when this was made available
 * [Communication.reasonCode.extension:notDoneValueSet](tructureDefinition-qicore-communicationnotdone-definitions.html#Communication.reasonCode.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Communication that was not performed
 
+<div class="new-content" markdown="1">
 ### Diagnosis
 
 QDM defines Condition/Diagnosis/Problem as a practitioner’s
@@ -447,7 +451,7 @@ history. Diagnoses are usually considered unfavorable, but they may also
 represent neutral or favorable conditions that affect a patient’s plan
 of care (e.g., pregnancy).
 
-Based on changes in US Core 5.0.0, QI-Core now has two methods for expressing conditions, [QICore Condition Problems and Health Concerns Profile](StructureDefinition-qicore-condition-problems-health-concerns.html), and [QICore Condition Encounter Diagnosis Profile](StructureDefinition-qicore-condition-encounter-diagnosis.html). Please reference the respective profile pages for explanation of the rationale for using each of these profiles. Briefly, the Condition Problems and Health Concerns Profile meets the US Core Data for Interoperability (USCDI) version 2 ‘Problems’ and ‘Health Concerns’ and SDOH Problems/Health Concerns requirements. The Condition Encounter Diagnosis Profile further meets the USCDI v2 requirement to define Encounter Diagnosis.
+Based on changes in US Core STU5, QI-Core now has two methods for expressing conditions, [QICore Condition Problems and Health Concerns Profile](StructureDefinition-qicore-condition-problems-health-concerns.html), and [QICore Condition Encounter Diagnosis Profile](StructureDefinition-qicore-condition-encounter-diagnosis.html). Please reference the respective profile pages for explanation of the rationale for using each of these profiles. Briefly, the Condition Problems and Health Concerns Profile meets the US Core Data for Interoperability (USCDI) version 2 ‘Problems’ and ‘Health Concerns’ and SDOH Problems/Health Concerns requirements. The Condition Encounter Diagnosis Profile further meets the USCDI v2 requirement to define Encounter Diagnosis.
 
 | **QDM Context**                     | **QI-Core R5**                                                                                                                                                  | **Comments**                                                                 |
 | ----------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
@@ -466,6 +470,7 @@ Based on changes in US Core 5.0.0, QI-Core now has two methods for expressing co
 | recorder                            | [ConditionProblemsHealthConcerns.recorder](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.recorder)                     | Individual who recorded the record and takes responsibility for its content  |
 |                                     | [ConditionProblemsHealthConcerns.asserter](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.asserter)                     | Individual who is making the condition statement                             |
 {: .grid}
+</div>
 
 ### Device
 
@@ -609,6 +614,7 @@ Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.htm
 * [DeviceRequest.authoredOn](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.authoredOn) - dateTime when this was made available
 * [DeviceRequest.code\[x\].extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code%5Bx%5D.extension:doNotPerformValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific DeviceRequest that was not performed
 
+<div class="new-content" markdown="1">
 ### Diagnostic Study
 
 QDM defines Diagnostic Study as any kind of medical test performed as a specific test or series of steps to aid in diagnosing or detecting disease (e.g., to establish a diagnosis, measure the progress or recovery from disease, confirm that a person is free from disease). The QDM differentiates diagnostic studies from laboratory tests in that diagnostic studies are those that are not performed in organizations that perform testing on samples of human blood, tissue, or other substance from the body. Diagnostic studies may make use of digital images and textual reports. Such studies include but are not limited to imaging studies, cardiology studies (electrocardiogram, treadmill stress testing), pulmonary-function testing, vascular laboratory testing, and others.
@@ -716,7 +722,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
-
+</div>
 
 ### Encounter
 
@@ -847,6 +853,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
 
+<div class="new-content" markdown="1">
 #### Encounter, Performed
 
 | **QDM Context**                    | **QI-Core R5**  | **Comments**  |
@@ -860,7 +867,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | relatedTo                          | [Encounter.basedOn](StructureDefinition-qicore-encounter-definitions.html#Encounter.basedOn)           | New in QDM 5.6                                                                                      |
 | relevantPeriod                     | [Encounter.period](StructureDefinition-qicore-encounter-definitions.html#Encounter.period)           | start and end time of encounter                                                                                      |
 | diagnoses                          |                                               |                                                                                             |
-| diagnosis (code)                   | [Encounter.diagnosis.condition](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.condition) with reference to:<br> •[QICore Encounter Condition Diagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html) AND<br>•[QICore Condition Problems and Health Concerns](StructureDefinition-qicore-condition-problems-health-concerns.html)          | can be used for coded diagnoses  [Note for balloters](https://jira.hl7.org/browse/FHIR-37535)                                                                                      |
+| diagnosis (code)                   | [Encounter.diagnosis.condition](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.condition) with reference to:<br> •[QICore Encounter Condition Diagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html) AND<br>•[QICore Condition Problems and Health Concerns](StructureDefinition-qicore-condition-problems-health-concerns.html)          | can be used for coded diagnoses  [Note to balloters](index.html#note-to-balloters)                                                                                      |
 | presentOnAdmissionIndicator (code) | [Encounter.diagnosis.extension:diagnosisPresentOnAdmission](StructureDefinition-qicore-encounter-diagnosisPresentOnAdmission.html)              | Indicator of whether the Encounter diagnosis was present at the time of admission. Note: this element uses the value set (required) diagnosis-on-admission (the same value set as used with the claim resource)  |
 | rank (Integer)                     | [Encounter.diagnosis.rank](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis.rank)                    | for each diagnosis role                                                                                              |
 | procedures                         | [qicore-encounter-procedure](StructureDefinition-qicore-encounter-procedure.html)                                              | QIcore-encounter-procedure                                                                  |
@@ -878,6 +885,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | participant                        | [Encounter.participant.individual](StructureDefinition-qicore-encounter-definitions.html#Encounter.participant.individual)    |                                                                                             |
 |                                    | [Encounter.serviceProvider](StructureDefinition-qicore-encounter-definitions.html#Encounter.serviceProvider)|Encounter.serviceProvider identifies the organization that is primarily responsible for the Encounter’s services. |
 {: .grid}
+</div>
 
 #### Encounter, Recommended
 
@@ -1269,6 +1277,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
 
+<div class="new-content" markdown="1">
 ### Laboratory Test
 
 QDM defines Laboratory Test as a medical procedure that involves testing a sample of blood, urine, or other body fluids or specimens. Tests can help determine a diagnosis, plan treatment, check to see if treatment is working, or monitor the disease over time. This QDM data category for Laboratory Test is only used for information about the subject of record.
@@ -1348,10 +1357,11 @@ Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.htm
 * [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - dateTime when this was made available
 * [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
+</div>
 
 #### Laboratory Test, Recommended
 
-| **QDM Context**                                                   | **QI-Core R4**                                                                                                                                                                           | **Comments**                                                 |
+| **QDM Context**                                                   | **QI-Core R5**                                                                                                                                                                           | **Comments**                                                 |
 | ----------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------ |
 | **Laboratory Test, Recommended**                                  | [ServiceRequest](StructureDefinition-qicore-servicerequest.html)                                                                            |                                                              |
 |                                                                   | [ServiceRequest.status](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.status)                                   | Constrain to active, completed  			     |
@@ -1559,6 +1569,7 @@ Use [QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed
 
 The MedicationDispensed.status is fixed to "declined" which is defined as "The dispense was declined and not performed."  Considering the clinical workflow, only the pharmacist likely performs the "decline" status - based on medication interaction or on failure of insurance authorization (perhaps due to patient declining when the cost/co-pay is identified). But the patient would not enter the status, only the pharmacist would do so. The use case likely still works for the measure developer intent (that a valid reason exists for not dispensing the medication). However, if the measure developer wants to address patient's decisions to avoid dispensing, the patient will likely not show up at the pharmacy for the medication to be dispensed - hence, there will be no dispensing event. The best way to capture that scenario may be to assure the MedicationRequest includes a Patient reason.
 
+<div class="new-content" markdown="1">
 #### Medication, Order
 
 This QDM context references the QI-Core MedicationRequest resource with
@@ -1601,7 +1612,7 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.ht
 * [MedicationRequest.reasonCode](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [MedicationRequest.authoredOn](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
 * [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationRequest that was not performed
-
+</div>
 
 ### Participation
 
@@ -1621,6 +1632,7 @@ Definitions modeled similar to the FHIR R4
 | participationPeriod     | [Coverage.period](StructureDefinition-qicore-coverage-definitions.html#Coverage.period) |                       |
 {: .grid}
 
+<div class="new-content" markdown="1">
 ### Physical Exam
 
 QDM defines Physical Exam as the evaluation of the patient’s body and/or
@@ -1748,7 +1760,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
-
+</div>
 
 ### Procedure
 
@@ -1846,10 +1858,11 @@ use case QI-Core has not added an extension to address
 Procedure.priority and, as a result, there is no direct mapping from the
 QDM Procedure priority attribute to QI-Core.
 
+<div class="new-content" markdown="1">
 #### Procedure, Performed
 
 
-| **QDM Context**         | **QI-Core R4**                                              | **Comments**                   |
+| **QDM Context**         | **QI-Core R5**                                              | **Comments**                   |
 | ----------------------- | ----------------------------------------------------------- | ------------------------------ |
 | **Procedure, Performed**| [Procedure](StructureDefinition-qicore-procedure.html)                   |                                                                                                           |
 |                         | [Procedure.category](StructureDefinition-qicore-procedure-definitions.html#Procedure.category)        | Helps differentiate "intervention" from "procedure"                                                                                                       |
@@ -1884,6 +1897,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 * [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - dateTime when this was made available
 * [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Procedure that was not performed
+</div>
 
 #### Procedure, Order
 
@@ -2006,7 +2020,7 @@ milk) and biologically-derived product administration (blood) - both of these us
 as noted. Further work in base FHIR will advise how to reference specific administration details in QI-Core.
 
 
-| **QDM Context**                                    | **FHIR R5**                                                                                                                                                         | **Comments**                                          |
+| **QDM Context**                                    | **QI-Core R5**                                                                                                                                                         | **Comments**                                          |
 | -------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------- | ----------------------------------------------------- |
 | **Substance, Order/Recommended - For Diet Orders** | [NutritionOrder](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder)                                                                                                           | Limited to orders for diets or diets with supplements |
 | Substance Order/Recommended Activity               | [NutritionOrder.status](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.status)                                                                  | Constrain to active, completed               |
