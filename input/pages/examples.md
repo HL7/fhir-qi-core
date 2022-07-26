@@ -82,6 +82,7 @@
 
 **QICoreMedicationAdministration**
 * [Inhalant Example](MedicationAdministration-example.html)
+* [Cumulative Duration Example](MedicationAdministration-cmd-example.html)
 
 **QICoreMedicationAdministrationNotDone**
 * [Medication not administered using a value set to indicate what was not administered](MedicationAdministration-negation-example.html)
@@ -89,6 +90,7 @@
 
 **QICoreMedicationDispense**
 * [Penicillin MedicationDispense Example](MedicationDispense-example.html)
+* [Cumulative Medication Dispense Example](MedicationDispense-cmd-example.html)
 
 **QICoreMedicationDispenseNotDone**
 * [Negation Example with valueset](MedicationDispense-negation-example.html)

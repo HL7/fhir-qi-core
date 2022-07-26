@@ -1,0 +1,85 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+This example MedicationDispense models QDM Medication, Dispensed. Cooking with CQL session 53 discusses how to calculate cumulative medication duration:
+https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/blob/master/Source/Cooking%20With%20CQL/53/CumulativeMedicationDurationFHIR.cql
+
+The cumulative medication duration in this example would be calculated as:
+supply or (quantity / (dose * dosesPerDay))
+30 or (450 / (5 * 3)) = 30 days
+
+See the QDM to QI-Core mapping for details regarding QDM data attribute representation in FHIR.
+http://hl7.org/fhir/us/qicore/qdm-to-qicore.html
+-->
+<MedicationDispense xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="cmd-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense"/>
+  </meta>
+  <status value="completed" />
+  <intent value="order" />
+  <medicationReference>
+    <reference value="Medication/example"/>
+  </medicationReference>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <performer>
+    <actor>
+      <reference value="Practitioner/example"/>
+    </actor>
+  </performer>
+  <authorizingPrescription>
+    <reference value="MedicationRequest/example"/>
+  </authorizingPrescription>
+  <quantity>
+    <value value="450"/>
+    <unit value="ml"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="ml"/>
+  </quantity>
+  <daysSupply>
+    <value value="30"/>
+    <unit value="Day"/>
+    <system value="http://unitsofmeasure.org"/>
+    <code value="d"/>
+  </daysSupply>
+  <whenPrepared value="2012-05-30T16:20:00+00:00"/>
+  <whenHandedOver value="2012-05-31T10:20:00+00:00"/>
+  <destination>
+    <reference value="Location/example"/>
+  </destination>
+  <receiver>
+    <reference value="Patient/example"/>
+  </receiver>
+  <dosageInstruction>
+    <timing>
+      <repeat>
+        <frequency value="3"/>
+        <period value="1"/>
+        <periodUnit value="d"/>
+      </repeat>
+    </timing>
+    <route>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="394899003"/>
+        <display value="oral administration of treatment"/>
+      </coding>
+    </route>
+    <doseAndRate>
+      <type>
+        <coding>
+          <system value="http://terminology.hl7.org/CodeSystem/dose-rate-type"/>
+          <code value="ordered"/>
+          <display value="Ordered"/>
+        </coding>
+      </type>
+      <doseQuantity>
+        <value value="5"/>
+        <unit value="ml"/>
+        <system value="http://unitsofmeasure.org"/>
+        <code value="ml"/>
+      </doseQuantity>
+    </doseAndRate>
+  </dosageInstruction>
+</MedicationDispense>
