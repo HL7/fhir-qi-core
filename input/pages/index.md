@@ -93,10 +93,6 @@ for both types of applications.
 This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the vMR and QDM as sources of requirements. The goal was to align on a unified logical model, Quality Information and Clinical Knowledge (QUICK), consisting of objects, attributes, and relationships such that the QUICK model could reference specific Quality Improvement Core (QI-Core) profiles aligned with specific versions of FHIR. The first QUICK model representations included a logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK logical view was aligned, structurally and semantically, as closely as possible to FHIR. While this alignment creates a common model for quality and interoperability that more easily leverages future FHIR-related efforts including Clinical Document Architecture (CDA) on FHIR. However, we recognize that defining a different conceptual/logical model for quality improvement capability splits focus of the community. The appropriate place for the mindshare and consensus development of the exchange semantics for quality improvement use cases is the QI-Core profiles directly. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles, and a Must Support view indicating all Must Support elements for each respective QI-Core profile.
 {: .new-content}
 
-This project is part of an effort to align the HL7 Product Family in the area of health quality improvement. The long-term goal remains a single logical data model (QUICK), as well as a single logical processing language (CQL), for CDS and clinical
-quality measurement (CQM). This alignment will lessen the cost and complexity for product developers and vendors, reduce
-the learning curve, and consolidate efforts to maintain multiple standards.
-
 <div class="new-content" markdown="1">
 ### Relevance of QI-Core Profiles to Authors
 
@@ -199,10 +195,7 @@ extensions will not create future conflicts. Other initiatives that the QI-Core 
 For the [Occupational Data Health (ODH)](http://hl7.org/fhir/us/odh/index.html) effort, QI Core would like to have used the endeavor but is unable because the current version of the IG has a dependency on US Core STU3 (v3.1.1) not STU5. The [following is an example](Observation-example-odh.html) how occupational data can be added to a stratified measure (e.g. breast cancer screening, colorectal cancer screening) by high risk occupations. It can provide a way to reference [ODH Usual Work observation](http://hl7.org/fhir/us/odh/StructureDefinition-odh-UsualWork.html) using [QICore Observation profile](StructureDefinition-qicore-observation.html) (i.e., a single observation). If one were representing an evaluation tool that includes multiple ODH items, the [QICore ObservationSurvey](StructureDefinition-qicore-observation-survey.html) profile would be appropriate.
 {: .new-content}
 
-For the CIMI effort in particular, the QI-Core effort’s vision is to develop tooling to automatically generate FHIR profiles form a logical model (QUICK) and use that same tool chain to generate FHIR-version-specific QI-Core profiles rather than the bottom-up approach currently used to define QI-Core profiles.
-
-In addition, the QI-Core effort is actively working with the QDM to produce a mapping from QDM to QI-Core such that a
-CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
+In addition, the QI-Core effort *continues* to update the mapping from QDM to QI-Core such that a CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
 ### Naming Conventions
 
@@ -217,6 +210,7 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 ### MustSupport Flag
 
 QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
+{: .new-content}
 
 In addition to the requirements defined in the US Core base, QI Core further describes and constrains the "MustSupport"
 functionality.
@@ -425,7 +419,7 @@ owners to translate local data into the required vocabulary. As a US Realm produ
 vocabularies referenced in the ONC Common Clinical Data Set (CCDS) and the US Core Data for Interoperability. Because
 QI-Core is expected to be applied outside the U.S. Realm, and also in clinical settings where local terminologies exist,
 U.S. Realm bindings could be  accompanied by alternative codes as translation codes in the QI-Core profiles. In the case
-that the US Core Data for Interoperability adopts QI-Core, QUICK, and CQL, policy should be created to mandate the
+that the US Core Data for Interoperability adopts QI-Core and CQL, policy should be created to mandate the
 preferred bindings given in the standard.
 
 Note that quality improvement artifact authors should pay close attention to binding parameters specified in the
@@ -452,16 +446,16 @@ the resources in "Any" references SHALL conform to QI-Core profiles if the base 
 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
--  Implementations SHALL support all profile types in the QI-Core set (listed in the [profiles](profiles.html) page) for resources they exchange
--  Server implementations SHALL declare their support of the QI-Core profiles in a FHIR CapabilityStatement
+-  Implementations **SHALL** support all profile types in the QI-Core set (listed in the [profiles](profiles.html) page) for resources they exchange
+-  Server implementations **SHALL** declare their support of the QI-Core profiles in a FHIR CapabilityStatement
 -  Conformant servers will at minimum support FHIR's read and search operations
--  Servers SHALL supply the MustSupport data elements whenever that data is available
--  Quality improvement applications SHALL recognize and process all MustSupport elements in QI-Core
--  Modifying attributes SHALL be treated as MustSupport, even if not explicitly declared
--  The resources in "Any" references SHALL conform to QI-Core profiles if the base resource has a QI-Core profile
--  Applications SHALL NOT process resource instances that include unknown modifying attributes
--  Applications SHOULD use the preferred value sets
--  In the U.S. Realm, applications SHALL be simultaneously compliant with QI-Core profiles and US Core profiles. As such, the more restrictive bindings between US Core and QI-Core SHALL be adhered to. For example, all value sets that are required in US Core SHALL be required by QI-Core, regardless of the binding strength in QI-Core.
+-  Servers **SHALL** supply the MustSupport data elements whenever that data is available
+-  Quality improvement applications **SHALL** recognize and process all MustSupport elements in QI-Core
+-  Modifying attributes **SHALL** be treated as MustSupport, even if not explicitly declared
+-  The resources in "Any" references **SHALL** conform to QI-Core profiles if the base resource has a QI-Core profile
+-  Applications **SHALL NOT** process resource instances that include unknown modifying attributes
+-  Applications **SHOULD** use the preferred value sets
+-  In the U.S. Realm, applications SHALL be simultaneously compliant with QI-Core profiles and US Core profiles. As such, the more restrictive bindings between US Core and QI-Core **SHALL** be adhered to. For example, all value sets that are required in US Core **SHALL** be required by QI-Core, regardless of the binding strength in QI-Core.
 
 ### Author Information
 
