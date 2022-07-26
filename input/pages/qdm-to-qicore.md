@@ -1190,6 +1190,7 @@ are included in this section of the QDM to QI-Core mapping especially
 since all of the QDM attributes for each of these QDM *datatypes* are
 identical.
 
+<div class="new-content" markdown="1">
 #### Intervention, Performed
 
 | **QDM Context**         | **QI-Core R5**                                              | **Comments**                   |
@@ -1213,6 +1214,7 @@ identical.
 | relevantPeriod          | [Procedure.performed\[x\] Period](StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x])                    |                                                                                                           |
 | incisionDatetime        | [Procedure.extension:incisionDateTime](StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:incisionDateTime) |                                                                                                           |
 | authorDatetime          | [Procedure.extension:recorded](StructureDefinition-qicore-procedure-definitions.html#Procedure.extension:recorded)  | The concept "author" requires a reference to a report about the procedure or about an indication the procedure was not performed. Therefore, the procedure resource does not have a reference to author dateTime. Author dateTime can reference a report about the procedure or an observation describing that result (e.g., Observation with metadata Observation.partOf procedure). However, Procedure.statusReason needs to address a dateTime that it is recorded.   |
+| | [Procedure.usedReference](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.usedReference)| To add reference to a device, medication, or substance used as part of an intervention the QI-Core element to address the device is Procedure.usedReference|
 | components              | N/A                            | Procedure does not include components and the concept of components references a observation that is a result of the procedure ([Observation.partOf](StructureDefinition-qicore-observation-definitions.html#Observation.partOf)) for which that observation has components consistent with the Observation component modeling recommendation in FHIR.                                                                          |
 | component.code          | N/A                            | N/A                                                                                                       |
 | component.result        | N/A                            | N/A                                                                                                       |
@@ -1226,6 +1228,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 * [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - dateTime when this was made available
 * [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Procedure that was not performed
+</div>
 
 #### Intervention, Order
 
