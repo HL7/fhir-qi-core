@@ -103,6 +103,9 @@
 **QICoreMedicationRequest**
 * [Penicillin MedicationRequest Example](MedicationRequest-example.html)
 * [Cumulative Medication Duration Example](MedicationRequest-cmd-example.html)
+* [Patient Reported MedicationRequest Example](MedicationRequest-patient-reported-example.html)
+* [Patient Requested MedicationRequest Example](MedicationRequest-patient-requester-example.html)
+* [Practitioner Ordered MedicationRequest Example](MedicationRequest-practitioner-ordered-example.html)
 
 **QICoreMedicationStatement**
 * [Penicillin MedicationStatement Example](MedicationStatement-example.html)
