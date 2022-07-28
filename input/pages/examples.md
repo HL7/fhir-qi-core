@@ -29,6 +29,8 @@
 
 **QICoreCoverage**
 * [General Person Primary Coverage Example](Coverage-example.html)
+* [General Subscriber ID Coverage Example](Coverage-example-new.html)
+
 
 **QICoreDevice**
 * [General Device Example](Device-example.html)
@@ -101,6 +103,9 @@
 **QICoreMedicationRequest**
 * [Penicillin MedicationRequest Example](MedicationRequest-example.html)
 * [Cumulative Medication Duration Example](MedicationRequest-cmd-example.html)
+* [Patient Reported MedicationRequest Example](MedicationRequest-patient-reported-example.html)
+* [Patient Requested MedicationRequest Example](MedicationRequest-patient-requester-example.html)
+* [Practitioner Ordered MedicationRequest Example](MedicationRequest-practitioner-ordered-example.html)
 
 **QICoreMedicationStatement**
 * [Penicillin MedicationStatement Example](MedicationStatement-example.html)
