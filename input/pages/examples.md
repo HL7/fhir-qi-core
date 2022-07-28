@@ -29,6 +29,8 @@
 
 **QICoreCoverage**
 * [General Person Primary Coverage Example](Coverage-example.html)
+* [General Subscriber ID Coverage Example](Coverage-example-new.html)
+
 
 **QICoreDevice**
 * [General Device Example](Device-example.html)
