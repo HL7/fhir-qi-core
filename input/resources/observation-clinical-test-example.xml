@@ -1,0 +1,41 @@
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="clinical-test-heart-rate-rhythm"/>
+  <meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/instance-name">
+      <valueString value="Heart rate rhythm Example"/>
+    </extension>
+    <extension
+               url="http://hl7.org/fhir/StructureDefinition/instance-description">
+      <valueMarkdown
+                     value="This is a Heart rate rhythm Example for the *Clinical Test Result Observation Profile*."/>
+    </extension>
+    <profile
+             value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-clinical-test"/>
+  </meta>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system
+              value="http://hl7.org/fhir/us/core/CodeSystem/us-core-observation-category"/>
+      <code value="clinical-test"/>
+      <display value="Clinical Test"/>
+    </coding>
+    <text value="Clinical Test"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="8884-9"/>
+      <display value="Heart rate rhythm"/>
+    </coding>
+    <text value="Heart rate rhythm"/>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <encounter>
+    <display value="Cardiology Consult"/>
+  </encounter>
+  <effectiveDateTime value="2021-11-10T16:48:57.246958-08:00"/>
+  <valueString value="Regular (R)"/>
+</Observation>

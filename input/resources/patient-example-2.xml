@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Patient xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example-2"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"/>
+  </meta>
+  <identifier>
+    <use value="usual"/>
+    <type>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0203"/>
+        <code value="MR"/>
+      </coding>
+    </type>
+    <system value="urn:oid:1.2.36.146.595.217.0.1"/>
+    <value value="12345"/>
+    <period>
+      <start value="1995-05-06"/>
+    </period>
+    <assigner>
+      <display value="Acme Healthcare"/>
+    </assigner>
+  </identifier>
+  <active value="true"/>
+  <name>
+    <use value="official"/>
+    <family value="Hugankiss"/>
+    <given value="Sarah"/>
+  </name>
+  <telecom>
+    <system value="phone"/>
+    <value value="(202) 212 1212"/>
+    <use value="mobile"/>
+    <rank value="1"/>
+  </telecom>
+  <gender value="female"/>
+  <birthDate value="1946-09-25">
+    <extension url="http://hl7.org/fhir/StructureDefinition/patient-birthTime">
+      <valueDateTime value="1946-09-25T14:35:45-05:00"/>
+    </extension>
+  </birthDate>
+  <deceasedBoolean value="false"/>
+  <address>
+    <use value="home"/>
+    <type value="both"/>
+    <text value="1600 Pennslyvania Ave"/>
+    <line value="1600 Pennslyvania Ave"/>
+    <city value="Washington DC"/>
+    <state value="DC"/>
+    <postalCode value="20500"/>
+    <period>
+      <start value="1946-12-25"/>
+    </period>
+  </address>
+  <contact>
+    <relationship>
+      <coding>
+        <system value="http://terminology.hl7.org/CodeSystem/v2-0131"/>
+        <code value="N"/>
+      </coding>
+    </relationship>
+  </contact>
+  <managingOrganization>
+    <reference value="Organization/example"/>
+  </managingOrganization>
+</Patient>
