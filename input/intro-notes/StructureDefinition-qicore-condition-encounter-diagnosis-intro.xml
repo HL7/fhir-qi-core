@@ -5,22 +5,27 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+<pre>
+<code>define "Absence of Cervix":
+	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
+		where NoCervixBirth.onset.toInterval() starts before end of "Measurement Period"
+      and NoCervixBirth.clinicalStatus ~ Global."active"
+</code>
+</pre>
   <a name="examples"> </a>
-  <h3>Examples</h3>
+<h3>Examples</h3>
   <p>
   <table>
     <tbody>
       <tr>
-          <td><a href="Patient-example.html">Basic Patient Example</a></td>
+          <td><a href="Condition-example-2.html">Severe Burn Example</a></td>
       </tr>
       <tr>
-          <td><a href="Patient-example-2.html">65+ Female Patient Example</a></td>
-      </tr>
-      <tr>
-          <td><a href="Patient-infant-example.html">Infant Patient Example</a></td>
+          <td><a href="Condition-appendicitis-example.html">Appendicitis Example</a></td>
       </tr>
     </tbody>
   </table>
   </p>
+
 
 </div>

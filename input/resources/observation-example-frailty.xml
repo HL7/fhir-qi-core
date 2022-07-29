@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example-frailty"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"/>
+  </meta>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="exam"/>
+      <display value="exam"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="99354-3"/>
+      <display value="Mobility device or aid is regularly used"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example-2"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <effectivePeriod>
+    <start value="2013-04-02T10:30:10+01:00"/>
+    <end value="2013-04-05T10:30:10+01:00"/>
+  </effectivePeriod>
+  <issued value="2013-04-03T15:30:10+01:00"/>
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="105503008"/>
+      <display value="Dependence on wheelchair (finding)"/>
+    </coding>
+  </valueCodeableConcept>
+</Observation>

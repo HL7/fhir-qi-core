@@ -165,20 +165,34 @@ Note that these functions make use of the FHIRHelpers library to ensure correct 
 
 > NOTE: The examples throughout this topic have been simplified to illustrate specific usage. Refer to the originating context for complete expressions.
 
+<div class="new-content" markdown="1">
 ### Observations
 {: #Observation_Examples}
 
 For observations that have established profiles in US-Core, QI-Core uses those profiles:
 
-|Profile|Description|
-|---|---|
-|[Vital Signs Profile]({{site.data.fhir.path}}observation-vitalsigns.html)|The FHIR Vital Signs profile sets minimum expectations for the Observation resource to record, search and fetch the vital signs associated with a patient that include the primary vital signs plus additional measurements such as height, weight and BMI.|
-|[Smoking Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)|This profile sets minimum expectations for the Observation resource to record, search and fetch smoking status data associated with a patient.|
-|[Laboratory Result Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html)|This profile sets minimum expectations for the Observation resource resource to record, search and fetch laboratory test results associated with a patient.|
-|[Pediatric BMI For Age Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html)|This profile sets minimum expectations for the Observation resource to record, search and fetch pediatric body mass index (BMI) per age and gender observations associated with a patient.|
-|[Pediatric Weight For Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)|This profile sets minimum expectations for the Observation resource to record, search and fetch pediatric weight for height and age observations associated with a patient.|
-|[Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)|This profile sets minimum expectations for the Observation resource to record, search, and fetch pulse oximetry and inspired oxygen observations associated with a patient.|
-{: .list}
+- [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+- [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
+- [US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html)
+- [US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html)
+- [US Core Body Temperature Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html)
+- [US Core Body Weight Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html)
+- [US Core Head Circumference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html)
+- [US Core Heart Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html)
+- [US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html)
+- [US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)
+- [US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)
+- [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
+- [US Core Laboratory Result Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html)
+- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
+- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Observation Social History Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-social-history.html)
+- [US Core Observation SDOH Assessment Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sdoh-assessment.html)
+- [QICore Observation Clinical Test Result](StructureDefinition-qicore-observation-clinical-test.html)
+- [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
+- [QICore Observation Imaging Result](StructureDefinition-qicore-observation-imaging.html)
+- [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)
+</div>
 
 For all other observations, use the [QICore-Observation](StructureDefinition-qicore-observation.html) profile.
 
