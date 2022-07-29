@@ -192,7 +192,7 @@ For observations that have established profiles in US-Core, QI-Core uses those p
 - [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
 - [QICore Observation Imaging Result](StructureDefinition-qicore-observation-imaging.html)
 - [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)
-</div>
+
 
 For all other observations, use the [QICore-Observation](StructureDefinition-qicore-observation.html) profile.
 
@@ -228,6 +228,7 @@ define "Qualifying Systolic Blood Pressure Reading":
 define function "GetEncounter"(ref Reference):
   singleton from (AdultOutpatientEncounters."Qualifying Encounters" x where x.id = Global."GetId"(ref.reference))
 ```
+</div>
 
 ### Encounter Examples
 

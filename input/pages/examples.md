@@ -47,7 +47,9 @@
 
 **QICoreCoverage**
 * [General Person Primary Coverage Example](Coverage-example.html)
+<div class="new-content" markdown="1">
 * [General Subscriber ID Coverage Example](Coverage-example-new.html)
+</div>
 
 **QICoreDevice**
 * [General Device Example](Device-example.html)
@@ -134,8 +136,12 @@
 **QICoreNutritionOrder**
 * [Diabetic diet example](NutritionOrder-example.html)
 
+<div class="new-content" markdown="1">
 **QICoreObservation**
-* [Decreased Hemoglobin Example](Observation-example.html)
+* [ODH Observation Example](Observation-example.html)
+* [Frailty Observation Example](Observation-example-frailty.html)
+* [Gestational Age at Birth Example](Observation-example-gestation.html)
+</div>
 
 **QICoreObservationNotDone**
 * [Negation Example with valueset](Observation-negation-example.html)
