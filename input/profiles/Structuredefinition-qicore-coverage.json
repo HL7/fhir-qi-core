@@ -1,0 +1,158 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-coverage",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage",
+  "version" : "5.0.0",
+  "name" : "QICoreCoverage",
+  "title" : "QICore Coverage",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of Coverage for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "cdanetv4",
+      "uri" : "http://www.cda-adc.ca/en/services/cdanet/",
+      "name" : "Canadian Dental Association eclaims standard"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "cpha3pharm",
+      "uri" : "http://www.pharmacists.ca/",
+      "name" : "Canadian Pharmacy Associaiton eclaims standard"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Coverage",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Coverage",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "Coverage",
+        "path" : "Coverage",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Coverage.subscriberId",
+        "path" : "Coverage.subscriberId",
+        "min" : 0,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Coverage.type",
+        "path" : "Coverage.type",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "required",
+          "description" : "Categories of types of health care payor entities as defined by the US Public Health Data Consortium SOP code system",
+          "valueSet" : "https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591"
+        }
+      },
+      {
+        "id" : "Coverage.policyHolder",
+        "path" : "Coverage.policyHolder",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Coverage.beneficiary",
+        "path" : "Coverage.beneficiary",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Coverage.period",
+        "path" : "Coverage.period",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Coverage.payor",
+        "path" : "Coverage.payor",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Coverage.order",
+        "path" : "Coverage.order",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Coverage.contract",
+        "path" : "Coverage.contract",
+        "mustSupport" : true
+      }
+    ]
+  }
+}
