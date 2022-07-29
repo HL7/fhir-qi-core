@@ -1,0 +1,41 @@
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="imaging-result-xray-chest-findings"/>
+  <meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/instance-name">
+      <valueString value="Xray Chest Findings Example"/>
+    </extension>
+    <extension
+               url="http://hl7.org/fhir/StructureDefinition/instance-description">
+      <valueMarkdown
+                     value="This example of a US Core Observation Imaging Result Profile illustrates its use to capture information about a patient's radiology study findings."/>
+    </extension>
+    <profile
+             value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-imaging"/>
+  </meta>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="imaging"/>
+      <display value="Imaging"/>
+    </coding>
+    <text value="Imaging"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="18782-3"/>
+      <display value="Radiology Study observation (narrative)"/>
+    </coding>
+    <text value="Findings"/>
+  </code>
+  <subject>
+    <reference value="Patient/example-2"/>
+  </subject>
+  <encounter>
+    <display value="ER Visit"/>
+  </encounter>
+  <effectiveDateTime value="2019-02-03T19:43:30.000Z"/>
+  <valueString
+               value="LINES AND TUBES: None.\n LUNGS AND PLEURA:\n Clear lungs. Normal pulmonary vascularity.\n No pleural effusion.\n No pneumothorax.\n HEART, MEDIASTINUM AND HILA:\n Heart is normal in size.\n Normal mediastinal and hilar contour.\n BONES AND SOFT TISSUES:\n No acute abnormality.\n"/>
+</Observation>

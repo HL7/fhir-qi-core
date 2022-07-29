@@ -34,7 +34,7 @@
   <dependsOn id="vsac">
     <uri value="http://fhir.org/packages/us.nlm.vsac/ImplementationGuide/us.nlm.vsac"/>
     <packageId value="us.nlm.vsac"/>
-    <version value="0.4.0"/>
+    <version value="0.7.0"/>
   </dependsOn>
   <global>
     <type value="Patient"/>
@@ -148,10 +148,18 @@
     </resource>
     <resource>
       <reference>
-        <reference value="Condition/example"/>
+        <reference value="Condition/example-2"/>
       </reference>
-      <name value="Condition example"/>
-      <description value="Example of a condition resource used to record information about a burn of the left ear"/>
+      <name value="Condition Encounter Diagnosis example"/>
+      <description value="Example of a condition encounter diagnosis resource used to record information about a burn of the left ear"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Condition/health-concern-example"/>
+      </reference>
+      <name value="Condition Problems Health Concerns example"/>
+      <description value="Example of a patient with a condition encounter health concern regarding obesity"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -467,6 +475,22 @@
     </resource>
     <resource>
       <reference>
+        <reference value="Observation/example-frailty"/>
+      </reference>
+      <name value="Frailty observation example"/>
+      <description value="Example of a frailty observation measure"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-gestation"/>
+      </reference>
+      <name value="Gestation age at birth observation example"/>
+      <description value="Example of a gestation age at birth observation"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="Observation/negation-example"/>
       </reference>
       <name value="ObservationNotDone with valueset example"/>
@@ -483,6 +507,30 @@
     </resource>
     <resource>
       <reference>
+        <reference value="Observation/clinical-test-heart-rate-rhythm"/>
+      </reference>
+      <name value="Heart rate rhythm clinical test observation example"/>
+      <description value="Example of a Heart rate rhythm clinical test observation"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/imaging-result-xray-chest-findings"/>
+      </reference>
+      <name value="Clinical Imaging Xray Chest Findings Example"/>
+      <description value="Example of a x-ray chest findings clinical imaging"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Observation/example-survey-10-minute-apgar-heart-rate"/>
+      </reference>
+      <name value="10 minute Apgar Heart Rate Observation Survey Example"/>
+      <description value="Example of a 10 minute Apgar Heart Rate Observation Survey"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="Organization/example"/>
       </reference>
       <name value="Organization example"/>
@@ -495,6 +543,22 @@
       </reference>
       <name value="Patient example"/>
       <description value="Basic Patient example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Patient/example-2"/>
+      </reference>
+      <name value="65+ Female patient example"/>
+      <description value="65+ Female patient example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Patient/infant-example"/>
+      </reference>
+      <name value="Infant patient example"/>
+      <description value="Infant patient example"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>

@@ -1,0 +1,51 @@
+
+<Observation xmlns="http://hl7.org/fhir">
+  <id value="example-survey-10-minute-apgar-heart-rate"/>
+  <meta>
+    <extension url="http://hl7.org/fhir/StructureDefinition/instance-name">
+      <valueString value="10 minute Apgar Heart Rate Example"/>
+    </extension>
+    <extension
+               url="http://hl7.org/fhir/StructureDefinition/instance-description">
+      <valueMarkdown
+                     value="This example of a QI Core Survey Observation Profile illustrates its use to directly capture individual surveys assessment items as an observations. It is not derived from a FHIR QuestionnaireResponse."/>
+    </extension>
+    <profile
+             value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-survey"/>
+  </meta>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/observation-category"/>
+      <code value="survey"/>
+      <display value="Survey"/>
+    </coding>
+    <text value="Survey"/>
+  </category>
+  <code>
+    <coding>
+      <system value="http://loinc.org"/>
+      <code value="32402-0"/>
+      <display value="10 minute Apgar Heart Rate"/>
+    </coding>
+    <text value="Apgar respiratory effort score"/>
+  </code>
+  <subject>
+    <reference value="Patient/infant-example"/>
+  </subject>
+  <effectiveDateTime value="2016-05-18T22:33:22+00:00"/>
+  <performer>
+    <reference value="Practitioner/practitioner"/>
+  </performer>
+  <valueCodeableConcept>
+    <coding>
+      <extension url="http://hl7.org/fhir/StructureDefinition/ordinalValue">
+        <valueDecimal value="2"/>
+      </extension>
+      <system value="http://loinc.org"/>
+      <code value="LA6718-6"/>
+      <display value="At least 100 beats per minute"/>
+    </coding>
+    <text value="2. At least 100 beats per minute"/>
+  </valueCodeableConcept>
+</Observation>

@@ -24,6 +24,9 @@ These value sets have been defined for this implementation guide.
 	</tbody>
 </table>
 
+[QICore Encounter Clinical Discharge Disposition Codes](ValueSet-qicore-encounter-discharge-disposition.html)
+{: .new-content}
+
 ### CodeSystem Resources
 
 See the [FHIR terminology section](http://hl7.org/fhir/terminologies-systems.html) for a complete discussion on code

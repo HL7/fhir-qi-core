@@ -11,8 +11,21 @@
 **QICoreBodyStructure**
 * [This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time](BodyStructure-example.html)
 
+<div class="new-content" markdown="1">
+**QICoreCarePlan**
+* [Assessment and care plan for a pregnancy](CarePlan-example.html)
+
+**QICoreCareTeam**
+* [Example of a CareTeam involved in the delivery of care for a pregnancy](CareTeam-example.html)
+</div>
+
 **QICoreClaim**
 * [Simple Vision Claim](Claim-example.html)
+
+<div class="new-content" markdown="1">
+**QICoreClaimResponse**
+* [Simple Vision ClaimResponse]
+</div>
 
 **QICoreCommunication**
 * [Written Alert Example](Communication-example.html)
@@ -23,14 +36,18 @@
 **QICoreCommunicationRequest**
 * [CommunicationRequest Example](CommunicationRequest-example.html)
 
-**QICoreCondition**
+<div class="new-content" markdown="1">
+**QICoreConditionEncounterDiagnosis**
 * [Severe Burn Example](Condition-example.html)
 * [Appendicitis Example](Condition-appendicitis-example.html)
+
+**QICoreConditionProblemsHealthConcerns**
+* [Patient with concerns of becoming fat](Condition-health-concern-example.html)
+</div>
 
 **QICoreCoverage**
 * [General Person Primary Coverage Example](Coverage-example.html)
 * [General Subscriber ID Coverage Example](Coverage-example-new.html)
-
 
 **QICoreDevice**
 * [General Device Example](Device-example.html)
@@ -69,12 +86,12 @@
 **QICoreImmunization**
 * [Example of Influenza immunization shot](Immunization-example.html)
 
-**QICoreImmunizationEvaluation**
-* [Example of immunization evaluation](ImmunizationEvaluation-example.html)
-
 **QICoreImmunizationNotDone**
 * [Negation Example using valueset reference](Immunization-negation-example.html)
 * [Negation Example using coding](Immunization-negation-example-code.html)
+
+**QICoreImmunizationEvaluation**
+* [Example of immunization evaluation](ImmunizationEvaluation-example.html)
 
 **QICoreImmunizationRecommendation**
 * [Example of immunizationrecommendation using a vaccine code](ImmunizationRecommendation-example.html)
@@ -103,9 +120,11 @@
 **QICoreMedicationRequest**
 * [Penicillin MedicationRequest Example](MedicationRequest-example.html)
 * [Cumulative Medication Duration Example](MedicationRequest-cmd-example.html)
+<div class="new-content" markdown="1">
 * [Patient Reported MedicationRequest Example](MedicationRequest-patient-reported-example.html)
 * [Patient Requested MedicationRequest Example](MedicationRequest-patient-requester-example.html)
 * [Practitioner Ordered MedicationRequest Example](MedicationRequest-practitioner-ordered-example.html)
+</div>
 
 **QICoreMedicationStatement**
 * [Penicillin MedicationStatement Example](MedicationStatement-example.html)
@@ -120,14 +139,31 @@
 * [Negation Example with valueset](Observation-negation-example.html)
 * [Negation Example with code](Observation-negation-with-code-example.html)
 
+<div class="new-content" markdown="1">
+**QICoreLaboratoryResultObservation**
+* [Glucose Lab Result Observation](Observation-laboratory-result-observation-example-blood-glucose.html)
+
+**QICoreObservationClinicalTestResult**
+* [Heart Rate Rhythm Clinical Test Observation](Observation-clinical-test-heart-rate-rhythm.html)
+
+**QICoreObservationImagingResult**
+* [Clinical Imaging Xray Chest Findings Observation](Observation-imaging-result-xray-chest-findings.html)
+
+**QICoreObservationSurvey**
+* [10 minute Apgar Heart Rate Observation Survey](Observation-example-survey-10-minute-apgar-heart-rate.html)
+</div>
+
 **QICoreOrganization**
-* [HL7 Example](Organization-example.html)
+* [HL7 Organization Example](Organization-example.html)
 
 **QICorePatient**
 * [Basic Patient Example](Patient-example.html)
 
 **QICorePractitioner**
 * [Referring Practitioner Example](Practitioner-example.html)
+
+**QICorePractitionerRole**
+* [PractitionerRole Example](StructureDefinition-qicore-practitionerrole.html)
 
 **QICoreProcedure**
 * [Appendectomy Example](Procedure-example.html)
