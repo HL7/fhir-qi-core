@@ -79,29 +79,6 @@
         ]
       },
       {
-        "id": "CarePlan.subject",
-        "path": "CarePlan.subject",
-        "definition": "Who care plan is for.",
-        "requirements": "Identifies the patient or group whose intended care is described by the plan.",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-            ]
-          }
-        ],
-        "mustSupport": true,
-        "mapping": [
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "CarePlan.subject"
-          }
-        ]
-      },
-      {
         "id": "CarePlan.category",
         "path": "CarePlan.category",
         "slicing": {
@@ -224,6 +201,29 @@
           {
             "identity": "argonaut-dq-dstu2",
             "map": "CarePlan.category"
+          }
+        ]
+      },
+      {
+        "id": "CarePlan.subject",
+        "path": "CarePlan.subject",
+        "definition": "Who care plan is for.",
+        "requirements": "Identifies the patient or group whose intended care is described by the plan.",
+        "min": 1,
+        "max": "1",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport": true,
+        "mapping": [
+          {
+            "identity": "argonaut-dq-dstu2",
+            "map": "CarePlan.subject"
           }
         ]
       }

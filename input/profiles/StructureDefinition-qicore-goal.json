@@ -57,16 +57,6 @@
   "differential" : {
     "element" : [
       {
-        "id" : "Goal",
-        "path" : "Goal",
-        "mustSupport" : false
-      },
-      {
-        "id" : "Goal.id",
-        "path" : "Goal.id",
-        "mustSupport" : false
-      },
-      {
         "id" : "Goal.extension:reasonRejected",
         "path" : "Goal.extension",
         "sliceName" : "reasonRejected",
@@ -88,11 +78,6 @@
         }
       },
       {
-        "id" : "Goal.lifecycleStatus",
-        "path" : "Goal.lifecycleStatus",
-        "mustSupport" : true
-      },
-      {
         "id" : "Goal.achievementStatus",
         "path" : "Goal.achievementStatus",
         "mustSupport" : true
@@ -105,16 +90,6 @@
           "strength" : "preferred",
           "description" : "Codes for grouping and sorting goals.",
           "valueSet" : "http://hl7.org/fhir/ValueSet/goal-category"
-        }
-      },
-      {
-        "id" : "Goal.description",
-        "path" : "Goal.description",
-        "mustSupport" : true,
-        "binding": {
-          "strength": "extensible",
-          "description": "Value set to describe the Goal. Allowed to use .description.text with or without .description.coding.",
-          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-goal-description"
         }
       },
       {
@@ -185,9 +160,7 @@
                 "valueBoolean" : true
               }
             ],
-            "code" : "date",
-            "mustSupport" : true
-
+            "code" : "date"
           },
           {
             "extension" : [
@@ -230,10 +203,11 @@
           {
             "code" : "Reference",
             "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement",
-              "http://hl7.org/fhir/StructureDefinition/NutritionOrder",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest",
               "http://hl7.org/fhir/StructureDefinition/RiskAssessment"
             ]

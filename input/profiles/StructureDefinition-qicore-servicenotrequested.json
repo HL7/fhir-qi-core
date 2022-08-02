@@ -72,20 +72,6 @@
   "differential" : {
     "element" : [
       {
-        "id" : "ServiceRequest",
-        "path" : "ServiceRequest",
-        "constraint" : [
-          {
-            "key" : "snr-1",
-            "severity" : "error",
-            "human" : "To indicate what service was not requested, either at least one coding in the code or a notDoneValueSet extension shall be provided",
-            "expression" : "code.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor code.coding.exists()",
-            "xpath" : "exists(f:extension)"
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
         "id" : "ServiceRequest.extension:approachBodyStructure",
         "path" : "ServiceRequest.extension",
         "sliceName" : "approachBodyStructure",
@@ -213,25 +199,6 @@
           "snr-1"
         ],
         "mustSupport" : true
-      },
-      {
-        "id" : "ServiceRequest.modifierExtension:isElective",
-        "path" : "ServiceRequest.modifierExtension",
-        "sliceName" : "isElective",
-        "comment" : "The reason this extension is a modifier is because, if true, this element marks the specified request as elective.",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-isElective"
-            ]
-          }
-        ],
-        "mustSupport" : true,
-        "isModifier" : true,
-        "isModifierReason" : "The reason this extension is a modifier is because, if true, this element marks the specified request as elective."
       },
       {
         "id" : "ServiceRequest.subject",

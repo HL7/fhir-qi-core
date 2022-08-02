@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Condition xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-  <id value="example-2"/>
+  <id value="example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis"/>
   </meta>
@@ -35,6 +35,14 @@
       </coding>
       <text value="Burnt Ear"/>
     </code>
+    <bodySite>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="49521004"/>
+        <display value="Left external ear structure"/>
+      </coding>
+      <text value="Left Ear"/>
+    </bodySite>
     <subject>
       <reference value="Patient/example"/>
     </subject>
@@ -44,4 +52,13 @@
     <onsetDateTime value="2015-10-31"/>
     <abatementDateTime value="2015-12-01"/>
     <recordedDate value="2015-11-01"/>
+    <stage>
+      <summary>
+        <coding>
+          <system value="http://snomed.info/sct"/>
+          <code value="258219007"/>
+          <display value="stage II"/>
+        </coding>
+      </summary>
+    </stage>
   </Condition>
