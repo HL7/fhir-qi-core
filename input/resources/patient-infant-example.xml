@@ -1,47 +1,9 @@
-
+<?xml version="1.0" encoding="UTF-8"?>
 <Patient xmlns="http://hl7.org/fhir">
   <id value="infant-example"/>
   <meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/instance-name">
-      <valueString value="Patient Infant Example"/>
-    </extension>
-    <extension
-               url="http://hl7.org/fhir/StructureDefinition/instance-description">
-      <valueMarkdown
-                     value="This is a patient infant example for the *QI Core Patient Profile*."/>
-    </extension>
-    <profile
-             value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"/>
   </meta>
-  <extension url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-race">
-    <extension url="ombCategory">
-      <valueCoding>
-        <system value="urn:oid:2.16.840.1.113883.6.238"/>
-        <code value="2028-9"/>
-        <display value="Asian"/>
-      </valueCoding>
-    </extension>
-    <extension url="text">
-      <valueString value="Asian"/>
-    </extension>
-  </extension>
-  <extension
-             url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity">
-    <extension url="ombCategory">
-      <valueCoding>
-        <system value="urn:oid:2.16.840.1.113883.6.238"/>
-        <code value="2186-5"/>
-        <display value="Not Hispanic or Latino"/>
-      </valueCoding>
-    </extension>
-    <extension url="text">
-      <valueString value="Not Hispanic or Latino"/>
-    </extension>
-  </extension>
-  <extension
-             url="http://hl7.org/fhir/us/core/StructureDefinition/us-core-birthsex">
-    <valueCode value="M"/>
-  </extension>
   <identifier>
     <use value="usual"/>
     <type>
