@@ -67,41 +67,6 @@
         "mustSupport": false
       },
       {
-        "id": "DiagnosticReport.category",
-        "path": "DiagnosticReport.category",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "pattern",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1,
-        "mustSupport": true
-      },
-      {
-        "id": "DiagnosticReport.category",
-        "path": "DiagnosticReport.category",
-        "sliceName": "category",
-        "mustSupport": true,
-        "binding": {
-          "strength": "example",
-          "valueSet": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
-        }
-      },
-      {
-        "id": "DiagnosticReport.category_uscore",
-        "path": "DiagnosticReport.category",
-        "sliceName": "category_uscore",
-        "mustSupport": true,
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
-        }
-      },
-      {
         "id": "DiagnosticReport.extension:locationPerformed",
         "path": "DiagnosticReport.extension",
         "sliceName": "locationPerformed",
@@ -142,15 +107,50 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/CarePlan",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrec",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",
-              "http://hl7.org/fhir/StructureDefinition/NutritionOrder",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
             ]
           }
         ],
         "mustSupport": false
+      },
+      {
+        "id": "DiagnosticReport.category",
+        "path": "DiagnosticReport.category",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "pattern",
+              "path": "$this"
+            }
+          ],
+          "rules": "open"
+        },
+        "min": 1,
+        "mustSupport": true
+      },
+      {
+        "id": "DiagnosticReport.category",
+        "path": "DiagnosticReport.category",
+        "sliceName": "category",
+        "mustSupport": true,
+        "binding": {
+          "strength": "example",
+          "valueSet": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+        }
+      },
+      {
+        "id": "DiagnosticReport.category_uscore",
+        "path": "DiagnosticReport.category",
+        "sliceName": "category_uscore",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+        }
       },
       {
         "id": "DiagnosticReport.code",
@@ -340,7 +340,9 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-clinical-test",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-imaging"
             ]
           }
         ],
