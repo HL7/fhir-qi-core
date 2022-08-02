@@ -115,7 +115,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |*QuestionnaireResponse*|
 |[QICoreQuestionnaireResponse](StructureDefinition-qicore-questionnaireresponse.html)| [USCore QuestionnaireResponse]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-questionnaireresponse.html) |[QuestionnaireResponse]({{site.data.fhir.path}}questionnaireresponse.html)|
 |*RelatedPerson*|
-|[QICoreRelatedPerson](StructureDefinition-qicore-relatedperson.html)| |[RelatedPerson]({{site.data.fhir.path}}relatedperson.html)|
+|[QICoreRelatedPerson](StructureDefinition-qicore-relatedperson.html)|[USCore RelatedPerson]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-relatedperson.html) |[RelatedPerson]({{site.data.fhir.path}}relatedperson.html)|
 |*ServiceRequest*|
 |[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[USCore ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html)  |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |[QICoreServiceRequest](StructureDefinition-qicore-servicerequest.html)|[USCore ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html) |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
