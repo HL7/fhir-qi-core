@@ -59,6 +59,36 @@
         <code value="N"/>
       </coding>
     </relationship>
+    <name>
+      <family value="du Marché">
+        <!--    the "du" part is a family name prefix (VV in iso 21090)    -->
+        <extension url="http://hl7.org/fhir/StructureDefinition/humanname-own-prefix">
+          <valueString value="VV"/>
+        </extension>
+      </family>
+      <given value="Bénédicte"/>
+    </name>
+    <telecom>
+      <system value="phone"/>
+      <value value="+33 (237) 998327"/>
+    </telecom>
+    <address>
+      <use value="home"/>
+      <type value="both"/>
+      <line value="534 Erewhon St"/>
+      <city value="PleasantVille"/>
+      <district value="Rainbow"/>
+      <state value="VT"/>
+      <postalCode value="3999"/>
+      <period>
+        <start value="1974-12-25"/>
+      </period>
+    </address>
+    <gender value="female"/>
+    <period>
+      <!--    The contact relationship started in 2012    -->
+      <start value="2012"/>
+    </period>
   </contact>
   <managingOrganization>
     <reference value="Organization/example"/>

@@ -5,7 +5,7 @@
     "version": "5.0.0",
     "name": "QICoreCareTeam",
     "title": "QICore CareTeam",
-    "status": "draft",
+    "status": "active",
     "experimental": false,
     "date": "2018-08-22",
     "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
@@ -57,10 +57,8 @@
     "differential": {
         "element": [
             {
-                "id": "CareTeam",
-                "path": "CareTeam",
-                "definition": "The QI Core CareTeam Profile is based upon the US Core CareTeam Resource.",
-                "mustSupport": false
+              "id" : "CareTeam",
+              "path" : "CareTeam"
             },
             {
                 "id": "CareTeam.text.div",
@@ -72,8 +70,7 @@
             {
                 "id": "CareTeam.subject",
                 "path": "CareTeam.subject",
-                "min": 1,
-                "max": "1",
+                "mustSupport": true,
                 "type": [
                     {
                         "code": "Reference",
@@ -81,21 +78,12 @@
                             "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
                         ]
                     }
-                ],
-                "mustSupport": true
-            },
-            {
-                "id": "CareTeam.participant",
-                "path": "CareTeam.participant",
-                "min": 1,
-                "max": "*",
-                "mustSupport": true
+                ]
             },
             {
                 "id": "CareTeam.participant.member",
                 "path": "CareTeam.participant.member",
-                "min": 1,
-                "max": "1",
+                "mustSupport": true,
                 "type": [
                     {
                         "code": "Reference",
@@ -105,8 +93,7 @@
                             "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
                         ]
                     }
-                ],
-                "mustSupport": true
+                ]
             }
         ]
     }

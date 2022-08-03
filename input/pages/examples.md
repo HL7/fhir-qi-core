@@ -24,7 +24,7 @@
 
 <div class="new-content" markdown="1">
 **QICoreClaimResponse**
-* [Simple Vision ClaimResponse]
+* [Simple Vision ClaimResponse](ClaimResponse-example.html)
 </div>
 
 **QICoreCommunication**
@@ -189,7 +189,7 @@
 
 **QICoreServiceRequest**
 * [Request for Appendectomy Example](ServiceRequest-example.html)
-* [Referral for Procedure Example](ServiceRequest-referral-example.html)
+* [Request for Myringotomy Procedure Example](ServiceRequest-myringotomy-example.html)
 
 **QICoreSpecimen**
 * [Blood Sample Example](Specimen-example.html)
