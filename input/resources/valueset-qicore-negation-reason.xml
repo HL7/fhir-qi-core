@@ -1,0 +1,41 @@
+<ValueSet xmlns="http://hl7.org/fhir">
+  <id value="qicore-negation-reason"/>
+  <url value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"/>
+  <version value="5.0.0"/>
+  <name value="NegationReasonCodes"/>
+  <title value="Negation Reason Codes"/>
+  <status value="active"/>
+  <date value="2018-12-05"/>
+  <publisher value="http://www.hl7.org/Special/committees/cqi/index.cfm"/>
+  <contact>
+    <name value="Clinical Quality Information WG"/>
+    <telecom>
+      <system value="url"/>
+      <value value="http://www.hl7.org/Special/committees/cqi"/>
+    </telecom>
+  </contact>
+  <description
+               value="This value set defines the set of codes that can be used to indicate the reason an action was not taken"/>
+  <jurisdiction>
+    <coding>
+      <system value="urn:iso:std:iso:3166"/>
+      <code value="US"/>
+    </coding>
+  </jurisdiction>
+  <purpose
+           value="This value set was defined to support identifying any of the possible negation reason codes as part of QICore profiles. The value set is composed of the codes from [Medical Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.56), [Patient Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.58), and [System Reason](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1009) as defined and available in the Value Set Authority Center."/>
+  <compose>
+    <include>
+      <valueSet
+                value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.56"/>
+      </include>
+      <include>
+      <valueSet
+                value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1021.58"/>
+      </include>
+      <include>
+      <valueSet
+                value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1009"/>
+    </include>
+  </compose>
+</ValueSet>
