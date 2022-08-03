@@ -189,7 +189,7 @@
 
 **QICoreServiceRequest**
 * [Request for Appendectomy Example](ServiceRequest-example.html)
-* [Referral for Procedure Example](ServiceRequest-referral-example.html)
+* [Request for Myringotomy Procedure Example](ServiceRequest-myringotomy-example.html)
 
 **QICoreSpecimen**
 * [Blood Sample Example](Specimen-example.html)

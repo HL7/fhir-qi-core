@@ -1,27 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-    <id value="referral-example"/>
+    <id value="myringotomy-example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"/>
   </meta>
-    <extension url="http://hl7.org/fhir/StructureDefinition/request-statusReason">
-	    <valueCodeableConcept>
-	      <coding>
-	        <system value="http://snomed.info/sct" />
-	        <code value="609589008" />
-	        <display value="Refused by parents of subject" />
-	      </coding>
-	    </valueCodeableConcept>
-    </extension>
-    <!-- NOTE: This isn't quite right, it wasn't revoked by the authorizing provider, it was refused by the patient... not clear how to represent this in the R4 resource -->
-    <status value="revoked" />
-    <intent value="order" />
+    <status value="on-hold"/>
+    <intent value="order"/>
     <category>
-        <coding>
-          <system value="http://snomed.info/sct" />
-          <code value="700274009"/>
-          <display value="Referral for procedure" />
-        </coding>
+     <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="387713003"/>
+        <display value="Surgical Procedure"/>
+      </coding>
     </category>
     <priority value="routine" />
     <code>
@@ -38,6 +28,7 @@
         <reference value="Encounter/example"/>
     </encounter>
     <occurrenceDateTime value="2014-02-13" />
+    <asNeededBoolean value="true"/>
     <authoredOn value="2014-02-14" />
     <!--<requester>-->
         <!--<agent>-->
