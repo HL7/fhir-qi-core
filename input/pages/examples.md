@@ -24,7 +24,7 @@
 
 <div class="new-content" markdown="1">
 **QICoreClaimResponse**
-* [Simple Vision ClaimResponse]
+* [Simple Vision ClaimResponse](ClaimResponse-example.html)
 </div>
 
 **QICoreCommunication**
