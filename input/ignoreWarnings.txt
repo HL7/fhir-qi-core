@@ -17,12 +17,14 @@ WARNING: Coverage/example: Coverage.type: ValueSet https://cts.nlm.nih.gov/fhir/
 WARNING: Coverage/example-new: Coverage.type: ValueSet https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 not found by validator
 WARNING: StructureDefinition/qicore-coverage: StructureDefinition.differential.element[1].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
 WARNING: StructureDefinition/qicore-coverage: StructureDefinition.snapshot.element[11].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
+WARNING: Encounter/example: Encounter.type[0]: [Unable to determine whether the provided codes are in the value set http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type because the value set or a code system it depends on is not known to the validator, Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated]
 INFORMATION: Coverage/example: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
 INFORMATION: Coverage/example-new: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
 WARNING: StructureDefinition/qicore-medicationdispense: StructureDefinition.differential.element[3].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationDispense.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[14].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationDispense.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationstatement: StructureDefinition.differential.element[2].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationStatement.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationstatement: StructureDefinition.snapshot.element[15].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationStatement.medication[x] could not be resolved
+INFORMATION: DiagnosticReport/note-example: DiagnosticReport.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note
 
 # The following errors in the examples are being generated due to no code within the codeable concept but referencing a valueset instead, consistent with the negation pattern
 WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6)
@@ -52,6 +54,7 @@ INFORMATION: Observation/example: Observation.component[0].code.coding[2]: Code 
 INFORMATION: Observation/example-odh: Observation.value.ofType(CodeableConcept).coding[0]: Code System URI 'https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.114222.4.5.327' is unknown so the code cannot be validated
 INFORMATION: ServiceRequest/appropriateness-example: ServiceRequest.code.coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 INFORMATION: Specimen/example: Specimen.collection.extension[0].value.ofType(CodeableConcept).coding[0]: Code System URI 'http://example.com' is unknown so the code cannot be validated
+
 
 # The following information messages are being generated from the base resource snapshot
 INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[28].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
