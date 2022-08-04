@@ -103,7 +103,9 @@
 
 **QICoreMedicationAdministration**
 * [Inhalant Example](MedicationAdministration-example.html)
+<div class="new-content" markdown="1">
 * [Cumulative Duration Example](MedicationAdministration-cmd-example.html)
+</div>
 
 **QICoreMedicationAdministrationNotDone**
 * [Medication not administered using a value set to indicate what was not administered](MedicationAdministration-negation-example.html)
@@ -111,7 +113,9 @@
 
 **QICoreMedicationDispense**
 * [Penicillin MedicationDispense Example](MedicationDispense-example.html)
+<div class="new-content" markdown="1">
 * [Cumulative Medication Dispense Example](MedicationDispense-cmd-example.html)
+</div>
 
 **QICoreMedicationDispenseNotDone**
 * [Negation Example with valueset](MedicationDispense-negation-example.html)
@@ -138,7 +142,6 @@
 
 <div class="new-content" markdown="1">
 **QICoreObservation**
-* [ODH Observation Example](Observation-example.html)
 * [Frailty Observation Example](Observation-example-frailty.html)
 * [Gestational Age at Birth Example](Observation-example-gestation.html)
 </div>
@@ -166,6 +169,8 @@
 
 **QICorePatient**
 * [Basic Patient Example](Patient-example.html)
+* [Senior Patient Example](Patient-example-2.html)
+* [Infant Patient Example](Patient-infant-example.html)
 
 **QICorePractitioner**
 * [Referring Practitioner Example](Practitioner-example.html)
@@ -203,3 +208,8 @@
 **QICoreTaskNotDone**
 * [Task not done using a value set to indicate what was not done](Task-negation-example.html)
 * [Task not done using a code to indicate what was not done](Task-negation-with-code-example.html)
+
+<div class="new-content" markdown="1">
+**Additional Examples**
+* [ODH Example](Observation-example.html)
+</div>
