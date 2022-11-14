@@ -96,7 +96,7 @@ This initiative began in 2013 with the creation of the Quality Improvement Domai
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
 quality measures (CQM) and CDS, thus providing a common foundation for reusability. To the extent possible, QI-Core
 derives content from USCore profiles and extensions. The expectation is that QI-Core will continue to grow over time as
-USCore grows, and by incorporating needed extensions with broad applicability. There may also be further extensions and
+USCore grows by incorporating needed extensions with broad applicability. There may also be further extensions and
 coordinated  profiles in specific domains beyond QI-Core, e.g., radiology-specific profiles. The CQI and CDS Work Groups
 coordinate with HL7 Work Groups that manage specific FHIR resources to align definitions and value sets that include
 concepts required for CDS and retrospective CQM use cases. When additional classes and attributes are needed for
