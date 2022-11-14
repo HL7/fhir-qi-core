@@ -1,0 +1,124 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-task",
+   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-task",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreTask",
+  "title" : "QICore Task",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of Task for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Task",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Task",
+  "derivation" : "constraint",
+   "differential" : {
+    "element" : [
+      {
+        "id" : "Task",
+        "path" : "Task",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Task.identifier",
+        "path" : "Task.identifier",
+        "min" : 1,
+        "max" : "*",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Task.status",
+        "path" : "Task.status",
+        "short" : "Draft​ | Requested​ | Received​ | Accepted​ | Ready​ | Cancelled​ | In-progress​ | On-hold​ | Failed​ |",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Task.intent",
+        "path" : "Task.intent",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Task.priority",
+        "path" : "Task.priority",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Task.code",
+        "path" : "Task.code",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "Codes to identify what the task involves. These will typically be specific to a particular workflow",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/task-code"
+        }
+      },
+      {
+        "id" : "Task.executionPeriod",
+        "path" : "Task.executionPeriod",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Task.reasonCode",
+        "path" : "Task.reasonCode",
+        "mustSupport" : false
+      }
+    ]
+  }
+}
