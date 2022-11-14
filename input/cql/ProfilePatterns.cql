@@ -270,7 +270,7 @@ define Observation:
 
 // QICoreObservationCancelled
 // @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled
-define ObservationCncelled:
+define ObservationCancelled:
   [Observation] O
     where O.status = 'cancelled'
 
