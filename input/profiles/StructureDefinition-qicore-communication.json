@@ -1,0 +1,178 @@
+
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-communication",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreCommunication",
+  "title": "QICore Communication",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of Communication for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Communication",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Communication",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "Communication",
+        "path" : "Communication",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Communication.status",
+        "path" : "Communication.status",
+        "short" : "preparation | in-progress | on-hold | stopped | completed | entered-in-error | unknown",
+
+        "mustSupport" : true
+      },
+      {
+        "id" : "Communication.statusReason",
+        "path" : "Communication.statusReason",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/communication-not-done-reason"
+        }
+      },
+      {
+        "id" : "Communication.category",
+        "path" : "Communication.category",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/communication-category"
+        }
+      },
+      {
+        "id" : "Communication.medium",
+        "path" : "Communication.medium",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Communication.subject",
+        "path" : "Communication.subject",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/StructureDefinition/Group"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Communication.encounter",
+        "path" : "Communication.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Communication.sent",
+        "path" : "Communication.sent",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Communication.received",
+        "path" : "Communication.received",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Communication.recipient",
+        "path" : "Communication.recipient",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
+              "http://hl7.org/fhir/StructureDefinition/Group"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Communication.sender",
+        "path" : "Communication.sender",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Communication.reasonCode",
+        "path" : "Communication.reasonCode",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/clinical-findings"
+        }
+      }
+    ]
+  }
+}
