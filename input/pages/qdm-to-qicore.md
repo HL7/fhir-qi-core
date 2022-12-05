@@ -17,8 +17,8 @@ extensions represented in QI-Core.
 This version of QI Core updates mappings from QI-Core to QDM based on
 US Core R5 and FHIR R4 and QDM version 5.6. Reviewers can evaluate the
 comparisons, represented in the *Mappings* table for each QI-Core
-resource. Each *mapping* table shows the QI-Core concept in the
-left-hand column and the corresponding QDM datatype(s) and attributes in
+resource. Each *mapping* table shows the QI-Core concept in the 
+right-hand column and the corresponding QDM datatype(s) and attributes in
 the left-hand column. Only QI-Core metadata concepts represented in QDM
 are included in the *mapping* tables. The effort mapped the intended
 meaning of each QDM datatype and attribute to a QI-Core resource
