@@ -201,7 +201,7 @@ For any observations _not_ done, including the observations identified in the pr
 
 #### Observation Vital Signs - Blood Pressure Example
 
-Source of example based on: CMS165 [ControllingHighBloodPressureFHIR](https://github.com/cqframework/ecqm-content-r4/blob/04f5c4919ee8a56e24484c3269f74d47b03e3d75/input/resources/measure/ControllingHighBloodPressureFHIR.json)
+Source of example based on: CMS165 ControllingHighBloodPressureFHIR
 
 ```cql
 code "Blood pressure panel with all children optional": '85354-9' from "LOINC" display 'Blood pressure panel with all children optional'
@@ -235,7 +235,7 @@ define function "GetEncounter"(ref Reference):
 
 #### Inpatient Encounter Example
 
-Source of example based on : [MATGlobalCommonFunctionsFHIR4](https://github.com/cqframework/ecqm-content-r4/blob/04f5c4919ee8a56e24484c3269f74d47b03e3d75/input/cql/MATGlobalCommonFunctionsFHIR4.cql#:~:text=define%20%22Inpatient%20Encounter%22%3A)
+Source of example based on: MATGlobalCommonFunctionsFHIR4
 
 ```cql
 define "Inpatient Encounter":
@@ -247,7 +247,7 @@ define "Inpatient Encounter":
 
 #### Inpatient Encounter with Principal Diagnosis
 
-Source of example based on : [TJCOverallFHIR](https://github.com/cqframework/ecqm-content-r4/blob/04f5c4919ee8a56e24484c3269f74d47b03e3d75/input/cql/TJCOverallFHIR.cql#:~:text=define%20%22Ischemic%20Stroke%20Encounter%22)
+Source of example based on: TJCOverallFHIR
 
 ```cql
 define "Ischemic Stroke Encounter":
@@ -257,7 +257,7 @@ define "Ischemic Stroke Encounter":
 
 #### Inpatient Encounter with Principal Procedure
 
-Source of example based on : [IntensiveCareUnitVenousThromboembolismProphylaxisFHIR](https://github.com/cqframework/ecqm-content-r4-2022/blob/39d23214ebce7b6eccfefa6563cbceb6a65ebedf/input/cql/IntensiveCareUnitVenousThromboembolismProphylaxisFHIR.cql#:~:text=define%20%22Encounter%20With%20First%20ICU%20Stay%20With%20Principal%20Procedure%20of%20SCIP%20VTE%20Selected%20Surgery%22%3A)
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
 define "Encounter With First ICU Stay With Principal Procedure of SCIP VTE Selected Surgery":
@@ -275,7 +275,7 @@ define "Encounter With First ICU Stay With Principal Procedure of SCIP VTE Selec
 
 ### Diagnosis Examples
 
-Source of example based on : [AntithromboticTherapyByEndofHospitalDay2FHIR4](https://github.com/cqframework/ecqm-content-r4-2022/blob/39d23214ebce7b6eccfefa6563cbceb6a65ebedf/input/cql/AntithromboticTherapyByEndofHospitalDay2FHIR4.cql#:~:text=define%20%22Encounter%20with%20Thrombolytic%20Therapy%20Prior%20to%20Arrival%22)
+Source of example based on: AntithromboticTherapyByEndofHospitalDay2FHIR4
 
 ```cql
 define "Encounter with Thrombolytic Therapy Prior to Arrival":
@@ -289,7 +289,7 @@ Note that verificationStatus is not being checked due to feedback received that 
 
 ### Medications
 
-Source of example based on : [IntensiveCareUnitVenousThromboembolismProphylaxisFHIR](https://github.com/cqframework/ecqm-content-r4-2022/blob/39d23214ebce7b6eccfefa6563cbceb6a65ebedf/input/cql/IntensiveCareUnitVenousThromboembolismProphylaxisFHIR.cql#:~:text=return%20QualifyingEncounterICU-,define,-%22VTE%20Prophylaxis)
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
 define "VTE Prophylaxis by Medication Administered or Device Applied":
@@ -312,7 +312,7 @@ define "VTE Prophylaxis by Medication Administered or Device Applied":
 
 #### Medications at discharge
 
-Source of example based on : [DischargedonAntithromboticTherapyFHIR4](https://github.com/cqframework/ecqm-content-r4-2022/blob/39d23214ebce7b6eccfefa6563cbceb6a65ebedf/input/cql/DischargedonAntithromboticTherapyFHIR4.cql#L60:~:text=SDE%20Sex%22-,define,-%22Antithrombotic%20Therapy)
+Source of example based on: DischargedonAntithromboticTherapyFHIR4
 
 ```cql
 define "Antithrombotic Therapy at Discharge":
@@ -328,7 +328,7 @@ define "Antithrombotic Therapy at Discharge":
 
 #### Medication not discharged
 
-Source of example based on : [DischargedonAntithromboticTherapyFHIR](https://github.com/cqframework/ecqm-content-r4/blob/04f5c4919ee8a56e24484c3269f74d47b03e3d75/input/cql/DischargedonAntithromboticTherapyFHIR.cql#:~:text=IschemicStrokeEncounter.period-,define,-%22Antithrombotic%20Not)
+Source of example based on: DischargedonAntithromboticTherapyFHIR
 
 ```cql
 define "Antithrombotic Not Given at Discharge":
@@ -343,7 +343,7 @@ define "Antithrombotic Not Given at Discharge":
 
 #### Medication not administered or ordered
 
-Source of example based on : [IntensiveCareUnitVenousThromboembolismProphylaxisFHIR4](https://github.com/cqframework/ecqm-content-r4-2022/blob/39d23214ebce7b6eccfefa6563cbceb6a65ebedf/input/cql/IntensiveCareUnitVenousThromboembolismProphylaxisFHIR4.cql#:~:text=%22%20(%20QualifyingEncounterICU%20)-,define,-%22No%20VTE)
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR4
 
 ```cql
 define "No VTE Prophylaxis Medication Administered or Ordered":
@@ -378,7 +378,7 @@ define "No VTE Prophylaxis Medication Administered or Ordered":
 
 ### Procedures/Interventions
 
-Source of example based on : [IntensiveCareUnitVenousThromboembolismProphylaxisFHIR](https://github.com/cqframework/ecqm-content-r4-2022/blob/39d23214ebce7b6eccfefa6563cbceb6a65ebedf/input/cql/IntensiveCareUnitVenousThromboembolismProphylaxisFHIR.cql#:~:text=define%20%22-,Intervention,-Comfort%20Measures%22)
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
 define "Intervention Comfort Measures":
@@ -393,7 +393,7 @@ define "Intervention Comfort Measures":
 
 #### Device Use
 
-Source of example based on : [IntensiveCareUnitVenousThromboembolismProphylaxisFHIR](https://github.com/cqframework/ecqm-content-r4-2022/blob/master/input/cql/IntensiveCareUnitVenousThromboembolismProphylaxisFHIR.cql#:~:text=%22VTE%20Prophylaxis%20by%20Medication-,Administered,-or%20Device%20Applied%22%3A)
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
 define "VTE Prophylaxis by Medication Administered or Device Applied":
@@ -417,7 +417,7 @@ define "VTE Prophylaxis by Medication Administered or Device Applied":
 
 #### Device Not Used or Ordered
 
-Source of example based on : [IntensiveCareUnitVenousThromboembolismProphylaxisFHIR](https://github.com/cqframework/ecqm-content-r4-2022/blob/master/input/cql/IntensiveCareUnitVenousThromboembolismProphylaxisFHIR.cql#:~:text=define%20%22No%20VTE%20Prophylaxis%20Device%20Applied%20or%20Ordered%22)
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
 define "No VTE Prophylaxis Device Applied or Ordered":
