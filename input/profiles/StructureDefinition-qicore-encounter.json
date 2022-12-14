@@ -90,6 +90,16 @@
 				"mustSupport": true
 			},
 			{
+				"id": "Encounter.priority",
+				"path": "Encounter.priority",
+				"mustSupport": true,
+				"binding": {
+					"strength": "preferred",
+					"description": "A code or set of codes (e.g., for routine, emergency,) specifying the urgency under which the Act happened, can happen, is happening, is intended to happen, or is requested/demanded to happen.\r\n\r\n*Discussion:* This attribute is used in orders to indicate the ordered priority, and in event documentation it indicates the actual priority used to perform the act. In definition mood it indicates the available priorities.",
+					"valueSet": "http://terminology.hl7.org/ValueSet/v3-ActPriority" 
+				}
+			},
+			{
 				"id": "Encounter.subject",
 				"path": "Encounter.subject",
 				"type": [{
