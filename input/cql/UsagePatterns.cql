@@ -131,7 +131,7 @@ define "Dementia Medications Dispensed":
   ["MedicationDispense": "Dementia Medications"] MedicationDispense
     where MedicationDispense.status in { 'active', 'completed', 'on-hold' }
 
-// QICoreMedicationDispenseNotDone
+// QICoreMedicationDispenseDeclined
 define "Dementia Medications Not Dispensed":
   ["MedicationDispense": "Dementia Medications"] MedicationDispense
     where MedicationDispense.status = 'declined'
@@ -167,7 +167,7 @@ define "Pap Test with Results":
 		where PapTest.value is not null
 			and PapTest.status in { 'final', 'amended', 'corrected', 'preliminary' }
 
-// QICoreObservationNotDone
+// QICoreObservationCancelled
 
 // FHIR Vital Signs
 

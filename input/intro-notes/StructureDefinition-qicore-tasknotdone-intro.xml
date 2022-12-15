@@ -6,13 +6,13 @@
   </tr>
   </p>
 
-  <p>The Task and TaskNotDone profiles represent the positive and
+  <p>The Task and TaskRejected profiles represent the positive and
     negative statements for a task. To ensure instances retrieved meet
     negative intent, applications should check the status element as illustrated in
     this example:</p>
 
 <pre>
-<code>define TaskNotDone:
+<code>define TaskRejected:
   [Task] T
     where T.status = 'rejected'
 </code>
@@ -24,10 +24,10 @@
   <table>
     <tbody>
       <tr>
-          <td><a href="Task-negation-example.html">Task not done using a value set</a></td><td>Medication reconciliation not done due to patient declination; indicates that none of the tasks in the given not done value set were performed.</td>
+          <td><a href="Task-negation-example.html">Task rejected using a value set</a></td><td>Medication reconciliation not done due to patient declination; indicates that none of the tasks in the given not done value set were performed.</td>
         </tr>
         <tr>
-          <td><a href="Task-negation-with-code-example.html">Task not done using a code</a></td><td>Medication reconciliation not done due to patient declination; indicates that the specific task, by code, was not done.</td>
+          <td><a href="Task-negation-with-code-example.html">Task rejected using a code</a></td><td>Medication reconciliation not done due to patient declination; indicates that the specific task, by code, was not done.</td>
       </tr>
     </tbody>
   </table>
