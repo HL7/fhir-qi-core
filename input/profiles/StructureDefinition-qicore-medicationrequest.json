@@ -4,7 +4,7 @@
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",
   "version" : "5.0.0",
   "name" : "QICoreMedicationRequest",
-  "title": "QICore MedicationRequest",
+  "title": "QICore Medication Request",
   "status" : "active",
   "experimental" : false,
   "date" : "2018-08-22",
@@ -76,6 +76,12 @@
           "valueSet" : "http://hl7.org/fhir/ValueSet/medicationrequest-category"
         }
       },
+       {
+        "id" : "MedicationRequest.status",
+        "path" : "MedicationRequest.status",
+        "short" : "active​ | on-hold​ | cancelled​ | entered-in-error | stopped​ | draft​ | unknown​", 
+        "mustSupport" : true
+      },
       {
         "id" : "MedicationRequest.doNotPerform",
         "path" : "MedicationRequest.doNotPerform",
@@ -84,6 +90,8 @@
             "code" : "boolean"
           }
         ],
+        "min" : 0,
+        "max" : "0",
         "fixedBoolean" : false,
         "mustSupport" : true
       },

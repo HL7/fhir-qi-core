@@ -69,7 +69,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |*MedicationDispense*|
 |[QICoreMedicationDispense](StructureDefinition-qicore-medicationdispense.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICoreMedicationDispenseDeclined](StructureDefinition-qicore-medicationdispensedeclined.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |*MedicationRequest*|
 |[QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html)| [USCoreMedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreMedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [USCoreMedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
@@ -79,7 +79,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreNutritionOrder](StructureDefinition-qicore-nutritionorder.html)| |[NutritionOrder]({{site.data.fhir.path}}nutritionorder.html)|
 |*Observation*|
 |[QICoreObservation](StructureDefinition-qicore-observation.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
-|[QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICoreLaboratoryResultObservation](StructureDefinition-qicore-observation-lab.html)| [USCore Laboratory Result Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICoreObservationClinicalTestResult](StructureDefinition-qicore-observation-clinical-test.html)| [USCore Observation Clincal Test Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-clinical-test.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICoreObservationImagingResult](StructureDefinition-qicore-observation-imaging.html)| [USCore Observation Imaging Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-imaging.html) |[Observation]({{site.data.fhir.path}}observation.html)|
@@ -125,7 +125,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreSubstance](StructureDefinition-qicore-substance.html)| |[Substance]({{site.data.fhir.path}}substance.html)|
 |*Task*|
 |[QICoreTask](StructureDefinition-qicore-task.html)| |[Task]({{site.data.fhir.path}}task.html)|
-|[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)| |[Task]({{site.data.fhir.path}}task.html)|
+|[QICoreTaskRejected](StructureDefinition-qicore-taskrejected.html)| |[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
 
@@ -136,7 +136,7 @@ There are a number of  QI-Core profiles inherit directly from US Core profiles, 
 
 Note to Implementers: QI-Core profiles have been developed with the principle that if the profiles only need to provide references to QI-Core Profiles, that is insufficient to require individual QI-Core profiles for all US Core profiles. There are edge cases using this approach where the FHIR validator would not validate an assumption made by the measure author, such as that an encounter traced through an observation is a QI-Core Encounter. We think that general validation of all the resources provided to the context of a measure evaluation can address that risk without the need for deriving specific profiles that only constraint reference types. We seek feedback on this point.
 
-This change will strengthen the requirement to use a QI-Core profile when using a base FHIR or US Core profile not formally defined in QI-Core to use QI-Core profiles as referenced resources if a QI-Core Profile exists for that resource.
+This change will strengthen the requirement to use a QI-Core profile when using a base FHIR or US Core profile not formally defined in QI-Core and to use QI-Core profiles as referenced resources if a QI-Core Profile exists for that resource.
 </div>
 <br>
 STU Note: Mappings from the QI Core Profiles to Quality Data Model have been removed from this version of the QI Core IG. The CQI Work Group is seeking implementer feedback on the value of these mappings and whether they would be useful to include in a future version of the specification. Mappings from QDM-to-QI-Core are still available on the [QDM-to-QI-Core](qdm-to-qicore.html) page, and the FHIR-to-QDM mappings are still available in the mappings section for each profile in the [STU3.2 version](http://hl7.org/fhir/us/qicore/STU32/) of this implementation guide.

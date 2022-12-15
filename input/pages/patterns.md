@@ -196,7 +196,7 @@ For observations that have established profiles in US-Core, QI-Core uses those p
 
 For all other observations, use the [QICore-Observation](StructureDefinition-qicore-observation.html) profile.
 
-For any observations _not_ done, including the observations identified in the profiles above, use the [Observation Not Done Profile](StructureDefinition-qicore-observationnotdone.html).
+For any observations _not_ done, including the observations identified in the profiles above, use the [Observation Not Done Profile](StructureDefinition-qicore-observationcancelled.html).
 
 #### Observation Vital Signs - Blood Pressure Example
 
