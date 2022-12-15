@@ -1,0 +1,219 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-medicationadministration",
+   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreMedicationAdministration",
+  "title" : "QICore Medication Administration",
+  "status" : "draft",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of MedicationAdministration for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "w3c.prov",
+      "uri" : "http://www.w3.org/ns/prov",
+      "name" : "W3C PROV"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MedicationAdministration",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationAdministration",
+  "derivation" : "constraint",
+   "differential" : {
+    "element" : [
+      {
+        "id" : "MedicationAdministration",
+        "path" : "MedicationAdministration",
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationAdministration.status",
+        "path" : "MedicationAdministration.status",
+        "short" : "in-progress | on-hold | completed | entered-in-error | stopped | unknown", 
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationAdministration.statusReason",
+        "path" : "MedicationAdministration.statusReason",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes"
+        }
+      },
+      {
+        "id" : "MedicationAdministration.medication[x]",
+        "path" : "MedicationAdministration.medication[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          },
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"
+            ]
+          }
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "The set of RxNorm codes to represent medications",
+          "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
+        }
+      },
+      {
+        "id" : "MedicationAdministration.subject",
+        "path" : "MedicationAdministration.subject",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationAdministration.context",
+        "path" : "MedicationAdministration.context",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter",
+              "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationAdministration.effective[x]",
+        "path" : "MedicationAdministration.effective[x]",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationAdministration.performer",
+        "path" : "MedicationAdministration.performer",
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationAdministration.performer.actor",
+        "path" : "MedicationAdministration.performer.actor",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationAdministration.reasonCode",
+        "path" : "MedicationAdministration.reasonCode",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/reason-medication-given-codes"
+        }
+      },
+      {
+        "id" : "MedicationAdministration.request",
+        "path" : "MedicationAdministration.request",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationAdministration.device",
+        "path" : "MedicationAdministration.device",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationAdministration.dosage",
+        "path" : "MedicationAdministration.dosage",
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationAdministration.dosage.route",
+        "path" : "MedicationAdministration.dosage.route",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
+        }
+      },
+      {
+        "id" : "MedicationAdministration.dosage.dose",
+        "path" : "MedicationAdministration.dosage.dose",
+        "mustSupport" : true
+      }
+    ]
+  }
+}

@@ -117,7 +117,7 @@
 * [Cumulative Medication Dispense Example](MedicationDispense-cmd-example.html)
 </div>
 
-**QICoreMedicationDispenseNotDone**
+**QICoreMedicationDispenseDeclined**
 * [Negation Example with valueset](MedicationDispense-negation-example.html)
 * [Negation Example with code](MedicationDispense-negation-with-code-example.html)
 
@@ -146,7 +146,7 @@
 * [Gestational Age at Birth Example](Observation-example-gestation.html)
 </div>
 
-**QICoreObservationNotDone**
+**QICoreObservationCancelled**
 * [Negation Example with valueset](Observation-negation-example.html)
 * [Negation Example with code](Observation-negation-with-code-example.html)
 
@@ -205,9 +205,9 @@
 **QICoreTask**
 * [Task Example](Task-example.html)
 
-**QICoreTaskNotDone**
-* [Task not done using a value set to indicate what was not done](Task-negation-example.html)
-* [Task not done using a code to indicate what was not done](Task-negation-with-code-example.html)
+**QICoreTaskRejected**
+* [Task rejected using a value set to indicate what was not done](Task-negation-example.html)
+* [Task rejected using a code to indicate what was not done](Task-negation-with-code-example.html)
 
 <div class="new-content" markdown="1">
 **Additional Examples**

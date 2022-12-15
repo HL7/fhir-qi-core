@@ -17,8 +17,8 @@ extensions represented in QI-Core.
 This version of QI Core updates mappings from QI-Core to QDM based on
 US Core R5 and FHIR R4 and QDM version 5.6. Reviewers can evaluate the
 comparisons, represented in the *Mappings* table for each QI-Core
-resource. Each *mapping* table shows the QI-Core concept in the
-left-hand column and the corresponding QDM datatype(s) and attributes in
+resource. Each *mapping* table shows the QI-Core concept in the 
+right-hand column and the corresponding QDM datatype(s) and attributes in
 the left-hand column. Only QI-Core metadata concepts represented in QDM
 are included in the *mapping* tables. The effort mapped the intended
 meaning of each QDM datatype and attribute to a QI-Core resource
@@ -232,11 +232,11 @@ single observable entity that is part of such a collection of questions.
 {: .grid}
 
 ##### Negation Rationale for Assessment, Performed
-Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html) and reference the code element specified in the respective observation profile:
-* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed as "cancelled"
-* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - When this was made available
-* [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
+Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html) and reference the code element specified in the respective observation profile:
+* [Observation.status](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.status) - Fixed as "cancelled"
+* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [Observation.issued](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.issued) - When this was made available
+* [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
 
 #### Assessment, Recommended
 
@@ -689,11 +689,11 @@ Individual studies may use the [US Core DiagnosticReport Profile for Report and 
 
 ##### Negation Rationale for Diagnostic Study, Performed
 
-Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html) and reference the code element specified in the respective observation profile:
-* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed value: "cancelled"
-* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - dateTime when this was made available
-* [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
+Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html) and reference the code element specified in the respective observation profile:
+* [Observation.status](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.status) - Fixed value: "cancelled"
+* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [Observation.issued](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.issued) - dateTime when this was made available
+* [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
 
 #### Diagnostic Study, Recommended
 
@@ -978,7 +978,7 @@ or clinical decision support (CDS) artifacts.
 | performer                      | [Immunization.performer.actor](StructureDefinition-qicore-immunization-definitions.html#Immunization.performer)     |                                                    |
 {: .grid}
 
-##### Immunization, Administered
+##### Negation Rationale for Immunization, Administered
 
 Use [QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html), which contains:
 * [Immunization.status](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.status) - Fixed value: "not-done"
@@ -1308,7 +1308,7 @@ Thus far, consensus opinion suggests that the US Core Observation-Lab Profile be
 | requester                                                         | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)                             |                                                              |
 {: .grid}
 
-##### Negation Rationale for Laboratory Test, Performed
+##### Negation Rationale for Laboratory Test, Order
 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
@@ -1355,11 +1355,11 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 ##### Negation Rationale for Laboratory Test, Performed
 
-Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed value: "cancelled"
-* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - dateTime when this was made available
-* [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
+Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html), which contains:
+* [Observation.status](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.status) - Fixed value: "cancelled"
+* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [Observation.issued](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.issued) - dateTime when this was made available
+* [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
 </div>
 
 #### Laboratory Test, Recommended
@@ -1554,7 +1554,7 @@ indicating information about medications that have been dispensed.
 | relatedTo                     | [MedicationDispense.authorizingPrescription](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.authorizingPrescription)                                          | New in QDM 5.6                                            |
 | relevant dateTime             | [MedicationDispense.whenHandedOver](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.whenHandedOver)                                              | When provided to patient or representative. Recommendations from pharmacy experts suggest that all medication dispensing events include a time for MedicationDispense.whenPrepared (i.e., when the dispensed product was packaged and reviewed. The time the medication was handed over to the patient or representative may not be populated. Note that medications not picked up are restocked such that a MedicationDispense.status = completed will assure the patient or representative received the medication even if whenHandedOver is not available. Therefore, measure developers should consider including the time whenPrepared if whenHandedOver is null and status = completed.                                |
 | relevant Period               | [MedicationRequest.dosageInstruction.timing](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing) with [Timing.repeat.bounds\[x\]](http://hl7.org/fhir/R4/datatypes-definitions.html#Timing.repeat.bounds_x_) Period     | The anticipated time from starting to stopping an ordered or dispensed medication can also be computed in an expression and derived from the duration attribute             |
-| author dateTime               | [MedicationDispense.extension:recorded](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.extension:recorded)                                                                |                                                                                                                                  |
+| author dateTime               | [MedicationDispense.extension:recorded](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.extension:recorded)                                                                |                                                                                                                                  |
 | Negation Rationale            | See Below |
 | Prescriber                    | [MedicationDispense.authorizingPrescription](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.authorizingPrescription)                            | Reference authorizing prescription (MedicationRequest) which contains Medication.Request.requester                               |
 |                               | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)                                                           |                                                                                                                                  |
@@ -1564,11 +1564,11 @@ indicating information about medications that have been dispensed.
 
 ##### Negation Rationale for Medication, Dispensed
 
-Use [QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed.html), which contains:
-* [MedicationDispense.status](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.status) - Fixed value: "declined"
-* [MedicationDispense.statusReason\[x\]](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.statusReason[x]) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [MedicationDispense.extension:recorded](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.extension:recorded) - dateTime when this was made available
-* [MedicationDispense.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotdispensed-definitions.html#MedicationDispense.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationDispense that was not performed
+Use [QICoreMedicationDispenseDeclined](StructureDefinition-qicore-medicationdispensedeclined.html), which contains:
+* [MedicationDispense.status](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.status) - Fixed value: "declined"
+* [MedicationDispense.statusReason\[x\]](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.statusReason[x]) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [MedicationDispense.extension:recorded](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.extension:recorded) - dateTime when this was made available
+* [MedicationDispense.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationDispense that was not performed
 
 The MedicationDispensed.status is fixed to "declined" which is defined as "The dispense was declined and not performed."  Considering the clinical workflow, only the pharmacist likely performs the "decline" status - based on medication interaction or on failure of insurance authorization (perhaps due to patient declining when the cost/co-pay is identified). But the patient would not enter the status, only the pharmacist would do so. The use case likely still works for the measure developer intent (that a valid reason exists for not dispensing the medication). However, if the measure developer wants to address patient's decisions to avoid dispensing, the patient will likely not show up at the pharmacy for the medication to be dispensed - hence, there will be no dispensing event. The best way to capture that scenario may be to assure the MedicationRequest includes a Patient reason.
 
@@ -1729,11 +1729,11 @@ QDM “Physical Exam, Performed” should reference the specific US Core vital s
 
 ##### Negation Rationale for Physical Exam, Performed
 
-Use [QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html), which contains:
-* [Observation.status](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.status) - Fixed value: "cancelled"
-* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [Observation.issued](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.issued) - dateTime when this was made available
-* [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationnotdone-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
+Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html), which contains:
+* [Observation.status](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.status) - Fixed value: "cancelled"
+* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [Observation.issued](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.issued) - dateTime when this was made available
+* [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Observation that was not performed
 
 
 #### Physical Exam, Recommended
@@ -1821,14 +1821,14 @@ from QDM Intervention or Procedure to the FHIR Task resource.  The
 mapping presented is from QDM to QI-Core referencing the FHIR Procedure
 resource.
 
-Consistent with the method for specifying QDM’s concept negation rationale, a [TaskNotDone](StructureDefinition-qicore-tasknotdone.html) is represented with the following content:
-* [Task.status](StructureDefinition-qicore-tasknotdone-definitions.html#Task.status) with valueset-task-status constrained to "rejected" (The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.)
-* [Task.statusReason](StructureDefinition-qicore-tasknotdone-definitions.html#Task.statusReason) binding to Negation Reason Codes (extensible)
-* [Task.code](StructureDefinition-qicore-tasknotdone-definitions.html#Task.code) (Codes to identify how the task manages fulfillment of activities - the specific choice depends on the measure context) the direct reference code, it needs a cardinality of 1..1 and binding to the code or value set (it would need a notDoneValueSet URL: [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to reference the value set not performed
-* [Task.focus](StructureDefinition-qicore-tasknotdone-definitions.html#Task.focus) to reference the Resource (likely procedure) the task was acting on
-* [Task.encounter](StructureDefinition-qicore-tasknotdone-definitions.html#Task.encounter) (Healthcare event during which this task originated)
-* [Task.for](StructureDefinition-qicore-tasknotdone-definitions.html#Task.for) (Beneficiary of the Task) Reference (qicore-patient)
-* [Task.executionPeriod](StructureDefinition-qicore-tasknotdone-definitions.html#Task.executionPeriod) for the period/dateTime - the timing the task was rejected and the reason.
+Consistent with the method for specifying QDM’s concept negation rationale, a [TaskRejected](StructureDefinition-qicore-taskrejected.html) is represented with the following content:
+* [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) with valueset-task-status constrained to "rejected" (The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.)
+* [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) binding to Negation Reason Codes (extensible)
+* [Task.code](StructureDefinition-qicore-taskrejected-definitions.html#Task.code) (Codes to identify how the task manages fulfillment of activities - the specific choice depends on the measure context) the direct reference code, it needs a cardinality of 1..1 and binding to the code or value set (it would need a notDoneValueSet URL: [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to reference the value set not performed
+* [Task.focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) to reference the Resource (likely procedure) the task was acting on
+* [Task.encounter](StructureDefinition-qicore-taskrejected-definitions.html#Task.encounter) (Healthcare event during which this task originated)
+* [Task.for](StructureDefinition-qicore-taskrejected-definitions.html#Task.for) (Beneficiary of the Task) Reference (qicore-patient)
+* [Task.executionPeriod](StructureDefinition-qicore-taskrejected-definitions.html#Task.executionPeriod) for the period/dateTime - the timing the task was rejected and the reason.
 
 #### Procedure Priority
 

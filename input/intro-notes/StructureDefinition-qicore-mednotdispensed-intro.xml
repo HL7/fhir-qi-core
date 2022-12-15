@@ -6,13 +6,13 @@
   </tr>
   </p>
 
-  <p>The MedicationDispense and MedicationDispenseNotDone profiles represent the positive and
+  <p>The MedicationDispense and MedicationDispenseDeclined profiles represent the positive and
     negative statements for a medication dispensing event. To ensure instances retrieved meet
     negative intent, applications should check the status element as illustrated in
     this example:</p>
 
   <pre>
-<code>define MedicationDispenseNotDone:
+<code>define MedicationDispenseDeclined:
   [MedicationDispense] D
     where D.status in { 'cancelled', 'declined' }
 </code>
