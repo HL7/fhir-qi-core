@@ -196,9 +196,9 @@ define MedicationDispense:
   [MedicationDispense] D
     where D.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
 
-// QICoreMedicationDispenseNotDone
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotdispensed
-define MedicationDispenseNotDone:
+// QICoreMedicationDispenseDeclined
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedeclined
+define MedicationDispenseDeclined:
   [MedicationDispense] D
     where D.status in { 'cancelled', 'declined' }
 
@@ -279,9 +279,9 @@ define Observation:
   [Observation] O
     where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
 
-// QICoreObservationNotDone
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationnotdone
-define ObservationNotDone:
+// QICoreObservationCancelled
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled
+define ObservationCancelled:
   [Observation] O
     where O.status = 'cancelled'
 
@@ -442,10 +442,10 @@ define Task:
   [Task] T
     where T.status in { 'draft', 'requested', 'received', 'accepted', 'ready', 'in-progress', 'on-hold', 'completed' }
 
-// QICoreTaskNotDone
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-tasknotdone
+// QICoreTaskRejected
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected
 // TODO: What about cancelled and failed?
-define TaskNotDone:
+define TaskRejected:
   [Task] T
     where T.status = 'rejected'
 
