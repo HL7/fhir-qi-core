@@ -24,7 +24,7 @@ These value sets have been defined for this implementation guide.
 	</tbody>
 </table>
 
-[QICore Encounter Clinical Discharge Disposition Codes](ValueSet-qicore-encounter-discharge-disposition.html)
+[Clinical Discharge Disposition Codes](http://terminology.hl7.org/ValueSet/clinical-discharge-disposition)
 {: .new-content}
 
 ### CodeSystem Resources

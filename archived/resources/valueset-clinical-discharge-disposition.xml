@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <ValueSet xmlns="http://hl7.org/fhir">
-  <id value="qicore-encounter-discharge-disposition"/>
+  <id value="clinical-discharge-disposition"/>
   <meta>
     <profile value="http://hl7.org/fhir/StructureDefinition/shareablevalueset"/>
   </meta>
-  <url value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-encounter-discharge-disposition"/>
+  <url value="http://terminology.hl7.org/ValueSet/clinical-discharge-disposition"/>
+  <identifier>
+  	<use value="old"/>
+    <value value="http://hl7.org/fhir/us/qicore/ValueSet/clinical-discharge-disposition"/>
+ </identifier>
   <version value="1.0.0"/>
-  <name value="QICoreEncounterClinicalDischargeDisposition"/>
-  <title value="QICore Encounter Clinical Discharge Disposition Codes"/>
-  <status value="draft"/>
+  <name value="ClinicalDischargeDisposition"/>
+  <title value="Clinical Discharge Disposition"/>
+  <status value="active"/>
   <experimental value="false"/>
   <date value="2022-07-04"/>
   <publisher value="Health Level Seven, Inc. - CQI WG"/>
@@ -19,7 +23,7 @@
       <value value="http://hl7.org/special/committees/CQI"/>
     </telecom>
   </contact>
-  <description value="This value set defines a set of codes that can be used to where the patient left the hospital."/>
+  <description value="This value set defines a set of codes that can be used to where the patient left the hospital. Note that this value set explicitly removes 'oth' (Other) to allow the binding strength to be extensible and therefore allow the exchange of additional concepts without requiring mapping to 'oth.'"/>
   <compose>
     <include>
       <system value="http://terminology.hl7.org/CodeSystem/discharge-disposition"/>

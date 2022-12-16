@@ -1,0 +1,229 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-devicenotrequested",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested",
+  "version" : "5.0.0",
+  "name" : "QICoreDeviceNotRequested",
+  "title": "QICore DeviceNotRequested",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2019-07-11",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of DeviceRequest for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "quick",
+      "uri" : "http://siframework.org/cqf",
+      "name" : "Quality Improvement and Clinical Knowledge (QUICK)"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "DeviceRequest",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/DeviceRequest",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "DeviceRequest",
+        "path" : "DeviceRequest",
+        "constraint" : [
+          {
+            "key" : "dnr-1",
+            "severity" : "error",
+            "human" : "to indicate what device was not requested, either at least one coding in the code or a notDoneValueSet extension shall be provided",
+            "expression" : "code.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor code.coding.exists()",
+            "xpath" : "exists(f:extension)"
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "DeviceRequest.extension:doNotPerformReason",
+        "path" : "DeviceRequest.extension",
+        "sliceName" : "doNotPerformReason",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "DeviceRequest.modifierExtension:doNotPerform",
+        "path" : "DeviceRequest.modifierExtension",
+        "sliceName" : "doNotPerform",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/5.0/StructureDefinition/extension-DeviceRequest.doNotPerform"
+            ]
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : true,
+        "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"
+      },
+      {
+        "id" : "DeviceRequest.modifierExtension:doNotPerform.value[x]",
+        "path" : "DeviceRequest.modifierExtension.value[x]",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "boolean"
+          }
+        ],
+        "fixedBoolean" : true,
+        "mustSupport" : true
+      },
+      {
+        "id" : "DeviceRequest.status",
+        "path" : "DeviceRequest.status",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "code"
+          }
+        ],
+        "fixedCode" : "completed",
+        "mustSupport" : true
+      },
+      {
+        "id" : "DeviceRequest.intent",
+        "path" : "DeviceRequest.intent",
+        "mustSupport" : true
+      },
+      {
+        "id" : "DeviceRequest.code[x]",
+        "path" : "DeviceRequest.code[x]",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "condition" : [
+          "dnr-1"
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/device-kind"
+        }
+      },
+      {
+        "id" : "DeviceRequest.code[x].extension:doNotPerformValueSet",
+        "path" : "DeviceRequest.code[x].extension",
+        "sliceName" : "doNotPerformValueSet",
+        "short" : "What was not done",
+        "definition" : "Specifies the value set that characterizes the events or activities that did not occur or were not performed.",
+        "requirements" : "Must be able to indicate the value set from which the expected event would be drawn, had it occurred.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+            ]
+          }
+        ],
+        "condition" : [
+          "dnr-1"
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "DeviceRequest.subject",
+        "path" : "DeviceRequest.subject",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "DeviceRequest.encounter",
+        "path" : "DeviceRequest.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "DeviceRequest.authoredOn",
+        "path" : "DeviceRequest.authoredOn",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "DeviceRequest.note",
+        "path" : "DeviceRequest.note",
+        "mustSupport" : true
+      }
+    ]
+  }
+}
