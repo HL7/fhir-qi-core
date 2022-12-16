@@ -89,31 +89,6 @@
         "mustSupport" : false
       },
       {
-        "id" : "AllergyIntolerance.extension:reasonRefuted",
-        "path" : "AllergyIntolerance.extension",
-        "sliceName" : "reasonRefuted",
-        "definition" : "A code capturing the explanation of why the allergy or intolerance has been refuted. Should be specified only if the status is refuted.",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted"
-            ]
-          }
-        ],
-        "condition" : [
-          "1"
-        ],
-        "mustSupport" : false,
-        "binding" : {
-          "strength" : "example",
-          "description" : "The value set to instantiate this attribute should be drawn from a terminologically robust code system for reasons of refuting an allergy or intolerance. This value set is provided as a suggestive example.",
-          "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-allergyintolerance-reason-refuted"
-        }
-      },
-      {
         "id" : "AllergyIntolerance.type",
         "path" : "AllergyIntolerance.type",
         "mustSupport" : true
