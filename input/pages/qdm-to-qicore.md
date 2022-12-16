@@ -437,7 +437,7 @@ Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone
 * [Communication.status](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.status) - Fixed Value: "not-done"
 * [Communication.statusReason](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) - dateTime when this was made available
-* [Communication.reasonCode.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.reasonCode.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Communication that was not performed
+* [Communication.topic.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.topic.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Communication that was not performed
 
 <div class="new-content" markdown="1">
 ### Diagnosis
