@@ -2,7 +2,7 @@
   <id value="qicore-servicerequest-appropriatenessScore"/>
   <url value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest-appropriatenessScore"/>
   <name value="QICoreServiceRequestAppropriatenessScore"/>
-  <title value="RAND Appropriateness Score Extension"/>
+  <title value="Appropriateness Score Extension"/>
   <status value="draft"/>
   <experimental value="false"/>
   <date value="2018-08-22"/>
@@ -13,7 +13,7 @@
       <value value="http://hl7.org/special/committees/CQI"/>
     </telecom>
   </contact>
-  <description value="The RAND appropriateness score for the requested procedure."/>
+  <description value="The appropriateness score for the requested action."/>
   <fhirVersion value="3.0.1"/>
   <mapping>
     <identity value="rim"/>
@@ -124,7 +124,7 @@
       <binding>
         <strength value="required"/>
         <description value="The RAND scoring for appropriateness of the procedure."/>
-        <valueSet value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/appropriateness-score"/>
       </binding>
       <mapping>
         <identity value="rim"/>
@@ -164,7 +164,7 @@
       <binding>
         <strength value="required"/>
         <description value="The RAND scoring for appropriateness of the procedure."/>
-        <valueSet value="http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"/>
+        <valueSet value="http://terminology.hl7.org/ValueSet/appropriateness-score"/>
       </binding>
     </element>
   </differential>
