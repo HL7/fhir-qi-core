@@ -208,7 +208,7 @@ code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood 
 code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
 define "Qualifying Diastolic Blood Pressure Reading":
-  [Observation: "Blood pressure panel with all children optional"] BloodPressure
+    ["observation-bp"] BloodPressure
                                   where BloodPressure.status.value in {'final', 'amended'}
                                   and Global."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
     and not ((GetEncounter(BloodPressure.encounter)).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})
@@ -217,7 +217,7 @@ define "Qualifying Diastolic Blood Pressure Reading":
                                   and DiastolicBP.value.unit = 'mm[Hg]')
 
 define "Qualifying Systolic Blood Pressure Reading":
-  [Observation: "Blood pressure panel with all children optional"] BloodPressure
+   ["observation-bp"] BloodPressure
                                     where BloodPressure.status.value in {'final', 'amended'}
                                     and Global."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
     and not (GetEncounter(BloodPressure.encounter).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})
