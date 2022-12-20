@@ -412,23 +412,23 @@ change the patient's mental state would be a Procedure.
 #### Communication, Performed
 
 
-| **QDM Context**              | **QI-Core R5**                                                                                                                                                  | **Comments**                                                                                  |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **Communication, Performed** | [Communication](StructureDefinition-qicore-communication.html)                                                     |                                                                                               |
-|                              | [Communication.status](StructureDefinition-qicore-communication-definitions.html#Communication.status)             | constrain to completed                                               |
-| **QDM Attributes**           |                                                                                                                    |                                                                                               |
-| code                         | [Communication.reasonCode](StructureDefinition-qicore-communication-definitions.html#Communication.reasonCode)     |                                                                                               |
-| id                           | [Communication.id](StructureDefinition-qicore-communication-definitions.html#Communication.id)                     |                                                                                               |
-| category                     | [Communication.category](StructureDefinition-qicore-communication-definitions.html#Communication.category)         | alert, notification, reminder, instruction                                                    |
-| medium                       | [Communication.medium](StructureDefinition-qicore-communication-definitions.html#Communication.medium)             |                                                                                               |
-| sentDatetime                 | [Communication.sent](StructureDefinition-qicore-communication-definitions.html#Communication.sent)                 |                                                                                               |
-| receivedDatetime             | [Communication.received](StructureDefinition-qicore-communication-definitions.html#Communication.received)         |                                                                                               |
+| **QDM Context**              | **QI-Core R5**                                                                                                                        | **Comments**                                                                                  |
+| ---------------------------- |---------------------------------------------------------------------------------------------------------------------------------------| --------------------------------------------------------------------------------------------- |
+| **Communication, Performed** | [Communication](StructureDefinition-qicore-communication.html)                                                                        |                                                                                               |
+|                              | [Communication.status](StructureDefinition-qicore-communication-definitions.html#Communication.status)                                | constrain to completed                                               |
+| **QDM Attributes**           |                                                                                                                                       |                                                                                               |
+| code                         | [Communication.topic](StructureDefinition-qicore-communication-definitions.html#Communication.topic)                                  |                                                                                               |
+| id                           | [Communication.id](StructureDefinition-qicore-communication-definitions.html#Communication.id)                                        |                                                                                               |
+| category                     | [Communication.category](StructureDefinition-qicore-communication-definitions.html#Communication.category)                            | alert, notification, reminder, instruction                                                    |
+| medium                       | [Communication.medium](StructureDefinition-qicore-communication-definitions.html#Communication.medium)                                |                                                                                               |
+| sentDatetime                 | [Communication.sent](StructureDefinition-qicore-communication-definitions.html#Communication.sent)                                    |                                                                                               |
+| receivedDatetime             | [Communication.received](StructureDefinition-qicore-communication-definitions.html#Communication.received)                            |                                                                                               |
 | authorDatetime               | [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) | for use with negationRationale                                             |
-| relatedTo                    | [Communication.basedOn](StructureDefinition-qicore-communication-definitions.html#Communication.basedOn)           | An order, proposal or plan fulfilled in whole or in part by this Communication.               |
-|                              | [Communication.inResponseTo](StructureDefinition-qicore-communication-definitions.html#Communication.inResponseTo) | Response to a communication                                                                   |
-| sender                       | [Communication.sender](StructureDefinition-qicore-communication-definitions.html#Communication.sender)             |                                                                                               |
-| recipient                    | [Communication.recipient](StructureDefinition-qicore-communication-definitions.html#Communication.recipient)       |                                                                                               |
-| negationRationale            | See Below |
+| relatedTo                    | [Communication.basedOn](StructureDefinition-qicore-communication-definitions.html#Communication.basedOn)                              | An order, proposal or plan fulfilled in whole or in part by this Communication.               |
+|                              | [Communication.inResponseTo](StructureDefinition-qicore-communication-definitions.html#Communication.inResponseTo)                    | Response to a communication                                                                   |
+| sender                       | [Communication.sender](StructureDefinition-qicore-communication-definitions.html#Communication.sender)                                |                                                                                               |
+| recipient                    | [Communication.recipient](StructureDefinition-qicore-communication-definitions.html#Communication.recipient)                          |                                                                                               |
+| negationRationale            | See Below                                                                                                                             |
 {: .grid}
 
 ##### Negation Rationale for Communication, Performed
@@ -437,7 +437,7 @@ Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone
 * [Communication.status](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.status) - Fixed Value: "not-done"
 * [Communication.statusReason](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) - dateTime when this was made available
-* [Communication.reasonCode.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.reasonCode.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Communication that was not performed
+* [Communication.topic.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.topic.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Communication that was not performed
 
 <div class="new-content" markdown="1">
 ### Diagnosis
