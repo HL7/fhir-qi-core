@@ -12,10 +12,9 @@ context Patient
 
 // QICoreAllergyIntolerance
 // connectathon/fhir4/cql/EXM105_FHIR4-8.1.000.cql
-define "Statin Allergy":
-  ["AllergyIntolerance": "Statin Allergen"] StatinAllergy
-    where (StatinAllergy.clinicalStatus is null or FHIRHelpers.ToConcept(StatinAllergy.clinicalStatus) ~ Global."allergy-active")
-      and FHIRHelpers.ToConcept(StatinAllergy.verificationStatus) in { Global."allergy-unconfirmed", Global."allergy-confirmed" }
+{{define "Statin Allergy Intolerance":
+  ["AllergyIntolerance": "Statin Allergen"] StatinAllergyIntolerance
+    where StatinAllergyIntolerance.clinicalStatus is null or StatinAllergyIntolerance.clinicalStatus ~ Global."allergy-active"}}
 
 // QICoreBodyStructure
 
