@@ -16,7 +16,7 @@
 <p>The following example illustrates the use of the ProcedureNotDone profile:</p>
 <pre>
 <code>define "No VTE Prophylaxis Device Applied":
-  ["Procedure": "Device Application"] DeviceApplied
+  ["ProcedureNotDone": "Device Application"] DeviceApplied
     where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
       or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
       or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
