@@ -367,7 +367,7 @@
       </reference>
       <name value="MedicationAdministration negation example"/>
       <description value="Example of medication not administered using a value set to indicate what was not administered"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotadministered"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"/>
     </resource>
     <resource>
       <reference>
@@ -375,7 +375,7 @@
       </reference>
       <name value="MedicationAdministration negation with code example"/>
       <description value="Example of medication not administered using a code to indicate that a particular medication was not administered"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotadministered"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"/>
     </resource>
     <resource>
       <reference>
@@ -399,7 +399,7 @@
       </reference>
       <name value="MedicationDispense negation example"/>
       <description value="Example of medication not dispensed using a valuetset to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotdispensed"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedeclined"/>
     </resource>
     <resource>
       <reference>
@@ -407,7 +407,7 @@
       </reference>
       <name value="MedicationDispense negation with code example"/>
       <description value="Example of medication not dispensed using a code to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotdispensed"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedeclined"/>
     </resource>
     <resource>
       <reference>
@@ -455,7 +455,7 @@
       </reference>
       <name value="MedicationNotRequested using valueset example"/>
       <description value="Example of medication not requested using a valuetset to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotrequested"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested"/>
     </resource>
     <resource>
       <reference>
@@ -463,7 +463,7 @@
       </reference>
       <name value="MedicationNotRequested using code example"/>
       <description value="Example of medication not requested using a code to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotrequested"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested"/>
     </resource>
     <resource>
       <reference>
@@ -517,17 +517,17 @@
       <reference>
         <reference value="Observation/negation-example"/>
       </reference>
-      <name value="ObservationNotDone with valueset example"/>
+      <name value="ObservationCancelled with valueset example"/>
       <description value="Example of observation not done using a valueset to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationnotdone"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled"/>
     </resource>
     <resource>
       <reference>
         <reference value="Observation/negation-with-code-example"/>
       </reference>
-      <name value="ObservationNotDone with code example"/>
+      <name value="ObservationCancelled with code example"/>
       <description value="Example of observation not done using a code to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationnotdone"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled"/>
     </resource>
     <resource>
       <reference>
@@ -725,42 +725,17 @@
       <reference>
         <reference value="Task/negation-example"/>
       </reference>
-      <name value="TaskNotDone with valueset example"/>
+      <name value="TaskRejected with valueset example"/>
       <description value="Example of task not done using a valueset to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-tasknotdone"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"/>
     </resource>
     <resource>
       <reference>
         <reference value="Task/negation-with-code-example"/>
       </reference>
-      <name value="TaskNotDone with code example"/>
+      <name value="TaskRejected with code example"/>
       <description value="Example of task not done using a code to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-tasknotdone"/>
-    </resource>
-
-    <resource>
-      <reference>
-        <reference value="CodeSystem/appropriateness-score"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="CodeSystem/communication-medium"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="CodeSystem/condition-criticality"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="CodeSystem/diagnosticorder-precondition"/>
-      </reference>
-      <exampleBoolean value="false"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"/>
     </resource>
     <resource>
       <reference>
@@ -768,66 +743,54 @@
       </reference>
       <exampleBoolean value="false"/>
     </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/qicore-allergyintolerance-reason-refuted"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/qicore-appropriateness-score"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
+    <!--  Remove.  https://jira.hl7.org/browse/FHIR-38556
     <resource>
       <reference>
         <reference value="ValueSet/qicore-communication-reason-not-performed"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
+    -->
+    <!-- Remove. https://jira.hl7.org/browse/FHIR-38557
     <resource>
       <reference>
         <reference value="ValueSet/qicore-condition-certainty"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
+    -->
+    <!-- Remove https://jira.hl7.org/browse/FHIR-38558
     <resource>
       <reference>
         <reference value="ValueSet/qicore-condition-criticality"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
+    -->
+    <!-- Remove https://jira.hl7.org/browse/FHIR-38559
     <resource>
       <reference>
         <reference value="ValueSet/qicore-condition-stage"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
+    -->
+    <!-- Remove https://jira.hl7.org/browse/FHIR-38560
     <resource>
       <reference>
         <reference value="ValueSet/qicore-encounter-canceled-reason"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
+    -->
+    <!-- Remove https://jira.hl7.org/browse/FHIR-38561
     <resource>
       <reference>
         <reference value="ValueSet/qicore-encounter-condition-role"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/qicore-encounter-discharge-disposition"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/qicore-flag-category"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
+    -->
     <resource>
       <reference>
         <reference value="ValueSet/qicore-goal-reason-rejected"/>
@@ -848,39 +811,8 @@
     </resource>
     <resource>
       <reference>
-        <reference value="ValueSet/qicore-observation-body-position"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/qicore-observation-delta"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/qicore-observation-verification"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
         <reference value="ValueSet/qicore-patient-disability"/>
       </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/qicore-priority"/>
-      </reference>
-      <exampleBoolean value="false"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="ValueSet/qicore-procedure-type"/>
-      </reference>
-      <name value="QICoreProcedureType"/>
       <exampleBoolean value="false"/>
     </resource>
     <resource>
@@ -889,12 +821,14 @@
       </reference>
       <exampleBoolean value="false"/>
     </resource>
+    <!-- Remove https://jira.hl7.org/browse/FHIR-38574
     <resource>
       <reference>
         <reference value="ValueSet/qicore-servicerequest-reason-rejected"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
+    -->
     <!-- Extensions -->
     <resource>
       <reference>
@@ -1087,7 +1021,7 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/qicore-mednotdispensed"/>
+        <reference value="StructureDefinition/qicore-medicationdispensedeclined"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
@@ -1123,7 +1057,7 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/qicore-observationnotdone"/>
+        <reference value="StructureDefinition/qicore-observationcancelled"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>
@@ -1201,7 +1135,7 @@
     </resource>
     <resource>
       <reference>
-        <reference value="StructureDefinition/qicore-tasknotdone"/>
+        <reference value="StructureDefinition/qicore-taskrejected"/>
       </reference>
       <exampleBoolean value="false"/>
     </resource>

@@ -1,0 +1,45 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+  <a name="usage"><b>Usage</b></a>
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
+
+  <p>The MedicationDispense and MedicationDispenseDeclined profiles represent the positive and
+    negative statements for a medication dispensing event. To ensure instances retrieved meet
+    negative intent, applications should check the status element as illustrated in
+    this example:</p>
+
+  <pre>
+<code>define MedicationDispenseDeclined:
+  [MedicationDispense] D
+    where D.status in { 'cancelled', 'declined' }
+</code>
+</pre>
+
+<p>The following example illustrates the use of the MedicationNotDispensed profile:</p>
+<pre>
+<code>define "Dementia Medications Not Dispensed":
+  ["MedicationDispenseDeclined": "Dementia Medications"] MedicationDispense
+    where MedicationDispense.status in { 'cancelled', 'declined' }
+</code>
+</pre>
+  <a name="examples"> </a>
+  <h3>Examples</h3>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+          <td><a href="MedicationDispense-negation-example.html">Negation Example with valueset</a></td><td>Opthalmic Antihistamines not indicated; indicates that none of the drugs in the given not done value set were dispensed.</td>
+        </tr>
+        <tr>
+          <td><a href="MedicationDispense-negation-with-code-example.html">Negation Example with code</a></td><td>Alcaftadine 2.5 MG/ML Opthalmic Solution not indicated; indicates that the specific drug was not dispensed.</td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
+
+  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
+
+</div>

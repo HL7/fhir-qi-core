@@ -75,6 +75,12 @@
         "id" : "ServiceRequest",
         "path" : "ServiceRequest"
       },
+       {
+        "id" : "ServiceRequest.status",
+        "path" : "ServiceRequest.status",
+        "short" : "draft​ | active​ | on-hold​ | revoked​ | entered-in-error​ | unknown​", 
+        "mustSupport" : true
+      },
       {
         "id" : "ServiceRequest.extension:approachBodyStructure",
         "path" : "ServiceRequest.extension",
@@ -113,7 +119,7 @@
         "binding" : {
           "strength" : "preferred",
           "description" : "The RAND scoring for appropriateness of the procedure.",
-          "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-appropriateness-score"
+          "valueSet" : "http://terminology.hl7.org/ValueSet/appropriateness-score"
         },
         "mapping" : [
           {

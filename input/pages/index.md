@@ -96,7 +96,7 @@ This initiative began in 2013 with the creation of the Quality Improvement Domai
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
 quality measures (CQM) and CDS, thus providing a common foundation for reusability. To the extent possible, QI-Core
 derives content from USCore profiles and extensions. The expectation is that QI-Core will continue to grow over time as
-USCore grows, and by incorporating needed extensions with broad applicability. There may also be further extensions and
+USCore grows by incorporating needed extensions with broad applicability. There may also be further extensions and
 coordinated  profiles in specific domains beyond QI-Core, e.g., radiology-specific profiles. The CQI and CDS Work Groups
 coordinate with HL7 Work Groups that manage specific FHIR resources to align definitions and value sets that include
 concepts required for CDS and retrospective CQM use cases. When additional classes and attributes are needed for
@@ -344,17 +344,17 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICoreCommunication](StructureDefinition-qicore-communication.html)|[QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
 |[QICoreDeviceRequest](StructureDefinition-qicore-devicerequest.html)|[QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html)|[DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
 |[QICoreImmunization](StructureDefinition-qicore-immunization.html)|[QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html)|[Immunization]({{site.data.fhir.path}}immunization.html)|
-|[QICoreMedicationAdministration](StructureDefinition-qicore-medicationadministration.html)|[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
-|[QICoreMedicationDispense](StructureDefinition-qicore-medicationdispense.html)|[QICoreMedicationDispenseNotDone](StructureDefinition-qicore-mednotdispensed.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICoreMedicationRequest](StructureDefinition-qicore-medicationrequest.html)|[QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
-|[QICoreObservation](StructureDefinition-qicore-observation.html)|[QICoreObservationNotDone](StructureDefinition-qicore-observationnotdone.html)|[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICoreMedicationAdministration](StructureDefinition-qicore-medicationadministration.html)|[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-medicationadministrationnotdone.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
+|[QICoreMedicationDispense](StructureDefinition-qicore-medicationdispense.html)|[QICoreMedicationDispenseDeclined](StructureDefinition-qicore-medicationdispensedeclined.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICoreMedicationRequest](StructureDefinition-qicore-medicationrequest.html)|[QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
+|[QICoreObservation](StructureDefinition-qicore-observation.html)|[QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html)|[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICoreProcedure](StructureDefinition-qicore-procedure.html)|[QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
 |[QICoreServiceRequest](StructureDefinition-qicore-servicerequest.html)|[QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
-|[QICoreTask](StructureDefinition-qicore-task.html)|[QICoreTaskNotDone](StructureDefinition-qicore-tasknotdone.html)|[Task]({{site.data.fhir.path}}task.html)|
+|[QICoreTask](StructureDefinition-qicore-task.html)|[QICoreTaskRejected](StructureDefinition-qicore-taskrejected.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
 <div class="new-content" markdown="1">
-The [QICore ObservationNotDone](StructureDefinition-qicore-observationnotdone.html) profile **SHOULD** be used for all specific observation profile content including:
+The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
 
 - [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
 - [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)

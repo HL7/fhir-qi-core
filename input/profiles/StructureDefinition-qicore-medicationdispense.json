@@ -1,0 +1,241 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-medicationdispense",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreMedicationDispense",
+  "title" : "QICore Medication Dispense",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of MedicationDispense for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "rx-dispense-rmim",
+      "uri" : "http://www.hl7.org/v3/PORX_RM020070UV",
+      "name" : "V3 Pharmacy Dispense RMIM"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MedicationDispense",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationDispense",
+  "derivation" : "constraint",
+   "differential" : {
+    "element" : [
+      {
+        "id" : "MedicationDispense",
+        "path" : "MedicationDispense",
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationDispense.status",
+        "path" : "MedicationDispense.status",
+        "short" : "preparation​ | in-progress​ | cancelled​ | on-hold​ | completed​ | entered-in-error​ | stopped​ | unknown",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.statusReason[x]",
+        "path" : "MedicationDispense.statusReason[x]",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"
+        }
+      },
+      {
+        "id" : "MedicationDispense.medication[x]",
+        "path" : "MedicationDispense.medication[x]",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "The set of RxNorm codes to represent medications",
+          "valueSet" : "https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4"
+        }
+      },
+      {
+        "id" : "MedicationDispense.subject",
+        "path" : "MedicationDispense.subject",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.authorizingPrescription",
+        "path" : "MedicationDispense.authorizingPrescription",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationDispense.quantity",
+        "path" : "MedicationDispense.quantity",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.daysSupply",
+        "path" : "MedicationDispense.daysSupply",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.whenPrepared",
+        "path" : "MedicationDispense.whenPrepared",
+        "comment" : "When used as part of a cumulative medication duration calculation, the whenPrepared element is used if whenHandedOver is not available to determine a starting point for the period covered by the dispense.",
+        "min" : 0,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.whenHandedOver",
+        "path" : "MedicationDispense.whenHandedOver",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.destination",
+        "path" : "MedicationDispense.destination",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationDispense.receiver",
+        "path" : "MedicationDispense.receiver",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationDispense.dosageInstruction",
+        "path" : "MedicationDispense.dosageInstruction",
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationDispense.dosageInstruction.timing",
+        "path" : "MedicationDispense.dosageInstruction.timing",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.dosageInstruction.site",
+        "path" : "MedicationDispense.dosageInstruction.site",
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationDispense.dosageInstruction.route",
+        "path" : "MedicationDispense.dosageInstruction.route",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
+        }
+      },
+      {
+        "id" : "MedicationDispense.dosageInstruction.doseAndRate",
+        "path" : "MedicationDispense.dosageInstruction.doseAndRate",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.dosageInstruction.doseAndRate.type",
+        "path" : "MedicationDispense.dosageInstruction.doseAndRate.type",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "Medication dose types (e.g., loading, maintenance, etc.)",
+          "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-medication-dose-type"
+        }
+      },
+      {
+        "id" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
+        "path" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationDispense.substitution",
+        "path" : "MedicationDispense.substitution",
+        "mustSupport" : false
+      },
+      {
+        "id" : "MedicationDispense.substitution.responsibleParty",
+        "path" : "MedicationDispense.substitution.responsibleParty",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      }
+    ]
+  }
+}
