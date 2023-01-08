@@ -18,7 +18,14 @@
       and D.doNotPerform() is true
 </code>
 </pre>
-
+  <p>The following example illustrates accessing DeviceRequest not requested data:</p>
+  <pre>
+    <code>
+      define "No Venous Foot Pump Requested":  [DeviceNotRequested: "Venous Foot Pump"] DR
+        where DR.status = 'completed'
+          and DR.doNotPerform() is true
+    </code>
+  </pre>
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
