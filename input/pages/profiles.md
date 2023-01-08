@@ -66,12 +66,12 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICoreMedication](StructureDefinition-qicore-medication.html)| [USCoreMedication]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medication.html) |[Medication]({{site.data.fhir.path}}medication.html)|
 |*MedicationAdministration*|
 |[QICoreMedicationAdministration](StructureDefinition-qicore-medicationadministration.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
-|[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
+|[QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-medicationadministrationnotdone.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |*MedicationDispense*|
 |[QICoreMedicationDispense](StructureDefinition-qicore-medicationdispense.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |[QICoreMedicationDispenseDeclined](StructureDefinition-qicore-medicationdispensedeclined.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |*MedicationRequest*|
-|[QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html)| [USCoreMedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
+|[QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html)| [USCoreMedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICoreMedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [USCoreMedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |*MedicationStatement*|
 |[QICoreMedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
