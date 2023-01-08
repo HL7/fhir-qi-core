@@ -412,23 +412,23 @@ change the patient's mental state would be a Procedure.
 #### Communication, Performed
 
 
-| **QDM Context**              | **QI-Core R5**                                                                                                                                                  | **Comments**                                                                                  |
-| ---------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| **Communication, Performed** | [Communication](StructureDefinition-qicore-communication.html)                                                     |                                                                                               |
-|                              | [Communication.status](StructureDefinition-qicore-communication-definitions.html#Communication.status)             | constrain to completed                                               |
-| **QDM Attributes**           |                                                                                                                    |                                                                                               |
-| code                         | [Communication.reasonCode](StructureDefinition-qicore-communication-definitions.html#Communication.reasonCode)     |                                                                                               |
-| id                           | [Communication.id](StructureDefinition-qicore-communication-definitions.html#Communication.id)                     |                                                                                               |
-| category                     | [Communication.category](StructureDefinition-qicore-communication-definitions.html#Communication.category)         | alert, notification, reminder, instruction                                                    |
-| medium                       | [Communication.medium](StructureDefinition-qicore-communication-definitions.html#Communication.medium)             |                                                                                               |
-| sentDatetime                 | [Communication.sent](StructureDefinition-qicore-communication-definitions.html#Communication.sent)                 |                                                                                               |
-| receivedDatetime             | [Communication.received](StructureDefinition-qicore-communication-definitions.html#Communication.received)         |                                                                                               |
+| **QDM Context**              | **QI-Core R5**                                                                                                                        | **Comments**                                                                                  |
+| ---------------------------- |---------------------------------------------------------------------------------------------------------------------------------------| --------------------------------------------------------------------------------------------- |
+| **Communication, Performed** | [Communication](StructureDefinition-qicore-communication.html)                                                                        |                                                                                               |
+|                              | [Communication.status](StructureDefinition-qicore-communication-definitions.html#Communication.status)                                | constrain to completed                                               |
+| **QDM Attributes**           |                                                                                                                                       |                                                                                               |
+| code                         | [Communication.topic](StructureDefinition-qicore-communication-definitions.html#Communication.topic)                                  |                                                                                               |
+| id                           | [Communication.id](StructureDefinition-qicore-communication-definitions.html#Communication.id)                                        |                                                                                               |
+| category                     | [Communication.category](StructureDefinition-qicore-communication-definitions.html#Communication.category)                            | alert, notification, reminder, instruction                                                    |
+| medium                       | [Communication.medium](StructureDefinition-qicore-communication-definitions.html#Communication.medium)                                |                                                                                               |
+| sentDatetime                 | [Communication.sent](StructureDefinition-qicore-communication-definitions.html#Communication.sent)                                    |                                                                                               |
+| receivedDatetime             | [Communication.received](StructureDefinition-qicore-communication-definitions.html#Communication.received)                            |                                                                                               |
 | authorDatetime               | [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) | for use with negationRationale                                             |
-| relatedTo                    | [Communication.basedOn](StructureDefinition-qicore-communication-definitions.html#Communication.basedOn)           | An order, proposal or plan fulfilled in whole or in part by this Communication.               |
-|                              | [Communication.inResponseTo](StructureDefinition-qicore-communication-definitions.html#Communication.inResponseTo) | Response to a communication                                                                   |
-| sender                       | [Communication.sender](StructureDefinition-qicore-communication-definitions.html#Communication.sender)             |                                                                                               |
-| recipient                    | [Communication.recipient](StructureDefinition-qicore-communication-definitions.html#Communication.recipient)       |                                                                                               |
-| negationRationale            | See Below |
+| relatedTo                    | [Communication.basedOn](StructureDefinition-qicore-communication-definitions.html#Communication.basedOn)                              | An order, proposal or plan fulfilled in whole or in part by this Communication.               |
+|                              | [Communication.inResponseTo](StructureDefinition-qicore-communication-definitions.html#Communication.inResponseTo)                    | Response to a communication                                                                   |
+| sender                       | [Communication.sender](StructureDefinition-qicore-communication-definitions.html#Communication.sender)                                |                                                                                               |
+| recipient                    | [Communication.recipient](StructureDefinition-qicore-communication-definitions.html#Communication.recipient)                          |                                                                                               |
+| negationRationale            | See Below                                                                                                                             |
 {: .grid}
 
 ##### Negation Rationale for Communication, Performed
@@ -437,7 +437,7 @@ Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone
 * [Communication.status](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.status) - Fixed Value: "not-done"
 * [Communication.statusReason](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) - dateTime when this was made available
-* [Communication.reasonCode.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.reasonCode.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Communication that was not performed
+* [Communication.topic.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.topic.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Communication that was not performed
 
 <div class="new-content" markdown="1">
 ### Diagnosis
@@ -1020,12 +1020,12 @@ intended meaning of the quality measure or clinical decision support
 
 ##### Negation Rationale for Immunization, Order
 
-Use [QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html), which contains:
-* [MedicationRequest.doNotPerform](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
-* [MedicationRequest.status](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.status) - Fixed value: "completed"
-* [MedicationRequest.reasonCode](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [MedicationRequest.authoredOn](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
-* [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationRequest that was not performed
+Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html), which contains:
+* [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
+* [MedicationRequest.status](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.status) - Fixed value: "completed"
+* [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
+* [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationRequest that was not performed
 
 ### Individual Characteristics
 
@@ -1459,7 +1459,7 @@ profile address Immunization, Administered.
 | reason                       | [MedicationAdministration.reasonCode](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.reasonCode)               | None, given as ordered, emergency                                       |
 | relevant dateTime            | [MedicationAdministration.effective\[x\] dateTime](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.effective[x])|                                                                         |
 | relevant Period              | [MedicationAdministration.effective\[x\] Period](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.effective[x])  |                                                                         |
-| author dateTime              | [MedicationAdministration.extension:recorded](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.extension:recorded)        |                                                                         |
+| author dateTime              | [MedicationAdministration.extension:recorded](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.extension:recorded)        |                                                                         |
 | Negation Rationale           | See Below |
 | Performer                    | [MedicationAdministration.performer.actor](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.performer.actor)     |                                                                         |
 {: .grid}
@@ -1467,11 +1467,11 @@ profile address Immunization, Administered.
 
 ##### Negation Rationale for Medication, Administered
 
-Use [QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-mednotadministered.html), which contains:
-* [MedicationAdministration.status](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.status) - Fixed value: "not-done"
-* [MedicationAdministration.statusReason](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [MedicationAdministration.extension:recorded](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.extension:recorded) - dateTime when this was made available
-* [MedicationAdministration.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotadministered-definitions.html#MedicationAdministration.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationAdministration that was not performed
+Use [QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-medicationadministrationnotdone.html), which contains:
+* [MedicationAdministration.status](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.status) - Fixed value: "not-done"
+* [MedicationAdministration.statusReason](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.statusReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [MedicationAdministration.extension:recorded](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.extension:recorded) - dateTime when this was made available
+* [MedicationAdministration.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationAdministration that was not performed
 
 #### Medication, Discharge
 
@@ -1522,12 +1522,12 @@ Order which can address order or recommended.
 
 ##### Negation Rationale for Medication, Discharge
 
-Use [QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html), which contains:
-* [MedicationRequest.doNotPerform](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
-* [MedicationRequest.status](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.status) - Fixed value: "completed"
-* [MedicationRequest.reasonCode](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [MedicationRequest.authoredOn](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
-* [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationRequest that was not performed
+Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html), which contains:
+* [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
+* [MedicationRequest.status](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.status) - Fixed value: "completed"
+* [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
+* [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationRequest that was not performed
 
 #### Medication, Dispensed
 
@@ -1609,12 +1609,12 @@ measure or clinical decision support (CDS) expression.
 
 ##### Negation Rationale for Medication, Order
 
-Use [QICoreMedicationNotRequested](StructureDefinition-qicore-mednotrequested.html), which contains:
-* [MedicationRequest.doNotPerform](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
-* [MedicationRequest.status](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.status) - Fixed value: "completed"
-* [MedicationRequest.reasonCode](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
-* [MedicationRequest.authoredOn](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
-* [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-mednotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationRequest that was not performed
+Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html), which contains:
+* [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
+* [MedicationRequest.status](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.status) - Fixed value: "completed"
+* [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
+* [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
+* [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationRequest that was not performed
 </div>
 
 ### Participation

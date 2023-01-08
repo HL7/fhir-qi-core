@@ -18,9 +18,8 @@
   <p>The following example illustrates accessing MedicationAdministration not done data:</p>
 <pre>
 <code>// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
-define "No Low Dose Unfractionated Heparin Administration":
-  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-    where VTEMedication.status = 'not-done'
+define "No Low Dose Unfractionated Heparin Administration":  [MedicationAdministrationNotDone: "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+  where VTEMedication.status = 'not-done'
 </code>
 </pre>
   <a name="examples"> </a>

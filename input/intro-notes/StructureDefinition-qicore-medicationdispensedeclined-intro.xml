@@ -21,8 +21,8 @@
 <p>The following example illustrates the use of the MedicationNotDispensed profile:</p>
 <pre>
 <code>define "Dementia Medications Not Dispensed":
-  ["MedicationDispense": "Dementia Medications"] MedicationDispense
-    where MedicationDispense.status = 'declined'
+  ["MedicationDispenseDeclined": "Dementia Medications"] MedicationDispense
+    where MedicationDispense.status in { 'cancelled', 'declined' }
 </code>
 </pre>
   <a name="examples"> </a>
