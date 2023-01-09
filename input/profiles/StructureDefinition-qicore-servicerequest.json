@@ -73,7 +73,14 @@
     "element" : [
       {
         "id" : "ServiceRequest",
-        "path" : "ServiceRequest"
+        "path" : "ServiceRequest",
+        "constraint" : [
+          {
+            "key" : "dom-7",
+            "severity" : "error",
+            "human" : "if doNotPerform is present, it SHALL be false"
+          }  
+        ]
       },
        {
         "id" : "ServiceRequest.status",
@@ -146,6 +153,16 @@
         "mustSupport" : true,
         "isModifier" : true,
         "isModifierReason" : "The reason this extension is a modifier is because, if true, this element marks the specified request as elective."
+      },
+      {
+        "id" : "ServiceRequest.doNotPerform",
+        "path" : "ServiceRequest.doNotPerform",
+        "short" : "True if service/procedure should not be performed",
+        "definition" : "Set this to true if the record is saying that the service/procedure should NOT be performed.",
+        "comment" : "In general, only the code and timeframe will be present, though occasional additional qualifiers such as body site or even performer could be included to narrow the scope of the prohibition.  If the ServiceRequest.code and ServiceRequest.doNotPerform both contain negation, that will reinforce prohibition and should not have a double negative interpretation.",
+        "requirements" : "Used for do not ambulate, do not elevate head of bed, do not flush NG tube, do not take blood pressure on a certain arm, etc.",
+        "min" : 0,
+        "max" : "0"
       },
       {
         "id" : "ServiceRequest.subject",
