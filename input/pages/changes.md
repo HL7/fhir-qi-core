@@ -167,8 +167,19 @@ STU4.1 (v4.1.0)
 1. **Applied**:Changed TaskNotDone profile to TaskRejected throughout ([FHIR-38850](https://jira.hl7.org/browse/FHIR-38850))
 1. **Applied**:Changed ObservationNotDone profile to ObservationCancelled throughout ([FHIR-38850](https://jira.hl7.org/browse/FHIR-38850))
 1. **Applied**:Changed MedicationDispenseNotDone profile to MedicationDispenseDeclined throughout ([FHIR-38850](https://jira.hl7.org/browse/FHIR-38850))
-1. **Applied**:Fixed title for negation rationale for Immunization, Administered in QDM to QI Core Mapping([FHIR-39307](https://jira.hl7.org/browse/FHIR-39307))
+
+1. **Applied**:Fixed title for negation rationale for Immunization, Administered in QDM to QI Core Mapping([FHIR-39307](https://jira.hl7.org/browse/FHIR-39307)) 
 1. **Applied**:Fixed title for negation rationale for Laboratory Text, Order in QDM to QI Core Mapping([FHIR-39307](https://jira.hl7.org/browse/FHIR-39307))
+1. **Applied**: Remove ValueSet-qiqore-servicerequest-reason-rejected ([FHIR-38574](https://jira.hl7.org/browse/FHIR-38574))      
+1. **Applied**: Remove ValueSet-qicore-observation-verification  (both valueset and codesystem) ([FHIR-38569](https://jira.hl7.org/browse/FHIR-38569))  
+1. **Applied**: Remove Valueset-qicore-flag-category ([FHIR-38563](https://jira.hl7.org/browse/FHIR-38563))  
+1. **Applied**: Remove Valueset-qicore-encounter-condition-role ([FHIR-38561](https://jira.hl7.org/browse/FHIR-38561))  
+1. **Applied**: Remove Valueset-qicore-encounter-canceled-reason ([FHIR-38560](https://jira.hl7.org/browse/FHIR-38560))  
+1. **Applied**: Remove Valueset-qicore-condition-criticality (both valueset and codesystem) ([FHIR-38558](https://jira.hl7.org/browse/FHIR-38558))  
+1. **Applied**: Remove Valueset-qicore-condition-stage ([FHIR-38559](https://jira.hl7.org/browse/FHIR-38559))  
+1. **Applied**: Remove Valueset-qicore-condition-certainty ([FHIR-38557](https://jira.hl7.org/browse/FHIR-38557))  
+1. **Applied**: Remove Valueset-qicore-communication-reason-not-performed ([FHIR-38556](https://jira.hl7.org/browse/FHIR-38556))   
+
 
 
 1. #### The following tickets listed below were incorporated from the **US Core errata (3.1.1)**:

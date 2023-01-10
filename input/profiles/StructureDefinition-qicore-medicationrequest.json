@@ -67,6 +67,18 @@
   "differential" : {
     "element" : [
       {
+        "id" : "MedicationRequest",
+        "path" : "MedicationRequest",
+        "short" : "Ordering of medication for patient or group",
+        "constraint" : [
+          {
+            "key" : "dom-7",
+            "severity" : "error",
+            "human" : "if doNotPerform is present, it SHALL be false"
+          } 
+        ]
+      },
+      {
         "id" : "MedicationRequest.category",
         "path" : "MedicationRequest.category",
         "mustSupport" : true,
