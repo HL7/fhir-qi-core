@@ -56,10 +56,26 @@ define CommunicationNotDone:
 define CommunicationRequest:
   [CommunicationRequest]
 
-// QICoreCondition
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition
+// QICore 4.1.1
+//// QICoreCondition
+//// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition
+//define Condition:
+//  [Condition]
+
+// QICore 5.0.0
+// QICoreConditionProblemsHealthConcerns
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns
 define Condition:
-  [Condition]
+  [Condition] Condition
+    where Condition.hasCategory("problem-list-item")
+      or Condition.hasCategory("health-concern")
+
+// QICore 5.0.0
+// QICoreConditionEncounterDiagnosis
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis
+define EncounterDiagnosis:
+  [Condition] Condition
+    where Condition.hasCategory("encounter-diagnosis")
 
 // QICoreCoverage
 // @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage
@@ -274,17 +290,67 @@ define ObservationCancelled:
   [Observation] O
     where O.status = 'cancelled'
 
-// FHIR Vital Signs
+// QICoreLaboratoryResultObservation
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab
+define LaboratoryResultObservation:
+  [Observation] O
+    where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
+      and O.isLaboratory()
 
-// USCore Smoking Status
+// QICoreObservationClinicalTestResult
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-clinical-test
+define ObservationClinicalTestResult:
+  [Observation] O
+    where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
+      and O.isCliicalTest()
 
-// USCore Laboratory Result
+// QICoreObservationImagingResult
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-imaging
+define ObservationImagingResult:
+  [Observation] O
+    where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
+      and O.isImaging()
 
-// USCore Pediatric BMI for Age
+// QICoreObservationSurvey
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-survey
+define ObservationSurvey:
+  [Observation] O
+    where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
+      and O.isSurvey()
 
-// USCore Pediatric Weight for Height
+// USCoreVitalSigns
+
+// USCoreBloodPressure
+
+// USCoreBMI
+
+// USCoreBodyHeight
+
+// USCoreBodyTemperature
+
+// USCoreBodyWeight
+
+// USCoreHeadCircumference
+
+// USCoreHeartRate
+
+// USCorePediatricBMIForAgeObservation
+
+// USCorePediatricHeadOccipitalFrontCircumferencePercentile
+
+// USCorePediatricWeightForHeightObservation
 
 // USCore Pulse Oximetry
+
+// USCoreRespiratoryRate
+
+// USCoreSmokingStatus
+
+// USCoreObservationSexualOrientation
+
+// USCoreObservationSocialHistory
+
+// USCoreObservationSDOHAssessment
 
 // QICoreOrganization
 // @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization
@@ -433,7 +499,6 @@ define Task:
 
 // QICoreTaskRejected
 // @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected
-// TODO: What about cancelled and failed?
 define TaskRejected:
   [Task] T
-    where T.status = 'rejected'
+    where T.status in { 'rejected', 'cancelled', 'failed' }
