@@ -1,0 +1,136 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-practitionerrole",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+  "version" : "5.0.0-ballot",
+  "name" : "QICorePractitionerRole",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Profile of PractitionerRole for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "servd",
+    "uri" : "http://www.omg.org/spec/ServD/1.0/",
+    "name" : "ServD"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "PractitionerRole",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-practitionerrole",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "PractitionerRole",
+      "path" : "PractitionerRole",
+      "mustSupport" : false
+    },
+    {
+      "id" : "PractitionerRole.identifier",
+      "path" : "PractitionerRole.identifier",
+      "min" : 1,
+      "max" : "*",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.identifier.use",
+      "path" : "PractitionerRole.identifier.use",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.identifier.system",
+      "path" : "PractitionerRole.identifier.system",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "uri"
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.identifier.value",
+      "path" : "PractitionerRole.identifier.value",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "string"
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.active",
+      "path" : "PractitionerRole.active",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.period",
+      "path" : "PractitionerRole.period",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.practitioner",
+      "path" : "PractitionerRole.practitioner",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.organization",
+      "path" : "PractitionerRole.organization",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "PractitionerRole.location",
+      "path" : "PractitionerRole.location",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
+      }],
+      "mustSupport" : true
+    }]
+  }
+}

@@ -1,0 +1,163 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-procedurenotdone",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreProcedureNotDone",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Profile of Procedure for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Procedure",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Procedure",
+      "path" : "Procedure",
+      "constraint" : [{
+        "key" : "pnd-1",
+        "severity" : "error",
+        "human" : "to indicate what procedure was not performed, either at least one coding in the code or a notDoneValueSet extension shall be provided",
+        "expression" : "code.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor code.coding.exists()"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Procedure.extension:recorded",
+      "path" : "Procedure.extension",
+      "sliceName" : "recorded",
+      "short" : "When the procedure was first captured in the subject's record",
+      "definition" : "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Procedure.status",
+      "path" : "Procedure.status",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "not-done",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Procedure.statusReason",
+      "path" : "Procedure.statusReason",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "extensible",
+        "description" : "The reason the procedure was not done",
+        "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
+      }
+    },
+    {
+      "id" : "Procedure.code",
+      "path" : "Procedure.code",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "condition" : ["pnd-1"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Procedure.code.extension:notDoneValueSet",
+      "path" : "Procedure.code.extension",
+      "sliceName" : "notDoneValueSet",
+      "short" : "What was not performed",
+      "definition" : "Specifies the value set that characterizes the events or activities that did not occur or were not performed.",
+      "requirements" : "Must be able to indicate the value set from which the expected event would be drawn, had it occurred.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"]
+      }],
+      "condition" : ["pnd-1"],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Procedure.subject",
+      "path" : "Procedure.subject",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Procedure.encounter",
+      "path" : "Procedure.encounter",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Procedure.performed[x]",
+      "path" : "Procedure.performed[x]",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Procedure.performed[x].extension:dataAbsentReason",
+      "path" : "Procedure.performed[x].extension",
+      "sliceName" : "dataAbsentReason",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/data-absent-reason"]
+      }],
+      "mustSupport" : true
+    }]
+  }
+}
