@@ -20,12 +20,21 @@ codesystem "ConditionClinicalStatusCodes": 'http://terminology.hl7.org/CodeSyste
 codesystem "ConditionVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/condition-ver-status'
 codesystem "AllergyIntoleranceClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical'
 codesystem "AllergyIntoleranceVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification'
+codesystem "ObservationCategoryCodes": 'http://terminology.hl7.org/CodeSystem/observation-category'
+codesystem "USCoreObservationCategory": 'http://hl7.org/fhir/us/core/CodeSystem/us-core-observation-category'
+codesystem "ConditionCategory": 'http://terminology.hl7.org/CodeSystem/condition-category'
+codesystem "USCoreConditionCategory": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 
 code "Birthdate": '21112-8' from "LOINC" display 'Birth date'
 code "Dead": '419099009' from "SNOMEDCT" display 'Dead'
 code "ER": 'ER' from "RoleCode" display 'Emergency room'
 code "ICU": 'ICU' from "RoleCode" display 'Intensive care unit'
 code "Billing": 'billing' from "Diagnosis Role" display 'Billing'
+
+// Condition Category Codes
+code "problem-list-item": 'problem-list-item' from "ConditionCategory" display 'Problem List Item'
+code "encounter-diagnosis": 'encounter-diagnosis' from "ConditionCategory" display 'Encounter Diagnosis'
+code "health-concern": 'health-concern' from "USCoreConditionCategory" display 'Health Concern'
 
 // Condition Clinical Status Codes - Consider value sets for these
 code "active": 'active' from "ConditionClinicalStatusCodes"
@@ -65,9 +74,96 @@ code "pre-op": 'pre-op' from "Diagnosis Role" display 'pre-op diagnosis'
 code "post-op": 'post-op' from "Diagnosis Role" display 'post-op diagnosis'
 code "billing": 'billing' from "Diagnosis Role" display 'billing diagnosis'
 
+// Observation Category Codes
+code "social-history": 'social-history' from "ObservationCategoryCodes" display 'Social History'
+code "vital-signs": 'vital-signs' from "ObservationCategoryCodes" display 'Vital Signs'
+code "imaging": 'imaging' from "ObservationCategoryCodes" display 'Imaging'
+code "laboratory": 'laboratory' from "ObservationCategoryCodes" display 'Laboratory'
+code "procedure": 'procedure' from "ObservationCategoryCodes" display 'Procedure'
+code "survey": 'survey' from "ObservationCategoryCodes" display 'Survey'
+code "exam": 'exam' from "ObservationCategoryCodes" display 'Exam'
+code "therapy": 'therapy' from "ObservationCategoryCodes" display 'Therapy'
+code "activity": 'activity' from "ObservationCategoryCodes" display 'Activity'
+code "clinical-test": 'clinical-test' from "USCoreObservationCategoryCodes" display 'Clinical Test'
+
 context Patient
 
 /* Candidates for FHIRCommon */
+
+define fluent function hasCategory(condition Condition, category Code):
+  exists (condition.category C
+    where C ~ category
+  )
+
+define fluent function isProblemListItem(condition Condition):
+  exists (condition.category C
+    where C ~ "problem-list-item"
+  )
+
+define fluent function isEncounterDiagnosis(condition Condition):
+  exists (condition.category C
+    where C ~ "encounter-diagnosis"
+  )
+
+define fluent function isHealthConcern(condition Condition):
+  exists (condition.category C
+    where C ~ "health-concern"
+  )
+
+define fluent function hasCategory(observation Observation, category Code):
+  exists (observation.category C
+    where C ~ category
+  )
+
+define fluent function isSocialHistory(observation Observation):
+  exists (observation.category C
+    where C ~ "social-history"
+  )
+
+define fluent function isVitalSign(observation Observation):
+  exists (observation.category C
+    where C ~ "vital-signs"
+  )
+
+define fluent function isImaging(observation Observation):
+  exists (observation.category C
+    where C ~ "imaging"
+  )
+
+define fluent function isLaboratory(observation Observation):
+  exists (observation.category C
+    where C ~ "laboratory"
+  )
+
+define fluent function isProcedure(observation Observation):
+  exists (observation.category C
+    where C ~ "procedure"
+  )
+
+define fluent function isSurvey(observation Observation):
+  exists (observation.category C
+    where C ~ "survey"
+  )
+
+define fluent function isExam(observation Observation):
+  exists (observation.category C
+    where C ~ "exam"
+  )
+
+define fluent function isTherapy(observation Observation):
+  exists (observation.category C
+    where C ~ "therapy"
+  )
+
+define fluent function isActivity(observation Observation):
+  exists (observation.category C
+    where C ~ "activity"
+  )
+
+define fluent function isClinicalTest(observation Observation):
+  exists (observation.category C
+    where C ~ "clinical-test"
+  )
 
 /*
 @description: Returns true if the given MedicationRequest has a category of Community
