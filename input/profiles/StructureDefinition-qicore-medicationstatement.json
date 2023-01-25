@@ -1,0 +1,171 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-medicationstatement",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreMedicationStatement",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Profile of MedicationStatement for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MedicationStatement",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationStatement",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "MedicationStatement",
+      "path" : "MedicationStatement",
+      "mustSupport" : false
+    },
+    {
+      "id" : "MedicationStatement.status",
+      "path" : "MedicationStatement.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationStatement.medication[x]",
+      "path" : "MedicationStatement.medication[x]",
+      "type" : [{
+        "code" : "CodeableConcept"
+      },
+      {
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
+      }],
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "description" : "The set of RxNorm codes to represent medications",
+        "valueSet" : "https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4"
+      }
+    },
+    {
+      "id" : "MedicationStatement.subject",
+      "path" : "MedicationStatement.subject",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationStatement.effective[x]",
+      "path" : "MedicationStatement.effective[x]",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationStatement.dateAsserted",
+      "path" : "MedicationStatement.dateAsserted",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationStatement.informationSource",
+      "path" : "MedicationStatement.informationSource",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationStatement.derivedFrom",
+      "path" : "MedicationStatement.derivedFrom",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationStatement.reasonCode",
+      "path" : "MedicationStatement.reasonCode",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "MedicationStatement.dosage",
+      "path" : "MedicationStatement.dosage",
+      "type" : [{
+        "code" : "Dosage"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "MedicationStatement.dosage.modifierExtension",
+      "path" : "MedicationStatement.dosage.modifierExtension",
+      "requirements" : "Modifier extensions allow for extensions that cannot be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored. This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions.",
+      "mustSupport" : false,
+      "isModifier" : true,
+      "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"
+    },
+    {
+      "id" : "MedicationStatement.dosage.timing",
+      "path" : "MedicationStatement.dosage.timing",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationStatement.dosage.site",
+      "path" : "MedicationStatement.dosage.site",
+      "comment" : "If the use case requires attributes from the BodySite resource (e.g. to identify and track separately) then use the standard extension bodySite. May be a summary code, or a reference to a very precise definition of the location, or both.",
+      "mustSupport" : false
+    },
+    {
+      "id" : "MedicationStatement.dosage.route",
+      "path" : "MedicationStatement.dosage.route",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
+      }
+    },
+    {
+      "id" : "MedicationStatement.dosage.doseAndRate",
+      "path" : "MedicationStatement.dosage.doseAndRate",
+      "mustSupport" : true
+    },
+    {
+      "id" : "MedicationStatement.dosage.doseAndRate.dose[x]",
+      "path" : "MedicationStatement.dosage.doseAndRate.dose[x]",
+      "mustSupport" : true
+    }]
+  }
+}

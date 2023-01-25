@@ -1,0 +1,180 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-specimen",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreSpecimen",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Profile of Specimen for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "qidam",
+    "uri" : "http://hl7.org/qidam",
+    "name" : "Mapping to Quality Improvement Domain Analysis Model"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Specimen",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Specimen",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Specimen",
+      "path" : "Specimen",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Specimen.type",
+      "path" : "Specimen.type",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "description" : "The kind of material that forms the specimen",
+        "valueSet" : "http://terminology.hl7.org/ValueSet/v2-0487"
+      }
+    },
+    {
+      "id" : "Specimen.subject",
+      "path" : "Specimen.subject",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance",
+        "http://hl7.org/fhir/StructureDefinition/Group"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Specimen.receivedTime",
+      "path" : "Specimen.receivedTime",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Specimen.parent",
+      "path" : "Specimen.parent",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Specimen.collection",
+      "path" : "Specimen.collection",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Specimen.collection.collector",
+      "path" : "Specimen.collection.collector",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Specimen.collection.collected[x]",
+      "path" : "Specimen.collection.collected[x]",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Specimen.collection.bodySite",
+      "path" : "Specimen.collection.bodySite",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "description" : "Anatomical location from which the specimen was collected (if subject is a patient). This is the target site. This element is not used for environmental specimens.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
+      }
+    },
+    {
+      "id" : "Specimen.processing",
+      "path" : "Specimen.processing",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Specimen.processing.procedure",
+      "path" : "Specimen.processing.procedure",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "description" : "A coded value specifying the procedure used to process the specimen.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/specimen-processing-procedure"
+      }
+    },
+    {
+      "id" : "Specimen.processing.additive",
+      "path" : "Specimen.processing.additive",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Specimen.container",
+      "path" : "Specimen.container",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Specimen.container.extension:container-sequenceNumber",
+      "path" : "Specimen.container.extension",
+      "sliceName" : "container-sequenceNumber",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/specimen-sequenceNumber"]
+      }],
+      "mustSupport" : false,
+      "mapping" : [{
+        "identity" : "qidam",
+        "map" : "Not in QIDAM, but recognized as important since there are labs where the sequence of the collection is important (e.g., knowing that 1 is the first sample, 2 is the second, etc.)."
+      }]
+    },
+    {
+      "id" : "Specimen.container.additive[x]",
+      "path" : "Specimen.container.additive[x]",
+      "type" : [{
+        "code" : "CodeableConcept"
+      },
+      {
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance"]
+      }],
+      "mustSupport" : false
+    }]
+  }
+}

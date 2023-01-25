@@ -1,0 +1,72 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-relatedperson",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreRelatedPerson",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Profile of RelatedPerson for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "RelatedPerson",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "RelatedPerson",
+      "path" : "RelatedPerson",
+      "mustSupport" : false
+    },
+    {
+      "id" : "RelatedPerson.patient",
+      "path" : "RelatedPerson.patient",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "RelatedPerson.gender",
+      "path" : "RelatedPerson.gender",
+      "mustSupport" : true
+    },
+    {
+      "id" : "RelatedPerson.period",
+      "path" : "RelatedPerson.period",
+      "mustSupport" : true
+    }]
+  }
+}

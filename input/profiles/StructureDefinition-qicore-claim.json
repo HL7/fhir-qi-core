@@ -1,0 +1,227 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-adverseevent",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-adverseevent",
+  "version" : "5.0.0",
+  "name" : "QICoreAdverseEvent",
+  "title" : "QICore AdverseEvent",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "An adverse event is an untoward occurrence during treatment that should be reported, for example, to a clinical study sponsor or safety oversight organization.  AEs include reportable serious medical errors such as those defined by National Quality Forum (see http://www.qualityforum.org/Topics/ SREs/List_of_SREs.aspx), and Patient Safety Healthcare Events as defined by AHRQ.  Some AEs can involve conditions such as \"recurring headaches\" but others do not, such as accidental falls, surgical errors, sexual abuse of patient, and sudden death. An adverse event can also be an unsafe condition that increases the probability of a patient safety event, and near-misses. An adverse event can be caused by exposure to some agent (e.g., a medication, immunization, food, or environmental agent). An adverse reaction can range from a mild reaction, such as a harmless rash to a severe and life-threatening condition. They can occur immediately or develop over time. For example, a patient may develop a rash after taking a particular medication.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "AdverseEvent",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/AdverseEvent",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "AdverseEvent",
+        "path" : "AdverseEvent",
+        "mustSupport" : false
+      },
+      {
+        "id" : "AdverseEvent.actuality",
+        "path" : "AdverseEvent.actuality",
+        "mustSupport" : true
+      },
+      {
+        "id" : "AdverseEvent.category",
+        "path" : "AdverseEvent.category",
+        "mustSupport" : true
+      },
+      {
+        "id" : "AdverseEvent.event",
+        "path" : "AdverseEvent.event",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "Detailed type of event.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/adverse-event-type"
+        }
+      },
+      {
+        "id" : "AdverseEvent.subject",
+        "path" : "AdverseEvent.subject",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/StructureDefinition/Group",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "AdverseEvent.encounter",
+        "path" : "AdverseEvent.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "AdverseEvent.date",
+        "path" : "AdverseEvent.date",
+        "mustSupport" : false
+      },
+      {
+        "id" : "AdverseEvent.resultingCondition",
+        "path" : "AdverseEvent.resultingCondition",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "AdverseEvent.location",
+        "path" : "AdverseEvent.location",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "AdverseEvent.recorder",
+        "path" : "AdverseEvent.recorder",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "AdverseEvent.contributor",
+        "path" : "AdverseEvent.contributor",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "AdverseEvent.suspectEntity",
+        "path" : "AdverseEvent.suspectEntity",
+        "mustSupport" : false
+      },
+      {
+        "id" : "AdverseEvent.suspectEntity.instance",
+        "path" : "AdverseEvent.suspectEntity.instance",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "AdverseEvent.suspectEntity.causality",
+        "path" : "AdverseEvent.suspectEntity.causality",
+        "min" : 0,
+        "max" : "1",
+        "mustSupport" : false
+      },
+      {
+        "id" : "AdverseEvent.subjectMedicalHistory",
+        "path" : "AdverseEvent.subjectMedicalHistory",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-familymemberhistory",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      }
+    ]
+  }
+}
