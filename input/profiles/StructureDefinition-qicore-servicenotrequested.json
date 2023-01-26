@@ -4,7 +4,7 @@
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested",
   "version" : "5.0.0",
   "name" : "QICoreServiceNotRequested",
-  "title" : "QICore ServiceNotRequested",
+  "title" : "QICore Service Not Requested",
   "status" : "active",
   "experimental" : false,
   "date" : "2018-08-22",
@@ -72,6 +72,10 @@
   "differential" : {
     "element" : [
       {
+        "id" : "ServiceRequest",
+        "path" : "ServiceRequest"
+      },
+      {
         "id" : "ServiceRequest.extension:approachBodyStructure",
         "path" : "ServiceRequest.extension",
         "sliceName" : "approachBodyStructure",
@@ -90,11 +94,6 @@
             "map" : "Not in QIDAM, but should have been included because the procedure request might include a requested approach, for example, to distinguish between urethral and supra-pubic urinary catheterization."
           }
         ]
-      },
-      {
-        "id" : "ServiceRequest.status",
-        "path" : "ServiceRequest.status",
-        "fixedCode": "completed"
       },
       {
         "id" : "ServiceRequest.extension:appropriatenessScore",
@@ -157,6 +156,11 @@
         "mustSupport" : true,
         "isModifier" : true,
         "isModifierReason" : "The reason this extension is a modifier is because, if true, this element marks the specified request as elective."
+      },
+      {
+        "id" : "ServiceRequest.status",
+        "path" : "ServiceRequest.status",
+        "fixedCode" : "completed"
       },
       {
         "id" : "ServiceRequest.doNotPerform",

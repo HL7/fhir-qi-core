@@ -79,14 +79,8 @@
             "key" : "dom-7",
             "severity" : "error",
             "human" : "if doNotPerform is present, it SHALL be false"
-          }  
+          }
         ]
-      },
-       {
-        "id" : "ServiceRequest.status",
-        "path" : "ServiceRequest.status",
-        "short" : "draft​ | active​ | on-hold​ | revoked​ | entered-in-error​ | unknown​", 
-        "mustSupport" : true
       },
       {
         "id" : "ServiceRequest.extension:approachBodyStructure",
@@ -153,6 +147,12 @@
         "mustSupport" : true,
         "isModifier" : true,
         "isModifierReason" : "The reason this extension is a modifier is because, if true, this element marks the specified request as elective."
+      },
+      {
+        "id" : "ServiceRequest.status",
+        "path" : "ServiceRequest.status",
+        "short" : "draft​ | active​ | on-hold​ | revoked​ | entered-in-error​ | unknown​",
+        "mustSupport" : true
       },
       {
         "id" : "ServiceRequest.doNotPerform",
@@ -236,8 +236,8 @@
       {
         "id" : "ServiceRequest.authoredOn",
         "path" : "ServiceRequest.authoredOn",
-        "min": 1,
-        "max": "1",
+        "min" : 1,
+        "max" : "1",
         "mustSupport" : true
       },
       {
