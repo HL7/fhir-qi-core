@@ -6,14 +6,11 @@
 </tr>
 
 <pre>
-<code>define "Statin Allergy":
-  ["AllergyIntolerance": "Statin Allergen"] StatinAllergy
-    where (StatinAllergy.clinicalStatus is null or StatinAllergy.clinicalStatus ~ Global."allergy-active")
-      and (
-        StatinAllergy.verificationStatus ~ Global."allergy-unconfirmed"
-         or StatinAllergy.verificationStatus ~ Global."allergy-confirmed"
-      )
+<code>define "Statin Allergy Intolerance":
+  ["AllergyIntolerance": "Statin Allergen"] StatinAllergyIntolerance
+    where (StatinAllergyIntolerance.clinicalStatus is null or StatinAllergyIntolerance.clinicalStatus ~ Global."allergy-active")
 </code>
+<p>This example represents a situation where the subject is currently experiencing, or is at risk of, a reaction to the identified substance.</p>
 </pre>
 </p>
 <a name="examples"> </a>
