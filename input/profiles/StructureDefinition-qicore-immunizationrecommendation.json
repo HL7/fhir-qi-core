@@ -1,0 +1,117 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-immunizationrecommendation",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrecommendation",
+  "version" : "5.0.0",
+  "name" : "QICoreImmunizationRecommendation",
+  "title" : "QICore ImmunizationRecommendation",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Profile of ImmunizationRecommendation for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ImmunizationRecommendation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ImmunizationRecommendation",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "ImmunizationRecommendation",
+      "path" : "ImmunizationRecommendation",
+      "mustSupport" : false
+    },
+    {
+      "id" : "ImmunizationRecommendation.patient",
+      "path" : "ImmunizationRecommendation.patient",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImmunizationRecommendation.authority",
+      "path" : "ImmunizationRecommendation.authority",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "ImmunizationRecommendation.recommendation",
+      "path" : "ImmunizationRecommendation.recommendation",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImmunizationRecommendation.recommendation.vaccineCode",
+      "path" : "ImmunizationRecommendation.recommendation.vaccineCode",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "extensible",
+        "description" : "CVX Vaccines Administered Vaccine Set",
+        "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6"
+      }
+    },
+    {
+      "id" : "ImmunizationRecommendation.recommendation.doseNumber[x]",
+      "path" : "ImmunizationRecommendation.recommendation.doseNumber[x]",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImmunizationRecommendation.recommendation.supportingImmunization",
+      "path" : "ImmunizationRecommendation.recommendation.supportingImmunization",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationevaluation"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "ImmunizationRecommendation.recommendation.supportingPatientInformation",
+      "path" : "ImmunizationRecommendation.recommendation.supportingPatientInformation",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance"]
+      }],
+      "mustSupport" : false
+    }]
+  }
+}

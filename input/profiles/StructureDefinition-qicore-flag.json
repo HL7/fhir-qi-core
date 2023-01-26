@@ -1,0 +1,90 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-flag",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-flag",
+  "version" : "5.0.0",
+  "name" : "QICoreFlag",
+  "title": "QICore Flag",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Profile of Flag for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Flag",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Flag",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Flag",
+      "path" : "Flag",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Flag.status",
+      "path" : "Flag.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Flag.category",
+      "path" : "Flag.category",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/flag-category"
+      }
+    },
+    {
+      "id" : "Flag.code",
+      "path" : "Flag.code",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/flag-code"
+      }
+    },
+    {
+      "id" : "Flag.subject",
+      "path" : "Flag.subject",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location",
+        "http://hl7.org/fhir/StructureDefinition/Group",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "Flag.period",
+      "path" : "Flag.period",
+      "mustSupport" : true
+    }]
+  }
+}

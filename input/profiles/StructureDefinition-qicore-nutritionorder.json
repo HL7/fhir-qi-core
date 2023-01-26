@@ -1,0 +1,78 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-nutritionorder",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreNutritionOrder",
+  "title" : "QICore NutritionOrder",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-12-20",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Defines constraints and extensions on the NutritionOrder resource for the minimal set of data to query and retrieve a patient's Nutrition Order.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "NutritionOrder",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/NutritionOrder",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "NutritionOrder",
+      "path" : "NutritionOrder",
+      "mustSupport" : false
+    },
+    {
+      "id" : "NutritionOrder.identifier",
+      "path" : "NutritionOrder.identifier",
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "NutritionOrder.patient",
+      "path" : "NutritionOrder.patient",
+      "definition" : "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.",
+      "requirements" : "The person who requires the diet, formula or nutritional supplement.",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
+      }],
+      "mustSupport" : true
+    }]
+  }
+}

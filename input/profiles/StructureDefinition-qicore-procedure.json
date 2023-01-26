@@ -1,9 +1,8 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-procedure",
-  
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
-  "version" : "5.0.0-ballot",
+  "version" : "5.0.0",
   "name" : "QICoreProcedure",
   "title" : "QICore Procedure",
   "status" : "active",
@@ -67,12 +66,6 @@
         "path" : "Procedure",
         "mustSupport" : false
       },
-       {
-        "id" : "Procedure.status",
-        "path" : "Procedure.status",
-        "short" : "preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
-        "mustSupport" : true
-      },
       {
         "id" : "Procedure.extension:approachBodyStructure",
         "path" : "Procedure.extension",
@@ -121,6 +114,12 @@
             ]
           }
         ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Procedure.status",
+        "path" : "Procedure.status",
+        "short" : "preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
         "mustSupport" : true
       },
       {

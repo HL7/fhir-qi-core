@@ -3,7 +3,8 @@
 {: #QICore-Patterns}
 
 The patterns described here have been developed through usage of QI-Core profiles in the development of
-CQL-based quality measures and decision support.
+CQL-based quality measures and decision support. CMS program measures can be accessed at [HealthIT.gov](https://ecqi.healthit.gov/)
+. The most recent examples of FHIR based measures referenced can be found [here:](https://github.com/cqframework/ecqm-content)
 
 ### FHIR and CQL
 
@@ -200,7 +201,7 @@ For any observations _not_ done, including the observations identified in the pr
 
 #### Observation Vital Signs - Blood Pressure Example
 
-Example Source: EXM22
+Source of example based on: CMS165 ControllingHighBloodPressureFHIR
 
 ```cql
 code "Blood pressure panel with all children optional": '85354-9' from "LOINC" display 'Blood pressure panel with all children optional'
@@ -208,7 +209,7 @@ code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood 
 code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
 define "Qualifying Diastolic Blood Pressure Reading":
-  [Observation: "Blood pressure panel with all children optional"] BloodPressure
+    ["observation-bp"] BloodPressure
                                   where BloodPressure.status.value in {'final', 'amended'}
                                   and Global."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
     and not ((GetEncounter(BloodPressure.encounter)).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})
@@ -217,7 +218,7 @@ define "Qualifying Diastolic Blood Pressure Reading":
                                   and DiastolicBP.value.unit = 'mm[Hg]')
 
 define "Qualifying Systolic Blood Pressure Reading":
-  [Observation: "Blood pressure panel with all children optional"] BloodPressure
+   ["observation-bp"] BloodPressure
                                     where BloodPressure.status.value in {'final', 'amended'}
                                     and Global."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
     and not (GetEncounter(BloodPressure.encounter).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})
@@ -234,7 +235,7 @@ define function "GetEncounter"(ref Reference):
 
 #### Inpatient Encounter Example
 
-Example source: MATGlobalCommonFunctions
+Source of example based on: MATGlobalCommonFunctionsFHIR4
 
 ```cql
 define "Inpatient Encounter":
@@ -246,166 +247,202 @@ define "Inpatient Encounter":
 
 #### Inpatient Encounter with Principal Diagnosis
 
-Example source: EXM105
+Source of example based on: TJCOverallFHIR
 
 ```cql
-define "Inpatient Encounter with Principal Diagnosis of Ischemic Stroke":
-  "Inpatient Encounter" Encounter
-    let PrincipalDiagnosis:
-      (singleton from (Encounter.diagnosis D where D.use ~ ToConcept("Billing") and D.rank = 1)) PD
-        return singleton from ([Condition: id in Last(Split(PD.condition.reference, '/'))])
-    where PrincipalDiagnosis.code in "Ischemic Stroke"
+define "Ischemic Stroke Encounter":
+  "Encounter with Principal Diagnosis and Age" EncounterWithAge
+    		where Global.PrincipalDiagnosis(EncounterWithAge).code in "Ischemic Stroke"
 ```
-Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be unnecessary once QUICK is fully supported.
 
 #### Inpatient Encounter with Principal Procedure
 
-Example source: VTE-1
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
-define "Inpatient Encounter With Principal Procedure of SCIP VTE Selected Surgery":
-  "Inpatient Encounter" Encounter
-	  let PrincipalProcedure:
-		  singleton from (
-			  Encounter.extension E
-				  where E.url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-procedure'
-					  and exists (E.extension I where I.url = 'type' and I.value ~ "Primary procedure")
-					return singleton from (
-							E.extension I where I.url = 'procedure' return GetProcedure(I.value)
-						)
-			)
-		where PrincipalProcedure.code in "SCIP VTE Selected Surgery"
-
-define function GetProcedure(reference Reference):
-  singleton from ["Procedure": id in GetId(reference.reference))]
-
-define function GetId(uri String):
-  Last(Split(uri, '/'))
+define "Encounter With First ICU Stay With Principal Procedure of SCIP VTE Selected Surgery":
+  from
+        "Encounter With ICU Location" QualifyingEncounterICU,
+        "SCIP VTE Selected Surgery" SelectedProcedure
+        let EncounterProcedure: Global.GetExtension ( QualifyingEncounterICU, 'qicore-encounter-procedure' )
+        where FHIRHelpers.ToInteger ( Global.GetExtension ( EncounterProcedure, 'rank' ).value as FHIR.positiveInt ) = 1
+          and Global.GetId ( FHIRHelpers.ToString ( ( Global.GetExtension ( EncounterProcedure, 'procedure' ).value as FHIR.Reference ).reference ) ) = SelectedProcedure.id
+          and date from ( 
+            end of Global."Normalize Interval" ( SelectedProcedure.performed )
+          ) during VTE."CalendarDayOfOrDayAfter" ( VTE."StartOfFirstICU" ( QualifyingEncounterICU ) )
+        return QualifyingEncounterICU
 ```
 
 ### Diagnosis Examples
 
-Example source: EXM72_FHIR-8.1.0_TJC.cql
+Source of example based on: AntithromboticTherapyByEndofHospitalDay2FHIR4
 
 ```cql
-define "Condition of Intravenous or Intra arterial Thrombolytic (tPA) Therapy Prior to Arrival":
-  Condition: "Intravenous or Intra arterial Thrombolytic (tPA) Therapy Prior to Arrival"] PriorTPA
-    where clinicalStatus in { 'active', 'recurrence', 'relapse' }
+define "Encounter with Thrombolytic Therapy Prior to Arrival":
+  TJC."Ischemic Stroke Encounter" IschemicStrokeEncounter
+                    where exists ((Global."EncounterDiagnosis"(IschemicStrokeEncounter)) EncounterDiagnosis
+                        where (EncounterDiagnosis.code in "Intravenous or Intra arterial Thrombolytic (tPA) Therapy Prior to Arrival")
+                   )
 ```
 
 Note that verificationStatus is not being checked due to feedback received that it may be difficult for implementers to retrieve the element.
 
 ### Medications
 
-Example source: EXM108_FHIR
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
-define "VTE Prophylaxis by Medication Administered":
-  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-    where VTEMedication.status = 'completed'
-      and VTEMedication.dosage.route in "Subcutaneous route"
+define "VTE Prophylaxis by Medication Administered or Device Applied":
+  ( ["MedicationAdministration":"Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+                where VTEMedication.status ='completed'
+                     and VTEMedication.dosage.route in "Subcutaneous route"
+            )
+             union (["MedicationAdministration": "Low Molecular Weight Heparin for VTE Prophylaxis"] LMWH where LMWH.status = 'completed')
+              union (["MedicationAdministration":  "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] FactorXa where FactorXa.status = 'completed')
+               union (["MedicationAdministration":  "Warfarin"] Warfarin where Warfarin.status = 'completed')
+                union (
+                    ["Procedure": "Device Application"] DeviceApplied
+                    where DeviceApplied.status = 'completed'
+                          and (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+                              or DeviceApplied.usedCode in"Venous foot pumps (VFP)"
+                              or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+                              )
+                    )
 ```
 
 #### Medications at discharge
 
-Example source: EXM104_FHIR-8.1.000_TJC.cql
+Source of example based on: DischargedonAntithromboticTherapyFHIR4
 
 ```cql
 define "Antithrombotic Therapy at Discharge":
-  ["MedicationRequest": "Antithrombotic Therapy"] Antithrombotic
-    where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) ~ "Discharge")
-      and Antithrombotic.intent = 'order'
+  ["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
+      where Antithrombotic.doNotPerform is not true
+        and exists ( Antithrombotic.category C
+            where FHIRHelpers.ToConcept ( C ) ~ FHIRCommon."Community"
+                  or FHIRHelpers.ToConcept ( C ) ~ FHIRCommon."Discharge"
+                    )
+                and Antithrombotic.status in { 'active', 'completed' }
+                and Antithrombotic.intent = 'order'
 ```
-
-Note that the FHIRHelpers.ToConcept usage is intended to be implicit and will be unnecessary once QUICK is fully supported.
 
 #### Medication not discharged
 
+Source of example based on: DischargedonAntithromboticTherapyFHIR
+
 ```cql
 define "Antithrombotic Not Given at Discharge":
-  ["MedicationRequest": "Antithrombotic Therapy"] NoAntithromboticDischarge
-    where NoAntithromboticDischarge.doNotPerform is true
-      and (singleton from NoAntithromboticDischarge.reasonCode in "Medical Reason"
-        or singleton from NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+  ["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
+        where NoAntithromboticDischarge.doNotPerform is true
+    			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
+    				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+          and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
+          and NoAntithromboticDischarge.status = 'completed'
+          and NoAntithromboticDischarge.intent = 'order'
 ```
 
-#### Medication not administered
+#### Medication not administered or ordered
 
-Example source: EXM108_FHIR
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR4
 
 ```cql
-define "No VTE Prophylaxis Medication Administered":
-  ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] MedicationAdm
-    where MedicationAdm.status = 'not-done'
+define "No VTE Prophylaxis Medication Administered or Ordered":
+  ( ( ["MedicationAdministration": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+          union ["MedicationAdministration": "Low Molecular Weight Heparin for VTE Prophylaxis"]
+          union ["MedicationAdministration": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+          union ["MedicationAdministration": "Warfarin"]
+          union ["MedicationAdministration": "Rivaroxaban for VTE Prophylaxis"] ) MedicationAdm
+          let MedicationNotDoneTiming: Global.GetExtension ( MedicationAdm, 'qicore-recorded' ).value
+          where MedicationAdm.status = 'not-done'
+          return {
+            id: MedicationAdm.id,
+            MedicationStatusReason: MedicationAdm.statusReason,
+            authoredOn: MedicationNotDoneTiming
+          }
+      )
+        union ( ( ["MedicationRequest": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+            union ["MedicationRequest": "Low Molecular Weight Heparin for VTE Prophylaxis"]
+            union ["MedicationRequest": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+            union ["MedicationRequest": "Warfarin"]
+            union ["MedicationRequest": "Rivaroxaban for VTE Prophylaxis"] ) MedicationOrder
+            where MedicationOrder.doNotPerform is true
+              and MedicationOrder.status in { 'completed', 'cancelled' }
+            return {
+              id: MedicationOrder.id,
+              MedicationStatusReason: MedicationOrder.reasonCode,
+              authoredOn: MedicationOrder.authoredOn
+            }
+        )
+
 ```
-
-#### Medication not ordered
-
-Example source: EXM108_FHIR
-
-```cql
-define "No VTE Prophylaxis Medication Ordered":
-  ["MedicationRequest": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] MedicationOrder
-    where MedicationOrder.intent = 'order'
-      and MedicationOrder.doNotPerform is true
-```
-
-Ballot-note: Note that the MedicationRequest status element is not being checked here. What is the status element expected to be for a MedicationRequest with doNotPerform set to true?
 
 ### Procedures/Interventions
 
-Example source: EXM108_FHIR
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
 define "Intervention Comfort Measures":
-  (["ServiceRequest": "Comfort Measures"] P
-    where P.intent = 'order'
-  )
-    union (["Procedure": "Comfort Measures"] InterventionPerformed
-      where InterventionPerformed.status in {'completed', 'in-progress'}
-    )
+  ( ["ServiceRequest": "Comfort Measures"] P
+          where P.intent = 'order'
+            and P.status in { 'active', 'on-hold', 'completed' }
+      )
+        union ( ["Procedure": "Comfort Measures"] InterventionPerformed
+            where InterventionPerformed.status in { 'completed', 'in-progress' }
+        )
 ```
 
 #### Device Use
 
-Example source: EXM108_FHIR
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
-define "VTE Prophylaxis by Device Applied":
-  ["Procedure": "Device Application"] DeviceApplied
-    where DeviceApplied.status = 'complete'
-      and (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-        or DeviceApplied.usedCode in"Venous foot pumps (VFP)"
-        or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
-)
+define "VTE Prophylaxis by Medication Administered or Device Applied":
+  ( ["MedicationAdministration":"Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+                where VTEMedication.status ='completed'
+                     and VTEMedication.dosage.route in "Subcutaneous route"
+            )
+             union (["MedicationAdministration": "Low Molecular Weight Heparin for VTE Prophylaxis"] LMWH where LMWH.status = 'completed')
+              union (["MedicationAdministration":  "Injectable Factor Xa Inhibitor for VTE Prophylaxis"] FactorXa where FactorXa.status = 'completed')
+               union (["MedicationAdministration":  "Warfarin"] Warfarin where Warfarin.status = 'completed')
+                union (
+                    ["Procedure": "Device Application"] DeviceApplied
+                    where DeviceApplied.status = 'completed'
+                          and (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+                              or DeviceApplied.usedCode in"Venous foot pumps (VFP)"
+                              or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+                              )
+                    )
+
  ```
 
-#### Device Not Used
+#### Device Not Used or Ordered
 
-Example source: EXM108_FHIR
+Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
-define "No VTE Prophylaxis Device Applied":
-  ["Procedure": "Device Application"] DeviceApplied
-    let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value
-    where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-      or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
-      or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+define "No VTE Prophylaxis Device Applied or Ordered":
+  ( ( ["ServiceRequest": "Venous foot pumps (VFP)"]
+        union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
+        union ["ServiceRequest": "Graduated compression stockings (GCS)"] ) DeviceOrder
+        where DeviceOrder.status = 'completed'
+          and DeviceOrder.doNotPerform is true
+        return {
+          id: DeviceOrder.id,
+          requestStatusReason: GetStatusReason(DeviceOrder),
+          authoredOn: DeviceOrder.authoredOn
+        }
     )
-      and  DeviceApplied.status = 'not-done'
-    return {id: DeviceApplied.id, requestStatusReason: DeviceApplied.statusReason, authoredOn: DeviceNotDoneTiming}
-```
-
-#### Device Not Ordered
-
-Example source: EXM108_FHIR
-
-```cql
-define "No VTE Prophylaxis Device Order":
-  (["ServiceRequest": "Venous foot pumps (VFP)"]
-    union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
-    union ["ServiceRequest": "Graduated compression stockings (GCS)"]
-  ) DeviceOrder
-    where DeviceOrder.status = 'completed'
-      and DeviceOrder.doNotPerform is true
-```
+      union ( ["Procedure": "Device Application"] DeviceApplied
+          let DeviceNotDoneTiming: Global.GetExtension ( DeviceApplied, 'qicore-recorded' ).value
+          where ( DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+              or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
+              or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+          )
+            and DeviceApplied.status = 'not-done'
+          return {
+            id: DeviceApplied.id,
+            requestStatusReason: DeviceApplied.statusReason,
+            authoredOn: DeviceNotDoneTiming
+          }
+      )
+ ```

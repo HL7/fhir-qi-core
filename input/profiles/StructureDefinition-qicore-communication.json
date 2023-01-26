@@ -3,7 +3,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-communication",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication",
-  "version" : "5.0.0-ballot",
+  "version" : "5.0.0",
   "name" : "QICoreCommunication",
   "title": "QICore Communication",
   "status" : "active",
@@ -66,7 +66,6 @@
         "id" : "Communication.status",
         "path" : "Communication.status",
         "short" : "preparation | in-progress | on-hold | stopped | completed | entered-in-error | unknown",
-
         "mustSupport" : true
       },
       {
@@ -105,6 +104,15 @@
           }
         ],
         "mustSupport" : true
+      },
+      {
+        "id" : "Communication.topic",
+        "path" : "Communication.topic",
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://terminology.hl7.org/ValueSet/communication-topic"
+        }
       },
       {
         "id" : "Communication.encounter",
@@ -163,15 +171,6 @@
           }
         ],
         "mustSupport" : true
-      },
-      {
-        "id" : "Communication.reasonCode",
-        "path" : "Communication.reasonCode",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/clinical-findings"
-        }
       }
     ]
   }

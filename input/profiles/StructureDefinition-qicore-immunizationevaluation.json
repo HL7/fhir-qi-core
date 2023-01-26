@@ -1,0 +1,152 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-immunizationevaluation",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationevaluation",
+  "version" : "5.0.0",
+  "name" : "QICoreImmunizationEvaluation",
+  "title" : "QICore ImmunizationEvaluation",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2022-12-20",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Defines constraints and extensions on the ImmunizationEvaluation resource for the minimal set of data to query and retrieve a patient's Immunization Evaluation.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "argonaut-dq-dstu2",
+    "uri" : "http://unknown.org/Argonaut-DQ-DSTU2",
+    "name" : "Argonaut-DQ-DSTU2"
+  },
+  {
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "ImmunizationEvaluation",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/ImmunizationEvaluation",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "ImmunizationEvaluation",
+      "path" : "ImmunizationEvaluation",
+      "mustSupport" : false,
+      "mapping" : [{
+        "identity" : "argonaut-dq-dstu2",
+        "map" : "CarePlan"
+      }]
+    },
+    {
+      "id" : "ImmunizationEvaluation.identifier",
+      "path" : "ImmunizationEvaluation.identifier",
+      "type" : [{
+        "code" : "Identifier"
+      }],
+      "mustSupport" : true,
+      "mapping" : [{
+        "identity" : "argonaut-dq-dstu2",
+        "map" : "CarePlan.subject"
+      }]
+    },
+    {
+      "id" : "ImmunizationEvaluation.status",
+      "path" : "ImmunizationEvaluation.status",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImmunizationEvaluation.patient",
+      "path" : "ImmunizationEvaluation.patient",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImmunizationEvaluation.date",
+      "path" : "ImmunizationEvaluation.date",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImmunizationEvaluation.authority",
+      "path" : "ImmunizationEvaluation.authority",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"]
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "ImmunizationEvaluation.targetDisease",
+      "path" : "ImmunizationEvaluation.targetDisease",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-target-disease"
+      }
+    },
+    {
+      "id" : "ImmunizationEvaluation.immunizationEvent",
+      "path" : "ImmunizationEvaluation.immunizationEvent",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization"]
+      }],
+      "mustSupport" : true
+    },
+    {
+      "id" : "ImmunizationEvaluation.doseStatus",
+      "path" : "ImmunizationEvaluation.doseStatus",
+      "min" : 1,
+      "max" : "1",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status"
+      }
+    },
+    {
+      "id" : "ImmunizationEvaluation.doseStatusReason",
+      "path" : "ImmunizationEvaluation.doseStatusReason",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status"
+      }
+    }]
+  }
+}

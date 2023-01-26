@@ -1,0 +1,93 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-substance",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance",
+  "version" : "5.0.0",
+  "name" : "QICoreSubstance",
+  "title" : "QICore Substance",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Profile of Substance for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "orim",
+    "uri" : "http://hl7.org/orim",
+    "name" : "Ontological RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Substance",
+  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Substance",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "Substance",
+      "path" : "Substance",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Substance.code",
+      "path" : "Substance.code",
+      "mustSupport" : true,
+      "binding" : {
+        "strength" : "preferred",
+        "description" : "Substance codes",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/substance-code"
+      }
+    },
+    {
+      "id" : "Substance.instance",
+      "path" : "Substance.instance",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Substance.instance.quantity",
+      "path" : "Substance.instance.quantity",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.ingredient",
+      "path" : "Substance.ingredient",
+      "mustSupport" : false
+    },
+    {
+      "id" : "Substance.ingredient.quantity",
+      "path" : "Substance.ingredient.quantity",
+      "mustSupport" : true
+    },
+    {
+      "id" : "Substance.ingredient.substance[x]",
+      "path" : "Substance.ingredient.substance[x]",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance"]
+      }],
+      "mustSupport" : true
+    }]
+  }
+}
