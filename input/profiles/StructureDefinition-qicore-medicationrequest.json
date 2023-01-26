@@ -9,329 +9,329 @@
   "experimental" : false,
   "date" : "2018-08-22",
   "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [
-    {
-      "name" : "Clinical Quality Information WG",
-      "telecom" : [
-        {
-          "system" : "url",
-          "value" : "http://www.hl7.org/Special/committees/cqi"
-        }
-      ]
-    }
-  ],
-  "description" : "Profile of MedicationRequest for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
-    {
-      "coding" : [
-        {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
-        }
-      ]
-    }
-  ],
-  "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "script10.6",
-      "uri" : "http://ncpdp.org/SCRIPT10_6",
-      "name" : "Mapping to NCPDP SCRIPT 10.6"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    }
-  ],
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "MedicationRequest",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+    "contact" : [
       {
-        "id" : "MedicationRequest",
-        "path" : "MedicationRequest",
-        "short" : "Ordering of medication for patient or group",
-        "constraint" : [
+        "name" : "Clinical Quality Information WG",
+        "telecom" : [
           {
-            "key" : "dom-7",
-            "severity" : "error",
-            "human" : "if doNotPerform is present, it SHALL be false"
-          } 
+            "system" : "url",
+            "value" : "http://www.hl7.org/Special/committees/cqi"
+          }
         ]
-      },
-      {
-        "id" : "MedicationRequest.category",
-        "path" : "MedicationRequest.category",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "Type of medication usage",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/medicationrequest-category"
-        }
-      },
-       {
-        "id" : "MedicationRequest.status",
-        "path" : "MedicationRequest.status",
-        "short" : "active​ | on-hold​ | cancelled​ | entered-in-error | stopped​ | draft​ | unknown​", 
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.doNotPerform",
-        "path" : "MedicationRequest.doNotPerform",
-        "type" : [
-          {
-            "code" : "boolean"
-          }
-        ],
-        "min" : 0,
-        "max" : "0",
-        "fixedBoolean" : false,
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.reported[x]",
-        "path" : "MedicationRequest.reported[x]",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
-            ],
-            "_targetProfile" : [
-              {
-                "extension" : [
-                  {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
-                  }
-                ]
-              },
-              {
-                "extension" : [
-                  {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
-                  }
-                ]
-              },
-              {
-                "extension" : [
-                  {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
-                  }
-                ]
-              },
-              {
-                "extension" : [
-                  {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.subject",
-        "path" : "MedicationRequest.subject",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.encounter",
-        "path" : "MedicationRequest.encounter",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.authoredOn",
-        "path" : "MedicationRequest.authoredOn",
-        "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.requester",
-        "path" : "MedicationRequest.requester",
-        "comment" : "Should include QICoreDevice but the base profile does excludes device references.",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.recorder",
-        "path" : "MedicationRequest.recorder",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction",
-        "path" : "MedicationRequest.dosageInstruction",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.timing",
-        "path" : "MedicationRequest.dosageInstruction.timing",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.timing.repeat",
-        "path" : "MedicationRequest.dosageInstruction.timing.repeat",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.timing.repeat.bounds[x]",
-        "path" : "MedicationRequest.dosageInstruction.timing.repeat.bounds[x]",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.timing.repeat.frequency",
-        "path" : "MedicationRequest.dosageInstruction.timing.repeat.frequency",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.timing.repeat.frequencyMax",
-        "path" : "MedicationRequest.dosageInstruction.timing.repeat.frequencyMax",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.timing.repeat.period",
-        "path" : "MedicationRequest.dosageInstruction.timing.repeat.period",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.timing.repeat.periodMax",
-        "path" : "MedicationRequest.dosageInstruction.timing.repeat.periodMax",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.timing.repeat.periodUnit",
-        "path" : "MedicationRequest.dosageInstruction.timing.repeat.periodUnit",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.asNeeded[x]",
-        "path" : "MedicationRequest.dosageInstruction.asNeeded[x]",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.site",
-        "path" : "MedicationRequest.dosageInstruction.site",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.route",
-        "path" : "MedicationRequest.dosageInstruction.route",
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.method",
-        "path" : "MedicationRequest.dosageInstruction.method",
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.doseAndRate",
-        "path" : "MedicationRequest.dosageInstruction.doseAndRate",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dosageInstruction.doseAndRate.dose[x]",
-        "path" : "MedicationRequest.dosageInstruction.doseAndRate.dose[x]",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dispenseRequest",
-        "path" : "MedicationRequest.dispenseRequest",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dispenseRequest.initialFill",
-        "path" : "MedicationRequest.dispenseRequest.initialFill",
-        "min" : 0,
-        "max" : "0",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dispenseRequest.dispenseInterval",
-        "path" : "MedicationRequest.dispenseRequest.dispenseInterval",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dispenseRequest.validityPeriod",
-        "path" : "MedicationRequest.dispenseRequest.validityPeriod",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",
-        "path" : "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dispenseRequest.quantity",
-        "path" : "MedicationRequest.dispenseRequest.quantity",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.dispenseRequest.expectedSupplyDuration",
-        "path" : "MedicationRequest.dispenseRequest.expectedSupplyDuration",
-        "mustSupport" : true
       }
-    ]
+    ],
+    "description" : "Profile of MedicationRequest for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+    "jurisdiction" : [
+      {
+        "coding" : [
+          {
+            "system" : "urn:iso:std:iso:3166",
+            "code" : "US"
+          }
+        ]
+      }
+    ],
+    "fhirVersion" : "4.0.1",
+    "mapping" : [
+      {
+        "identity" : "workflow",
+        "uri" : "http://hl7.org/fhir/workflow",
+        "name" : "Workflow Pattern"
+      },
+      {
+        "identity" : "script10.6",
+        "uri" : "http://ncpdp.org/SCRIPT10_6",
+        "name" : "Mapping to NCPDP SCRIPT 10.6"
+      },
+      {
+        "identity" : "rim",
+        "uri" : "http://hl7.org/v3",
+        "name" : "RIM Mapping"
+      },
+      {
+        "identity" : "w5",
+        "uri" : "http://hl7.org/fhir/fivews",
+        "name" : "FiveWs Pattern Mapping"
+      },
+      {
+        "identity" : "v2",
+        "uri" : "http://hl7.org/v2",
+        "name" : "HL7 v2 Mapping"
+      }
+    ],
+    "kind" : "resource",
+    "abstract" : false,
+    "type" : "MedicationRequest",
+    "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest",
+    "derivation" : "constraint",
+    "differential" : {
+      "element" : [
+        {
+          "id" : "MedicationRequest",
+          "path" : "MedicationRequest",
+          "short" : "Ordering of medication for patient or group",
+          "constraint" : [
+            {
+              "key" : "dom-7",
+              "severity" : "error",
+              "human" : "if doNotPerform is present, it SHALL be false"
+            }
+          ]
+        },
+        {
+          "id" : "MedicationRequest.status",
+          "path" : "MedicationRequest.status",
+          "short" : "active​ | on-hold​ | cancelled​ | entered-in-error | stopped​ | draft​ | unknown​",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.category",
+          "path" : "MedicationRequest.category",
+          "mustSupport" : true,
+          "binding" : {
+            "strength" : "preferred",
+            "description" : "Type of medication usage",
+            "valueSet" : "http://hl7.org/fhir/ValueSet/medicationrequest-category"
+          }
+        },
+        {
+          "id" : "MedicationRequest.doNotPerform",
+          "path" : "MedicationRequest.doNotPerform",
+          "min" : 0,
+          "max" : "0",
+          "type" : [
+            {
+              "code" : "boolean"
+            }
+          ],
+          "fixedBoolean" : false,
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.reported[x]",
+          "path" : "MedicationRequest.reported[x]",
+          "type" : [
+            {
+              "code" : "Reference",
+              "targetProfile" : [
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+              ],
+              "_targetProfile" : [
+                {
+                  "extension" : [
+                    {
+                      "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                      "valueBoolean" : true
+                    }
+                  ]
+                },
+                {
+                  "extension" : [
+                    {
+                      "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                      "valueBoolean" : true
+                    }
+                  ]
+                },
+                {
+                  "extension" : [
+                    {
+                      "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                      "valueBoolean" : true
+                    }
+                  ]
+                },
+                {
+                  "extension" : [
+                    {
+                      "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                      "valueBoolean" : true
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.subject",
+          "path" : "MedicationRequest.subject",
+          "type" : [
+            {
+              "code" : "Reference",
+              "targetProfile" : [
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+              ]
+            }
+          ],
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.encounter",
+          "path" : "MedicationRequest.encounter",
+          "type" : [
+            {
+              "code" : "Reference",
+              "targetProfile" : [
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+              ]
+            }
+          ],
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.authoredOn",
+          "path" : "MedicationRequest.authoredOn",
+          "min" : 1,
+          "max" : "1",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.requester",
+          "path" : "MedicationRequest.requester",
+          "comment" : "Should include QICoreDevice but the base profile does excludes device references.",
+          "type" : [
+            {
+              "code" : "Reference",
+              "targetProfile" : [
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
+              ]
+            }
+          ],
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.recorder",
+          "path" : "MedicationRequest.recorder",
+          "type" : [
+            {
+              "code" : "Reference",
+              "targetProfile" : [
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
+              ]
+            }
+          ],
+          "mustSupport" : false
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction",
+          "path" : "MedicationRequest.dosageInstruction",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.timing",
+          "path" : "MedicationRequest.dosageInstruction.timing",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.timing.repeat",
+          "path" : "MedicationRequest.dosageInstruction.timing.repeat",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.timing.repeat.bounds[x]",
+          "path" : "MedicationRequest.dosageInstruction.timing.repeat.bounds[x]",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.timing.repeat.frequency",
+          "path" : "MedicationRequest.dosageInstruction.timing.repeat.frequency",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.timing.repeat.frequencyMax",
+          "path" : "MedicationRequest.dosageInstruction.timing.repeat.frequencyMax",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.timing.repeat.period",
+          "path" : "MedicationRequest.dosageInstruction.timing.repeat.period",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.timing.repeat.periodMax",
+          "path" : "MedicationRequest.dosageInstruction.timing.repeat.periodMax",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.timing.repeat.periodUnit",
+          "path" : "MedicationRequest.dosageInstruction.timing.repeat.periodUnit",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.asNeeded[x]",
+          "path" : "MedicationRequest.dosageInstruction.asNeeded[x]",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.site",
+          "path" : "MedicationRequest.dosageInstruction.site",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.route",
+          "path" : "MedicationRequest.dosageInstruction.route",
+          "mustSupport" : false
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.method",
+          "path" : "MedicationRequest.dosageInstruction.method",
+          "mustSupport" : false
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.doseAndRate",
+          "path" : "MedicationRequest.dosageInstruction.doseAndRate",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dosageInstruction.doseAndRate.dose[x]",
+          "path" : "MedicationRequest.dosageInstruction.doseAndRate.dose[x]",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dispenseRequest",
+          "path" : "MedicationRequest.dispenseRequest",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dispenseRequest.initialFill",
+          "path" : "MedicationRequest.dispenseRequest.initialFill",
+          "min" : 0,
+          "max" : "0",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dispenseRequest.dispenseInterval",
+          "path" : "MedicationRequest.dispenseRequest.dispenseInterval",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dispenseRequest.validityPeriod",
+          "path" : "MedicationRequest.dispenseRequest.validityPeriod",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",
+          "path" : "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dispenseRequest.quantity",
+          "path" : "MedicationRequest.dispenseRequest.quantity",
+          "mustSupport" : true
+        },
+        {
+          "id" : "MedicationRequest.dispenseRequest.expectedSupplyDuration",
+          "path" : "MedicationRequest.dispenseRequest.expectedSupplyDuration",
+          "mustSupport" : true
+        }
+      ]
+    }
   }
-}
