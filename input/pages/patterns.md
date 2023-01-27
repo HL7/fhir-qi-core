@@ -78,7 +78,7 @@ However, when using QICore, extensions and slices defined in profiles are repres
 
 ```cql
 define TestSlices:
-  ["us-core-observation-bp"] BP
+  ["us-core-blood-pressure"] BP
     where BP.SystolicBP.value < 140 'mm[Hg]'
       and BP.DiastolicBP.value < 90 'mm[Hg]'
 
