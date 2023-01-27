@@ -166,7 +166,6 @@ Note that these functions make use of the FHIRHelpers library to ensure correct 
 
 > NOTE: The examples throughout this topic have been simplified to illustrate specific usage. Refer to the originating context for complete expressions.
 
-<div class="new-content" markdown="1">
 ### Observations
 {: #Observation_Examples}
 
@@ -229,7 +228,6 @@ define "Qualifying Systolic Blood Pressure Reading":
 define function "GetEncounter"(ref Reference):
   singleton from (AdultOutpatientEncounters."Qualifying Encounters" x where x.id = Global."GetId"(ref.reference))
 ```
-</div>
 
 ### Encounter Examples
 
