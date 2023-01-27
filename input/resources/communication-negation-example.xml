@@ -33,6 +33,13 @@
   <subject>
     <reference value="Patient/example"/>
   </subject>
+  <topic>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/communication-topic"/>
+      <code value="progress-update"/>
+      <display value="Progress Update"/>
+    </coding>
+  </topic>
   <encounter>
     <reference value="Encounter/example"/>
   </encounter>
@@ -44,13 +51,6 @@
   <sender>
     <reference value="Device/example"/>
   </sender>
-  <reasonCode>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="428341000124108"/>
-      <display value="Macular edema absent (situation)"/>
-    </coding>
-  </reasonCode>
   <payload>
     <contentString value="Patient example has moved away"/>
   </payload>

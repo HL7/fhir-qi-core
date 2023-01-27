@@ -12,7 +12,7 @@ Clinical Quality Language ([CQL](http://cql.hl7.org)) is a high-level, domain-sp
 
 To use CQL with FHIR, [model information](https://cql.hl7.org/07-physicalrepresentation.html#data-model-references) must be provided to the implementation environment. The [CQF Common](http://fhir.org/guides/cqf/common) IG provides a FHIR-ModelInfo library that provides this information for the base FHIR specification, as well as FHIRHelpers and FHIRCommon libraries that provide commonly used functions and declarations for clinical knowledge artifact development. To use FHIR directly, follow the documentation provided in that implementation guide.
 
-However, this implementation guide includes a [QICore-ModelInfo](Library-QICore-ModelInfo.html) library that provides model information for the profiles and extensions defined in QI-Core. To use this model, include a [using declaration](https://cql.hl7.org/02-authorsguide.html#data-models) as shown in the example below:
+However, this implementation guide includes a [QICore ModelInfo](Library-QICore-ModelInfo.html) library that provides model information for the profiles and extensions defined in QI-Core. To use this model, include a [using declaration](https://cql.hl7.org/02-authorsguide.html#data-models) as shown in the example below:
 
 ```cql
 using QICore version '4.2.0'
@@ -78,7 +78,7 @@ However, when using QICore, extensions and slices defined in profiles are repres
 
 ```cql
 define TestSlices:
-  ["observation-bp"] BP
+  ["us-core-blood-pressure"] BP
     where BP.SystolicBP.value < 140 'mm[Hg]'
       and BP.DiastolicBP.value < 90 'mm[Hg]'
 
@@ -195,7 +195,7 @@ For observations that have established profiles in US-Core, QI-Core uses those p
 - [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)
 
 
-For all other observations, use the [QICore-Observation](StructureDefinition-qicore-observation.html) profile.
+For all other observations, use the [QICore Observation](StructureDefinition-qicore-observation.html) profile.
 
 For any observations _not_ done, including the observations identified in the profiles above, use the [Observation Not Done Profile](StructureDefinition-qicore-observationcancelled.html).
 
@@ -209,7 +209,7 @@ code "Diastolic blood pressure": '8462-4' from "LOINC" display 'Diastolic blood 
 code "Systolic blood pressure": '8480-6' from "LOINC" display 'Systolic blood pressure'
 
 define "Qualifying Diastolic Blood Pressure Reading":
-    ["observation-bp"] BloodPressure
+    [Observation: "Blood pressure panel with all children optional"] BloodPressure
                                   where BloodPressure.status.value in {'final', 'amended'}
                                   and Global."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
     and not ((GetEncounter(BloodPressure.encounter)).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})
@@ -218,7 +218,7 @@ define "Qualifying Diastolic Blood Pressure Reading":
                                   and DiastolicBP.value.unit = 'mm[Hg]')
 
 define "Qualifying Systolic Blood Pressure Reading":
-   ["observation-bp"] BloodPressure
+   [Observation: "Blood pressure panel with all children optional"] BloodPressure
                                     where BloodPressure.status.value in {'final', 'amended'}
                                     and Global."Normalize Interval"(BloodPressure.effective) during "Measurement Period"
     and not (GetEncounter(BloodPressure.encounter).class.code.value in {'emergency', 'inpatient encounter', 'inpatient acute', 'inpatient non-acute', 'pre-admission', 'short stay'})
