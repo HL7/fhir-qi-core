@@ -3,31 +3,6 @@
 {:.stu-note}
 > This STU 5.0 update to the QI-Core profiles updates to US-Core STU v5. See the version history for a complete listing of changes to this version.
 
-<div class="note-to-balloters" markdown="1">
-#### Note To Balloters
-
-[Reference](qdm-to-qicore.html#encounter-performed)
-
-1.QI-Core has used the Encounter.diagnosis element to define diagnoses addressed as part of the encounter, and used Must Support elements to request specific data:
-* Encounter.diagnosis.extension:diagnosisPresentOnAdmission to allow reference to whether each specified diagnosis was present on admission
-* Encounter.diagnosis.use to indicate the diagnosis-role, and indicate “billing diagnosis” to support identification of principal diagnosis
-* Encounter.diagnosis.rank to indicate “1” to support identification of principal diagnosis (i.e., principal diagnosis definition is use = billing diagnosis and rank = 1)
-
-FHIR supports the concept of Claim.diagnosis.onAdmission, Claim.diagnosis.sequence, and Claim.diagnosis.type to address concepts of principal diagnosis and present on admission. However, feedback has suggested that use of Encounter.diagnosis is preferred as designed in QI-Core. Some have advised use of the FHIR Account resource but that does not specify diagnoses. Please advise if the current QI-Core approach is preferred or, if not, which path should be taken instead for the information desired.
-
-2.Given the US Core approach to determining encounter diagnoses using Encounter.reasonReference with reference to Condtion Encounter Diagnosis Profile, which of the following approaches are most appropriate to capture all conditions managed during an encounter:
-* Request Encounter.reasonReference with reference to both Condition Encounter Diagnosis and Condition Problems and Health Concerns, or only one of these two references (and which of the two is preferred)
-* Request Encounter.diagnosis with reference to both Condition Encounter Diagnosis and Condition Problems and Health Concerns, or only of of these two references (and which of the two is preferred)
-* Request both Encounter.reasonReference and Encounter.diagnosis as specified in the previous two bulleted items
-
-<div class="new-content" markdown="1">
-Where possible, new and updated content will be highlighted with green text and background
-
-{{ site.data.package_list.list[0].desc }}
-
-</div>
-</div>
-
 {: #qi-core-implementation-guide}
 
 
@@ -88,9 +63,8 @@ for both types of applications.
 
 
 This initiative began in 2013 with the creation of the Quality Improvement Domain Analysis Model (QIDAM), which drew on the vMR and QDM as sources of requirements. The goal was to align on a unified logical model, Quality Information and Clinical Knowledge (QUICK), consisting of objects, attributes, and relationships such that the QUICK model could reference specific Quality Improvement Core (QI-Core) profiles aligned with specific versions of FHIR. The first QUICK model representations included a logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK logical view was aligned, structurally and semantically, as closely as possible to FHIR. While this alignment creates a common model for quality and interoperability that more easily leverages future FHIR-related efforts including Clinical Document Architecture (CDA) on FHIR. However, we recognize that defining a different conceptual/logical model for quality improvement capability splits focus of the community. The appropriate place for the mindshare and consensus development of the exchange semantics for quality improvement use cases is the QI-Core profiles directly. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles, and a Must Support view indicating all Must Support elements for each respective QI-Core profile.
-{: .new-content}
 
-<div class="new-content" markdown="1">
+
 ### Relevance of QI-Core Profiles to Authors
 
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
@@ -106,7 +80,7 @@ It is expected that QI-Core will evolve over time to include some of the extensi
 identifies a common need and the additional content has been validated.
 
 QI-Core profile authoring will provide a more facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
-</div>
+
 
 ### Scope
 
@@ -190,7 +164,7 @@ extensions will not create future conflicts. Other initiatives that the QI-Core 
 [Clinical Information Modeling Initiative (CIMI)](https://www.hl7.org/Special/Committees/cimi/overview.cfm) and [Graphite Health](https://www.graphitehealth.io/).
 
 For the [Occupational Data Health (ODH)](http://hl7.org/fhir/us/odh/index.html) effort, QI Core would have profiled directly based upon the ODH IG but because the current version of ODH has a dependency on US Core STU3 (v3.1.1) not STU5, we could not do this. Even so, the QI Core profile directly aligns with the ODH profile content and is now a profile on US Core Observation SDOH profile. The [following is an example](Observation-example-odh.html) how occupational data can be added to a stratified measure (e.g. breast cancer screening, colorectal cancer screening) by high risk occupations. It can provide a way to reference [ODH Usual Work observation](http://hl7.org/fhir/us/odh/StructureDefinition-odh-UsualWork.html) using [QICore Observation profile](StructureDefinition-qicore-observation.html) (i.e., a single observation). If one were representing an evaluation tool that includes multiple ODH items, the [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html) profile would be appropriate.
-{: .new-content}
+
 
 In addition, the QI-Core effort *continues* to update the mapping from QDM to QI-Core such that a CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
@@ -207,7 +181,6 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 ### MustSupport Flag
 
 QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
-{: .new-content}
 
 In addition to the requirements defined in the US Core base, QI Core further describes and constrains the "MustSupport"
 functionality.
@@ -235,7 +208,6 @@ Specific applications can modify the profiles and set MustSupport flags to true 
 elements, but setting a MustSupport flag from true to false is noncompliant.
 
 A number of  QI-Core profiles inherit directly from US Core profiles, if any, or other FHIR resources (i.e. USCore Implantable Device Profile, USCore Pediatric BMI for Age, USCore Smoking Status etc.) and the underlying Reference elements can address the US Core or FHIR profiles for the items referenced. For any other references to base FHIR resources or those not formally defined in a QI-Core Profile, the referenced resource SHALL be a QI-Core Profile if a QI-Core Profile exists for the resource type. For example, USCore Smoking Status references US Core Patient profile, the reference to Patient SHALL be a valid QI-Core Patient.
-{: .new-content}
 
 In summary, MustSupport elements represent the minimal set of data elements that must be supported in quality
 applications, defined as follows:
@@ -353,7 +325,6 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICore Task](StructureDefinition-qicore-task.html)|[QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
-<div class="new-content" markdown="1">
 The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
 
 - [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
@@ -377,7 +348,6 @@ The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelle
 - [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
 - [QICore Observation Imaging Result](StructureDefinition-qicore-observation-imaging.html)
 - [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)
-</div>
 
 #### Guidance for the use of Negation Profiles
 

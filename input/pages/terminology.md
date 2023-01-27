@@ -24,8 +24,6 @@ These value sets have been defined for this implementation guide.
 	</tbody>
 </table>
 
-[Clinical Discharge Disposition Codes](http://terminology.hl7.org/ValueSet/clinical-discharge-disposition)
-{: .new-content}
 
 ### CodeSystem Resources
 

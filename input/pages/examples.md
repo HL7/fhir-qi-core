@@ -11,21 +11,17 @@
 **QICoreBodyStructure**
 * [This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time](BodyStructure-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreCarePlan**
 * [Assessment and care plan for a pregnancy](CarePlan-example.html)
 
 **QICoreCareTeam**
 * [Example of a CareTeam involved in the delivery of care for a pregnancy](CareTeam-example.html)
-</div>
 
 **QICoreClaim**
 * [Simple Vision Claim](Claim-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreClaimResponse**
 * [Simple Vision ClaimResponse](ClaimResponse-example.html)
-</div>
 
 **QICoreCommunication**
 * [Written Alert Example](Communication-example.html)
@@ -36,20 +32,16 @@
 **QICoreCommunicationRequest**
 * [CommunicationRequest Example](CommunicationRequest-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreConditionEncounterDiagnosis**
 * [Severe Burn Example](Condition-example.html)
 * [Appendicitis Example](Condition-appendicitis-example.html)
 
 **QICoreConditionProblemsHealthConcerns**
 * [Patient with concerns of becoming fat](Condition-health-concern-example.html)
-</div>
 
 **QICoreCoverage**
 * [General Person Primary Coverage Example](Coverage-example.html)
-<div class="new-content" markdown="1">
 * [General Subscriber ID Coverage Example](Coverage-example-new.html)
-</div>
 
 **QICoreDevice**
 * [General Device Example](Device-example.html)
@@ -103,9 +95,7 @@
 
 **QICoreMedicationAdministration**
 * [Inhalant Example](MedicationAdministration-example.html)
-<div class="new-content" markdown="1">
 * [Cumulative Duration Example](MedicationAdministration-cmd-example.html)
-</div>
 
 **QICoreMedicationAdministrationNotDone**
 * [Medication not administered using a value set to indicate what was not administered](MedicationAdministration-negation-example.html)
@@ -113,9 +103,7 @@
 
 **QICoreMedicationDispense**
 * [Penicillin MedicationDispense Example](MedicationDispense-example.html)
-<div class="new-content" markdown="1">
 * [Cumulative Medication Dispense Example](MedicationDispense-cmd-example.html)
-</div>
 
 **QICoreMedicationDispenseDeclined**
 * [Negation Example with valueset](MedicationDispense-negation-example.html)
@@ -128,11 +116,9 @@
 **QICoreMedicationRequest**
 * [Penicillin MedicationRequest Example](MedicationRequest-example.html)
 * [Cumulative Medication Duration Example](MedicationRequest-cmd-example.html)
-<div class="new-content" markdown="1">
 * [Patient Reported MedicationRequest Example](MedicationRequest-patient-reported-example.html)
 * [Patient Requested MedicationRequest Example](MedicationRequest-patient-requester-example.html)
 * [Practitioner Ordered MedicationRequest Example](MedicationRequest-practitioner-ordered-example.html)
-</div>
 
 **QICoreMedicationStatement**
 * [Penicillin MedicationStatement Example](MedicationStatement-example.html)
@@ -140,17 +126,14 @@
 **QICoreNutritionOrder**
 * [Diabetic diet example](NutritionOrder-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreObservation**
 * [Frailty Observation Example](Observation-example-frailty.html)
 * [Gestational Age at Birth Example](Observation-example-gestation.html)
-</div>
 
 **QICoreObservationCancelled**
 * [Negation Example with valueset](Observation-negation-example.html)
 * [Negation Example with code](Observation-negation-with-code-example.html)
 
-<div class="new-content" markdown="1">
 **QICoreLaboratoryResultObservation**
 * [Glucose Lab Result Observation](Observation-laboratory-result-observation-example-blood-glucose.html)
 
@@ -162,7 +145,6 @@
 
 **QICoreObservationSurvey**
 * [10 minute Apgar Heart Rate Observation Survey](Observation-example-survey-10-minute-apgar-heart-rate.html)
-</div>
 
 **QICoreOrganization**
 * [HL7 Organization Example](Organization-example.html)
@@ -209,7 +191,6 @@
 * [Task rejected using a value set to indicate what was not done](Task-negation-example.html)
 * [Task rejected using a code to indicate what was not done](Task-negation-with-code-example.html)
 
-<div class="new-content" markdown="1">
 **Additional Examples**
 * [ODH Example](Observation-example.html)
-</div>
+
