@@ -120,10 +120,14 @@
         "mustSupport" : false
       },
       {
-        "id" : "Observation.status",
-        "path" : "Observation.status",
-        "short" : "registered​ | preliminary​ | final​ | amended​ | corrected​ | entered-in-error​ | unknown​",
-        "mustSupport" : true
+        "id": "Observation.status",
+        "path": "Observation.status",
+        "short": "registered | prliminary | final | amended | corrected | entered-in-error | unknown",
+        "mustSupport": true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
+        }
       },
       {
         "id" : "Observation.category",

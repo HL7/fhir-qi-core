@@ -120,7 +120,11 @@
         "id" : "Procedure.status",
         "path" : "Procedure.status",
         "short" : "preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
-        "mustSupport" : true
+        "mustSupport" : true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status"
+        }
       },
       {
         "id" : "Procedure.subject",

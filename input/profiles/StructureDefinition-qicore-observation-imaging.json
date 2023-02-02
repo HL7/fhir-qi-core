@@ -62,7 +62,17 @@
   "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-imaging",
   "derivation" : "constraint",
 	"differential" : {
-    "element" : [
+		"element" : [
+			{
+				"id": "Observation.status",
+				"path": "Observation.status",
+				"short": "registered | prliminary | final | amended | corrected | entered-in-error | unknown",
+				"mustSupport": true,
+				"binding": {
+				"strength": "required",
+				"valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
+				}
+			},
 			{
 			"id": "Observation.subject",
 			"path": "Observation.subject",

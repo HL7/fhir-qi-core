@@ -75,7 +75,11 @@
         "id" : "MedicationDispense.status",
         "path" : "MedicationDispense.status",
         "short" : "preparation​ | in-progress​ | cancelled​ | on-hold​ | completed​ | entered-in-error​ | stopped​ | unknown",
-        "mustSupport" : true
+        "mustSupport" : true,
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medicationdispense-status"
+        }
       },
       {
         "id" : "MedicationDispense.statusReason[x]",

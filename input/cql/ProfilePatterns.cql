@@ -1,3 +1,4 @@
+// Pure FHIR rendering of QICore profile patterns
 library ProfilePatterns
 
 using FHIR version '4.0.1'
@@ -39,6 +40,11 @@ define CareTeam:
 define Claim:
   [Claim]
 
+// QICoreClaimResponse
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claimresponse
+define ClaimResponse:
+  [ClaimResponse]
+
 // QICoreCommunication
 // @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication
 define Communication:
@@ -56,13 +62,6 @@ define CommunicationNotDone:
 define CommunicationRequest:
   [CommunicationRequest]
 
-// QICore 4.1.1
-//// QICoreCondition
-//// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition
-//define Condition:
-//  [Condition]
-
-// QICore 5.0.0
 // QICoreConditionProblemsHealthConcerns
 // @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns
 define Condition:
@@ -70,7 +69,6 @@ define Condition:
     where Condition.hasCategory("problem-list-item")
       or Condition.hasCategory("health-concern")
 
-// QICore 5.0.0
 // QICoreConditionEncounterDiagnosis
 // @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis
 define EncounterDiagnosis:
@@ -164,7 +162,7 @@ define ImmunizationNotDone:
     where I.status = 'not-done'
 
 // QICoreImmunizationRecommendation
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrec
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrecommendation
 define ImmunizationRecommendation:
   [ImmunizationRecommendation]
 
@@ -190,7 +188,7 @@ define MedicationAdministration:
     where M.status in { 'in-progress', 'on-hold', 'completed' }
 
 // QICoreMedicationAdministrationNotDone
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotadministered
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone
 define MedicationAdministrationNotDone:
   [MedicationAdministration] M
     where M.status = 'not-done'
@@ -208,7 +206,7 @@ define MedicationDispenseDeclined:
     where D.status in { 'cancelled', 'declined' }
 
 // QICoreMedicationNotRequested
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotrequested
+// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested
 define MedicationNotRequested:
   [MedicationRequest] R
     where R.status = 'completed'
@@ -302,7 +300,7 @@ define LaboratoryResultObservation:
 define ObservationClinicalTestResult:
   [Observation] O
     where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
-      and O.isCliicalTest()
+      and O.isClinicalTest()
 
 // QICoreObservationImagingResult
 // @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-imaging

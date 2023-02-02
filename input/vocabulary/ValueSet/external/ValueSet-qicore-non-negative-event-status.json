@@ -1,0 +1,62 @@
+{
+  "resourceType": "ValueSet",
+  "id": "qicore-non-negative-event-status",
+  "url": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status",
+  "version": "4.0.0",
+  "name": "NonNegativeEventStatus",
+  "title": "Non-Negative Event Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-12-05T00:00:00+00:00",
+  "publisher": "Health Level Seven, Inc. - CQI WG",
+  "description": "This value set defines the set of codes that indicate a non-negated event status (i.e. codes that are not `not-done`)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "purpose": "This value set was defined to support the set of event statuses in FHIR that do not explicitly indicate a negative status (i.e. all the codes from the http://hl7.org/fhir/event-status code system that are not `not-done`).",
+  "compose": {
+    "include": [
+      {
+        "system": "http://hl7.org/fhir/event-status",
+        "concept": [
+          {
+            "code": "preparation",
+            "display": "Preparation"
+          },
+          {
+            "code": "in-progress",
+            "display": "In Progress"
+          },
+          {
+            "code": "on-hold",
+            "display": "On Hold"
+          },
+          {
+            "code": "stopped",
+            "display": "Stopped"
+          },
+          {
+            "code": "completed",
+            "display": "Completed"
+          },
+          {
+            "code": "entered-in-error",
+            "display": "Entered in Error"
+          },
+          {
+            "code": "unknown",
+            "display": "Unknown"
+          }
+        ]
+      }
+    ]
+  }
+}

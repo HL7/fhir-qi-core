@@ -2,7 +2,8 @@
 @author: Bryn Rhodes
 @description: This library defines functions to expose extensions defined
 in QICore as fluent functions in CQL, as well as common terminology and functions
-used in writing CQL with FHIR and QICore profiles.
+used in writing CQL with FHIR and QICore profiles. NOTE: This is the pure-FHIR
+version of this library (i.e. does not use profile-informed authoring)
 */
 library QICoreCommon
 
@@ -21,7 +22,7 @@ codesystem "ConditionVerificationStatusCodes": 'http://terminology.hl7.org/CodeS
 codesystem "AllergyIntoleranceClinicalStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-clinical'
 codesystem "AllergyIntoleranceVerificationStatusCodes": 'http://terminology.hl7.org/CodeSystem/allergyintolerance-verification'
 codesystem "ObservationCategoryCodes": 'http://terminology.hl7.org/CodeSystem/observation-category'
-codesystem "USCoreObservationCategory": 'http://hl7.org/fhir/us/core/CodeSystem/us-core-observation-category'
+codesystem "USCoreObservationCategoryCodes": 'http://hl7.org/fhir/us/core/CodeSystem/us-core-observation-category'
 codesystem "ConditionCategory": 'http://terminology.hl7.org/CodeSystem/condition-category'
 codesystem "USCoreConditionCategory": 'http://hl7.org/fhir/us/core/CodeSystem/condition-category'
 
