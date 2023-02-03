@@ -15,23 +15,18 @@ To use CQL with FHIR, [model information](https://cql.hl7.org/07-physicalreprese
 However, this implementation guide includes a [QICore ModelInfo](Library-QICore-ModelInfo.html) library that provides model information for the profiles and extensions defined in QI-Core. To use this model, include a [using declaration](https://cql.hl7.org/02-authorsguide.html#data-models) as shown in the example below:
 
 ```cql
-using QICore version '4.2.0'
+using QICore version '5.0.0'
 ```
 
 Although not required by CQL, current best-practice is to include the version of the QICore model. For more information about how this library is constructed, refer to the [ModelInfo](modelinfo.html) topic.
 
 #### Primitives
 
-Primitive elements in FHIR, such as String, Integer, DateTime, and so on, may have extensions, and so have more complex structure than primitive elements typically have in other models. This means that when accessing a FHIR primitive element directly, a `.value` accessor must be used to get at the CQL primitive value:
+The QICore model info represents FHIR primitive elements using the system types directly, so when using QICore, no `.value` accessor is required.
 
-```cql
-define "Completed Encounter":
-  ["Encounter"] E
-    where E.status.value = 'finished'
-```
+Because of the way mapping works, the `FHIRHelpers` library is still required and is a runtime dependency rather than a compile-time dependency for the profile-informed authoring models.
 
-To avoid this need, a `FHIRHelpers` library has been defined (and is included by default in the CQL-to-ELM translator). To
-use this library, add the following include:
+In profile-informed authoring, the primitive type is mapped to the CQL type and represented with the CQL type in the model. So a `FHIR.string` element is modeled as a `System.String`, and the translator maps that to the `FHIR.string` value using the `FHIRHelpers` library.
 
 ```cql
 include FHIRHelpers version '4.0.1'
@@ -39,22 +34,27 @@ include FHIRHelpers version '4.0.1'
 
 Note that the FHIRHelpers version must match the FHIR version being used.
 
-With this include, the above simplifies to:
+With this include, the following is simplified to:
 
 ```cql
 define "Completed Encounter":
   ["Encounter"] E
     where E.status = 'finished'
 ```
+from
 
-Note that the additional `.value` is no longer required. In addition, the QICore model info represents FHIR primitive elements using the system types directly, so when using QICore, no `.value` accessor is required.
+```cql
+define "Completed Encounter":
+  ["Encounter"] E
+    where E.status.value = 'finished'
+```
 
 #### Extensions
 
 Extensions in FHIR provide a standard mechanism to describe additional content that is not part of the base
 FHIR resources. By defining extensions in a uniform way as part of the base specification, FHIR enables extension-based functionality to be introduced through the use of profiles and implementation guidance. QI-Core includes several extensions related to quality improvement applications.
 
-When using FHIR directly, these extensions must be accessed explicitly, using functions such as the following:
+When using QICore, extensions and slices defined in profiles are represented directly as elements in the types. For example:
 
 ```cql
 define function "Extensions"(domainResource DomainResource, url String):
@@ -99,67 +99,58 @@ the `Patient.deceased` element can be specified as a `Boolean` or as a `DateTime
 
 Where appropriate, the QICoreProfiles restrict choice types to those that are appropriate for the quality improvement use case. For example, The `QICoreCondition` profile removes `String` as a possible type for the `onset` element, to communicate the expectation that a computable representation of onset is required for quality improvement applications.
 
-However, because systems may communicate instances contain any of these types, quality improvement logic must be prepared to deal with choice elements of any of the available types. To support the most common usages of choice types (for timing elements), the following functions have been defined:
+Quality improvement logic must be prepared to deal with choice elements of any of the available types because systems may communicate instances contain any of these types. To support the most common usages of choice types (for timing elements), the following functions have been defined:
 
 ```cql
-define function "Normalize Onset"(onset Choice<FHIR.dateTime, FHIR.Age, FHIR.Period, FHIR.Range, FHIR.string>):
-  if onset is FHIR.dateTime then
-      Interval[FHIRHelpers.ToDateTime(onset as FHIR.dateTime), FHIRHelpers.ToDateTime(onset as FHIR.dateTime)]
-  else if onset is FHIR.Period then
-    FHIRHelpers.ToInterval(onset as FHIR.Period)
-  else if onset is FHIR.string then
-    Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
-  else if onset is FHIR.Age then
-    Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(onset as FHIR.Age),
-      FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(onset as FHIR.Age) + 1 year)
-  else if onset is FHIR.Range then
-    Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((onset as FHIR.Range).low),
-      FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((onset as FHIR.Range).high) + 1 year)
-  else
-    null
-
-define function "Normalize Abatement"(condition Condition):
-  if condition.abatement is FHIR.dateTime then
-    Interval[FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime), FHIRHelpers.ToDateTime(condition.abatement as FHIR.dateTime)]
-  else if condition.abatement is FHIR.Period then
-    FHIRHelpers.ToInterval(condition.abatement as FHIR.Period)
-  else if condition.abatement is FHIR.string then
-    Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
-  else if condition.abatement is FHIR.Age then
-    Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age),
-      FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(condition.abatement as FHIR.Age) + 1 year)
-  else if condition.abatement is FHIR.Range then
-    Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).low),
-      FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((condition.abatement as FHIR.Range).high) + 1 year)
-  else if condition.abatement is FHIR.boolean then
-    Interval[end of "Normalize Onset"(condition.onset), condition.recordedDate)
-  else
-    null
-
-define function "Prevalence Period"(condition Condition):
-  Interval[start of "Normalize Onset"(condition.onset), end of "Normalize Abatement"(condition))
-
-define function "Normalize Interval"(choice Choice<FHIR.dateTime, FHIR.Period, FHIR.Timing, FHIR.instant, FHIR.string, FHIR.Age, FHIR.Range>):
+define function ToInterval(choice Choice<DateTime, Quantity, Interval<DateTime>, Interval<Quantity>>):
   case
-    when choice is FHIR.dateTime then
-      Interval[FHIRHelpers.ToDateTime(choice as FHIR.dateTime), FHIRHelpers.ToDateTime(choice as FHIR.dateTime)]
-    when choice is FHIR.Period then
-      FHIRHelpers.ToInterval(choice as FHIR.Period)
-    when choice is FHIR.instant then
-      Interval[FHIRHelpers.ToDateTime(choice as FHIR.instant), FHIRHelpers.ToDateTime(choice as FHIR.instant)]
-    when choice is FHIR.Age then
-      Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age),
-        FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity(choice as FHIR.Age) + 1 year )
-    when choice is FHIR.Range then
-      Interval[FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).low),
-        FHIRHelpers.ToDate(Patient.birthDate) + FHIRHelpers.ToQuantity((choice as FHIR.Range).high) + 1 year )
-    when choice is FHIR.Timing then
-      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute a single interval from a Timing type')
-    when choice is FHIR.string then
-      Message(null as Interval<DateTime>, true, '1', 'Error', 'Cannot compute an interval from a String value')
-    else
-      null as Interval<DateTime>
-  end
+	  when choice is DateTime then
+    	Interval[choice as DateTime, choice as DateTime]
+		when choice is Interval<DateTime> then
+  		choice as Interval<DateTime>
+		when choice is Quantity then
+		  Interval[Patient.birthDate + (choice as Quantity),
+			  Patient.birthDate + (choice as Quantity) + 1 year)
+		when choice is Interval<Quantity> then
+		  Interval[Patient.birthDate + (choice.low as Quantity),
+			  Patient.birthDate + (choice.high as Quantity) + 1 year)
+		else
+			null as Interval<DateTime>
+	end
+
+define function ToAbatementInterval(condition Condition):
+	if condition.abatement is DateTime then
+	  Interval[condition.abatement as DateTime, condition.abatement as DateTime]
+	else if condition.abatement is Quantity then
+		Interval[Patient.birthDate + (condition.abatement as Quantity),
+			Patient.birthDate + (condition.abatement as Quantity) + 1 year)
+	else if condition.abatement is Interval<Quantity> then
+	  Interval[Patient.birthDate + (condition.abatement.low as Quantity),
+		  Patient.birthDate + (condition.abatement.high as Quantity) + 1 year)
+	else if condition.abatement is Interval<DateTime> then
+	  Interval[condition.abatement.low, condition.abatement.high)
+	else null as Interval<DateTime>
+
+define function ToPrevalenceInterval(condition Condition):
+if condition.clinicalStatus ~ "active"
+  or condition.clinicalStatus ~ "recurrence"
+  or condition.clinicalStatus ~ "relapse" then
+  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition)]
+else
+  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition))
+
+define function "Latest"(choice Choice<DateTime, Quantity, Interval<DateTime>, Interval<Quantity>> ):
+  (choice.toInterval()) period
+    return
+      if (HasEnd(period)) then end of period
+      else start of period
+
+define function "Earliest"(choice Choice<DateTime, Quantity, Interval<DateTime>, Interval<Quantity>> ):
+  (choice.toInterval()) period
+    return
+      if (HasStart(period)) then start of period
+      else end of period
+
 ```
 
 Note that these functions make use of the FHIRHelpers library to ensure correct processing.
@@ -233,14 +224,14 @@ define function "GetEncounter"(ref Reference):
 
 #### Inpatient Encounter Example
 
-Source of example based on: MATGlobalCommonFunctionsFHIR4
+Source of example based on: CQMCOMMON
 
 ```cql
-define "Inpatient Encounter":
-  [Encounter: "Encounter Inpatient"] EncounterInpatient
-    where EncounterInpatient.status = 'finished'
-      and "LengthInDays"(EncounterInpatient.period) <= 120
-      and EncounterInpatient.period ends during "Measurement Period"
+define "Inpatient Encounter": 
+  [Encounter: "Encounter Inpatient"] EncounterInpatient 
+  where EncounterInpatient.status = 'finished' 
+  and "LengthInDays"(EncounterInpatient.period) <= 120 
+  and EncounterInpatient.period ends during day of "Measurement Period" 
 ```
 
 #### Inpatient Encounter with Principal Diagnosis
@@ -283,7 +274,7 @@ define "Encounter with Thrombolytic Therapy Prior to Arrival":
                    )
 ```
 
-Note that verificationStatus is not being checked due to feedback received that it may be difficult for implementers to retrieve the element.
+* Note: `verificationStatus` is not being checked due to feedback received that it may be difficult for implementers to retrieve the element.
 
 ### Medications
 
@@ -330,49 +321,40 @@ Source of example based on: DischargedonAntithromboticTherapyFHIR
 
 ```cql
 define "Antithrombotic Not Given at Discharge":
-  ["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
-        where NoAntithromboticDischarge.doNotPerform is true
-    			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
-    				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
-          and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) ~ Global."Community" or FHIRHelpers.ToConcept(C) ~ Global."Discharge")
-          and NoAntithromboticDischarge.status = 'completed'
-          and NoAntithromboticDischarge.intent = 'order'
+  ["MedicationNotRequested": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
+			where (NoAntithromboticDischarge.reasonCode in "Medical Reason"
+				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+      and (NoAntithromboticDischarge.isCommunity() or NoAntimthromboticDischarge.isDischarge())
+      and NoAntithromboticDischarge.intent = 'order'
 ```
 
-#### Medication not administered or ordered
+* NOTE: Because the MedicationNotRequested profile fixes the value of `doNotPerform` to true, that element does not need to be tested in the expression.
+
+#### Medication not administered 
 
 Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR4
 
 ```cql
-define "No VTE Prophylaxis Medication Administered or Ordered":
-  ( ( ["MedicationAdministration": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
-          union ["MedicationAdministration": "Low Molecular Weight Heparin for VTE Prophylaxis"]
-          union ["MedicationAdministration": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
-          union ["MedicationAdministration": "Warfarin"]
-          union ["MedicationAdministration": "Rivaroxaban for VTE Prophylaxis"] ) MedicationAdm
-          let MedicationNotDoneTiming: Global.GetExtension ( MedicationAdm, 'qicore-recorded' ).value
-          where MedicationAdm.status = 'not-done'
-          return {
-            id: MedicationAdm.id,
-            MedicationStatusReason: MedicationAdm.statusReason,
-            authoredOn: MedicationNotDoneTiming
-          }
-      )
-        union ( ( ["MedicationRequest": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
-            union ["MedicationRequest": "Low Molecular Weight Heparin for VTE Prophylaxis"]
-            union ["MedicationRequest": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
-            union ["MedicationRequest": "Warfarin"]
-            union ["MedicationRequest": "Rivaroxaban for VTE Prophylaxis"] ) MedicationOrder
-            where MedicationOrder.doNotPerform is true
-              and MedicationOrder.status in { 'completed', 'cancelled' }
-            return {
-              id: MedicationOrder.id,
-              MedicationStatusReason: MedicationOrder.reasonCode,
-              authoredOn: MedicationOrder.authoredOn
-            }
-        )
-
+define "Low Dose Unfractionated Heparin for VTE Prophylaxis Not Administered":
+  ["MedicationAdministrationNotDone": "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.category ~ QICoreCommon."Inpatient"
+      and (VTEMedication.reasonCode in "Medical Reason" or VTEMedication.reasonCode in "Patient Refusal")
 ```
+* Note: Because the MedicationAdministrationNotDone profile fixes the value of `status` to `not-done`, that element does not need to be tested in the expression.
+
+#### Medication not ordered
+
+```cql
+define "Reason for Not Ordering Antithrombotic":
+  ["MedicationNotRequested": "Antithrombotic Therapy"] NoAntithromboticDischarge
+    where (NoAntithromboticDischarge.reasonCode in "Medical Reason"
+      or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+      and (NoAntithromboticDischarge.isCommunity() or NoAntithromboticDischarge.isDischarge())
+      and NoAntithromboticDischarge.intent = 'order'
+```
+
+* Note: Because the MedicationNotRequested profile fixes the value of `doNotPerform` to `true`, that element does not need to be tested in the expression.
+
 
 ### Procedures/Interventions
 
@@ -413,34 +395,32 @@ define "VTE Prophylaxis by Medication Administered or Device Applied":
 
  ```
 
-#### Device Not Used or Ordered
+#### Device not used
 
 Source of example based on: IntensiveCareUnitVenousThromboembolismProphylaxisFHIR
 
 ```cql
-define "No VTE Prophylaxis Device Applied or Ordered":
-  ( ( ["ServiceRequest": "Venous foot pumps (VFP)"]
-        union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
-        union ["ServiceRequest": "Graduated compression stockings (GCS)"] ) DeviceOrder
-        where DeviceOrder.status = 'completed'
-          and DeviceOrder.doNotPerform is true
+define "Venous Foot Pump Not Used":
+  ( [ProcedureNotDone: "Application of Intermittent Pneumatic Compression Devices (IPC)"] 
+                  union [ProcedureNotDone: "Application of Venous Foot Pumps (VFP)"] 
+                  union [ProcedureNotDone: "Application of Graduated Compression Stockings (GCS)"]) DeviceNotApplied
+        let DeviceNotDoneTiming: DeviceNotApplied.recorded
         return {
-          id: DeviceOrder.id,
-          requestStatusReason: GetStatusReason(DeviceOrder),
-          authoredOn: DeviceOrder.authoredOn
+          id: DeviceNotApplied.id,
+          requestStatusReason: DeviceNotApplied.statusReason,
+          authoredOn: DeviceNotDoneTiming
         }
-    )
-      union ( ["Procedure": "Device Application"] DeviceApplied
-          let DeviceNotDoneTiming: Global.GetExtension ( DeviceApplied, 'qicore-recorded' ).value
-          where ( DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-              or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
-              or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
-          )
-            and DeviceApplied.status = 'not-done'
-          return {
-            id: DeviceApplied.id,
-            requestStatusReason: DeviceApplied.statusReason,
-            authoredOn: DeviceNotDoneTiming
-          }
       )
  ```
+
+* NOTE: Because the ProcedureNotDone profile fixes the value of `status` to `not-done`, this element does not need to be tested in the expression
+
+#### Device not ordered
+
+```cql
+ define "Venous Foot Pumps Not Ordered":
+  ["DeviceNotRequested": "Venous Foot Pumps (VFP)"] DeviceNotOrdered
+    where DeviceNotOrdered.doNotPerformReason in "Medical Reason"
+      or DeviceNotOrdered.doNotPerformReason in "Patient Refusal"
+```
+* NOTE: Because the DeviceNotRequested profile fixes the value of `doNotPerform` to `true`, this element does not need to be tested in the expression.
