@@ -1,496 +1,456 @@
-library QICoreCommonTests
+library QICoreCommonTests version '2.0.000'
 
-using FHIR version '4.0.1'
+using QICore version '5.0.0'
 
 include FHIRHelpers version '4.0.1'
 
-include QICoreCommon called Common
-
 codesystem "Marital Status Codes": 'http://terminology.hl7.org/CodeSystem/v3-MaritalStatus'
 codesystem "CDC Race and Ethnicity Codes": 'urn:oid:2.16.840.1.113883.6.238'
+codesystem "CommunicationCategoryCodeSystem": 'http://terminology.hl7.org/CodeSystem/communication-category'
+codesystem "SNOMED-CT": 'http://snomed.info/sct'
+codesystem "CVX": 'http://hl7.org/fhir/sid/cvx'
+codesystem "LOINC": 'http://loinc.org'
+codesystem "TaskCodeSystem": 'http://hl7.org/fhir/CodeSystem/task-code'
 
 valueset "Marital Status": 'http://hl7.org/fhir/ValueSet/marital-status'
+valueset "CommunicationCodes": 'http://hl7.org/fhir/ValueSet/communication-category'
+valueset "DeviceCodes": 'http://example.org/fhir/ValueSet/device-codes' // Random set of device codes from 'http://hl7.org/fhir/ValueSet/device-type'
+valueset "ImmunizationCodes": 'http://example.org/fhir/ValueSet/immunization-codes' // Random set of immunization codes from 'http://hl7.org/fhir/us/core/ValueSet/us-core-vaccines-cvx'
+valueset "MedicationCodes": 'http://example.org/fhir/ValueSet/medication-codes' // Random set of medication codes from 'http://hl7.org/fhir/ValueSet/medication-codes'
+valueset "ObservationCodes": 'http://example.org/fhir/ValueSet/observation-codes' // Random set of observation codes from 'http://hl7.org/fhir/ValueSet/observation-codes'
+valueset "ProcedureCodes": 'http://example.org/fhir/ValueSet/procedure-codes' // Random set of procedure codes from 'http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code'
+valueset "TaskCodes": 'http://hl7.org/fhir/ValueSet/task-code'
+valueset "NegationReasonCodes": 'http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason'
 
 code "Marital Status - Married": 'M' from "Marital Status Codes"
 code "American Indian or Alaska Native": '1002-5' from "CDC Race and Ethnicity Codes"
 code "Alaska Native": '1735-0' from "CDC Race and Ethnicity Codes"
-code "Blood pressure": '85354-9' from Common."LOINC" display 'Blood pressure panel with all children optional'
-code "Diastolic blood pressure": '8462-4' from Common."LOINC" display 'Diastolic blood pressure'
-code "Systolic blood pressure": '8480-6' from Common."LOINC" display 'Systolic blood pressure'
+code "CommunicationCode": 'alert' from "CommunicationCategoryCodeSystem" display 'Alert'
+code "DeviceCode": '156009' from "SNOMED-CT" display 'Spine board'
+code "ImmunizationCode": '01' from "CVX" display 'diphtheria, tetanus toxoids and pertussis vaccine'
+code "MedicationCode": '26100' from "SNOMED-CT" display 'Codeine phosphate'
+code "ObservationCode": '1-8' from "LOINC" display 'Acyclovir [Susceptibility]'
+code "ProcedureCode": '7138802' from "SNOMED-CT" display 'Procedure'
+code "TaskCode": 'approve' from "TaskCodeSystem" display 'Activate/approve the focal resource'
 
 context Patient
 
-// QICoreAdverseEvent
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-adverseevent
-define AdverseEvent:
-  [AdverseEvent]
-
-// QICoreAllergyIntolerance
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance
-define AllergyIntolerance:
-  [AllergyIntolerance]
-
-// QICoreBodyStructure
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-bodystructure
-define BodyStructure:
-  [BodyStructure]
-
-// QICoreCarePlan
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan
-define CarePlan:
-  [CarePlan]
-
-// QICoreCareTeam
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam
-define CareTeam:
-  [CareTeam]
-
-// QICoreClaim
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claim
-define Claim:
-  [Claim]
-
-// QICoreCommunication
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication
-define Communication:
-  [Communication] C
-    where C.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
-
-// QICoreCommunicationNotDone
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationnotdone
-define CommunicationNotDone:
-  [Communication] C
-    where C.status = 'not-done'
-
-// QICoreCommunicationRequest
-// @profile: 	http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationrequest
-define CommunicationRequest:
-  [CommunicationRequest]
-
-// QICoreCondition
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition
-define Condition:
-  [Condition]
-
-// QICoreCoverage
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage
-define Coverage:
-  [Coverage]
-
-// QICoreDevice
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device
-define Device:
-  [Device]
-
-// QICoreDeviceNotRequested
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested
-define DeviceNotRequested:
-  [DeviceRequest] D
-    where D.status = 'completed'
-      and D.doNotPerform() is true
-
-// QICoreDeviceRequest
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequest
-define DeviceRequest:
-  [DeviceRequest] D
-    where D.status in { 'draft', 'active', 'on-hold', 'revoked', 'completed' }
-      and D.doNotPerform() is not true
-
-// QICoreDeviceUseStatement
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceusestatement
-define DeviceUseStatement:
-  [DeviceUseStatement]
-
-// QICoreDiagnosticReportLab
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab
-define DiagnosticReportLab:
-  [DiagnosticReport] D
-    //where D.category ~ "http://terminology.hl7.org/CodeSystem/v2-0074#LAB"
-
-// QICoreDiagnosticReportNote
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note
-define DiagnosticReportNote:
-  [DiagnosticReport] D
-
-// QICoreEncounter
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter
-define Encounter:
-  [Encounter]
-
-define EncounterPerformed:
-  Encounter E
-    where E.status = 'finished'
-
-// QICoreFamilyMemberHistory
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-familymemberhistory
-define FamilyMemberHistory:
-  [FamilyMemberHistory]
-
-// QICoreFlag
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-flag
-define Flag:
-  [Flag]
-
-// QICoreGoal
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-goal
-define Goal:
-  [Goal]
-
-// QICoreImagingStudy
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy
-define ImagingStudy:
-  [ImagingStudy]
-
-// QICoreImmunization
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization
-define Immunization:
-  [Immunization] I
-    where I.status = 'completed'
-
-// QICoreImmunizationEvaluation
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationevaluation
-define ImmunizationEvaluation:
-  [ImmunizationEvaluation]
-
-// QICoreImmunizationNotDone
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone
-define ImmunizationNotDone:
-  [Immunization] I
-    where I.status = 'not-done'
-
-// QICoreImmunizationRecommendation
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrec
-define ImmunizationRecommendation:
-  [ImmunizationRecommendation]
-
-// USCoreImplantableDevice
-// @profile: http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device
-define ImplantableDevice:
-  [Device]
-
-// QICoreLocation
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location
-define Location:
-  [Location]
-
-// QICoreMedication
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication
-define Medication:
-  [Medication]
-
-// QICoreMedicationAdministration
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration
-define MedicationAdministration:
-  [MedicationAdministration] M
-    where M.status in { 'in-progress', 'on-hold', 'completed' }
-
-// QICoreMedicationAdministrationNotDone
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotadministered
-define MedicationAdministrationNotDone:
-  [MedicationAdministration] M
-    where M.status = 'not-done'
-
-// QICoreMedicationDispense
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense
-define MedicationDispense:
-  [MedicationDispense] D
-    where D.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
-
-// QICoreMedicationDispenseDeclined
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedeclined
-define MedicationDispenseDeclined:
-  [MedicationDispense] D
-    where D.status in { 'cancelled', 'declined' }
-
-// QICoreMedicationNotRequested
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-mednotrequested
-define MedicationNotRequested:
-  [MedicationRequest] R
-    where R.status = 'completed'
-      and R.doNotPerform is true
-
-/*
-define "Antithrombotic Not Given at Discharge":
-  ["MedicationRequest": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
-    where NoAntithromboticDischarge.doNotPerform is true
-			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
-				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
-      and exists (NoAntithromboticDischarge.category C where FHIRHelpers.ToConcept(C) ~ FC."Community" or FHIRHelpers.ToConcept(C) ~ FC."Discharge")
-      and NoAntithromboticDischarge.status = 'completed'
-      and NoAntithromboticDischarge.intent = 'order'
-
-define "Antithrombotic Not Given at Discharge":
-  QICore.MedicationNotRequested NoAntithromboticDischarge
-    where NoAntithromboticDischarge.medication in "Antithrombotic Therapy"
-      and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
-        or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
-      and (NoAntithromboticDischarge.isCommunity() or NoAntithromboticDischarge.isDischarge())
-      and NoAntithromboticDischarge.intent = 'order'
-
-define "Antithrombotic Not Given at Discharge":
-  ["MedicationNotRequested": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
-    where (NoAntithromboticDischarge.reasonCode in "Medical Reason"
-        or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
-      and (NoAntithromboticDischarge.isCommunity() or NoAntithromboticDischarge.isDischarge())
-      and NoAntithromboticDischarge.intent = 'order'
-*/
-
-// QICoreMedicationRequest
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest
-define MedicationRequest:
-  [MedicationRequest] R
-    where R.status in { 'active', 'on-hold', 'completed', 'draft' }
-      and R.doNotPerform is not true
-
-/*
-define "Antithrombotic Therapy at Discharge":
-  ["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
-    where exists (Antithrombotic.category C where FHIRHelpers.ToConcept(C) in { Global."Community", Global."Discharge" })
-      and Antithrombotic.status in { 'active', 'completed' }
-      and Antithrombotic.intent.value = 'order'
-
-define "Antithrombotic Therapy at Discharge":
-  QICore.MedicationRequest Antithrombotic
-    where Antithrombotic.medication in "Antithrombotic Therapy"
-      and (Antithrombotic.isCommunity() or Antithrombotic.isDischarge())
-      and Antithrombotic.status in { 'active', 'completed' }
-      and Antithrombotic.intent = 'order'
-
-define "Antithrombotic Therapy at Discharge":
-  [MedicationRequest: medication in "Antithrombotic Therapy"] Antithrombotic
-    where (Antithrombotic.isCommunity() or Antithrombotic.isDischarge())
-      and Antithrombotic.status in { 'active', 'completed' }
-      and Antithrombotic.intent = 'order'
-*/
-
-// QICoreMedicationStatement
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement
-define MedicationStatement:
-  [MedicationStatement]
-
-// QICoreNutritionOrder
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder
-define NutritionOrder:
-  [NutritionOrder]
-
-// QICoreObservation
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation
-define Observation:
-  [Observation] O
-    where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
-
-// QICoreObservationCancelled
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled
-define ObservationCancelled:
-  [Observation] O
-    where O.status = 'cancelled'
-
-// FHIR Vital Signs
-
-// USCore Smoking Status
-
-// USCore Laboratory Result
-
-// USCore Pediatric BMI for Age
-
-// USCore Pediatric Weight for Height
-
-// USCore Pulse Oximetry
-
-// QICoreOrganization
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization
-define Organization:
-  [Organization]
-
-// QICorePatient
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient
-//define Patient:
-//  [Patient]
-
-// QICorePractitioner
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner
-define Practitioner:
-  [Practitioner]
-
-// QICorePractitionerRole
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole
-define PractitionerRole:
-  [PractitionerRole]
-
-// QICoreProcedure
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure
-define Procedure:
-  [Procedure] P
-    where P.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
-
-define ProcedurePerformed:
-  Procedure P
-    where P.status = 'completed'
-
-/*
-define "Flexible Sigmoidoscopy Performed":
- [Procedure: "Flexible Sigmoidoscopy"] FlexibleSigmoidoscopy
-	 where FlexibleSigmoidoscopy.status = 'completed'
-		 and Global."Normalize Interval"(FlexibleSigmoidoscopy.performed) ends 5 years or less on or before end of "Measurement Period"
-
-define "Flexible Sigmoidoscopy Performed":
-  QICore.ProcedurePerformed FlexibleSigmoidoscopy
-    where FlexibleSigmoidoscopy.code in "Flexible Sigmoidoscopy"
-      and FlexibleSigmoidoscopy.performed.toInterval() ends 5 years or less on or before end of "Measurement Period"
-*/
-
-// QICoreProcedureNotDone
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone
-define ProcedureNotDone:
-  [Procedure] P
-    where P.status = 'not-done'
-
-/*
-define "No VTE Prophylaxis Device Applied":
-  ["Procedure": "Device Application"] DeviceApplied
-    let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value
-    where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-      or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
-      or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
-    )
-      and  DeviceApplied.status = 'not-done'
-    return {id: DeviceApplied.id, requestStatusReason: DeviceApplied.statusReason, authoredOn: DeviceNotDoneTiming}
-
-define "No VTE Prophylaxis Device Applied":
-  QICore.ProcedureNotDone DeviceApplied
-    where DeviceApplied.code in "Device Application"
-      and (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-        or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
-        or DeviceApplied.usedCode in "Graduated compression stockings (GCS)")
-    return {
-      id: DeviceApplied.id,
-      requestStatusReason: DeviceApplied.statusReason,
-      authoredOn: DeviceApplied.recorded()
-    }
-
-*/
-
-// QICoreRelatedPerson
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson
-define RelatedPerson:
-  [RelatedPerson]
-
-// QICoreServiceNotRequested
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested
-define ServiceNotRequested:
-  [ServiceRequest] SR
-    where SR.status = 'completed'
-      and SR.doNotPerform is true
-
-/*
-define "No VTE Prophylaxis Device Order":
-  (["ServiceRequest": "Venous foot pumps (VFP)"]
-    union ["ServiceRequest": "Intermittent pneumatic compression devices (IPC)"]
-    union ["ServiceRequest": "Graduated compression stockings (GCS)"]
-  ) DeviceOrder
-    where DeviceOrder.status = 'completed'
-      and DeviceOrder.doNotPerform is true
-
-define "No VTE Prophylaxis Device Order":
-  QICore.ServiceNotRequested DeviceOrder
-    where DeviceOrder.code in "Venous foot pumps (VFP)"
-      or DeviceOrder.code in "Intermittent pneumatic compression devices (IPC)"
-      or DeviceOrder.code in "Graduated compression stockings (GCS)"
-*/
-
-// QICoreServiceRequest
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest
-define ServiceRequest:
-  [ServiceRequest] SR
-    where SR.status in { 'draft', 'active', 'on-hold', 'completed' }
-      and SR.doNotPerform is not true
-
-/*
-define "Intervention Comfort Measures":
-  (["ServiceRequest": "Comfort Measures"] P
-    where P.intent = 'order'
-  )
-    union (["Procedure": "Comfort Measures"] InterventionPerformed
-      where InterventionPerformed.status in {'completed', 'in-progress'}
-    )
-
-define "Intervention Comfort Measures":
-  (QICore.ServiceRequest SR
-    where SR.code in "Comfort Measures"
-      and SR.intent = 'order'
-  )
-    union (
-      QICore.Procedure InterventionPerformed
-        where InterventionPerformed.code in "Comfort Measures"
-          and InterventionPerformed.status in { 'completed', 'in-progress' }
-    )
-*/
-
-// QICoreSpecimen
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen
-define Specimen:
-  [Specimen]
-
-// QICoreSubstance
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance
-define Substance:
-  [Substance]
-
-// QICoreTask
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-task
-define Task:
-  [Task] T
-    where T.status in { 'draft', 'requested', 'received', 'accepted', 'ready', 'in-progress', 'on-hold', 'completed' }
-
-// QICoreTaskRejected
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected
-// TODO: What about cancelled and failed?
-define TaskRejected:
-  [Task] T
-    where T.status = 'rejected'
-
-define TestPatientGender:
+define TestAdverseEvent: ["AdverseEvent"]
+define TestAllergyIntolerance: ["AllergyIntolerance"]
+define TestBodyStructure: ["BodyStructure"]
+define TestCarePlan: ["CarePlan"]
+define TestCareTeam: ["CareTeam"]
+define TestClaim: ["Claim"]
+define TestClaimResponse: ["ClaimResponse"]
+define TestCommunication: ["Communication"]
+define TestCommunicationNotDone: ["CommunicationNotDone"]
+define TestCommunicationRequest: ["CommunicationRequest"]
+define TestConditionEncounterDiagnosis: ["ConditionEncounterDiagnosis"]
+define TestConditionProblemsHealthConcerns: ["ConditionProblemsHealthConcerns"]
+define TestCoverage: ["Coverage"]
+define TestDevice: ["Device"]
+define TestDeviceNotRequested: ["DeviceNotRequested"]
+define TestDeviceRequest: ["DeviceRequest"]
+define TestDeviceUseStatement: ["DeviceUseStatement"]
+define TestDiagnosticReportLab: ["DiagnosticReportLab"]
+define TestDiagnosticReportNote: ["DiagnosticReportNote"]
+define TestEncounter: ["Encounter"]
+define TestFamilyMemberHistory: ["FamilyMemberHistory"]
+define TestFlag: ["Flag"]
+define TestGoal: ["Goal"]
+define TestImagingStudy: ["ImagingStudy"]
+define TestImmunization: ["Immunization"]
+define TestImmunizationEvaluation: ["ImmunizationEvaluation"]
+define TestImmunizationNotDone: ["ImmunizationNotDone"]
+define TestImmunizationRecommendation: ["ImmunizationRecommendation"]
+define TestLaboratoryResultObservation: ["LaboratoryResultObservation"]
+define TestLocation: ["Location"]
+define TestMedication: ["Medication"]
+define TestMedicationAdministration: ["MedicationAdministration"]
+define TestMedicationAdministrationNotDone: ["MedicationAdministrationNotDone"]
+define TestMedicationDispense: ["MedicationDispense"]
+define TestMedicationDispenseDeclined: ["MedicationDispenseDeclined"]
+define TestMedicationNotRequested: ["MedicationNotRequested"]
+define TestMedicationRequest: ["MedicationRequest"]
+define TestMedicationStatement: ["MedicationStatement"]
+define TestObservation: ["Observation"]
+define TestObservationCancelled: ["ObservationCancelled"]
+define TestObservationClinicalTestResult: ["ObservationClinicalTestResult"]
+define TestObservationImagingResult: ["ObservationImagingResult"]
+define TestObservationSurvey: ["ObservationSurvey"]
+define TestOrganization: ["Organization"]
+define TestPatient: ["Patient"]
+define TestVitalsPanel: ["USCoreVitalSignsProfile"]
+define TestRespRate: ["USCoreRespiratoryRateProfile"]
+define TestHeartRate: ["USCoreHeartRateProfile"]
+//define TestOxygenSat: ["USCoreOxygenSaturationProfile"]
+define TestOxygenSat: ["observation-oxygensat"]
+define TestBodyTemp: ["USCoreBodyTemperatureProfile"]
+define TestBodyHeight: ["USCoreBodyHeightProfile"]
+define TestHeadCircum: ["USCoreHeadCircumferenceProfile"]
+define TestBodyWeight: ["USCoreBodyWeightProfile"]
+define TestBMI: ["USCoreBMIProfile"]
+define TestBP: ["USCoreBloodPressureProfile"]
+define TestPractitioner: ["Practitioner"]
+define TestPractitionerRole: ["PractitionerRole"]
+define TestProcedure: ["Procedure"]
+define TestProcedureNotDone: ["ProcedureNotDone"]
+define TestRelatedPerson: ["RelatedPerson"]
+define TestServiceNotRequested: ["ServiceNotRequested"]
+define TestServiceRequest: ["ServiceRequest"]
+define TestSpecimen: ["Specimen"]
+define TestSubstance: ["Substance"]
+define TestTask: ["Task"]
+define TestTaskRejected: ["TaskRejected"]
+define TestUSCoreImplantableDevice: ["USCoreImplantableDeviceProfile"]
+define TestUSCoreSmokingStatus: ["USCoreSmokingStatusProfile"]
+define TestUSCorePulseOximetry: ["USCorePulseOximetryProfile"]
+define TestUSCorePediatricBMIForAge: ["USCorePediatricBMIforAgeObservationProfile"]
+define TestUSCorePediatricWeightForHeight: ["USCorePediatricWeightForHeightObservationProfile"]
+define TestUSCorePediatricHeadOccipitalFrontalCircumferencePercentileProfile: ["USCorePediatricHeadOccipitalFrontalCircumferencePercentileProfile"]
+define TestUSCoreObservationSDOHAssessment: ["USCoreObservationSDOHAssessment"]
+define TestUSCoreObservationSocialHistoryProfile: ["USCoreObservationSocialHistoryProfile"]
+define TestUSCoreObservationSexualOrientationProfile: ["USCoreObservationSexualOrientationProfile"]
+
+define TestAge:
+  AgeInYears()
+
+define TestAgeAt:
+  AgeInYearsAt(@2022-10-14)
+
+define TestPrimitives:
   Patient P
     where P.gender = 'male'
+      and P.active is true
+      and P.birthDate before Today()
+      and P.maritalStatus in "Marital Status"
+      and P.maritalStatus ~ "Marital Status - Married"
 
-define TestPatientActive:
-  Patient P
-    where P.active is true
-
-define TestPatientBirthDate:
-  Patient P
-    where P.birthDate before Today()
-
-define TestPatientMaritalStatusMembership:
-  Patient P
-    where P.maritalStatus in "Marital Status"
-
-define TestPatientMartialStatusComparison:
-  Patient P
-    where P.maritalStatus ~ "Marital Status - Married"
-
-define TestPatientDeceasedAsBoolean:
+define TestChoice:
   Patient P
     where P.deceased is false
-
-define TestPatientDeceasedAsDateTime:
-  Patient P
-    where P.deceased before Today()
+      or P.deceased before Today()
 
 define TestSlices:
-  [Observation: "Blood pressure"] O
-    let
-      systolicBP: singleton from (O.component SBP where SBP.code ~ "Systolic blood pressure"),
-      diastolicBP: singleton from (O.component DBP where DBP.code ~ "Diastolic blood pressure")
-    where O.status in { 'registered', 'preliminary', 'final', 'amended', 'corrected' }
-      and systolicBP.value < 140 'mm[Hg]'
-      and diastolicBP.value < 90 'mm[Hg]'
+  ["USCoreBloodPressureProfile"] BP
+    where BP.systolic.value < 140 'mm[Hg]'
+      and BP.diastolic.value < 90 'mm[Hg]'
 
 define TestSimpleExtensions:
   Patient P
-    where P.birthsex() = 'M'
+    where P.birthsex = 'M'
 
 define TestComplexExtensions:
   Patient P
-    where exists ((P.race().ombCategory) C where C ~ "American Indian or Alaska Native")
-      and exists ((P.race().detailed) C where C ~ "Alaska Native")
+    where P.race.ombCategory contains "American Indian or Alaska Native"
+      and P.race.detailed contains "Alaska Native"
+
+// Validate Encounter.diagnosis cardinality
+define TestEncounterDiagnosisCardinality:
+    exists (First([Encounter]).diagnosis)
+
+// Validate ProcedureNotDone elements
+define TestProcedureNotDoneElements:
+    [ProcedureNotDone] P
+      where P.recorded on or before day of Today()
+        and exists (P.identifier)
+        and P.status = 'not-done'
+        and P.statusReason is not null
+        and P.category is not null
+        and P.code is not null
+        and P.performed is null
+
+// Validate NotDone...
+
+// CommunicationNotDone
+define TestSpecificCommunicationNotDone:
+    ["CommunicationNotDone": CommunicationCode]
+
+// TODO: Support this case, need to introduce a terminology contains operator
+//define TestSpecificCommunicationNotDoneActual:
+//    ["CommunicationNotDone": topic ~ CommunicationCode]
+//      union ["CommunicationNotDone": topic contains CommunicationCode]
+
+define TestSpecificCommunicationNotDoneExplicit:
+    ["CommunicationNotDone"] C
+      where C.topic ~ CommunicationCode
+        or CommunicationCode in C.topic
+
+// NOTE: Consider using topic rather than reasonCode as the negation focus?
+//define TestSpecificCommunicationNotDoneExplicit:
+//    [Communication] C
+//      where (C.topic ~ CommunicationCode
+//          or CommunicationCode in ValueSet { id: C.topic.extension("http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet").value as String }
+//        )
+//        and C.status = 'not-done'
+//        and C.recorded on or before day of Today()
+//        and C.statusReason in NegationReasonCodes
+
+define TestGeneralCommunicationNotDone:
+    ["CommunicationNotDone": CommunicationCodes]
+
+//define TestGeneralCommunicationNotDoneActual:
+//    ["CommunicationNotDone": topic in CommunicationCodes]
+//      union ["CommunicationNotDone": topic ~ CommunicationCodes]
+
+define TestGeneralCommunicationNotDoneExplicit:
+    ["CommunicationNotDone"] C
+      where C.topic in CommunicationCodes
+        or C.topic ~ CommunicationCodes
+
+//define TestGeneralCommunicationNotDoneExplicit:
+//    [Communication] C
+//      where (C.topic in CommunicationCodes
+//          or CommunicationCodes ~ ValueSet { id: C.topic.extension("http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet").value as String }
+//        )
+//        and C.status = 'not-done'
+//        and C.recorded on or before day of Today()
+//        and C.statusReason in NegationReasonCodes
+
+// DeviceNotRequested
+define TestSpecificDeviceNotRequested:
+    ["DeviceNotRequested": DeviceCode]
+
+// TODO: Support this use case
+//define TestSpecificDeviceNotRequestedActual:
+//    ["DeviceNotRequested": code ~ DeviceCode]
+//      union ["DeviceNotRequested": code contains DeviceCode]
+
+define TestSpecificDeviceNotRequestedExplicit:
+    [DeviceNotRequested] D
+      where D.code ~ DeviceCode
+        or DeviceCode in D.code
+
+define TestGeneralDeviceNotRequested:
+    ["DeviceNotRequested": DeviceCodes]
+
+define TestGeneralDeviceNotRequestedCode:
+    ["DeviceNotRequested": code in DeviceCodes]
+
+define TestGeneralDeviceNotRequestedValueSet:
+    ["DeviceNotRequested": code ~ DeviceCodes]
+
+define TestGeneralDeviceNotRequestedActual:
+    ["DeviceNotRequested": code in DeviceCodes]
+      union ["DeviceNotRequested": code ~ DeviceCodes]
+
+define TestGeneralDeviceNotRequestedExplicit:
+    ["DeviceNotRequested"] D
+      where D.code in DeviceCodes
+        or D.code ~ DeviceCodes
+
+define TestGeneralDeviceNotRequestedCodeExplicit:
+    ["DeviceNotRequested"] D
+      where D.code in DeviceCodes
+
+define TestGeneralDeviceNotRequestedValueSetExplicit:
+    ["DeviceNotRequested"] D
+      where D.code ~ DeviceCodes
+
+// ImmunizationNotDone
+define TestSpecificImmunizationNotDone:
+    ["ImmunizationNotDone": ImmunizationCode]
+
+// TODO: Support this use case
+//define TestSpecificImmunizationNotDoneActual:
+//    ["ImmunizationNotDone": vaccineCode ~ ImmunizationCode]
+//      union ["ImmunizationNotDone": vaccineCode contains ImmunizationCode]
+
+define TestSpecificImmunizationNotDoneExplicit:
+    ["ImmunizationNotDone"] I
+      where I.vaccineCode ~ ImmunizationCode
+        or ImmunizationCode in I.vaccineCode
+
+define TestGeneralImmunizationNotDone:
+    ["ImmunizationNotDone": ImmunizationCodes]
+
+define TestGeneralImmunizationNotDoneActual:
+    ["ImmunizationNotDone": vaccineCode in ImmunizationCodes]
+      union ["ImmunizationNotDone": vaccineCode ~ ImmunizationCodes]
+
+define TestGeneralImmunizationNotDoneExplicit:
+    ["ImmunizationNotDone"] I
+      where I.vaccineCode in ImmunizationCodes
+        or I.vaccineCode ~ ImmunizationCodes
+
+// MedicationAdministrationNotDone
+define TestSpecificMedicationAdministrationNotDone:
+    ["MedicationAdministrationNotDone": MedicationCode]
+
+// TODO: Support this use case
+//define TestSpecificMedicationAdministrationNotDoneActual:
+//    ["MedicationAdministrationNotDone": medication ~ MedicationCode]
+//      union ["MedicationAdministrationNotDone": medication contains MedicationCode]
+
+define TestSpecificMedicationAdministrationNotDoneExplicit:
+    ["MedicationAdministrationNotDone"] I
+      where I.medication ~ MedicationCode
+        or MedicationCode in I.medication
+
+define TestGeneralMedicationAdministrationNotDone:
+    ["MedicationAdministrationNotDone": MedicationCodes]
+
+define TestGeneralMedicationAdministrationNotDoneActual:
+    ["MedicationAdministrationNotDone": medication in MedicationCodes]
+      union ["MedicationAdministrationNotDone": medication ~ MedicationCodes]
+
+define TestGeneralMedicationAdministrationNotDoneExplicit:
+    ["MedicationAdministrationNotDone"] I
+      where I.medication in MedicationCodes
+        or I.medication ~ MedicationCodes
+
+// MedicationDispenseDeclined
+define TestSpecificMedicationDispenseDeclined:
+    ["MedicationDispenseDeclined": MedicationCode]
+
+// TODO: Support this use case
+//define TestSpecificMedicationDispenseDeclinedActual:
+//    ["MedicationDispenseDeclined": medication ~ MedicationCode]
+//      union ["MedicationDispenseDeclined": medication contains MedicationCode]
+
+define TestSpecificMedicationDispenseDeclinedExplicit:
+    ["MedicationDispenseDeclined"] I
+      where I.medication ~ MedicationCode
+        or MedicationCode in I.medication
+
+define TestGeneralMedicationDispenseDeclined:
+    ["MedicationDispenseDeclined": MedicationCodes]
+
+define TestGeneralMedicationDispenseDeclinedActual:
+    ["MedicationDispenseDeclined": medication in MedicationCodes]
+      union ["MedicationDispenseDeclined": medication ~ MedicationCodes]
+
+define TestGeneralMedicationDispenseDeclinedExplicit:
+    ["MedicationDispenseDeclined"] I
+      where I.medication in MedicationCodes
+        or I.medication ~ MedicationCodes
+
+// MedicationNotRequested
+define TestSpecificMedicationNotRequested:
+    ["MedicationNotRequested": MedicationCode]
+
+// TODO: Support this use case
+//define TestSpecificMedicationNotRequestedActual:
+//    ["MedicationNotRequested": medication ~ MedicationCode]
+//      union ["MedicationNotRequested": medication contains MedicationCode]
+
+define TestSpecificMedicationNotRequestedExplicit:
+    ["MedicationNotRequested"] I
+      where I.medication ~ MedicationCode
+        or MedicationCode in I.medication
+
+define TestGeneralMedicationNotRequested:
+    ["MedicationNotRequested": MedicationCodes]
+
+define TestGeneralMedicationNotRequestedActual:
+    ["MedicationNotRequested": medication in MedicationCodes]
+      union ["MedicationNotRequested": medication ~ MedicationCodes]
+
+define TestGeneralMedicationNotRequestedExplicit:
+    ["MedicationNotRequested"] I
+      where I.medication in MedicationCodes
+        or I.medication ~ MedicationCodes
+
+// ObservationCancelled
+define TestSpecificObservationCancelled:
+    ["ObservationCancelled": ObservationCode]
+
+// TODO: Support this use case
+//define TestSpecificObservationCancelledActual:
+//    ["ObservationCancelled": code ~ ObservationCode]
+//      union ["ObservationCancelled": code contains ObservationCode]
+
+define TestSpecificObservationCancelledExplicit:
+    ["ObservationCancelled"] I
+      where I.code ~ ObservationCode
+        or ObservationCode in I.code
+
+define TestGeneralObservationCancelled:
+    ["ObservationCancelled": ObservationCodes]
+
+define TestGeneralObservationCancelledActual:
+    ["ObservationCancelled": code in ObservationCodes]
+      union ["ObservationCancelled": code ~ ObservationCodes]
+
+define TestGeneralObservationCancelledExplicit:
+    ["ObservationCancelled"] I
+      where I.code in ObservationCodes
+        or I.code ~ ObservationCodes
+
+// ProcedureNotDone
+define TestSpecificProcedureNotDone:
+    ["ProcedureNotDone": ProcedureCode]
+
+// TODO: Support this use case
+//define TestSpecificProcedureNotDoneActual:
+//    ["ProcedureNotDone": code ~ ProcedureCode]
+//      union ["ProcedureNotDone": code contains ProcedureCode]
+
+define TestSpecificProcedureNotDoneExplicit:
+    ["ProcedureNotDone"] I
+      where I.code ~ ProcedureCode
+        or ProcedureCode in I.code
+
+define TestGeneralProcedureNotDone:
+    ["ProcedureNotDone": ProcedureCodes]
+
+define TestGeneralProcedureNotDoneActual:
+    ["ProcedureNotDone": code in ProcedureCodes]
+      union ["ProcedureNotDone": code ~ ProcedureCodes]
+
+define TestGeneralProcedureNotDoneExplicit:
+    ["ProcedureNotDone"] I
+      where I.code in ProcedureCodes
+        or I.code ~ ProcedureCodes
+
+// ServiceNotRequested
+define TestSpecificServiceNotRequested:
+    ["ServiceNotRequested": ProcedureCode]
+
+// TODO: Support this use case
+//define TestSpecificServiceNotRequestedActual:
+//    ["ServiceNotRequested": code ~ ProcedureCode]
+//      union ["ServiceNotRequested": code contains ProcedureCode]
+
+define TestSpecificServiceNotRequestedExplicit:
+    ["ServiceNotRequested"] I
+      where I.code ~ ProcedureCode
+        or ProcedureCode in I.code
+
+define TestGeneralServiceNotRequested:
+    ["ServiceNotRequested": ProcedureCodes]
+
+define TestGeneralServiceNotRequestedActual:
+    ["ServiceNotRequested": code in ProcedureCodes]
+      union ["ServiceNotRequested": code ~ ProcedureCodes]
+
+define TestGeneralServiceNotRequestedExplicit:
+    ["ServiceNotRequested"] I
+      where I.code in ProcedureCodes
+        or I.code ~ ProcedureCodes
+
+// TaskRejected
+define TestSpecificTaskRejected:
+    ["TaskRejected": TaskCode]
+
+// TODO: Support this use case
+//define TestSpecificTaskRejectedActual:
+//    ["TaskRejected": code ~ TaskCode]
+//      union ["TaskRejected": code contains TaskCode]
+
+define TestSpecificTaskNotDoneExplicit:
+    ["TaskRejected"] I
+      where I.code ~ TaskCode
+        or TaskCode in I.code
+
+define TestGeneralTaskRejected:
+    ["TaskRejected": TaskCodes]
+
+define TestGeneralTaskRejectedActual:
+    ["TaskRejected": code in TaskCodes]
+      union ["TaskRejected": code ~ TaskCodes]
+
+define TestGeneralTaskRejectedExplicit:
+    ["TaskRejected"] I
+      where I.code in TaskCodes
+        or I.code ~ TaskCodes

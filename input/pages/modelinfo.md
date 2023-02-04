@@ -12,8 +12,10 @@ Complete documentation for this tooling is provided in the CQFramework github re
 
 https://github.com/cqframework/cqf-tooling/blob/master/src/main/java/org/opencds/cqf/tooling/modelinfo/StructureDefinitionToModelInfo.java#L45
 
-As an example, to generate the ModelInfo file for QICore version 4.1.0, the following arguments are used:
+As an example, to generate the ModelInfo file for QICore version 5.0.0, the following arguments are used:
 
 ```
--GenerateMIs -ip=C:\Users\Bryn\Documents\Src\HL7\FHIR-Spec -rp="4.0.1;US-Core/3.1.1;QI-Core/4.1.0" -mn=QICore -mv=4.1.0 -im=false -ucp=true
+-GenerateMIs -ip=C:\Users\UserName\Documents\Src\HL7\FHIR-Spec -rp="4.0.1;US-Core/5.0.1;QI-Core/5.0.0" -mn=QICore -mv=5.0.0 -im=false -ucp=true
 ```
+
+This tooling produces a ModelInfo xml document which can then be packaged in a Library resource for distribution as part of a FHIR ecosystem. See the [CQFMModelInfoLibrary](http://hl7.org/fhir/us/cqfmeasures/StructureDefinition/modelinfo-library-cqfm) profile in the Quality Measure IG for more information.

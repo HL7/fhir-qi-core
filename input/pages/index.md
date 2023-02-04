@@ -245,12 +245,12 @@ In particular, QI-Core defines several profiles that support explicit documentat
 fact that an activity or event did _not_ occur. For these cases, the profiles define at least the
 following information:
 
-* Explicit indication that action/event did not occur (such as `doNotPerform` or `notDone`)
+* Explicit indication that the action/event did not occur (such as `doNotPerform` or `notDone`)
 * What activity/event did not occur (typically in terms of a value set or list of codes)
 * The reason the activity/event did not occur (Preferably represented using one of an established set of [Negation Reason Codes](ValueSet-qicore-negation-reason.html))
 * When the fact that the activity/event did not occur was recorded
 
-Note that although these aspects are all present within each negation profile defined by QI-Core, they manifest differently in different resources. As a result, each negation profile uses a combination of constraints and extensions to provide consistent representation of negated actions or events within QI-Core.
+Note that although these aspects are all present within each negation profile defined by QI-Core, they are represented differently in different resources. As a result, each negation profile uses a combination of constraints and extensions to provide consistent representation of negated actions or events within QI-Core.
 
 The following examples differentiate methods to indicate (a) presence of evidence of an action, (b) absence of evidence
 of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
@@ -285,13 +285,16 @@ Evidence that "Antithrombotic Therapy" medication administration did not occur f
 defined by a particular value set (i.e., negation rationale):
 
     define "Antithrombotic Not Administered":
-      ["MedicationAdministration": "Antithrombotic Therapy"] NotAdministered
-        where NotAdministered.status = 'not-done'
-          and NotAdministered.statusReason in "Medical Reason"
+      ["MedicationAdministrationNotDone": "Antithrombotic Therapy"] NotAdministered
+        where NotAdministered.statusReason in "Medical Reason"
 
 In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
-value set. To report Antithrombotic Therapy Not Administered, this is done by referencing the canonical url of the "Antithrombotic
+value set.
+
+> NOTE: The above example uses profile-informed authoring (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
+
+To report Antithrombotic Therapy Not Administered, implementing systems reference the canonical url of the "Antithrombotic
 Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) extension to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
 set canonical url to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
@@ -370,7 +373,7 @@ The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelle
 
 <p>The reason the profile indicates the .code as qicore-notDoneValueSet is to allow a clinician to indicate “I did none of these” with the respective statusReason or doNotPerformReason. Implementer feedback suggests that clinicians prefer the “none of these” approach rather than a requirement to select a single element from a list.  However, there are clinical situations in which a clinician will indicate a reason for not performing a specific activity that represents one of the members of a value set bound to a specific data element in a measure or a CDS.</p>
 
-<p>Two examples of such a scenario:</p>
+<p>Examples of such a scenario:</p>
 <ol>
 <li>A measure numerator criterion includes an order for angiotensin converting enzyme inhibitors (ACEI). The clinician indicates not ordering enalapril due to the patient’s intolerance (drowsiness) and, instead, orders another ACEI in the same value set, lisinopril. The order for lisinopril would fulfill criteria for the numerator regardless of meeting criteria for MedicationNotRequested.  However, if the clinician did not order another medication from the value set (e.g., lisinopril), the presence of a doNotPerformReason for the value set member enalapril fulfills the criteria for MedicationNotRequested and the patient would be excluded from the measure even though numerator criteria were not met.</li>
 <li>A measure criterion for anticoagulation uses a valueset containing warfarin or direct-oral-anticoagulant (DOAC).  Studies may support preference of DOAC due to long term outcomes, but the clinician may select a reason for not ordering DOAC due to its expense. That reason for the single item (DOAC) meets criteria for the expression and fail to recognize lack of compliance with any anticoagulation.</li>
