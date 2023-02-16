@@ -51,18 +51,18 @@
   </p>
 
   <pre><code>define "No VTE Prophylaxis Medication Ordered":
-  ( ["MedicationRequest": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
-    union ["MedicationRequest": "Low Molecular Weight Heparin for VTE Prophylaxis"]
-    union ["MedicationRequest": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
-    union ["MedicationRequest": "Warfarin"]
-    union ["MedicationRequest": "Rivaroxaban for VTE Prophylaxis"]
-  ) MedicationOrder
-    where MedicationOrder.doNotPerform is true
-      and MedicationOrder.status in { 'completed', 'cancelled' }
+  ( [ MedicationNotRequested: "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+    union [ MedicationNotRequested: "Low Molecular Weight Heparin for VTE Prophylaxis"]
+    union [ MedicationNotRequested: "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+    union [ MedicationNotRequested: "Warfarin"]
+    union [ MedicationNotRequested: "Rivaroxaban for VTE Prophylaxis"]
+  ) MedicationNotRequested
+    where MedicationNotRequested.doNotPerform is true
+      and MedicationNotRequested.status in { 'completed', 'cancelled' }
     return {
-      id: MedicationOrder.id,
-      MedicationStatusReason: MedicationOrder.reasonCode,
-      authoredOn: MedicationOrder.authoredOn
+      id: MedicationNotRequested.id,
+      MedicationStatusReason: MedicationNotRequested.reasonCode,
+      authoredOn: MedicationNotRequested.authoredOn
     }</code></pre>
 
   <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>

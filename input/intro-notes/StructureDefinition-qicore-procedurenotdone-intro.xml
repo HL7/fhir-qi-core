@@ -16,17 +16,17 @@
 <p>The following example illustrates the use of the ProcedureNotDone profile:</p>
 <pre>
 <code>define "No VTE Prophylaxis Device Applied":
-  ["ProcedureNotDone": "Device Application"] DeviceApplied
-    where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-      or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
-      or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
+  ["ProcedureNotDone": "Device Application"] DeviceNotApplied
+    where (DeviceNotApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
+      or DeviceNotApplied.usedCode in "Venous foot pumps (VFP)"
+      or DeviceNotApplied.usedCode in "Graduated compression stockings (GCS)"
     )
-      and  DeviceApplied.status = 'not-done'
+      and  DeviceNotApplied.status = 'not-done'
     return
       {
-        id: DeviceApplied.id,
-        requestStatusReason: DeviceApplied.statusReason,
-        authoredOn: DeviceApplied.recorded()
+        id: DeviceNotApplied.id,
+        requestStatusReason: DeviceNotApplied.statusReason,
+        authoredOn: DeviceNotApplied.recorded()
       }
 </code>
 </pre>
@@ -51,22 +51,6 @@
   </table>
   </p>
 
-  <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
-  </p>
-
-  <pre><code>define "No VTE Prophylaxis Device Applied":
-  ["Procedure": "Device Application"] DeviceApplied
-    let DeviceNotDoneTiming: Global.GetExtension(DeviceApplied, 'qicore-recorded').value
-    where (DeviceApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
-      or DeviceApplied.usedCode in "Venous foot pumps (VFP)"
-      or DeviceApplied.usedCode in "Graduated compression stockings (GCS)"
-    )
-      and  DeviceApplied.status = 'not-done'
-    return {
-      id: DeviceApplied.id,
-      requestStatusReason: DeviceApplied.statusReason,
-      authoredOn: DeviceNotDoneTiming
-    }</code></pre>
 
   <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
 

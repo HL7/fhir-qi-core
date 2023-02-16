@@ -21,10 +21,12 @@
 <p>The following example illustrates the use of the MedicationNotDispensed profile:</p>
 <pre>
 <code>define "Dementia Medications Not Dispensed":
-  ["MedicationDispenseDeclined": "Dementia Medications"] MedicationDispense
-    where MedicationDispense.status in { 'cancelled', 'declined' }
+  [ MedicationDispenseDeclined : "Dementia Medications"] MedicationDispenseDeclined
+    where MedicationDispenseDeclined.status in { 'cancelled', 'declined' }
 </code>
 </pre>
+<p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
+
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
@@ -40,6 +42,6 @@
   </table>
   </p>
 
-  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
+
 
 </div>

@@ -39,13 +39,12 @@
   </p>
 
   <pre><code>define "Medical Patient or System Reason for Not Administering Influenza Vaccine":
-  [Immunization: "Influenza Vaccine"] NoFluVaccine
-    where NoFluVaccine.recorded during "Influenza Season Including August and September of the Prior Year"
-      and NoFluVaccine.status = 'not done'
-      and ( NoFluVaccine.statusReason in "Medical Reason"
-        or NoFluVaccine.statusReason in "Patient Reason"
-        or NoFluVaccine.statusReason in "System Reason"
-        or NoFluVaccine.statusReason in "Influenza Vaccination Declined"
+  [ImmunizationNotDone: "Influenza Vaccine"] FluVaccineNotDone
+    where FluVaccineNotDone.recorded during "Influenza Season Including August and September of the Prior Year"
+      and ( FluVaccineNotDone.statusReason in "Medical Reason"
+        or FluVaccineNotDone.statusReason in "Patient Reason"
+        or FluVaccineNotDone.statusReason in "System Reason"
+        or FluVaccineNotDone.statusReason in "Influenza Vaccination Declined"
       )</code></pre>
 
   <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
