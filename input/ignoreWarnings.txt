@@ -12,6 +12,17 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/Structur
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 
+# Profiles are based on US Core profiles
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-clinical-test').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-imaging').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-survey').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
+
+# Profiles not based on US Core because it does not exist in USCore STU 5 (v5.0.1)
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense').baseDefinition: US FHIR Usage rules require that all profiles on MedicationDispense derive from the core US profile
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedeclined').baseDefinition: US FHIR Usage rules require that all profiles on MedicationDispense derive from the core US profile
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage').baseDefinition: US FHIR Usage rules require that all profiles on Coverage derive from the core US profile
+WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen').baseDefinition: US FHIR Usage rules require that all profiles on Specimen derive from the core US profile
+
 # Updated the VSAC dependency but the following issues are still known and is a valid valueset,code systems and codes within
 WARNING: Coverage/example: Coverage.type: ValueSet https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 not found by validator
 WARNING: Coverage/example-new: Coverage.type: ValueSet https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 not found by validator
@@ -27,9 +38,9 @@ WARNING: StructureDefinition/qicore-medicationstatement: StructureDefinition.sna
 INFORMATION: DiagnosticReport/note-example: DiagnosticReport.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note
 
 # The following errors in the examples are being generated due to no code within the codeable concept but referencing a valueset instead, consistent with the negation pattern
-WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6)
-WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code)
-WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code)
+WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20210630)
+WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
+WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
 
 # The following information messages are being generated with using 'example' code systems or example bindings
 INFORMATION: CarePlan/example: CarePlan.activity[8].detail.code.coding[0]: Code System URI 'http://example.org/mySystem' is unknown so the code cannot be validated
@@ -55,10 +66,14 @@ INFORMATION: ServiceRequest/appropriateness-example: ServiceRequest.code.coding[
 INFORMATION: Specimen/example: Specimen.collection.extension[0].value.ofType(CodeableConcept).coding[0]: Code System URI 'http://example.com' is unknown so the code cannot be validated
 
 
-# The following information messages are being generated from the base resource snapshot
+# The following messages are being generated from the base resource snapshot
 INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[28].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[34].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
-INFORMATION: StructureDefinition/qicore-mednotrequested: StructureDefinition.snapshot.element[13].fixed.ofType(CodeableConcept): The repeating element has a fixed. The fixed will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/qicore-medicationnotrequested: StructureDefinition.snapshot.element[13].fixed.ofType(CodeableConcept): The repeating element has a fixed. The fixed will apply to all the repeats (this has not been clear to all users)
+WARNING: StructureDefinition/qicore-medicationnotrequested: StructureDefinition.snapshot.element[13].fixed.ofType(CodeableConcept): For the complex type CodeableConcept, consider using a pattern rather than a fixed value to avoid over-constraining the instance
+WARNING: StructureDefinition/qicore-claimresponse: StructureDefinition.snapshot.element[34].fixed.ofType(CodeableConcept): For the complex type CodeableConcept, consider using a pattern rather than a fixed value to avoid over-constraining the instance
+WARNING: StructureDefinition/qicore-careteam: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+WARNING: StructureDefinition/qicore-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
 # The following information messages are related to bindings in a choice element
 INFORMATION: StructureDefinition/qicore-observation: StructureDefinition.differential.element[12].binding: The element Observation.value[x] has a binding, and has multiple types subject to bindings ([dateTime, boolean, string, SampledData, Quantity, Period, Ratio, integer, time, Range, CodeableConcept]). The binding will apply to all the types
