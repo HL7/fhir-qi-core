@@ -27,7 +27,7 @@ This guide is divided into pages which are listed at the top each page in the me
 * **[Home](index.html)**: The home page provides summary and background information
 * **[Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
 * **[Patterns](patterns.html)**: The patterns page describes patterns of usage for QI-Core applications
-* **[Model Info](modelinfo.html)**: The model info page provide the model information to support the implementation environment to use CQL with FHIR
+* **[Model Info](modelinfo.html)**: The model info page provides the QI-Core model information to support implementation
 * **[Extensions](extensions.html)**: The extensions page lists all the extensions defined as part of QI-Core
 * **[Terminology](terminology.html)**: The terminology page lists all terminology defined as part of QI-Core
 * **[Examples](examples.html)**: The examples page provides an index of all the examples defined as part of QI-Core
