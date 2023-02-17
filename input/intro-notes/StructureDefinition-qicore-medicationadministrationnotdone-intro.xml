@@ -18,7 +18,9 @@
   <p>The following example illustrates accessing MedicationAdministration not done data:</p>
 <pre>
 <code>// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
-define "No Low Dose Unfractionated Heparin Administration":  [MedicationAdministrationNotDone: "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+
+define "No Low Dose Unfractionated Heparin Administration":  
+[MedicationAdministrationNotDone: "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
   where VTEMedication.status = 'not-done'
 </code>
 </pre>
@@ -41,17 +43,16 @@ define "No Low Dose Unfractionated Heparin Administration":  [MedicationAdminist
   </p>
 
   <pre><code>define "No VTE Prophylaxis Medication Administered or Ordered":
-    ( ["MedicationAdministration": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
-      union ["MedicationAdministration": "Low Molecular Weight Heparin for VTE Prophylaxis"]
-      union ["MedicationAdministration": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
-      union ["MedicationAdministration": "Warfarin"]
-      union ["MedicationAdministration": "Rivaroxaban for VTE Prophylaxis"]
-    ) MedicationAdm
-      let MedicationNotDoneTiming: Global.GetExtension ( MedicationAdm, 'qicore-recorded' ).value
-      where MedicationAdm.status = 'not-done'
+    ( ["MedicationAdministrationNotDone": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
+      union ["MedicationAdministrationNotDone": "Low Molecular Weight Heparin for VTE Prophylaxis"]
+      union ["MedicationAdministrationNotDone": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
+      union ["MedicationAdministrationNotDone": "Warfarin"]
+      union ["MedicationAdministrationNotDone": "Rivaroxaban for VTE Prophylaxis"]
+    ) MedicationAdminNotDone
+      let MedicationNotDoneTiming: Global.GetExtension ( MedicationAdminNotDone, 'qicore-recorded' ).value
       return {
-        id: MedicationAdm.id,
-        MedicationStatusReason: MedicationAdm.statusReason,
+        id: MedicationAdminNotDone.id,
+        MedicationStatusReason: MedicationAdminNotDone.statusReason,
         authoredOn: MedicationNotDoneTiming
       }</code></pre>
 
