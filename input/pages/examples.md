@@ -9,7 +9,7 @@
 * [Refuted Food Allergy](AllergyIntolerance-example-refuted.html)
 
 **QICoreBodyStructure**
-* [This example demonstrates using the bodysite resource to identify a specific tumor or lesion that will have multiple observations and/or procedures performed on it over time](BodyStructure-example.html)
+* [BodyStructure example identifying a specific tumor or lesion](BodyStructure-example.html)
 
 **QICoreCarePlan**
 * [Assessment and care plan for a pregnancy](CarePlan-example.html)
