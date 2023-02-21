@@ -265,7 +265,7 @@ Evidence that "Antithrombotic Therapy" (defined by a medication-specific value s
     define "Antithrombotic Administered":
       ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
         where AntithromboticTherapy.status = 'completed'
-          and AntithromboticTherapy.category ~ "Inpatient Setting"
+          and AntithromboticTherapy.category ~ QICoreCommon."Inpatient"
 
 #### Absence
 {: #absence}
@@ -276,7 +276,7 @@ No evidence that "Antithrombotic Therapy" medication was administered:
       not exists (
         ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
           where AntithromboticTherapy.status = 'completed'
-            and AntithromboticTherapy.category ~ "Inpatient Setting"
+            and AntithromboticTherapy.category ~ QICoreCommon."Inpatient"
       )
 
 #### Negation Rationale
