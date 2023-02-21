@@ -302,7 +302,7 @@ set canonical url to negate the entire value set rather than reporting a specifi
 not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
 did not administer in order to negate.
 
-Similarly, to report "Procedure, Not Performed": "Cardiac Surgery" with a reason, the canonical url of "Cardiac Surgery" value set
+Similarly, to report "ProcedureNotDone": "Cardiac Surgery" with a reason, the canonical url of "Cardiac Surgery" value set
 is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
 specified in the "Cardiac Surgery" value set.
 
