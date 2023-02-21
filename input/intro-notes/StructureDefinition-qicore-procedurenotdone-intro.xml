@@ -2,26 +2,18 @@
   <a name="usage"><b>Usage</b></a>
 
   <p>The Procedure and ProcedureNotDone profiles represent the positive and
-    negative statements for a procedure. To ensure instances retrieved meet
-    negative intent, applications should check the status element as illustrated in
-    this example:</p>
+    negative statements for a procedure. 
+  </p>
 
-<pre>
-<code>define ProcedureNotDone:
-  [Procedure] P
-    where P.status = 'not-done'
-</code>
-</pre>
 
 <p>The following example illustrates the use of the ProcedureNotDone profile:</p>
 <pre>
 <code>define "No VTE Prophylaxis Device Applied":
-  ["ProcedureNotDone": "Device Application"] DeviceNotApplied
+  [ ProcedureNotDone : "Device Application"] DeviceNotApplied
     where (DeviceNotApplied.usedCode in "Intermittent pneumatic compression devices (IPC)"
       or DeviceNotApplied.usedCode in "Venous foot pumps (VFP)"
       or DeviceNotApplied.usedCode in "Graduated compression stockings (GCS)"
     )
-      and  DeviceNotApplied.status = 'not-done'
     return
       {
         id: DeviceNotApplied.id,

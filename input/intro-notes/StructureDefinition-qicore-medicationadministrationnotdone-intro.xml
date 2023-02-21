@@ -6,22 +6,16 @@
   </tr>
 </p>
 
-<p>The MedicationAdministration and MedicationNotAdministered profiles represent the positive and
-  negative statements for a medication administration. To ensure instances retrieved meet
-  positive intent, applications should check the status element as illustrated in
-  this example:</p>
+<p>The MedicationAdministration and MedicationAdministrationNotDone profiles represent the positive and
+  negative statements for a medication administration. </p>
 
-<pre><code>define MedicationAdministrationNotDone:
-  [MedicationAdministration] M
-    where M.status = 'not-done'</code></pre>
-
-  <p>The following example illustrates accessing MedicationAdministration not done data:</p>
+  <p>The following example illustrates accessing MedicationAdministrationNotDone data:</p>
 <pre>
-<code>// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
-
-define "No Low Dose Unfractionated Heparin Administration":  
-[MedicationAdministrationNotDone: "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-  where VTEMedication.status = 'not-done'
+<code>
+define "Low Dose Unfractionated Heparin for VTE Prophylaxis Not Administered":
+  [ MedicationAdministrationNotDone : "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.category ~ QICoreCommon."Inpatient"
+      and (VTEMedication.reasonCode in "Medical Reason" or VTEMedication.reasonCode in "Patient Refusal")
 </code>
 </pre>
   <a name="examples"> </a>

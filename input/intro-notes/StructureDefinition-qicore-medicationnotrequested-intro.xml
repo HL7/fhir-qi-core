@@ -7,28 +7,16 @@
   </p>
 
   <p>The MedicationRequest and MedicationNotRequested profiles represent the positive and
-    negative statements for a medication order. To ensure instances retrieved meet
-    negative intent, applications should check the status and doNotPerform elements as illustrated in
-    this example:</p>
-
-<pre>
-<code>define MedicationNotRequested:
-  [MedicationRequest] R
-    where R.status = 'completed'
-      and R.doNotPerform is true
-</code>
-</pre>
+    negative statements for a medication order. 
+  </p>
 
 <p>The following example illustrates the use of the MedicationNotRequested profile:</p>
 <pre>
 <code>define "Antithrombotic Not Given at Discharge":
-  ["MedicationNotRequested": medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
-    where NoAntithromboticDischarge.doNotPerform is true
-			and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
-				or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
-      and (NoAntithromboticDischarge.isCommunity() or NoAntimthromboticDischarge.isDischarge())
-      and NoAntithromboticDischarge.status = 'completed'
-      and NoAntithromboticDischarge.intent = 'order'
+  [ MedicationNotRequested : medication in "Antithrombotic Therapy"] NoAntithromboticDischarge
+		and (NoAntithromboticDischarge.reasonCode in "Medical Reason"
+		or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
+    and (NoAntithromboticDischarge.isCommunity() or NoAntimthromboticDischarge.isDischarge()
 </code>
 </pre>
 
@@ -57,8 +45,6 @@
     union [ MedicationNotRequested: "Warfarin"]
     union [ MedicationNotRequested: "Rivaroxaban for VTE Prophylaxis"]
   ) MedicationNotRequested
-    where MedicationNotRequested.doNotPerform is true
-      and MedicationNotRequested.status in { 'completed', 'cancelled' }
     return {
       id: MedicationNotRequested.id,
       MedicationStatusReason: MedicationNotRequested.reasonCode,

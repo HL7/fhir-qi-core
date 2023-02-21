@@ -7,15 +7,10 @@
   </p>
 
   <p>The Communication and CommunicationNotDone profiles represent the positive and
-    negative statements for a communication event. To ensure instances retrieved meet
-    negative intent, applications should check the status as illustrated in this example:</p>
+    negative statements for a communication event. 
+  </p>
 
-<pre>
-<code>define CommunicationNotDone:
-  [Communication] C
-    where C.status = 'not-done'
-</code>
-</pre>
+
 
   <a name="examples"> </a>
 <h3>Examples</h3>
@@ -31,7 +26,7 @@
 
   <p>This example meets measure intent for exclusion as defined in the following example CQL:</p>
 
-  <pre><code>["CommunicationNotDone": "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
+  <pre><code>[CommunicationNotDone: "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
     with "Diabetic Retinopathy Encounter" EncounterDiabeticRetinopathy
       such that MacularEdemaAbsentNotCommunicated.sent during EncounterDiabeticRetinopathy.period
       and ( MacularEdemaAbsentNotCommunicated.statusReason in "Medical Reason"
