@@ -7,22 +7,16 @@
   </p>
 
   <p>The MedicationDispense and MedicationDispenseDeclined profiles represent the positive and
-    negative statements for a medication dispensing event. To ensure instances retrieved meet
-    negative intent, applications should check the status element as illustrated in
-    this example:</p>
+    negative statements for a medication dispensing event. </p>
 
-  <pre>
-<code>define MedicationDispenseDeclined:
-  [MedicationDispense] D
-    where D.status in { 'cancelled', 'declined' }
-</code>
-</pre>
 
-<p>The following example illustrates the use of the MedicationNotDispensed profile:</p>
+<p>The following example illustrates the use of the MedicationDispenseDeclined profile:</p>
 <pre>
 <code>define "Dementia Medications Not Dispensed":
   [ MedicationDispenseDeclined : "Dementia Medications"] MedicationDispenseDeclined
-    where MedicationDispenseDeclined.status in { 'cancelled', 'declined' }
+   where MedicationDispenseDeclined.statusReason in "Medical Reason"
+      or MedicationDispenseDeclined.statusReason in "Patient Refusal"
+   
 </code>
 </pre>
 <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>

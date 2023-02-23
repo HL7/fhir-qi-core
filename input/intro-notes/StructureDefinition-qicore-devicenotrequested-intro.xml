@@ -7,23 +7,15 @@
   </p>
 
   <p>The DeviceRequest and DeviceNotRequested profiles represent the positive and
-    negative statements for a device request. To ensure instances retrieved meet
-    negative intent, applications should check the status and doNotPerform elements
-    as illustrated in this example:</p>
+    negative statements for a device request. </p>
 
-<pre>
-<code>define DeviceNotRequested:
-  [DeviceRequest] D
-    where D.status = 'completed'
-      and D.doNotPerform() is true
-</code>
-</pre>
   <p>The following example illustrates accessing DeviceRequest not requested data:</p>
   <pre>
     <code>
-      define "No Venous Foot Pump Requested":  [DeviceNotRequested: "Venous Foot Pump"] DR
-        where DR.status = 'completed'
-          and DR.doNotPerform() is true
+      define "Venous Foot Pumps Not Ordered":
+    [ DeviceNotRequested: "Venous Foot Pumps (VFP)"] DeviceNotOrdered
+      where (DeviceNotOrdered.doNotPerformReason in "Medical Reason"
+      or DeviceNotOrdered.doNotPerformReason in "Patient Refusal")
     </code>
   </pre>
   <a name="examples"> </a>

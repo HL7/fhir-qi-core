@@ -14,17 +14,8 @@
 <a name="usage"><b>Usage</b></a>
 
 <p>The ServiceRequest and ServiceNotRequested profiles represent the positive and
-  negative statements for a service request. To ensure instances retrieved meet
-  negative intent, applications should check the status and doNotPerform elements as illustrated in
-  this example:</p>
+  negative statements for a service request. </p>
 
-<pre>
-<code>define ServiceNotRequested:
-  [ServiceRequest] SR
-    where SR.status = 'completed'
-      and SR.doNotPerform is true
-</code>
-</pre>
 
 <p>
 <tr>
@@ -50,12 +41,11 @@
 </p>
 
 <pre><code>define "No VTE Prophylaxis Device Order":
-  (["ServiceNotRequested": "Venous foot pumps (VFP)"]
-    union ["ServiceNotRequested": "Intermittent pneumatic compression devices (IPC)"]
-    union ["ServiceNotRequested": "Graduated compression stockings (GCS)"]
+  ([ ServiceNotRequested : "Venous foot pumps (VFP)"]
+    union [ ServiceNotRequested : "Intermittent pneumatic compression devices (IPC)"]
+    union [ ServiceNotRequested : "Graduated compression stockings (GCS)"]
   ) ServiceNotRequested
-    where ServiceNotRequested.status = 'completed'
-      and DServiceNotRequested.doNotPerform is true</code></pre>
+</code></pre>
 
 <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
 
