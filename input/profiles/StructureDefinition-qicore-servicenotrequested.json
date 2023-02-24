@@ -73,7 +73,14 @@
     "element" : [
       {
         "id" : "ServiceRequest",
-        "path" : "ServiceRequest"
+        "path" : "ServiceRequest",
+        "constraint" : [{
+          "key" : "snr-1",
+          "severity" : "error",
+          "human" : "to indicate what service was not performed, either at least one coding in the code or a notDoneValueSet extension shall be provided",
+          "expression" : "code.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor code.coding.exists()"
+        }],
+        "mustSupport" : false
       },
       {
         "id" : "ServiceRequest.extension:approachBodyStructure",
