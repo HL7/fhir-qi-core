@@ -10,8 +10,6 @@
     negative statements for a communication event. 
   </p>
 
-
-
   <a name="examples"> </a>
 <h3>Examples</h3>
   <p>
@@ -26,9 +24,9 @@
 
   <p>This example meets measure intent for exclusion as defined in the following example CQL:</p>
 
-  <pre><code>[CommunicationNotDone: "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
-    with "Diabetic Retinopathy Encounter" EncounterDiabeticRetinopathy
-      such that MacularEdemaAbsentNotCommunicated.sent during EncounterDiabeticRetinopathy.period
+<pre><code>[CommunicationNotDone: "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
+  with "Diabetic Retinopathy Encounter" EncounterDiabeticRetinopathy
+    such that MacularEdemaAbsentNotCommunicated.sent during EncounterDiabeticRetinopathy.period
       and ( MacularEdemaAbsentNotCommunicated.statusReason in "Medical Reason"
         or MacularEdemaAbsentNotCommunicated.statusReason in "Patient Reason"
       )</code></pre>

@@ -6,18 +6,6 @@
   </tr>
 </p>
 
-<p>The MedicationAdministration and MedicationAdministrationNotDone profiles represent the positive and
-  negative statements for a medication administration. </p>
-
-  <p>The following example illustrates accessing MedicationAdministrationNotDone data:</p>
-<pre>
-<code>
-define "Low Dose Unfractionated Heparin for VTE Prophylaxis Not Administered":
-  [ MedicationAdministrationNotDone : "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-    where VTEMedication.category ~ QICoreCommon."Inpatient"
-      and (VTEMedication.reasonCode in "Medical Reason" or VTEMedication.reasonCode in "Patient Refusal")
-</code>
-</pre>
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
@@ -36,19 +24,10 @@ define "Low Dose Unfractionated Heparin for VTE Prophylaxis Not Administered":
   <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
   </p>
 
-  <pre><code>define "No VTE Prophylaxis Medication Administered or Ordered":
-    ( ["MedicationAdministrationNotDone": "Low Dose Unfractionated Heparin for VTE Prophylaxis"]
-      union ["MedicationAdministrationNotDone": "Low Molecular Weight Heparin for VTE Prophylaxis"]
-      union ["MedicationAdministrationNotDone": "Injectable Factor Xa Inhibitor for VTE Prophylaxis"]
-      union ["MedicationAdministrationNotDone": "Warfarin"]
-      union ["MedicationAdministrationNotDone": "Rivaroxaban for VTE Prophylaxis"]
-    ) MedicationAdminNotDone
-      let MedicationNotDoneTiming: Global.GetExtension ( MedicationAdminNotDone, 'qicore-recorded' ).value
-      return {
-        id: MedicationAdminNotDone.id,
-        MedicationStatusReason: MedicationAdminNotDone.statusReason,
-        authoredOn: MedicationNotDoneTiming
-      }</code></pre>
+  <pre><code>define "Low Dose Unfractionated Heparin for VTE Prophylaxis Not Administered":
+  ["MedicationAdministrationNotDone": "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.category ~ QICoreCommon."Inpatient"
+      and (VTEMedication.reasonCode in "Medical Reason" or VTEMedication.reasonCode in "Patient Refusal")</code></pre>
 
   <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
 

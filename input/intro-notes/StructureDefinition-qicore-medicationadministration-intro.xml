@@ -3,27 +3,12 @@
 <p>To create an expression specifically requesting information that a MedicationAdministration intentionally
 did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationadministrationnotdone.html">QICore MedicationAdministration Not Done</a>.</p>
 
-<p>The MedicationAdministration and MedicationNotAdministered profiles represent the positive and
-  negative statements for a medication administration. To ensure instances retrieved meet
-  positive intent, applications should check the status element as illustrated in
-  this example:</p>
-
-<pre><code>// QICoreMedicationAdministration
-// @profile: http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration
-define MedicationAdministration:
-  [MedicationAdministration] M
-    where M.status in { 'in-progress', 'on-hold', 'completed' }
-</code>
-</pre>
-
 <p>The following example illustrates the accessing MedicationAdministration data:</p>
 
-<pre><code>// connectathon/fhir4/cql/EXM108_FHIR4-8.2.000.cql
-define "Low Dose Unfractionated Heparin Administration":
+<pre><code>define "Low Dose Unfractionated Heparin Administration":
   ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
     where VTEMedication.status = 'completed'
-      and VTEMedication.category ~ "Inpatient"
-</code>
+      and VTEMedication.category ~ QICoreCommon."Inpatient"</code>
 </pre>
 
 <p>

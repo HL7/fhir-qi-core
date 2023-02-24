@@ -9,7 +9,6 @@
   <p>The Immunization and ImmunizationNotDone profiles represent the positive and
     negative statements for an immunization event. </p>
 
-
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
@@ -30,14 +29,10 @@
   <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
   </p>
 
-  <pre><code>define "Medical Patient or System Reason for Not Administering Influenza Vaccine":
-  [ImmunizationNotDone: "Influenza Vaccine"] FluVaccineNotDone
-    where FluVaccineNotDone.recorded during "Influenza Season Including August and September of the Prior Year"
-      and ( FluVaccineNotDone.statusReason in "Medical Reason"
-        or FluVaccineNotDone.statusReason in "Patient Reason"
-        or FluVaccineNotDone.statusReason in "System Reason"
-        or FluVaccineNotDone.statusReason in "Influenza Vaccination Declined"
-      )</code></pre>
+  <pre><code>define "Reason for No Polio Immunization":
+  ["ImmunizationNotDone": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
+    where PolioVaccination.statusReason in "Medical Reason"
+      or PolioVaccination.statusReason in "Patient Refusal"</code></pre>
 
   <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI Core</a> topic.</p>
 

@@ -3,12 +3,9 @@
 <p>The following example illustrates accessing an inpatient encounter:</p>
 
 <pre>
-<code>define "Inpatient Encounter":
-  [Encounter: "Encounter Inpatient"] EncounterInpatient
-    where EncounterInpatient.status = 'finished'
-      and "LengthInDays"(EncounterInpatient.period) &lt;= 120
-      and EncounterInpatient.period ends during "Measurement Period"
-</code>
+<code>define "Ophthalmology Encounter Codes":
+  [Encounter: class in "Inpatient Encounter Classes"] InpatientEncounter
+    where InpatientEncounter.type in "Ophthalmology Encounter Codes"</code>
 </pre>
 
 <p>

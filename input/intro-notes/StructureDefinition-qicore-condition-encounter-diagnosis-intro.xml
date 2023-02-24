@@ -6,11 +6,8 @@
   </tr>
   </p>
 <pre>
-<code>define "Absence of Cervix":
-	[Condition : "Congenital absence of cervix (disorder)"] NoCervixBirth
-		where NoCervixBirth.onset.toInterval() starts before end of "Measurement Period"
-      and NoCervixBirth.clinicalStatus ~ Global."active"
-</code>
+<code>[ConditionEncounterDiagnosis: Diabetes] Condition
+  where Condition.getEncounter().status = 'finished'</code>
 </pre>
   <a name="examples"> </a>
 <h3>Examples</h3>

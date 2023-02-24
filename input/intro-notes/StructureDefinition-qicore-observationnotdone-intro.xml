@@ -12,10 +12,9 @@
   this example:</p>
 
 <pre>
-<code>define ObservationCancelled:
-  [Observation] O
-    where O.status = 'cancelled'
-</code>
+<code>define "Pap Test Refused":
+  ["ObservationCancelled": "Pap Test"] PapTest
+    where PapTest.notDoneReason in "Patient Refusal"</code>
 </pre>
 
 <p>Note that when a more specific observation, such as a Blood Pressure, is negated, the

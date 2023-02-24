@@ -11,12 +11,11 @@
 
   <p>The following example illustrates accessing DeviceRequest not requested data:</p>
   <pre>
-    <code>
-      define "Venous Foot Pumps Not Ordered":
-    [ DeviceNotRequested: "Venous Foot Pumps (VFP)"] DeviceNotOrdered
-      where (DeviceNotOrdered.doNotPerformReason in "Medical Reason"
-      or DeviceNotOrdered.doNotPerformReason in "Patient Refusal")
-    </code>
+  <code>define "Venous Foot Pumps Not Ordered":
+[DeviceNotRequested: "Venous Foot Pumps (VFP)"] DeviceNotOrdered
+  where (DeviceNotOrdered.doNotPerformReason in "Medical Reason"
+    or DeviceNotOrdered.doNotPerformReason in "Patient Refusal"
+  )</code>
   </pre>
   <a name="examples"> </a>
   <h3>Examples</h3>

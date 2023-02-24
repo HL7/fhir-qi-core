@@ -14,31 +14,13 @@
 <a name="usage"><b>Usage</b></a>
 <p>To create an expression specifically requesting information that a ServiceRequest intentionally did
 not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-servicenotrequested.html">QICore-Servicenotrequested</a>.</p>
-<p>The ServiceRequest and ServiceNotRequested profiles represent the positive and
-  negative statements for a service request. To ensure instances retrieved meet
-  positive intent, applications should check the status and doNotPerform elements as illustrated in
-  this example:</p>
-
-<pre>
-<code>define ServiceRequest:
-  [ServiceRequest] SR
-    where SR.status in { 'draft', 'active', 'on-hold', 'completed' }
-      and SR.doNotPerform is not true
-</code>
-</pre>
 
 <p>The following example illustrates the use of the ServiceRequest profile:</p>
 
 <pre>
-<code>define "Intervention Comfort Measures":
-  (["ServiceRequest": "Comfort Measures"] P
-    where P.intent = 'order'
-      and P.doNotPerform is not true
-  )
-    union (["Procedure": "Comfort Measures"] InterventionPerformed
-      where InterventionPerformed.status in {'completed', 'in-progress'}
-    )
-</code>
+<code>define "Intermittent Pneumatic Compression Devices Ordered":
+  ["ServiceRequest": "Application of intermittent pneumatic compression devices (IPC)"] DeviceOrdered
+    where DeviceOrdered.status in { 'active', 'completed', 'on-hold' }</code>
 </pre>
 
 <p>

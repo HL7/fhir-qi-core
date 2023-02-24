@@ -5,6 +5,12 @@
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
+  <pre><code>define "Encounter With Diabetes Diagnosis Present on Admission":
+  "Non-Elective Inpatient Encounter Less Than 120 Days" IPEncounter
+    where exists (IPEncounter.diagnosis D
+      where D.condition.getCondition().code in "Diabetes"
+        and D.diagnosisPresentOnAdmission in "Present on Admission or Clinically Undetermined"
+    )</code></pre>
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
