@@ -39,3 +39,20 @@ All examples used in this Implementation Guide:
 -  [XML](examples.xml.zip)
 -  [JSON](examples.json.zip)
 -  [TTL](examples.ttl.zip)
+
+
+### Dependencies
+
+{% include dependency-table.xhtml %}
+
+### Cross Version Analysis
+
+{% include cross-version-analysis.xhtml %}
+
+### Global Profiles
+
+{% include globals-table.xhtml %}
+
+### IP Statements
+
+{% include ip-statements.xhtml %}
