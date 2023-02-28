@@ -1,5 +1,8 @@
 == Suppressed Messages ==
 
+# The following issue is related to the publisher and discussed in the following zulip chat (https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/'could.20not.20reference'.20error.20with.20modifier.20extension)
+ERROR: ?pkp-1?: The reference http://hl7.org/fhir/5.0/StructureDefinition/extension-DeviceRequest.doNotPerform could not be resolved
+
 # Issue within the ImagingStudy snapshot and brought to attention in the following thread: https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/ValueSet.20not.20found.20by.20validator.20or.20cannot.20be.20checked
 WARNING: ImagingStudy/example: ImagingStudy.series[0].modality: ValueSet http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html not found by validator
 WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[11].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html on element ImagingStudy.modality could not be resolved
@@ -35,7 +38,6 @@ WARNING: StructureDefinition/qicore-medicationdispense: StructureDefinition.diff
 WARNING: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[14].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationDispense.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationstatement: StructureDefinition.differential.element[2].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationStatement.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationstatement: StructureDefinition.snapshot.element[15].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationStatement.medication[x] could not be resolved
-INFORMATION: DiagnosticReport/note-example: DiagnosticReport.category[0]: This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note
 
 # The following errors in the examples are being generated due to no code within the codeable concept but referencing a valueset instead, consistent with the negation pattern
 WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20210630)
@@ -43,28 +45,17 @@ WARNING: Procedure/negation-example: Procedure.code: No code provided, and a cod
 WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
 
 # The following information messages are being generated with using 'example' code systems or example bindings
-INFORMATION: CarePlan/example: CarePlan.activity[8].detail.code.coding[0]: Code System URI 'http://example.org/mySystem' is unknown so the code cannot be validated
-INFORMATION: Claim/example: Claim.diagnosis[0].diagnosis.ofType(CodeableConcept).coding[0]: Code System URI 'http://example.org/diagnosis/CodeSystem' is unknown so the code cannot be validated
-INFORMATION: Claim/example: Claim.item[0].productOrService.coding[0]: Code System URI 'http://example.org/fhir/CodeSystem/ex-visionservice' is unknown so the code cannot be validated
-INFORMATION: Claim/example: Claim.item[0].detail[0].productOrService.coding[0]: Code System URI 'http://example.org/fhir/CodeSystem/ex-visionservice' is unknown so the code cannot be validated
-INFORMATION: Claim/example: Claim.item[0].detail[1].productOrService.coding[0]: Code System URI 'http://example.org/fhir/CodeSystem/ex-visionservice' is unknown so the code cannot be validated
-INFORMATION: Claim/example: Claim.item[0].detail[2].productOrService.coding[0]: Code System URI 'http://example.org/fhir/CodeSystem/ex-visionservice' is unknown so the code cannot be validated
-INFORMATION: Communication/example: Communication.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
 INFORMATION: Communication/negation-example: Communication.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
 INFORMATION: CommunicationRequest/example: CommunicationRequest.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
 INFORMATION: Encounter/example: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
-INFORMATION: Flag/example: Flag.category[0].coding[0]: Code System URI 'http://example.org/local' is unknown so the code cannot be validated
-INFORMATION: Flag/example: Flag.code.coding[0]: Code System URI 'http://example.org/local' is unknown so the code cannot be validated
 INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[0].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
 INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[1].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
 INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[2].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
-INFORMATION: MedicationDispense/example: MedicationDispense.substitution.type.coding[0]: Code System URI 'http://example.org/MedDispSubType' is unknown so the code cannot be validated
 INFORMATION: NutritionOrder/example: NutritionOrder.oralDiet.type[0].coding[1]: Code System URI 'http://goodhealthhospital.org/diet-type-codes' is unknown so the code cannot be validated
 INFORMATION: Observation/example: Observation.component[0].code.coding[2]: Code System URI 'http://acme.org/devices/clinical-codes' is unknown so the code cannot be validated
 INFORMATION: Observation/example-odh: Observation.value.ofType(CodeableConcept).coding[0]: Code System URI 'https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.114222.4.5.327' is unknown so the code cannot be validated
 INFORMATION: ServiceRequest/appropriateness-example: ServiceRequest.code.coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 INFORMATION: Specimen/example: Specimen.collection.extension[0].value.ofType(CodeableConcept).coding[0]: Code System URI 'http://example.com' is unknown so the code cannot be validated
-
 
 # The following messages are being generated from the base resource snapshot
 INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[28].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
@@ -75,5 +66,5 @@ WARNING: StructureDefinition/qicore-claimresponse: StructureDefinition.snapshot.
 WARNING: StructureDefinition/qicore-careteam: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: StructureDefinition/qicore-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
-# The following information messages are related to bindings in a choice element
-INFORMATION: StructureDefinition/qicore-observation: StructureDefinition.differential.element[12].binding: The element Observation.value[x] has a binding, and has multiple types subject to bindings ([dateTime, boolean, string, SampledData, Quantity, Period, Ratio, integer, time, Range, CodeableConcept]). The binding will apply to all the types
+# The following information message is related to a 'preferred' binding in a choice element
+INFORMATION: StructureDefinition/qicore-observation: StructureDefinition.differential.element[11].binding: The element Observation.value[x] has a binding, and has multiple types subject to bindings ([dateTime, boolean, string, SampledData, Quantity, Period, Ratio, integer, time, Range, CodeableConcept]). The binding will apply to all the types
