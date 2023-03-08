@@ -312,6 +312,16 @@
       {
         "id" : "Observation.value[x]",
         "path" : "Observation.value[x]",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "type",
+              "path" : "$this"
+            }
+          ],
+          "ordered" : false,
+          "rules" : "open"
+        },
         "short" : "Actual result",
         "definition" : "The information determined as a result of making the observation, if the information has a simple value.",
         "comment" : "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](http://hl7.org/fhir/R4/observation.html#notes) below.",
@@ -334,13 +344,13 @@
             "code" : "Quantity"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
-            "code" : "CodeableConcept"
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+              "code" : "CodeableConcept"
           },
           {
           "extension" : [
@@ -421,24 +431,9 @@
         "condition" : [
           "obs-7"
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "SNOMED CT for coded results",
-          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes"
-        },
         "mapping" : [
           {
             "identity" : "sct-concept",
@@ -457,6 +452,28 @@
             "map" : "363714003 |Interprets|"
           }
         ]
+      },
+      {
+        "id": "Observation.value[x].valueCodeableConcept",
+        "path": "Observation.value[x]",
+        "sliceName": "valueCodeableConcept",
+        "base": {
+          "path": "Observation.value[x]",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "SNOMED CT for coded results",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes"
+        }
       },
       {
         "id" : "Observation.dataAbsentReason",

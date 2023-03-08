@@ -42,7 +42,7 @@ WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provid
 WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
 WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
 
-# The following information messages are being generated in the examples using valid codes in codesystems but validator cannot confirm code systems 
+# The following information messages are being generated in the examples using valid codes in codesystems but validator cannot confirm
 INFORMATION: Encounter/example: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 INFORMATION: ServiceRequest/appropriateness-example: ServiceRequest.code.coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
 INFORMATION: Coverage/example: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
@@ -54,4 +54,9 @@ INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDef
 WARNING: StructureDefinition/qicore-careteam: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: StructureDefinition/qicore-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
+# Slicing is open and should not need a type slice for 'Quantity' and looks to be result of validator error (https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/slicing.20of.20choice.20type.20element)
+INFORMATION: Observation/example: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation|5.0.0
+INFORMATION: Observation/example-gestation: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation|5.0.0
 
+# Intent of the pattern is to support 1 or more type of medication usage category
+INFORMATION: StructureDefinition/qicore-medicationnotrequested: StructureDefinition.snapshot.element[13].pattern.ofType(CodeableConcept): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
