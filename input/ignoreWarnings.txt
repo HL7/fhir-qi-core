@@ -15,12 +15,12 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/Structur
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 
-# Profiles are based on US Core profiles
+# Profiles are based on US Core profiles and their names have changed from STU5 to STU6 
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-clinical-test').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-imaging').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-survey').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 
-# Profiles not based on US Core because it does not exist in USCore STU 5 (v5.0.1)
+# Profiles not based on US Core because it does not exist in USCore STU 5 (v5.0.1) and variance requests have been approved: https://jira.hl7.org/browse/FHIR-40551
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense').baseDefinition: US FHIR Usage rules require that all profiles on MedicationDispense derive from the core US profile
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedeclined').baseDefinition: US FHIR Usage rules require that all profiles on MedicationDispense derive from the core US profile
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage').baseDefinition: US FHIR Usage rules require that all profiles on Coverage derive from the core US profile
@@ -32,8 +32,6 @@ WARNING: Coverage/example-new: Coverage.type: ValueSet https://cts.nlm.nih.gov/f
 WARNING: StructureDefinition/qicore-coverage: StructureDefinition.differential.element[1].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
 WARNING: StructureDefinition/qicore-coverage: StructureDefinition.snapshot.element[11].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
 WARNING: Encounter/example: Encounter.type[0]: [Unable to determine whether the provided codes are in the value set http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type because the value set or a code system it depends on is not known to the validator, Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated]
-INFORMATION: Coverage/example: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
-INFORMATION: Coverage/example-new: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
 WARNING: StructureDefinition/qicore-medicationdispense: StructureDefinition.differential.element[3].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationDispense.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[14].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationDispense.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationstatement: StructureDefinition.differential.element[2].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationStatement.medication[x] could not be resolved
@@ -44,28 +42,16 @@ WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provid
 WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
 WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
 
-# The following information messages are being generated with using 'example' code systems or example bindings
-INFORMATION: Communication/negation-example: Communication.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
-INFORMATION: CommunicationRequest/example: CommunicationRequest.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
+# The following information messages are being generated in the examples using valid codes in codesystems but validator cannot confirm code systems 
 INFORMATION: Encounter/example: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
-INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[0].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
-INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[1].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
-INFORMATION: ImmunizationRecommendation/example: ImmunizationRecommendation.recommendation[0].dateCriterion[2].code.coding[0]: Code System URI 'http://terminology.hl7.org/CodeSystem/immunization-recommendation-date-criterion' is unknown so the code cannot be validated
-INFORMATION: Communication/example: Communication.category[0].coding[0]: Code System URI 'http://acme.org/messagetypes' is unknown so the code cannot be validated
-INFORMATION: NutritionOrder/example: NutritionOrder.oralDiet.type[0].coding[1]: Code System URI 'http://goodhealthhospital.org/diet-type-codes' is unknown so the code cannot be validated
-INFORMATION: Observation/example: Observation.component[0].code.coding[2]: Code System URI 'http://acme.org/devices/clinical-codes' is unknown so the code cannot be validated
-INFORMATION: Observation/example-odh: Observation.value.ofType(CodeableConcept).coding[0]: Code System URI 'https://phinvads.cdc.gov/vads/ViewCodeSystem.action?id=2.16.840.1.114222.4.5.327' is unknown so the code cannot be validated
 INFORMATION: ServiceRequest/appropriateness-example: ServiceRequest.code.coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
-INFORMATION: Specimen/example: Specimen.collection.extension[0].value.ofType(CodeableConcept).coding[0]: Code System URI 'http://example.com' is unknown so the code cannot be validated
+INFORMATION: Coverage/example: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
+INFORMATION: Coverage/example-new: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
 
 # The following messages are being generated from the base resource snapshot
 INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[28].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[34].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
-INFORMATION: StructureDefinition/qicore-medicationnotrequested: StructureDefinition.snapshot.element[13].fixed.ofType(CodeableConcept): The repeating element has a fixed. The fixed will apply to all the repeats (this has not been clear to all users)
-WARNING: StructureDefinition/qicore-medicationnotrequested: StructureDefinition.snapshot.element[13].fixed.ofType(CodeableConcept): For the complex type CodeableConcept, consider using a pattern rather than a fixed value to avoid over-constraining the instance
-WARNING: StructureDefinition/qicore-claimresponse: StructureDefinition.snapshot.element[34].fixed.ofType(CodeableConcept): For the complex type CodeableConcept, consider using a pattern rather than a fixed value to avoid over-constraining the instance
 WARNING: StructureDefinition/qicore-careteam: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 WARNING: StructureDefinition/qicore-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 
-# The following information message is related to a 'preferred' binding in a choice element
-INFORMATION: StructureDefinition/qicore-observation: StructureDefinition.differential.element[11].binding: The element Observation.value[x] has a binding, and has multiple types subject to bindings ([dateTime, boolean, string, SampledData, Quantity, Period, Ratio, integer, time, Range, CodeableConcept]). The binding will apply to all the types
+
