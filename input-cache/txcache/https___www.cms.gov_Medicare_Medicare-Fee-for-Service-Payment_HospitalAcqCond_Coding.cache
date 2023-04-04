@@ -85,3 +85,102 @@ e: {
   "error" : ""
 }
 -------------------------------------------------------------------------------------
+{"hierarchical" : false, "valueSet" :{
+  "resourceType" : "ValueSet",
+  "compose" : {
+    "inactive" : true,
+    "include" : [{
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "concept" : [{
+        "code" : "Y",
+        "display" : "Yes"
+      },
+      {
+        "code" : "N",
+        "display" : "No"
+      },
+      {
+        "code" : "U",
+        "display" : "Unknown"
+      },
+      {
+        "code" : "W",
+        "display" : "Undetermined"
+      },
+      {
+        "code" : "1",
+        "display" : "Unreported"
+      }]
+    }]
+  }
+}}####
+e: {
+  "valueSet" : {
+  "resourceType" : "ValueSet",
+  "language" : "en",
+  "status" : "active",
+  "expansion" : {
+    "identifier" : "urn:uuid:8e97c318-607b-4ee0-a026-b9db74ab3876",
+    "timestamp" : "2023-02-21T21:43:06.379Z",
+    "parameter" : [{
+      "name" : "limitedExpansion",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "excludeNested",
+      "valueBoolean" : true
+    },
+    {
+      "name" : "version",
+      "valueUri" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding|07/14/2020"
+    }],
+    "contains" : [{
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Diagnosis was present at time of inpatient admission. CMS will pay the CC/MCC DRG for those selected HACs that are coded as \"Y\" for the POA Indicator."
+      }],
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "code" : "Y",
+      "display" : "Yes"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Diagnosis was not present at time of inpatient admission. CMS will not pay the CC/MCC DRG for those selected HACs that are coded as \"N\" for the POA Indicator."
+      }],
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "code" : "N",
+      "display" : "No"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Documentation insufficient to determine if the condition was present at the time of inpatient admission. CMS will not pay the CC/MCC DRG for those selected HACs that are coded as \"U\" for the POA Indicator."
+      }],
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "code" : "U",
+      "display" : "Unknown"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Clinically undetermined.  Provider unable to clinically determine whether the condition was present at the time of inpatient admission. CMS will pay the CC/MCC DRG for those selected HACs that are coded as \"W\" for the POA Indicator."
+      }],
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "code" : "W",
+      "display" : "Undetermined"
+    },
+    {
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/StructureDefinition/valueset-definition",
+        "valueString" : "Unreported/Not used.  Exempt from POA reporting.  This code is equivalent to a blank on the UB-04, however; it was determined that blanks are undesirable when submitting this data via the 4010A. CMS will not pay the CC/MCC DRG for those selected HACs that are coded as \"1\" for the POA Indicator. The “1” POA Indicator should not be applied to any codes on the HAC list.  For a complete list of codes on the POA exempt list, see  the Official Coding Guidelines for ICD-10-CM."
+      }],
+      "system" : "https://www.cms.gov/Medicare/Medicare-Fee-for-Service-Payment/HospitalAcqCond/Coding",
+      "code" : "1",
+      "display" : "Unreported"
+    }]
+  }
+},
+  "error" : ""
+}
+-------------------------------------------------------------------------------------
