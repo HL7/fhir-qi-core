@@ -2,11 +2,11 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-questionnaireresponse",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse",
-  "version" : "5.0.0",
+  "version" : "6.0.0-ballot",
   "name" : "QICoreQuestionnaireResponse",
   "title" : "QICore QuestionnaireResponse",
   "status" : "active",
-  "date" : "2022-04-20",
+  "date" : "2023-08-01",
   "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
   "contact": [
     {
@@ -70,56 +70,6 @@
           }
         ],
         "mustSupport" : true
-      },
-      {
-        "id" : "QuestionnaireResponse.encounter",
-        "path" : "QuestionnaireResponse.encounter",
-        "short" : "Encounter created as part of",
-        "definition" : "The Encounter during which this questionnaire response was created or to which the creation of this record is tightly associated.",
-        "comment" : "This will typically be the encounter the event occurred within, but some activities may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter. A questionnaire that was initiated during an encounter but not fully completed during the encounter would still generally be associated with the encounter.",
-        "requirements" : "Provides context for the information that was captured.  May also affect access control.",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "QuestionnaireResponse.encounter",
-          "min" : 0,
-          "max" : "1"
-        },
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "mustSupport" : true,
-        "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "workflow",
-            "map" : "Event.encounter"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.context"
-          },
-          {
-            "identity" : "rim",
-            "map" : ".inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]"
-          }
-        ]
       },
       {
         "id" : "QuestionnaireResponse.author",
@@ -191,89 +141,6 @@
         "mustSupport" : true
       },
       {
-        "id" : "QuestionnaireResponse.source",
-        "path" : "QuestionnaireResponse.source",
-        "short" : "The person who answered the questions",
-        "definition" : "The person who answered the questions about the subject.",
-        "comment" : "If not specified, no inference can be made about who provided the data.",
-        "requirements" : "When answering questions about a subject that is minor, incapable of answering or an animal, another human source may answer the questions.",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "QuestionnaireResponse.source",
-          "min" : 0,
-          "max" : "1"
-        },
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
-            ],
-            "_targetProfile" : [
-              {
-                "extension" : [
-                  {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
-                  }
-                ]
-              },
-              {
-                "extension" : [
-                  {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : false
-                  }
-                ]
-              },
-              {
-                "extension" : [
-                  {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
-                  }
-                ]
-              },
-              {
-                "extension" : [
-                  {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
-                  }
-                ]
-              }
-            ]
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "mustSupport" : true,
-        "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.source"
-          },
-          {
-            "identity" : "rim",
-            "map" : ".participation[typeCode=INF].role"
-          }
-        ]
-      },
-      {
         "id" : "QuestionnaireResponse.item",
         "path" : "QuestionnaireResponse.item",
         "mustSupport" : true
@@ -289,9 +156,6 @@
         "min" : 0,
         "max" : "1",
         "type" : [
-          {
-            "code" : "boolean"
-          },
           {
             "extension" : [
               {
@@ -311,18 +175,6 @@
             "code" : "dateTime"
           },
           {
-            "code" : "time"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "decimal"
-          },
-          {
             "extension" : [
               {
                 "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
@@ -338,34 +190,7 @@
                 "valueBoolean" : true
               }
             ],
-            "code" : "string"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "Coding"
-          },
-          {
-            "code" : "uri"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
             "code" : "Quantity"
-          },
-          {
-            "code" : "Attachment"
-          },
-          {
-            "code" : "Reference"
           }
         ],
         "mustSupport" : true
