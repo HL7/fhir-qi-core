@@ -5,6 +5,16 @@
 
 {: #qi-core-implementation-guide}
 
+Note to balloters: The following QI-Core profiles have been included in previous version of QI-Core but there is limited, if any, known usage. Please provide your input regarding whether each of these should remain as profiles in QI-Core STU6 for the intended use in clinical quality measures or clinical decision support artifacts. In your comments, please indicate the use case for which the respective profile adds value, and whether such information is easily retrievable:
+
+- [QI-Core BodyStructure](StructureDefinition-qicore-bodystructure.html)
+- [QI-Core ClaimResponse](StructureDefinition-qicore-claimresponse.html)
+- [QI-Core CommunicationRequest](StructureDefinition-qicore-communicationrequest.html)
+- [QI-Core DeviceUseStatement](StructureDefinition-qicore-deviceusestatement.html)
+- [QI-Core FamilyMemberHistory](StructureDefinition-qicore-familymemberhistory.html)
+- [QI-Core Flag](StructureDefinition-qicore-flag.html)
+- [QI-Core MedicationStatement](StructureDefinition-qicore-medicationstatement.html)
+- [QI-Core Substance](StructureDefinition-qicore-substance.html)
 
 ### Summary
 {: #summary}
