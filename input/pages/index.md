@@ -5,7 +5,10 @@
 
 {: #qi-core-implementation-guide}
 
-Note to balloters: The following QI-Core profiles have been included in previous version of QI-Core but there is limited, if any, known usage. Please provide your input regarding whether each of these should remain as profiles in QI-Core STU6 for the intended use in clinical quality measures or clinical decision support artifacts. In your comments, please indicate the use case for which the respective profile adds value, and whether such information is easily retrievable:
+<div class="note-to-balloters" markdown="1">
+#### Note To Balloters
+
+1.) The following QI-Core profiles have been included in previous version of QI-Core but there is limited, if any, known usage. Please provide your input regarding whether each of these should remain as profiles in QI-Core STU6 for the intended use in clinical quality measures or clinical decision support artifacts. In your comments, please indicate the use case for which the respective profile adds value, and whether such information is easily retrievable:
 
 - [QI-Core BodyStructure](StructureDefinition-qicore-bodystructure.html)
 - [QI-Core ClaimResponse](StructureDefinition-qicore-claimresponse.html)
@@ -15,6 +18,26 @@ Note to balloters: The following QI-Core profiles have been included in previous
 - [QI-Core Flag](StructureDefinition-qicore-flag.html)
 - [QI-Core MedicationStatement](StructureDefinition-qicore-medicationstatement.html)
 - [QI-Core Substance](StructureDefinition-qicore-substance.html)
+
+2.) To the extent possible, QI-Core derives content from US Core profiles and extensions. There are a number of QI-Core profiles inherited directly from US Core profiles (i.e. US Core Implantable Device Profile, FHIR Vital Signs, US Core Smoking Status etc.) We seek implementer feedback regarding other FHIR implementation guides appropriate to directly reference including recommendations for the most appropriate method to address them, for example, [minimal Common Ontology Data Elements (mCode)](http://hl7.org/fhir/us/mcode/), [CARIN Consumer Directed Payer Data Exchange (CARIN IG for Blue Button)](http://hl7.org/fhir/us/carin-bb/), and other suggestions.`
+
+3.) QI-Core has developed specific profiles based on existing US Core profiles adding constraints and/or additional must support elements required for the quality measurement and clinical decision support use cases. Such profiles in QI-Core 6.0 include:
+
+- QI-Core Observation Clinical Result
+- QI-Core Laboratory Result Observation
+- QI-Core Observation Screening Assessment 
+- QI-Core Simple Observation
+
+Please provide input regarding the value of developing similar QI-Core profiles based on the following existing US Core 6.1.0 profiles. Such changes could include provision of more specific value set bindings or further constraints on cardinality and addition of must support items:
+
+- [US Core Smoking Status Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html)
+- [US Core Observation Sexual Orientation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-occupation.html)
+- [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancyintent.html)
+- [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancystatus.html)
+
+4.) Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as key elements all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
+</div>
 
 ### Summary
 {: #summary}
