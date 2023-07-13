@@ -76,7 +76,15 @@
         "id" : "Goal.start[x]",
         "path" : "Goal.start[x]",
         "binding" : {
-          "strength" : "preferred"
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "GoalStartEvent"
+            }
+          ],
+          "strength" : "preferred",
+          "description" : "Codes describing events that can trigger the initiation of a goal.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/goal-start-event"
         },
         "type" : [
           {
