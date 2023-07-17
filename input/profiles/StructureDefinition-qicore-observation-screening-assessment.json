@@ -1,10 +1,10 @@
 {
   "resourceType" : "StructureDefinition",
-  "id" : "qicore-observation-survey",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-survey",
+  "id" : "qicore-observation-screening-assessment",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-screening-assessment",
   "version" : "5.0.0",
-  "name" : "QICoreObservationSurvey",
-  "title" : "QICore Observation Survey",
+  "name" : "QICoreObservationScreeningAssessment",
+  "title" : "QICore Observation Screening Assessment",
   "status" : "active",
   "date" : "2022-04-20",
   "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
@@ -19,7 +19,7 @@
       ]
     }
   ],
-  "description" : "The QI Core Observation Survey Profile is based upon the US Core Observation Survey Profile which can be used to represent individual responses, panels of multi-question surveys, and multi-select responses to “check all that apply” questions. The QI Core Observation Survey Profile sets minimum expectations for the Observation Resource to record, search, and fetch retrieve observations that represent the questions and responses to form/survey and and defines the core set of elements and extensions for quality rule and measure authors.",
+  "description" : "The QI Core Observation Screening Assessment Profile is based upon the US Core Observation Screening Assessment Profile which can be used to represent individual responses, panels of multi-question surveys, and multi-select responses to “check all that apply” questions. The QI Core Observation Survey Profile sets minimum expectations for the Observation Resource to record, search, and fetch retrieve observations that represent the questions and responses to form/survey and and defines the core set of elements and extensions for quality rule and measure authors.",
   "jurisdiction" : [
     {
       "coding" : [
@@ -66,7 +66,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "Observation",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-survey",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-screening-assessment",
   "derivation" : "constraint",
   "differential" : {
     "element" : [
@@ -78,6 +78,175 @@
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
+        }
+      },
+      {
+        "id" : "Observation.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.category",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "pattern",
+              "path" : "$this"
+            }
+          ],
+          "rules" : "open"
+        },
+        "short" : "(USCDI) Classification of  type of observation",
+        "definition" : "A code that classifies the general type of observation being made.",
+        "comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
+        "requirements" : "Used for filtering what observations are retrieved and displayed.",
+        "min" : 1,
+        "max" : "*",
+        "base" : {
+          "path" : "Observation.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ObservationCategory"
+            }
+          ],
+          "strength" : "required",
+          "description" : "Codes for high level observation categories.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-category"
+        }
+      },
+      {
+        "id" : "Observation.category:survey",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.category",
+        "sliceName" : "survey",
+        "short" : "(USCDI) Classification of  type of observation",
+        "definition" : "A code that classifies the general type of observation being made.",
+        "comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
+        "requirements" : "Used for filtering if the observation is an assessment or screening.",
+        "min" : 1,
+        "max" : "1",
+        "base" : {
+          "path" : "Observation.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "patternCodeableConcept" : {
+          "coding" : [
+            {
+              "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code" : "survey"
+            }
+          ]
+        },
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ObservationCategory"
+            }
+          ],
+          "strength" : "required",
+          "description" : "Codes for high level observation categories.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-category"
+        }
+      },
+      {
+        "id" : "Observation.category:screening-assessment",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.category",
+        "sliceName" : "screening-assessment",
+        "short" : "(USCDI) Classification of  type of observation",
+        "definition" : "Categories that a provider may use in their workflow to classify that this Observation is related to a USCDI Health Status/Assessments Data Class.",
+        "comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
+        "requirements" : "Used for filtering the type of screening or assessment observation.",
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "Observation.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "binding" : {
+          "strength" : "required",
+          "description" : "Note that other codes are permitted, see [Required Bindings When Slicing by Value Sets](http://hl7.org/fhir/us/core/general-requirements.html#required-bindings-when-slicing-by-valuesets)",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-screening-assessment-observation-category"
+        }
+      },
+      {
+        "id" : "Observation.code",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.code",
+        "short" : "(USCDI) Type of observation (code / type)",
+        "definition" : "Describes what was observed. Sometimes this is called the observation \"name\".",
+        "comment" : "*All* code-value and, if present, component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.",
+        "requirements" : "Knowing what kind of observation is being made is essential to understanding the observation.",
+        "alias" : [
+          "Name"
+        ],
+        "min" : 1,
+        "max" : "1",
+        "base" : {
+          "path" : "Observation.code",
+          "min" : 1,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-survey-codes"
         }
       },
       {
@@ -93,6 +262,53 @@
           }
         ],
         "mustSupport" : true
+      },
+      {
+        "id" : "Observation.effective[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.effective[x]",
+        "short" : "(USCDI) Clinically relevant time/time-period for observation",
+        "definition" : "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\".",
+        "comment" : "At least a date should be present unless this observation is a historical report.",
+        "requirements" : "Knowing when an observation was deemed true is important to its relevance as well as determining trends.",
+        "alias" : [
+          "Occurrence"
+        ],
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "Observation.effective[x]",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "dateTime"
+          },
+          {
+            "code" : "Period"
+          },
+          {
+            "code" : "Timing"
+          },
+          {
+            "code" : "instant"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true
       },
       {
         "id" : "Observation.performer",
@@ -260,18 +476,41 @@
           }
         ],
         "meaningWhenMissing" : "For questions represented in LOINC that allow one answer, If the LOINC Normative Answer List for a LOINC code offers an adequate code for why an Observation.value may not be known, it should be used as the value for Observation.value. However, If the LOINC Normative Answer List for a LOINC code does not offer an adequate code for why an Observation.value may not be known, Observation.dataAbsentReason should be used in lieu of Observation.value.",
-        "condition" : [
-          "us-core-2",
-          "us-core-3"
-        ],
         "mustSupport" : true
+      },
+      {
+        "id" : "Observation.dataAbsentReason",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.dataAbsentReason",
+        "short" : "(USCDI) Why the result is missing",
+        "definition" : "Provides a reason why the expected value in the element Observation.value[x] is missing.",
+        "comment" : "\"Null\" or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values. For a given LOINC question, if the LOINC answer list includes concepts such as 'unknown' or 'not available', they should be used for Observation.value. Where these concepts are not part of the value set for Observation.value, the Observation.dataAbsentReason can be used if necessary and appropriate.",
+        "requirements" : "For many results it is necessary to handle exceptional values in measurements.",
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ObservationValueAbsentReason"
+            }
+          ],
+          "strength" : "extensible",
+          "description" : "Codes specifying why the result (`Observation.value[x]`) is missing.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/data-absent-reason"
+        }
       },
       {
        "id" : "Observation.interpretation",
        "path" : "Observation.interpretation",
        "short" : "High, low, normal, etc.",
        "definition" : "A categorical assessment of an observation value.  For example, high, low, normal.",
-       "mustSupport": true,
        "comment" : "Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
        "requirements" : "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",
        "alias" : [
@@ -289,16 +528,7 @@
            "code" : "CodeableConcept"
          }
        ],
-       "constraint" : [
-         {
-           "key" : "ele-1",
-           "severity" : "error",
-           "human" : "All FHIR elements must have a @value or children",
-           "expression" : "hasValue() or (children().count() > id.count())",
-           "xpath" : "@value|f:*|h:div",
-           "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-         }
-       ],
+       "mustSupport": true,
        "isModifier" : false,
        "isSummary" : false,
        "binding" : {
@@ -311,26 +541,8 @@
          "strength" : "extensible",
          "description" : "Codes identifying interpretations of observations.",
          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-interpretation"
-       },
-       "mapping" : [
-         {
-           "identity" : "sct-concept",
-           "map" : "< 260245000 |Findings values|"
-         },
-         {
-           "identity" : "v2",
-           "map" : "OBX-8"
-         },
-         {
-           "identity" : "rim",
-           "map" : "interpretationCode"
-         },
-         {
-           "identity" : "sct-attr",
-           "map" : "363713009 |Has interpretation|"
-         }
-       ]
-     },
+       }
+      },
       {
         "id" : "Observation.hasMember",
         "path" : "Observation.hasMember",
@@ -341,7 +553,7 @@
           {
             "code" : "Reference",
             "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-survey",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-screening-assessment",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse"
             ],
             "_targetProfile" : [
@@ -375,7 +587,7 @@
           {
             "code" : "Reference",
             "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-survey",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-screening-assessment",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse"
             ],
             "_targetProfile" : [
