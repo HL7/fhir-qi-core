@@ -88,7 +88,7 @@
       {
         "id" : "MedicationRequest.doNotPerform",
         "path" : "MedicationRequest.doNotPerform",
-		    "short" : "True if medication was not requested", 
+		    "short" : "True if medication was not requested",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -142,6 +142,56 @@
         "mustSupport" : false
       },
       {
+        "id" : "MedicationRequest.reported[x]",
+        "path" : "MedicationRequest.reported[x]",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ],
+            "_targetProfile" : [
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : false
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              }
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
         "id" : "MedicationRequest.subject",
         "path" : "MedicationRequest.subject",
         "type" : [
@@ -182,8 +232,34 @@
             "code" : "Reference",
             "targetProfile" : [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ],
+            "_targetProfile" : [
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : true
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : false
+                  }
+                ]
+              },
+              {
+                "extension" : [
+                  {
+                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "valueBoolean" : false
+                  }
+                ]
+              }
             ]
           }
         ],
