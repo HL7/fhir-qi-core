@@ -1,7 +1,7 @@
 {:toc}
 
 {:.stu-note}
-> This STU 5.0 update to the QI-Core profiles updates to US-Core STU v5. See the version history for a complete listing of changes to this version.
+> This STU 6.0 update to the QI-Core profiles updates to US-Core STU v6.1.0. See the version history for a complete listing of changes to this version.
 
 {: #qi-core-implementation-guide}
 
