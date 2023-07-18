@@ -23,10 +23,10 @@
 
 3.) QI-Core has developed specific profiles based on existing US Core profiles adding constraints and/or additional must support elements required for the quality measurement and clinical decision support use cases. Such profiles in QI-Core 6.0 include:
 
-- QI-Core Observation Clinical Result
-- QI-Core Laboratory Result Observation
-- QI-Core Observation Screening Assessment 
-- QI-Core Simple Observation
+- [QI-Core Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
+- [QI-Core Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
+- [QI-Core Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html) 
+- [QI-Core Simple Observation](StructureDefinition-qicore-simple-observation.html)
 
 Please provide input regarding the value of developing similar QI-Core profiles based on the following existing US Core 6.1.0 profiles. Such changes could include provision of more specific value set bindings or further constraints on cardinality and addition of must support items:
 
@@ -36,7 +36,9 @@ Please provide input regarding the value of developing similar QI-Core profiles 
 - [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancyintent.html)
 - [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancystatus.html)
 
-4.) Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as key elements all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
+4.) Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
+
+
 </div>
 
 ### Summary
