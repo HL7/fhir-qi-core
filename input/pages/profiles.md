@@ -76,7 +76,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |*NutritionOrder*|
 |[QICore NutritionOrder](StructureDefinition-qicore-nutritionorder.html)| |[NutritionOrder]({{site.data.fhir.path}}nutritionorder.html)|
 |*Observation*|
-|[QICore Observation](StructureDefinition-qicore-observation.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)| [US Core Simple Observation]({{site.data.fhir.vers.uscore}}StructureDefinition-us-core-simple-observation.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)| [US Core Laboratory Result Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)| [US Core Observation Clinical Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-clinical-result.html) |[Observation]({{site.data.fhir.path}}observation.html)|
