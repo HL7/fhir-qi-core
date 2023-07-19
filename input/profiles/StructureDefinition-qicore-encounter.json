@@ -59,7 +59,7 @@
 			{
 				"id": "Encounter.priority",
 				"path": "Encounter.priority",
-				"mustSupport": true,
+				"mustSupport": false,
 				"binding": {
 					"strength": "preferred",
 					"description": "A code or set of codes (e.g., for routine, emergency,) specifying the urgency under which the Act happened, can happen, is happening, is intended to happen, or is requested/demanded to happen.\r\n\r\n*Discussion:* This attribute is used in orders to indicate the ordered priority, and in event documentation it indicates the actual priority used to perform the act. In definition mood it indicates the available priorities.",
@@ -129,7 +129,7 @@
 			{
 				"id": "Encounter.length",
 				"path": "Encounter.length",
-				"mustSupport": true
+				"mustSupport": false
 			},
 			{
 				"id": "Encounter.reasonReference",
@@ -221,7 +221,7 @@
 			{
 				"id": "Encounter.diagnosis",
 				"path": "Encounter.diagnosis",
-				"mustSupport": true
+				"mustSupport": false
 			},
 			{
 				"id": "Encounter.diagnosis.extension:diagnosisPresentOnAdmission",
@@ -235,7 +235,7 @@
 						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter-diagnosisPresentOnAdmission"
 					]
 				}],
-				"mustSupport": true,
+				"mustSupport": false,
 				"binding": {
 					"strength": "required",
 					"description": "Indicator of whether the Encounter diagnosis was present at the time of admission",
@@ -270,17 +270,17 @@
 						}
 					]
 				}],
-				"mustSupport": true
+				"mustSupport": false
 			},
 			{
 				"id": "Encounter.diagnosis.use",
 				"path": "Encounter.diagnosis.use",
-				"mustSupport": true
+				"mustSupport": false
 			},
 			{
 				"id": "Encounter.diagnosis.rank",
 				"path": "Encounter.diagnosis.rank",
-				"mustSupport": true
+				"mustSupport": false
 			},
 			{
 				"id": "Encounter.hospitalization",
@@ -301,12 +301,12 @@
 			{
 				"id": "Encounter.hospitalization.admitSource",
 				"path": "Encounter.hospitalization.admitSource",
-				"mustSupport": true
+				"mustSupport": false
 			},
 			{
 				"id": "Encounter.hospitalization.reAdmission",
 				"path": "Encounter.hospitalization.reAdmission",
-				"mustSupport": true
+				"mustSupport": false
 			},
 			{
 				"id": "Encounter.hospitalization.destination",
