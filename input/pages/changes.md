@@ -4,6 +4,17 @@
 
 This page lists the change history for each version of QI Core.
 
+### STU6 Release (6.0.0)
+
+1. Update QI-Core RelatedPerson profile to align with US Core 6.1.0 ([FHIR-41544](https://jira.hl7.org/browse/FHIR-41544))
+1. Adjust QI-Core Device Not Requested must supports ([FHIR-41466](https://jira.hl7.org/browse/FHIR-41466))
+1. Adjust QI-Core Device Request must supports ([FHIR-41467](https://jira.hl7.org/browse/FHIR-41467))
+1. Adjust QI-Core Immunization must supports ([FHIR-41468](https://jira.hl7.org/browse/FHIR-41468))
+1. Adjust QI-Core Procedure must supports ([FHIR-41480](https://jira.hl7.org/browse/FHIR-41480))
+1. Adjust QI-Core Procedure Not Done must supports ([FHIR-41481](https://jira.hl7.org/browse/FHIR-41481))
+1. Update QI-Core Practitioner profile to align with US Core 6.1.0 ([FHIR-41541](https://jira.hl7.org/browse/FHIR-41541))
+1. Update QI-Core PractitionerRole profile to align with US Core 6.1.0 ([FHIR-41542](https://jira.hl7.org/browse/FHIR-41542))
+
 ### STU5 Release (5.0.0)
 
 1. Add ODH - 2016-09 qicore #21 ([FHIR-12091](https://jira.hl7.org/browse/FHIR-12091))
