@@ -30,11 +30,11 @@
 
 Please provide input regarding the value of developing similar QI-Core profiles based on the following existing US Core 6.1.0 profiles. Such changes could include provision of more specific value set bindings or further constraints on cardinality and addition of must support items:
 
-- [US Core Smoking Status Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html)
-- [US Core Observation Sexual Orientation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-sexual-orientation.html)
-- [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-occupation.html)
-- [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancyintent.html)
-- [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancystatus.html)
+- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
+- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Observation Occupation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html)
+- [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
+- [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html)
 
 4.) Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
 
