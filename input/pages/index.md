@@ -46,11 +46,11 @@ Please provide input regarding the value of developing similar QI-Core profiles 
 
 The QI-Core Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create
 interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the
-[US Core]({{site.data.fhir.ver.uscore}}) profiles to provide a common foundation for building, sharing, and evaluating
+[US Core](http://hl7.org/fhir/us/core/index.html) profiles to provide a common foundation for building, sharing, and evaluating
 knowledge artifacts across quality improvement efforts in the US Realm.
 
 As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring workgroup,
-[Clinical Quality Information](http://www.hl7.org/Special/committees/cqi/index.cfm), and incorporated as part of the
+[Clinical Quality Information](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Information+Home), and incorporated as part of the
 standard balloting process. The current roadmap follows closely behind the base FHIR roadmap, and the US Core
 Implementation Guide.
 
@@ -182,7 +182,7 @@ approach to provenance.
 
 QI-Core has been harmonized with certain other FHIR-based initiatives, in particular, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
-[US Core]({{site.data.fhir.ver.uscore}}) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
+[US Core](http://hl7.org/fhir/us/core/index.html) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
 maps ONC Common Clinical Data Set elements to FHIR resources. The data elements in US Core are also in QI-Core, and
 whenever possible, profiles defined in QI-Core are derived from the profiles in US Core. As a result, conforming to US
 Core automatically satisfies a significant subset of the conformance requirements of QI-Core. QI-Core conformance
