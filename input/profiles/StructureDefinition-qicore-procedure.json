@@ -67,38 +67,6 @@
         "mustSupport" : false
       },
       {
-        "id" : "Procedure.extension:approachBodyStructure",
-        "path" : "Procedure.extension",
-        "sliceName" : "approachBodyStructure",
-        "min" : 0,
-        "max" : "*",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/procedure-approachBodyStructure"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "Procedure.extension:incisionDateTime",
-        "path" : "Procedure.extension",
-        "sliceName" : "incisionDateTime",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/procedure-incisionDateTime"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
         "id" : "Procedure.extension:recorded",
         "path" : "Procedure.extension",
         "sliceName" : "recorded",
@@ -139,25 +107,7 @@
         ],
         "mustSupport" : true
       },
-      {
-        "id" : "Procedure.encounter",
-        "path" : "Procedure.encounter",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "Procedure.performer",
-        "path" : "Procedure.performer",
-        "mustSupport" : true
-      },
-      {
+     {
         "id" : "Procedure.performer.actor",
         "path" : "Procedure.performer.actor",
         "type" : [
@@ -168,19 +118,6 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "Procedure.location",
-        "path" : "Procedure.location",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
             ]
           }
         ],
@@ -200,79 +137,6 @@
         "id" : "Procedure.reasonReference",
         "path" : "Procedure.reasonReference",
         "mustSupport" : false
-      },
-      {
-        "id" : "Procedure.bodySite",
-        "path" : "Procedure.bodySite",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "Codes describing anatomical locations. May include laterality",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
-        }
-      },
-      {
-        "id" : "Procedure.outcome",
-        "path" : "Procedure.outcome",
-        "mustSupport" : false
-      },
-      {
-        "id" : "Procedure.report",
-        "path" : "Procedure.report",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "Procedure.focalDevice",
-        "path" : "Procedure.focalDevice",
-        "mustSupport" : false
-      },
-      {
-        "id" : "Procedure.focalDevice.manipulated",
-        "path" : "Procedure.focalDevice.manipulated",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
-              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "Procedure.usedReference",
-        "path" : "Procedure.usedReference",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance",
-              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "Procedure.usedCode",
-        "path" : "Procedure.usedCode",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "Codes describing items used during a procedure.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/device-kind"
-        }
       }
     ]
   }

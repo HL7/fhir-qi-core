@@ -82,6 +82,125 @@
         }
       },
       {
+        "id" : "Observation.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.category",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "pattern",
+              "path" : "$this"
+            }
+          ],
+          "rules" : "open"
+        },
+        "short" : "(USCDI) Classification of  type of observation",
+        "definition" : "A code that classifies the general type of observation being made.",
+        "comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
+        "requirements" : "Used for filtering what observations are retrieved and displayed.",
+        "min" : 1,
+        "max" : "*",
+        "base" : {
+          "path" : "Observation.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ObservationCategory"
+            }
+          ],
+          "strength" : "preferred",
+          "description" : "Codes for high level observation categories.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-category"
+        }
+      },
+      {
+        "id" : "Observation.category:us-core",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.category",
+        "sliceName" : "us-core",
+        "short" : "(USCDI) Classification of  type of observation",
+        "definition" : "A code that classifies the general type of observation being made.",
+        "comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
+        "requirements" : "Used for filtering what observations are retrieved and displayed.",
+        "min" : 1,
+        "max" : "1",
+        "base" : {
+          "path" : "Observation.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "patternCodeableConcept" : {
+          "coding" : [
+            {
+              "system" : "http://terminology.hl7.org/CodeSystem/observation-category",
+              "code" : "laboratory"
+            }
+          ]
+        },
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "binding" : {
+          "strength" : "required",
+          "description" : "Note that other codes are permitted, see [Required Bindings When Slicing by Value Sets](http://hl7.org/fhir/us/core/general-requirements.html#required-bindings-when-slicing-by-valuesets)",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-result-observation-category"
+        }
+      },
+      {
+        "id" : "Observation.code",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.code",
+        "short" : "(USCDI) Laboratory Test Name",
+        "definition" : "The name of the clinical test or procedure performed on a patient.  A LOINC **SHALL** be used if the concept is present in LOINC.",
+        "comment" : "The typical patterns for codes are:  1)  a LOINC code either as a translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists.  When using LOINC , Use either the SHORTNAME or LONG_COMMON_NAME field for the display.",
+        "requirements" : "Knowing what kind of observation is being made is essential to understanding the observation.",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true,
+        "binding" : {
+          "strength" : "extensible",
+          "description" : "Laboratory LOINC Codes",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-laboratory-test-codes"
+        }
+      },
+      {
         "id" : "Observation.subject",
         "path" : "Observation.subject",
         "min" : 1,
@@ -100,6 +219,61 @@
             "map" : "Observation.subject"
           }
         ]
+      },
+      {
+        "id" : "Observation.effective[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.effective[x]",
+        "short" : "(USCDI) Clinically relevant time/time-period for observation",
+        "definition" : "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+        "comment" : "At least a date should be present unless this observation is a historical report.  For recording imprecise or \"fuzzy\" times (For example, a blood glucose measurement taken \"after breakfast\") use the [Timing](http://hl7.org/fhir/R4/datatypes.html#timing) datatype which allow the measurement to be tied to regular life events.",
+        "requirements" : "Knowing when an observation was deemed true is important to its relevance as well as determining trends.",
+        "alias" : [
+          "Occurrence"
+        ],
+        "type" : [
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "dateTime"
+          },
+          {
+            "code" : "Period"
+          },
+          {
+            "code" : "Timing"
+          },
+          {
+            "code" : "instant"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true
+      },
+      {
+        "id" : "Observation.issued",
+        "path" : "Observation.issued",
+        "short" : "Date/Time this version was made available",
+        "definition" : "The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.",
+        "comment" : "For Observations that don’t require review and verification, it may be the same as the [`lastUpdated` ](http://hl7.org/fhir/R4/resource-definitions.html#Meta.lastUpdated) time of the resource itself.  For Observations that do require review and verification for certain updates, it might not be the same as the `lastUpdated` time of the resource itself due to a non-clinically significant update that doesn’t require the new version to be reviewed and verified again.",
+        "type" : [
+          {
+            "code" : "instant"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true
       },
       {
         "id" : "Observation.value[x]",
@@ -255,16 +429,6 @@
             "code" : "CodeableConcept"
           }
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "isModifier" : false,
         "isSummary" : false,
         "binding" : {
@@ -278,306 +442,7 @@
           "description" : "Codes identifying interpretations of observations.",
           "valueSet" : "http://hl7.org/fhir/ValueSet/observation-interpretation"
         },
-        "mapping" : [
-          {
-            "identity" : "sct-concept",
-            "map" : "< 260245000 |Findings values|"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBX-8"
-          },
-          {
-            "identity" : "rim",
-            "map" : "interpretationCode"
-          },
-          {
-            "identity" : "sct-attr",
-            "map" : "363713009 |Has interpretation|"
-          }
-        ],
         "mustSupport": true
-      },
-      {
-        "id" : "Observation.component",
-        "path" : "Observation.component",
-        "short" : "Component results",
-        "definition" : "Some observations have multiple component observations.  These component observations are expressed as separate code value pairs that share the same attributes.  Examples include systolic and diastolic component observations for blood pressure measurement and multiple component observations for genetics observations.",
-        "comment" : "For a discussion on the ways Observations can be assembled in groups together see [Notes](http://hl7.org/fhir/R4/observation.html#notes) below.",
-        "requirements" : "Component observations share the same attributes in the Observation resource as the primary observation and are always treated a part of a single observation (they are not separable).   However, the reference range for the primary observation value is not inherited by the component values and is required when appropriate for each component observation.",
-        "min" : 0,
-        "max" : "*",
-        "base" : {
-          "path" : "Observation.component",
-          "min" : 0,
-          "max" : "*"
-        },
-        "type" : [
-          {
-            "code" : "BackboneElement"
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "v2",
-            "map" : "containment by OBX-4?"
-          },
-          {
-            "identity" : "rim",
-            "map" : "outBoundRelationship[typeCode=COMP]"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id" : "Observation.component.code",
-        "path" : "Observation.component.code",
-        "short" : "Type of component observation (code / type)",
-        "definition" : "Describes what was observed. Sometimes this is called the observation \"code\".",
-        "comment" : "*All* code-value and  component.code-component.value pairs need to be taken into account to correctly understand the meaning of the observation.",
-        "requirements" : "Knowing what kind of observation is being made is essential to understanding the observation.",
-        "min" : 1,
-        "max" : "1",
-        "base" : {
-          "path" : "Observation.component.code",
-          "min" : 1,
-          "max" : "1"
-        },
-        "type" : [
-          {
-            "code" : "CodeableConcept"
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier" : false,
-        "isSummary" : true,
-        "binding" : {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString" : "ObservationCode"
-            }
-          ],
-          "strength" : "extensible",
-          "description" : "Codes identifying names of simple observations.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-codes"
-        },
-        "mapping" : [
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.what[x]"
-          },
-          {
-            "identity" : "sct-concept",
-            "map" : "< 363787002 |Observable entity| OR \r< 386053000 |Evaluation procedure|"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBX-3"
-          },
-          {
-            "identity" : "rim",
-            "map" : "code"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id" : "Observation.component.value[x]",
-        "path" : "Observation.component.value[x]",
-        "short" : "Actual component result",
-        "definition" : "The information determined as a result of making the observation, if the information has a simple value.",
-        "comment" : "Used when observation has a set of component observations. An observation may have both a value (e.g. an  Apgar score)  and component observations (the observations from which the Apgar score was derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](http://hl7.org/fhir/R4/observation.html#notes) below.",
-        "requirements" : "An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations.",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "Observation.component.value[x]",
-          "min" : 0,
-          "max" : "1"
-        },
-        "type" : [
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "boolean"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "integer"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "Range"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "Ratio"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "time"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "dateTime"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "Period"
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "sct-concept",
-            "map" : "363714003 |Interprets| < 441742003 |Evaluation finding|"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBX.2, OBX.5, OBX.6"
-          },
-          {
-            "identity" : "rim",
-            "map" : "value"
-          },
-          {
-            "identity" : "sct-attr",
-            "map" : "363714003 |Interprets|"
-          }
-        ],
-        "mustSupport": true
-      },
-      {
-        "id" : "Observation.component.interpretation",
-        "path" : "Observation.component.interpretation",
-        "short" : "High, low, normal, etc.",
-        "definition" : "A categorical assessment of an observation value.  For example, high, low, normal.",
-        "comment" : "Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
-        "requirements" : "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",
-        "alias" : [
-          "Abnormal Flag"
-        ],
-        "min" : 0,
-        "max" : "*",
-        "base" : {
-          "path" : "Observation.component.interpretation",
-          "min" : 0,
-          "max" : "*"
-        },
-        "type" : [
-          {
-            "code" : "CodeableConcept"
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier" : false,
-        "isSummary" : false,
-        "mustSupport": true,
-        "binding" : {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString" : "ObservationInterpretation"
-            }
-          ],
-          "strength" : "extensible",
-          "description" : "Codes identifying interpretations of observations.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-interpretation"
-        },
-        "mapping" : [
-          {
-            "identity" : "sct-concept",
-            "map" : "< 260245000 |Findings values|"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBX-8"
-          },
-          {
-            "identity" : "rim",
-            "map" : "interpretationCode"
-          },
-          {
-            "identity" : "sct-attr",
-            "map" : "363713009 |Has interpretation|"
-          }
-        ]
       }
     ]
   }

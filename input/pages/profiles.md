@@ -76,12 +76,12 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |*NutritionOrder*|
 |[QICore NutritionOrder](StructureDefinition-qicore-nutritionorder.html)| |[NutritionOrder]({{site.data.fhir.path}}nutritionorder.html)|
 |*Observation*|
-|[QICore Observation](StructureDefinition-qicore-observation.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)| [US Core Simple Observation]({{site.data.fhir.vers.uscore}}StructureDefinition-us-core-simple-observation.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)| [US Core Laboratory Result Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html) |[Observation]({{site.data.fhir.path}}observation.html)|
-|[QICore Observation Clinical Test Result](StructureDefinition-qicore-observation-clinical-test.html)| [US Core Observation Clinical Test Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-clinical-test.html) |[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)| [US Core Observation Clinical Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-clinical-result.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Observation Imaging Result](StructureDefinition-qicore-observation-imaging.html)| [US Core Observation Imaging Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-imaging.html) |[Observation]({{site.data.fhir.path}}observation.html)|
-|[QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)| [US Core Observation Survey]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-survey.html) |[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)| [US Core Observation Screening Assessment]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-screening-assessment.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 | | [US Core Vital Signs]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-vital-signs.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Blood Pressure]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core BMI]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html) | [Observation]({{site.data.fhir.path}}observation.html) |
@@ -118,7 +118,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|[US Core ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html)  |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |[QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|[US Core ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html) |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |*Specimen*|
-|[QICore Specimen](StructureDefinition-qicore-specimen.html)| |[Specimen]({{site.data.fhir.path}}specimen.html)|
+| | [US Core Specimen]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-specimen.html)|[Specimen]({{site.data.fhir.path}}specimen.html)|
 |*Substance*|
 |[QICore Substance](StructureDefinition-qicore-substance.html)| |[Substance]({{site.data.fhir.path}}substance.html)|
 |*Task*|

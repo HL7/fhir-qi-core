@@ -51,23 +51,92 @@
       "mustSupport" : false
     },
     {
-      "id" : "RelatedPerson.patient",
-      "path" : "RelatedPerson.patient",
-      "type" : [{
-        "code" : "Reference",
-        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
-      }],
-      "mustSupport" : true
+        "id" : "RelatedPerson.active",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "RelatedPerson.active",
+        "short" : "(USCDI) Whether this related person's record is in active use",
+        "min" : 1,
+        "mustSupport" : true
     },
     {
-      "id" : "RelatedPerson.gender",
-      "path" : "RelatedPerson.gender",
-      "mustSupport" : true
-    },
-    {
-      "id" : "RelatedPerson.period",
-      "path" : "RelatedPerson.period",
-      "mustSupport" : true
-    }]
+        "id" : "RelatedPerson.patient",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "RelatedPerson.patient",
+        "short" : "The patient this person is related to",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "RelatedPerson.relationship",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "RelatedPerson.relationship",
+        "short" : "(USCDI) The nature of the relationship",
+        "condition" : [
+          "us-core-14"
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "RelatedPerson.name",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "RelatedPerson.name",
+        "short" : "(USCDI) A name associated with the person",
+        "condition" : [
+          "us-core-14"
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "RelatedPerson.telecom",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "RelatedPerson.telecom",
+        "short" : "(USCDI) A contact detail for the person",
+        "mustSupport" : true
+      },
+      {
+        "id" : "RelatedPerson.address",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "RelatedPerson.address",
+        "short" : "(USCDI) Address where the related person can be contacted or visited",
+        "mustSupport" : true
+      }
+    ]
   }
 }

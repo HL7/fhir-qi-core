@@ -90,7 +90,7 @@
         "id": "Immunization.statusReason",
         "path": "Immunization.statusReason",
         "min": 0,
-        "max": "0",
+        "max": "1",
         "mustSupport": true,
         "binding": {
           "strength": "preferred",
@@ -111,107 +111,13 @@
         "mustSupport": true
       },
       {
-        "id": "Immunization.encounter",
-        "path": "Immunization.encounter",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
         "id": "Immunization.recorded",
         "path": "Immunization.recorded",
         "min": 1,
         "max": "1",
         "mustSupport": true
-      },
-      {
-        "id": "Immunization.location",
-        "path": "Immunization.location",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.manufacturer",
-        "path": "Immunization.manufacturer",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.site",
-        "path": "Immunization.site",
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.route",
-        "path": "Immunization.route",
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.doseQuantity",
-        "path": "Immunization.doseQuantity",
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.reasonCode",
-        "path": "Immunization.reasonCode",
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.reaction",
-        "path": "Immunization.reaction",
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.reaction.detail",
-        "path": "Immunization.reaction.detail",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.protocolApplied",
-        "path": "Immunization.protocolApplied",
-        "mustSupport": false
-      },
-      {
-        "id": "Immunization.protocolApplied.authority",
-        "path": "Immunization.protocolApplied.authority",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
-            ]
-          }
-        ],
-        "mustSupport": false
       }
+ 
     ]
   }
 }
