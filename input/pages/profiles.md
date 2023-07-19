@@ -118,7 +118,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|[US Core ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html)  |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |[QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|[US Core ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html) |[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |*Specimen*|
-|[QICore Specimen](StructureDefinition-qicore-specimen.html)| |[Specimen]({{site.data.fhir.path}}specimen.html)|
+| | [US Core Specimen]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-specimen.html)|[Specimen]({{site.data.fhir.path}}specimen.html)|
 |*Substance*|
 |[QICore Substance](StructureDefinition-qicore-substance.html)| |[Substance]({{site.data.fhir.path}}substance.html)|
 |*Task*|
