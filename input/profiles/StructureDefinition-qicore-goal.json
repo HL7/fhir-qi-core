@@ -74,7 +74,40 @@
       },
       {
         "id" : "Goal.start[x]",
+        "extension" : [
+          {            
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }        
+        ],        
         "path" : "Goal.start[x]",
+        "short" : "(USCDI) When goal pursuit begins",
+        "definition" : "The date or event after which the goal should begin being pursued.",
+        "requirements" : "Goals can be established prior to there being an intention to start pursuing them; e.g. Goals for post-surgical recovery established prior to surgery.",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "Goal.start[x]",
+          "min" : 0,
+          "max" : "1"
+        },        
+        "type" : [
+          {            
+           "extension" : [
+              {                
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "date"
+          },
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true,
         "binding" : {
           "extension" : [
             {
@@ -85,13 +118,7 @@
           "strength" : "preferred",
           "description" : "Codes describing events that can trigger the initiation of a goal.",
           "valueSet" : "http://hl7.org/fhir/ValueSet/goal-start-event"
-        },
-        "type" : [
-          {
-            "code" : "date"
-          }
-        ],
-        "mustSupport" : false
+        }
       },
       {
         "id" : "Goal.target",
