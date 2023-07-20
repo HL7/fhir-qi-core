@@ -152,6 +152,25 @@
         "mustSupport": true
       },
       {
+        "id" : "DiagnosticReport.encounter",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "DiagnosticReport.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "mustSupport" : true
+},
+      {
         "id": "DiagnosticReport.effective[x]",
         "path": "DiagnosticReport.effective[x]",
         "min": 0,
