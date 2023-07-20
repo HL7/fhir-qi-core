@@ -155,7 +155,34 @@
         "path" : "QuestionnaireResponse.item.answer.value[x]",
         "min" : 0,
         "max" : "1",
-        "type" : [
+        "type" : [          
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Coding"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "string"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "decimal"
+          },                    
           {
             "extension" : [
               {
