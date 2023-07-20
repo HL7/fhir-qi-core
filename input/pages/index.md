@@ -197,7 +197,7 @@ analysis and effort would be required.
 
 QI-Core's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QI-Core
 extensions will not create future conflicts. Other initiatives that the QI-Core effort is aligning with include the
-[Clinical Information Modeling Initiative (CIMI)](https://www.hl7.org/Special/Committees/cimi/overview.cfm) and [Graphite Health](https://www.graphitehealth.io/).
+[Clinical Information Modeling Initiative (CIMI)](https://confluence.hl7.org/display/CIMI/Mission%2C+Charter%2C+Work+Products%2C+HL7+Working+Group+Relationships) and [Graphite Health](https://www.graphitehealth.io/).
 
 
 
@@ -468,7 +468,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 |Ben Hamlin|NCQA|Contributor|
 |Bryn Rhodes|Alphora|Editor|
 |Chris Moesel|The MITRE Corporation|Contributor|
-|Claude Nanjo||Originator|
+|Claude Nanjo|University of Utah|Originator|
 |Claudia Hall||Contributor|
 |Floyd Eisenberg|iParsimony, LLC|Primary|
 |James Bradley|The MITRE Corporation|Contributor|
