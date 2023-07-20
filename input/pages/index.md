@@ -30,11 +30,11 @@
 
 Please provide input regarding the value of developing similar QI-Core profiles based on the following existing US Core 6.1.0 profiles. Such changes could include provision of more specific value set bindings or further constraints on cardinality and addition of must support items:
 
-- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-smokingstatus.html)
-- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-observation-sexual-orientation.html)
-- [US Core Observation Occupation Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-observation-occupation.html)
-- [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-observation-pregnancyintent.html)
-- [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-observation-pregnancystatus.html)
+- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
+- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Observation Occupation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html)
+- [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
+- [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html)
 
 4.) Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
 
@@ -46,7 +46,7 @@ Please provide input regarding the value of developing similar QI-Core profiles 
 
 The QI-Core Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create
 interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the
-[US Core]({{site.data.fhir.ver.US Core}}) profiles to provide a common foundation for building, sharing, and evaluating
+[US Core]({{site.data.fhir.ver.uscore}}) profiles to provide a common foundation for building, sharing, and evaluating
 knowledge artifacts across quality improvement efforts in the US Realm.
 
 As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring workgroup,
@@ -182,7 +182,7 @@ approach to provenance.
 
 QI-Core has been harmonized with certain other FHIR-based initiatives, in particular, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
-[US Core]({{site.data.fhir.ver.US Core}}) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
+[US Core]({{site.data.fhir.ver.uscore}}) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
 maps ONC Common Clinical Data Set elements to FHIR resources. The data elements in US Core are also in QI-Core, and
 whenever possible, profiles defined in QI-Core are derived from the profiles in US Core. As a result, conforming to US
 Core automatically satisfies a significant subset of the conformance requirements of QI-Core. QI-Core conformance
@@ -215,7 +215,7 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 ### MustSupport Flag
 
-QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.US Core}}/must-support.html) must be respected.
+QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
 
 In addition to the requirements defined in the US Core base, QI Core further describes and constrains the "MustSupport"
 functionality.
@@ -365,20 +365,20 @@ QI-Core defines the following profiles specifically for representing negation ra
 
 The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
 
-- [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
-- [US Core Blood Pressure Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-blood-pressure.html)
-- [US Core BMI Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-bmi.html)
-- [US Core Body Height Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-body-height.html)
-- [US Core Body Temperature Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-body-temperature.html)
-- [US Core Body Weight Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-body-weight.html)
-- [US Core Head Circumference Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-head-circumference.html)
-- [US Core Heart Rate Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-heart-rate.html)
-- [US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-pediatric-bmi-for-age.html)
-- [US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-pediatric-weight-for-height.html)
-- [US Core Pulse Oximetry Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-pulse-oximetry.html)
-- [US Core Respiratory Rate Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-respiratory-rate.html)
-- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-smokingstatus.html)
-- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.US Core}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+- [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
+- [US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html)
+- [US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html)
+- [US Core Body Temperature Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html)
+- [US Core Body Weight Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html)
+- [US Core Head Circumference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html)
+- [US Core Heart Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html)
+- [US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html)
+- [US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)
+- [US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)
+- [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
+- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
+- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
 - [QICore Observation Clinical Test Result](StructureDefinition-qicore-observation-clinical-test.html)
 - [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
 - [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)
