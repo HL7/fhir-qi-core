@@ -60,11 +60,19 @@
         "id" : "AdverseEvent.actuality",
         "path" : "AdverseEvent.actuality",
         "mustSupport" : true
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "http://hl7.org/fhir/adverse-event-actuality"
+        }
       },
       {
         "id" : "AdverseEvent.category",
         "path" : "AdverseEvent.category",
         "mustSupport" : true
+        "binding" : {
+          "strength" : "extensible",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/adverse-event-category"
+        }
       },
       {
         "id" : "AdverseEvent.event",
@@ -97,19 +105,6 @@
         "mustSupport" : true
       },
       {
-        "id" : "AdverseEvent.encounter",
-        "path" : "AdverseEvent.encounter",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
         "id" : "AdverseEvent.date",
         "path" : "AdverseEvent.date",
         "mustSupport" : false
@@ -129,101 +124,10 @@
         "mustSupport" : true
       },
       {
-        "id" : "AdverseEvent.location",
-        "path" : "AdverseEvent.location",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "AdverseEvent.recorder",
-        "path" : "AdverseEvent.recorder",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "AdverseEvent.contributor",
-        "path" : "AdverseEvent.contributor",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
-              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
         "id" : "AdverseEvent.suspectEntity",
         "path" : "AdverseEvent.suspectEntity",
         "mustSupport" : false
       },
-      {
-        "id" : "AdverseEvent.suspectEntity.instance",
-        "path" : "AdverseEvent.suspectEntity.instance",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
-              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "AdverseEvent.suspectEntity.causality",
-        "path" : "AdverseEvent.suspectEntity.causality",
-        "min" : 0,
-        "max" : "1",
-        "mustSupport" : false
-      },
-      {
-        "id" : "AdverseEvent.subjectMedicalHistory",
-        "path" : "AdverseEvent.subjectMedicalHistory",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-familymemberhistory",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      }
     ]
   }
 }
