@@ -3,12 +3,12 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-communication",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication",
-  "version" : "5.0.0",
+  "version" : "6.0.0-ballot",
   "name" : "QICoreCommunication",
   "title": "QICore Communication",
   "status" : "active",
   "experimental" : false,
-  "date" : "2018-08-22",
+  "date" : "2023-08-01",
   "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
   "contact" : [
     {
@@ -73,29 +73,6 @@
         }
       },
       {
-        "id" : "Communication.statusReason",
-        "path" : "Communication.statusReason",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/communication-not-done-reason"
-        }
-      },
-      {
-        "id" : "Communication.category",
-        "path" : "Communication.category",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/communication-category"
-        }
-      },
-      {
-        "id" : "Communication.medium",
-        "path" : "Communication.medium",
-        "mustSupport" : true
-      },
-      {
         "id" : "Communication.subject",
         "path" : "Communication.subject",
         "type" : [
@@ -117,19 +94,6 @@
           "strength" : "preferred",
           "valueSet" : "http://terminology.hl7.org/ValueSet/communication-topic"
         }
-      },
-      {
-        "id" : "Communication.encounter",
-        "path" : "Communication.encounter",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
-        "mustSupport" : true
       },
       {
         "id" : "Communication.sent",
