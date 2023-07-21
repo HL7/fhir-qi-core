@@ -170,6 +170,150 @@
         "path" : "Claim.careTeam",
         "mustSupport" : false
       },
+        {
+       "id" : "Claim.diagnosis.diagnosis[x]",
+       "path" : "Claim.diagnosis.diagnosis[x]",
+       "short" : "Nature of illness or problem",
+       "definition" : "The nature of illness or problem in a coded form or as a reference to an external defined Condition.",
+       "requirements" : "Provides health context for the evaluation of the products and/or services.",
+       "min" : 1,
+       "max" : "1",
+       "base" : {
+         "path" : "Claim.diagnosis.diagnosis[x]",
+         "min" : 1,
+         "max" : "1"
+       },
+       "type" : [{
+         "code" : "CodeableConcept"
+       },
+       {
+         "code" : "Reference",
+         "targetProfile" : ["http://hl7.org/fhir/StructureDefinition/Condition"]
+       }],
+       "constraint" : [{
+         "key" : "ele-1",
+         "severity" : "error",
+         "human" : "All FHIR elements must have a @value or children",
+         "expression" : "hasValue() or (children().count() > id.count())",
+         "xpath" : "@value|f:*|h:div",
+         "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+       }],
+       "isModifier" : false,
+       "isSummary" : false,
+       "binding" : {
+         "extension" : [{
+           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+           "valueString" : "ICD10"
+         }],
+         "strength" : "example",
+         "description" : "Example ICD10 Diagnostic codes.",
+         "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10"
+       }
+     },
+         {
+         "id" : "Claim.diagnosis.onAdmission",
+         "path" : "Claim.diagnosis.onAdmission",
+         "short" : "Present on admission",
+         "definition" : "Indication of whether the diagnosis was present on admission to a facility.",
+         "requirements" : "Many systems need to understand for adjudication if the diagnosis was present a time of admission.",
+         "min" : 0,
+         "max" : "1",
+         "base" : {
+           "path" : "Claim.diagnosis.onAdmission",
+           "min" : 0,
+           "max" : "1"
+         },
+         "type" : [{
+           "code" : "CodeableConcept"
+         }],
+         "constraint" : [{
+           "key" : "ele-1",
+           "severity" : "error",
+           "human" : "All FHIR elements must have a @value or children",
+           "expression" : "hasValue() or (children().count() > id.count())",
+           "xpath" : "@value|f:*|h:div",
+           "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+         }],
+         "isModifier" : false,
+         "isSummary" : false,
+         "binding" : {
+           "extension" : [{
+             "url" : "http://hl7.org/fhir/us/qicore/STU5/ValueSet-qicore-present-on-admission.html",
+             "valueString" : "DiagnosisOnAdmission"
+           }],
+           "strength" : "example",
+           "description" : "Present on admission.",
+           "valueSet" : "http://hl7.org/fhir/ValueSet/ex-diagnosis-on-admission"
+         }
+       },
+       {
+      "id" : "Claim.procedure.procedure[x]",
+      "path" : "Claim.procedure.procedure[x]",
+      "short" : "Specific clinical procedure",
+      "definition" : "The code or reference to a Procedure resource which identifies the clinical intervention performed.",
+      "requirements" : "This identifies the actual clinical procedure.",
+      "min" : 1,
+      "max" : "1",
+      "base" : {
+        "path" : "Claim.procedure.procedure[x]",
+        "min" : 1,
+        "max" : "1"
+      },
+      "type" : [{
+        "code" : "CodeableConcept"
+      },
+      {
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure"]
+      }],
+      "constraint" : [{
+        "key" : "ele-1",
+        "severity" : "error",
+        "human" : "All FHIR elements must have a @value or children",
+        "expression" : "hasValue() or (children().count() > id.count())",
+        "xpath" : "@value|f:*|h:div",
+        "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+      }],
+      "isModifier" : false,
+      "isSummary" : false,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "ICD10_Procedures"
+        }],
+        "strength" : "example",
+        "description" : "Example ICD10 Procedure codes.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10-procedures"
+      }
+    },
+       {
+     "id" : "Claim.procedure.sequence",
+     "path" : "Claim.procedure.sequence",
+     "short" : "Procedure instance identifier",
+     "definition" : "A number to uniquely identify procedure entries.",
+     "requirements" : "Necessary to provide a mechanism to link to claim details.",
+     "min" : 1,
+     "max" : "1",
+     "base" : {
+       "path" : "Claim.procedure.sequence",
+       "min" : 1,
+       "max" : "1"
+     },
+     "type" : [{
+       "code" : "positiveInt"
+     }],
+     "constraint" : [{
+       "key" : "ele-1",
+       "severity" : "error",
+       "human" : "All FHIR elements must have a @value or children",
+       "expression" : "hasValue() or (children().count() > id.count())",
+       "xpath" : "@value|f:*|h:div",
+       "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+     }],
+     "isModifier" : false,
+     "isSummary" : false
+   },
+
       {
         "id" : "Claim.careTeam.provider",
         "path" : "Claim.careTeam.provider",
@@ -185,6 +329,7 @@
         ],
         "mustSupport" : false
       }
+
     ]
   }
 }
