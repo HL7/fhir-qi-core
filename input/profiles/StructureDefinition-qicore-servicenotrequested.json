@@ -259,6 +259,27 @@
         ]
       },
       {
+        "id" : "ServiceRequest.reasonCode",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "ServiceRequest.reasonCode",
+        "short" : "(USCDI) Explanation/Justification for procedure or service",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport": true,
+        "binding" : {
+          "strength" : "extensible",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
+        }
+      },
+      {
         "id" : "ServiceRequest.reasonReference",
         "path" : "ServiceRequest.reasonReference",
         "short" : "Explanation/Justification for service or service",

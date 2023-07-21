@@ -125,25 +125,7 @@
                 "valueBoolean" : true
               }
             ],
-            "code" : "dateTime"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
             "code" : "Period"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "Timing"
           }
         ],
         "mustSupport" : true
@@ -226,12 +208,7 @@
       {
         "id" : "ServiceRequest.reasonCode",
         "path" : "ServiceRequest.reasonCode",
-        "mustSupport" : false,
-        "binding" : {
-          "strength" : "example",
-          "description" : "Explanation/Justification for procedure or service",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/procedure-reason"
-        }
+        "mustSupport" : true
       },
       {
         "id" : "ServiceRequest.reasonReference",
@@ -273,37 +250,9 @@
             ]
           }
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport" : true,
         "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "workflow",
-            "map" : "Request.reasonReference"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.why[x]"
-          },
-          {
-            "identity" : "v2",
-            "map" : "ORC.16"
-          },
-          {
-            "identity" : "rim",
-            "map" : ".outboundRelationship[typeCode=RSON].target"
-          }
-        ]
+        "isSummary" : true
       }
     ]
   }
