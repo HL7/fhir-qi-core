@@ -1,0 +1,153 @@
+{
+    "resourceType": "StructureDefinition",
+    "id": "qicore-nutritionintake",
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 1
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode" : "cds"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "trial-use"
+    }],
+    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionintake",
+    "name": "QICoreNutritionIntake",
+    "title": "QICore Nutrition Intake",
+    "status": "active",
+    "experimental": false,
+    "date": "2023-02-28",
+    "publisher": "Clinical Decision Support WG",
+    "contact": [
+      {
+        "telecom": [
+          {
+            "system": "url",
+            "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+          }
+        ]
+      }
+    ],
+    "description": "Nutrition Intake is utilized to capture details about the consumption of foods, fluids, and enteral nutrition.",
+    "jurisdiction": [
+      {
+        "coding": [
+          {
+            "system": "urn:iso:std:iso:3166",
+            "code": "US"
+          }
+        ]
+      }
+    ],
+    "fhirVersion": "4.0.1",
+    "kind": "resource",
+    "abstract": false,
+    "type": "Basic",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Basic",
+    "derivation": "constraint",
+    "differential": {
+      "element": [
+        {
+          "id": "Basic",
+          "path": "Basic",
+          "short": "Record of food or fluid being taken by a patient",
+          "definition": "Nutrition Intake is utilized to capture details about the consumption of foods, fluids, and enteral nutrition.",
+          "min": 0,
+          "max": "*"
+        },
+        {
+            "id": "Basic.extension:subject",
+            "path": "Basic.extension",
+            "sliceName": "subject",
+            "min": 1,
+            "max": "1",
+            "type": [
+              {
+                "code": "Extension",
+                "profile": [
+                   "http://hl7.org/fhir/StructureDefinition/event-subject"
+                ]
+              }
+            ],
+            "mustSupport": true
+          },
+          {
+            "id": "Basic.extension:subject.value[x]",
+            "path": "Basic.extension.value[x]",
+            "type": [{
+                "code": "Reference",
+                "targetProfile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient" ] 
+            }]
+          },
+          {
+            "id": "Basic.extension:encounter",
+            "path": "Basic.extension",
+            "sliceName": "encounter",
+            "min": 0,
+            "max": "1",
+            "type": [
+              {
+                "code": "Extension",
+                "profile": [
+                   "http://hl7.org/fhir/StructureDefinition/event-encounter"
+                ]
+              }
+            ]
+          },
+          {
+            "id": "Basic.extension:encounter.value[x]",
+            "path": "Basic.extension.value[x]",
+            "type": [{
+                "code": "Reference",
+                "targetProfile": [ "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter" ] 
+            }]
+          },
+          {
+            "id": "Basic.extension:occurrence",
+            "path": "Basic.extension",
+            "sliceName": "occurrence",
+            "min": 0,
+            "max": "1",
+            "type": [
+              {
+                "code": "Extension",
+                "profile": [
+                   "http://hl7.org/fhir/StructureDefinition/event-occurrence"
+                ]
+              }
+            ]
+          },
+          {
+          "id": "Basic.modifierExtension:status",
+          "path": "Basic.modifierExtension",
+          "sliceName": "status",
+          "min": 1,
+          "max": "1",
+          "type": [
+            {
+              "code": "Extension",
+              "profile": [
+                 "http://hl7.org/fhir/StructureDefinition/event-status"
+              ]
+            }
+          ],
+          "mustSupport": true
+        },
+        {
+            "id": "Basic.code",
+            "path": "Basic.code",
+            "short": "What food item",
+            "definition": "The food item that was consumed",
+            "min": 1,
+            "max": "1",
+            "binding": {
+                "strength": "example",
+                "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-example-foods"
+            },
+            "mustSupport": true
+        }
+      ]
+    }
+  }
