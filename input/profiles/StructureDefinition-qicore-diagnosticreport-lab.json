@@ -2,12 +2,12 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-diagnosticreport-lab",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab",
-  "version" : "5.0.0",
+  "version" : "6.0.0-ballot",
   "name" : "QICoreDiagnosticReportLab",
   "title" : "QICore DiagnosticReport Profile for Laboratory Results Reporting",
   "status" : "active",
   "experimental" : false,
-  "date" : "2022-07-01",
+  "date" : "2023-08-01",
   "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
   "contact" : [
     {
@@ -64,40 +64,6 @@
       {
         "id" : "DiagnosticReport",
         "path" : "DiagnosticReport",
-        "mustSupport" : false
-      },
-      {
-        "id" : "DiagnosticReport.extension:locationPerformed",
-        "path" : "DiagnosticReport.extension",
-        "sliceName" : "locationPerformed",
-        "short" : "Location Performed",
-        "definition" : "Facility location where this report was prepared.",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/diagnosticReport-locationPerformed"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "DiagnosticReport.extension:locationPerformed.value[x]:valueReference",
-        "path" : "DiagnosticReport.extension.value[x]",
-        "sliceName" : "valueReference",
-        "min" : 1,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
-            ]
-          }
-        ],
         "mustSupport" : false
       },
       {
@@ -275,18 +241,18 @@
         "mustSupport" : true
       },
       {
-        "id" : "DiagnosticReport.encounter",
-        "path" : "DiagnosticReport.encounter",
+        "id" : "DiagnosticReport.result",
+        "path" : "DiagnosticReport.result",
         "type" : [
           {
             "code" : "Reference",
             "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab"
             ]
           }
         ],
-        "mustSupport" : false
-      },
+        "mustSupport" : true
+      },      
       {
         "id" : "DiagnosticReport.effective[x]",
         "path" : "DiagnosticReport.effective[x]",
@@ -375,47 +341,6 @@
           }
         ],
         "mustSupport" : true
-      },
-      {
-        "id" : "DiagnosticReport.specimen",
-        "path" : "DiagnosticReport.specimen",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "DiagnosticReport.imagingStudy",
-        "path" : "DiagnosticReport.imagingStudy",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "DiagnosticReport.conclusion",
-        "path" : "DiagnosticReport.conclusion",
-        "mustSupport" : true
-      },
-      {
-        "id" : "DiagnosticReport.conclusionCode",
-        "path" : "DiagnosticReport.conclusionCode",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "This value set includes all the \"Clinical finding\" SNOMED CT codes - concepts where concept is-a 404684003 (Clinical finding (finding)).",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/clinical-findings"
-        }
       }
     ]
   }

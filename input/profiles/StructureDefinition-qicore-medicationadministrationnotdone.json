@@ -81,6 +81,11 @@
           "mustSupport" : false
         },
         {
+          "id": "MedicationAdministration.implicitRules",
+          "path": "MedicationAdministration.implicitRules",
+          "mustSupport" : true
+        },
+        {
           "id" : "MedicationAdministration.extension:recorded",
           "path" : "MedicationAdministration.extension",
           "sliceName" : "recorded",
@@ -133,7 +138,8 @@
           "mustSupport" : true,
           "binding" : {
             "strength" : "preferred",
-            "valueSet" : "http://hl7.org/fhir/ValueSet/medication-codes"
+            "description" : "The set of RxNorm codes to represent medications",
+            "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
           }
         },
         {
@@ -198,25 +204,6 @@
               ]
             }
           ],
-          "mustSupport" : false
-        },
-        {
-          "id" : "MedicationAdministration.dosage",
-          "path" : "MedicationAdministration.dosage",
-          "mustSupport" : false
-        },
-        {
-          "id" : "MedicationAdministration.dosage.route",
-          "path" : "MedicationAdministration.dosage.route",
-          "mustSupport" : true,
-          "binding" : {
-            "strength" : "preferred",
-            "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
-          }
-        },
-        {
-          "id" : "MedicationAdministration.dosage.dose",
-          "path" : "MedicationAdministration.dosage.dose",
           "mustSupport" : true
         }
       ]

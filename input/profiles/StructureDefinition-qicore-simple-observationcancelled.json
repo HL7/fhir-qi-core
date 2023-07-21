@@ -1,0 +1,394 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-simple-observationcancelled",
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observationcancelled",
+  "version" : "5.0.0-ballot",
+  "name" : "QICoreSimpleObservationCancelled",
+  "title" : "QICore Simple Observation Cancelled",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Profile of ObservationCancelled for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [
+    {
+      "identity" : "workflow",
+      "uri" : "http://hl7.org/fhir/workflow",
+      "name" : "Workflow Pattern"
+    },
+    {
+      "identity" : "sct-concept",
+      "uri" : "http://snomed.info/conceptdomain",
+      "name" : "SNOMED CT Concept Domain Binding"
+    },
+    {
+      "identity" : "v2",
+      "uri" : "http://hl7.org/v2",
+      "name" : "HL7 v2 Mapping"
+    },
+    {
+      "identity" : "rim",
+      "uri" : "http://hl7.org/v3",
+      "name" : "RIM Mapping"
+    },
+    {
+      "identity" : "w5",
+      "uri" : "http://hl7.org/fhir/fivews",
+      "name" : "FiveWs Pattern Mapping"
+    },
+    {
+      "identity" : "sct-attr",
+      "uri" : "http://snomed.org/attributebinding",
+      "name" : "SNOMED CT Attribute Binding"
+    }
+  ],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Observation",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-simple-observation",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "Observation",
+        "path" : "Observation",
+        "alias" : [
+          "Vital Signs",
+          "Measurement",
+          "Results",
+          "Tests"
+        ],
+        "constraint" : [
+          {
+            "key" : "ond-1",
+            "severity" : "error",
+            "human" : "to indicate what observation was not recorded, either at least one coding in the code or a notDoneValueSet extension shall be provided",
+            "expression" : "code.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor code.coding.exists()",
+            "xpath" : "exists(f:extension)"
+          }
+        ]
+      },
+      {
+        "id" : "Observation.extension:notDoneReason",
+        "path" : "Observation.extension",
+        "sliceName" : "notDoneReason",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.status",
+        "path" : "Observation.status",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "code"
+          }
+        ],
+        "fixedCode" : "cancelled",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.category",
+        "path" : "Observation.category",
+        "min" : 1,
+        "max" : "*",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.code",
+        "path" : "Observation.code",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.code.extension:notDoneValueSet",
+        "path" : "Observation.code.extension",
+        "sliceName" : "notDoneValueSet",
+        "short" : "What was not done",
+        "definition" : "Specifies the value set that characterizes the events or activities that did not occur or were not performed.",
+        "requirements" : "Must be able to indicate the value set from which the expected event would be drawn, had it occurred.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.subject",
+        "path" : "Observation.subject",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.issued",
+        "path" : "Observation.issued",
+        "min" : 1,
+        "max" : "1",
+        "mustSupport" : true
+      },
+      {
+        "id" : "Observation.performer",
+        "path" : "Observation.performer",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Observation.value[x]",
+        "path" : "Observation.value[x]",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "type",
+              "path" : "$this"
+            }
+          ],
+          "ordered" : false,
+          "rules" : "open"
+        },
+        "short" : "Actual result",
+        "definition" : "The information determined as a result of making the observation, if the information has a simple value.",
+        "comment" : "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](http://hl7.org/fhir/R4/observation.html#notes) below.",
+        "requirements" : "An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations.",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "Observation.value[x]",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "Quantity"
+          },
+          {
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+              "code" : "CodeableConcept"
+          },
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "string"
+          },
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "boolean"
+          },
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "integer"
+          },
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "Range"
+          },
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "Ratio"
+          },
+          {
+            "code" : "SampledData"
+          },
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "time"
+          },
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "dateTime"
+          },
+          {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "valueBoolean" : true
+            }
+          ],
+            "code" : "Period"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true
+      },
+      {
+        "id": "Observation.value[x].valueCodeableConcept",
+        "path": "Observation.value[x]",
+        "sliceName": "valueCodeableConcept",
+        "base": {
+          "path": "Observation.value[x]",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "mustSupport": true,
+        "isModifier": false,
+        "binding" : {
+          "strength" : "preferred",
+          "description" : "SNOMED CT for coded results",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes"
+        }
+      },
+      {
+        "id" : "Observation.interpretation",
+        "path" : "Observation.interpretation",
+        "short" : "High, low, normal, etc.",
+        "definition" : "A categorical assessment of an observation value.  For example, high, low, normal.",
+        "comment" : "Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
+        "requirements" : "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",
+        "alias" : [
+          "Abnormal Flag"
+        ],
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "Observation.interpretation",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ObservationInterpretation"
+            }
+          ],
+          "strength" : "extensible",
+          "description" : "Codes identifying interpretations of observations.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/observation-interpretation"
+        }
+      },
+      {
+        "id" : "Observation.derivedFrom",
+        "path" : "Observation.derivedFrom",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference",
+              "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
+              "http://hl7.org/fhir/StructureDefinition/Media",
+              "http://hl7.org/fhir/StructureDefinition/MolecularSequence"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      }
+    ]
+  }
+}

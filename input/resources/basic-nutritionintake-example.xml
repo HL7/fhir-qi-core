@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Basic xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+	<id value="example"/>
+	<meta>
+		<profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionintake"/>
+	</meta>
+	<!--    the patient that actually had the adverse event    -->
+	<extension url="http://hl7.org/fhir/StructureDefinition/event-subject">
+        <valueReference>
+    		<reference value="Patient/example"/>
+        </valueReference>
+	</extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/event-encounter">
+        <valueReference>
+    		<reference value="Encounter/example"/>
+        </valueReference>
+    </extension>
+    <extension url="http://hl7.org/fhir/StructureDefinition/event-occurrence">
+        <valueDateTime value="2017-01-29T12:34:56+00:00"/>
+    </extension>
+    <modifierExtension url="http://hl7.org/fhir/StructureDefinition/event-status">
+        <valueCode value="completed"/>
+    </modifierExtension>
+	<!--    an identifier used for this nutrition intake  -->
+	<identifier>
+		<system value="http://acme.com/ids/patients/nutritionintake"/>
+		<value value="49921019"/>
+	</identifier>
+	<code>
+		<coding>
+			<!--    example uses SNOMED CT    -->
+			<system value="http://snomed.info/sct"/>
+			<code value="226789007"/>
+			<display value="Breast milk"/>
+		</coding>
+	</code>
+</Basic>
