@@ -105,7 +105,11 @@
           }
         ],
         "fixedCode" : "declined",
-        "mustSupport" : true
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medicationdispense-status"
+        }
       },
       {
         "id" : "MedicationDispense.statusReason[x]",
@@ -188,19 +192,19 @@
         "mustSupport" : false
       },
       {
+        "id" : "MedicationDispense.dosageInstruction.text",
+        "path" : "MedicationDispense.dosageInstruction.text",
+        "mustSupport" : true
+      },
+      {
         "id" : "MedicationDispense.dosageInstruction.timing",
         "path" : "MedicationDispense.dosageInstruction.timing",
         "mustSupport" : true
       },
       {
-        "id" : "MedicationDispense.dosageInstruction.site",
-        "path" : "MedicationDispense.dosageInstruction.site",
-        "mustSupport" : false
-      },
-      {
         "id" : "MedicationDispense.dosageInstruction.route",
         "path" : "MedicationDispense.dosageInstruction.route",
-        "mustSupport" : true,
+        "mustSupport" : false,
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
