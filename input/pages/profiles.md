@@ -98,6 +98,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 | | [US Core Pulse Oximetry]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Respiratory Rate]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Smoking Status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+| | [US Core Observation Occupation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html) | [Observation]({{site.date.fhir.path}}observation.html) |
 | | [US Core Observation Sexual Orientation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Observation Social History]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-social-history.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Observation SDOH Assessment]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sdoh-assessment.html) | [Observation]({{site.data.fhir.path}}observation.html) |
