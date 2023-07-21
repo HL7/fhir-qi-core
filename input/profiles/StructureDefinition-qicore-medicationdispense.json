@@ -62,14 +62,13 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "MedicationDispense",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationDispense",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense",
   "derivation" : "constraint",
    "differential" : {
     "element" : [
       {
         "id" : "MedicationDispense",
-        "path" : "MedicationDispense",
-        "mustSupport" : false
+        "path" : "MedicationDispense"
       },
       {
         "id" : "MedicationDispense.status",
@@ -82,17 +81,19 @@
         }
       },
       {
-        "id" : "MedicationDispense.statusReason[x]",
-        "path" : "MedicationDispense.statusReason[x]",
-        "mustSupport" : false,
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/medicationdispense-status-reason"
-        }
-      },
-      {
         "id" : "MedicationDispense.medication[x]",
         "path" : "MedicationDispense.medication[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          },
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"
+            ]
+          }
+        ],
         "mustSupport" : true,
         "binding" : {
           "strength" : "extensible",
@@ -124,7 +125,7 @@
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport" : true
       },
       {
         "id" : "MedicationDispense.type",
@@ -159,36 +160,9 @@
         "mustSupport" : true
       },
       {
-        "id" : "MedicationDispense.destination",
-        "path" : "MedicationDispense.destination",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationDispense.receiver",
-        "path" : "MedicationDispense.receiver",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
         "id" : "MedicationDispense.dosageInstruction",
         "path" : "MedicationDispense.dosageInstruction",
-        "mustSupport" : false
+        "mustSupport" : true
       },
       {
         "id" : "MedicationDispense.dosageInstruction.text",
@@ -201,58 +175,28 @@
         "mustSupport" : true
       },
       {
-        "id" : "MedicationDispense.dosageInstruction.site",
-        "path" : "MedicationDispense.dosageInstruction.site",
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationDispense.dosageInstruction.route",
-        "path" : "MedicationDispense.dosageInstruction.route",
-        "mustSupport" : false,
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
-        }
-      },
-      {
         "id" : "MedicationDispense.dosageInstruction.doseAndRate",
         "path" : "MedicationDispense.dosageInstruction.doseAndRate",
         "mustSupport" : true
       },
       {
-        "id" : "MedicationDispense.dosageInstruction.doseAndRate.type",
-        "path" : "MedicationDispense.dosageInstruction.doseAndRate.type",
-        "min" : 1,
-        "max" : "1",
-        "mustSupport" : false,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "Medication dose types (e.g., loading, maintenance, etc.)",
-          "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-medication-dose-type"
-        }
-      },
-      {
         "id" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
         "path" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationDispense.substitution",
-        "path" : "MedicationDispense.substitution",
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationDispense.substitution.responsibleParty",
-        "path" : "MedicationDispense.substitution.responsibleParty",
         "type" : [
           {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"
-            ]
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean" : true
+              }
+            ],
+            "code" : "Quantity"
+          },
+          {
+            "code" : "Range"
           }
         ],
-        "mustSupport" : false
+        "mustSupport" : true
       }
     ]
   }
