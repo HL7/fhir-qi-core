@@ -62,7 +62,7 @@
   "kind" : "resource",
   "abstract" : false,
   "type" : "MedicationDispense",
-  "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationDispense",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense",
   "derivation" : "constraint",
   "differential" : {
     "element" : [
@@ -77,8 +77,7 @@
             "expression" : "medication.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor medication.coding.exists()",
             "xpath" : "exists(f:extension)"
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "MedicationDispense.extension:recorded",
@@ -131,17 +130,11 @@
       {
         "id" : "MedicationDispense.medication[x]",
         "path" : "MedicationDispense.medication[x]",
-        "min" : 1,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "CodeableConcept"
-          }
-        ],
         "mustSupport" : true,
         "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/medication-codes"
+          "strength" : "extensible",
+          "description" : "The set of RxNorm codes to represent medications",
+          "valueSet" : "https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4"
         }
       },
       {
@@ -183,13 +176,11 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
             ]
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "MedicationDispense.dosageInstruction",
-        "path" : "MedicationDispense.dosageInstruction",
-        "mustSupport" : false
+        "path" : "MedicationDispense.dosageInstruction"
       },
       {
         "id" : "MedicationDispense.dosageInstruction.text",
