@@ -1,0 +1,50 @@
+{
+  "resourceType": "ValueSet",
+  "id": "qicore-example-foods",
+  "url": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-example-foods",
+  "version": "4.0.0",
+  "name": "ExampleFoods",
+  "title": "Example Foods",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-12-05T00:00:00+00:00",
+  "publisher": "Health Level Seven, Inc. - CQI WG",
+  "description": "This value set defines an example set of codes for edible substances.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "purpose": " This is a subset of the full set of Edible Substances defined for the NutritionIntake resource in R5, but an example value set is defined here to avoid duplicating the definition of that value set, since it cannot be referenced from this R4 implementation guide.",
+  "compose": {
+    "include": [
+      {
+        "system": "http://snomed.info/sct",
+        "concept": [
+          {
+            "code": " 762766007",
+            "display": "Edible substance"
+          },
+          {
+            "code": "7661006",
+            "display": "Fish bone"
+          },
+          {
+            "code": "10827009",
+            "display": "Milk protein"
+          },
+          {
+            "code": "226789007",
+            "display": "Breast milk"
+          }
+        ]
+      }
+    ]
+  }
+}

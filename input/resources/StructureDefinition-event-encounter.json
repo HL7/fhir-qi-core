@@ -1,0 +1,85 @@
+{
+    "resourceType": "StructureDefinition",
+    "id": "event-encounter",
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-fmm",
+      "valueInteger" : 1
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+      "valueCode" : "cds"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-standards-status",
+      "valueCode" : "trial-use"
+    }],
+    "url": "http://hl7.org/fhir/StructureDefinition/event-encounter",
+    "name": "EventEncounter",
+    "title": "Event Encounter",
+    "status": "active",
+    "experimental": false,
+    "date": "2021-11-27T13:31:32-07:00",
+    "publisher": "Clinical Decision Support WG",
+    "contact": [
+      {
+        "telecom": [
+          {
+            "system": "url",
+            "value": "http://www.hl7.org/Special/committees/dss/index.cfm"
+          }
+        ]
+      }
+    ],
+    "description": "Specifies the encounter associated with an event resource.",
+    "purpose": "To support specifying encounter of an event resource.",
+    "fhirVersion": "4.0.1",
+    "mapping": [
+      {
+        "identity": "rim",
+        "uri": "http://hl7.org/v3",
+        "name": "RIM Mapping"
+      }
+    ],
+    "kind": "complex-type",
+    "abstract": false,
+    "context": [
+      {
+        "type": "element",
+        "expression": "Basic"
+      }
+    ],
+    "type": "Extension",
+    "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Extension",
+    "derivation": "constraint",
+    "differential": {
+      "element": [
+        {
+          "id": "Extension",
+          "path": "Extension",
+          "short": "Encounter the event is part of",
+          "definition": "The Encounter during which this event was created or to which the creation of this record is tightly associated.",
+          "min": 0,
+          "max": "1"
+        },
+        {
+          "id": "Extension.url",
+          "path": "Extension.url",
+          "type": [
+            {
+              "code": "uri"
+            }
+          ],
+          "fixedUri": "http://hl7.org/fhir/StructureDefinition/event-encounter"
+        },
+        {
+          "id": "Extension.value[x]",
+          "path": "Extension.value[x]",
+          "type": [{
+            "code": "Reference",
+            "targetProfile": [ "http://hl7.org/fhir/StructureDefinition/Encounter" ]
+          }]
+        }
+      ]
+    }
+  }
+  

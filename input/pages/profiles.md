@@ -75,6 +75,8 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [US Core MedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |*MedicationStatement*|
 |[QICore MedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
+|*NutritionIntake*|
+|[QICore NutritionIntake](StructureDefinition-qicore-nutritionintake.html)| |[NutritionIntake (R5)](http://hl7.org/fhir/R5/nutritionintake.html)|
 |*NutritionOrder*|
 |[QICore NutritionOrder](StructureDefinition-qicore-nutritionorder.html)| |[NutritionOrder]({{site.data.fhir.path}}nutritionorder.html)|
 |*Observation*|
@@ -98,6 +100,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 | | [US Core Pulse Oximetry]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Respiratory Rate]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Smoking Status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+| | [US Core Observation Occupation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html) | [Observation]({{site.date.fhir.path}}observation.html) |
 | | [US Core Observation Sexual Orientation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Observation Social History]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-social-history.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Observation SDOH Assessment]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sdoh-assessment.html) | [Observation]({{site.data.fhir.path}}observation.html) |
