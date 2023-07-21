@@ -1,5 +1,7 @@
 {:toc}
 
+<div class="new-content" markdown="1">
+
 {:.stu-note}
 > This STU 6.0 update to the QI-Core profiles updates to US-Core STU v6.1.0. See the version history for a complete listing of changes to this version.
 
@@ -39,6 +41,7 @@ Please provide input regarding the value of developing similar QI-Core profiles 
 4.) Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
 
 
+</div>
 </div>
 
 ### Summary
@@ -198,9 +201,6 @@ analysis and effort would be required.
 QI-Core's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QI-Core
 extensions will not create future conflicts. Other initiatives that the QI-Core effort is aligning with include the
 [Clinical Information Modeling Initiative (CIMI)](https://www.hl7.org/Special/Committees/cimi/overview.cfm) and [Graphite Health](https://www.graphitehealth.io/).
-
-For the [Occupational Data Health (ODH)](http://hl7.org/fhir/us/odh/index.html) effort, quality improvement applications should use version 1.3 as it depends on the same version of US Core 5.0.1. The [following is an example](Observation-example-odh.html) how occupational data can be added to a stratified measure (e.g. breast cancer screening, colorectal cancer screening) by high risk occupations. It can provide a way to reference [ODH Usual Work observation](http://hl7.org/fhir/us/odh/StructureDefinition-odh-UsualWork.html) using [QICore Observation profile](StructureDefinition-qicore-observation.html) (i.e., a single observation). If one were representing an evaluation tool that includes multiple ODH items, the [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html) profile would be appropriate.
-
 
 In addition, the QI-Core effort *continues* to update the mapping from QDM to QI-Core such that a CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
