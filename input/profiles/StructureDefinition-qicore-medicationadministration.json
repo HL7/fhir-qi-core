@@ -82,15 +82,6 @@
         }
       },
       {
-        "id" : "MedicationAdministration.statusReason",
-        "path" : "MedicationAdministration.statusReason",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/reason-medication-not-given-codes"
-        }
-      },
-      {
         "id" : "MedicationAdministration.medication[x]",
         "path" : "MedicationAdministration.medication[x]",
         "type" : [
@@ -144,37 +135,6 @@
         "mustSupport" : true
       },
       {
-        "id" : "MedicationAdministration.performer",
-        "path" : "MedicationAdministration.performer",
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationAdministration.performer.actor",
-        "path" : "MedicationAdministration.performer.actor",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
-              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationAdministration.reasonCode",
-        "path" : "MedicationAdministration.reasonCode",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/reason-medication-given-codes"
-        }
-      },
-      {
         "id" : "MedicationAdministration.request",
         "path" : "MedicationAdministration.request",
         "type" : [
@@ -185,21 +145,7 @@
             ]
           }
         ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "MedicationAdministration.device",
-        "path" : "MedicationAdministration.device",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
-              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
-            ]
-          }
-        ],
-        "mustSupport" : false
+        "mustSupport" : true
       },
       {
         "id" : "MedicationAdministration.dosage",

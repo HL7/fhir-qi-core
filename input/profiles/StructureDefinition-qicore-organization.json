@@ -73,6 +73,7 @@
         "id" : "Organization.identifier:ccn",
         "path" : "Organization.identifier",
         "sliceName" : "ccn",
+        "short": "CMS Certification Number",
         "min" : 0,
         "max" : "1",
         "type" : [
@@ -113,7 +114,8 @@
         "id" : "Organization.identifier:ein",
         "path" : "Organization.identifier",
         "sliceName" : "ein",
-        "short" : "There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.",
+        "short" : "Employer Identification Number",
+        "comment" : "There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.",
         "min" : 0,
         "max" : "1",
         "type" : [
@@ -153,19 +155,11 @@
       {
         "id" : "Organization.type",
         "path" : "Organization.type",
-        "mustSupport" : true,
         "binding" : {
           "strength" : "preferred",
           "description" : "Used to categorize the organization",
           "valueSet" : "http://hl7.org/fhir/ValueSet/organization-type"
         }
-      },
-      {
-        "id" : "Organization.address",
-        "path" : "Organization.address",
-        "min" : 1,
-        "max" : "*",
-        "mustSupport" : true
       },
       {
         "id" : "Organization.partOf",
@@ -177,8 +171,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
             ]
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "Organization.endpoint",
@@ -190,8 +183,7 @@
               "http://hl7.org/fhir/StructureDefinition/Endpoint"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       }
     ]
   }

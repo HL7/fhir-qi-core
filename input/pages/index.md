@@ -1,5 +1,7 @@
 {:toc}
 
+<div class="new-content" markdown="1">
+
 {:.stu-note}
 > This STU 6.0 update to the QI-Core profiles updates to US-Core STU v6.1.0. See the version history for a complete listing of changes to this version.
 
@@ -39,6 +41,7 @@ Please provide input regarding the value of developing similar QI-Core profiles 
 4.) Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
 
 
+</div>
 </div>
 
 ### Summary
@@ -202,8 +205,6 @@ analysis and effort would be required.
 QI-Core's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QI-Core
 extensions will not create future conflicts. Other initiatives that the QI-Core effort is aligning with include the
 [Clinical Information Modeling Initiative (CIMI)](https://confluence.hl7.org/display/CIMI/Mission%2C+Charter%2C+Work+Products%2C+HL7+Working+Group+Relationships) and [Graphite Health](https://www.graphitehealth.io/).
-
-
 
 In addition, the QI-Core effort *continues* to update the mapping from QDM to QI-Core such that a CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 

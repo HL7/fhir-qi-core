@@ -119,19 +119,6 @@
         "mustSupport" : true
       },
       {
-        "id" : "AllergyIntolerance.encounter",
-        "path" : "AllergyIntolerance.encounter",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
         "id" : "AllergyIntolerance.onset[x]",
         "path" : "AllergyIntolerance.onset[x]",
         "type" : [
@@ -161,62 +148,8 @@
         "mustSupport" : true
       },
       {
-        "id" : "AllergyIntolerance.recorder",
-        "path" : "AllergyIntolerance.recorder",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "AllergyIntolerance.asserter",
-        "path" : "AllergyIntolerance.asserter",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
         "id" : "AllergyIntolerance.reaction",
         "path" : "AllergyIntolerance.reaction",
-        "mustSupport" : true
-      },
-      {
-        "id" : "AllergyIntolerance.reaction.extension:reaction-duration",
-        "path" : "AllergyIntolerance.reaction.extension",
-        "sliceName" : "reaction-duration",
-        "definition" : "The amount of time that the Adverse Reaction persisted.",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/allergyintolerance-duration"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "AllergyIntolerance.reaction.onset",
-        "path" : "AllergyIntolerance.reaction.onset",
         "mustSupport" : true
       },
       {
