@@ -763,6 +763,8 @@ Thus, the measure query can differentiate between _admissionTime_ used to
 determine length of stay and _arrivalTime_ used to indicate when the patient 
 presented for care at the location which is prior to the formal completion of the admission process
 
+An an example of an encounter can be found [here](Encounter-encounter-ed-example.html)
+
 #### Encounter-Related Diagnoses and Procedures
 
 Previous versions of QI-Core have used the [Encounter.diagnosis](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis) relement to 
