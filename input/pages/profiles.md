@@ -68,8 +68,8 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICore MedicationAdministration Not Done](StructureDefinition-qicore-medicationadministrationnotdone.html)| |[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |*MedicationDispense*|
-|[QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICore MedicationDispense Declined](StructureDefinition-qicore-medicationdispensedeclined.html)| |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html)| [US Core MedicationDispense]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationdispense.html)  |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICore MedicationDispense Declined](StructureDefinition-qicore-medicationdispensedeclined.html)| [US Core MedicationDispense]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationdispense.html)  |[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |*MedicationRequest*|
 |[QICore Medication Not Requested](StructureDefinition-qicore-medicationnotrequested.html)| [US Core MedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |[QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [US Core MedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
@@ -79,7 +79,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICore NutritionOrder](StructureDefinition-qicore-nutritionorder.html)| |[NutritionOrder]({{site.data.fhir.path}}nutritionorder.html)|
 |*Observation*|
 |[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)| [US Core Simple Observation]({{site.data.fhir.vers.uscore}}StructureDefinition-us-core-simple-observation.html) |[Observation]({{site.data.fhir.path}}observation.html)|
-|[QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)| |[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICore Simple Observation Cancelled](StructureDefinition-qicore-simple-observationcancelled.html)| [US Core Simple Observation]({{site.data.fhir.vers.uscore}}StructureDefinition-us-core-simple-observation.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)| [US Core Laboratory Result Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)| [US Core Observation Clinical Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-clinical-result.html) |[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Observation Imaging Result](StructureDefinition-qicore-observation-imaging.html)| [US Core Observation Imaging Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-imaging.html) |[Observation]({{site.data.fhir.path}}observation.html)|
