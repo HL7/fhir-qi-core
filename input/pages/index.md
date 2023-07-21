@@ -149,6 +149,10 @@ Some of the above topics are under active investigation and will be topics of fu
 the FHIR [Clinical Reasoning]({{site.data.fhir.path}}clinicalreasoning-module.html) module provides resources and
 guidance for how to represent and evaluate quality improvement artifacts within FHIR.
 
+<div class="note-to-balloters" markdown="1">
+Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
+</div>
+
 ### Privacy, Security, and Consent
 
 Quality applications may make use of patient-specific information. For this reason, all transactions must be
