@@ -3,6 +3,8 @@
 ### QI-Core Profiles
 The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if any, and the underlying FHIR resources:
 
+<div class="new-content" markdown="1">
+
 
 |QI-Core Profile|USCore Profile|Base Resource|
 |----|:----:|----:|
@@ -126,7 +128,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)| |[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
-
+</div>
 
 ### Referencing QI-Core Profiles
 
