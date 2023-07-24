@@ -5,8 +5,6 @@
 {:.stu-note}
 > This STU 6.0 update to the QI-Core profiles updates to US-Core STU v6.1.0. See the version history for a complete listing of changes to this version.
 
-{: #qi-core-implementation-guide}
-
 <div class="note-to-balloters" markdown="1">
 #### Note To Balloters
 
@@ -38,11 +36,12 @@ Please provide input regarding the value of developing similar QI-Core profiles 
 - [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
 - [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html)
 
-4.) Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
-
+{{ site.data.new_items.list[0].desc }}
 
 </div>
 </div>
+
+{: #qi-core-implementation-guide}
 
 ### Summary
 {: #summary}
@@ -152,7 +151,7 @@ Some of the above topics are under active investigation and will be topics of fu
 the FHIR [Clinical Reasoning]({{site.data.fhir.path}}clinicalreasoning-module.html) module provides resources and
 guidance for how to represent and evaluate quality improvement artifacts within FHIR.
 
-<div class="note-to-balloters" markdown="1">
+<div class="new-content" markdown="1">
 Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
 </div>
 
@@ -362,13 +361,13 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html)|[QICore MedicationAdministration Not Done](StructureDefinition-qicore-medicationadministrationnotdone.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html)|[QICore MedicationDispense Declined](StructureDefinition-qicore-medicationdispensedeclined.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |[QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)|[QICore Medication Not Requested](StructureDefinition-qicore-medicationnotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
-|[QICore Simple Observation](StructureDefinition-qicore-observation.html)|[QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)|[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)|[QICore Simple Observation Cancelled](StructureDefinition-qicore-simple-observationcancelled.html)|[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Procedure](StructureDefinition-qicore-procedure.html)|[QICore Procedure Not Done](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
 |[QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|[QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |[QICore Task](StructureDefinition-qicore-task.html)|[QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
-The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
+The [QICore Simple ObservationCancelled](StructureDefinition-qicore-simple-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
 
 - [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
 - [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
@@ -384,9 +383,9 @@ The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelle
 - [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
 - [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
 - [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
-- [QICore Observation Clinical Test Result](StructureDefinition-qicore-observation-clinical-test.html)
+- [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
 - [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
-- [QICore Observation Survey](StructureDefinition-qicore-observation-survey.html)
+- [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)
 
 Please note: some US Core hyperlinks are currently inaccessible as a result of US Core combining SDOH with Screening Assessment (previously Observation Survey)
 
