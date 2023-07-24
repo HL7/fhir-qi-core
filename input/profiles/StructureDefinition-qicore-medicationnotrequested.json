@@ -88,7 +88,7 @@
       {
         "id" : "MedicationRequest.doNotPerform",
         "path" : "MedicationRequest.doNotPerform",
-		    "short" : "True if medication was not requested",
+        "short" : "True if medication was not requested",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -98,48 +98,6 @@
         ],
         "fixedBoolean" : true,
         "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.medication[x]",
-        "path" : "MedicationRequest.medication[x]",
-        "type" : [
-          {
-            "code" : "CodeableConcept"
-          }
-        ],
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/medication-codes"
-        }
-      },
-      {
-        "id" : "MedicationRequest.medication[x].extension:notDoneValueSet",
-        "path" : "MedicationRequest.medication[x].extension",
-        "sliceName" : "notDoneValueSet",
-        "short" : "What was not requested",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
-            ]
-          }
-        ],
-        "condition" : [
-          "mnr-1"
-        ],
-        "mustSupport" : true
-      },
-      {
-        "id" : "MedicationRequest.medication[x].coding",
-        "path" : "MedicationRequest.medication[x].coding",
-        "condition" : [
-          "mnr-1"
-        ],
-        "mustSupport" : false
       },
       {
         "id" : "MedicationRequest.reported[x]",
@@ -190,6 +148,48 @@
           }
         ],
         "mustSupport" : true
+      },
+      {
+        "id" : "MedicationRequest.medication[x]",
+        "path" : "MedicationRequest.medication[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "preferred",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/medication-codes"
+        }
+      },
+      {
+        "id" : "MedicationRequest.medication[x].extension:notDoneValueSet",
+        "path" : "MedicationRequest.medication[x].extension",
+        "sliceName" : "notDoneValueSet",
+        "short" : "What was not requested",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+            ]
+          }
+        ],
+        "condition" : [
+          "mnr-1"
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "MedicationRequest.medication[x].coding",
+        "path" : "MedicationRequest.medication[x].coding",
+        "condition" : [
+          "mnr-1"
+        ],
+        "mustSupport" : false
       },
       {
         "id" : "MedicationRequest.subject",
