@@ -134,13 +134,6 @@
 			{
 				"id": "Encounter.reasonReference",
 				"path": "Encounter.reasonReference",
-				"short": "Reason the encounter takes place (reference)",
-				"definition": "Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis.",
-				"comment": "For systems that need to know which was the primary diagnosis, these will be marked with the standard extension primaryDiagnosis (which is a sequence value rather than a flag, 1 = primary diagnosis).",
-				"alias": [
-					"Indication",
-					"Admission diagnosis"
-				],
 				"min": 0,
 				"max": "*",
 				"base": {
@@ -189,39 +182,9 @@
 						}
 					]
 				}],
-				"constraint": [{
-					"key": "ele-1",
-					"severity": "error",
-					"human": "All FHIR elements must have a @value or children",
-					"expression": "hasValue() or (children().count() > id.count())",
-					"xpath": "@value|f:*|h:div",
-					"source": "http://hl7.org/fhir/StructureDefinition/Element"
-				}],
 				"mustSupport": true,
 				"isModifier": false,
-				"isSummary": true,
-				"mapping": [{
-						"identity": "workflow",
-						"map": "Event.reasonCode"
-					},
-					{
-						"identity": "w5",
-						"map": "FiveWs.why[x]"
-					},
-					{
-						"identity": "v2",
-						"map": "EVN-4 / PV2-3 (note: PV2-3 is nominally constrained to inpatient admissions; HL7 v2 makes no vocabulary suggestions for PV2-3; would not expect PV2 segment or PV2-3 to be in use in all implementations )"
-					},
-					{
-						"identity": "rim",
-						"map": ".reasonCode"
-					}
-				]
-			},
-			{
-				"id": "Encounter.diagnosis",
-				"path": "Encounter.diagnosis",
-				"mustSupport": false
+				"isSummary": true
 			},
 			{
 				"id": "Encounter.diagnosis.extension:diagnosisPresentOnAdmission",
