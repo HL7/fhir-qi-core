@@ -54,6 +54,7 @@
           "path": "Basic",
           "short": "Record of food or fluid being taken by a patient",
           "definition": "Nutrition Intake is utilized to capture details about the consumption of foods, fluids, and enteral nutrition.",
+          "comment": "Note that the representation of this resource as a Basic with extensions in the R4 space is a simplification of the proposed modeling of the NutritionIntake in the R5 resource. Specifically, this mapping makes use of the `code` element in Basic bound to an example Foods value set to specify that the nutrition intake modeled here is more granular than the approach taken in the R5 resource. In other words, we would expect to see multiple instances of the Basic resource with a single code for each `consumedItem`, as opposed to modeling intake with a single resource containing multiple consumed items. This approach lends itself more readily to use within measurement and analytic contexts. More discussion is needed with the stewards of the NutritionIntake resource to determine whether this approach is reasonable and make sure there is alignment with the ultimate approach taken in the NutritionIntake resource.",
           "min": 0,
           "max": "*"
         },
