@@ -171,85 +171,6 @@
         "mustSupport" : false
       },
       {
-        "id" : "Claim.diagnosis.sequence",
-        "path" : "Claim.diagnosis.sequence",
-        "type" : [
-          {
-            "code" : "positiveInt"
-          }
-        ],
-        "mustSupport" : true
-      },
-      {
-       "id" : "Claim.diagnosis.diagnosis[x]",
-       "path" : "Claim.diagnosis.diagnosis[x]",
-       "type" : [{
-         "code" : "CodeableConcept"
-       },
-       {
-         "code" : "Reference",
-         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis"]
-       }],
-       "mustSupport": true,
-       "binding" : {
-         "extension" : [{
-           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-           "valueString" : "ICD10"
-         }],
-         "strength" : "example",
-         "description" : "Example ICD10 Diagnostic codes.",
-         "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10"
-       }
-     },
-         {
-         "id" : "Claim.diagnosis.onAdmission",
-         "path" : "Claim.diagnosis.onAdmission",
-         "type" : [{
-           "code" : "CodeableConcept"
-         }],
-         "mustSupport": true,
-         "binding" : {
-           "extension" : [{
-             "url" : "http://hl7.org/fhir/us/qicore/STU5/ValueSet-qicore-present-on-admission.html",
-             "valueString" : "DiagnosisOnAdmission"
-           }],
-           "strength" : "required",
-           "description" : "Present on admission.",
-           "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-present-on-admission"
-         }
-       },
-       {
-      "id" : "Claim.procedure.procedure[x]",
-      "path" : "Claim.procedure.procedure[x]",
-      "type" : [{
-        "code" : "CodeableConcept"
-      },
-      {
-        "code" : "Reference",
-        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure"]
-      }],
-      "mustSupport": true,
-      "binding" : {
-        "extension" : [{
-          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-          "valueString" : "ICD10_Procedures"
-        }],
-        "strength" : "example",
-        "description" : "Example ICD10 Procedure codes.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10-procedures"
-      }
-    },
-   {
-     "id" : "Claim.procedure.sequence",
-     "path" : "Claim.procedure.sequence",
-     "type" : [{
-       "code" : "positiveInt"
-     }],
-     "mustSupprt": true,
-     "isModifier" : false,
-     "isSummary" : false
-   },
-      {
         "id" : "Claim.careTeam.provider",
         "path" : "Claim.careTeam.provider",
         "type" : [
@@ -263,6 +184,110 @@
           }
         ],
         "mustSupport" : false
+      },
+      {
+        "id" : "Claim.diagnosis.sequence",
+        "path" : "Claim.diagnosis.sequence",
+        "type" : [
+          {
+            "code" : "positiveInt"
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "Claim.diagnosis.diagnosis[x]",
+        "path" : "Claim.diagnosis.diagnosis[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          },
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis"
+            ]
+          }
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ICD10"
+            }
+          ],
+          "strength" : "example",
+          "description" : "Example ICD10 Diagnostic codes.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10"
+        }
+      },
+      {
+        "id" : "Claim.diagnosis.onAdmission",
+        "path" : "Claim.diagnosis.onAdmission",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "required",
+          "description" : "Present on admission.",
+          "valueSet" : "http://terminology.hl7.org/ValueSet/POAIndicators"
+        }
+      },
+      {
+        "id" : "Claim.procedure.sequence",
+        "path" : "Claim.procedure.sequence",
+        "type" : [
+          {
+            "code" : "positiveInt"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false
+      },
+      {
+        "id" : "Claim.procedure.procedure[x]",
+        "path" : "Claim.procedure.procedure[x]",
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          },
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure"
+            ]
+          }
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "ICD10_Procedures"
+            }
+          ],
+          "strength" : "example",
+          "description" : "Example ICD10 Procedure codes.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10-procedures"
+        }
+      },
+      {
+        "id" : "Claim.item.encounter",
+        "path" : "Claim.item.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "mustSupport" : true
       }
     ]
   }
