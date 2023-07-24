@@ -95,35 +95,9 @@
           ],
           "rules" : "open"
         },
-        "short" : "Service category",
-        "definition" : "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
-        "comment" : "Multiple categories are allowed using various categorization schemes.   The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.",
-        "alias" : [
-          "Department",
-          "Sub-department",
-          "Service",
-          "Discipline"
-        ],
-        "min" : 1,
-        "max" : "*",
-        "base" : {
-          "path" : "DiagnosticReport.category",
-          "min" : 0,
-          "max" : "*"
-        },
         "type" : [
           {
             "code" : "CodeableConcept"
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
           }
         ],
         "mustSupport" : true,
@@ -139,42 +113,12 @@
           "strength" : "preferred",
           "description" : "Codes for diagnostic service sections.",
           "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
-        },
-        "mapping" : [
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.class"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBR-24"
-          },
-          {
-            "identity" : "rim",
-            "map" : "inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code < LabService].code"
-          }
-        ]
+        }
       },
       {
         "id" : "DiagnosticReport.category:LaboratorySlice",
         "path" : "DiagnosticReport.category",
         "sliceName" : "LaboratorySlice",
-        "short" : "Service category",
-        "definition" : "A code that classifies the clinical discipline, department or diagnostic service that created the report (e.g. cardiology, biochemistry, hematology, MRI). This is used for searching, sorting and display purposes.",
-        "comment" : "Multiple categories are allowed using various categorization schemes.   The level of granularity is defined by the category concepts in the value set. More fine-grained filtering can be performed using the metadata and/or terminology hierarchy in DiagnosticReport.code.",
-        "alias" : [
-          "Department",
-          "Sub-department",
-          "Service",
-          "Discipline"
-        ],
-        "min" : 1,
-        "max" : "1",
-        "base" : {
-          "path" : "DiagnosticReport.category",
-          "min" : 0,
-          "max" : "*"
-        },
         "type" : [
           {
             "code" : "CodeableConcept"
@@ -188,16 +132,6 @@
             }
           ]
         },
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : true,
@@ -211,21 +145,7 @@
           "strength" : "preferred",
           "description" : "Codes for diagnostic service sections.",
           "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
-        },
-        "mapping" : [
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.class"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBR-24"
-          },
-          {
-            "identity" : "rim",
-            "map" : "inboundRelationship[typeCode=COMP].source[classCode=LIST, moodCode=EVN, code < LabService].code"
-          }
-        ]
+        }
       },
       {
         "id" : "DiagnosticReport.subject",
@@ -241,37 +161,8 @@
         "mustSupport" : true
       },
       {
-        "id" : "DiagnosticReport.result",
-        "path" : "DiagnosticReport.result",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab"
-            ]
-          }
-        ],
-        "mustSupport" : true
-      },      
-      {
         "id" : "DiagnosticReport.effective[x]",
         "path" : "DiagnosticReport.effective[x]",
-        "short" : "Diagnostically relevant time (typically the time of specimen collection)",
-        "definition" : "The time or time-period the observed values are related to. When the subject of the report is a patient, this is usually either the time of the procedure or of specimen collection(s), but very often the source of the date/time is not known, only the date/time itself.",
-        "comment" : "If the diagnostic procedure was performed on the patient, this is the time it was performed. If there are specimens, the diagnostically relevant time can be derived from the specimen collection times, but the specimen information is not always available, and the exact relationship between the specimens and the diagnostically relevant time is not always automatic.",
-        "requirements" : "Need to know where in the patient history to file/present this report.",
-        "alias" : [
-          "Observation time",
-          "Effective Time",
-          "Occurrence"
-        ],
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "DiagnosticReport.effective[x]",
-          "min" : 0,
-          "max" : "1"
-        },
         "type" : [
           {
             "extension" : [
@@ -292,40 +183,9 @@
             "code" : "Period"
           }
         ],
-        "condition" : [
-          "us-core-8"
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport" : true,
         "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "workflow",
-            "map" : "Event.occurrence[x]"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.done[x]"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBR-7"
-          },
-          {
-            "identity" : "rim",
-            "map" : "effectiveTime"
-          }
-        ]
+        "isSummary" : true
       },
       {
         "id" : "DiagnosticReport.performer",
@@ -337,6 +197,19 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
+            ]
+          }
+        ],
+        "mustSupport" : true
+      },
+      {
+        "id" : "DiagnosticReport.result",
+        "path" : "DiagnosticReport.result",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab"
             ]
           }
         ],

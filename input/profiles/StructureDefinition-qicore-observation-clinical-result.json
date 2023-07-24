@@ -60,261 +60,288 @@
 	"type": "Observation",
 	"baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-clinical-result",
 	"derivation": "constraint",
-	"differential": {
-		"element": [
-			{
-				"id": "Observation.status",
-				"path": "Observation.status",
-				"short": "registered | prliminary | final | amended | corrected | entered-in-error | unknown",
-				"mustSupport": true,
-				"binding": {
-				  "strength": "required",
-				  "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
-				}
-		    },
-			{
-				"id" : "Observation.category",
-				"extension" : [
-				  {
-					"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-					"valueBoolean" : true
-				  }
-				],
-				"path" : "Observation.category",
-				"slicing" : {
-				  "discriminator" : [
-					{
-					  "type" : "pattern",
-					  "path" : "$this"
-					}
-				  ],
-				  "rules" : "open"
-				},
-				"short" : "(USCDI) Classification of  type of observation",
-				"definition" : "A code that classifies the general type of observation being made.",
-				"comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
-				"requirements" : "Used for filtering what observations are retrieved and displayed.",
-				"min" : 1,
-				"max" : "*",
-				"base" : {
-				  "path" : "Observation.category",
-				  "min" : 0,
-				  "max" : "*"
-				},
-				"mustSupport" : true,
-				"isModifier" : false,
-				"isSummary" : false,
-				"binding" : {
-				  "extension" : [
-					{
-					  "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-					  "valueString" : "ObservationCategory"
-					}
-				  ],
-				  "strength" : "preferred",
-				  "description" : "Codes for high level observation categories.",
-				  "valueSet" : "http://hl7.org/fhir/ValueSet/observation-category"
-				}
-			  },
-			  {
-				"id" : "Observation.category:us-core",
-				"extension" : [
-				  {
-					"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-					"valueBoolean" : true
-				  }
-				],
-				"path" : "Observation.category",
-				"sliceName" : "us-core",
-				"short" : "(USCDI) Classification of type of observation",
-				"definition" : "A code that classifies the general type of observation being made.",
-				"comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
-				"requirements" : "Used for filtering what observations are retrieved and displayed.",
-				"min" : 0,
-				"max" : "*",
-				"base" : {
-				  "path" : "Observation.category",
-				  "min" : 0,
-				  "max" : "*"
-				},
-				"type" : [
-				  {
-					"code" : "CodeableConcept"
-				  }
-				],
-				"mustSupport" : true,
-				"isModifier" : false,
-				"isSummary" : false,
-				"binding" : {
-				  "strength" : "required",
-				  "description" : "Note that other codes are permitted, see [Required Bindings When Slicing by Value Sets](http://hl7.org/fhir/us/core/general-requirements.html#required-bindings-when-slicing-by-valuesets)",
-				  "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-result-observation-category"
-				}
-			  },
-			  {
-				"id" : "Observation.code",
-				"extension" : [
-				  {
-					"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-					"valueBoolean" : true
-				  }
-				],
-				"path" : "Observation.code",
-				"mustSupport" : true,
-				"isModifier" : false,
-				"isSummary" : true,
-				"binding" : {
-				  "strength" : "extensible",
-				  "valueSet" : "http://hl7.org/fhir/ValueSet/observation-codes"
-				}
-			},
-			{
-				"id" : "Observation.effective[x]",
-				"extension" : [
-				  {
-					"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-					"valueBoolean" : true
-				  }
-				],
-				"path" : "Observation.effective[x]",
-				"short" : "(USCDI) Clinically relevant time/time-period for observation",
-				"type" : [
-				  {
-					"extension" : [
-					  {
-						"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-						"valueBoolean" : true
-					  }
-					],
-					"code" : "dateTime"
-				  },
-				  {
-					"code" : "Period"
-				  },
-				  {
-					"code" : "Timing"
-				  },
-				  {
-					"code" : "instant"
-				  }
-				],
-				"mustSupport" : true,
-				"isModifier" : false
-			},
-			{
-				"id": "Observation.subject",
-				"path": "Observation.subject",
-				"min": 1,
-				"type": [{
-					"code": "Reference",
-					"targetProfile": [
-						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-					]
-				}],
-				"mustSupport": true
-			},
-			{
-				"id": "Observation.value[x]",
-				"path": "Observation.value[x]",
-				"short": "Result Value",
-				"type": [{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "Quantity"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "CodeableConcept"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "string"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "boolean"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "integer"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "Range"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "Ratio"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "time"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "dateTime"
-					},
-					{
-						"extension": [{
-							"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-							"valueBoolean": true
-						}],
-						"code": "Period"
-					}
-				],
-				"mustSupport": true
-			},
-			{
-				"id" : "Observation.dataAbsentReason",
-				"extension" : [
-				  {
-					"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-					"valueBoolean" : true
-				  }
-				],
-				"path" : "Observation.dataAbsentReason",
-				"short" : "(USCDI) Why the result is missing",
-				"mustSupport" : true,
-				"isModifier" : false,
-				"isSummary" : false,
-				"binding" : {
-				  "extension" : [
-					{
-					  "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-					  "valueString" : "ObservationValueAbsentReason"
-					}
-				  ],
-				  "strength" : "extensible",
-				  "description" : "Codes specifying why the result (`Observation.value[x]`) is missing.",
-				  "valueSet" : "http://hl7.org/fhir/ValueSet/data-absent-reason"
-				}
+	"differential" : {
+		"element" : [
+		  {
+			"id" : "Observation",
+			"path" : "Observation"
+		  },
+		  {
+			"id" : "Observation.status",
+			"path" : "Observation.status",
+			"short" : "registered | prliminary | final | amended | corrected | entered-in-error | unknown",
+			"mustSupport" : true,
+			"binding" : {
+			  "strength" : "required",
+			  "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
 			}
+		  },
+		  {
+			"id" : "Observation.category",
+			"extension" : [
+			  {
+				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+				"valueBoolean" : true
+			  }
+			],
+			"path" : "Observation.category",
+			"slicing" : {
+			  "discriminator" : [
+				{
+				  "type" : "pattern",
+				  "path" : "$this"
+				}
+			  ],
+			  "rules" : "open"
+			},
+			"short" : "(USCDI) Classification of  type of observation",
+			"definition" : "A code that classifies the general type of observation being made.",
+			"comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
+			"requirements" : "Used for filtering what observations are retrieved and displayed.",
+			"min" : 1,
+			"max" : "*",
+			"base" : {
+			  "path" : "Observation.category",
+			  "min" : 0,
+			  "max" : "*"
+			},
+			"mustSupport" : true,
+			"isModifier" : false,
+			"isSummary" : false,
+			"binding" : {
+			  "extension" : [
+				{
+				  "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+				  "valueString" : "ObservationCategory"
+				}
+			  ],
+			  "strength" : "preferred",
+			  "description" : "Codes for high level observation categories.",
+			  "valueSet" : "http://hl7.org/fhir/ValueSet/observation-category"
+			}
+		  },
+		  {
+			"id" : "Observation.category:us-core",
+			"extension" : [
+			  {
+				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+				"valueBoolean" : true
+			  }
+			],
+			"path" : "Observation.category",
+			"sliceName" : "us-core",
+			"short" : "(USCDI) Classification of type of observation",
+			"definition" : "A code that classifies the general type of observation being made.",
+			"comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
+			"requirements" : "Used for filtering what observations are retrieved and displayed.",
+			"min" : 0,
+			"max" : "*",
+			"base" : {
+			  "path" : "Observation.category",
+			  "min" : 0,
+			  "max" : "*"
+			},
+			"type" : [
+			  {
+				"code" : "CodeableConcept"
+			  }
+			],
+			"mustSupport" : true,
+			"isModifier" : false,
+			"isSummary" : false,
+			"binding" : {
+			  "strength" : "required",
+			  "description" : "Note that other codes are permitted, see [Required Bindings When Slicing by Value Sets](http://hl7.org/fhir/us/core/general-requirements.html#required-bindings-when-slicing-by-valuesets)",
+			  "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-clinical-result-observation-category"
+			}
+		  },
+		  {
+			"id" : "Observation.code",
+			"extension" : [
+			  {
+				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+				"valueBoolean" : true
+			  }
+			],
+			"path" : "Observation.code",
+			"mustSupport" : true,
+			"isModifier" : false,
+			"isSummary" : true,
+			"binding" : {
+			  "strength" : "extensible",
+			  "valueSet" : "http://hl7.org/fhir/ValueSet/observation-codes"
+			}
+		  },
+		  {
+			"id" : "Observation.subject",
+			"path" : "Observation.subject",
+			"min" : 1,
+			"type" : [
+			  {
+				"code" : "Reference",
+				"targetProfile" : [
+				  "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+				]
+			  }
+			],
+			"mustSupport" : true
+		  },
+		  {
+			"id" : "Observation.effective[x]",
+			"extension" : [
+			  {
+				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+				"valueBoolean" : true
+			  }
+			],
+			"path" : "Observation.effective[x]",
+			"short" : "(USCDI) Clinically relevant time/time-period for observation",
+			"type" : [
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "dateTime"
+			  },
+			  {
+				"code" : "Period"
+			  },
+			  {
+				"code" : "Timing"
+			  },
+			  {
+				"code" : "instant"
+			  }
+			],
+			"mustSupport" : true,
+			"isModifier" : false
+		  },
+		  {
+			"id" : "Observation.value[x]",
+			"path" : "Observation.value[x]",
+			"short" : "Result Value",
+			"type" : [
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "Quantity"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "CodeableConcept"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "string"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "boolean"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "integer"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "Range"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "Ratio"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "time"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "dateTime"
+			  },
+			  {
+				"extension" : [
+				  {
+					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"valueBoolean" : true
+				  }
+				],
+				"code" : "Period"
+			  }
+			],
+			"mustSupport" : true
+		  },
+		  {
+			"id" : "Observation.dataAbsentReason",
+			"extension" : [
+			  {
+				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+				"valueBoolean" : true
+			  }
+			],
+			"path" : "Observation.dataAbsentReason",
+			"short" : "(USCDI) Why the result is missing",
+			"mustSupport" : true,
+			"isModifier" : false,
+			"isSummary" : false,
+			"binding" : {
+			  "extension" : [
+				{
+				  "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+				  "valueString" : "ObservationValueAbsentReason"
+				}
+			  ],
+			  "strength" : "extensible",
+			  "description" : "Codes specifying why the result (`Observation.value[x]`) is missing.",
+			  "valueSet" : "http://hl7.org/fhir/ValueSet/data-absent-reason"
+			}
+		  }
 		]
+	  }
 	}
-}

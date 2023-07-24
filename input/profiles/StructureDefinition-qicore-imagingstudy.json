@@ -105,32 +105,8 @@
             ]
           }
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "workflow",
-            "map" : "Event.encounter"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.context"
-          },
-          {
-            "identity" : "rim",
-            "map" : "inboundRelationship[typeCode=COMP].source[classCode=ENC, moodCode=EVN]"
-          }
-        ]
+        "isSummary" : true
       },
       {
         "id" : "ImagingStudy.started",
@@ -213,40 +189,8 @@
             ]
           }
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "workflow",
-            "map" : "Event.location"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.where[x]"
-          },
-          {
-            "identity" : "v2",
-            "map" : "EVN.7"
-          },
-          {
-            "identity" : "rim",
-            "map" : ".participation[typeCode=LOC].role"
-          },
-          {
-            "identity" : "dicom",
-            "map" : "(0008,1040) | (0040,0243)"
-          }
-        ]
+        "isSummary" : true
       },
       {
        "id" : "ImagingStudy.reasonReference",
@@ -272,80 +216,9 @@
            ]
          }
        ],
-       "constraint" : [
-         {
-           "key" : "ele-1",
-           "severity" : "error",
-           "human" : "All FHIR elements must have a @value or children",
-           "expression" : "hasValue() or (children().count() > id.count())",
-           "xpath" : "@value|f:*|h:div",
-           "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-         }
-       ],
        "isModifier" : false,
-       "isSummary" : true,
-       "mapping" : [
-         {
-           "identity" : "workflow",
-           "map" : "Event.reasonReference"
-         },
-         {
-           "identity" : "w5",
-           "map" : "FiveWs.why[x]"
-         },
-         {
-           "identity" : "v2",
-           "map" : "EVN.4 or by domain"
-         },
-         {
-           "identity" : "rim",
-           "map" : ".outboundRelationship[typeCode=RSON].target"
-         }
-       ]
+       "isSummary" : true
      },
-      {
-        "id" : "ImagingStudy.series.specimen",
-        "path" : "ImagingStudy.series.specimen",
-        "short" : "Specimen imaged",
-        "definition" : "The specimen imaged, e.g., for whole slide imaging of a biopsy.",
-        "min" : 0,
-        "max" : "*",
-        "base" : {
-          "path" : "ImagingStudy.series.specimen",
-          "min" : 0,
-          "max" : "*"
-        },
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-specimen"
-            ]
-          }
-        ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "rim",
-            "map" : "Role[classCode=SPEC]"
-          },
-          {
-            "identity" : "dicom",
-            "map" : "(0040,0551) + (0040,0562)"
-          }
-        ]
-      },
       {
         "id" : "ImagingStudy.series.performer.actor",
         "path" : "ImagingStudy.series.performer.actor",
@@ -373,32 +246,8 @@
             ]
           }
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.actor"
-          },
-          {
-            "identity" : "v2",
-            "map" : "EVN.5 or by domain"
-          },
-          {
-            "identity" : "rim",
-            "map" : ".participation[typeCode=PRF].role[scoper.determinerCode=INSTANCE]"
-          }
-        ]
+        "isSummary" : true
       }
     ]
   }
