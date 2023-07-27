@@ -141,7 +141,18 @@
       {
         "id" : "Procedure.reasonReference",
         "path" : "Procedure.reasonReference",
-        "mustSupport" : false
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
+            ]
+          }
+        ],
+        "mustSupport" : true
       }
     ]
   }
