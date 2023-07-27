@@ -74,6 +74,9 @@
 **QICoreGoal**
 * [Weight Loss Example](Goal-example.html)
 
+**QICoreImagingStudy**
+* [Chest CT](ImagingStudy-example.html)
+
 **QICoreImmunization**
 * [Example of Influenza immunization shot](Immunization-example.html)
 
