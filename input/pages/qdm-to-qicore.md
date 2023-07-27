@@ -748,7 +748,7 @@ clinical decision support (CDS) artifact authors should consider such
 issues when testing the validity and reliability of retrieved responses
 to data queries.
 
-##### Convention for differentiating admission from arrival time
+#### Defining Arrival Time
 
 Encounter.period provides the start and stop times of an encounter. 
 Some measures require specific reference to encounter _admissionTime_ 
