@@ -74,9 +74,6 @@
 **QICoreGoal**
 * [Weight Loss Example](Goal-example.html)
 
-**QICoreImagingStudy**
-* [Chest CT](ImagingStudy-example.html)
-
 **QICoreImmunization**
 * [Example of Influenza immunization shot](Immunization-example.html)
 
@@ -126,7 +123,7 @@
 **QICoreNutritionOrder**
 * [Diabetic diet example](NutritionOrder-example.html)
 
-**QICoreObservation**
+**QICoreSimpleObservation**
 * [Frailty Observation Example](Observation-example-frailty.html)
 * [Gestational Age at Birth Example](Observation-example-gestation.html)
 
@@ -137,14 +134,11 @@
 **QICoreLaboratoryResultObservation**
 * [Glucose Lab Result Observation](Observation-laboratory-result-observation-example-blood-glucose.html)
 
-**QICoreObservationClinicalTestResult**
-* [Heart Rate Rhythm Clinical Test Observation](Observation-clinical-test-heart-rate-rhythm.html)
+**QICoreObservationClinicalResult**
+* [Heart Rate Rhythm Clinical Result Observation](Observation-clinical-result-heart-rate-rhythm.html)
 
-**QICoreObservationImagingResult**
-* [Clinical Imaging Xray Chest Findings Observation](Observation-imaging-result-xray-chest-findings.html)
-
-**QICoreObservationSurvey**
-* [10 minute Apgar Heart Rate Observation Survey](Observation-example-survey-10-minute-apgar-heart-rate.html)
+**QICoreObservationScreeningAssessment**
+* [10 minute Apgar Heart Rate Screening Assessment Observation](Observation-example-screening-assessment-10-minute-apgar-heart-rate.html)
 
 **QICoreOrganization**
 * [HL7 Organization Example](Organization-example.html)
@@ -177,9 +171,6 @@
 **QICoreServiceRequest**
 * [Request for Appendectomy Example](ServiceRequest-example.html)
 * [Request for Myringotomy Procedure Example](ServiceRequest-myringotomy-example.html)
-
-**QICoreSpecimen**
-* [Blood Sample Example](Specimen-example.html)
 
 **QICoreSubstance**
 * [Honey Bee venom (apitoxin) Example](Substance-example.html)

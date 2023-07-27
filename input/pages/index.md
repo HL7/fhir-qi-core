@@ -353,6 +353,7 @@ Each of the negation profiles provides an example illustrating both types of neg
 
 QI-Core defines the following profiles specifically for representing negation rationale:
 
+<div class="new-content" markdown="1">
 |QI-Core Positive Profile|QI-Core Negation Profile|Base Resource|
 |---|---|---|
 |[QICore Communication](StructureDefinition-qicore-communication.html)|[QICore Communication Not Done](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
@@ -361,13 +362,13 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html)|[QICore MedicationAdministration Not Done](StructureDefinition-qicore-medicationadministrationnotdone.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
 |[QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html)|[QICore MedicationDispense Declined](StructureDefinition-qicore-medicationdispensedeclined.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
 |[QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)|[QICore Medication Not Requested](StructureDefinition-qicore-medicationnotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
-|[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)|[QICore Simple Observation Cancelled](StructureDefinition-qicore-simple-observationcancelled.html)|[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)|[QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)|[Observation]({{site.data.fhir.path}}observation.html)|
 |[QICore Procedure](StructureDefinition-qicore-procedure.html)|[QICore Procedure Not Done](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
 |[QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|[QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |[QICore Task](StructureDefinition-qicore-task.html)|[QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
-The [QICore Simple ObservationCancelled](StructureDefinition-qicore-simple-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
+The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
 
 - [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
 - [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
@@ -383,9 +384,13 @@ The [QICore Simple ObservationCancelled](StructureDefinition-qicore-simple-obser
 - [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
 - [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
 - [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
+- [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html)
+- [QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
 - [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
 - [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
 - [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)
+</div>
 
 Please note: some US Core hyperlinks are currently inaccessible as a result of US Core combining SDOH with Screening Assessment (previously Observation Survey)
 
