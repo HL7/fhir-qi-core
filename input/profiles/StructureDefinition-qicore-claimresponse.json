@@ -77,16 +77,6 @@
           }
         ],
         "fixedCode" : "active",
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport" : true,
         "isModifier" : true,
         "isModifierReason" : "This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid",
@@ -101,17 +91,7 @@
           "strength" : "required",
           "description" : "A code specifying the state of the resource instance.",
           "valueSet" : "http://hl7.org/fhir/ValueSet/fm-status|4.0.1"
-        },
-        "mapping" : [
-          {
-            "identity" : "workflow",
-            "map" : "Event.status"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.status"
-          }
-        ]
+        }
       },
       {
           "id" : "ClaimResponse.type",
@@ -132,16 +112,6 @@
               "code" : "CodeableConcept"
             }
           ],
-          "constraint" : [
-            {
-              "key" : "ele-1",
-              "severity" : "error",
-              "human" : "All FHIR elements must have a @value or children",
-              "expression" : "hasValue() or (children().count() > id.count())",
-              "xpath" : "@value|f:*|h:div",
-              "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-            }
-          ],
           "isModifier" : false,
           "isSummary" : true,
           "binding" : {
@@ -155,12 +125,6 @@
             "description" : "The type or discipline-style of the claim.",
             "valueSet" : "http://hl7.org/fhir/ValueSet/claim-type"
           },
-          "mapping" : [
-            {
-              "identity" : "w5",
-              "map" : "FiveWs.class"
-            }
-          ],
           "mustSupport": true
         },
         {
@@ -182,16 +146,6 @@
               }
             ],
             "fixedCode" : "preauthorization",
-            "constraint" : [
-              {
-                "key" : "ele-1",
-                "severity" : "error",
-                "human" : "All FHIR elements must have a @value or children",
-                "expression" : "hasValue() or (children().count() > id.count())",
-                "xpath" : "@value|f:*|h:div",
-                "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-              }
-            ],
             "isModifier" : false,
             "isSummary" : true,
             "binding" : {
@@ -205,12 +159,6 @@
               "description" : "Claim, preauthorization, predetermination.",
               "valueSet" : "http://hl7.org/fhir/ValueSet/claim-use|4.0.1"
             },
-            "mapping" : [
-              {
-                "identity" : "w5",
-                "map" : "FiveWs.class"
-              }
-            ],
             "mustSupport": true
           },
           {
@@ -234,29 +182,9 @@
                   ]
                 }
               ],
-              "constraint" : [
-                {
-                  "key" : "ele-1",
-                  "severity" : "error",
-                  "human" : "All FHIR elements must have a @value or children",
-                  "expression" : "hasValue() or (children().count() > id.count())",
-                  "xpath" : "@value|f:*|h:div",
-                  "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-                }
-              ],
               "mustSupport" : true,
               "isModifier" : false,
-              "isSummary" : true,
-              "mapping" : [
-                {
-                  "identity" : "w5",
-                  "map" : "FiveWs.subject[x]"
-                },
-                {
-                  "identity" : "w5",
-                  "map" : "FiveWs.subject"
-                }
-              ]
+              "isSummary" : true
             },
             {
                 "id" : "ClaimResponse.created",
@@ -276,29 +204,9 @@
                     "code" : "dateTime"
                   }
                 ],
-                "constraint" : [
-                  {
-                    "key" : "ele-1",
-                    "severity" : "error",
-                    "human" : "All FHIR elements must have a @value or children",
-                    "expression" : "hasValue() or (children().count() > id.count())",
-                    "xpath" : "@value|f:*|h:div",
-                    "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-                  }
-                ],
                 "mustSupport" : true,
                 "isModifier" : false,
-                "isSummary" : true,
-                "mapping" : [
-                  {
-                    "identity" : "workflow",
-                    "map" : "Event.occurrence[x]"
-                  },
-                  {
-                    "identity" : "w5",
-                    "map" : "FiveWs.recorded"
-                  }
-                ]
+                "isSummary" : true
               },
               {
               "id" : "ClaimResponse.insurer",
@@ -321,25 +229,9 @@
                   ]
                 }
               ],
-              "constraint" : [
-                {
-                  "key" : "ele-1",
-                  "severity" : "error",
-                  "human" : "All FHIR elements must have a @value or children",
-                  "expression" : "hasValue() or (children().count() > id.count())",
-                  "xpath" : "@value|f:*|h:div",
-                  "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-                }
-              ],
               "mustSupport" : true,
               "isModifier" : false,
-              "isSummary" : true,
-              "mapping" : [
-                {
-                  "identity" : "workflow",
-                  "map" : "Event.performer"
-                }
-              ]
+              "isSummary" : true
             },
             {
            "id" : "ClaimResponse.requestor",
@@ -364,25 +256,9 @@
                ]
              }
            ],
-           "constraint" : [
-             {
-               "key" : "ele-1",
-               "severity" : "error",
-               "human" : "All FHIR elements must have a @value or children",
-               "expression" : "hasValue() or (children().count() > id.count())",
-               "xpath" : "@value|f:*|h:div",
-               "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-             }
-           ],
            "mustSupport" : true,
            "isModifier" : false,
-           "isSummary" : false,
-           "mapping" : [
-             {
-               "identity" : "w5",
-               "map" : "FiveWs.source"
-             }
-           ]
+           "isSummary" : false
          },
          {
              "id" : "ClaimResponse.request",
@@ -404,29 +280,9 @@
                  ]
                }
              ],
-             "constraint" : [
-               {
-                 "key" : "ele-1",
-                 "severity" : "error",
-                 "human" : "All FHIR elements must have a @value or children",
-                 "expression" : "hasValue() or (children().count() > id.count())",
-                 "xpath" : "@value|f:*|h:div",
-                 "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-               }
-             ],
              "mustSupport" : true,
              "isModifier" : false,
-             "isSummary" : true,
-             "mapping" : [
-               {
-                 "identity" : "workflow",
-                 "map" : "Event.basedOn"
-               },
-               {
-                 "identity" : "w5",
-                 "map" : "FiveWs.why[x]"
-               }
-             ]
+             "isSummary" : true
            },
            {
               "id" : "ClaimResponse.item",
@@ -450,16 +306,6 @@
               "type" : [
                 {
                   "code" : "BackboneElement"
-                }
-              ],
-              "constraint" : [
-                {
-                  "key" : "ele-1",
-                  "severity" : "error",
-                  "human" : "All FHIR elements must have a @value or children",
-                  "expression" : "hasValue() or (children().count() > id.count())",
-                  "xpath" : "@value|f:*|h:div",
-                  "source" : "http://hl7.org/fhir/StructureDefinition/Element"
                 }
               ],
               "mustSupport" : true,
@@ -488,16 +334,6 @@
                 "type" : [
                   {
                     "code" : "BackboneElement"
-                  }
-                ],
-                "constraint" : [
-                  {
-                    "key" : "ele-1",
-                    "severity" : "error",
-                    "human" : "All FHIR elements must have a @value or children",
-                    "expression" : "hasValue() or (children().count() > id.count())",
-                    "xpath" : "@value|f:*|h:div",
-                    "source" : "http://hl7.org/fhir/StructureDefinition/Element"
                   }
                 ],
                 "mustSupport" : true,
@@ -531,16 +367,6 @@
                       }
                     ]
                   },
-                  "constraint" : [
-                    {
-                      "key" : "ele-1",
-                      "severity" : "error",
-                      "human" : "All FHIR elements must have a @value or children",
-                      "expression" : "hasValue() or (children().count() > id.count())",
-                      "xpath" : "@value|f:*|h:div",
-                      "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-                    }
-                  ],
                   "isModifier" : false,
                   "mustSupport" : true,
                   "isSummary" : false
@@ -564,16 +390,6 @@
             "code" : "Money"
           }
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "isModifier" : false,
         "isSummary" : false,
         "mustSupport" : true
@@ -594,16 +410,6 @@
           "type" : [
             {
               "code" : "positiveInt"
-            }
-          ],
-          "constraint" : [
-            {
-              "key" : "ele-1",
-              "severity" : "error",
-              "human" : "All FHIR elements must have a @value or children",
-              "expression" : "hasValue() or (children().count() > id.count())",
-              "xpath" : "@value|f:*|h:div",
-              "source" : "http://hl7.org/fhir/StructureDefinition/Element"
             }
           ],
           "isModifier" : false,

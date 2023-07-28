@@ -20,7 +20,7 @@
       ]
     }
   ],
-  "description": "Defines constraints and extensions on the CarePlan resource for the minimal set of data to query and retrieve a patient's Care Plan.",
+  "description": "The QI Core CarePlan is based upon the US Core CarePlan Profile which is based upon the core FHIR CarePlan Resource and created to meet the 2015 Edition Common Clinical Data Set 'Assessment and Plan of Treatment requirements. Defines constraints and extensions on the CarePlan resource for the minimal set of data to query and retrieve a patient's Care Plan.",
   "jurisdiction": [
     {
       "coding": [
@@ -67,18 +67,6 @@
   "differential": {
     "element": [
       {
-        "id": "CarePlan",
-        "path": "CarePlan",
-        "definition": "The QI Core CarePlan is based upon the US Core CarePlan Profile which is based upon the core FHIR CarePlan Resource and created to meet the 2015 Edition Common Clinical Data Set 'Assessment and Plan of Treatment requirements.",
-        "mustSupport": false,
-        "mapping": [
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "CarePlan"
-          }
-        ]
-      },
-      {
         "id": "CarePlan.category",
         "path": "CarePlan.category",
         "slicing": {
@@ -106,16 +94,6 @@
             "code": "CodeableConcept"
           }
         ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport": true,
         "isModifier": false,
         "isSummary": true,
@@ -129,17 +107,7 @@
           "strength": "preferred",
           "description": "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", etc.",
           "valueSet": "http://hl7.org/fhir/ValueSet/care-plan-category"
-        },
-        "mapping": [
-          {
-            "identity": "w5",
-            "map": "FiveWs.class"
-          },
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "CarePlan.category"
-          }
-        ]
+        }
       },
       {
         "id": "CarePlan.category:AssessPlan",
@@ -169,16 +137,6 @@
             }
           ]
         },
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport": true,
         "isModifier": false,
         "isSummary": true,
@@ -192,17 +150,7 @@
           "strength": "preferred",
           "description": "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", etc.",
           "valueSet": "http://hl7.org/fhir/ValueSet/care-plan-category"
-        },
-        "mapping": [
-          {
-            "identity": "w5",
-            "map": "FiveWs.class"
-          },
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "CarePlan.category"
-          }
-        ]
+        }
       },
       {
         "id": "CarePlan.subject",
@@ -219,13 +167,7 @@
             ]
           }
         ],
-        "mustSupport": true,
-        "mapping": [
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "CarePlan.subject"
-          }
-        ]
+        "mustSupport": true
       }
     ]
   }
