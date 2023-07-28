@@ -1,6 +1,6 @@
 {:toc}
 
-<div class="new-content" markdown="1">
+
 
 This page is part of the Quality Improvement Core Framework (v6.0.0: [STU](https://confluence.hl7.org/display/HL7/HL7+Balloting) 6) based on [FHIR R4](http://hl7.org/fhir/R4/). This is the current published version. For a full list of available versions, see the [Directory of published versions](http://hl7.org/fhir/us/qicore/history.html).  
 
@@ -33,6 +33,8 @@ concept and a table mapping each of the QDM datatype-related attributes
 to QI-Core metadata elements. Refer to the [eCQI Resource
 Center](https://ecqi.healthit.gov/qdm) for the full QDM 5.6
 documentation.
+
+<div class="new-content" markdown="1">
 
 ### Change from QI-Core STU5 to QI-Core STU6
 QI-Core builds upon US Core and new US Core STU6 (6.1.0) profiles include a number of changes that impact expression of requests for information. US Core STU6 also incorporates requirements of [United States Core Data for Interoperability version 3](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi#uscdi-v3). These include new observation profiles and addition of a MedicationDispense profile and a Specimen profile. 
@@ -80,6 +82,7 @@ Also useful: [Institute for Healthcare Improvement Trigger Tool for Measuring Ad
 
 Much of the detail about adverse events is present in separate risk management systems based on incident reports rather than the electronic health record (EHR) except for some details in unstructured progress notes. For those using this “Adverse Event” QDM datatype, QDM includes an attribute code that represents the specific type of event that occurred, consistent with [AdverseEvent.event](StructureDefinition-qicore-adverseevent-definitions.html#key_AdverseEvent.event).
 
+</div>
 
 QDM does not include an attribute to address the additional elements available in QI-Core: [AdverseEvent.suspectEntity](StructureDefinition-qicore-adverseevent-definitions.html#diff_AdverseEvent.suspectEntity) (the suspected cause), or the [AdverseEvent.resultingCondition](StructureDefinition-qicore-adverseevent-definitions.html#diff_AdverseEvent.resultingCondition). As an example to differentiate these elements:
 * [AdverseEvent.event](StructureDefinition-qicore-adverseevent-definitions.html#diff_AdverseEvent.event) = fall
@@ -105,6 +108,7 @@ Therefore, QDM AdverseEvent code maps to AdverseEvent.event. Measure developers 
 |                    | [AdverseEvent.suspectEntity.instance](StructureDefinition-qicore-adverseevent-definitions.html#key_AdverseEvent.suspectEntity.instance)         | The actual instance of what caused the adverse event. May be a substance, medication, medication administration, medication statement or a device.              |
 {: .grid}
 
+<div class="new-content" markdown="1">
 ### Allergy/Intolerance
 
 Allergy is used to address immune-mediated reactions to a substance such
@@ -336,6 +340,8 @@ Goal is found.
 | relatedTo          | [Goal.addresses](StructureDefinition-qicore-goal-definitions.html#Goal.addresses)                 |  Issues addressed by this goal. Neither US Core nor QI-Core include this element in the Key Elements Table for this profile.            |
 | performer          | [Goal.expressedBy](StructureDefinition-qicore-goal-definitions.html#Goal.expressedBy)             | Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM performer attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that performed the observation or task. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished. QI-Core does not include this element in the Key Elements Table for this profile.       |
 {: .grid}
+</div>
+
 
 ### Communication
 
@@ -401,6 +407,8 @@ Mere disclosure of information would be considered a Communication. A
 process that involves verification of the patient's comprehension or to
 change the patient's mental state would be a Procedure.
 
+<div class="new-content" markdown="1">
+
 #### Communication, Performed
 
 
@@ -422,7 +430,7 @@ change the patient's mental state would be a Procedure.
 | recipient               | [Communication.recipient](StructureDefinition-qicore-communication-definitions.html#Communication.recipient)  | Message recipient  |
 | negationRationale       | See Below   |
 {: .grid}
-
+</div>
 ##### Negation Rationale for Communication, Performed
 
 Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html), which contains:
@@ -443,6 +451,7 @@ represent neutral or favorable conditions that affect a patient’s plan
 of care (e.g., pregnancy).
 
 Based on changes in US Core STU5, QI-Core now has two methods for expressing conditions, [QICore Condition Problems and Health Concerns Profile](StructureDefinition-qicore-condition-problems-health-concerns.html), and [QICore Condition Encounter Diagnosis Profile](StructureDefinition-qicore-condition-encounter-diagnosis.html). Please reference the respective profile pages for explanation of the rationale for using each of these profiles. Briefly, the Condition Problems and Health Concerns Profile meets the US Core Data for Interoperability (USCDI) version 2 ‘Problems’ and ‘Health Concerns’ and SDOH Problems/Health Concerns requirements. The Condition Encounter Diagnosis Profile further meets the USCDI v2 requirement to define Encounter Diagnosis.
+<div class="new-content" markdown="1">
 
 | **QDM Context** | **QI-Core STU6**  | **Comments**  |
 | ----------------------------------- | ------------------------ | ---------------------------------------------------------------------------- |
@@ -461,6 +470,7 @@ Based on changes in US Core STU5, QI-Core now has two methods for expressing con
 | recorder                      | [ConditionProblemsHealthConcerns.recorder](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.recorder)          | Individual who recorded the record and takes responsibility for its content. This element has limited utility for a measure use case and it is not in the Key Elements Table for US Core or QI-Core for Condition Diagnosis and Health Concern or Condition Encounter Diagnosis.  |
 |                               | [ConditionProblemsHealthConcerns.asserter](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.asserter)                     | Individual who is making the condition statement. This element has limited utility for a measure use case and it is not in the Key Elements Table for US Core or QI-Core for Condition Diagnosis and Health Concern or Condition Encounter Diagnosis.   |
 {: .grid}
+</div>
 
 ### Device
 
@@ -504,6 +514,8 @@ Procedure, Performed, i.e., placement of or adjustment to a device.
 "Device Applied" has been retired in QDM 5.6 in favor of using "Procedure, Performed" or
 "Assessment, Performed" as appropriate.
 
+<div class="new-content" markdown="1">
+
 #### Device, Order – Non-Patient-use Devices
 
 | **QDM Context**         | **QI-Core STU6**     | **Comments**  |
@@ -545,6 +557,8 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | requester               | [DeviceRequest.requester](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.requester)      |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM requester attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization) that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
 
+</div>
+
 ##### Negation Rationale for Device, Order – Personal Use Devices
 
 Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html), which contains:
@@ -553,6 +567,8 @@ Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.htm
 * [DeviceRequest.extension:doNotPerformReason](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerformReason) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [DeviceRequest.authoredOn](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.authoredOn) - dateTime when this was made available
 * [DeviceRequest.code\[x\].extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code%5Bx%5D.extension:doNotPerformValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific DeviceRequest that was not performed
+
+<div class="new-content" markdown="1">
 
 #### Device, Recommended – Non-Patient-use Devices
 
@@ -604,9 +620,13 @@ Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.htm
 * [DeviceRequest.authoredOn](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.authoredOn) - dateTime when this was made available
 * [DeviceRequest.code\[x\].extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code%5Bx%5D.extension:doNotPerformValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific DeviceRequest that was not performed
 
+</div>
+
 ### Diagnostic Study
 
 QDM defines Diagnostic Study as any kind of medical test performed as a specific test or series of steps to aid in diagnosing or detecting disease (e.g., to establish a diagnosis, measure the progress or recovery from disease, confirm that a person is free from disease). The QDM differentiates diagnostic studies from laboratory tests in that diagnostic studies are those that are not performed in organizations that perform testing on samples of human blood, tissue, or other substance from the body. Diagnostic studies may make use of digital images and textual reports. Such studies include but are not limited to imaging studies, cardiology studies (electrocardiogram, treadmill stress testing), pulmonary-function testing, vascular laboratory testing, and others.
+
+<div class="new-content" markdown="1">
 
 QI-Core has added specific constraints on the US Core STU6 profile that address such non-laboratory tests. This US Core v6.1.0 profile addresses (USCDI) requirements for Diagnostic Imaging and Clinical Tests Data Classes including all non-laboratory clinical test results (e.g., radiology and other clinical observations generated from procedures). It includes content represented in the previous US Core v5.0.1 and QI-Core STU5 version profiles Clinical Test Result, and Imaging Result:
 
@@ -640,6 +660,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
+
 
 #### Diagnostic Study, Performed
 
@@ -706,6 +727,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
+</div>
 
 ### Encounter
 
@@ -746,6 +768,8 @@ documenting end times for ambulatory visits. Quality measure and
 clinical decision support (CDS) artifact authors should consider such
 issues when testing the validity and reliability of retrieved responses
 to data queries.
+
+<div class="new-content" markdown="1">
 
 #### Defining Arrival Time
 
@@ -866,6 +890,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | requester              | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)   |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM requester attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.  |
 {: .grid}
 
+</div>
 
 ##### Negation Rationale for Encounter, Recommended
 
@@ -884,6 +909,8 @@ contain very much detail, but the simple identification of a diagnosis
 or problem in the patient’s family history may be relevant to the care
 of the patient.
 
+<div class="new-content" markdown="1">
+
 | **QDM Context**    | **QI-Core STU6**        | **Comments**                    |
 | ------------------ | ----------------------------------------------------------------- | ------------------------------- |
 | **Family History** | [FamilyMemberHistory](StructureDefinition-qicore-familymemberhistory.html)                                               |              |
@@ -895,6 +922,8 @@ of the patient.
 | relationship       | [FamilyMemberHistory.relationship](StructureDefinition-qicore-familymemberhistory-definitions.html#FamilyMemberHistory.relationship)     | Relationsip to the subject. Preferred binding to [FamilyMember](http://terminology.hl7.org/ValueSet/v3-FamilyMember)  |
 | recorder           | N/A        |  There is no comparable element in the FHIR FamilyMemberHistory resource and there is no use case evident for such information     |
 {: .grid}
+
+</div>
 
 ### Immunization
 
@@ -921,6 +950,8 @@ Note, the mapping table includes additional metadata about immunizations
 that QDM does not address, but that may be relevant to quality measures
 or clinical decision support (CDS) artifacts.
 
+<div class="new-content" markdown="1">
+
 #### Immunization, Administered
 
 | **QDM Context**     | **QI-Core STU6**        | **Comments**                                       |
@@ -938,6 +969,8 @@ or clinical decision support (CDS) artifacts.
 | authorDatetime       | [Immunization.recorded](StructureDefinition-qicore-immunization-definitions.html#Immunization.recorded)             |  When the immunization was first captured in the subject's record, This QDM attribute is most useful for the negation rationale use case – i.e., documentation why an immunization did not happen. Since the meaning is the timing of information capture, this element may also not be helpful to determine when vaccines given elsewhere were administered. |
 | performer            | [Immunization.performer.actor](StructureDefinition-qicore-immunization-definitions.html#Immunization.performer)     |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.  |
 {: .grid}
+
+</div>
 
 ##### Negation Rationale for Immunization, Administered
 
@@ -958,6 +991,7 @@ MedicationRequest.setting set to the setting most appropriate for the
 intended meaning of the quality measure or clinical decision support
 (CDS) expression.
 
+<div class="new-content" markdown="1">
 
 | **QDM Context**         | **QI-Core STU6**   | **Comments**    |
 | ----------------------- | ---------------------------------------------- | ----------------------------------------------------------------------------------------- |
@@ -976,6 +1010,8 @@ intended meaning of the quality measure or clinical decision support
 | negationRationale    | See Below |
 | requester            | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)  | Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM performer attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
+
+</div>
 
 ##### Negation Rationale for Immunization, Order
 
@@ -1150,6 +1186,8 @@ are included in this section of the QDM to QI-Core mapping especially
 since all of the QDM attributes for each of these QDM *datatypes* are
 identical.
 
+<div class="new-content" markdown="1">
+
 #### Intervention, Performed
 
 | **QDM Context**             | **QI-Core STU6**                                            | **Comments**                   |
@@ -1178,6 +1216,8 @@ identical.
 | performer               | [Procedure.performer.actor](StructureDefinition-qicore-procedure-definitions.html#Procedure.performer.actor)      |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _requester_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished    |
 {: .grid}
 
+</div>
+
 ##### Negation Rationale for Intervention, Performed
 
 Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
@@ -1186,6 +1226,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 * [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - dateTime when this was made available
 * [Procedure.code.extension:notDoneValueSet](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific Procedure that was not performed
 
+<div class="new-content" markdown="1">
 
 #### Intervention, Order
 
@@ -1202,6 +1243,7 @@ Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), 
 | negationRationale   | See Below |
 | requester           | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)      |     Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM requester attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization) that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.        |
 {: .grid}
+
 
 ##### Negation Rationale for Intervention, Order
 
@@ -1239,11 +1281,15 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
 
+</div>
+
 ### Laboratory Test
 
 QDM defines Laboratory Test as a medical procedure that involves testing a sample of blood, urine, or other body fluids or specimens. Tests can help determine a diagnosis, plan treatment, check to see if treatment is working, or monitor the disease over time. This QDM data category for Laboratory Test is only used for information about the subject of record.
 
-Rather than directly referencing the [US Core Laboratory Result Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html), QI-Core 5.0.0 builds on that profile to add further constraint requirements as [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html). The reason for this approach is to assure the profile Key Element Table includes elements such as  interpretation, specific result datatypes, and additional constraints.
+<div class="new-content" markdown="1">
+Rather than directly referencing the [US Core Laboratory Result Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html), QI-Core 5.0.0 builds on that profile to add further constraint requirements as [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html). The reason for this approach is to assure the profile Key Element Table includes elements such as  interpretation, specific result datatypes, and additional constraints. 
+</div>
 
 Each laboratory test may be ordered individually or in a panel. Many use panels for convenience for ordering laboratory tests. Since new laboratory panels regularly become available and the myriad of potential laboratory panels available, a complete list cannot be assured. LOINC observable entities may indicate specific methods for determination of results. Measure and CDS developers can reference direct reference codes or value sets using such LOINC codes to specify the type of testing considered acceptable to provide sufficient fidelity to their requests.
 
@@ -1251,6 +1297,8 @@ Each laboratory test may be ordered individually or in a panel. Many use panels 
 #### Laboratory Test, Order
 
 “Laboratory Test, Order” should reference orders for studies that will generate results for activities that meet criteria for Observation Lab Result.
+
+<div class="new-content" markdown="1">
 
 | **QDM Context**      | **QI-Core STU6**               | **Comments**                                                 |
 | --------------------------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1341,6 +1389,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](http://hl7.org/fhir/us/qicore/ValueSet-qicore-negation-reason.html)
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
+</div>
 
 ### Medication
 
@@ -1368,6 +1417,8 @@ The MedicationRequest **SHALL** include all prescribed and “self-prescribed”
 * **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record. It may also indicate the source of the report
 * When recording “self-prescribed” medications **SHALL** use intent = “plan”
 * When recording “self-prescribed” orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
+
+<div class="new-content" markdown="1">
 
 | **QDM Context**  | **QI-Core STU6**     | **Comments**          |
 | ----------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- |
@@ -1419,6 +1470,7 @@ profile address Immunization, Administered.
 | Performer            | [MedicationAdministration.performer.actor](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.performer.actor)     |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.     |
 {: .grid}
 
+</div>
 
 ##### Negation Rationale for Medication, Administered
 
@@ -1451,6 +1503,8 @@ practitionerRole, relatedPerson, organization).
 This change should also be used to reference the mapping from QDM Medication,
 Order which can address order or recommended.
 
+<div class="new-content" markdown="1">
+
 
 | **QDM Context**              | **QI-Core STU6**       | **Comments**          |
 | ---------------------------- | ----------------------------------------------------------------- | ---------------------------------------------------------------- |
@@ -1474,7 +1528,7 @@ Order which can address order or recommended.
 | negationRationale    | See Below |
 | prescriber           | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester) |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.  |
 {: .grid}
-
+</div>
 
 ##### Negation Rationale for Medication, Discharge
 
@@ -1490,6 +1544,7 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 This QDM context maps to the QI-Core MedicationDispense resource,
 indicating information about medications that have been dispensed.
 
+<div class="new-content" markdown="1">
 
 | **QDM Context**           | **QI-Core STU6**             | **Comments**                         |
 | ------------------------- | ------------------------------------------------ | --------------------------------------------------------------------------- |
@@ -1515,6 +1570,7 @@ indicating information about medications that have been dispensed.
 | dispenser          | [MedicationDispense.performer.actor](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.performer.actor)   |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
 
+</div>
 
 ##### Negation Rationale for Medication, Dispensed
 
@@ -1533,6 +1589,7 @@ MedicationRequest.intent = *order* and MedicationRequest.setting
 as the most appropriate for the intended meaning of the quality
 measure or clinical decision support (CDS) expression.
 
+<div class="new-content" markdown="1">
 
 | **QDM Context**          | **QI-Core STU6**    | **Comments**      |
 | ------------------------ | -------------------------------------------------------------------------- | --------------------------------------------------------- |
@@ -1559,6 +1616,7 @@ measure or clinical decision support (CDS) expression.
 | prescriber           | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)   | Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
 
+
 ##### Negation Rationale for Medication, Order
 
 Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html), which contains:
@@ -1569,6 +1627,8 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 * [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
 * [MedicationRequest.medication\[x\].extension:notDoneValueSet](StructureDefinition-qicore-medicationnotrequested-definitions.html#MedicationRequest.medication[x].extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific MedicationRequest that was not performed
 
+</div>
+
 ### Participation
 
 QDM defines Participation as a patient’s coverage by a program such as
@@ -1576,6 +1636,8 @@ an insurance or medical plan or a payment agreement. Such programs can
 include patient-centered medical home, disease-specific programs, etc.
 Definitions modeled similar to the FHIR R4
 [Coverage](http://hl7.org/fhir/R4/coverage.html) resource.
+
+<div class="new-content" markdown="1">
 
 | **QDM Context**         | **QI-Core STU6**    | **Comments**          |
 | ----------------------- | ---------------------------------------------------------- | --------------------- |
@@ -1586,6 +1648,8 @@ Definitions modeled similar to the FHIR R4
 | id                      | [Coverage.id](StructureDefinition-qicore-coverage-definitions.html#Coverage.id)         |                              |
 | participationPeriod     | [Coverage.period](StructureDefinition-qicore-coverage-definitions.html#key_Coverage.period) | Coverage start and end dates |
 {: .grid}
+
+</div>
 
 ### Physical Exam
 
@@ -1598,7 +1662,9 @@ include vital signs (blood pressure, pulse, respiration) as well as
 other clinical measures (such as expiratory flow rate and size of lesion).
 Physical exam includes psychiatric examinations.
 
-US Core STU6 (v6.1.0) added twelve observation profiles that address specific elements of physical examinations. The previous version inherited the [FHIR Vital Signs Profile](http://hl7.org/fhir/R4/observation-vitalsigns.html); in version STU5, US Core created specific profiles for each of those vital sign elements, resulting in a Vital Signs Profile with 12 component profiles that meet the definition of QDM “Physical Examination”.  The following table lists each profile and the respective data element codes referenced in each of those profiles.
+<div class="new-content" markdown="1">
+US Core STU6 added twelve observation profiles that address specific elements of physical examinations. The following table lists each profile and the respective data element codes referenced in each of those profiles.
+</div>
 
 | **Profile**         | **Data element codes**                                                                                                                       |
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
@@ -1621,6 +1687,8 @@ US Core STU6 (v6.1.0) added twelve observation profiles that address specific el
 #### Physical Exam, Order
 
 QDM “Physical Exam, Order” should use ServiceRequest with *intent* = order for the specific examination requested.
+
+<div class="new-content" markdown="1">
 
 | **QDM Context**   | **QI-Core STU6**        | **Comments**            |
 | -------------------- | -------------------------------------------------------------------- | ------------------------------------------------------------ |
@@ -1714,6 +1782,8 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
 
+</div>
+
 ### Procedure
 
 QDM defines Procedure as an act whose immediate and primary outcome
@@ -1790,6 +1860,8 @@ priority attribute will help specify elective from urgent encounters
 (i.e., may use a direct reference code or a value set). For example,
 priority is used to express an elective procedure or encounter from an
 emergency procedure or encounter.*
+
+<div class="new-content" markdown="1">
 
 As noted in the QDM to QI-Core Mapping for Encounter-Related Diagnoses
 and Procedures, a specific measure may have interest in evaluating care
@@ -1894,6 +1966,8 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [qicore-notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to indicate the specific ServiceRequest that was not performed
 
+</div>
+
 ### Substance
 
 #### Substance, Administered; Substance, Order; Substance Recommended
@@ -1964,6 +2038,8 @@ substance other than those that are modeled similar to medications are nutrition
 milk) and biologically-derived product administration (blood) - both of these use cases can use the Procedure resources
 as noted. Further work in base FHIR will advise how to reference specific administration details in QI-Core.
 
+<div class="new-content" markdown="1">
+
 NOTE – There is no specific QDM datatype to address two QI-Core STU 6 profiles, [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) and 
 [Nutrition Intake](StructureDefinition-qicore-nutritionintake.html). Since neither of these profiles has been used to 
 express an electronic clinical quality measure, determination of key elements is challenging. The following tables 
@@ -1994,6 +2070,8 @@ may help measure developers determine what to use for potential use cases:
 | Time of nutrition intake  | [NutritionIntake.occurence](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.extension:occurrence) | Encounter associated with Nutrition Intake |
 | Consumed Items       | [NutritionIntake.code](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.code) |  Example binding to [ValueSet-qicore-example-foods](ValueSet-qicore-example-foods.html) – Consider concepts used in FHIR R5 [NutritionIntake.consumedItem.nutritionProduct](https://hl7.org/fhir/nutritionintake-definitions.html#NutritionIntake.consumedItem) which has example binding to [Food Type Codes](https://hl7.org/fhir/valueset-food-type.html)  |
 {: .grid}
+
+</div>
 
 ### Symptom
 

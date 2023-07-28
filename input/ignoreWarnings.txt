@@ -18,15 +18,15 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/Structur
 The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationDispense.medication[x] could not be resolved
 The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
 ValueSet https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 not found
+ValueSet https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 not found
 WARNING: StructureDefinition/qicore-coverage: StructureDefinition.differential.element[1].binding: The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
 WARNING: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[14].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationDispense.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationstatement: StructureDefinition.differential.element[2].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationStatement.medication[x] could not be resolved
 WARNING: StructureDefinition/qicore-medicationstatement: StructureDefinition.snapshot.element[15].binding: The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationStatement.medication[x] could not be resolved
 
-# The following errors in the examples are being generated due to no code within the codeable concept but referencing a valueset instead, consistent with the negation pattern
-WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20210630)
-WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
-WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|5.0.1)
+# The following warnings in the examples are being generated due to no code within the codeable concept but referencing a valueset instead, consistent with the negation pattern
+No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|6.1.0-snapshot1)
+No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20220701)
 
 # The following information messages are being generated in the examples using valid codes in codesystems but validator cannot confirm
 INFORMATION: Encounter/example: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
