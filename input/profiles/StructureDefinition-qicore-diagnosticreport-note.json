@@ -101,16 +101,6 @@
             "code": "CodeableConcept"
           }
         ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport": true,
         "isModifier": false,
         "isSummary": true,
@@ -118,25 +108,7 @@
           "strength": "extensible",
           "description": "LOINC codes",
           "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes"
-        },
-        "mapping": [
-          {
-            "identity": "workflow",
-            "map": "Event.code"
-          },
-          {
-            "identity": "w5",
-            "map": "FiveWs.what[x]"
-          },
-          {
-            "identity": "v2",
-            "map": "OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"
-          },
-          {
-            "identity": "rim",
-            "map": "code"
-          }
-        ]
+        }
       },
       {
         "id": "DiagnosticReport.subject",
@@ -200,40 +172,9 @@
             "code": "Period"
           }
         ],
-        "condition": [
-          "us-core-10"
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport": true,
         "isModifier": false,
-        "isSummary": true,
-        "mapping": [
-          {
-            "identity": "workflow",
-            "map": "Event.occurrence[x]"
-          },
-          {
-            "identity": "w5",
-            "map": "FiveWs.done[x]"
-          },
-          {
-            "identity": "v2",
-            "map": "OBR-7"
-          },
-          {
-            "identity": "rim",
-            "map": "effectiveTime"
-          }
-        ]
+        "isSummary": true
       },
       {
         "id": "DiagnosticReport.issued",
