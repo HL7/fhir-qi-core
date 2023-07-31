@@ -4,7 +4,7 @@
 ERROR: ?pkp-1?: The reference http://hl7.org/fhir/5.0/StructureDefinition/extension-DeviceRequest.doNotPerform could not be resolved
 
 # Issue within the ImagingStudy snapshot and brought to attention in the following thread: https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/ValueSet.20not.20found.20by.20validator.20or.20cannot.20be.20checked
-WARNING: ImagingStudy/example: ImagingStudy.series[0].modality: ValueSet http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html not found by validator
+ValueSet http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html not found
 WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[11].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html on element ImagingStudy.modality could not be resolved
 WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[22].binding: The valueSet reference http://www.rsna.org/RadLex_Playbook.aspx on element ImagingStudy.procedureCode could not be resolved
 WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[34].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part16/sect_CID_29.html on element ImagingStudy.series.modality could not be resolved
@@ -14,7 +14,7 @@ WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.e
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles
 
-# Updated the VSAC dependency but the following issues are still known and is a valid valueset,code systems and codes within
+# VSAC dependency updated but the following issues are still known and is a valid valueset,code systems and codes within
 The valueSet reference https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 on element MedicationDispense.medication[x] could not be resolved
 The valueSet reference https://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.3591 on element Coverage.type could not be resolved
 ValueSet https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4 not found
@@ -29,14 +29,17 @@ No code provided, and a code should be provided from the value set 'US Core Proc
 No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20220701)
 
 # The following information messages are being generated in the examples using valid codes in codesystems but validator cannot confirm
-INFORMATION: Encounter/example: Encounter.type[0].coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
-INFORMATION: ServiceRequest/appropriateness-example: ServiceRequest.code.coding[0]: Code System URI 'http://www.ama-assn.org/go/cpt' is unknown so the code cannot be validated
-INFORMATION: Coverage/example: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
-INFORMATION: Coverage/example-new: Coverage.type.coding[0]: Code System URI 'https://nahdo.org/sopt' is unknown so the code cannot be validated
+The definition for the Code System with URI 'http://www.ama-assn.org/go/cpt' doesnt provide any codes so the code cannot be validated
+Unable to check whether the code is in the value set http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type|6.1.0-snapshot1
+The definition for the Code System with URI 'https://nahdo.org/sopt' doesnt provide any codes so the code cannot be validated
 
-# The following messages are being generated from the base resource snapshot
-INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[28].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
-INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[34].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
-WARNING: StructureDefinition/qicore-careteam: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+# The following messages are being generated from the inherited/base resource snapshot
+WARNING: StructureDefinition/qicore-allergyintolerance: StructureDefinition.snapshot.element[0].constraint[7]: 1: The left side is inherently a collection, and so the expression 'verificationStatus.coding.code = 'refuted'' may fail or return false if there is more than one item in the content being evaluated
 WARNING: StructureDefinition/qicore-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
+INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[28].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[32].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/qicore-practitioner: StructureDefinition.snapshot.element[18].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 
