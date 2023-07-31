@@ -724,6 +724,14 @@
       <description value="Encounter example of emergency visit that escalated into inpatient patient"/>
       <exampleBoolean value="true"/>
     </resource>
+    <resource>
+      <reference>
+        <reference value="Basic/example"/>
+      </reference>
+      <name value="Nutrition Intake example"/>
+      <description value="Nutrition Intake example"/>
+      <exampleBoolean value="true"/>
+    </resource>
   <!-- Valuesets -->
     <resource>
       <reference>
@@ -824,28 +832,44 @@
   <value value="templates\liquid"/>
 </parameter>
 <parameter>
-      <code value="apply-version"/>
-      <value value="true"/>
-    </parameter>
-    <parameter>
-       <code value="path-expansion-params"/>
-       <value value="_resources/exp-params.json"/>
-     </parameter>
-    <parameter>
-    <code value="find-other-resources"/>
-    <value value="true"/>
-    </parameter>
-    <parameter>
-      <code value="apply-jurisdiction"/>
-      <value value="true"/>
-    </parameter>
-    <parameter>
-      <code value="generate"/>
-      <value value="xml"/>
-    </parameter>
-    <parameter>
-      <code value="generate"/>
-      <value value="JSON"/>
-    </parameter>
-  </definition>
+  <code value="apply-version"/>
+  <value value="true"/>
+</parameter>
+<parameter>
+  <code value="path-expansion-params"/>
+  <value value="_resources/exp-params.json"/>
+</parameter>
+<parameter>
+  <code value="find-other-resources"/>
+  <value value="true"/>
+</parameter>
+<parameter>
+  <code value="apply-jurisdiction"/>
+  <value value="true"/>
+</parameter>
+<parameter>
+  <code value="generate"/>
+  <value value="xml"/>
+</parameter>
+<parameter>
+  <code value="generate"/>
+  <value value="JSON"/>
+</parameter>
+<parameter>
+  <code value="special-url"/>
+  <value value="http://hl7.org/fhir/StructureDefinition/event-encounter"/>
+</parameter>
+<parameter>
+  <code value="special-url"/>
+  <value value="http://hl7.org/fhir/StructureDefinition/event-occurrence"/>
+</parameter>
+<parameter>
+  <code value="special-url"/>
+  <value value="http://hl7.org/fhir/StructureDefinition/event-status"/>
+</parameter>
+<parameter>
+  <code value="special-url"/>
+  <value value="http://hl7.org/fhir/StructureDefinition/event-subject"/>
+</parameter>
+</definition>
 </ImplementationGuide>
