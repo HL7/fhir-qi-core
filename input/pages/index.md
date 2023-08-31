@@ -333,14 +333,14 @@ value set.
 
 > NOTE: The above example uses profile-informed authoring (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
 
-To report Antithrombotic Therapy Not Administered, implementing systems reference the canonical url of the "Antithrombotic
+To report Antithrombotic Therapy Not Administered, implementing systems reference the canonical URL of the "Antithrombotic
 Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) extension to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
-set canonical url to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
+set canonical URL to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
 not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
 did not administer in order to negate.
 
-Similarly, to report "ProcedureNotDone": "Cardiac Surgery" with a reason, the canonical url of "Cardiac Surgery" value set
+Similarly, to report "ProcedureNotDone": "Cardiac Surgery" with a reason, the canonical URL of "Cardiac Surgery" value set
 is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
 specified in the "Cardiac Surgery" value set.
 
