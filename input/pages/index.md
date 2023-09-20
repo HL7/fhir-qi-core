@@ -85,7 +85,7 @@ Group to inform electronic clinical quality improvement (i.e., measurement and d
 Improvement Core (QI-Core) Implementation Guide is intended to be usable for multiple use cases across domains, and much
 of the content is likely to be usable outside the U.S. Realm.
 
-Understanding QI-Core and how it is used in quality applications requires an understanding of the role of common
+Understanding QI-Core and its use in quality applications requires an understanding of the role of common
 reference models. Electronic Health Records (EHRs) are stored in many different local formats. Exchanging data between
 EHRs requires mapping between local data formats. It is well understood that standards can reduce the number of data
 maps each data provider must create. In a similar manner, to share quality measures and clinical decision support
