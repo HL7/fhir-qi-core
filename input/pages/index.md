@@ -125,7 +125,7 @@ QI-Core profile authoring will provide a more facile method for creating CQM and
 The QI-Core FHIR Implementation Guide provides requirements and guidance for using FHIR in quality measurement and
 decision support. The profiles in this implementation guide will be used to meet QI-Core project objectives of:
 
--  Encouraging consistent access and use of data for clinical quality applications, across organizations and between healthcare systems,
+-  Encouraging consistent access and use of data for clinical quality applications across organizations and between healthcare systems,
 -  Providing guidance for consistent use of vocabularies and value sets, and
 -  Standardizing the requirements for data servers and data consumers (clients) that exchange quality-related clinical data needed for calculation of quality measures and decision support.
 
