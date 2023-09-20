@@ -59,7 +59,7 @@ Implementation Guide.
 ### Contents
 {: #contents}
 
-This guide is divided into pages which are listed at the top each page in the menu bar:
+This guide is divided into pages which are listed at the top of each page in the menu bar:
 
 * **[Home](index.html)**: The home page provides summary and background information
 * **[Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
