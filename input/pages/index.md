@@ -251,7 +251,7 @@ In summary, MustSupport elements represent the minimal set of data elements that
 applications, defined as follows:
 
 -  Data elements whenever that data is available,
--  Quality artifact authors **SHOULD** reference only elements that are marked must support, especially in the left-hand side of artifacts (measure criteria, decision support inclusion/exclusion criteria, etc.). However, additional expectations for the data requirements of artifacts MAY be communicated via the dataRequirements elements of knowledge artifacts, and
+-  Quality artifact authors **SHOULD** reference only elements that are marked must support, especially in the left-hand side of artifacts (measure criteria, decision support inclusion/exclusion criteria, etc.). However, additional expectations for the data requirements of artifacts **MAY** be communicated via the dataRequirements elements of knowledge artifacts, and
 -  Quality improvement artifact applications **SHALL** recognize and process all MustSupport elements in QI-Core.
 
 Throughout the QI-Core profiles elements that are marked as required, meaning they have a minimum cardinality of 1, will also
