@@ -74,7 +74,7 @@ This guide is divided into pages which are listed at the top of each page in the
 ### Background
 {: #background}
 
-This Implementation Guide originated as a U.S. Realm Specification with support from the
+This Implementation Guide originated as a US Realm Specification with support from the
 Clinical Quality Framework (CQF) initiative [(that concluded in 2017)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
 which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S.
 Office of the National Coordinator (ONC) to harmonize standards for clinical decision support and electronic clinical
@@ -83,7 +83,7 @@ effort transitioned to HL7's Clinical Quality Information (CQI) and Clinical Dec
 The HL7 CQI Work Group maintains this Implementation Guide, co-sponsored by the Clinical Decision Support (CDS) HL7 Work
 Group to inform electronic clinical quality improvement (i.e., measurement and decision support). This Quality
 Improvement Core (QI-Core) Implementation Guide is intended to be usable for multiple use cases across domains, and much
-of the content is likely to be usable outside the U.S. Realm.
+of the content is likely to be usable outside the US Realm.
 
 Understanding QI-Core and its use in quality applications requires an understanding of the role of common
 reference models. Electronic Health Records (EHRs) are stored in many different local formats. Exchanging data between
@@ -91,7 +91,7 @@ EHRs requires mapping between local data formats. It is well understood that sta
 maps each data provider must create. In a similar manner, to share quality measures and clinical decision support
 artifacts, the measures and artifacts must refer to data in a standardized way.
 
-In the U.S. Realm, the common reference model for electronic clinical quality measures (eCQMs) is the
+In the US Realm, the common reference model for electronic clinical quality measures (eCQMs) is the
 [Quality Data Model (QDM)](https://ecqi.healthit.gov/qdm). For clinical decision support, a common reference model is
 the [HL7 Virtual Medical Record for Clinical Decision Support(vMR)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=342).
 Decision support and quality measures are closely related, and can be viewed as "two sides of the same coin".
@@ -187,7 +187,7 @@ approach to provenance.
 
 QI-Core has been harmonized with other FHIR-based initiatives, particularly, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
-[US Core]({{site.data.fhir.ver.uscore}}) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
+[US Core]({{site.data.fhir.ver.uscore}}) is a US Realm Implementation Guide, developed under the DAF initiative, that
 maps ONC Common Clinical Data Set elements to FHIR resources. The data elements in US Core are also in QI-Core, and
 whenever possible, profiles defined in QI-Core are derived from the profiles in US Core. As a result, conforming to US
 Core automatically satisfies a significant subset of the conformance requirements of QI-Core. QI-Core conformance
@@ -197,7 +197,7 @@ measures or clinical decision support.
 Because QI-Core profiles derive from US Core profiles where possible, wherever US Core defines a binding, the QI-Core
 profiles inherit that binding. QI-Core may specify additional constraints, such as requiring a binding that is only
 preferred in the US Core base profile, but in general, the QI-Core profiles use the same bindings as US Core. This means
-that QI-Core is currently a U.S. Realm specification. To support applications outside the U.S. Realm, additional binding
+that QI-Core is currently a US Realm specification. To support applications outside the US Realm, additional binding
 analysis and effort would be required.
 
 QI-Core's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QI-Core
@@ -428,8 +428,8 @@ Please note: some US Core hyperlinks are currently inaccessible as a result of U
 Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data
 owners to translate local data into the required vocabulary. As a US Realm product, QI-Core requires value sets and
 vocabularies referenced in the ONC Common Clinical Data Set (CCDS) and the US Core Data for Interoperability. Because
-QI-Core is expected to be applied outside the U.S. Realm, and also in clinical settings where local terminologies exist,
-U.S. Realm bindings could be  accompanied by alternative codes as translation codes in the QI-Core profiles. In the case
+QI-Core is expected to be applied outside the US Realm, and also in clinical settings where local terminologies exist,
+US Realm bindings could be  accompanied by alternative codes as translation codes in the QI-Core profiles. In the case
 that the US Core Data for Interoperability adopts QI-Core and CQL, policy should be created to mandate the
 preferred bindings given in the standard.
 
@@ -466,7 +466,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 -  The resources in "Any" references **SHALL** conform to QI-Core profiles if the base resource has a QI-Core profile
 -  Applications **SHALL NOT** process resource instances that include unknown modifying attributes
 -  Applications **SHOULD** use the preferred value sets
--  In the U.S. Realm, applications **SHALL** be simultaneously compliant with QI-Core profiles and US Core profiles. As such, the more restrictive bindings between US Core and QI-Core **SHALL** be adhered to. For example, all value sets that are required in US Core **SHALL** be required by QI-Core, regardless of the binding strength in QI-Core.
+-  In the US Realm, applications **SHALL** be simultaneously compliant with QI-Core profiles and US Core profiles. As such, the more restrictive bindings between US Core and QI-Core **SHALL** be adhered to. For example, all value sets that are required in US Core **SHALL** be required by QI-Core, regardless of the binding strength in QI-Core.
 
 ### Author Information
 
