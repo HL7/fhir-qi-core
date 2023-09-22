@@ -224,7 +224,7 @@ In addition to the requirements defined in the US Core base, QI Core further des
 functionality.
 
 Certain elements in the QI-Core profiles have a "MustSupport" flag. In the QI-Core quality profiles, the MustSupport
-flag is used to indicate whether the element must be supported in QI implementations. More specifically, labelling an
+flag is used to indicate whether the element must be supported in QI implementations. More specifically, labeling an
 element as MustSupport means that quality improvement implementations SHALL understand and process the element.
 
 In addition, only elements where MustSupport is true can be used in quality measure criteria or decision support
@@ -442,7 +442,7 @@ but within any given artifact, instances will typically use a restricted value s
 ### Resource References and "Any"
 
 FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a
-reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resources. For example,
+reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resourcegs. For example,
 QICore-Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any
 extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by
 Encounter.patient. References to QI-Core extensions accessed through references are guaranteed to be valid. References to resources that do not currently have
