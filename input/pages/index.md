@@ -159,8 +159,8 @@ Changes in QI-Core STU 6.0 scope include a simplification to reduce the number o
 
 Quality applications may make use of patient-specific information. For this reason, all transactions must be
 appropriately secured, limiting access to authorized individuals and protecting data while in transit (as laid out in
-the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.10.1)). These are the same
-considerations that would relate to any FHIR implementation, and include authentication, authorization, access control
+the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.10.1)). These 
+considerations relate to any FHIR implementation, including authentication, authorization, access control
 consistent with patient consent, transaction logging, and following best practices. For the purposes of QI-Core,
 security conformance rules are as follows:
 
