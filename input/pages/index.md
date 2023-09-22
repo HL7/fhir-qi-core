@@ -185,7 +185,7 @@ approach to provenance.
 
 ### Relationship to Other Initiatives
 
-QI-Core has been harmonized with certain other FHIR-based initiatives, in particular, the
+QI-Core has been harmonized with other FHIR-based initiatives, particularly, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
 [US Core]({{site.data.fhir.ver.uscore}}) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
 maps ONC Common Clinical Data Set elements to FHIR resources. The data elements in US Core are also in QI-Core, and
