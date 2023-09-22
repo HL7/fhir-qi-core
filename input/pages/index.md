@@ -173,7 +173,7 @@ the same manner as other transactions, as discussed above under General Security
 
 ### Provenance
 
-QI-Core addresses provenance at a data element level. We address data element provenance as defined with the individual
+QI-Core addresses provenance at a data element level. We address data element provenance as defined by each respective
 FHIR resource.  Each FHIR resource has its own way to address provenance (author, performer, author or issued date,
 occurrence date, etc.). Therefore, we assure QI-Core can handle provenance based on the resource modeling.  The US
 domain Quality Data Model handles provenance in the same way and the mapping tables from QDM attributes to QI-Core/FHIR
