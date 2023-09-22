@@ -255,7 +255,7 @@ applications, defined as follows:
 -  Quality improvement artifact applications **SHALL** recognize and process all MustSupport elements in QI-Core.
 
 Throughout the QI-Core profiles elements that are marked as required, meaning they have a minimum cardinality of 1, will also
-be marked as MustSupport. In the case of complex elements if the top level element is marked as MustSupport then any required
+be marked as MustSupport. In the case of complex elements if the top-level element is marked as MustSupport then any required
 sub-elements will be marked as MustSupport as well.
 ### Modifying Attributes
 
