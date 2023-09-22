@@ -161,8 +161,7 @@ Quality applications may make use of patient-specific information. For this reas
 appropriately secured, limiting access to authorized individuals and protecting data while in transit (as laid out in
 the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.10.1)). These 
 considerations relate to any FHIR implementation, including authentication, authorization, access control
-consistent with patient consent, transaction logging, and following best practices. For the purposes of QI-Core,
-security conformance rules are as follows:
+consistent with patient consent, transaction logging, and following best practices. QI-Core security conformance rules are as follows:
 
 -  Systems **SHOULD** use TLS version 1.1 or higher with bi-directional certificate validation for all transmissions not taking place over a secure network connection.
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
