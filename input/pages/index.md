@@ -422,7 +422,7 @@ Please note: some US Core hyperlinks are currently inaccessible as a result of U
 <li>A measure evaluating lipid management uses a statin valueset containing atorvastatin. The clinician may provide a reason for not ordering atorvastatin, such as myopathy. That reason meets criteria for the expression and fails to recognize lack of compliance with any lipid therapy, but the patient might be able to tolerate ezetimibe/simvastatin.</li>
 </ol>
 
-<p>Artifact developers should consider these facts when evaluating data retrieved as it pertains to measure intent and value set development. Implementers should consider these facts to consider providing data capture opportunities that limit practitioner burden.</p>
+<p>Artifact developers should consider these facts when evaluating data retrieved as it pertains to each measure's intent and value set development. Implementers should consider these facts to consider providing data capture opportunities that limit practitioner burden.</p>
 
 ### Terminology Bindings
 
