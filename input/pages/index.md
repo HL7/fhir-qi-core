@@ -129,7 +129,7 @@ decision support. The profiles in this implementation guide will be used to meet
 -  Providing guidance for consistent use of vocabularies and value sets, and
 -  Standardizing the requirements for data servers and data consumers (clients) that exchange quality-related clinical data needed for calculation of quality measures and decision support.
 
-This IG is focused on representation of clinical data, and is limited in breadth to the profiles currently included in
+This IG is focused on representation of clinical data and is limited in breadth to the profiles currently included in
 QI-Core. Not all FHIR resources are profiled, especially those that do not have clinical value in the context of quality
 improvement, or do not map to QIDAM. Additional extensions may be added to the current set of profiles, and additional
 profiles may be added at a later time. In particular, QI-Core represents a subset of the semantics covered in QIDAM,
