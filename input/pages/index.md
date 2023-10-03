@@ -404,7 +404,7 @@ Please note: some US Core hyperlinks are currently inaccessible as a result of U
 
 <ol>
   <li>Presence of a concept (code) from the statusReason value set</li>
-  <li>Presence of the code representing what has not occurred identified as:
+  <li>Presence of the code representing what has not occurred which may be identified as:
     <ol>
       <li>A direct reference code (DRC) indicating the expected activity (if the measure or CDS artifact included only a DRC)</li>
       <li>A value set OID representing the expected activity</li>
