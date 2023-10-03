@@ -349,7 +349,7 @@ Note that the negation profiles can be used to make two different types of negat
 1. Documentation that a specific activity was not performed for a given reason (e.g. [MedicationRequest example negative a specific code](MedicationRequest-negation-example-code.html))
 2. Documentation that none of the activities in a given value set were performed for a given reason (e.g. [MedicationRequest example negating a value set](MedicationRequest-negation-example.html))
 
-Each of the negation profiles provides an example illustrating both types of negative statement.
+Each of the negation profiles provides an example illustrating both types of negative statements.
 
 QI-Core defines the following profiles specifically for representing negation rationale:
 
