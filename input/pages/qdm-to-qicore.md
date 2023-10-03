@@ -790,7 +790,7 @@ An an example of an encounter can be found [here](Encounter-encounter-ed-example
 
 #### Encounter-Related Diagnoses and Procedures
 
-Previous versions of QI-Core have used the [Encounter.diagnosis](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis) element to 
+Previous versions of QI-Core have used the [Encounter.diagnosis](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis) relement to 
 reference to the list of diagnosis/diagnoses and procedures relevant to the encounter. 
 The [Encounter.diagnosis.usevalue](http://hl7.org/fhir/R4/valueset-diagnosis-role.html)
 helped to differentiates if the diagnosis or procedure role with respect to the encounter, 
