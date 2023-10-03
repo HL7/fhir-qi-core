@@ -331,7 +331,7 @@ In this example for negation rationale, the logic looks for a member of the valu
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
 value set.
 
-> NOTE: The above example uses profile-informed authoring (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
+> **NOTE:** The above example uses profile-informed authoring (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
 
 To report Antithrombotic Therapy Not Administered, implementing systems reference the canonical url of the "Antithrombotic
 Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) extension to indicate
