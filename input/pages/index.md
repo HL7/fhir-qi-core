@@ -93,7 +93,7 @@ artifacts, the measures and artifacts must refer to data in a standardized way.
 
 In the U.S. Realm, the common reference model for electronic clinical quality measures (eCQMs) is the
 [Quality Data Model (QDM)](https://ecqi.healthit.gov/qdm). For clinical decision support, a common reference model is
-the [HL7 Virtual Medical Record for Clinical Decision Support(vMR)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=342).
+the [HL7 Virtual Medical Record for Clinical Decision Support (vMR)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=342).
 Decision support and quality measures are closely related, and can be viewed as "two sides of the same coin".
 Specifically, decision support provides guidance for clinical best practices, and quality measures assess whether
 clinical best practices have been followed. It therefore makes intuitive sense to use the same common reference model
