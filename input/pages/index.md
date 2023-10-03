@@ -19,7 +19,7 @@
 - [QI-Core MedicationStatement](StructureDefinition-qicore-medicationstatement.html)
 - [QI-Core Substance](StructureDefinition-qicore-substance.html)
 
-2.) To the extent possible, QI-Core derives content from US Core profiles and extensions. There are a number of QI-Core profiles inherited directly from US Core profiles (i.e. US Core Implantable Device Profile, FHIR Vital Signs, US Core Smoking Status etc.) We seek implementer feedback regarding other FHIR implementation guides appropriate to directly reference including recommendations for the most appropriate method to address them, for example, [minimal Common Ontology Data Elements (mCode)](http://hl7.org/fhir/us/mcode/), [CARIN Consumer Directed Payer Data Exchange (CARIN IG for Blue Button)](http://hl7.org/fhir/us/carin-bb/), and other suggestions.`
+2.) To the extent possible, QI-Core derives content from US Core profiles and extensions. There are a number of QI-Core profiles inherited directly from US Core profiles (i.e. US Core Implantable Device Profile, FHIR Vital Signs, US Core Smoking Status etc.) We seek implementer feedback regarding other FHIR implementation guides appropriate to directly reference including recommendations for the most appropriate method to address them, for example, [minimal Common Ontology Data Elements (mCode)](http://hl7.org/fhir/us/mcode/), [CARIN Consumer Directed Payer Data Exchange (CARIN IG for Blue Button)](http://hl7.org/fhir/us/carin-bb/), and other suggestions.
 
 3.) QI-Core has developed specific profiles based on existing US Core profiles adding constraints and/or additional must support elements required for the quality measurement and clinical decision support use cases. Such profiles in QI-Core 6.0 include:
 
