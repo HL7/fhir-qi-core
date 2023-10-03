@@ -790,7 +790,7 @@ An example of an encounter can be found [here](Encounter-encounter-ed-example.ht
 
 #### Encounter-Related Diagnoses and Procedures
 
-Previous versions of QI-Core have used the [Encounter.diagnosis](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis) relement to
+Previous versions of QI-Core have used the [Encounter.diagnosis](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis) element to
 reference to the list of diagnosis/diagnoses and procedures relevant to the encounter.
 The [Encounter.diagnosis.usevalue](http://hl7.org/fhir/R4/valueset-diagnosis-role.html)
 helped to differentiates if the diagnosis or procedure role with respect to the encounter,
@@ -802,7 +802,7 @@ principal procedures. Further prior versions of QI-Core identified _present on a
 using Encounter.diagnosis.onAdmission.
 
 Feedback from implementers and standards experts indicated that concepts such as _principal diagnosis_,
-_principal procedure_, and _present on admission_ were more appropriately retrieved using the [Claim profile](StructureDefinition-qicore-claim.html)
+_principal procedure_, and _present on admission_ were more appropriately retrieved using the [Claim profile](StructureDefinition-qicore-claim.html).
 Medical record coders review documentation and work with physicians to provide the adjudicated
 determination of what represents a _principal diagnosis_, a _principal procedure_, and the final
 _present on admission_ flag for each diagnosis. Therefore, the [Claim.diagnosis.sequence](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.sequence) = 1 plus
