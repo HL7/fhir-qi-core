@@ -338,7 +338,7 @@ Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDon
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
 set canonical URL to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
 not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
-did not administer in order to negate.
+did not administer in order to negate. 
 
 Similarly, to report "ProcedureNotDone": "Cardiac Surgery" with a reason, the canonical URL of "Cardiac Surgery" value set
 is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
