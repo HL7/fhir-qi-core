@@ -1856,7 +1856,7 @@ Procedure: *priority* has the following definition:
 *Priority indicates the urgency of the procedure or the encounter
 referenced. In \[electronic clinical quality measures\] (eCQMs) the
 priority attribute will help specify elective from urgent encounters
-(e.g., hospital admissions) or procedures. Priority is a codable concept
+(e.g., hospital admissions) or procedures. Priority is a codeable concept
 (i.e., may use a direct reference code or a value set). For example,
 priority is used to express an elective procedure or encounter from an
 emergency procedure or encounter.*
