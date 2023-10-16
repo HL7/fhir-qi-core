@@ -300,7 +300,7 @@ This page lists the change history for each version of QI Core.
 * Clarify that US Core Location/PractitionerRole are not being referenced by other resources ([FHIR-26840](https://jira.hl7.org/browse/FHIR-26840))
 * Correct editing error restoring Write and Operation capability guidance into DocumentReference QuickStart ([FHIR-26840](https://jira.hl7.org/browse/FHIR-26840))
 * Clarify guidance that servers SHALL support search with status if status required ([FHIR-26840](https://jira.hl7.org/browse/FHIR-26840))
-* Correct canonical url for ImplementationGuide ([FHIR-26686](https://jira.hl7.org/browse/FHIR-26686))
+* Correct canonical URL for ImplementationGuide ([FHIR-26686](https://jira.hl7.org/browse/FHIR-26686))
 * Correct system URI for ICD-10 procedure codes ([FHIR-26679](https://jira.hl7.org/browse/FHIR-26679))
 * Fix invariant us-core-1 ([FHIR-26605](https://jira.hl7.org/browse/FHIR-26605))
 * Change valueCode min from 0 to 1 for US Core Birth Sex Extension and valueBoolean min from 0 to 1 forUS Core Direct email Extension ([FHIR-26459](https://jira.hl7.org/browse/FHIR-26459))
