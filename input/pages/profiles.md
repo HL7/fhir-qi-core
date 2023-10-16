@@ -75,8 +75,6 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |[QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [US Core MedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |*MedicationStatement*|
 |[QICore MedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |[MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
-|*NutritionIntake*|
-|[QICore NutritionIntake](StructureDefinition-qicore-nutritionintake.html)| |[NutritionIntake (R5)](http://hl7.org/fhir/R5/nutritionintake.html)|
 |*NutritionOrder*|
 |[QICore NutritionOrder](StructureDefinition-qicore-nutritionorder.html)| |[NutritionOrder]({{site.data.fhir.path}}nutritionorder.html)|
 |*Observation*|

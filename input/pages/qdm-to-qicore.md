@@ -2040,9 +2040,8 @@ as noted. Further work in base FHIR will advise how to reference specific admini
 
 <div class="new-content" markdown="1">
 
-NOTE – There is no specific QDM datatype to address two QI-Core STU 6 profiles, [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) and
-[Nutrition Intake](StructureDefinition-qicore-nutritionintake.html). Since neither of these profiles has been used to
-express an electronic clinical quality measure, determination of key elements is challenging. The following tables
+NOTE – There is no specific QDM datatype to address the  [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) QI-Core STU 6 profile. Since this profile has not been used to
+express an electronic clinical quality measure, determination of key elements is challenging. The following table
 may help measure developers determine what to use for potential use cases:
 
 
@@ -2060,15 +2059,6 @@ may help measure developers determine what to use for potential use cases:
 | negationRationale           | N/A           |                                                       |
 | authorDatetime              | [NutritionOrder.dateTime](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.dateTime)  | Date and time nutrition order was requested  |
 | relevantPeriod              | [NutritionOrder.enteralFormula.administration.schedule](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule)  |  Likely not relevant for measure use cases. Not present in QI-Core Key Elements Table.   |
-{: .grid}
-
-| **Nutrition Intake**                               | **QI-Core STU6**                 | **Comments**                                          |
-| -------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
-| **Nutrition Intake** | [Nutrition Intake](StructureDefinition-qicore-nutritionintake.html)  |        |
-| Status               | [NutritionIntake.modifierExtension:status](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.modifierExtension:status) | value set binding to [EventStatus](https://hl7.org/fhir/valueset-event-status.html) required  |
-| Associated Encounter | [NutritionIntake.encounter.value\[x\]](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.extension:encounter.value[x]) | encounter associated with nutritionIntake  |
-| Time of nutrition intake  | [NutritionIntake.occurence](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.extension:occurrence) | Encounter associated with Nutrition Intake |
-| Consumed Items       | [NutritionIntake.code](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.code) |  Example binding to [ValueSet-qicore-example-foods](ValueSet-qicore-example-foods.html) – Consider concepts used in FHIR R5 [NutritionIntake.consumedItem.nutritionProduct](https://hl7.org/fhir/nutritionintake-definitions.html#NutritionIntake.consumedItem) which has example binding to [Food Type Codes](https://hl7.org/fhir/valueset-food-type.html)  |
 {: .grid}
 
 </div>
