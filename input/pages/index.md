@@ -8,7 +8,7 @@
 <div class="note-to-balloters" markdown="1">
 #### Note To Balloters
 
-1.) The following QI-Core profiles have been included in previous version of QI-Core but there is limited, if any, known usage. Please provide your input regarding whether each of these should remain as profiles in QI-Core STU6 for the intended use in clinical quality measures or clinical decision support artifacts. In your comments, please indicate the use case for which the respective profile adds value, and whether such information is easily retrievable:
+1.) The following QI-Core profiles have been included in previous versions of QI-Core but there is limited, if any, known usage. Please provide your input regarding whether each of these should remain as profiles in QI-Core STU6 for the intended use in clinical quality measures or clinical decision support artifacts. In your comments, please indicate the use case for which the respective profile adds value, and whether such information is easily retrievable:
 
 - [QI-Core BodyStructure](StructureDefinition-qicore-bodystructure.html)
 - [QI-Core ClaimResponse](StructureDefinition-qicore-claimresponse.html)
@@ -19,7 +19,7 @@
 - [QI-Core MedicationStatement](StructureDefinition-qicore-medicationstatement.html)
 - [QI-Core Substance](StructureDefinition-qicore-substance.html)
 
-2.) To the extent possible, QI-Core derives content from US Core profiles and extensions. There are a number of QI-Core profiles inherited directly from US Core profiles (i.e. US Core Implantable Device Profile, FHIR Vital Signs, US Core Smoking Status etc.) We seek implementer feedback regarding other FHIR implementation guides appropriate to directly reference including recommendations for the most appropriate method to address them, for example, [minimal Common Ontology Data Elements (mCode)](http://hl7.org/fhir/us/mcode/), [CARIN Consumer Directed Payer Data Exchange (CARIN IG for Blue Button)](http://hl7.org/fhir/us/carin-bb/), and other suggestions.`
+2.) To the extent possible, QI-Core derives content from US Core profiles and extensions. There are a number of QI-Core profiles inherited directly from US Core profiles (i.e. US Core Implantable Device Profile, FHIR Vital Signs, US Core Smoking Status etc.) We seek implementer feedback regarding other FHIR implementation guides appropriate to directly reference including recommendations for the most appropriate method to address them, for example, [minimal Common Ontology Data Elements (mCode)](http://hl7.org/fhir/us/mcode/), [CARIN Consumer Directed Payer Data Exchange (CARIN IG for Blue Button)](http://hl7.org/fhir/us/carin-bb/), and other suggestions.
 
 3.) QI-Core has developed specific profiles based on existing US Core profiles adding constraints and/or additional must support elements required for the quality measurement and clinical decision support use cases. Such profiles in QI-Core 6.0 include:
 
@@ -59,7 +59,7 @@ Implementation Guide.
 ### Contents
 {: #contents}
 
-This guide is divided into pages which are listed at the top each page in the menu bar:
+This guide is divided into pages which are listed at the top of each page in the menu bar:
 
 * **[Home](index.html)**: The home page provides summary and background information
 * **[Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
@@ -74,7 +74,7 @@ This guide is divided into pages which are listed at the top each page in the me
 ### Background
 {: #background}
 
-This Implementation Guide originated as a U.S. Realm Specification with support from the
+This Implementation Guide originated as a US Realm Specification with support from the
 Clinical Quality Framework (CQF) initiative [(that concluded in 2017)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
 which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S.
 Office of the National Coordinator (ONC) to harmonize standards for clinical decision support and electronic clinical
@@ -83,34 +83,34 @@ effort transitioned to HL7's Clinical Quality Information (CQI) and Clinical Dec
 The HL7 CQI Work Group maintains this Implementation Guide, co-sponsored by the Clinical Decision Support (CDS) HL7 Work
 Group to inform electronic clinical quality improvement (i.e., measurement and decision support). This Quality
 Improvement Core (QI-Core) Implementation Guide is intended to be usable for multiple use cases across domains, and much
-of the content is likely to be usable outside the U.S. Realm.
+of the content is likely to be usable outside the US Realm.
 
-Understanding QI-Core and how it is used in quality applications requires an understanding of the role of common
+Understanding QI-Core and its use in quality applications requires an understanding of the role of common
 reference models. Electronic Health Records (EHRs) are stored in many different local formats. Exchanging data between
 EHRs requires mapping between local data formats. It is well understood that standards can reduce the number of data
 maps each data provider must create. In a similar manner, to share quality measures and clinical decision support
 artifacts, the measures and artifacts must refer to data in a standardized way.
 
-In the U.S. Realm, the common reference model for electronic clinical quality measures (eCQMs) is the
+In the US Realm, the common reference model for electronic clinical quality measures (eCQMs) is the
 [Quality Data Model (QDM)](https://ecqi.healthit.gov/qdm). For clinical decision support, a common reference model is
-the [HL7 Virtual Medical Record for Clinical Decision Support(vMR)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=342).
+the [HL7 Virtual Medical Record for Clinical Decision Support (vMR)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=342).
 Decision support and quality measures are closely related, and can be viewed as "two sides of the same coin".
 Specifically, decision support provides guidance for clinical best practices, and quality measures assess whether
 clinical best practices have been followed. It therefore makes intuitive sense to use the same common reference model
 for both types of applications.
 
 
-This initiative began in 2013 with the creation of the [Quality Improvement Domain Analysis Model (QIDAM)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378), which drew on the vMR and QDM as sources of requirements. The goal was to align on a unified logical model, Quality Information and Clinical Knowledge (QUICK), consisting of objects, attributes, and relationships such that the QUICK model could reference specific Quality Improvement Core (QI-Core) profiles aligned with specific versions of FHIR. The first QUICK model representations included a logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK logical view was aligned, structurally and semantically, as closely as possible to FHIR. While this alignment creates a common model for quality and interoperability that more easily leverages future FHIR-related efforts including Clinical Document Architecture (CDA) on FHIR. However, we recognize that defining a different conceptual/logical model for quality improvement capability splits focus of the community. The appropriate place for the mindshare and consensus development of the exchange semantics for quality improvement use cases is the QI-Core profiles directly. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles, and a Must Support view indicating all Must Support elements for each respective QI-Core profile.
+This initiative began in 2013 with the creation of the [Quality Improvement Domain Analysis Model (QIDAM)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378), which drew on the vMR and QDM as sources of requirements. The goal was to align on a unified logical model, Quality Information and Clinical Knowledge (QUICK), consisting of objects, attributes, and relationships such that the QUICK model could reference specific Quality Improvement Core (QI-Core) profiles aligned with specific versions of FHIR. The first QUICK model representations included a logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK logical view was aligned, structurally and semantically, as closely as possible to FHIR. While this alignment creates a common model for quality and interoperability that more easily leverages future FHIR-related efforts including Clinical Document Architecture (CDA) on FHIR. However, we recognize that defining a different conceptual/logical model for quality improvement capability splits the focus of the community. The QI-Core profiles represent the most appropriate place for the mindshare and consensus development of the exchange semantics for quality improvement use cases. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles, and a Must Support view indicating all Must Support elements for each respective QI-Core profile.
 
 
 ### Relevance of QI-Core Profiles to Authors
 
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
-quality measures (CQM) and CDS, thus providing a common foundation for reusability. To the extent possible, QI-Core
-derives content from US Core profiles and extensions. The expectation is that QI-Core will continue to grow over time as
-US Core grows by incorporating needed extensions with broad applicability. There may also be further extensions and
-coordinated  profiles in specific domains beyond QI-Core, e.g., radiology-specific profiles. The CQI and CDS Work Groups
-coordinate with HL7 Work Groups that manage specific FHIR resources to align definitions and value sets that include
+quality measures (CQM) and CDS, thus providing a common foundation for reusability. QI-Core
+derives content from US Core profiles and extensions to the extent possible. The expectation is that QI-Core will continue to grow in concert with
+US Core by incorporating needed extensions with broad applicability. Further extensions and
+coordinated profiles may be required in specific domains beyond QI-Core, e.g., radiology-specific profiles. The CQI and CDS Work Groups
+coordinate with HL7 Work Groups that manage specific FHIR resources to align definitions and value sets including
 concepts required for CDS and retrospective CQM use cases. When additional classes and attributes are needed for
 specific quality applications, they can be added through FHIR's extension mechanism. These extensions, however, would
 not automatically result in shareable artifacts without additional coordinating agreements between interested parties.
@@ -122,14 +122,14 @@ QI-Core profile authoring will provide a more facile method for creating CQM and
 
 ### Scope
 
-The QI-Core FHIR Implementation Guide provides requirements and guidance on the use of FHIR in quality measurement and
+The QI-Core FHIR Implementation Guide provides requirements and guidance for using FHIR in quality measurement and
 decision support. The profiles in this implementation guide will be used to meet QI-Core project objectives of:
 
--  Encouraging consistent access and use of data for clinical quality applications, across organizations and between healthcare systems,
+-  Encouraging consistent access and use of data for clinical quality applications across organizations and between healthcare systems,
 -  Providing guidance for consistent use of vocabularies and value sets, and
 -  Standardizing the requirements for data servers and data consumers (clients) that exchange quality-related clinical data needed for calculation of quality measures and decision support.
 
-This IG is focused on representation of clinical data, and is limited in breadth to the profiles currently included in
+This IG is focused on representation of clinical data and is limited in breadth to the profiles currently included in
 QI-Core. Not all FHIR resources are profiled, especially those that do not have clinical value in the context of quality
 improvement, or do not map to QIDAM. Additional extensions may be added to the current set of profiles, and additional
 profiles may be added at a later time. In particular, QI-Core represents a subset of the semantics covered in QIDAM,
@@ -149,7 +149,7 @@ The following topics are explicitly out of scope for this implementation guide:
 
 Some of the above topics are under active investigation and will be topics of future standards efforts. Specifically,
 the FHIR [Clinical Reasoning]({{site.data.fhir.path}}clinicalreasoning-module.html) module provides resources and
-guidance for how to represent and evaluate quality improvement artifacts within FHIR.
+guidance representing and evaluating quality improvement artifacts within FHIR.
 
 <div class="new-content" markdown="1">
 Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
@@ -159,22 +159,21 @@ Changes in QI-Core STU 6.0 scope include a simplification to reduce the number o
 
 Quality applications may make use of patient-specific information. For this reason, all transactions must be
 appropriately secured, limiting access to authorized individuals and protecting data while in transit (as laid out in
-the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.10.1)). These are the same
-considerations that would relate to any FHIR implementation, and include authentication, authorization, access control
-consistent with patient consent, transaction logging, and following best practices. For the purposes of QI-Core,
-security conformance rules are as follows:
+the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.10.1)). These 
+considerations relate to any FHIR implementation, including authentication, authorization, access control
+consistent with patient consent, transaction logging, and following best practices. QI-Core security conformance rules are as follows:
 
 -  Systems **SHOULD** use TLS version 1.1 or higher with bi-directional certificate validation for all transmissions not taking place over a secure network connection.
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
 -  Systems **SHOULD** use either IHE's ATNA standard for audit logging or an equivalent using the AuditEvent resource.
 
-It is the responsibility of the server (data provider) to ensure that any necessary consent records exist and are
+The server (data provider) is responsible for ensuring that any necessary consent records exist and are
 reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in
 the same manner as other transactions, as discussed above under General Security Considerations.
 
 ### Provenance
 
-QI-Core addresses provenance at a data element level. We address data element provenance as defined with the individual
+QI-Core addresses provenance at a data element level. We address data element provenance as defined by each respective
 FHIR resource.  Each FHIR resource has its own way to address provenance (author, performer, author or issued date,
 occurrence date, etc.). Therefore, we assure QI-Core can handle provenance based on the resource modeling.  The US
 domain Quality Data Model handles provenance in the same way and the mapping tables from QDM attributes to QI-Core/FHIR
@@ -186,9 +185,9 @@ approach to provenance.
 
 ### Relationship to Other Initiatives
 
-QI-Core has been harmonized with certain other FHIR-based initiatives, in particular, the
+QI-Core has been harmonized with other FHIR-based initiatives, particularly, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
-[US Core]({{site.data.fhir.ver.uscore}}) is a U.S. Realm Implementation Guide, developed under the DAF initiative, that
+[US Core]({{site.data.fhir.ver.uscore}}) is a US Realm Implementation Guide, developed under the DAF initiative, that
 maps ONC Common Clinical Data Set elements to FHIR resources. The data elements in US Core are also in QI-Core, and
 whenever possible, profiles defined in QI-Core are derived from the profiles in US Core. As a result, conforming to US
 Core automatically satisfies a significant subset of the conformance requirements of QI-Core. QI-Core conformance
@@ -198,7 +197,7 @@ measures or clinical decision support.
 Because QI-Core profiles derive from US Core profiles where possible, wherever US Core defines a binding, the QI-Core
 profiles inherit that binding. QI-Core may specify additional constraints, such as requiring a binding that is only
 preferred in the US Core base profile, but in general, the QI-Core profiles use the same bindings as US Core. This means
-that QI-Core is currently a U.S. Realm specification. To support applications outside the U.S. Realm, additional binding
+that QI-Core is currently a US Realm specification. To support applications outside the US Realm, additional binding
 analysis and effort would be required.
 
 QI-Core's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QI-Core
@@ -225,7 +224,7 @@ In addition to the requirements defined in the US Core base, QI Core further des
 functionality.
 
 Certain elements in the QI-Core profiles have a "MustSupport" flag. In the QI-Core quality profiles, the MustSupport
-flag is used to indicate whether the element must be supported in QI implementations. More specifically, labelling an
+flag is used to indicate whether the element must be supported in QI implementations. More specifically, labeling an
 element as MustSupport means that quality improvement implementations SHALL understand and process the element.
 
 In addition, only elements where MustSupport is true can be used in quality measure criteria or decision support
@@ -251,12 +250,12 @@ A number of  QI-Core profiles inherit directly from US Core profiles, if any, or
 In summary, MustSupport elements represent the minimal set of data elements that must be supported in quality
 applications, defined as follows:
 
--  data elements whenever that data is available,
--  Quality artifact authors **SHOULD** reference only elements that are marked must support, especially in the left-hand side of artifacts (measure criteria, decision support inclusion/exclusion criteria, etc.). However, additional expectations for the data requirements of artifacts MAY be communicated via the dataRequirements elements of knowledge artifacts, and
+-  Data elements whenever that data is available,
+-  Quality artifact authors **SHOULD** reference only elements that are marked must support, especially in the left-hand side of artifacts (measure criteria, decision support inclusion/exclusion criteria, etc.). However, additional expectations for the data requirements of artifacts **MAY** be communicated via the dataRequirements elements of knowledge artifacts, and
 -  Quality improvement artifact applications **SHALL** recognize and process all MustSupport elements in QI-Core.
 
 Throughout the QI-Core profiles elements that are marked as required, meaning they have a minimum cardinality of 1, will also
-be marked as MustSupport. In the case of complex elements if the top level element is marked as MustSupport then any required
+be marked as MustSupport. In the case of complex elements if the top-level element is marked as MustSupport then any required
 sub-elements will be marked as MustSupport as well.
 ### Modifying Attributes
 
@@ -331,16 +330,16 @@ In this example for negation rationale, the logic looks for a member of the valu
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
 value set.
 
-> NOTE: The above example uses profile-informed authoring (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
+> **NOTE:** The above example uses profile-informed authoring (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
 
-To report Antithrombotic Therapy Not Administered, implementing systems reference the canonical url of the "Antithrombotic
+To report Antithrombotic Therapy Not Administered, implementing systems reference the canonical URL of the "Antithrombotic
 Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) extension to indicate
 providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
-set canonical url to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
+set canonical URL to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
 not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
-did not administer in order to negate.
+did not administer in order to negate. 
 
-Similarly, to report "ProcedureNotDone": "Cardiac Surgery" with a reason, the canonical url of "Cardiac Surgery" value set
+Similarly, to report "ProcedureNotDone": "Cardiac Surgery" with a reason, the canonical URL of "Cardiac Surgery" value set
 is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
 specified in the "Cardiac Surgery" value set.
 
@@ -349,7 +348,7 @@ Note that the negation profiles can be used to make two different types of negat
 1. Documentation that a specific activity was not performed for a given reason (e.g. [MedicationRequest example negative a specific code](MedicationRequest-negation-example-code.html))
 2. Documentation that none of the activities in a given value set were performed for a given reason (e.g. [MedicationRequest example negating a value set](MedicationRequest-negation-example.html))
 
-Each of the negation profiles provides an example illustrating both types of negative statement.
+Each of the negation profiles provides an example illustrating both types of negative statements.
 
 QI-Core defines the following profiles specifically for representing negation rationale:
 
@@ -396,7 +395,7 @@ Please note: some US Core hyperlinks are currently inaccessible as a result of U
 
 #### Guidance for the use of Negation Profiles
 
-<p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set as indication that the reason applies to all valueset members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all valueset members were selected.</p>
+<p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set to indicate that the reason applies to all valueset members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all valueset members were selected.</p>
 
 <p>This would be the most common use case. A less frequent need is to indicate that they did not do ONE of the members of the valueset. Stakeholders should understand that either a reason for not acting on a valueset or a single member from that value set meet criteria for the notDone expression.</p>
 
@@ -404,7 +403,7 @@ Please note: some US Core hyperlinks are currently inaccessible as a result of U
 
 <ol>
   <li>Presence of a concept (code) from the statusReason value set</li>
-  <li>Presence of the code representing what has not occurred identified as:
+  <li>Presence of the code representing what has not occurred which may be identified as:
     <ol>
       <li>A direct reference code (DRC) indicating the expected activity (if the measure or CDS artifact included only a DRC)</li>
       <li>A value set OID representing the expected activity</li>
@@ -417,20 +416,20 @@ Please note: some US Core hyperlinks are currently inaccessible as a result of U
 
 <p>Examples of such a scenario:</p>
 <ol>
-<li>A measure numerator criterion includes an order for angiotensin converting enzyme inhibitors (ACEI). The clinician indicates not ordering enalapril due to the patient’s intolerance (drowsiness) and, instead, orders another ACEI in the same value set, lisinopril. The order for lisinopril would fulfill criteria for the numerator regardless of meeting criteria for MedicationNotRequested.  However, if the clinician did not order another medication from the value set (e.g., lisinopril), the presence of a doNotPerformReason for the value set member enalapril fulfills the criteria for MedicationNotRequested and the patient would be excluded from the measure even though numerator criteria were not met.</li>
-<li>A measure criterion for anticoagulation uses a valueset containing warfarin or direct-oral-anticoagulant (DOAC).  Studies may support preference of DOAC due to long term outcomes, but the clinician may select a reason for not ordering DOAC due to its expense. That reason for the single item (DOAC) meets criteria for the expression and fail to recognize lack of compliance with any anticoagulation.</li>
-<li>A measure evaluating lipid management uses statin valueset containing atorvastatin. The clinician may provide a reason for not ordering atorvastatin, such as myopathy. That reason meets criteria for the expression and fails to recognize lack of compliance with any lipid therapy, but the patient might be able to tolerate ezetimibe/simvastatin.</li>
+<li>A measure numerator criterion includes an order for angiotensin-converting enzyme inhibitors (ACEI). The clinician indicates not ordering enalapril due to the patient’s intolerance (drowsiness) and, instead, orders another ACEI in the same value set, lisinopril. The order for lisinopril would fulfill criteria for the numerator regardless of meeting criteria for MedicationNotRequested.  However, if the clinician did not order another medication from the value set (e.g., lisinopril), the presence of a doNotPerformReason for the value set member enalapril fulfills the criteria for MedicationNotRequested and the patient would be excluded from the measure even though numerator criteria were not met.</li>
+<li>A measure criterion for anticoagulation uses a valueset containing warfarin or direct-oral-anticoagulant (DOAC).  Studies may support preference of DOAC due to long-term outcomes, but the clinician may select a reason for not ordering DOAC due to its expense. That reason for the single item (DOAC) meets criteria for the expression and fail to recognize lack of compliance with any anticoagulation.</li>
+<li>A measure evaluating lipid management uses a statin valueset containing atorvastatin. The clinician may provide a reason for not ordering atorvastatin, such as myopathy. That reason meets criteria for the expression and fails to recognize lack of compliance with any lipid therapy, but the patient might be able to tolerate ezetimibe/simvastatin.</li>
 </ol>
 
-<p>Artifact developers should consider these facts when evaluating data retrieved as it pertains to measure intent and value set development. Implementers should consider these facts to consider providing data capture opportunities that limit practitioner burden.</p>
+<p>Artifact developers should consider these facts when evaluating data retrieved as it pertains to each measure's intent and value set development. Implementers should consider these facts to consider providing data capture opportunities that limit practitioner burden.</p>
 
 ### Terminology Bindings
 
 Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data
 owners to translate local data into the required vocabulary. As a US Realm product, QI-Core requires value sets and
 vocabularies referenced in the ONC Common Clinical Data Set (CCDS) and the US Core Data for Interoperability. Because
-QI-Core is expected to be applied outside the U.S. Realm, and also in clinical settings where local terminologies exist,
-U.S. Realm bindings could be  accompanied by alternative codes as translation codes in the QI-Core profiles. In the case
+QI-Core is expected to be applied outside the US Realm, and also in clinical settings where local terminologies exist,
+US Realm bindings could be  accompanied by alternative codes as translation codes in the QI-Core profiles. In the case
 that the US Core Data for Interoperability adopts QI-Core and CQL, policy should be created to mandate the
 preferred bindings given in the standard.
 
@@ -443,7 +442,7 @@ but within any given artifact, instances will typically use a restricted value s
 ### Resource References and "Any"
 
 FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a
-reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resources. For example,
+reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resourcegs. For example,
 QICore-Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any
 extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by
 Encounter.patient. References to QI-Core extensions accessed through references are guaranteed to be valid. References to resources that do not currently have
@@ -467,7 +466,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 -  The resources in "Any" references **SHALL** conform to QI-Core profiles if the base resource has a QI-Core profile
 -  Applications **SHALL NOT** process resource instances that include unknown modifying attributes
 -  Applications **SHOULD** use the preferred value sets
--  In the U.S. Realm, applications **SHALL** be simultaneously compliant with QI-Core profiles and US Core profiles. As such, the more restrictive bindings between US Core and QI-Core **SHALL** be adhered to. For example, all value sets that are required in US Core **SHALL** be required by QI-Core, regardless of the binding strength in QI-Core.
+-  In the US Realm, applications **SHALL** be simultaneously compliant with QI-Core profiles and US Core profiles. As such, the more restrictive bindings between US Core and QI-Core **SHALL** be adhered to. For example, all value sets that are required in US Core **SHALL** be required by QI-Core, regardless of the binding strength in QI-Core.
 
 ### Author Information
 
