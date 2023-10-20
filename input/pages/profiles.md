@@ -245,7 +245,7 @@ Base resource: [Observation]({{site.data.fhir.path}}observation.html)
 US Core profile: [US Core Pediatric Weight for Height Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)  
 Base resource: [Observation]({{site.data.fhir.path}}observation.html)  
 
-#### Observation - Pulse eOximetry
+#### Observation - Pulse Oximetry
 US Core profile: [US Core Pulse Oximetry]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)  
 Base resource: [Observation]({{site.data.fhir.path}}observation.html)  
 
