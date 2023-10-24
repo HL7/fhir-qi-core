@@ -1489,7 +1489,7 @@ setting. The list may include reference to new prescriptions sent to a
 pharmacy for dispensing and self-administration after discharge. It may
 also include over-the-counter medications and those medications already
 present in the patient’s home for which new prescriptions are not
-necessary.  The QDM Medication, Discharge concept is mapped to
+necessary. The QDM Medication, Discharge concept is mapped to
 MedicationRequest as a request to the patient to take the medication
 with MedicationRequest.intent = *plan* and MedicationRequest.setting =
 *discharge.*
