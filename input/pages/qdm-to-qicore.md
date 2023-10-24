@@ -919,7 +919,7 @@ of the patient.
 | code               | [FamilyMemberHistory.condition.code](StructureDefinition-qicore-familymemberhistory-definitions.html#FamilyMemberHistory.condition.code) | Condition suffered by relation. Extensible binding to [Condition/Problem/DiagnosisCodes](http://hl7.org/fhir/R4/valueset-condition-code.html)  |
 | id                 | [FamilyMemberHistory.id](StructureDefinition-qicore-familymemberhistory-definitions.html#FamilyMemberHistory.id)     |                                 |
 | authorDatetime     | [FamilyMemberHistory.date](StructureDefinition-qicore-familymemberhistory-definitions.html#FamilyMemberHistory.date) |  When history was recorded or last updated   |
-| relationship       | [FamilyMemberHistory.relationship](StructureDefinition-qicore-familymemberhistory-definitions.html#FamilyMemberHistory.relationship)     | Relationsip to the subject. Preferred binding to [FamilyMember](http://terminology.hl7.org/ValueSet/v3-FamilyMember)  |
+| relationship       | [FamilyMemberHistory.relationship](StructureDefinition-qicore-familymemberhistory-definitions.html#FamilyMemberHistory.relationship)     | Relationship to the subject. Preferred binding to [FamilyMember](http://terminology.hl7.org/ValueSet/v3-FamilyMember)  |
 | recorder           | N/A        |  There is no comparable element in the FHIR FamilyMemberHistory resource and there is no use case evident for such information     |
 {: .grid}
 
