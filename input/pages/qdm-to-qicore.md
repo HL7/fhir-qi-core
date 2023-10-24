@@ -422,7 +422,7 @@ change the patient's mental state would be a Procedure.
 | category                | [Communication.category](StructureDefinition-qicore-communication-definitions.html#Communication.category) |  QDM includes the attribute category allowing specification of the class of the communication (e.g., alert, notification, reminder, instruction). However, no current measures require this attribute as a specific category has not been significant to measure intent. Therefore, this element is not present in the QI-Core profile Key Elements Table.   |
 | medium                  | [Communication.medium](StructureDefinition-qicore-communication-definitions.html#Communication.medium)  |  How communication occurs (e.g., physical presence, online written, email, handwritten, etc.). This element is not present in the QI-Core profile Key Elements Table.  |
 | sentDatetime            | [Communication.sent](StructureDefinition-qicore-communication-definitions.html#Communication.sent)    |     When sent     |
-| receivedDatetime        | [Communication.received](StructureDefinition-qicore-communication-definitions.html#Communication.received)  | When recieved  |
+| receivedDatetime        | [Communication.received](StructureDefinition-qicore-communication-definitions.html#Communication.received)  | When received  |
 | authorDatetime          | [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) | Use of this QDM attribute is restricted to the QDM negation rationale use case. It does not apply to a communication with any status other than “not-done”. See Negation Rationale for Communication, Performed. |
 | relatedTo               | [Communication.basedOn](StructureDefinition-qicore-communication-definitions.html#Communication.basedOn)  | An order, proposal or plan fulfilled in whole or in part by this Communication. No current measures require this attribute. Therefore, this element is not present in the QI-Core profile Key Elements Table  |
 |                         | [Communication.inResponseTo](StructureDefinition-qicore-communication-definitions.html#Communication.inResponseTo) | Response to a communication   |
@@ -552,7 +552,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | code                    | [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code[x])       |    Device requested with preferred binding to [FHIRDeviceTypes.](http://hl7.org/fhir/R4/valueset-device-kind.html)      |
 | id                      | [DeviceRequest.id](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.id)                   |              |
 | reason                  | [DeviceRequest.reasonReference](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.reasonReference)   |  Linked reason for the request (e.g., condition or observation). This element is not included in the QI-Core profile Key Elements Table since feasibility of retrieval is limited.  |
-| authorDatetime          | [DeviceRequest.authoredOn](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.authoredOn)             | FHIR allows dateTime or Period for deseired time or schedule for use.                                                                     |
+| authorDatetime          | [DeviceRequest.authoredOn](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.authoredOn)             | FHIR allows dateTime or Period for desired time or schedule for use.                                                                     |
 | negationRationale       | See Below |
 | requester               | [DeviceRequest.requester](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.requester)      |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM requester attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
@@ -606,7 +606,7 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 | code                 | [DeviceRequest.code\[x\]](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.code[x])     |   Device requested with preferred binding to [FHIRDeviceTypes.](http://hl7.org/fhir/R4/valueset-device-kind.html)   |
 | id                   | [DeviceRequest.id](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.id)                 |                   |
 | reason               | [DeviceRequest.reasonReference](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.reasonReference)    |   Linked reason for the request (e.g., condition or observation). This element is not included in the QI-Core profile Key Elements Table since feasibility of retrieval is limited.   |
-| authorDatetime       | [DeviceRequest.authoredOn](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.authoredOn) |   FHIR allows dateTime or Period for deseired time or schedule for use.   |
+| authorDatetime       | [DeviceRequest.authoredOn](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.authoredOn) |   FHIR allows dateTime or Period for desired time or schedule for use.   |
 | negationRationale    | See Below |
 | requester            | [DeviceRequest.requester](StructureDefinition-qicore-devicerequest-definitions.html#DeviceRequest.requester)   |   Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM requester attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
@@ -790,8 +790,7 @@ An example of an encounter can be found [here](Encounter-encounter-ed-example.ht
 
 #### Encounter-Related Diagnoses and Procedures
 
-Previous versions of QI-Core have used the [Encounter.diagnosis](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis) element to
-reference to the list of diagnosis/diagnoses and procedures relevant to the encounter.
+Previous versions of QI-Core have used the [Encounter.diagnosis](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis) element to reference to the list of diagnosis/diagnoses and procedures relevant to the encounter.
 The [Encounter.diagnosis.usevalue](http://hl7.org/fhir/R4/valueset-diagnosis-role.html)
 helped to differentiates if the diagnosis or procedure role with respect to the encounter,
 e.g., the admission diagnosis (AD), the discharge diagnosis (DD), the chief complaint (CC),
@@ -1053,7 +1052,7 @@ Module specifies information about the patient, related person,
 practitioner and organization that is the basis of healthcare-related
 interactions such as encounters. QDM version 5.5 adopted a similar
 approach to such information by adding a new concept called *Entities.
-Entities*  represent concepts that can be used to specify details about
+Entities* represent concepts that can be used to specify details about
 an actor (or performer) participant in any activity represented by a QDM
 datatype. These *entities* are analogous to the FHIR resources *Patient,
 RelatedPerson, Practitioner,* and *Organization,* respectively called
@@ -1203,7 +1202,7 @@ identical.
 | priority                | N/A   | This QDM attribute is intended to reference elective from non-elective procedures. See discussion regarding “Encounter, Order” _priority_ which was created to differentiate elective encounters from non-elective encounters. Similar to the encounter discussion, a given procedure is not inherently elective or non-elective, the urgency is based on a patient’s status and other factors. Information about urgency, elective, non-elective may be found a scheduling or appointment application which may generate a tag for a procedure in the clinical record. This item is not present in the FHIR Procedure resource. Measure developers should work with clinical sites to determine the most effective method for identifying procedure priority. |
 | anatomicalLocationSite  | [Procedure.bodySite](StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite)  |   Target body sites with preferred binding to [SNOMEDCT Body Structures](http://hl7.org/fhir/R4/valueset-body-site.html). Existing measures have not provided a use case for this element. Therefore, the element does not appear in the QI-Core profile Key Elements Table.   |
 | reason                  | [Procedure.reasonCode](StructureDefinition-qicore-procedure-definitions.html#Procedure.reasonCode)  |  Code reason procedure is performed. Preferred binding to [Procedure Reason Codes](http://hl7.org/fhir/R4/valueset-procedure-reason.html).     |
-| result                  | [Simple Observation](StructureDefinition-qicore-simple-observation.html) or [Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) that includes the element [SimpleObservation.partOf](StructureDefinition-qicore-simple-observation-definitions.html#Observation.partOf) to reference the procedure to which it applies.     |        [Procedure.report](StructureDefinition-qicore-procedure-definitions.html#Procedure.report) references [DiagnosticReport-note](StructureDefinition-qicore-diagnosticreport-note.html), DocumentReference, Composition (histology result, pathology report, surgical report, etc.); the latter two are not QI-Core resources. However, based on feedback suggested that a procedure result might be better identified as [Simple Observation](StructureDefinition-qicore-simple-observation.html) or [Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) that includes the element [SimpleObservation.partOf](StructureDefinition-qicore-simple-observation-definitions.html#Observation.partOf) resources referencing the [ObservatonClinicalResult.partOf](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.partOf), or the [SimpleObservation.partOf](StructureDefinition-qicore-simple-observation-definitions.html#Observation.partOf) element to reference the procedure to which it applies.  |
+| result                  | [Simple Observation](StructureDefinition-qicore-simple-observation.html) or [Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) that includes the element [SimpleObservation.partOf](StructureDefinition-qicore-simple-observation-definitions.html#Observation.partOf) to reference the procedure to which it applies.     |        [Procedure.report](StructureDefinition-qicore-procedure-definitions.html#Procedure.report) references [DiagnosticReport-note](StructureDefinition-qicore-diagnosticreport-note.html), DocumentReference, Composition (histology result, pathology report, surgical report, etc.); the latter two are not QI-Core resources. However, based on feedback suggested that a procedure result might be better identified as [Simple Observation](StructureDefinition-qicore-simple-observation.html) or [Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)that includes the element [SimpleObservation.partOf](StructureDefinition-qicore-simple-observation-definitions.html#Observation.partOf) resources referencing the [ObservatonClinicalResult.partOf](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.partOf), or the [SimpleObservation.partOf](StructureDefinition-qicore-simple-observation-definitions.html#Observation.partOf) element to reference the procedure to which it applies.  |
 | negationRationale       | See Below |
 | relevantDatetime        | [Procedure.performed\[x\] dateTime](StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x])   |  When the procedure was performed (as a single point in time).   |
 | relevantPeriod          | [Procedure.performed\[x\] Period](StructureDefinition-qicore-procedure-definitions.html#Procedure.performed[x])     |   When the procedure was performed (over a period of time).      |
@@ -1887,8 +1886,8 @@ and, as a result, there is no direct mapping from the QDM Procedure priority att
 | status              | [Procedure.status](StructureDefinition-qicore-procedure-definitions.html#Procedure.status)   | While QDM does not have an attribute comparable to status, as a conceptual model, _status_ is implied by the QDM datatype name “Procedure, Performed”. Constrain to “completed”  |
 | code                | [Procedure.code](StructureDefinition-qicore-procedure-definitions.html#Procedure.code)       |  Identification of the procedure. Extensible binding to [US Core Procedure Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-procedure-code.html)  |
 | id                  | [Procedure.id](StructureDefinition-qicore-procedure-definitions.html#Procedure.id)           |                                  |
-| relatedTo           | [Procedure.basedOn](StructureDefinition-qicore-procedure-definitions.html#Procedure.basedOn) | A reference to a resource that contains details of the request for this procedure. There has not been a use case for this element in existing measures; thereore, it is not included in the QI-Core profile Key Elements Table. |
-| method              | N/A           | Procedure.method does not exist in FHIR. Rather than create an extension, QI-Core’s approach is to assume the Procedure.code includes reference to the method, therefore, this element does not exist in the QI-Core profile   |
+| relatedTo           | [Procedure.basedOn](StructureDefinition-qicore-procedure-definitions.html#Procedure.basedOn) | A reference to a resource that contains details of the request for this procedure. There has not been a use case for this element in existing measures; therefore, it is not included in the QI-Core profile Key Elements Table. |
+| method              | N/A           | Procedure.method does not exist in FHIR. Rather than create an extension, QI-Core’s approach is to assume the Procedure.code includes reference to the method, therefore, this element does not existing in the QI-Core profile   |
 | rank                | [Claim.procedure.sequence](StructureDefinition-qicore-claim-definitions.html#key_Claim.procedure.sequence) | Used to identify a principal procedure in the context of an encounter. See discussion in the QDM “Encounter, Performed” section indicating the rationale for using the Claim profile to identify principal or primary procedures and conditions. |
 | priority            | N/A           |   This QDM attribute is intended to reference elective from non-elective procedures. See discussion regarding “Encounter, Order” priority which was created to differentiate elective encounters from non-elective encounters. Similar to the encounter discussion, a given procedure is not inherently elective or non-elective, the urgency is based on a patient’s status and other factors. Information about urgency, elective, non-elective may be found a scheduling or appointment application which may generate a tag for a procedure in the clinical record. This item is not present in the FHIR Procedure resource. Measure developers should work with clinical sites to determine the most effective method for identifying procedure priority.  |
 | anatomicalLocationSite  | [Procedure.bodySite](StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite)  |    Target body sites with preferred binding to [SNOMEDCT Body Structures](http://hl7.org/fhir/R4/valueset-body-site.html). Existing measures have not provided a use case for this element. Therefore, the element does not appear in the QI-Core profile Key Elements Table.    |
@@ -1991,7 +1990,7 @@ development.
 
 Ideally, use of a substance-related resource should be driven by use
 cases and examples. Two such use cases currently exist in the quality
-measure community::
+measure community:
 
 * Determination that blood products (a biological product in FHIR
 resources) are ordered or are administered within specific time
@@ -2040,9 +2039,8 @@ as noted. Further work in base FHIR will advise how to reference specific admini
 
 <div class="new-content" markdown="1">
 
-NOTE – There is no specific QDM datatype to address two QI-Core STU 6 profiles, [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) and
-[Nutrition Intake](StructureDefinition-qicore-nutritionintake.html). Since neither of these profiles has been used to
-express an electronic clinical quality measure, determination of key elements is challenging. The following tables
+NOTE – There is no specific QDM datatype to address the  [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) QI-Core STU 6 profile. Since this profile has not been used to
+express an electronic clinical quality measure, determination of key elements is challenging. The following table
 may help measure developers determine what to use for potential use cases:
 
 
@@ -2060,15 +2058,6 @@ may help measure developers determine what to use for potential use cases:
 | negationRationale           | N/A           |                                                       |
 | authorDatetime              | [NutritionOrder.dateTime](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.dateTime)  | Date and time nutrition order was requested  |
 | relevantPeriod              | [NutritionOrder.enteralFormula.administration.schedule](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule)  |  Likely not relevant for measure use cases. Not present in QI-Core Key Elements Table.   |
-{: .grid}
-
-| **Nutrition Intake**                               | **QI-Core STU6**                 | **Comments**                                          |
-| -------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
-| **Nutrition Intake** | [Nutrition Intake](StructureDefinition-qicore-nutritionintake.html)  |        |
-| Status               | [NutritionIntake.modifierExtension:status](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.modifierExtension:status) | value set binding to [EventStatus](https://hl7.org/fhir/valueset-event-status.html) required  |
-| Associated Encounter | [NutritionIntake.encounter.value\[x\]](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.extension:encounter.value[x]) | encounter associated with nutritionIntake  |
-| Time of nutrition intake  | [NutritionIntake.occurence](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.extension:occurrence) | Encounter associated with Nutrition Intake |
-| Consumed Items       | [NutritionIntake.code](StructureDefinition-qicore-nutritionintake-definitions.html#Basic.code) |  Example binding to [ValueSet-qicore-example-foods](ValueSet-qicore-example-foods.html) – Consider concepts used in FHIR R5 [NutritionIntake.consumedItem.nutritionProduct](https://hl7.org/fhir/nutritionintake-definitions.html#NutritionIntake.consumedItem) which has example binding to [Food Type Codes](https://hl7.org/fhir/valueset-food-type.html)  |
 {: .grid}
 
 </div>
