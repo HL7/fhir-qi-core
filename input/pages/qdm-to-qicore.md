@@ -943,7 +943,7 @@ is valid with respect to the expected immunization schedule. The
 [US Core
 Immunization]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-immunization.html)
 profile is most consistent with the QDM datatype *Immunization,
-Administered*.  The mapping tables provided include mapping from QDM
+Administered*. The mapping tables provided include mapping from QDM
 *Immunization, Administered* and a reference to the FHIR [Immunization
 Evaluation](http://hl7.org/fhir/immunizationevaluation.html) resource.
 Note, the mapping table includes additional metadata about immunizations
