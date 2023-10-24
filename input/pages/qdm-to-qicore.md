@@ -349,7 +349,7 @@ QDM defines Communication as the transmission, receipt, or
 acknowledgement of information sent from a source to a recipient, such
 as from one clinician to another regarding findings, assessments, plans
 of care, consultative advice, instructions, educational resources, etc.
- The following text from the FHIR Communication and Procedure Resources
+The following text from the FHIR Communication and Procedure Resources
 may help to differentiate when to use Communication.
 
 [***FHIR Communication Resource***](http://hl7.org/fhir/communication.html)
