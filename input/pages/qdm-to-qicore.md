@@ -379,7 +379,7 @@ Non-patient specific communication use cases may include:
 
   - Advisory for battery service from a pump
 
-**Boundaries and Relationships (Section 8.20.2) - Communication and
+**Boundaries and Relationships (Section 8.22.2) - Communication and
 Encounter**
 
   - The Communication is about the transfer of information (which might
@@ -398,14 +398,6 @@ Encounter**
     mechanism for handling such calls will be explored in a future
     release.
 
-[***HL7 FHIR Procedure Resource***](http://hl7.org/fhir/procedure.html)
-
-The boundary between determining whether an action is a Procedure
-(training or counseling) as opposed to a Communication is based on
-whether there's a specific intent to change the mind-set of the patient.
-Mere disclosure of information would be considered a Communication. A
-process that involves verification of the patient's comprehension or to
-change the patient's mental state would be a Procedure.
 
 <div class="new-content" markdown="1">
 
