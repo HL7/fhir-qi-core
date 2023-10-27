@@ -446,9 +446,7 @@ identification of a patient’s disease, illness, injury, or condition.
 This category contains a single datatype to represent all of these
 concepts: Diagnosis. A practitioner determines the diagnosis by means of
 examination, diagnostic test results, patient history, and/or family
-history. Diagnoses are usually considered unfavorable, but they may also
-represent neutral or favorable conditions that affect a patient’s plan
-of care (e.g., pregnancy).
+history. 
 
 Based on changes in US Core STU5, QI-Core now has two methods for expressing conditions, [QICore Condition Problems and Health Concerns Profile](StructureDefinition-qicore-condition-problems-health-concerns.html), and [QICore Condition Encounter Diagnosis Profile](StructureDefinition-qicore-condition-encounter-diagnosis.html). Please reference the respective profile pages for explanation of the rationale for using each of these profiles. Briefly, the Condition Problems and Health Concerns Profile meets the US Core Data for Interoperability (USCDI) version 2 ‘Problems’ and ‘Health Concerns’ and SDOH Problems/Health Concerns requirements. The Condition Encounter Diagnosis Profile further meets the USCDI v2 requirement to define Encounter Diagnosis.
 <div class="new-content" markdown="1">
@@ -1036,7 +1034,6 @@ an individual related to family/caregiver support, education, and
 literacy (including health literacy), primary language, cultural beliefs
 (including health beliefs), persistent life stressors, spiritual and
 religious beliefs, immigration status, and history of abuse or neglect.
-Resources are means available to a patient to meet health and healthcare
 needs, which might include caregiver support, insurance coverage,
 financial resources, and community resources to which the patient is
 already connected and from which the patient is receiving benefit.
