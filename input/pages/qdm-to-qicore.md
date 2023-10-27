@@ -1023,8 +1023,8 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 
 ### Individual Characteristics
 
-QDM’s approach to defining information about participants In the
-healthcare process by defining Individual Characteristics. These
+QDM’s approach to defining information about participants in the
+healthcare process is to define specific attributes of healthcare participants. These
 properties of a patient, clinician, provider, or facility include
 demographics, behavioral factors, social or cultural factors, available
 resources, and preferences. Behaviors reference responses or actions
