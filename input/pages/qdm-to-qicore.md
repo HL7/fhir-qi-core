@@ -1405,18 +1405,19 @@ context:
 
 This QDM context correlates with a medication on a patient’s active medication
 list. In QI-Core STU3, Medication, Active was mapped to MedicationStatement.
-However, consistent with US Core R4 Update, medication list should use
+However, consistent with US Core R4 and subsequent versions, medication list should use
 MedicationRequest and not MedicationStatement. The mapping table provides
 guidance about how to use MedicationRequest.requester to specify medications
 ordered directly, those reported by a physician and those reported by the
 patient for a medication list.
 
+Include all MedicationRequest resources with an intent = "order" representing authorized medication orders directly derived from the system’s orders. 
 
-The MedicationRequest **SHALL** include all prescribed and “self-prescribed” medications reported by the Provider, Patient or Related Person.
+The MedicationRequest **SHALL** include all practitioner-reported and "self-reported" medications reported by the Provider, Patient or Related Person.
 
 * **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record. It may also indicate the source of the report
-* When recording “self-prescribed” medications **SHALL** use intent = “plan”
-* When recording “self-prescribed” orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
+* When recording "self-reported" medications **SHALL** use intent = “plan”
+* When recording "self-prescribed" orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
 
 <div class="new-content" markdown="1">
 
@@ -1425,7 +1426,7 @@ The MedicationRequest **SHALL** include all prescribed and “self-prescribed”
 | **Medication, Active**  | [MedicationRequest](StructureDefinition-qicore-medicationrequest.html)              |      |
 |                         | [MedicationRequest.status](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.status)    | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Order”. Constrain to active, completed  |
 |                         | [MedicationRequest.intent](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent)    | Required to differentiate an order from a recommendation. The intent value set allows such differentiation using “order” for orders and “plan” for recommendation. Constrain only to “order” (include children: original-order, reflex-order, filler-order, instance-order)    |
-|                         | [MedicationRequest.reported[x]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reported[x])   | When recording “self-prescribed” medications SHALL use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record    |
+|                         | [MedicationRequest.reported[x]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reported[x])   | When recording "self-reported" or "self-prescribed" medications **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record; "self-prescribed" medication **SHOULD** indicate the MedicationRequest.requester as the patient or related person.     |
 |                         | [MedicationRequest.category](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category) | Type of medication usage using [Medication Category Codes](http://hl7.org/fhir/R4/valueset-medicationrequest-category.html) |
 | **QDM Attribute**   |                                |                          |
 | code                | [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.medication[x])  |   Medication to be taken an extensible binding to [MedicationClinicalDrug (RxNorm)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion).   |
