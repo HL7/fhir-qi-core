@@ -40,7 +40,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |&emsp; [ QICore DeviceRequest](StructureDefinition-qicore-devicerequest.html)| |&emsp; [ DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
 |**2.1.14 DeviceUseStatement**|
 |&emsp; [ QICore DeviceUseStatement](StructureDefinition-qicore-deviceusestatement.html)| |&emsp; [ DeviceUseStatement]({{site.data.fhir.path}}deviceusestatement.html)|
-|**2.1.15 DiagnositcReport**|
+|**2.1.15 DiagnosticReport**|
 |&emsp; [ QICore DiagnosticReport Profile for Laboratory Results Reporting](StructureDefinition-qicore-diagnosticreport-lab.html)&emsp;| [US Core DiagnosticReport Profile for Laboratory Results Reporting]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-diagnosticreport-lab.html) |&emsp; [ DiagnosticReport]({{site.data.fhir.path}}diagnosticreport.html)|
 |&emsp; [ QICore DiagnosticReport Profile for Report and Note Exchange](StructureDefinition-qicore-diagnosticreport-note.html)| [US Core DiagnosticReport Profile for Report and Note Exchange]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-diagnosticreport-note.html) |&emsp; [ DiagnosticReport]({{site.data.fhir.path}}diagnosticreport.html)|
 |**2.1.16 Encounter**|
