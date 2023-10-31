@@ -60,7 +60,7 @@ This page lists the change history for each version of QI Core.
 1. Add additional notes to commenters in QI-Core 6.0 ballot ([FHIR-41574](https://jira.hl7.org/browse/FHIR-41574))
 1. Update landing page for QI-Core 6.0 ballot ([FHIR-41575](https://jira.hl7.org/browse/FHIR-41575))
 1. Removed NutritionIntake profile and example. Removed related Example-Foods valueset ([FHIR-41258](https://jira.hl7.org/browse/FHIR-41258))
-1. Replaced profiles table in profiles.md with a sectioned list of profiles. ([FHIR-42100](https://jira.hl7.org/browse/FHIR-42100))
+1. Altered profiles table in profiles.md to increase readability. ([FHIR-42100](https://jira.hl7.org/browse/FHIR-42100))
 
 
 ### STU5 Release (5.0.0)
