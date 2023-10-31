@@ -114,7 +114,7 @@ coordinate with HL7 Work Groups that manage specific FHIR resources to align def
 concepts required for CDS and retrospective CQM use cases. When additional classes and attributes are needed for
 specific quality applications, they can be added through FHIR's extension mechanism. These extensions, however, would
 not automatically result in shareable artifacts without additional coordinating agreements between interested parties.
-It is expected that QI-Core will evolve over time to include some of the extensional content when the community
+It is expected that QI-Core will evolve to include some of the extensional content when the community
 identifies a common need and the additional content has been validated.
 
 QI-Core profile authoring will provide a more facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
