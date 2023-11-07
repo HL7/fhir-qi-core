@@ -472,16 +472,18 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 
 |Author Name|Affiliation|Role|
 |---|---|---|
+|Abdullah Rafiqi|ICF|Editor|
 |Anne Smith|NCQA|Contributor|
 |Ben Hamlin|NCQA|Contributor|
-|Bryn Rhodes|Alphora|Editor|
+|Bryn Rhodes|Smile Digital Health|Editor|
 |Chris Moesel|The MITRE Corporation|Contributor|
 |Claude Nanjo|University of Utah|Originator|
 |Claudia Hall||Contributor|
 |Floyd Eisenberg|iParsimony, LLC|Primary|
 |James Bradley|The MITRE Corporation|Contributor|
 |Jason Walonoski|The MITRE Corporation|Contributor|
-|Juliet Rubini|Mathematica|Contributor|
+|Jen Seeman|ICF|Editor|
+|Juliet Rubini|ICF|Contributor|
 |Linda Michaelsen|Optum|Contributor|
 |Mark Kramer|The MITRE Corporation|Originator|
 |Jason Mathews|The MITRE Corporation|Originator|
