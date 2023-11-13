@@ -1026,6 +1026,7 @@ an individual related to family/caregiver support, education, and
 literacy (including health literacy), primary language, cultural beliefs
 (including health beliefs), persistent life stressors, spiritual and
 religious beliefs, immigration status, and history of abuse or neglect.
+Resources are means available to a patient to meet health and healthcare
 needs, which might include caregiver support, insurance coverage,
 financial resources, and community resources to which the patient is
 already connected and from which the patient is receiving benefit.
