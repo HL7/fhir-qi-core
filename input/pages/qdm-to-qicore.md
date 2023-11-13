@@ -1976,7 +1976,7 @@ Medication mappings listed in this QDM-to-QI-Core section.
 FHIR defines substance as a homogeneous material with a definite
 composition. Medications are classified as substances. However, to
 reference other substances, especially using the
-[SubstanceDefinition](http://hl7.org/fhir/substancespecification.html#SubstanceSpecification)
+[SubstanceDefinition](https://www.hl7.org/fhir/substancedefinition.html)
 resource is challenging since the resource is still undergoing
 development.
 
