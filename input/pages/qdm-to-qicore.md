@@ -379,7 +379,7 @@ Non-patient specific communication use cases may include:
 
   - Advisory for battery service from a pump
 
-**Boundaries and Relationships (Section 8.20.2) - Communication and
+**Boundaries and Relationships (Section 8.22.2) - Communication and
 Encounter**
 
   - The Communication is about the transfer of information (which might
@@ -398,14 +398,6 @@ Encounter**
     mechanism for handling such calls will be explored in a future
     release.
 
-[***HL7 FHIR Procedure Resource***](http://hl7.org/fhir/procedure.html)
-
-The boundary between determining whether an action is a Procedure
-(training or counseling) as opposed to a Communication is based on
-whether there's a specific intent to change the mind-set of the patient.
-Mere disclosure of information would be considered a Communication. A
-process that involves verification of the patient's comprehension or to
-change the patient's mental state would be a Procedure.
 
 <div class="new-content" markdown="1">
 
@@ -446,9 +438,7 @@ identification of a patient’s disease, illness, injury, or condition.
 This category contains a single datatype to represent all of these
 concepts: Diagnosis. A practitioner determines the diagnosis by means of
 examination, diagnostic test results, patient history, and/or family
-history. Diagnoses are usually considered unfavorable, but they may also
-represent neutral or favorable conditions that affect a patient’s plan
-of care (e.g., pregnancy).
+history. 
 
 Based on changes in US Core STU5, QI-Core now has two methods for expressing conditions, [QICore Condition Problems and Health Concerns Profile](StructureDefinition-qicore-condition-problems-health-concerns.html), and [QICore Condition Encounter Diagnosis Profile](StructureDefinition-qicore-condition-encounter-diagnosis.html). Please reference the respective profile pages for explanation of the rationale for using each of these profiles. Briefly, the Condition Problems and Health Concerns Profile meets the US Core Data for Interoperability (USCDI) version 2 ‘Problems’ and ‘Health Concerns’ and SDOH Problems/Health Concerns requirements. The Condition Encounter Diagnosis Profile further meets the USCDI v2 requirement to define Encounter Diagnosis.
 <div class="new-content" markdown="1">
@@ -684,7 +674,7 @@ Individual studies may use [QI Core DiagnosticReport Profile for Report and Note
 | resultDatetime           | [ObservationClinicalResult.issued](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.issued) |   Time observation result made available. |
 | relevantDatetime         | [ObservationClinicalResult.effective\[x\] dateTime](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.effective[x])  |   Time observation occurred if a point in time.  |
 | relevantPeriod           | [ObservationClinicalResult.effective\[x\] Period](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.effective[x])  |   Time observation occurred if it occurs over a period of time.   |
-| status                   | [ObservationClinicalResult.status](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.status) | Constrain status to -  final, amended, corrected. |
+| status                   | [ObservationClinicalResult.status](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.status) | Constrain status to - final, amended, corrected. |
 | authorDatetime           | [ObservationClinicalResult.issued](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.issued) | Time observation result made available. |
 | component                | [ObservationClinicalResult.component](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.component) | Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. Many measures address components of an observation as single elements. Therefore, component is not in the profile Key Elements Table; it can be found in the Snapshot Table tab of the respective profiles |
 | component.code           | [ObservationClinicalResult.component.code](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.component.code) |   See comment about component.   |
@@ -784,7 +774,7 @@ to indicate the physical place where the initial encounter services occur,
 and Encounter.location.period to indicate the _arrivalTime_ and the _departureTime_.
 Thus, the measure query can differentiate between _admissionTime_ used to
 determine length of stay and _arrivalTime_ used to indicate when the patient
-presented for care at the location which is prior to the formal completion of the admission process
+presented for care at the location which is prior to the formal completion of the admission process.
 
 An example of an encounter can be found [here](Encounter-encounter-ed-example.html)
 
@@ -1023,8 +1013,8 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 
 ### Individual Characteristics
 
-QDM’s approach to defining information about participants In the
-healthcare process by defining Individual Characteristics. These
+QDM’s approach to defining information about participants in the
+healthcare process by defining specific attributes of healthcare participants. These
 properties of a patient, clinician, provider, or facility include
 demographics, behavioral factors, social or cultural factors, available
 resources, and preferences. Behaviors reference responses or actions
@@ -1130,15 +1120,16 @@ to the index patient. 
 | **QDM Attribute**  | **QI-Core STU6**        | **Comments**    |
 | ------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
 | **Race**      |                                                                                                                    |  See US CoreRaceExtension for details   |
-| code          | [Patient.extension:race](StructureDefinition-qicore-patient-definitions.html#Patient.extension:race)               |          |
+| code          | [Patient.extension:race](StructureDefinition-qicore-patient-definitions.html#Patient.extension:race)               |  URL: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-race>        |
 | id            |                                                                                                                    |          |
+|               | [tribalAffiliation](http://hl7.org/fhir/us/qicore/2023Sep/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:tribalAffiliation) | USCDI version 3 added a new concept, [tribalAffiliation](http://hl7.org/fhir/us/qicore/2023Sep/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:tribalAffiliation), using US Core Tribal Affiliation Extension <br/> URL: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation> | 
 |**Ethnicity**  |                                                                                                                    |          |
-| code          | [Patient.extention:ethnicity](StructureDefinition-qicore-patient-definitions.html#Patient.extension:ethnicity)     | See US CoreEthnicityExtension for details |
+| code          | [Patient.extention:ethnicity](StructureDefinition-qicore-patient-definitions.html#Patient.extension:ethnicity)     | URL: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity> |
 | id            |                                                                                                                    |          |
 | **Sex**       |                                                                                                                    |          |
-| code          | [Patient.extension:birthsex](StructureDefinition-qicore-patient-definitions.html#Patient.extension:birthsex)       |          |
-| Code          | [Patient.extension:us-core-sex](StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:sex) |  Required binding to [Sex](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.3/expansion) |
-| code          | [Patient.gender](StructureDefinition-qicore-patient-definitions.html#Patient.gender)                               |  Administrative Gender  |
+| code          | [Patient.extension:birthsex](StructureDefinition-qicore-patient-definitions.html#Patient.extension:birthsex)       | When created, QDM's focus was to address the concept of sex as identified at birth. Hence, this birthsex is the most direct mapping to the intent of QDM.  However, USCDI version 3 changes the focus for data capture to [Sex](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.3/expansion) as noted in US Core 6.1.0. USCDI also adds the concept of [genderIdentity](http://hl7.org/fhir/us/qicore/2023Sep/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:genderIdentity)         |
+|               | [Sex](StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:sex) |  USCDI version 3 Sex extension <http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex> with binding: [Created specifically to support United States USCDI v3 data element "Sex" (required)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.3/expansion), a data element used for general documentation of sex representation: concepts limited to Male, Female, Patient Sex Unknown, asked-declined.  |
+|               | [genderIdentity](http://hl7.org/fhir/us/qicore/2023Sep/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:genderIdentity)                               |  USCDI version 3 Individual's gender identity <http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity> with binding: [Gender Identity (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1021.32/expansion)  |
 | id            |                                                                                                                    |          |
 | **Birthdate** |                                                                                                                    |          |
 | birthDatetime | [Patient.birthdate](StructureDefinition-qicore-patient-definitions.html#Patient.birthDate)                         |  Fixed code 21112-8   |
@@ -1404,18 +1395,19 @@ context:
 
 This QDM context correlates with a medication on a patient’s active medication
 list. In QI-Core STU3, Medication, Active was mapped to MedicationStatement.
-However, consistent with US Core R4 Update, medication list should use
+However, consistent with US Core R4 and subsequent versions, medication list should use
 MedicationRequest and not MedicationStatement. The mapping table provides
 guidance about how to use MedicationRequest.requester to specify medications
 ordered directly, those reported by a physician and those reported by the
 patient for a medication list.
 
+Include all MedicationRequest resources with an intent = "order" representing authorized medication orders directly derived from the system’s orders. 
 
-The MedicationRequest **SHALL** include all prescribed and “self-prescribed” medications reported by the Provider, Patient or Related Person.
+The MedicationRequest **SHALL** include all practitioner-reported and "self-reported" medications reported by the Provider, Patient or Related Person.
 
 * **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record. It may also indicate the source of the report
-* When recording “self-prescribed” medications **SHALL** use intent = “plan”
-* When recording “self-prescribed” orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
+* When recording "self-reported" or "self-prescribed" medications **SHALL** use intent = “plan”
+* When recording "self-prescribed" orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
 
 <div class="new-content" markdown="1">
 
@@ -1424,7 +1416,7 @@ The MedicationRequest **SHALL** include all prescribed and “self-prescribed”
 | **Medication, Active**  | [MedicationRequest](StructureDefinition-qicore-medicationrequest.html)              |      |
 |                         | [MedicationRequest.status](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.status)    | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Order”. Constrain to active, completed  |
 |                         | [MedicationRequest.intent](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent)    | Required to differentiate an order from a recommendation. The intent value set allows such differentiation using “order” for orders and “plan” for recommendation. Constrain only to “order” (include children: original-order, reflex-order, filler-order, instance-order)    |
-|                         | [MedicationRequest.reported[x]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reported[x])   | When recording “self-prescribed” medications SHALL use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record    |
+|                         | [MedicationRequest.reported[x]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reported[x])   | When recording "self-reported" or "self-prescribed" medications **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record; "self-prescribed" medication **SHOULD** indicate the MedicationRequest.requester as the patient or related person.     |
 |                         | [MedicationRequest.category](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category) | Type of medication usage using [Medication Category Codes](http://hl7.org/fhir/R4/valueset-medicationrequest-category.html) |
 | **QDM Attribute**   |                                |                          |
 | code                | [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.medication[x])  |   Medication to be taken an extensible binding to [MedicationClinicalDrug (RxNorm)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion).   |
@@ -1458,7 +1450,7 @@ profile address Immunization, Administered.
 | id                   | [MedicationAdministration.id](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.id) |               |
 | dosage               | [MedicationAdministration.dosage.dose](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.dosage.dose)   | Simple Quantity - Amount of medication for one administration  |
 | route                | [MedicationAdministration.dosage.route](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.dosage.route)  |  Path of substance into the body with preferred binding to [SNOMEDCT Route Codes](http://hl7.org/fhir/R4/valueset-route-codes.html).  |
-| frequency            | [MedicationAdministration.request](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.request)  | Reference to original MedicationRequest with content about prescription. Generally, retrieval of medication administration events applies to the hospital setting with a few exceptions. Linkage to the original authorizing prescription has not been considered relevant for the existing measure use cases requiring only to retrieve information about one or more administration events.  |
+| frequency            | [MedicationAdministration.request](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.request)  | Reference to original MedicationRequest with content about prescription. Generally, retrieval of medication administration events applies to locations that administer medications directly to a patient (e.g., hospital settings, skilled nursing facilities, Community-Based Residential Facilities (CBRFs), outpatient surgery centers) . Linkage to the original authorizing prescription has not been considered relevant for the existing measure use cases requiring only to retrieve information about one or more administration events.  |
 |                      | [MedicationAdministration.dosage.rate\[x\]](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.dosage.rate[x])     | The rate, dose quantity per unit of time (e.g., infusion rate). This element has not been the focus of measures to date, therefore, it is not included in the QI-Core profile Key Elements Table.     |
 |                      | [MedicationRequest.dosageInstruction.timing](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing)        | Timing schedule (e.g., every 8 hours). [MedicationAdministration.request](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.request) provides reference to the applicable [MedicationRequest ](StructureDefinition-qicore-medicationrequest.html)for this information. Generally, retrieval of medication administration events applies to the hospital setting with a few exceptions. Linkage to the original authorizing prescription has not been considered relevant for the existing measure use cases requiring only to retrieve information about one or more administration events. |
 | reason               | [MedicationAdministration.reasonCode](StructureDefinition-qicore-medicationadministration-definitions.html#MedicationAdministration.reasonCode)               | Reason administration performed, e.g., none, given as ordered, emergency. Preferred binding to [ReasonMedicationGivenCodes](http://hl7.org/fhir/R4/valueset-reason-medication-given-codes.html).|
@@ -1699,7 +1691,7 @@ QDM “Physical Exam, Order” should use ServiceRequest with *intent* = order f
 | id                      | [ServiceRequest.id](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.id)                  |            |
 | reason                  | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.reasonCode)  | Explanation/justification for procedure or service with extensible binding to [US Core Condition Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-condition-code.html)  |
 | authorDatetime          | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.authoredOn)  | When the request transitioned to being actionable. |
-| anatomicalLocationSite  | N/A    |  No comparable element in the ServiceRequest resource. This element has not be used in measures to-date as the requested procedure / action code can reference the respective anatomical site. |
+| anatomicalLocationSite  | N/A    |  No comparable element in the ServiceRequest resource. This element has not been used in measures to-date as the requested procedure / action code can reference the respective anatomical site. |
 | negationRationale       | See Below |
 | requester               | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)  |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _requester_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
@@ -1766,7 +1758,7 @@ QDM “Physical Exam, Recommended” should use ServiceRequest with *intent* = p
 | id                     | [ServiceRequest.id](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.id)     |             |
 | reason                 | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.reasonCode)   |  Explanation/justification for procedure or service with extensible binding to [US Core Condition Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-condition-code.html)  |
 | authorDatetime         | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.authoredOn)   | When the request transitioned to being actionable.  |
-| anatomicalLocationSite | N/A   |  No comparable element in the ServiceRequest resource. This element has not be used in measures to-date as the requested procedure / action code can reference the respective anatomical site.  |
+| anatomicalLocationSite | N/A   |  No comparable element in the ServiceRequest resource. This element has not been used in measures to-date as the requested procedure / action code can reference the respective anatomical site.  |
 | negationRationale      | See Below |
 | requester              | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)     |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _requester_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
@@ -1887,7 +1879,7 @@ and, as a result, there is no direct mapping from the QDM Procedure priority att
 | code                | [Procedure.code](StructureDefinition-qicore-procedure-definitions.html#Procedure.code)       |  Identification of the procedure. Extensible binding to [US Core Procedure Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-procedure-code.html)  |
 | id                  | [Procedure.id](StructureDefinition-qicore-procedure-definitions.html#Procedure.id)           |                                  |
 | relatedTo           | [Procedure.basedOn](StructureDefinition-qicore-procedure-definitions.html#Procedure.basedOn) | A reference to a resource that contains details of the request for this procedure. There has not been a use case for this element in existing measures; therefore, it is not included in the QI-Core profile Key Elements Table. |
-| method              | N/A           | Procedure.method does not exist in FHIR. Rather than create an extension, QI-Core’s approach is to assume the Procedure.code includes reference to the method, therefore, this element does not existing in the QI-Core profile   |
+| method              | N/A           | Procedure.method does not exist in FHIR. Rather than create an extension, QI-Core’s approach is to assume the Procedure.code includes reference to the method, therefore, this element does not exist in the QI-Core profile   |
 | rank                | [Claim.procedure.sequence](StructureDefinition-qicore-claim-definitions.html#key_Claim.procedure.sequence) | Used to identify a principal procedure in the context of an encounter. See discussion in the QDM “Encounter, Performed” section indicating the rationale for using the Claim profile to identify principal or primary procedures and conditions. |
 | priority            | N/A           |   This QDM attribute is intended to reference elective from non-elective procedures. See discussion regarding “Encounter, Order” priority which was created to differentiate elective encounters from non-elective encounters. Similar to the encounter discussion, a given procedure is not inherently elective or non-elective, the urgency is based on a patient’s status and other factors. Information about urgency, elective, non-elective may be found a scheduling or appointment application which may generate a tag for a procedure in the clinical record. This item is not present in the FHIR Procedure resource. Measure developers should work with clinical sites to determine the most effective method for identifying procedure priority.  |
 | anatomicalLocationSite  | [Procedure.bodySite](StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite)  |    Target body sites with preferred binding to [SNOMEDCT Body Structures](http://hl7.org/fhir/R4/valueset-body-site.html). Existing measures have not provided a use case for this element. Therefore, the element does not appear in the QI-Core profile Key Elements Table.    |
@@ -1984,7 +1976,7 @@ Medication mappings listed in this QDM-to-QI-Core section.
 FHIR defines substance as a homogeneous material with a definite
 composition. Medications are classified as substances. However, to
 reference other substances, especially using the
-[SubstanceDefinition](http://hl7.org/fhir/substancespecification.html#SubstanceSpecification)
+[SubstanceDefinition](https://www.hl7.org/fhir/substancedefinition.html)
 resource is challenging since the resource is still undergoing
 development.
 
