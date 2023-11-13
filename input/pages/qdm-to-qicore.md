@@ -1406,7 +1406,7 @@ Include all MedicationRequest resources with an intent = "order" representing au
 The MedicationRequest **SHALL** include all practitioner-reported and "self-reported" medications reported by the Provider, Patient or Related Person.
 
 * **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record. It may also indicate the source of the report
-* When recording "self-reported" medications **SHALL** use intent = “plan”
+* When recording "self-reported" or "self-prescribed" medications **SHALL** use intent = “plan”
 * When recording "self-prescribed" orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
 
 <div class="new-content" markdown="1">
