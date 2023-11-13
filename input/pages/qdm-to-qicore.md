@@ -786,7 +786,7 @@ helped to differentiates if the diagnosis or procedure role with respect to the 
 e.g., the admission diagnosis (AD), the discharge diagnosis (DD), the chief complaint (CC),
 a comorbidity diagnosis (CM), a pre-op diagnosis (pre-op), a post-op diagnosis (post-op)
 or a billing diagnosis (billing). Further, _principal diagnosis_ was specified by
-Encounter.diagnosis.use= _billing_, and Encounter.diagnosis.rank- 1 with similar modeling for
+Encounter.diagnosis.use= _billing_, and Encounter.diagnosis.rank=1 with similar modeling for
 principal procedures. Further prior versions of QI-Core identified _present on admission (POA)_
 using Encounter.diagnosis.onAdmission.
 
