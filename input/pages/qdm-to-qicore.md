@@ -1014,7 +1014,7 @@ Use [QICoreMedicationNotRequested](StructureDefinition-qicore-medicationnotreque
 ### Individual Characteristics
 
 QDM’s approach to defining information about participants in the
-healthcare process is to define specific attributes of healthcare participants. These
+healthcare process by defining specific attributes of healthcare participants. These
 properties of a patient, clinician, provider, or facility include
 demographics, behavioral factors, social or cultural factors, available
 resources, and preferences. Behaviors reference responses or actions
@@ -1026,6 +1026,7 @@ an individual related to family/caregiver support, education, and
 literacy (including health literacy), primary language, cultural beliefs
 (including health beliefs), persistent life stressors, spiritual and
 religious beliefs, immigration status, and history of abuse or neglect.
+Resources are means available to a patient to meet health and healthcare
 needs, which might include caregiver support, insurance coverage,
 financial resources, and community resources to which the patient is
 already connected and from which the patient is receiving benefit.
@@ -1405,7 +1406,7 @@ Include all MedicationRequest resources with an intent = "order" representing au
 The MedicationRequest **SHALL** include all practitioner-reported and "self-reported" medications reported by the Provider, Patient or Related Person.
 
 * **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record. It may also indicate the source of the report
-* When recording "self-reported" medications **SHALL** use intent = “plan”
+* When recording "self-reported" or "self-prescribed" medications **SHALL** use intent = “plan”
 * When recording "self-prescribed" orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
 
 <div class="new-content" markdown="1">
@@ -1878,7 +1879,7 @@ and, as a result, there is no direct mapping from the QDM Procedure priority att
 | code                | [Procedure.code](StructureDefinition-qicore-procedure-definitions.html#Procedure.code)       |  Identification of the procedure. Extensible binding to [US Core Procedure Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-procedure-code.html)  |
 | id                  | [Procedure.id](StructureDefinition-qicore-procedure-definitions.html#Procedure.id)           |                                  |
 | relatedTo           | [Procedure.basedOn](StructureDefinition-qicore-procedure-definitions.html#Procedure.basedOn) | A reference to a resource that contains details of the request for this procedure. There has not been a use case for this element in existing measures; therefore, it is not included in the QI-Core profile Key Elements Table. |
-| method              | N/A           | Procedure.method does not exist in FHIR. Rather than create an extension, QI-Core’s approach is to assume the Procedure.code includes reference to the method, therefore, this element does not existing in the QI-Core profile   |
+| method              | N/A           | Procedure.method does not exist in FHIR. Rather than create an extension, QI-Core’s approach is to assume the Procedure.code includes reference to the method, therefore, this element does not exist in the QI-Core profile   |
 | rank                | [Claim.procedure.sequence](StructureDefinition-qicore-claim-definitions.html#key_Claim.procedure.sequence) | Used to identify a principal procedure in the context of an encounter. See discussion in the QDM “Encounter, Performed” section indicating the rationale for using the Claim profile to identify principal or primary procedures and conditions. |
 | priority            | N/A           |   This QDM attribute is intended to reference elective from non-elective procedures. See discussion regarding “Encounter, Order” priority which was created to differentiate elective encounters from non-elective encounters. Similar to the encounter discussion, a given procedure is not inherently elective or non-elective, the urgency is based on a patient’s status and other factors. Information about urgency, elective, non-elective may be found a scheduling or appointment application which may generate a tag for a procedure in the clinical record. This item is not present in the FHIR Procedure resource. Measure developers should work with clinical sites to determine the most effective method for identifying procedure priority.  |
 | anatomicalLocationSite  | [Procedure.bodySite](StructureDefinition-qicore-procedure-definitions.html#Procedure.bodySite)  |    Target body sites with preferred binding to [SNOMEDCT Body Structures](http://hl7.org/fhir/R4/valueset-body-site.html). Existing measures have not provided a use case for this element. Therefore, the element does not appear in the QI-Core profile Key Elements Table.    |
