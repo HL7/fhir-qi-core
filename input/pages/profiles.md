@@ -75,11 +75,9 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |&emsp; [ QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [US Core MedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |&emsp; [ MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |**2.1.29 MedicationStatement**|
 |&emsp; [ QICore MedicationStatement](StructureDefinition-qicore-medicationstatement.html)| |&emsp; [ MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
-|**2.1.30 NutritionIntake**|
-|&emsp; [ QICore NutritionIntake](StructureDefinition-qicore-nutritionintake.html)| |&emsp; [ NutritionIntake (R5)](http://hl7.org/fhir/R5/nutritionintake.html)|
-|**2.1.31 NutritionOrder**|
+|**2.1.30 NutritionOrder**|
 |&emsp; [ QICore NutritionOrder](StructureDefinition-qicore-nutritionorder.html)| |&emsp; [ NutritionOrder]({{site.data.fhir.path}}nutritionorder.html)|
-|**2.1.32 Observation**|
+|**2.1.31 Observation**|
 |&emsp; [ QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)| [US Core Simple Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-simple-observation.html) |&emsp; [ Observation]({{site.data.fhir.path}}observation.html)|
 |&emsp; [ QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)|  |&emsp; [ Observation]({{site.data.fhir.path}}observation.html)|
 |&emsp; [ QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)| [US Core Laboratory Result Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html) |&emsp; [ Observation]({{site.data.fhir.path}}observation.html)|
@@ -103,29 +101,29 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 | | [US Core Observation Sexual Orientation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Observation Pregnancy Intent]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 | | [US Core Observation Pregnancy Status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-|**2.1.33 Organization**|
+|**2.1.32 Organization**|
 |&emsp; [ QICore Organization](StructureDefinition-qicore-organization.html)| [US Core Organization]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-organization.html) |&emsp; [ Organization]({{site.data.fhir.path}}organization.html)|
-|**2.1.34 Patient**|
+|**2.1.33 Patient**|
 |&emsp; [ QICore Patient](StructureDefinition-qicore-patient.html)| [US Core Patient]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-patient.html) |&emsp; [ Patient]({{site.data.fhir.path}}patient.html)|
-|**2.1.35 Practitioner**|
+|**2.1.34 Practitioner**|
 |&emsp; [ QICore Practitioner](StructureDefinition-qicore-practitioner.html)| [US Core Practitioner]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-practitioner.html) |&emsp; [ Practitioner]({{site.data.fhir.path}}practitioner.html)|
-|**2.1.36 PractitionerRole**|
+|**2.1.35 PractitionerRole**|
 |&emsp; [ QICore PractitionerRole](StructureDefinition-qicore-practitionerrole.html)| [US Core PractitionerRole]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-practitionerrole.html) |&emsp; [ PractitionerRole]({{site.data.fhir.path}}practitionerrole.html)|
-|**2.1.37 Procedure**|
+|**2.1.36 Procedure**|
 |&emsp; [ QICore Procedure](StructureDefinition-qicore-procedure.html)| [US Core Procedure]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-procedure.html) |&emsp; [ Procedure]({{site.data.fhir.path}}procedure.html)|
 |&emsp; [ QICore Procedure Not Done](StructureDefinition-qicore-procedurenotdone.html)| [US Core Procedure]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-procedure.html) |&emsp; [ Procedure]({{site.data.fhir.path}}procedure.html)|
-|**2.1.38 QuestionnaireResponse**|
+|**2.1.37 QuestionnaireResponse**|
 |&emsp; [ QICore QuestionnaireResponse](StructureDefinition-qicore-questionnaireresponse.html)| [US Core QuestionnaireResponse]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-questionnaireresponse.html) |&emsp; [ QuestionnaireResponse]({{site.data.fhir.path}}questionnaireresponse.html)|
-|**2.1.39 RelatedPerson**|
+|**2.1.38 RelatedPerson**|
 |&emsp; [ QICore RelatedPerson](StructureDefinition-qicore-relatedperson.html)|&emsp; [ US Core RelatedPerson]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-relatedperson.html) |&emsp; [ RelatedPerson]({{site.data.fhir.path}}relatedperson.html)|
-|**2.1.40 ServiceRequest**|
+|**2.1.39 ServiceRequest**|
 |&emsp; [ QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|&emsp; [ US Core ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html)  |&emsp; [ ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |&emsp; [ QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|&emsp; [ US Core ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html) |&emsp; [ ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
-|**2.1.41 Specimen**|
+|**2.1.40 Specimen**|
 | | [US Core Specimen]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-specimen.html)|&emsp; [ Specimen]({{site.data.fhir.path}}specimen.html)|
-|**2.1.42 Substance**|
+|**2.1.41 Substance**|
 |&emsp; [ QICore Substance](StructureDefinition-qicore-substance.html)| |&emsp; [ Substance]({{site.data.fhir.path}}substance.html)|
-|**2.1.43 Task**|
+|**2.1.42 Task**|
 |&emsp; [ QICore Task](StructureDefinition-qicore-task.html)| |&emsp; [ Task]({{site.data.fhir.path}}task.html)|
 |&emsp; [ QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)| |&emsp; [ Task]({{site.data.fhir.path}}task.html)|
 {: .list}
