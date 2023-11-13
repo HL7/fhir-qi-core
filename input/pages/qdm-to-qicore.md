@@ -674,7 +674,7 @@ Individual studies may use [QI Core DiagnosticReport Profile for Report and Note
 | resultDatetime           | [ObservationClinicalResult.issued](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.issued) |   Time observation result made available. |
 | relevantDatetime         | [ObservationClinicalResult.effective\[x\] dateTime](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.effective[x])  |   Time observation occurred if a point in time.  |
 | relevantPeriod           | [ObservationClinicalResult.effective\[x\] Period](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.effective[x])  |   Time observation occurred if it occurs over a period of time.   |
-| status                   | [ObservationClinicalResult.status](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.status) | Constrain status to -  final, amended, corrected. |
+| status                   | [ObservationClinicalResult.status](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.status) | Constrain status to - final, amended, corrected. |
 | authorDatetime           | [ObservationClinicalResult.issued](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.issued) | Time observation result made available. |
 | component                | [ObservationClinicalResult.component](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.component) | Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. Many measures address components of an observation as single elements. Therefore, component is not in the profile Key Elements Table; it can be found in the Snapshot Table tab of the respective profiles |
 | component.code           | [ObservationClinicalResult.component.code](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.component.code) |   See comment about component.   |
@@ -774,7 +774,7 @@ to indicate the physical place where the initial encounter services occur,
 and Encounter.location.period to indicate the _arrivalTime_ and the _departureTime_.
 Thus, the measure query can differentiate between _admissionTime_ used to
 determine length of stay and _arrivalTime_ used to indicate when the patient
-presented for care at the location which is prior to the formal completion of the admission process
+presented for care at the location which is prior to the formal completion of the admission process.
 
 An example of an encounter can be found [here](Encounter-encounter-ed-example.html)
 
@@ -1691,7 +1691,7 @@ QDM “Physical Exam, Order” should use ServiceRequest with *intent* = order f
 | id                      | [ServiceRequest.id](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.id)                  |            |
 | reason                  | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.reasonCode)  | Explanation/justification for procedure or service with extensible binding to [US Core Condition Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-condition-code.html)  |
 | authorDatetime          | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.authoredOn)  | When the request transitioned to being actionable. |
-| anatomicalLocationSite  | N/A    |  No comparable element in the ServiceRequest resource. This element has not be used in measures to-date as the requested procedure / action code can reference the respective anatomical site. |
+| anatomicalLocationSite  | N/A    |  No comparable element in the ServiceRequest resource. This element has not been used in measures to-date as the requested procedure / action code can reference the respective anatomical site. |
 | negationRationale       | See Below |
 | requester               | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)  |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _requester_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
@@ -1758,7 +1758,7 @@ QDM “Physical Exam, Recommended” should use ServiceRequest with *intent* = p
 | id                     | [ServiceRequest.id](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.id)     |             |
 | reason                 | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.reasonCode)   |  Explanation/justification for procedure or service with extensible binding to [US Core Condition Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-condition-code.html)  |
 | authorDatetime         | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.authoredOn)   | When the request transitioned to being actionable.  |
-| anatomicalLocationSite | N/A   |  No comparable element in the ServiceRequest resource. This element has not be used in measures to-date as the requested procedure / action code can reference the respective anatomical site.  |
+| anatomicalLocationSite | N/A   |  No comparable element in the ServiceRequest resource. This element has not been used in measures to-date as the requested procedure / action code can reference the respective anatomical site.  |
 | negationRationale      | See Below |
 | requester              | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)     |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _requester_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
