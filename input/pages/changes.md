@@ -64,7 +64,7 @@ This page lists the change history for each version of QI Core.
 1. Changed "self-prescribed" to "self-reported" throughout section 9.18.3 in QDM-QICore Mapping ([FHIR-42434](https://jira.hl7.org/browse/FHIR-42434))
 1. Added further details to Race, Ethnicity and Sex table elements in QDM-QICore Mapping for Patient Characteristics table ([FHIR-41932](https://jira.hl7.org/browse/FHIR-41932))
 1. Clarifying text edits in QDM-QI Core mapping ([FHIR-42432](https://jira.hl7.org/browse/FHIR-42432), [FHIR-42429](https://jira.hl7.org/browse/FHIR-42429), [FHIR-42422](https://jira.hl7.org/browse/FHIR-42422), [FHIR-42421](https://jira.hl7.org/browse/FHIR-42421) )
-
+1. Fixed broken link to FHIR extensions registry on extensions page([FHIR-42372](https://jira.hl7.org/browse/FHIR-42372))
 
 ### STU5 Release (5.0.0)
 
