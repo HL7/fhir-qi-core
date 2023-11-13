@@ -9,7 +9,7 @@ more information on using codes in resources, see the
 Further guidance on using Value Set Authority Center (VSAC) Resources with FHIR® Terminology Service
 can be found [here.]({{site.data.fhir.ver.uscore}}/terminology.html#using-value-set-authority-center-vsac)
 
-### ValueSet Resources
+### Value Set Resources
 
 These value sets have been defined for this implementation guide.
 
