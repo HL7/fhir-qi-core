@@ -472,6 +472,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 
 |Author Name|Affiliation|Role|
 |---|---|---|
+|Abdullah Rafiqi|ICF, Inc.|Contributor|
 |Anne Smith|NCQA|Contributor|
 |Ben Hamlin|NCQA|Contributor|
 |Bryn Rhodes|Alphora|Editor|
