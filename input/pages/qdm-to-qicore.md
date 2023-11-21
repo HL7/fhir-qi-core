@@ -449,12 +449,12 @@ Based on changes in US Core STU5, QI-Core now has two methods for expressing con
 |                                     | [ConditionProblemsHealthConcerns.clinicalStatus](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.clinicalStatus)         | QDM is a conceptual data model and it does not include a status attribute since it is incorporated in the name of the QDM datatype. QI-Core requires specific detail about status. Clinical status defines active, recurrence, relapse, inactive, remission, resolved with required binding to [ConditionClinicalStatusCodes](http://hl7.org/fhir/R4/valueset-condition-clinical.html)  |
 |                                     | [ConditionProblemsHealthConcerns.verificationStatus](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.verificationStatus) | Verification status defines confirmed, unconfirmed, provisional, differential, refuted, entered-in-error with required binding to [ConditionVerificationStatus](http://hl7.org/fhir/R4/valueset-condition-ver-status.html). QDM does not contain this attribute but it is valuable to determine metadata about a documented condition. |
 |                                     | [ConditionProblemsHealthConcerns.category](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.category)                     | Category defines the class of condition documentation, e.g., problem-list-item, encounter-diagnosis, health-concern. QDM does not contain this attribute but it is valuable to determine metadata about a documented condition. |
-| **QDM Attributes**           |  Identification of the condition with extensible binding to [US Core Condition Codes.](http://hl7.org/fhir/us/core/ValueSet-us-core-condition-code.html)   |                                                                     |
-| code                         | [ConditionProblemsHealthConcerns.code](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.code)    |                       |
+| **QDM Attributes**           |    |                                                                     |
+| code                         | [ConditionProblemsHealthConcerns.code](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.code)    |  Identification of the condition with extensible binding to [US Core Condition Codes.](http://hl7.org/fhir/us/core/ValueSet-us-core-condition-code.html)                      |
 | id                           | [ConditionProblemsHealthConcerns.id](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.id)   |                    |
 | prevalencePeriod             | [ConditionProblemsHealthConcerns.onset\[x\]](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.onset[x])                   |Estimated or actual date, date-time, or age. Note that some clinical products default condition documentation to date entered with option to change to date of onset.    |
 |                              | [ConditionProblemsHealthConcerns.abatement\[x\]](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.abatement[x])           | When in resolution/remission. May be dateTime, Age, Period Range, string.   |
-| authorDatetime               | [ConditionProblemsHealthConcerns.recordedDate](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.recordedDate)    |   Recorded date is date record was first recorded. Asserted date the condition was first asserted.   |
+| authorDatetime               | [ConditionProblemsHealthConcerns.recordedDate](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.recordedDate) <br> [ConditionProblemsHealthConcerns.assertedDate](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.extension:assertedDate)   |   Recorded date is date record was first recorded. <br> Asserted date the condition was first asserted.   |
 | severity                      | [ConditionProblemsHealthConcerns.severity](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.severity)      | Subjective severity of the condition (e.g., severe, moderate, mild). This element has limited feasibility and it is not in the Key Elements Table for US Core or QI-Core for Condition Diagnosis and Health Concern or Condition Encounter Diagnosis.    |
 | anatomicalLocationSite        | [ConditionProblemsHealthConcerns.bodySite](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.bodySite)      |   Anatomical location, if relevant. This element has limited feasibility and it is not in the Key Elements Table for US Core or QI-Core for Condition Diagnosis and Health Concern or Condition Encounter Diagnosis. Often, condition.code indicates the body site.   |
 | recorder                      | [ConditionProblemsHealthConcerns.recorder](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.recorder)          | Individual who recorded the record and takes responsibility for its content. This element has limited utility for a measure use case and it is not in the Key Elements Table for US Core or QI-Core for Condition Diagnosis and Health Concern or Condition Encounter Diagnosis.  |
@@ -674,7 +674,7 @@ Individual studies may use [QI Core DiagnosticReport Profile for Report and Note
 | resultDatetime           | [ObservationClinicalResult.issued](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.issued) |   Time observation result made available. |
 | relevantDatetime         | [ObservationClinicalResult.effective\[x\] dateTime](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.effective[x])  |   Time observation occurred if a point in time.  |
 | relevantPeriod           | [ObservationClinicalResult.effective\[x\] Period](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.effective[x])  |   Time observation occurred if it occurs over a period of time.   |
-| status                   | [ObservationClinicalResult.status](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.status) | Constrain status to -  final, amended, corrected. |
+| status                   | [ObservationClinicalResult.status](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.status) | Constrain status to - final, amended, corrected. |
 | authorDatetime           | [ObservationClinicalResult.issued](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.issued) | Time observation result made available. |
 | component                | [ObservationClinicalResult.component](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.component) | Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. Many measures address components of an observation as single elements. Therefore, component is not in the profile Key Elements Table; it can be found in the Snapshot Table tab of the respective profiles |
 | component.code           | [ObservationClinicalResult.component.code](StructureDefinition-qicore-observation-clinical-result-definitions.html#Observation.component.code) |   See comment about component.   |
@@ -774,7 +774,7 @@ to indicate the physical place where the initial encounter services occur,
 and Encounter.location.period to indicate the _arrivalTime_ and the _departureTime_.
 Thus, the measure query can differentiate between _admissionTime_ used to
 determine length of stay and _arrivalTime_ used to indicate when the patient
-presented for care at the location which is prior to the formal completion of the admission process
+presented for care at the location which is prior to the formal completion of the admission process.
 
 An example of an encounter can be found [here](Encounter-encounter-ed-example.html)
 
@@ -786,7 +786,7 @@ helped to differentiates if the diagnosis or procedure role with respect to the 
 e.g., the admission diagnosis (AD), the discharge diagnosis (DD), the chief complaint (CC),
 a comorbidity diagnosis (CM), a pre-op diagnosis (pre-op), a post-op diagnosis (post-op)
 or a billing diagnosis (billing). Further, _principal diagnosis_ was specified by
-Encounter.diagnosis.use= _billing_, and Encounter.diagnosis.rank- 1 with similar modeling for
+Encounter.diagnosis.use= _billing_, and Encounter.diagnosis.rank=1 with similar modeling for
 principal procedures. Further prior versions of QI-Core identified _present on admission (POA)_
 using Encounter.diagnosis.onAdmission.
 
@@ -1691,7 +1691,7 @@ QDM “Physical Exam, Order” should use ServiceRequest with *intent* = order f
 | id                      | [ServiceRequest.id](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.id)                  |            |
 | reason                  | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.reasonCode)  | Explanation/justification for procedure or service with extensible binding to [US Core Condition Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-condition-code.html)  |
 | authorDatetime          | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.authoredOn)  | When the request transitioned to being actionable. |
-| anatomicalLocationSite  | N/A    |  No comparable element in the ServiceRequest resource. This element has not be used in measures to-date as the requested procedure / action code can reference the respective anatomical site. |
+| anatomicalLocationSite  | N/A    |  No comparable element in the ServiceRequest resource. This element has not been used in measures to-date as the requested procedure / action code can reference the respective anatomical site. |
 | negationRationale       | See Below |
 | requester               | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)  |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _requester_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
@@ -1758,7 +1758,7 @@ QDM “Physical Exam, Recommended” should use ServiceRequest with *intent* = p
 | id                     | [ServiceRequest.id](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.id)     |             |
 | reason                 | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.reasonCode)   |  Explanation/justification for procedure or service with extensible binding to [US Core Condition Codes]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-condition-code.html)  |
 | authorDatetime         | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.authoredOn)   | When the request transitioned to being actionable.  |
-| anatomicalLocationSite | N/A   |  No comparable element in the ServiceRequest resource. This element has not be used in measures to-date as the requested procedure / action code can reference the respective anatomical site.  |
+| anatomicalLocationSite | N/A   |  No comparable element in the ServiceRequest resource. This element has not been used in measures to-date as the requested procedure / action code can reference the respective anatomical site.  |
 | negationRationale      | See Below |
 | requester              | [ServiceRequest.requester](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.requester)     |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _requester_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.   |
 {: .grid}
@@ -1834,7 +1834,7 @@ resource.
 Consistent with the method for specifying QDM’s concept negation rationale, a [TaskRejected](StructureDefinition-qicore-taskrejected.html) is represented with the following content:
 * [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) with valueset-task-status constrained to "rejected" (The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action.)
 * [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) binding to Negation Reason Codes (extensible)
-* [Task.code](StructureDefinition-qicore-taskrejected-definitions.html#Task.code) (Codes to identify how the task manages fulfillment of activities - the specific choice depends on the measure context) the direct reference code, it needs a cardinality of 1..1 and binding to the code or value set (it would need a notDoneValueSet URL: [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to reference the value set not performed)
+* [Task.code](StructureDefinition-qicore-taskrejected-definitions.html#Task.code) (Codes to identify how the task manages fulfillment of activities - the specific choice depends on the measure context) the direct reference code, it needs a cardinality of 1..1 and binding to the code or value set (it would need a notDoneValueSet url: [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) to reference the value set not performed)
 * [Task.focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) to reference the Resource (likely procedure) the task was acting on
 * [Task.encounter](StructureDefinition-qicore-taskrejected-definitions.html#Task.encounter) (Healthcare event during which this task originated)
 * [Task.for](StructureDefinition-qicore-taskrejected-definitions.html#Task.for) (Beneficiary of the Task) Reference (qicore-patient)
@@ -1976,7 +1976,7 @@ measure developers should consider expressing intent using the Substance mapping
 FHIR defines substance as a homogeneous material with a definite
 composition. However, to
 reference other substances, especially using the
-[SubstanceDefinition](http://hl7.org/fhir/substancespecification.html#SubstanceSpecification)
+[SubstanceDefinition](https://www.hl7.org/fhir/substancedefinition.html)
 resource is challenging since the resource is still undergoing
 development.
 
