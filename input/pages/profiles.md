@@ -3,10 +3,10 @@
 ### QI-Core Profiles
 The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if any, and the underlying FHIR resources:
 
-<div class="new-content" markdown="1">
+<br>
 
 
-|QI-Core Profile|USCore Profile|Base Resource|
+|QI-Core (6.0.0) Profile|USCore (6.1.0) Profile|Base Resource|
 |----|:----:|----:|
 |**2.1.1 AdverseEvent**|
 |&emsp; [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html)| &mdash; |&emsp; [ AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
@@ -128,7 +128,6 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |&emsp; [ QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)| &mdash; |&emsp; [ Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
-</div>
 
 ### Referencing QI-Core Profiles
 
