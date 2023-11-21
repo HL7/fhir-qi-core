@@ -364,7 +364,7 @@ That profile's Example Usage Scenarios include:
 - [Record or update](https://www.hl7.org/fhir/us/core/future-of-US-core.html#future-candidate-requirements-under-consideration) past or present jobs belonging to a patient
 
 To obtain information regarding other Occupational Data for Health (ODH)-specific concept as indicated in the ODH version 
-STU 1.3 [Artifacts Summary](http://build.fhir.org/ig/HL7/us-odh/artifacts.html) use the QI-Core SimpleObservation profile Observation.code 
+STU 1.3 [Artifacts Summary](https://hl7.org/fhir/us/odh/STU1.3/artifacts.html) use the QI-Core SimpleObservation profile Observation.code 
 element to reference the exact LOINC code referenced by the specific ODH element of interest (e.g., 74165-2 for History of employment 
 status NIOSH; 11341-5 for History of Occupation, 87510-4 Date of Retirement, etc.).
 
