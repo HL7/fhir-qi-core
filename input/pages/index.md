@@ -304,6 +304,7 @@ Evidence that "Antithrombotic Therapy" (defined by a medication-specific value s
         where AntithromboticTherapy.status = 'completed'
           and AntithromboticTherapy.category ~ QICoreCommon."Inpatient"
 
+
 #### Absence
 {: #absence}
 
@@ -351,6 +352,21 @@ Note that the negation profiles can be used to make two different types of negat
 Each of the negation profiles provides an example illustrating both types of negative statements.
 
 QI-Core defines the following profiles specifically for representing negation rationale:
+
+### Identifying Occupational Data for Health
+{: #Identifying-Occupational-Data-for-Health}
+
+The profile inherited from US Core Observation Occupation Profile is based upon the core FHIR Observation Resource and implements 
+the US Core Data for Interoperability (USCDI) Occupation and Occupation Industry requirements. 
+That profile's Example Usage Scenarios include:
+
+- Query for a patient’s work history
+- [Record or update](https://www.hl7.org/fhir/us/core/future-of-US-core.html#future-candidate-requirements-under-consideration) past or present jobs belonging to a patient
+
+To obtain information regarding other Occupational Data for Health (ODH)-specific concept as indicated in the ODH version 
+STU 1.3 [Artifacts Summary](http://build.fhir.org/ig/HL7/us-odh/artifacts.html) use the QI-Core SimpleObservation profile Observation.code 
+element to reference the exact LOINC code referenced by the specific ODH element of interest (e.g., 74165-2 for History of employment 
+status NIOSH; 11341-5 for History of Occupation, 87510-4 Date of Retirement, etc.).
 
 <div class="new-content" markdown="1">
 |QI-Core Positive Profile|QI-Core Negation Profile|Base Resource|
