@@ -31,10 +31,10 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |&emsp; [ QICore Condition Encounter Diagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html)| [US Core Condition Encounter Diagnosis]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-condition-encounter-diagnosis.html) |&emsp; [ Condition]({{site.data.fhir.path}}condition.html)|
 |&emsp; [ QICore Condition Problems Health Concerns](StructureDefinition-qicore-condition-problems-health-concerns.html)| [US Core Condition Problems Health Concerns]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-condition-problems-health-concerns.html) |&emsp; [ Condition]({{site.data.fhir.path}}condition.html)|
 |**2.1.11 Coverage**|
-|&emsp; [ QICore Coverage](StructureDefinition-qicore-coverage.html)| &mdash; |&emsp; [ Coverage]({{site.data.fhir.path}}coverage.html)|
+|&emsp; [ QICore Coverage](StructureDefinition-qicore-coverage.html)| [US Core Coverage]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-coverage.html) |&emsp; [ Coverage]({{site.data.fhir.path}}coverage.html)|
 |**2.1.12 Device**|
 |&emsp; [ QICore Device](StructureDefinition-qicore-device.html)| &mdash; |&emsp; [ Device]({{site.data.fhir.path}}device.html)|
-| <center> &mdash; </center> |[US Core Implantable Device]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-implantable-device.html) |&emsp; [ Device]({{site.data.fhir.path}}device.html)|
+|  &mdash; |[US Core Implantable Device]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-implantable-device.html) |&emsp; [ Device]({{site.data.fhir.path}}device.html)|
 |**2.1.13 DeviceRequest**|
 |&emsp; [ QICore Device Not Requested](StructureDefinition-qicore-devicenotrequested.html)| &mdash; |&emsp; [ DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
 |&emsp; [ QICore DeviceRequest](StructureDefinition-qicore-devicerequest.html)| &mdash; |&emsp; [ DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
