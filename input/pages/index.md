@@ -218,9 +218,9 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 ### MustSupport Flag
 
-QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
+QI-Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
 
-In addition to the requirements defined in the US Core base, QI Core further describes and constrains the "MustSupport"
+In addition to the requirements defined in the US Core base, QI-Core further describes and constrains the "MustSupport"
 functionality.
 
 Certain elements in the QI-Core profiles have a "MustSupport" flag. In the QI-Core quality profiles, the MustSupport

@@ -2,7 +2,7 @@
 
 {: #changes}
 
-This page lists the change history for each version of QI Core.
+This page lists the change history for each version of QI-Core.
 
 ### STU6-ballot (6.0.0)
 
