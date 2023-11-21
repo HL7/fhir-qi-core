@@ -1963,18 +1963,18 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 #### Substance, Administered; Substance, Order; Substance Recommended
 
-QDM defines Substance as a homogeneous material with definite
+QDM defines Substance as a homogeneous material with a definite
 composition that includes allergens, biological materials, chemicals,
 foods, drugs and materials. QDM distinguishes between medications from
 non-medication substances by separately listing medication datatypes.
 Substance may or may not have a code or be classified by a code system
-such RxNorm. Examples of a substance may include environmental agents
-(e.g., pollen, dust) and food (e.g., vitamins). Where a substance can be
-addressed using medication terminology (e.g. egg albumin) used the
-Medication mappings listed in this QDM-to-QI-Core section.
+such as RxNorm. Examples of a substance may include environmental agents
+(e.g., pollen, dust) and food (e.g., vitamins). Where a measure can use 
+medication terminology (e.g., egg albumin) to represent QDM concept Substance,
+measure developers should consider expressing intent using the Substance mappings listed in this QDM-to-QI-Core section.
 
 FHIR defines substance as a homogeneous material with a definite
-composition. Medications are classified as substances. However, to
+composition. However, to
 reference other substances, especially using the
 [SubstanceDefinition](https://www.hl7.org/fhir/substancedefinition.html)
 resource is challenging since the resource is still undergoing
@@ -1984,8 +1984,8 @@ Ideally, use of a substance-related resource should be driven by use
 cases and examples. Two such use cases currently exist in the quality
 measure community:
 
-* Determination that blood products (a biological product in FHIR
-resources) are ordered or are administered within specific time
+* Identifying blood products (a biological product in FHIR
+resources) ordered or administered within specific time
 relationships to other data elements – The FHIR Resource,
 [BiologicallyDerivedProduct](http://hl7.org/fhir/biologicallyderivedproduct.html),
 possibly using Procedure and ServiceRequest might have promise.
@@ -1995,44 +1995,31 @@ further information is available, rather than expressing the QDM
 blood transfusion, quality measure and clinical decision support
 (CDS) authors should consider using the procedure resource with a
 code representing transfusion.
-* Determination that human breast milk is used exclusively to feed
-newborn infants during the initial stay in the hospital after birth
-– Currently, FHIR includes a
+*  Determining exclusive newborn feeding with human breast milk 
+during the initial stay in the hospital after birth
+– Currently, FHIR R4 includes a
 [NutritionOrder](http://hl7.org/fhir/nutritionorder.html) resource
 to reference a request for a specific diet, or supplements to a
 diet. However, a resource for documenting administration of
-nutrition-related substances is still in development. Therefore, for
+nutrition-related substances is still in development. 
+The focus of the FHIR R5 resource NutritionIntake is interoperable messaging between
+nutrition applications and the EHR (i.e., not EHR to EHR nutrition information sharing).  Therefore, for
 this use case a quality measure or a clinical decision support (CDS)
 author could reference a NutritionOrder for an exclusive breast milk
 diet for the infant; however, such an expression could not reference
 clinical intake and output records to determine if anything other
-than human breast milk was administered to the infant. Moreover,
-classification of human breast milk requires clarification as to
-whether it is a
-[BiologicallyDerivedProduct](http://hl7.org/fhir/biologicallyderivedproduct.html),
-or if it should be referenced as a
-[Substance](http://hl7.org/fhir/substance.html).
+than human breast milk was administered to the infant. 
+Summarizing discussion among HL7 workgroups in late 2023, the QI-Core resource best suited
+to retrieve information about enteral intake is Observation (i.e., QI-Core Observation in versions STU4.1.1 and STU5.0, and SimpleObservation in STU6.0). 
+The following guidance may help measure developers trying to express retrieval of enteral intake data using SimpleObservation:  
 
-To provide some context and guidance, this QDM-to-QI-Core mapping
-includes reference to the QDM *datatypes* Substance, Order and
-Substance, Recommended using the
-[NutritionOrder](http://hl7.org/fhir/nutritionorder.html) resource. As
-noted in the second example provided, the resource is relatively new and
-it allows expressions to address only the type of diet ordered, not the
-foods or substances administered to a patient.
-
-The CQI Workgroup suggests use of the Procedure resource for QDM's Substance, Administered for nutritional and other
-non-medication substances. Indicate the procedure (e.g., oral feeding) and the Procedure.UsedCode to indicate the direct
-reference code or value set indicating the expected nutritional element expected. There is no current known eCQM use
-case or common practice for documenting NutritionOrder "negation rationale". Further, the only expressed use cases for
-substance other than those that are modeled similar to medications are nutritional substance administered (human breast
-milk) and biologically-derived product administration (blood) - both of these use cases can use the Procedure resources
-as noted. Further work in base FHIR will advise how to reference specific administration details in QI-Core.
+    * SimpleObservation.code = with binding to a direct reference code or value set indicating observation of enteral intake
+    * SimpleObservation.component.value with binding to a direct reference code or value set indicating the nutritional product of interest to the measure intent.  
 
 <div class="new-content" markdown="1">
 
-NOTE – There is no specific QDM datatype to address the  [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) QI-Core STU 6 profile. Since this profile has not been used to
-express an electronic clinical quality measure, determination of key elements is challenging. The following table
+NOTE – There is no specific QDM datatype to address the  [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) QI-Core STU 6 profile. 
+Since no current eCQM uses this profile, determination of key elements is challenging. The following table
 may help measure developers determine what to use for potential use cases:
 
 
