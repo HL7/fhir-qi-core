@@ -1,45 +1,9 @@
 {:toc}
 
-<div class="new-content" markdown="1">
 
 {:.stu-note}
 > This STU 6.0 update to the QI-Core profiles updates to US-Core STU v6.1.0. See the version history for a complete listing of changes to this version.
 
-<div class="note-to-balloters" markdown="1">
-#### Note To Balloters
-
-1.) The following QI-Core profiles have been included in previous versions of QI-Core but there is limited, if any, known usage. Please provide your input regarding whether each of these should remain as profiles in QI-Core STU6 for the intended use in clinical quality measures or clinical decision support artifacts. In your comments, please indicate the use case for which the respective profile adds value, and whether such information is easily retrievable:
-
-- [QI-Core BodyStructure](StructureDefinition-qicore-bodystructure.html)
-- [QI-Core ClaimResponse](StructureDefinition-qicore-claimresponse.html)
-- [QI-Core CommunicationRequest](StructureDefinition-qicore-communicationrequest.html)
-- [QI-Core DeviceUseStatement](StructureDefinition-qicore-deviceusestatement.html)
-- [QI-Core FamilyMemberHistory](StructureDefinition-qicore-familymemberhistory.html)
-- [QI-Core Flag](StructureDefinition-qicore-flag.html)
-- [QI-Core MedicationStatement](StructureDefinition-qicore-medicationstatement.html)
-- [QI-Core Substance](StructureDefinition-qicore-substance.html)
-
-2.) To the extent possible, QI-Core derives content from US Core profiles and extensions. There are a number of QI-Core profiles inherited directly from US Core profiles (i.e. US Core Implantable Device Profile, FHIR Vital Signs, US Core Smoking Status etc.) We seek implementer feedback regarding other FHIR implementation guides appropriate to directly reference including recommendations for the most appropriate method to address them, for example, [minimal Common Ontology Data Elements (mCode)](http://hl7.org/fhir/us/mcode/), [CARIN Consumer Directed Payer Data Exchange (CARIN IG for Blue Button)](http://hl7.org/fhir/us/carin-bb/), and other suggestions.
-
-3.) QI-Core has developed specific profiles based on existing US Core profiles adding constraints and/or additional must support elements required for the quality measurement and clinical decision support use cases. Such profiles in QI-Core 6.0 include:
-
-- [QI-Core Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
-- [QI-Core Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
-- [QI-Core Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html) 
-- [QI-Core Simple Observation](StructureDefinition-qicore-simple-observation.html)
-
-Please provide input regarding the value of developing similar QI-Core profiles based on the following existing US Core 6.1.0 profiles. Such changes could include provision of more specific value set bindings or further constraints on cardinality and addition of must support items:
-
-- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
-- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
-- [US Core Observation Occupation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html)
-- [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
-- [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html)
-
-{{ site.data.new_items.list[0].desc }}
-
-</div>
-</div>
 
 {: #qi-core-implementation-guide}
 
@@ -151,9 +115,8 @@ Some of the above topics are under active investigation and will be topics of fu
 the FHIR [Clinical Reasoning]({{site.data.fhir.path}}clinicalreasoning-module.html) module provides resources and
 guidance representing and evaluating quality improvement artifacts within FHIR.
 
-<div class="new-content" markdown="1">
 Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
-</div>
+
 
 ### Privacy, Security, and Consent
 
@@ -218,9 +181,9 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 ### MustSupport Flag
 
-QI Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
+QI-Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
 
-In addition to the requirements defined in the US Core base, QI Core further describes and constrains the "MustSupport"
+In addition to the requirements defined in the US Core base, QI-Core further describes and constrains the "MustSupport"
 functionality.
 
 Certain elements in the QI-Core profiles have a "MustSupport" flag. In the QI-Core quality profiles, the MustSupport
@@ -364,7 +327,7 @@ That profile's Example Usage Scenarios include:
 - [Record or update](https://www.hl7.org/fhir/us/core/future-of-US-core.html#future-candidate-requirements-under-consideration) past or present jobs belonging to a patient
 
 To obtain information regarding other Occupational Data for Health (ODH)-specific concept as indicated in the ODH version 
-STU 1.3 [Artifacts Summary](http://build.fhir.org/ig/HL7/us-odh/artifacts.html) use the QI-Core SimpleObservation profile Observation.code 
+STU 1.3 [Artifacts Summary](https://hl7.org/fhir/us/odh/STU1.3/artifacts.html) use the QI-Core SimpleObservation profile Observation.code 
 element to reference the exact LOINC code referenced by the specific ODH element of interest (e.g., 74165-2 for History of employment 
 status NIOSH; 11341-5 for History of Occupation, 87510-4 Date of Retirement, etc.).
 

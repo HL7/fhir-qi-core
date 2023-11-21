@@ -3,10 +3,10 @@
 ### QI-Core Profiles
 The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if any, and the underlying FHIR resources:
 
-<div class="new-content" markdown="1">
+<br>
 
 
-|QI-Core Profile|USCore Profile|Base Resource|
+|QI-Core (6.0.0) Profile|USCore (6.1.0) Profile|Base Resource|
 |----|:----:|----:|
 |**2.1.1 AdverseEvent**|
 |&emsp; [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html)| &mdash; |&emsp; [ AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
@@ -31,10 +31,10 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |&emsp; [ QICore Condition Encounter Diagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html)| [US Core Condition Encounter Diagnosis]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-condition-encounter-diagnosis.html) |&emsp; [ Condition]({{site.data.fhir.path}}condition.html)|
 |&emsp; [ QICore Condition Problems Health Concerns](StructureDefinition-qicore-condition-problems-health-concerns.html)| [US Core Condition Problems Health Concerns]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-condition-problems-health-concerns.html) |&emsp; [ Condition]({{site.data.fhir.path}}condition.html)|
 |**2.1.11 Coverage**|
-|&emsp; [ QICore Coverage](StructureDefinition-qicore-coverage.html)| &mdash; |&emsp; [ Coverage]({{site.data.fhir.path}}coverage.html)|
+|&emsp; [ QICore Coverage](StructureDefinition-qicore-coverage.html)| [US Core Coverage]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-coverage.html) |&emsp; [ Coverage]({{site.data.fhir.path}}coverage.html)|
 |**2.1.12 Device**|
 |&emsp; [ QICore Device](StructureDefinition-qicore-device.html)| &mdash; |&emsp; [ Device]({{site.data.fhir.path}}device.html)|
-| <center> &mdash; </center> |[US Core Implantable Device]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-implantable-device.html) |&emsp; [ Device]({{site.data.fhir.path}}device.html)|
+|  &mdash; |[US Core Implantable Device]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-implantable-device.html) |&emsp; [ Device]({{site.data.fhir.path}}device.html)|
 |**2.1.13 DeviceRequest**|
 |&emsp; [ QICore Device Not Requested](StructureDefinition-qicore-devicenotrequested.html)| &mdash; |&emsp; [ DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
 |&emsp; [ QICore DeviceRequest](StructureDefinition-qicore-devicerequest.html)| &mdash; |&emsp; [ DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
@@ -83,24 +83,24 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |&emsp; [ QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)| [US Core Laboratory Result Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-lab.html) |&emsp; [ Observation]({{site.data.fhir.path}}observation.html)|
 |&emsp; [ QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)| [US Core Observation Clinical Result]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-clinical-result.html) |&emsp; [ Observation]({{site.data.fhir.path}}observation.html)|
 |&emsp; [ QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)| [US Core Observation Screening Assessment]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-screening-assessment.html) |&emsp; [ Observation]({{site.data.fhir.path}}observation.html)|
-| <center> &mdash; </center> |[US Core Vital Signs]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-vital-signs.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Blood Pressure]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core BMI]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Body Height]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Body Temperature]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Body Weight]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Head Circumference]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Heart Rate]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Pediatric BMI for Age Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Pediatric Head Occipital-frontal Circumference Percentile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Pediatric Weight for Height Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Pulse Oximetry]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Respiratory Rate]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Smoking Status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Observation Occupation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Observation Sexual Orientation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Observation Pregnancy Intent]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html) | [Observation]({{site.data.fhir.path}}observation.html) |
-| <center> &mdash; </center> |[US Core Observation Pregnancy Status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Vital Signs]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-vital-signs.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Blood Pressure]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core BMI]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Body Height]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Body Temperature]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Body Weight]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Head Circumference]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Heart Rate]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Pediatric BMI for Age Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Pediatric Head Occipital-frontal Circumference Percentile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Pediatric Weight for Height Observation]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Pulse Oximetry]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Respiratory Rate]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Smoking Status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Observation Occupation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Observation Sexual Orientation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Observation Pregnancy Intent]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Observation Pregnancy Status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 |**2.1.32 Organization**|
 |&emsp; [ QICore Organization](StructureDefinition-qicore-organization.html)| [US Core Organization]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-organization.html) |&emsp; [ Organization]({{site.data.fhir.path}}organization.html)|
 |**2.1.33 Patient**|
@@ -120,7 +120,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |&emsp; [ QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|&emsp; [ US Core ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html)  |&emsp; [ ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |&emsp; [ QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|&emsp; [ US Core ServiceRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html) |&emsp; [ ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
 |**2.1.40 Specimen**|
-| <center> &mdash; </center> |[US Core Specimen]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-specimen.html)|&emsp; [ Specimen]({{site.data.fhir.path}}specimen.html)|
+|  &mdash;  |[US Core Specimen]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-specimen.html)|&emsp; [ Specimen]({{site.data.fhir.path}}specimen.html)|
 |**2.1.41 Substance**|
 |&emsp; [ QICore Substance](StructureDefinition-qicore-substance.html)| &mdash; |&emsp; [ Substance]({{site.data.fhir.path}}substance.html)|
 |**2.1.42 Task**|
@@ -128,7 +128,6 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |&emsp; [ QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)| &mdash; |&emsp; [ Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
-</div>
 
 ### Referencing QI-Core Profiles
 
