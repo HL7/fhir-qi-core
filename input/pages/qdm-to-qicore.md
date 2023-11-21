@@ -1973,13 +1973,6 @@ such as RxNorm. Examples of a substance may include environmental agents
 medication terminology (e.g., egg albumin) to represent QDM concept Substance,
 measure developers should consider expressing intent using the Substance mappings listed in this QDM-to-QI-Core section.
 
-FHIR defines substance as a homogeneous material with a definite
-composition. However, to
-reference other substances, especially using the
-[SubstanceDefinition](https://www.hl7.org/fhir/substancedefinition.html)
-resource is challenging since the resource is still undergoing
-development.
-
 Ideally, use of a substance-related resource should be driven by use
 cases and examples. Two such use cases currently exist in the quality
 measure community:
