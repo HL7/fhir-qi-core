@@ -415,7 +415,7 @@ preferred bindings given in the standard.
 Note that quality improvement artifact authors should pay close attention to binding parameters specified in the
 profiles to determine whether the value set defined in the binding is exemplar or should be constrained to a specific
 value set when used. For example, the code element of the MedicationRequest profile is bound to the complete value set
-for the RxNorm code system, indicating that all MedicationRequest instances shall use codes from the RxNorm code system,
+for the RxNorm code system, indicating that all MedicationRequest instances **SHALL** use codes from the RxNorm code system,
 but within any given artifact, instances will typically use a restricted value set.
 
 ### Resource References and "Any"
