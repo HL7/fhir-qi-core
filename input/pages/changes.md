@@ -69,6 +69,7 @@ This page lists the change history for each version of QI-Core.
 1. Added Identifying Occupational Data for Health section to landing page ([FHIR-42667](https://jira.hl7.org/browse/FHIR-42667)) 
 1. Relaxed cardinality to 0..1 for Procedure.recorded, MedicationRequest.authoredOn, Immunization.recorded, MedicationStatement.dateAsserted, ServiceRequest.authoredOn([FHIR-43010](https://jira.hl7.org/browse/FHIR-43010))
 1. Normalized use of 'value set' terminology throughout home page ([FHIR-41997](https://jira.hl7.org/browse/FHIR-41997))
+1.  Added six pregnancy-related Simple Observation examples ([FHIR-42056](https://jira.hl7.org/browse/FHIR-42056)) 
 
 ### STU5 Release (5.0.0)
 
