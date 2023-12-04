@@ -129,6 +129,12 @@
 **QICoreSimpleObservation**
 * [Frailty Observation Example](Observation-example-frailty.html)
 * [Gestational Age at Birth Example](Observation-example-gestation.html)
+* [Date and Time of Obstetric Delivery Example](Observation-example-obstetric-delivery.html)
+* [Delivery Date Estimated Example](Observation-example-delivery-date-estimate.html)
+* [Number of Preterm Births Example](Observation-example-preterm-births.html)
+* [Number of Term Births Example](Observation-example-births.html)
+* [Number of Parity Example](Observation-example-parity.html)
+* [Number of Pregnancies Example](Observation-example-pregnancies.html)
 
 **QICoreObservationCancelled**
 * [Negation Example with valueset](Observation-negation-example.html)

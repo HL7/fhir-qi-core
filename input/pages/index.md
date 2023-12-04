@@ -230,8 +230,69 @@ quality implementations MUST always check the values of modifying elements. For 
 resource, the application must inspect the "wasNotGiven" element to determine whether the immunization was given or was
 not given to the patient. For this reason, modifying elements SHALL be treated as MustSupport, even if not declared.
 
+
+
+### Identifying Occupational Data for Health
+{: #Identifying-Occupational-Data-for-Health}
+
+The profile inherited from US Core Observation Occupation Profile is based upon the core FHIR Observation Resource and implements 
+the US Core Data for Interoperability (USCDI) Occupation and Occupation Industry requirements. 
+That profile's Example Usage Scenarios include:
+
+- Query for a patient’s work history
+- [Record or update](https://www.hl7.org/fhir/us/core/future-of-US-core.html#future-candidate-requirements-under-consideration) past or present jobs belonging to a patient
+
+To obtain information regarding other Occupational Data for Health (ODH)-specific concept as indicated in the ODH version 
+STU 1.3 [Artifacts Summary](https://hl7.org/fhir/us/odh/STU1.3/artifacts.html) use the QI-Core SimpleObservation profile Observation.code 
+element to reference the exact LOINC code referenced by the specific ODH element of interest (e.g., 74165-2 for History of employment 
+status NIOSH; 11341-5 for History of Occupation, 87510-4 Date of Retirement, etc.).
+
 ### Negation in QI-Core
 {: #negation-in-qi-core}
+
+QI-Core defines the following profiles specifically for representing negation rationale:
+
+
+<div class="new-content" markdown="1">
+|QI-Core Positive Profile|QI-Core Negation Profile|Base Resource|
+|---|---|---|
+|[QICore Communication](StructureDefinition-qicore-communication.html)|[QICore Communication Not Done](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
+|[QICore DeviceRequest](StructureDefinition-qicore-devicerequest.html)|[QICore Device Not Requested](StructureDefinition-qicore-devicenotrequested.html)|[DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
+|[QICore Immunization](StructureDefinition-qicore-immunization.html)|[QICore Immunization Not Done](StructureDefinition-qicore-immunizationnotdone.html)|[Immunization]({{site.data.fhir.path}}immunization.html)|
+|[QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html)|[QICore MedicationAdministration Not Done](StructureDefinition-qicore-medicationadministrationnotdone.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
+|[QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html)|[QICore MedicationDispense Declined](StructureDefinition-qicore-medicationdispensedeclined.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
+|[QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)|[QICore Medication Not Requested](StructureDefinition-qicore-medicationnotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
+|[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)|[QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)|[Observation]({{site.data.fhir.path}}observation.html)|
+|[QICore Procedure](StructureDefinition-qicore-procedure.html)|[QICore Procedure Not Done](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
+|[QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|[QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
+|[QICore Task](StructureDefinition-qicore-task.html)|[QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)|[Task]({{site.data.fhir.path}}task.html)|
+{: .list}
+
+The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
+
+- [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
+- [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
+- [US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html)
+- [US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html)
+- [US Core Body Temperature Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html)
+- [US Core Body Weight Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html)
+- [US Core Head Circumference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html)
+- [US Core Heart Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html)
+- [US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html)
+- [US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)
+- [US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)
+- [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
+- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
+- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
+- [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
+- [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html)
+- [QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
+- [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
+- [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
+- [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)
+</div>
+
+Please note: some US Core hyperlinks are currently inaccessible as a result of US Core combining SDOH with Screening Assessment (previously Observation Survey)
 
 Two commonly used patterns for negation in quality measurement and decision support are:
 
@@ -279,7 +340,6 @@ No evidence that "Antithrombotic Therapy" medication was administered:
           where AntithromboticTherapy.status = 'completed'
             and AntithromboticTherapy.category ~ QICoreCommon."Inpatient"
       )
-
 #### Negation Rationale
 {: #negation-rationale}
 
@@ -314,69 +374,12 @@ Note that the negation profiles can be used to make two different types of negat
 
 Each of the negation profiles provides an example illustrating both types of negative statements.
 
-QI-Core defines the following profiles specifically for representing negation rationale:
-
-### Identifying Occupational Data for Health
-{: #Identifying-Occupational-Data-for-Health}
-
-The profile inherited from US Core Observation Occupation Profile is based upon the core FHIR Observation Resource and implements 
-the US Core Data for Interoperability (USCDI) Occupation and Occupation Industry requirements. 
-That profile's Example Usage Scenarios include:
-
-- Query for a patient’s work history
-- [Record or update](https://www.hl7.org/fhir/us/core/future-of-US-core.html#future-candidate-requirements-under-consideration) past or present jobs belonging to a patient
-
-To obtain information regarding other Occupational Data for Health (ODH)-specific concept as indicated in the ODH version 
-STU 1.3 [Artifacts Summary](https://hl7.org/fhir/us/odh/STU1.3/artifacts.html) use the QI-Core SimpleObservation profile Observation.code 
-element to reference the exact LOINC code referenced by the specific ODH element of interest (e.g., 74165-2 for History of employment 
-status NIOSH; 11341-5 for History of Occupation, 87510-4 Date of Retirement, etc.).
-
-<div class="new-content" markdown="1">
-|QI-Core Positive Profile|QI-Core Negation Profile|Base Resource|
-|---|---|---|
-|[QICore Communication](StructureDefinition-qicore-communication.html)|[QICore Communication Not Done](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
-|[QICore DeviceRequest](StructureDefinition-qicore-devicerequest.html)|[QICore Device Not Requested](StructureDefinition-qicore-devicenotrequested.html)|[DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
-|[QICore Immunization](StructureDefinition-qicore-immunization.html)|[QICore Immunization Not Done](StructureDefinition-qicore-immunizationnotdone.html)|[Immunization]({{site.data.fhir.path}}immunization.html)|
-|[QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html)|[QICore MedicationAdministration Not Done](StructureDefinition-qicore-medicationadministrationnotdone.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
-|[QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html)|[QICore MedicationDispense Declined](StructureDefinition-qicore-medicationdispensedeclined.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)|[QICore Medication Not Requested](StructureDefinition-qicore-medicationnotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
-|[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)|[QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)|[Observation]({{site.data.fhir.path}}observation.html)|
-|[QICore Procedure](StructureDefinition-qicore-procedure.html)|[QICore Procedure Not Done](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
-|[QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|[QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
-|[QICore Task](StructureDefinition-qicore-task.html)|[QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)|[Task]({{site.data.fhir.path}}task.html)|
-{: .list}
-
-The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
-
-- [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
-- [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
-- [US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html)
-- [US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html)
-- [US Core Body Temperature Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html)
-- [US Core Body Weight Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html)
-- [US Core Head Circumference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html)
-- [US Core Heart Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html)
-- [US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html)
-- [US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)
-- [US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)
-- [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
-- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
-- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
-- [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
-- [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html)
-- [QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
-- [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
-- [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
-- [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)
-</div>
-
-Please note: some US Core hyperlinks are currently inaccessible as a result of US Core combining SDOH with Screening Assessment (previously Observation Survey)
 
 #### Guidance for the use of Negation Profiles
 
-<p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set to indicate that the reason applies to all valueset members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all valueset members were selected.</p>
+<p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set to indicate that the reason applies to all value set members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all value set members were selected.</p>
 
-<p>This would be the most common use case. A less frequent need is to indicate that they did not do ONE of the members of the valueset. Stakeholders should understand that either a reason for not acting on a valueset or a single member from that value set meet criteria for the notDone expression.</p>
+<p>This would be the most common use case. A less frequent need is to indicate that they did not do ONE of the members of the value set. Stakeholders should understand that either a reason for not acting on a value set or a single member from that value set meet criteria for the notDone expression.</p>
 
 <p>Response to a query for a reason will result in fulfilling the criteria that meet the not-performed extension as long as two criteria have been met:</p>
 
@@ -396,11 +399,12 @@ Please note: some US Core hyperlinks are currently inaccessible as a result of U
 <p>Examples of such a scenario:</p>
 <ol>
 <li>A measure numerator criterion includes an order for angiotensin-converting enzyme inhibitors (ACEI). The clinician indicates not ordering enalapril due to the patient’s intolerance (drowsiness) and, instead, orders another ACEI in the same value set, lisinopril. The order for lisinopril would fulfill criteria for the numerator regardless of meeting criteria for MedicationNotRequested.  However, if the clinician did not order another medication from the value set (e.g., lisinopril), the presence of a doNotPerformReason for the value set member enalapril fulfills the criteria for MedicationNotRequested and the patient would be excluded from the measure even though numerator criteria were not met.</li>
-<li>A measure criterion for anticoagulation uses a valueset containing warfarin or direct-oral-anticoagulant (DOAC).  Studies may support preference of DOAC due to long-term outcomes, but the clinician may select a reason for not ordering DOAC due to its expense. That reason for the single item (DOAC) meets criteria for the expression and fail to recognize lack of compliance with any anticoagulation.</li>
-<li>A measure evaluating lipid management uses a statin valueset containing atorvastatin. The clinician may provide a reason for not ordering atorvastatin, such as myopathy. That reason meets criteria for the expression and fails to recognize lack of compliance with any lipid therapy, but the patient might be able to tolerate ezetimibe/simvastatin.</li>
+<li>A measure criterion for anticoagulation uses a value set containing warfarin or direct-oral-anticoagulant (DOAC).  Studies may support preference of DOAC due to long-term outcomes, but the clinician may select a reason for not ordering DOAC due to its expense. That reason for the single item (DOAC) meets criteria for the expression and fail to recognize lack of compliance with any anticoagulation.</li>
+<li>A measure evaluating lipid management uses a statin value set containing atorvastatin. The clinician may provide a reason for not ordering atorvastatin, such as myopathy. That reason meets criteria for the expression and fails to recognize lack of compliance with any lipid therapy, but the patient might be able to tolerate ezetimibe/simvastatin.</li>
 </ol>
 
 <p>Artifact developers should consider these facts when evaluating data retrieved as it pertains to each measure's intent and value set development. Implementers should consider these facts to consider providing data capture opportunities that limit practitioner burden.</p>
+
 
 ### Terminology Bindings
 
