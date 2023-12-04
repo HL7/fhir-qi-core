@@ -253,7 +253,6 @@ status NIOSH; 11341-5 for History of Occupation, 87510-4 Date of Retirement, etc
 QI-Core defines the following profiles specifically for representing negation rationale:
 
 
-<div class="new-content" markdown="1">
 |QI-Core Positive Profile|QI-Core Negation Profile|Base Resource|
 |---|---|---|
 |[QICore Communication](StructureDefinition-qicore-communication.html)|[QICore Communication Not Done](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
@@ -290,7 +289,6 @@ The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelle
 - [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
 - [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
 - [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)
-</div>
 
 Please note: some US Core hyperlinks are currently inaccessible as a result of US Core combining SDOH with Screening Assessment (previously Observation Survey)
 
@@ -375,7 +373,7 @@ Note that the negation profiles can be used to make two different types of negat
 Each of the negation profiles provides an example illustrating both types of negative statements.
 
 
-#### Guidance for the use of Negation Profiles
+### Guidance for the use of Negation Profiles
 
 <p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set to indicate that the reason applies to all value set members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all value set members were selected.</p>
 
