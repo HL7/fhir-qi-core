@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-medicationstatement",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationstatement",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreMedicationStatement",
   "title" : "QICore MedicationStatement",
   "status" : "active",
@@ -24,45 +24,34 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "workflow",
-    "uri" : "http://hl7.org/fhir/workflow",
-    "name" : "Workflow Pattern"
-  },
-  {
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  },
-  {
-    "identity" : "v2",
-    "uri" : "http://hl7.org/v2",
-    "name" : "HL7 v2 Mapping"
-  }],
   "kind" : "resource",
   "abstract" : false,
   "type" : "MedicationStatement",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationStatement",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "MedicationStatement",
-      "path" : "MedicationStatement",
-      "mustSupport" : false
-    },
+    "element" : [
     {
       "id" : "MedicationStatement.status",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.status",
-      "mustSupport" : true
+      "short" : "(QI-Core) active | completed | entered-in-error | intended | stopped | on-hold | unknown | not-taken"
     },
     {
       "id" : "MedicationStatement.medication[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.medication[x]",
+      "short" : "(QI-Core) What medication was taken",
       "type" : [{
         "code" : "CodeableConcept"
       },
@@ -70,7 +59,6 @@
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
       }],
-      "mustSupport" : true,
       "binding" : {
         "strength" : "preferred",
         "description" : "The set of RxNorm codes to represent medications",
@@ -79,40 +67,70 @@
     },
     {
       "id" : "MedicationStatement.subject",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.subject",
+      "short" : "(QI-Core) Who is/was taking the medication",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "MedicationStatement.effective[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.effective[x]",
-      "mustSupport" : true
+      "short" : "(QI-Core) The date/time or interval when the medication is/was/will be taken"
     },
     {
       "id" : "MedicationStatement.dateAsserted",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.dateAsserted",
+      "short" : "(QI-Core) When the statement was asserted?",
       "min" : 0,
-      "max" : "1",
-      "mustSupport" : true
+      "max" : "1"
     },
     {
       "id" : "MedicationStatement.informationSource",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.informationSource",
+      "short" : "(QI-Core) Person or organization that provided the information about the taking of this medication",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "MedicationStatement.derivedFrom",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.derivedFrom",
-      "mustSupport" : true
+      "short" : "(QI-Core) Additional supporting information"
     },
     {
       "id" : "MedicationStatement.reasonCode",
@@ -125,10 +143,10 @@
     {
       "id" : "MedicationStatement.dosage",
       "path" : "MedicationStatement.dosage",
+      "short" : "(QI-Core) Details of how medication is/was taken or should be taken",
       "type" : [{
         "code" : "Dosage"
-      }],
-      "mustSupport" : false
+      }]
     },
     {
       "id" : "MedicationStatement.dosage.modifierExtension",
@@ -140,8 +158,14 @@
     },
     {
       "id" : "MedicationStatement.dosage.timing",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.dosage.timing",
-      "mustSupport" : true
+      "short" : "(QI-Core) When medication should be administered"
     },
     {
       "id" : "MedicationStatement.dosage.site",
@@ -151,8 +175,14 @@
     },
     {
       "id" : "MedicationStatement.dosage.route",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.dosage.route",
-      "mustSupport" : true,
+      "short" : "(QI-Core) How drug should enter body",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
@@ -160,13 +190,25 @@
     },
     {
       "id" : "MedicationStatement.dosage.doseAndRate",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.dosage.doseAndRate",
-      "mustSupport" : true
+      "short" : "(QI-Core) Amount of medication administered"
     },
     {
       "id" : "MedicationStatement.dosage.doseAndRate.dose[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "MedicationStatement.dosage.doseAndRate.dose[x]",
-      "mustSupport" : true
+      "short" : "(QI-Core) Amount of medication per dose"
     }]
   }
 }

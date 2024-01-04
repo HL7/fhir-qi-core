@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-servicenotrequested",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreServiceNotRequested",
   "title" : "QICore Service Not Requested",
   "status" : "active",
@@ -32,38 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "qidam",
-      "uri" : "http://hl7.org/qidam",
-      "name" : "Mapping to Quality Improvement Domain Analysis Model"
-    },
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "quick",
-      "uri" : "http://siframework.org/cqf",
-      "name" : "Quality Improvement and Clinical Knowledge (QUICK)"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "ServiceRequest",
@@ -84,8 +52,15 @@
       },
       {
         "id" : "ServiceRequest.extension:reasonRefused",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ServiceRequest.extension",
         "sliceName" : "reasonRefused",
+        "short" : "(QI-Core) Extension",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -95,17 +70,29 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "ServiceRequest.status",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ServiceRequest.status",
-        "mustSupport" : true
+        "short" : "(QI-Core) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
       },
       {
         "id" : "ServiceRequest.doNotPerform",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ServiceRequest.doNotPerform",
+        "short" : "(QI-Core) True if service/procedure should not be performed",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -113,14 +100,19 @@
             "code" : "boolean"
           }
         ],
-        "fixedBoolean" : true,
-        "mustSupport" : true
+        "fixedBoolean" : true
       },
       {
         "id" : "ServiceRequest.code.extension:notDoneValueSet",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ServiceRequest.code.extension",
         "sliceName" : "notDoneValueSet",
-        "short" : "What was not requested",
+        "short" : "(QI-Core) What was not requested",
         "min" : 0,
         "max" : "1",
         "type" : [
@@ -133,12 +125,18 @@
         ],
         "condition" : [
           "snr-1"
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "ServiceRequest.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ServiceRequest.subject",
+        "short" : "(QI-Core) Individual or Entity the service is ordered for",
         "type" : [
           {
             "code" : "Reference",
@@ -146,17 +144,23 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "ServiceRequest.occurrence[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ServiceRequest.occurrence[x]",
+        "short" : "(QI-Core) When service should occur",
         "type" : [
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -165,7 +169,7 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -174,21 +178,26 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
             "code" : "Timing"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "ServiceRequest.authoredOn",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ServiceRequest.authoredOn",
+        "short" : "(QI-Core) Date request signed",
         "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
+        "max" : "1"
       },
       {
         "id" : "ServiceRequest.requester",
@@ -209,7 +218,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : false
                   }
                 ]
@@ -217,7 +226,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -225,7 +234,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : false
                   }
                 ]
@@ -233,7 +242,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -241,7 +250,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -249,7 +258,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : false
                   }
                 ]
@@ -262,18 +271,17 @@
         "id" : "ServiceRequest.reasonCode",
         "extension" : [
           {
-            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean" : true
           }
         ],
         "path" : "ServiceRequest.reasonCode",
-        "short" : "(USCDI) Explanation/Justification for procedure or service",
+        "short" : "(QI-Core) Explanation/Justification for procedure or service",
         "type" : [
           {
             "code" : "CodeableConcept"
           }
         ],
-        "mustSupport": true,
         "binding" : {
           "strength" : "extensible",
           "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
@@ -281,8 +289,14 @@
       },
       {
         "id" : "ServiceRequest.reasonReference",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ServiceRequest.reasonReference",
-        "short" : "Explanation/Justification for service or service",
+        "short" : "(QI-Core) Explanation/Justification for service or service",
         "definition" : "Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in `supportingInfo`.",
         "comment" : "This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.conclusionCode`.   When using a reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this service request.  Use  the CodeableConcept text element in `ServiceRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).",
         "min" : 0,
@@ -303,7 +317,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -311,7 +325,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -319,7 +333,6 @@
             ]
           }
         ],
-        "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : true
       }

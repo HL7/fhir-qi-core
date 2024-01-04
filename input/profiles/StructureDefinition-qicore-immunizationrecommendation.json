@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-immunizationrecommendation",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrecommendation",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreImmunizationRecommendation",
   "title" : "QICore ImmunizationRecommendation",
   "status" : "active",
@@ -57,12 +57,18 @@
     },
     {
       "id" : "ImmunizationRecommendation.patient",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationRecommendation.patient",
+      "short" : "(QI-Core) Who this profile is for",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "ImmunizationRecommendation.authority",
@@ -75,13 +81,25 @@
     },
     {
       "id" : "ImmunizationRecommendation.recommendation",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationRecommendation.recommendation",
-      "mustSupport" : true
+      "short" : "(QI-Core) Vaccine administration recommendations"
     },
     {
       "id" : "ImmunizationRecommendation.recommendation.vaccineCode",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationRecommendation.recommendation.vaccineCode",
-      "mustSupport" : true,
+      "short" : "(QI-Core) Vaccine or vaccine group recommendation applies to",
       "binding" : {
         "strength" : "extensible",
         "description" : "CVX Vaccines Administered Vaccine Set",
@@ -90,8 +108,14 @@
     },
     {
       "id" : "ImmunizationRecommendation.recommendation.doseNumber[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationRecommendation.recommendation.doseNumber[x]",
-      "mustSupport" : true
+      "short" : "(QI-Core) Recommended dose number within series"
     },
     {
       "id" : "ImmunizationRecommendation.recommendation.supportingImmunization",

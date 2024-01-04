@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-imagingstudy",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreImagingStudy",
   "title" : "QICore ImagingStudy",
   "status" : "active",
@@ -67,13 +67,15 @@
   "differential" : {
     "element" : [
       {
-        "id" : "ImagingStudy",
-        "path" : "ImagingStudy",
-        "mustSupport" : false
-      },
-      {
         "id" : "ImagingStudy.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ImagingStudy.subject",
+        "short" : "(QI-Core) Who or what is the subject of the study",
         "type" : [
           {
             "code" : "Reference",
@@ -81,11 +83,16 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "ImagingStudy.encounter",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ImagingStudy.encounter",
         "short" : "Encounter with which this imaging study is associated",
         "definition" : "The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made.",
@@ -110,12 +117,25 @@
       },
       {
         "id" : "ImagingStudy.started",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ImagingStudy.started",
-        "mustSupport" : true
+        "short" : "(QI-Core) When the study was started"
       },
       {
         "id" : "ImagingStudy.basedOn",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ImagingStudy.basedOn",
+        "short" : "(QI-Core) Request fulfilled",
         "type" : [
           {
             "code" : "Reference",
@@ -124,8 +144,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "ImagingStudy.referrer",
@@ -157,7 +176,14 @@
       },
       {
         "id" : "ImagingStudy.procedureReference",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "ImagingStudy.procedureReference",
+        "short" : "(QI-Core) The performed Procedure reference",
         "type" : [
           {
             "code" : "Reference",
@@ -165,8 +191,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "ImagingStudy.location",

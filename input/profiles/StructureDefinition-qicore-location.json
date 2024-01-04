@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-location",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreLocation",
   "title" : "QICore Location",
   "status" : "active",
@@ -24,39 +24,38 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  }],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Location",
   "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "Location",
-      "path" : "Location"
-    },
+    "element" : [
     {
       "id" : "Location.telecom",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Location.telecom",
-      "mustSupport" : true
+      "short" : "(QI-Core) Contact details of the location"
     },
     {
       "id" : "Location.managingOrganization",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Location.managingOrganization",
+      "short" : "(QI-Core) Organization responsible for provisioning and upkeep",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "Location.partOf",

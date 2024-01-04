@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-questionnaireresponse",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse",
-  "version" : "6.0.0-ballot",
+  "version" : "6.0.0",
   "name" : "QICoreQuestionnaireResponse",
   "title" : "QICore QuestionnaireResponse",
   "status" : "active",
@@ -32,23 +32,6 @@
   ],
   "copyright" : "Used by permission of HL7 International, all rights reserved Creative Commons License",
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "QuestionnaireResponse",
@@ -58,7 +41,14 @@
     "element" : [
       {
         "id" : "QuestionnaireResponse.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "QuestionnaireResponse.subject",
+        "short" : "(QI-Core) The subject of the questions",
         "comment" : "-",
         "min" : 1,
         "type" : [
@@ -68,12 +58,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "QuestionnaireResponse.author",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "QuestionnaireResponse.author",
+        "short" : "(QI-Core) Person who received and recorded the answers",
         "type" : [
           {
             "code" : "Reference",
@@ -90,7 +86,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -98,7 +94,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -106,7 +102,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -114,7 +110,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
@@ -122,7 +118,7 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : false
                   }
                 ]
@@ -130,36 +126,54 @@
               {
                 "extension" : [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                     "valueBoolean" : true
                   }
                 ]
               }
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "QuestionnaireResponse.item",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "QuestionnaireResponse.item",
-        "mustSupport" : true
+        "short" : "(QI-Core) Groups and questions"
       },
       {
         "id" : "QuestionnaireResponse.item.linkId",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "QuestionnaireResponse.item.linkId",
-        "mustSupport" : true
+        "short" : "(QI-Core) Pointer to specific item from Questionnaire"
       },
       {
         "id" : "QuestionnaireResponse.item.answer.value[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "QuestionnaireResponse.item.answer.value[x]",
+        "short" : "(QI-Core) Single-valued answer to the question",
         "min" : 0,
         "max" : "1",
         "type" : [          
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -168,7 +182,7 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -177,7 +191,7 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -186,7 +200,7 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -195,7 +209,7 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -204,7 +218,7 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -213,14 +227,13 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
             "code" : "Quantity"
           }
-        ],
-        "mustSupport" : true
+        ]
       }
     ]
   }

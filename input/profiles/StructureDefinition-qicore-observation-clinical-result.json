@@ -24,37 +24,6 @@
 	}],
 	"copyright": "Used by permission of HL7 International, all rights reserved Creative Commons License",
 	"fhirVersion": "4.0.1",
-	"mapping": [{
-			"identity": "workflow",
-			"uri": "http://hl7.org/fhir/workflow",
-			"name": "Workflow Pattern"
-		},
-		{
-			"identity": "sct-concept",
-			"uri": "http://snomed.info/conceptdomain",
-			"name": "SNOMED CT Concept Domain Binding"
-		},
-		{
-			"identity": "v2",
-			"uri": "http://hl7.org/v2",
-			"name": "HL7 v2 Mapping"
-		},
-		{
-			"identity": "rim",
-			"uri": "http://hl7.org/v3",
-			"name": "RIM Mapping"
-		},
-		{
-			"identity": "w5",
-			"uri": "http://hl7.org/fhir/fivews",
-			"name": "FiveWs Pattern Mapping"
-		},
-		{
-			"identity": "sct-attr",
-			"uri": "http://snomed.org/attributebinding",
-			"name": "SNOMED CT Attribute Binding"
-		}
-	],
 	"kind": "resource",
 	"abstract": false,
 	"type": "Observation",
@@ -63,14 +32,15 @@
 	"differential" : {
 		"element" : [
 		  {
-			"id" : "Observation",
-			"path" : "Observation"
-		  },
-		  {
 			"id" : "Observation.status",
+			"extension" : [
+				{
+				  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				  "valueBoolean" : true
+				}
+			  ],
 			"path" : "Observation.status",
-			"short" : "registered | prliminary | final | amended | corrected | entered-in-error | unknown",
-			"mustSupport" : true,
+			"short" : "(QI-Core) registered | prliminary | final | amended | corrected | entered-in-error | unknown",
 			"binding" : {
 			  "strength" : "required",
 			  "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
@@ -79,11 +49,11 @@
 		  {
 			"id" : "Observation.category",
 			"extension" : [
-			  {
-				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-				"valueBoolean" : true
-			  }
-			],
+				{
+				  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				  "valueBoolean" : true
+				}
+			  ],
 			"path" : "Observation.category",
 			"slicing" : {
 			  "discriminator" : [
@@ -94,7 +64,7 @@
 			  ],
 			  "rules" : "open"
 			},
-			"short" : "(USCDI) Classification of  type of observation",
+			"short" : "(QI-Core) Classification of  type of observation",
 			"definition" : "A code that classifies the general type of observation being made.",
 			"comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
 			"requirements" : "Used for filtering what observations are retrieved and displayed.",
@@ -105,7 +75,6 @@
 			  "min" : 0,
 			  "max" : "*"
 			},
-			"mustSupport" : true,
 			"isModifier" : false,
 			"isSummary" : false,
 			"binding" : {
@@ -123,14 +92,14 @@
 		  {
 			"id" : "Observation.category:us-core",
 			"extension" : [
-			  {
-				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-				"valueBoolean" : true
-			  }
-			],
+				{
+				  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				  "valueBoolean" : true
+				}
+			  ],
 			"path" : "Observation.category",
 			"sliceName" : "us-core",
-			"short" : "(USCDI) Classification of type of observation",
+			"short" : "(QI-Core) Classification of type of observation",
 			"definition" : "A code that classifies the general type of observation being made.",
 			"comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
 			"requirements" : "Used for filtering what observations are retrieved and displayed.",
@@ -146,7 +115,6 @@
 				"code" : "CodeableConcept"
 			  }
 			],
-			"mustSupport" : true,
 			"isModifier" : false,
 			"isSummary" : false,
 			"binding" : {
@@ -158,13 +126,13 @@
 		  {
 			"id" : "Observation.code",
 			"extension" : [
-			  {
-				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-				"valueBoolean" : true
-			  }
-			],
+				{
+				  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				  "valueBoolean" : true
+				}
+			  ],
 			"path" : "Observation.code",
-			"mustSupport" : true,
+			"short" : "(QI-Core) Clinical Test or Procedure Name",
 			"isModifier" : false,
 			"isSummary" : true,
 			"binding" : {
@@ -174,6 +142,7 @@
 		  },
 		  {
 			"id" : "Observation.subject",
+			"short" : "(QI-Core) Who and/or what the observation is about",
 			"path" : "Observation.subject",
 			"min" : 1,
 			"type" : [
@@ -183,24 +152,23 @@
 				  "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
 				]
 			  }
-			],
-			"mustSupport" : true
+			]
 		  },
 		  {
 			"id" : "Observation.effective[x]",
 			"extension" : [
-			  {
-				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-				"valueBoolean" : true
-			  }
-			],
+				{
+				  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				  "valueBoolean" : true
+				}
+			  ],
 			"path" : "Observation.effective[x]",
-			"short" : "(USCDI) Clinically relevant time/time-period for observation",
+			"short" : "(QI-Core) Clinically relevant time/time-period for observation",
 			"type" : [
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -216,18 +184,23 @@
 				"code" : "instant"
 			  }
 			],
-			"mustSupport" : true,
 			"isModifier" : false
 		  },
 		  {
 			"id" : "Observation.value[x]",
+			"extension" : [
+				{
+				  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				  "valueBoolean" : true
+				}
+			  ],
 			"path" : "Observation.value[x]",
-			"short" : "Result Value",
+			"short" : "(QI-Core) Result Value",
 			"type" : [
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -236,7 +209,7 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -245,7 +218,7 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -254,7 +227,7 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -263,7 +236,7 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -272,7 +245,7 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -281,7 +254,7 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -290,7 +263,7 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -299,7 +272,7 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
@@ -308,26 +281,24 @@
 			  {
 				"extension" : [
 				  {
-					"url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+					"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 					"valueBoolean" : true
 				  }
 				],
 				"code" : "Period"
 			  }
-			],
-			"mustSupport" : true
+			]
 		  },
 		  {
 			"id" : "Observation.dataAbsentReason",
 			"extension" : [
-			  {
-				"url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
-				"valueBoolean" : true
-			  }
-			],
+				{
+				  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				  "valueBoolean" : true
+				}
+			  ],
 			"path" : "Observation.dataAbsentReason",
-			"short" : "(USCDI) Why the result is missing",
-			"mustSupport" : true,
+			"short" : "(QI-Core) Why the result is missing",
 			"isModifier" : false,
 			"isSummary" : false,
 			"binding" : {

@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-relatedperson",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreRelatedPerson",
   "title" : "QICore RelatedPerson",
   "status" : "active",
@@ -24,55 +24,35 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  },
-  {
-    "identity" : "v2",
-    "uri" : "http://hl7.org/v2",
-    "name" : "HL7 v2 Mapping"
-  }],
   "kind" : "resource",
   "abstract" : false,
   "type" : "RelatedPerson",
   "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-relatedperson",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "RelatedPerson",
-      "path" : "RelatedPerson",
-      "mustSupport" : false
-    },
+    "element" : [
     {
         "id" : "RelatedPerson.active",
         "extension" : [
           {
-            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean" : true
           }
         ],
         "path" : "RelatedPerson.active",
-        "short" : "(USCDI) Whether this related person's record is in active use",
-        "min" : 1,
-        "mustSupport" : true
+        "short" : "(QI-Core) Whether this related person's record is in active use",
+        "min" : 1
     },
     {
         "id" : "RelatedPerson.patient",
         "extension" : [
           {
-            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean" : true
           }
         ],
         "path" : "RelatedPerson.patient",
-        "short" : "The patient this person is related to",
+        "short" : "(QI-Core) The patient this person is related to",
         "type" : [
           {
             "code" : "Reference",
@@ -80,38 +60,35 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "RelatedPerson.relationship",
         "extension" : [
           {
-            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean" : true
           }
         ],
         "path" : "RelatedPerson.relationship",
-        "short" : "(USCDI) The nature of the relationship",
+        "short" : "(QI-Core) The nature of the relationship",
         "condition" : [
           "us-core-14"
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "RelatedPerson.name",
         "extension" : [
           {
-            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean" : true
           }
         ],
         "path" : "RelatedPerson.name",
-        "short" : "(USCDI) A name associated with the person",
+        "short" : "(QI-Core) A name associated with the person",
         "condition" : [
           "us-core-14"
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "RelatedPerson.telecom",
@@ -122,8 +99,7 @@
           }
         ],
         "path" : "RelatedPerson.telecom",
-        "short" : "(USCDI) A contact detail for the person",
-        "mustSupport" : true
+        "short" : "(QI-Core) A contact detail for the person"
       },
       {
         "id" : "RelatedPerson.address",
@@ -134,8 +110,7 @@
           }
         ],
         "path" : "RelatedPerson.address",
-        "short" : "(USCDI) Address where the related person can be contacted or visited",
-        "mustSupport" : true
+        "short" : "(QI-Core) Address where the related person can be contacted or visited"
       }
     ]
   }

@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-procedure",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreProcedure",
   "title" : "QICore Procedure",
   "status" : "active",
@@ -32,28 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Procedure",
@@ -62,15 +40,16 @@
   "differential" : {
     "element" : [
       {
-        "id" : "Procedure",
-        "path" : "Procedure",
-        "mustSupport" : false
-      },
-      {
         "id" : "Procedure.extension:recorded",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Procedure.extension",
         "sliceName" : "recorded",
-        "short" : "When the procedure was first captured in the subject's record",
+        "short" : "(QI-Core) When the procedure was first captured in the subject's record",
         "definition" : "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
         "min" : 0,
         "max" : "1",
@@ -81,19 +60,29 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Procedure.implicitRules",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Procedure.implicitRules",
-        "mustSupport" : true
+        "short" : "(QI-Core) A set of rules under which this content was created"
       },
       {
         "id" : "Procedure.status",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Procedure.status",
-        "short" : "preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
-        "mustSupport" : true,
+        "short" : "(QI-Core) preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status"
@@ -101,7 +90,14 @@
       },
       {
         "id" : "Procedure.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Procedure.subject",
+        "short" : "(QI-Core) Who the procedure was performed on",
         "type" : [
           {
             "code" : "Reference",
@@ -109,8 +105,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
      {
         "id" : "Procedure.performer.actor",
@@ -130,8 +125,14 @@
       },
       {
         "id" : "Procedure.reasonCode",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Procedure.reasonCode",
-        "mustSupport" : true,
+        "short" : "(QI-Core) Coded reason procedure performed",
         "binding" : {
           "strength" : "preferred",
           "description" : "A code that identifies the reason a procedure is required.",
@@ -140,7 +141,14 @@
       },
       {
         "id" : "Procedure.reasonReference",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Procedure.reasonReference",
+        "short" : "(QI-Core) The justification that the procedure was performed",
         "type" : [
           {
             "code" : "Reference",
@@ -151,8 +159,7 @@
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       }
     ]
   }

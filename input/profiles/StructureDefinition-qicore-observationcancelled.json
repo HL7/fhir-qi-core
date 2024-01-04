@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-observationcancelled",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled",
-  "version" : "5.0.0-ballot",
+  "version" : "6.0.0",
   "name" : "QICoreObservationCancelled",
   "title" : "QICore Observation Cancelled",
   "status" : "active",
@@ -32,38 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "sct-concept",
-      "uri" : "http://snomed.info/conceptdomain",
-      "name" : "SNOMED CT Concept Domain Binding"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "sct-attr",
-      "uri" : "http://snomed.org/attributebinding",
-      "name" : "SNOMED CT Attribute Binding"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Observation",
@@ -92,8 +60,15 @@
       },
       {
         "id" : "Observation.extension:notDoneReason",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.extension",
         "sliceName" : "notDoneReason",
+        "short" : "(QI-Core) Extension",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -103,12 +78,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Observation.status",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.status",
+        "short" : "(QI-Core) registered | preliminary | final | amended +",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -116,28 +97,45 @@
             "code" : "code"
           }
         ],
-        "fixedCode" : "cancelled",
-        "mustSupport" : true
+        "fixedCode" : "cancelled"
       },
       {
         "id" : "Observation.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.category",
+        "short" : "(QI-Core) Classification of type of observation",
         "min" : 1,
-        "max" : "*",
-        "mustSupport" : true
+        "max" : "*"
       },
       {
         "id" : "Observation.code",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.code",
+        "short" : "(QI-Core) Type of observation (code / type)",
         "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
+        "max" : "1"
       },
       {
         "id" : "Observation.code.extension:notDoneValueSet",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.code.extension",
         "sliceName" : "notDoneValueSet",
-        "short" : "What was not done",
+        "short" : "(QI-Core) What was not done",
         "definition" : "Specifies the value set that characterizes the events or activities that did not occur or were not performed.",
         "requirements" : "Must be able to indicate the value set from which the expected event would be drawn, had it occurred.",
         "min" : 0,
@@ -149,12 +147,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Observation.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.subject",
+        "short" : "(QI-Core) Who and/or what the observation is about",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -164,15 +168,20 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Observation.issued",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.issued",
+        "short" : "(QI-Core) Date/Time this version was made available",
         "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
+        "max" : "1"
       },
       {
         "id" : "Observation.performer",
@@ -191,6 +200,12 @@
       },
       {
         "id" : "Observation.value[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.value[x]",
         "slicing" : {
           "discriminator" : [
@@ -202,7 +217,7 @@
           "ordered" : false,
           "rules" : "open"
         },
-        "short" : "Actual result",
+        "short" : "(QI-Core) Actual result",
         "definition" : "The information determined as a result of making the observation, if the information has a simple value.",
         "comment" : "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](http://hl7.org/fhir/R4/observation.html#notes) below.",
         "requirements" : "An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations.",
@@ -215,107 +230,113 @@
         },
         "type" : [
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "Quantity"
           },
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
               "code" : "CodeableConcept"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "string"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "boolean"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "integer"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "Range"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "Ratio"
           },
           {
             "code" : "SampledData"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "time"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "dateTime"
           },
           {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-              "valueBoolean" : true
-            }
-          ],
+            "extension" : [
+              {
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean" : true
+              }
+            ],
             "code" : "Period"
           }
         ],
-        "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : true
       },
       {
         "id": "Observation.value[x].valueCodeableConcept",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path": "Observation.value[x]",
         "sliceName": "valueCodeableConcept",
+        "short" : "(QI-Core) Actual result",
         "base": {
           "path": "Observation.value[x]",
           "min": 0,
@@ -326,7 +347,6 @@
             "code": "CodeableConcept"
           }
         ],
-        "mustSupport": true,
         "isModifier": false,
         "binding" : {
           "strength" : "preferred",
@@ -336,8 +356,14 @@
       },
       {
         "id" : "Observation.interpretation",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Observation.interpretation",
-        "short" : "High, low, normal, etc.",
+        "short" : "(QI-Core) High, low, normal, etc.",
         "definition" : "A categorical assessment of an observation value.  For example, high, low, normal.",
         "comment" : "Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
         "requirements" : "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",
@@ -356,7 +382,6 @@
             "code" : "CodeableConcept"
           }
         ],
-        "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : false,
         "binding" : {

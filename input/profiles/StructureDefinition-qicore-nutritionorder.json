@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-nutritionorder",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder",
-  "version" : "5.0.0-ballot",
+  "version" : "6.0.0",
   "name" : "QICoreNutritionOrder",
   "title" : "QICore NutritionOrder",
   "status" : "active",
@@ -24,37 +24,13 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "workflow",
-    "uri" : "http://hl7.org/fhir/workflow",
-    "name" : "Workflow Pattern"
-  },
-  {
-    "identity" : "v2",
-    "uri" : "http://hl7.org/v2",
-    "name" : "HL7 v2 Mapping"
-  },
-  {
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  }],
   "kind" : "resource",
   "abstract" : false,
   "type" : "NutritionOrder",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/NutritionOrder",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "NutritionOrder",
-      "path" : "NutritionOrder",
-      "mustSupport" : false
-    },
+    "element" : [
     {
       "id" : "NutritionOrder.identifier",
       "path" : "NutritionOrder.identifier",
@@ -65,14 +41,20 @@
     },
     {
       "id" : "NutritionOrder.patient",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "NutritionOrder.patient",
+      "short" : "(QI-Core) The person who requires the diet, formula or nutritional supplement",
       "definition" : "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.",
       "requirements" : "The person who requires the diet, formula or nutritional supplement.",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
-      }],
-      "mustSupport" : true
+      }]
     }]
   }
 }
