@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-medicationadministration",
    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreMedicationAdministration",
   "title" : "QICore MedicationAdministration",
   "status" : "draft",
@@ -32,33 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    },
-    {
-      "identity" : "w3c.prov",
-      "uri" : "http://www.w3.org/ns/prov",
-      "name" : "W3C PROV"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "MedicationAdministration",
@@ -67,15 +40,15 @@
    "differential" : {
     "element" : [
       {
-        "id" : "MedicationAdministration",
-        "path" : "MedicationAdministration",
-        "mustSupport" : false
-      },
-      {
         "id" : "MedicationAdministration.status",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.status",
-        "short" : "in-progress | on-hold | completed | entered-in-error | stopped | unknown",
-        "mustSupport" : true,
+        "short" : "(QI-Core) in-progress | on-hold | completed | entered-in-error | stopped | unknown",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medication-admin-status"
@@ -83,7 +56,14 @@
       },
       {
         "id" : "MedicationAdministration.medication[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.medication[x]",
+        "short" : "(QI-Core) What was administered",
         "type" : [
           {
             "code" : "CodeableConcept"
@@ -95,7 +75,6 @@
             ]
           }
         ],
-        "mustSupport" : true,
         "binding" : {
           "strength" : "preferred",
           "description" : "The set of RxNorm codes to represent medications",
@@ -104,7 +83,14 @@
       },
       {
         "id" : "MedicationAdministration.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.subject",
+        "short" : "(QI-Core) Who received medication",
         "type" : [
           {
             "code" : "Reference",
@@ -112,12 +98,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "MedicationAdministration.context",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.context",
+        "short" : "(QI-Core) Encounter or Episode of Care administered as part of",
         "type" : [
           {
             "code" : "Reference",
@@ -126,17 +118,29 @@
               "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "MedicationAdministration.effective[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.effective[x]",
-        "mustSupport" : true
+        "short" : "(QI-Core) Start and end time of administration"
       },
       {
         "id" : "MedicationAdministration.request",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.request",
+        "short" : "(QI-Core) Request administration performed against",
         "type" : [
           {
             "code" : "Reference",
@@ -144,8 +148,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "MedicationAdministration.dosage",
@@ -154,8 +157,14 @@
       },
       {
         "id" : "MedicationAdministration.dosage.route",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.dosage.route",
-        "mustSupport" : true,
+        "short" : "(QI-Core) Path of substance into body",
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
@@ -163,8 +172,14 @@
       },
       {
         "id" : "MedicationAdministration.dosage.dose",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.dosage.dose",
-        "mustSupport" : true
+        "short" : "(QI-Core) Amount of medication per dose"
       }
     ]
   }

@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-goal",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-goal",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreGoal",
   "title": "QICore Goal",
   "status" : "active",
@@ -58,7 +58,14 @@
     "element" : [
       {
         "id" : "Goal.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Goal.subject",
+        "short" : "(QI-Core) Who this goal is intended for",
         "comment" : "Should include QICore-Organization, but the base profile only allows USCore-Patient derivatives.",
         "min" : 1,
         "max" : "1",
@@ -69,19 +76,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Goal.start[x]",
         "extension" : [
-          {            
-            "url" : "http://hl7.org/fhir/us/core/StructureDefinition/uscdi-requirement",
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean" : true
-          }        
-        ],        
+          }
+        ],     
         "path" : "Goal.start[x]",
-        "short" : "(USCDI) When goal pursuit begins",
+        "short" : "(QI-Core) When goal pursuit begins",
         "definition" : "The date or event after which the goal should begin being pursued.",
         "requirements" : "Goals can be established prior to there being an intention to start pursuing them; e.g. Goals for post-surgical recovery established prior to surgery.",
         "min" : 0,
@@ -95,7 +101,7 @@
           {            
            "extension" : [
               {                
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -105,7 +111,6 @@
             "code" : "CodeableConcept"
           }
         ],
-        "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : true,
         "binding" : {
@@ -122,8 +127,14 @@
       },
       {
         "id" : "Goal.target",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Goal.target",
-        "mustSupport" : true
+        "short" : "(QI-Core) Target outcome for the goal"
       }
     ]
   }

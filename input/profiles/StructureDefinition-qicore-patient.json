@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-patient",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICorePatient",
   "title" : "QICore Patient",
   "status" : "active",
@@ -24,51 +24,23 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "qidam",
-    "uri" : "http://hl7.org/qidam",
-    "name" : "Mapping to Quality Improvement Domain Analysis Model"
-  },
-  {
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  },
-  {
-    "identity" : "cda",
-    "uri" : "http://hl7.org/v3/cda",
-    "name" : "CDA (R2)"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  },
-  {
-    "identity" : "v2",
-    "uri" : "http://hl7.org/v2",
-    "name" : "HL7 v2 Mapping"
-  },
-  {
-    "identity" : "loinc",
-    "uri" : "http://loinc.org",
-    "name" : "LOINC code for the element"
-  }],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Patient",
   "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "Patient",
-      "path" : "Patient",
-      "mustSupport" : false
-    },
+    "element" : [
     {
       "id" : "Patient.telecom",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Patient.telecom",
-      "mustSupport" : true
+      "short" : "(QI-Core) A contact detail for the individual"
     },
     {
       "id" : "Patient.telecom.extension:telecom-preferred",
@@ -88,19 +60,37 @@
     },
     {
       "id" : "Patient.birthDate",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Patient.birthDate",
-      "mustSupport" : true
+      "short" : "(QI-Core) The date of birth for the individual"
     },
     {
       "id" : "Patient.deceased[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Patient.deceased[x]",
-      "comment" : "The \"Cause of death\" for a patient is typically captured as an Observation.",
-      "mustSupport" : true
+      "short" : "(QI-Core) Indicates if the individual is deceased or not",
+      "comment" : "The \"Cause of death\" for a patient is typically captured as an Observation."
     },
     {
       "id" : "Patient.address",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Patient.address",
-      "mustSupport" : true
+      "short" : "(QI-Core) An address for the individual"
     },
     {
       "id" : "Patient.address.extension:address-preferred",

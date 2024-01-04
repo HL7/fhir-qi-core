@@ -5,7 +5,7 @@
     "status" : "extensions"
   },
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreOrganization",
   "title": "QICore Organization",
   "status" : "active",
@@ -35,28 +35,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "servd",
-      "uri" : "http://www.omg.org/spec/ServD/1.0/",
-      "name" : "ServD"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Organization",
@@ -65,15 +43,16 @@
   "differential" : {
     "element" : [
       {
-        "id" : "Organization",
-        "path" : "Organization",
-        "mustSupport" : false
-      },
-      {
         "id" : "Organization.identifier:ccn",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Organization.identifier",
         "sliceName" : "ccn",
-        "short": "CMS Certification Number",
+        "short": "(QI-Core) CMS Certification Number",
         "min" : 0,
         "max" : "1",
         "type" : [
@@ -83,38 +62,55 @@
         ],
         "patternIdentifier" : {
           "system" : "http://terminology.hl7.org/NamingSystem/CMSCertificationNumber"
-        },
-        "mustSupport" : true
+        }
       },
       {
         "id" : "Organization.identifier:ccn.use",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Organization.identifier.use",
+        "short" : "(QI-Core) usual | official | temp | secondary | old (If known)",
         "min" : 1,
         "max" : "1",
         "type" : [
           {
             "code" : "code"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Organization.identifier:ccn.value",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Organization.identifier.value",
+        "short" : "(QI-Core) The value that is unique",
         "min" : 1,
         "max" : "1",
         "type" : [
           {
             "code" : "string"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Organization.identifier:ein",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Organization.identifier",
         "sliceName" : "ein",
-        "short" : "Employer Identification Number",
+        "short" : "(QI-Core) Employer Identification Number",
         "comment" : "There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.",
         "min" : 0,
         "max" : "1",
@@ -125,32 +121,43 @@
         ],
         "patternIdentifier" : {
           "system" : "urn:oid:2.16.840.1.113883.4.4"
-        },
-        "mustSupport" : true
+        }
       },
       {
         "id" : "Organization.identifier:ein.use",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Organization.identifier.use",
+        "short" : "(QI-Core) usual | official | temp | secondary | old (If known)",
         "min" : 1,
         "max" : "1",
         "type" : [
           {
             "code" : "code"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Organization.identifier:ein.value",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Organization.identifier.value",
+        "short" : "(QI-Core) The value that is unique",
         "min" : 1,
         "max" : "1",
         "type" : [
           {
             "code" : "string"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Organization.type",

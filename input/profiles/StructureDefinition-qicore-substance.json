@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-substance",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreSubstance",
   "title" : "QICore Substance",
   "status" : "active",
@@ -24,36 +24,24 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  },
-  {
-    "identity" : "orim",
-    "uri" : "http://hl7.org/orim",
-    "name" : "Ontological RIM Mapping"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  }],
+  
   "kind" : "resource",
   "abstract" : false,
   "type" : "Substance",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Substance",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "Substance",
-      "path" : "Substance",
-      "mustSupport" : false
-    },
+    "element" : [
     {
       "id" : "Substance.code",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Substance.code",
-      "mustSupport" : true,
+      "short" : "(QI-Core) If this describes a specific package/container of the substance",
       "binding" : {
         "strength" : "preferred",
         "description" : "Substance codes",
@@ -67,8 +55,14 @@
     },
     {
       "id" : "Substance.instance.quantity",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Substance.instance.quantity",
-      "mustSupport" : true
+      "short" : "(QI-Core) Amount of substance in the package"
     },
     {
       "id" : "Substance.ingredient",
@@ -77,17 +71,29 @@
     },
     {
       "id" : "Substance.ingredient.quantity",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Substance.ingredient.quantity",
-      "mustSupport" : true
+      "short" : "(QI-Core) Optional amount (concentration)"
     },
     {
       "id" : "Substance.ingredient.substance[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Substance.ingredient.substance[x]",
+      "short" : "(QI-Core) A component of the substance",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance"]
-      }],
-      "mustSupport" : true
+      }]
     }]
   }
 }

@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-flag",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-flag",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreFlag",
   "title": "QICore Flag",
   "status" : "active",
@@ -24,36 +24,34 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  }],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Flag",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/Flag",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "Flag",
-      "path" : "Flag",
-      "mustSupport" : false
-    },
+    "element" : [
     {
       "id" : "Flag.status",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Flag.status",
-      "mustSupport" : true
+      "short" : "(QI-Core) active | inactive | entered-in-error"
     },
     {
       "id" : "Flag.category",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Flag.category",
-      "mustSupport" : true,
+      "short" : "(QI-Core) Clinical, administrative, etc.",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/flag-category"
@@ -61,8 +59,14 @@
     },
     {
       "id" : "Flag.code",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Flag.code",
-      "mustSupport" : true,
+      "short" : "(QI-Core) Coded or textual message to display to user",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/flag-code"
@@ -70,7 +74,14 @@
     },
     {
       "id" : "Flag.subject",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Flag.subject",
+      "short" : "(QI-Core) Who/What is flag about?",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
@@ -78,13 +89,18 @@
         "http://hl7.org/fhir/StructureDefinition/Group",
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "Flag.period",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Flag.period",
-      "mustSupport" : true
+      "short" : "(QI-Core) Time period when flag is active"
     }]
   }
 }

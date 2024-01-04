@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-immunizationevaluation",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationevaluation",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreImmunizationEvaluation",
   "title" : "QICore ImmunizationEvaluation",
   "status" : "active",
@@ -66,11 +66,17 @@
     },
     {
       "id" : "ImmunizationEvaluation.identifier",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationEvaluation.identifier",
+      "short" : "(QI-Core) Business identifier",
       "type" : [{
         "code" : "Identifier"
       }],
-      "mustSupport" : true,
       "mapping" : [{
         "identity" : "argonaut-dq-dstu2",
         "map" : "CarePlan.subject"
@@ -78,24 +84,42 @@
     },
     {
       "id" : "ImmunizationEvaluation.status",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationEvaluation.status",
-      "mustSupport" : true
+      "short" : "(QI-Core) completed | entered-in-error"
     },
     {
       "id" : "ImmunizationEvaluation.patient",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationEvaluation.patient",
+      "short" : "(QI-Core) Who this evaluation is for",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "ImmunizationEvaluation.date",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationEvaluation.date",
+      "short" : "(QI-Core) Date evaluation was performed",
       "min" : 1,
-      "max" : "1",
-      "mustSupport" : true
+      "max" : "1"
     },
     {
       "id" : "ImmunizationEvaluation.authority",
@@ -108,10 +132,16 @@
     },
     {
       "id" : "ImmunizationEvaluation.targetDisease",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationEvaluation.targetDisease",
+      "short" : "(QI-Core) Evaluation target disease",
       "min" : 1,
       "max" : "1",
-      "mustSupport" : true,
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-target-disease"
@@ -119,6 +149,12 @@
     },
     {
       "id" : "ImmunizationEvaluation.immunizationEvent",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationEvaluation.immunizationEvent",
       "min" : 1,
       "max" : "1",
@@ -126,14 +162,20 @@
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization"]
       }],
-      "mustSupport" : true
+      "short" : "(QI-Core) Immunization being evaluated"
     },
     {
       "id" : "ImmunizationEvaluation.doseStatus",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationEvaluation.doseStatus",
       "min" : 1,
       "max" : "1",
-      "mustSupport" : true,
+      "short" : "(QI-Core) Status of the dose relative to published recommendations",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status"
@@ -141,8 +183,14 @@
     },
     {
       "id" : "ImmunizationEvaluation.doseStatusReason",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "ImmunizationEvaluation.doseStatusReason",
-      "mustSupport" : true,
+      "short" : "(QI-Core) Reason for the dose status",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status"

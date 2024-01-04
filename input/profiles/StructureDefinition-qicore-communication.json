@@ -3,7 +3,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-communication",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication",
-  "version" : "6.0.0-ballot",
+  "version" : "6.0.0",
   "name" : "QICoreCommunication",
   "title": "QICore Communication",
   "status" : "active",
@@ -33,23 +33,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Communication",
@@ -64,9 +47,14 @@
       },
       {
         "id" : "Communication.status",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Communication.status",
-        "short" : "preparation | in-progress | on-hold | stopped | completed | entered-in-error | unknown",
-        "mustSupport" : true,
+        "short" : "(QI-Core) preparation | in-progress | on-hold | stopped | completed | entered-in-error | unknown",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status"
@@ -74,7 +62,14 @@
       },
       {
         "id" : "Communication.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Communication.subject",
+        "short" : "(QI-Core) Focus of message",
         "type" : [
           {
             "code" : "Reference",
@@ -83,13 +78,18 @@
               "http://hl7.org/fhir/StructureDefinition/Group"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Communication.topic",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Communication.topic",
-        "mustSupport" : true,
+        "short" :"(QI-Core) Description of the purpose/content",
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://terminology.hl7.org/ValueSet/communication-topic"
@@ -97,17 +97,36 @@
       },
       {
         "id" : "Communication.sent",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Communication.sent",
-        "mustSupport" : true
+        "short" :"(QI-Core) When sent"
       },
       {
         "id" : "Communication.received",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Communication.received",
-        "mustSupport" : true
+        "short" : "(QI-Core) When received"
       },
       {
         "id" : "Communication.recipient",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Communication.recipient",
+        "short" : "(QI-Core) Message recipient",
         "type" : [
           {
             "code" : "Reference",
@@ -121,12 +140,18 @@
               "http://hl7.org/fhir/StructureDefinition/Group"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Communication.sender",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Communication.sender",
+        "short" : "(QI-Core) Message sender",
         "type" : [
           {
             "code" : "Reference",
@@ -139,8 +164,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       }
     ]
   }

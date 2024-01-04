@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-allergyintolerance",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreAllergyIntolerance",
   "title" : "QICore AllergyIntolerance",
   "status" : "active",
@@ -32,23 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "AllergyIntolerance",
@@ -59,16 +42,7 @@
       {
         "id" : "AllergyIntolerance",
         "path" : "AllergyIntolerance",
-        "definition" : "The QI Core AllergyIntolerance Profile is based upon the US Core AllergyIntolerance Profile which is based upon the core FHIR AllergyIntolerance Resource and created to meet the 2015 Edition Common Clinical Data Set 'Medical allergies' requirements.",
-        "constraint" : [
-          {
-            "key" : "1",
-            "severity" : "error",
-            "human" : "extension: reasonRefuted is only permitted if status is refuted",
-            "expression" : "verificationStatus.coding.code = 'refuted' or extension.where(url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted').empty()",
-            "xpath" : "not(f:verificationStatus/coding/code/@value != 'refuted' and f:extension/@url='http://hl7.org/fhir/StructureDefinition/allergyintolerance-reasonRefuted')"
-          }
-        ],
+        "definition" : "The QI-Core AllergyIntolerance Profile is based upon the US Core AllergyIntolerance Profile which is based upon the core FHIR AllergyIntolerance Resource and created to meet the 2015 Edition Common Clinical Data Set 'Medical allergies' requirements.",
         "mustSupport" : false
       },
       {
@@ -90,22 +64,47 @@
       },
       {
         "id" : "AllergyIntolerance.type",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AllergyIntolerance.type",
-        "mustSupport" : true
+        "short" : "(QI-Core) allergy | intolerance - Underlying mechanism (if known)"
       },
       {
         "id" : "AllergyIntolerance.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AllergyIntolerance.category",
-        "mustSupport" : true
+        "short" : "(QI-Core) food | medication | environment | biologic"
       },
       {
         "id" : "AllergyIntolerance.criticality",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AllergyIntolerance.criticality",
-        "mustSupport" : true
+        "short" : "(QI-Core) low | high | unable-to-assess"
       },
       {
         "id" : "AllergyIntolerance.patient",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AllergyIntolerance.patient",
+        "short" : "(QI-Core) Who the sensitivity is for",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -115,8 +114,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "AllergyIntolerance.onset[x]",
@@ -139,23 +137,41 @@
       },
       {
         "id" : "AllergyIntolerance.recordedDate",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AllergyIntolerance.recordedDate",
+        "short" : "(QI-Core) Date first version of the resource instance was recorded",
         "type" : [
           {
             "code" : "dateTime"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "AllergyIntolerance.reaction",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AllergyIntolerance.reaction",
-        "mustSupport" : true
+        "short" : "(QI-Core) Adverse Reaction Events linked to exposure to substance"
       },
       {
         "id" : "AllergyIntolerance.reaction.severity",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AllergyIntolerance.reaction.severity",
-        "mustSupport" : true
+        "short" : "(QI-Core) mild | moderate | severe (of event as a whole)"
       }
     ]
   }

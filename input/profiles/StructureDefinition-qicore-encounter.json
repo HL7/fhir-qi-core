@@ -24,56 +24,51 @@
 		}]
 	}],
 	"fhirVersion": "4.0.1",
-	"mapping": [{
-			"identity": "workflow",
-			"uri": "http://hl7.org/fhir/workflow",
-			"name": "Workflow Pattern"
-		},
-		{
-			"identity": "rim",
-			"uri": "http://hl7.org/v3",
-			"name": "RIM Mapping"
-		},
-		{
-			"identity": "w5",
-			"uri": "http://hl7.org/fhir/fivews",
-			"name": "FiveWs Pattern Mapping"
-		},
-		{
-			"identity": "v2",
-			"uri": "http://hl7.org/v2",
-			"name": "HL7 v2 Mapping"
-		}
-	],
 	"kind": "resource",
 	"abstract": false,
 	"type": "Encounter",
 	"baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-encounter",
 	"derivation": "constraint",
 	"differential": {
-		"element": [{
-				"id": "Encounter",
-				"path": "Encounter"
-			},
+		"element": [
 			{
 				"id": "Encounter.subject",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path": "Encounter.subject",
+				"short": "(QI-Core) The patient or group present at the encounter",
 				"type": [{
 					"code": "Reference",
 					"targetProfile": [
 						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
 					]
-				}],
-				"mustSupport": true
+				}]
 			},
 			{
 				"id": "Encounter.participant",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path": "Encounter.participant",
-				"mustSupport": true
+				"short": "(QI-Core) List of participants involved in the encounter"
 			},
 			{
 				"id": "Encounter.participant.individual",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path": "Encounter.participant.individual",
+				"short": "(QI-Core) Persons involved in the encounter other than the patient",
 				"comment": "Should include QICore-RelatedPerson as a possible participant, but USCore-Encounter only allows USCore-Practitioner.",
 				"type": [{
 					"code": "Reference",
@@ -84,29 +79,35 @@
 					],
 					"_targetProfile": [{
 							"extension": [{
-								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 								"valueBoolean": true
 							}]
 						},
 						{
 							"extension": [{
-								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 								"valueBoolean": false
 							}]
 						},
 						{
 							"extension": [{
-								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 								"valueBoolean": false
 							}]
 						}
 					]
-				}],
-				"mustSupport": true
+				}]
 			},
 			{
 				"id": "Encounter.reasonReference",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path": "Encounter.reasonReference",
+				"short": "(QI-Core) Reason the encounter takes place (reference)",
 				"min": 0,
 				"max": "*",
 				"base": {
@@ -125,44 +126,49 @@
 					],
 					"_targetProfile": [{
 							"extension": [{
-								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 								"valueBoolean": true
 							}]
 						},
 						{
 							"extension": [{
-								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 								"valueBoolean": true
 							}]
 						},
 						{
 							"extension": [{
-								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 								"valueBoolean": true
 							}]
 						},
 						{
 							"extension": [{
-								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 								"valueBoolean": true
 							}]
 						},
 						{
 							"extension": [{
-								"url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+								"url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
 								"valueBoolean": true
 							}]
 						}
 					]
 				}],
-				"mustSupport": true,
 				"isModifier": false,
 				"isSummary": true
 			},
 			{
 				"id" : "Encounter.hospitalization",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path" : "Encounter.hospitalization",
-				"mustSupport" : true
+				"short": "(QI-Core) Details about the admission to a healthcare service"
 			  },
 			{
 				"id": "Encounter.hospitalization.origin",
@@ -188,10 +194,15 @@
 			},
 			{
 			 "id" : "Encounter.hospitalization.dischargeDisposition",
+			 "extension" : [
+				{
+				  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				  "valueBoolean" : true
+				}
+			  ],
 			 "path" : "Encounter.hospitalization.dischargeDisposition",
-			 "short" : "Category or kind of location after discharge",
+			 "short" : "(QI-Core) Category or kind of location after discharge",
 			 "definition" : "Category or kind of location after discharge.",
-			 "mustSupport" : true,
 			 "binding" : {
 				 "strength" : "extensible",
 				 "valueSet" : "http://terminology.hl7.org/ValueSet/clinical-discharge-disposition"
@@ -199,35 +210,59 @@
 		 },
 			{
 				"id": "Encounter.location",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path": "Encounter.location",
-				"mustSupport": true
+				"short": "(QI-Core) List of locations where the patient has been"
 			},
 			{
 				"id": "Encounter.location.location",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path": "Encounter.location.location",
+				"short": "(QI-Core) Location the encounter takes place",
 				"type": [{
 					"code": "Reference",
 					"targetProfile": [
 						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
 					]
-				}],
-				"mustSupport": true
+				}]
 			},
 			{
 				"id": "Encounter.location.period",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path": "Encounter.location.period",
-				"mustSupport": true
+				"short": "(QI-Core) Time period during which the patient was present at the location"
 			},
 			{
 				"id": "Encounter.serviceProvider",
+				"extension" : [
+					{
+					  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+					  "valueBoolean" : true
+					}
+				  ],
 				"path": "Encounter.serviceProvider",
+				"short": "(QI-Core) The organization (facility) responsible for this encounter",
 				"type": [{
 					"code": "Reference",
 					"targetProfile": [
 						"http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
 					]
-				}],
-				"mustSupport": true
+				}]
 			},
 			{
 				"id": "Encounter.partOf",

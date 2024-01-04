@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-communicationrequest",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationrequest",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreCommunicationRequest",
   "title": "QICore CommunicationRequest",
   "status" : "active",
@@ -24,41 +24,34 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "workflow",
-    "uri" : "http://hl7.org/fhir/workflow",
-    "name" : "Workflow Pattern"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  },
-  {
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  }],
   "kind" : "resource",
   "abstract" : false,
   "type" : "CommunicationRequest",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/CommunicationRequest",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "CommunicationRequest",
-      "path" : "CommunicationRequest",
-      "mustSupport" : false
-    },
+    "element" : [
     {
       "id" : "CommunicationRequest.status",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "CommunicationRequest.status",
-      "mustSupport" : true
+      "short" : "(QI-Core) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
     },
     {
       "id" : "CommunicationRequest.category",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "CommunicationRequest.category",
-      "mustSupport" : true,
+      "short" : "(QI-Core) Message category",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/communication-category"
@@ -66,30 +59,55 @@
     },
     {
       "id" : "CommunicationRequest.doNotPerform",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "CommunicationRequest.doNotPerform",
-      "mustSupport" : true
+      "short" : "(QI-Core) True if request is prohibiting action"
     },
     {
       "id" : "CommunicationRequest.subject",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "CommunicationRequest.subject",
+      "short" : "(QI-Core) Focus of message",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "CommunicationRequest.encounter",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "CommunicationRequest.encounter",
+      "short" : "(QI-Core) Encounter created as part of",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "CommunicationRequest.recipient",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "CommunicationRequest.recipient",
+      "short" : "(QI-Core) Message recipient",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
@@ -100,12 +118,18 @@
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
         "http://hl7.org/fhir/StructureDefinition/Group",
         "http://hl7.org/fhir/StructureDefinition/CareTeam"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "CommunicationRequest.sender",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "CommunicationRequest.sender",
+      "short" : "(QI-Core) Message sender",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
@@ -114,8 +138,7 @@
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"]
-      }],
-      "mustSupport" : true
+      }]
     }]
   }
 }

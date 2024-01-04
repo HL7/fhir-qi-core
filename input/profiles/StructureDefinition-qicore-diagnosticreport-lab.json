@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-diagnosticreport-lab",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab",
-  "version" : "6.0.0-ballot",
+  "version" : "6.0.0",
   "name" : "QICoreDiagnosticReportLab",
   "title" : "QICore DiagnosticReport Profile for Laboratory Results Reporting",
   "status" : "active",
@@ -32,28 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "DiagnosticReport",
@@ -62,12 +40,13 @@
   "differential" : {
     "element" : [
       {
-        "id" : "DiagnosticReport",
-        "path" : "DiagnosticReport",
-        "mustSupport" : false
-      },
-      {
         "id" : "DiagnosticReport.basedOn",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "DiagnosticReport.basedOn",
         "type" : [
           {
@@ -85,7 +64,14 @@
       },
       {
         "id" : "DiagnosticReport.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "DiagnosticReport.category",
+        "short" : "(QI-Core) Service category",
         "slicing" : {
           "discriminator" : [
             {
@@ -100,7 +86,6 @@
             "code" : "CodeableConcept"
           }
         ],
-        "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : true,
         "binding" : {
@@ -117,7 +102,14 @@
       },
       {
         "id" : "DiagnosticReport.category:LaboratorySlice",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "DiagnosticReport.category",
+        "short" : "(QI-Core) Service category",
         "sliceName" : "LaboratorySlice",
         "type" : [
           {
@@ -132,7 +124,6 @@
             }
           ]
         },
-        "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : true,
         "binding" : {
@@ -149,7 +140,14 @@
       },
       {
         "id" : "DiagnosticReport.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "DiagnosticReport.subject",
+        "short" : "(QI-Core) The subject of the report - usually, but not always, the patient",
         "type" : [
           {
             "code" : "Reference",
@@ -157,17 +155,23 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "DiagnosticReport.effective[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "DiagnosticReport.effective[x]",
+        "short" : "(QI-Core) Diagnostically relevant time (typically the time of specimen collection)",
         "type" : [
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
@@ -176,20 +180,26 @@
           {
             "extension" : [
               {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
                 "valueBoolean" : true
               }
             ],
             "code" : "Period"
           }
         ],
-        "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : true
       },
       {
         "id" : "DiagnosticReport.performer",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "DiagnosticReport.performer",
+        "short" : "(QI-Core) Responsible Diagnostic Service",
         "type" : [
           {
             "code" : "Reference",
@@ -199,12 +209,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "DiagnosticReport.result",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "DiagnosticReport.result",
+        "short" : "(QI-Core) Observations",
         "type" : [
           {
             "code" : "Reference",
@@ -212,8 +228,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       }
     ]
   }

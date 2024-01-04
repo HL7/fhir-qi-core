@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-medicationdispensedeclined",
    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedeclined",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreMedicationDispenseDeclined",
   "title" : "QICore MedicationDispense Declined",
   "status" : "active",
@@ -32,33 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "rx-dispense-rmim",
-      "uri" : "http://www.hl7.org/v3/PORX_RM020070UV",
-      "name" : "V3 Pharmacy Dispense RMIM"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "MedicationDispense",
@@ -81,8 +54,15 @@
       },
       {
         "id" : "MedicationDispense.extension:recorded",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.extension",
         "sliceName" : "recorded",
+        "short" : "(QI-Core) Extension",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -92,19 +72,24 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "MedicationDispense.status",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.status",
+        "short" : "(QI-Core) preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown",
         "type" : [
           {
             "code" : "code"
           }
         ],
         "fixedCode" : "declined",
-        "mustSupport" : true,
         "binding" : {
           "strength" : "required",
           "valueSet" : "http://hl7.org/fhir/ValueSet/medicationdispense-status"
@@ -112,7 +97,14 @@
       },
       {
         "id" : "MedicationDispense.statusReason[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.statusReason[x]",
+        "short" : "(QI-Core) Why a dispense was not performed",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -120,7 +112,6 @@
             "code" : "CodeableConcept"
           }
         ],
-        "mustSupport" : true,
         "binding" : {
           "strength" : "extensible",
           "description" : "The reason the event did not occur or was not performed",
@@ -129,8 +120,14 @@
       },
       {
         "id" : "MedicationDispense.medication[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.medication[x]",
-        "mustSupport" : true,
+        "short" : "(QI-Core) What medication was supplied",
         "binding" : {
           "strength" : "extensible",
           "description" : "The set of RxNorm codes to represent medications",
@@ -139,8 +136,15 @@
       },
       {
         "id" : "MedicationDispense.medication[x].extension:notDoneValueSet",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.medication[x].extension",
         "sliceName" : "notDoneValueSet",
+        "short" : "(QI-Core) Url of a value set of activities not requested or performed",
         "min" : 0,
         "max" : "1",
         "type" : [
@@ -150,12 +154,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "MedicationDispense.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.subject",
+        "short" : "(QI-Core) Who the dispense is for",
         "type" : [
           {
             "code" : "Reference",
@@ -163,8 +173,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "MedicationDispense.authorizingPrescription",
@@ -184,13 +193,25 @@
       },
       {
         "id" : "MedicationDispense.dosageInstruction.text",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.dosageInstruction.text",
-        "mustSupport" : true
+        "short" : "(QI-Core) Free text dosage instructions e.g. SIG"
       },
       {
         "id" : "MedicationDispense.dosageInstruction.timing",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.dosageInstruction.timing",
-        "mustSupport" : true
+        "short" : "(QI-Core) When medication should be administered"
       },
       {
         "id" : "MedicationDispense.dosageInstruction.route",
@@ -203,15 +224,27 @@
       },
       {
         "id" : "MedicationDispense.dosageInstruction.doseAndRate",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.dosageInstruction.doseAndRate",
-        "mustSupport" : true
+        "short" : "(QI-Core) Amount of medication administered"
       },
       {
         "id" : "MedicationDispense.dosageInstruction.doseAndRate.type",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.dosageInstruction.doseAndRate.type",
+        "short" : "(QI-Core) The kind of dose or rate specified",
         "min" : 1,
         "max" : "1",
-        "mustSupport" : true,
         "binding" : {
           "strength" : "preferred",
           "description" : "Medication dose types (e.g., loading, maintenance, etc.)",
@@ -220,8 +253,14 @@
       },
       {
         "id" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
-        "mustSupport" : true
+        "short" : "(QI-Core) Amount of medication per dose"
       }
     ]
   }

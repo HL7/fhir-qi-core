@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-condition-encounter-diagnosis",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreConditionEncounterDiagnosis",
   "title" : "QICore Condition Encounter Diagnosis",
   "status" : "active",
@@ -33,38 +33,6 @@
   ],
   "copyright" : "Used by permission of HL7 International, all rights reserved Creative Commons License",
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "sct-concept",
-      "uri" : "http://snomed.info/conceptdomain",
-      "name" : "SNOMED CT Concept Domain Binding"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "sct-attr",
-      "uri" : "http://snomed.org/attributebinding",
-      "name" : "SNOMED CT Attribute Binding"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Condition",
@@ -74,7 +42,14 @@
     "element" : [
     {
       "id" : "Condition.subject",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Condition.subject",
+      "short" : "(QI-Core) Who has the condition?",
       "type" : [
         {
           "code" : "Reference",
@@ -82,12 +57,18 @@
             "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
           ]
         }
-      ],
-      "mustSupport" : true
+      ]
     },
     {
       "id" : "Condition.encounter",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Condition.encounter",
+      "short" : "(QI-Core) Encounter created as part of",
       "type" : [
         {
           "code" : "Reference",
@@ -95,17 +76,23 @@
             "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
           ]
         }
-      ],
-      "mustSupport" : true
+      ]
     },
     {
       "id" : "Condition.onset[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Condition.onset[x]",
+      "short" : "(QI-Core) Estimated or actual date, date-time, or age",
       "type" : [
         {
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
               "valueBoolean" : true
             }
           ],
@@ -114,7 +101,7 @@
         {
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
               "valueBoolean" : true
             }
           ],
@@ -123,7 +110,7 @@
         {
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
               "valueBoolean" : true
             }
           ],
@@ -132,23 +119,29 @@
         {
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
               "valueBoolean" : true
             }
           ],
           "code" : "Range"
         }
-      ],
-      "mustSupport" : true
+      ]
     },
     {
       "id" : "Condition.abatement[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "Condition.abatement[x]",
+      "short" : "(QI-Core) When in resolution/remission",
       "type" : [
         {
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
               "valueBoolean" : true
             }
           ],
@@ -157,7 +150,7 @@
         {
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
               "valueBoolean" : true
             }
           ],
@@ -166,7 +159,7 @@
         {
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
               "valueBoolean" : true
             }
           ],
@@ -175,14 +168,13 @@
         {
           "extension" : [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
               "valueBoolean" : true
             }
           ],
           "code" : "Range"
         }
-      ],
-      "mustSupport" : true
+      ]
     }
   ]
 }

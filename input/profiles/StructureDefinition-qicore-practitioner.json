@@ -2,7 +2,7 @@
     "resourceType": "StructureDefinition",
     "id": "qicore-practitioner",
     "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-    "version": "5.0.0",
+    "version": "6.0.0",
     "name": "QICorePractitioner",
     "title": "QICore Practitioner",
     "status": "active",
@@ -32,28 +32,6 @@
         }
     ],
     "fhirVersion": "4.0.1",
-    "mapping": [
-        {
-            "identity": "v2",
-            "uri": "http://hl7.org/v2",
-            "name": "HL7 v2 Mapping"
-        },
-        {
-            "identity": "rim",
-            "uri": "http://hl7.org/v3",
-            "name": "RIM Mapping"
-        },
-        {
-            "identity": "servd",
-            "uri": "http://www.omg.org/spec/ServD/1.0/",
-            "name": "ServD"
-        },
-        {
-            "identity": "w5",
-            "uri": "http://hl7.org/fhir/fivews",
-            "name": "FiveWs Pattern Mapping"
-        }
-    ],
     "kind": "resource",
     "abstract": false,
     "type": "Practitioner",
@@ -62,12 +40,13 @@
     "differential": {
         "element": [
             {
-                "id": "Practitioner",
-                "path": "Practitioner",
-                "mustSupport": false
-            },
-            {
         "id" : "Practitioner.identifier",
+        "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+              "valueBoolean" : true
+            }
+          ],
         "path" : "Practitioner.identifier",
         "slicing" : {
           "discriminator" : [
@@ -78,52 +57,76 @@
           ],
           "rules" : "open"
         },
+        "short" : "(QI-Core) An identifier for the person as this agent",
         "comment" : "NPI must be supported as the identifier system in the US, Tax id is allowed, Local id is allowed in addition to another identifier supplied by a jurisdictional authority such as a practitioner's *Drug Enforcement Administration (DEA)* number.",
-        "min" : 1,
-        "mustSupport" : true
+        "min" : 1
       },
       {
         "id" : "Practitioner.identifier.system",
+        "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+              "valueBoolean" : true
+            }
+          ],
         "path" : "Practitioner.identifier.system",
+        "short" : "(QI-Core) The namespace for the identifier value",
         "min" : 1,
         "max" : "1",
         "type" : [
           {
             "code" : "uri"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Practitioner.identifier.value",
+        "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+              "valueBoolean" : true
+            }
+          ],
         "path" : "Practitioner.identifier.value",
+        "short" : "(QI-Core) The value that is unique",
         "min" : 1,
         "max" : "1",
         "type" : [
           {
             "code" : "string"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Practitioner.identifier:NPI",
+        "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+              "valueBoolean" : true
+            }
+          ],
         "path" : "Practitioner.identifier",
         "sliceName" : "NPI",
+        "short" : "(QI-Core) An identifier for the person as this agent",
         "patternIdentifier" : {
           "system" : "http://hl7.org/fhir/sid/us-npi"
         },
         "condition" : [
           "us-core-16",
           "us-core-17"
-        ],
-        "mustSupport" : true
+        ]
       },
             {
                 "id": "Practitioner.identifier:ein",
+                "extension" : [
+                    {
+                      "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                      "valueBoolean" : true
+                    }
+                  ],
                 "path": "Practitioner.identifier",
                 "sliceName": "ein",
-                "short": "There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.",
+                "short": "(QI-Core) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.",
                 "min": 0,
                 "max": "1",
                 "type": [
@@ -133,32 +136,43 @@
                 ],
                 "patternIdentifier": {
                     "system": "urn:oid:2.16.840.1.113883.4.4"
-                },
-                "mustSupport": true
+                }
             },
             {
                 "id": "Practitioner.identifier:ein.use",
+                "extension" : [
+                    {
+                      "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                      "valueBoolean" : true
+                    }
+                  ],
                 "path": "Practitioner.identifier.use",
+                "short" : "(QI-Core) usual | official | temp | secondary | old (If known)",
                 "min": 1,
                 "max": "1",
                 "type": [
                     {
                         "code": "code"
                     }
-                ],
-                "mustSupport": true
+                ]
             },
             {
                 "id": "Practitioner.identifier:ein.value",
+                "extension" : [
+                    {
+                      "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                      "valueBoolean" : true
+                    }
+                  ],
                 "path": "Practitioner.identifier.value",
+                "short" : "(QI-Core) The value that is unique",
                 "min": 1,
                 "max": "1",
                 "type": [
                     {
                         "code": "string"
                     }
-                ],
-                "mustSupport": true
+                ]
             }
          ]
     }
