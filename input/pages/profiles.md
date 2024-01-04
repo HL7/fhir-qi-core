@@ -1,12 +1,12 @@
 {:toc}
 
 ### QI-Core Profiles
-The following table lists the QI-Core profiles that are part of the IG, which USCore profile they are derived from, if any, and the underlying FHIR resources:
+The following table lists the QI-Core profiles that are part of the IG, which US Core profile they are derived from, if any, and the underlying FHIR resources:
 
 <br>
 
 
-|QI-Core (6.0.0) Profile|USCore (6.1.0) Profile|Base Resource|
+|QI-Core (6.0.0) Profile|US Core (6.1.0) Profile|Base Resource|
 |----|:----:|----:|
 |**2.1.1 AdverseEvent**|
 |&emsp; [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html)| &mdash; |&emsp; [ AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
@@ -131,9 +131,8 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 
 ### Referencing QI-Core Profiles
 
-There are a number of  QI-Core profiles inherited directly from US Core profiles, if any, or other FHIR resources (i.e. US Core Implantable Device Profile, FHIR Vital Signs, US Core Smoking Status etc.) and the underlying Reference elements can address the US Core or FHIR profiles for the items referenced. For any other references to base FHIR resources or not formally defined in a QI-Core Profile, the referenced resource **SHALL** be a QI-Core Profile if a QI-Core Profile exists for the resource type. For example, USCore Smoking Status references US Core Patient profile, the reference to Patient **SHALL** be a valid QI-Core Patient.
+There are a number of  QI-Core profiles inherited directly from US Core profiles, if any, or other FHIR resources (i.e. US Core Implantable Device Profile, FHIR Vital Signs, US Core Smoking Status etc.) and the underlying Reference elements can address the US Core or FHIR profiles for the items referenced. For any other references to base FHIR resources or not formally defined in a QI-Core Profile, the referenced resource **SHALL** be a QI-Core Profile if a QI-Core Profile exists for the resource type. For example, US Core Smoking Status references US Core Patient profile, the reference to Patient **SHALL** be a valid QI-Core Patient.
 
 Note to Implementers: QI-Core profiles have been developed with the principle that if the profiles only need to provide references to QI-Core Profiles, that is insufficient to require individual QI-Core profiles for all US Core profiles. There are edge cases using this approach where the FHIR validator would not validate an assumption made by the measure author, such as that an encounter traced through an observation is a QI-Core Encounter. We think that general validation of all the resources provided to the context of a measure evaluation can address that risk without the need for deriving specific profiles that only constraint reference types. We seek feedback on this point.
 
 This change will strengthen the requirement to use a QI-Core profile when using a base FHIR or US Core profile not formally defined in QI-Core and to use QI-Core profiles as referenced resources if a QI-Core Profile exists for that resource.
-

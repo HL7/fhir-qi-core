@@ -10,7 +10,7 @@ However, FHIR profiles include a wealth of computable information about the inte
 
 Complete documentation for this tooling is provided in the CQFramework github repository:
 
-[https://github.com/cqframework/cqf-tooling/blob/master/tooling/src/main/java/org/opencds/cqf/tooling/modelinfo/StructureDefinitionToModelInfo.java#L45](https://github.com/cqframework/cqf-tooling/blob/master/tooling/src/main/java/org/opencds/cqf/tooling/modelinfo/StructureDefinitionToModelInfo.java#L45)
+[https://github.com/cqframework/cqf-tooling/blob/23c5f8b12b79cf1036c3d813a2dffe22d44c355b/tooling/src/main/java/org/opencds/cqf/tooling/modelinfo/StructureDefinitionToModelInfo.java#L45](https://github.com/cqframework/cqf-tooling/blob/23c5f8b12b79cf1036c3d813a2dffe22d44c355b/tooling/src/main/java/org/opencds/cqf/tooling/modelinfo/StructureDefinitionToModelInfo.java#L45)
 
 As an example, to generate the ModelInfo file for QICore version 5.0.0, the following arguments are used:
 
