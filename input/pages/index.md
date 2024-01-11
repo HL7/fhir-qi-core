@@ -250,8 +250,111 @@ status NIOSH; 11341-5 for History of Occupation, 87510-4 Date of Retirement, etc
 ### Negation in QI-Core
 {: #negation-in-qi-core}
 
-QI-Core defines the following profiles specifically for representing negation rationale:
+QI-Core defines several profiles that support explicit documentation of the fact that an activity or event did _not_ occur. For these cases, the profiles define at least the following information:
 
+* What activity/event did not occur (typically in terms of a value set or list of codes)
+* Explicit indication that the action/event did not occur (such as `doNotPerform` or a status of `notDone`)
+* When the fact that the activity/event did not occur was recorded
+* The reason the activity/event did not occur (Preferably represented using one of an established set of [Negation Reason Codes](ValueSet-qicore-negation-reason.html))
+
+> **NOTE:** Although these aspects are all present within each negation profile defined by QI-Core, they are represented differently in the various FHIR resources. As a result, each negation profile uses a combination of constraints and extensions to ensure complete representation of negated actions or events within QI-Core.
+
+#### Extent of Negation
+{: #extent-of-negation}
+
+The negation profiles in QI-Core can be used to make two different types of negative statements:
+
+1. Documentation that a specific activity was not performed for a given reason 
+2. Documentation that none of the activities in a given value set were performed for a given reason 
+
+The following example documents that a specific medication was not administered using a CodeableConcept: 
+
+```json
+{
+  "resourceType" : "MedicationAdministration",
+  "id" : "negation-with-code-example",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded",
+    "valueDateTime" : "2015-01-15"
+  }],
+  "status" : "not-done",
+  "statusReason" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "183966005",
+      "display" : "Drug treatment not indicated (situation)"
+    }]
+  }],
+  "medicationCodeableConcept" : {
+    "coding" : [{
+      "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+      "code" : "1116635",
+      "display" : "ticagrelor 90 MG Oral Tablet"
+    }]
+  },
+  "subject" : ...,
+  "context" : ...,
+  "supportingInformation" : ...,
+  "effectivePeriod" : ...,
+  "request" : ...,
+  "note" : ...,
+  "dosage" : ...
+}
+```
+
+See the [MedicationAdministration example using a specific code](MedicationAdministration-negation-with-code-example.html)) for a complete example.
+
+The following example documents that providers did not prescribe any of the medications in the "Antithrombotic Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) extension: 
+
+```json
+{
+  "resourceType" : "MedicationAdministration",
+  "id" : "negation-example",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"]
+  },
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded",
+    "valueDateTime" : "2015-01-15"
+  }],
+  "status" : "not-done",
+  "statusReason" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "183966005",
+      "display" : "Drug treatment not indicated (situation)"
+    }]
+  }],
+  "medicationCodeableConcept" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet",
+      "valueCanonical" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.62"
+    }],
+    "text" : "Not Done Value Set: Antithrombotic Therapy for Ischemic Stroke"
+  },
+  "subject" : ...,
+  "context" : ...,
+  "supportingInformation" : ...,
+  "effectivePeriod" : ...,
+  "request" : ...,
+  "note" : ...,
+  "dosage" : ...
+}
+```
+
+This approach allows systems to document that none of the activities in a particular value set were performed, rather than requiring individual documentation of all the activities in the value set.
+
+> **NOTE:** Implementing systems must ensure that this approach does not result in conflicting data. For example, the above example indicating no administration of a medication in the Antithrombotic Therapy value set should not be used if there are administrations of individual medications in the same value set. In other words, it is a contradiction to say "a provider administered a specific medication" at the same time as "a provider did not administer any of the medications in this value set" if that value set includes the medication that was administered in the specific case.
+
+See the [MedicationAdministration example using a value set](MedicationAdministration-negation-example.html)) for a complete example.
+
+Each of the negation profiles provides an example illustrating both types of negative statements.
+
+#### Negation Profile Index
+{: #negation-profile-index}
 
 |QI-Core Positive Profile|QI-Core Negation Profile|Base Resource|
 |---|---|---|
@@ -267,7 +370,7 @@ QI-Core defines the following profiles specifically for representing negation ra
 |[QICore Task](StructureDefinition-qicore-task.html)|[QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)|[Task]({{site.data.fhir.path}}task.html)|
 {: .list}
 
-The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
+The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used to represent negation statements for all specific observation profiles including:
 
 - [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
 - [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
@@ -290,29 +393,20 @@ The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelle
 - [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
 - [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)
 
+<!-- It's not clear what this means? Why do we say this, if the links moved, why don't we update them? -->
 Please note: some US Core hyperlinks are currently inaccessible as a result of US Core combining SDOH with Screening Assessment (previously Observation Survey)
 
-Two commonly used patterns for negation in quality measurement and decision support are:
+### Negation in CQL
+{: #negation-in-cql}
+
+Two commonly used patterns for determining whether an activity was _not_ performed in quality measurement and decision support logic are:
 
 * Absence of evidence for a particular event
 * Documentation of an event not occurring, together with a reason
 
-For the purposes of quality measurement, when looking for documentation that a particular event did not occur, it must
-be documented with a reason in order to meet the intent. If a reason is not part of the intent, then the absence of
-evidence pattern should be used, rather than documentation of an event not occurring.
+For quality measurement and reporting, measure specifications usually indicate that documentation that a particular event did not occur must be accompanied by a reason (i.e. negation rationale) in order to meet measure intent. If a reason is not indicated as part of measure intent, the absence of evidence pattern should be used, rather than documentation of an event not occurring.
 
-In particular, QI-Core defines several profiles that support explicit documentation of the
-fact that an activity or event did _not_ occur. For these cases, the profiles define at least the
-following information:
-
-* Explicit indication that the action/event did not occur (such as `doNotPerform` or `notDone`)
-* What activity/event did not occur (typically in terms of a value set or list of codes)
-* The reason the activity/event did not occur (Preferably represented using one of an established set of [Negation Reason Codes](ValueSet-qicore-negation-reason.html))
-* When the fact that the activity/event did not occur was recorded
-
-Note that although these aspects are all present within each negation profile defined by QI-Core, they are represented differently in different resources. As a result, each negation profile uses a combination of constraints and extensions to provide consistent representation of negated actions or events within QI-Core.
-
-The following examples differentiate methods to indicate (a) presence of evidence of an action, (b) absence of evidence
+The following examples illustrate methods to indicate (a) presence of evidence of an action, (b) absence of evidence
 of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
 of medication included within a value set for "Antithrombotic Therapy".
 
@@ -338,6 +432,7 @@ No evidence that "Antithrombotic Therapy" medication was administered:
           where AntithromboticTherapy.status = 'completed'
             and AntithromboticTherapy.category ~ QICoreCommon."Inpatient"
       )
+
 #### Negation Rationale
 {: #negation-rationale}
 
@@ -352,49 +447,36 @@ In this example for negation rationale, the logic looks for a member of the valu
 for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
 value set.
 
-> **NOTE:** The above example uses profile-informed authoring (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
+> **NOTE:** The above example uses [profile-informed authoring](patterns.html##profile-informed-authoring) (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
 
-To report Antithrombotic Therapy Not Administered, implementing systems reference the canonical URL of the "Antithrombotic
-Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) extension to indicate
-providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
-set canonical URL to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
-not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
-did not administer in order to negate. 
+In addition, because the negation profiles support identifying what activity was not performed by either a specific code or a value set (see [Extent of Negation](#extent-of-negation)), the terminology-valued element in these profiles is modeled as a choice. For example, the `medication` element in the `MedicationAdministrationNotDone` profile can be either a `Concept` or a `ValueSet`. When a choice-valued element is used in a retrieve, it indicates that either choice must be accounted for, so the logic will actually be evaluated as a union:
 
-Similarly, to report "ProcedureNotDone": "Cardiac Surgery" with a reason, the canonical URL of "Cardiac Surgery" value set
-is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
-specified in the "Cardiac Surgery" value set.
+```cql
+["MedicationAdministrationNotDone": code in "Antithrombotic Therapy"]
+  union ["MedicationAdministrationNotDone": code ~ "Antithrombotic Therapy"]
+```
 
-Note that the negation profiles can be used to make two different types of negative statements:
-
-1. Documentation that a specific activity was not performed for a given reason (e.g. [MedicationRequest example negative a specific code](MedicationRequest-negation-example-code.html))
-2. Documentation that none of the activities in a given value set were performed for a given reason (e.g. [MedicationRequest example negating a value set](MedicationRequest-negation-example.html))
-
-Each of the negation profiles provides an example illustrating both types of negative statements.
-
+This approach ensures that the logic will retrieve negated activities whether they are recorded as singular activities (i.e. with a code from the value set) or as indications that none of the activities were performed (i.e. with a reference to a value set).
 
 ### Guidance for the use of Negation Profiles
 
-<p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set to indicate that the reason applies to all value set members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all value set members were selected.</p>
+Quality Measure and Clinical Decision Support authors and implementers should be cautious to ensure that a reason for not performing a single item from a value set is not interpreted as applying to all the activities in the value set.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  
 
-<p>This would be the most common use case. A less frequent need is to indicate that they did not do ONE of the members of the value set. Stakeholders should understand that either a reason for not acting on a value set or a single member from that value set meet criteria for the notDone expression.</p>
+Clinicians require a rapid way to document that none of the members of the negation set could be selected, and this is the most common use case. However, authors should be aware that a single code from the notDoneValueSet can satisfy a negtion profile query. In other words, when querying with a negation profile, results don't necessarily indicate that **NONE** were done, but rather that **AT LEAST ONE** was not done. If measure intent requires that **NONE** were done, the retrieve should be explicit about the use of the value set to indicate documentation that none of the activities were performed:
 
-<p>Response to a query for a reason will result in fulfilling the criteria that meet the not-performed extension as long as two criteria have been met:</p>
+```cql
+["MedicationAdministrationNotDone": code ~ "Antithrombotic Therapy"]
+```
 
-<ol>
-  <li>Presence of a concept (code) from the statusReason value set</li>
-  <li>Presence of the code representing what has not occurred which may be identified as:
-    <ol>
-      <li>A direct reference code (DRC) indicating the expected activity (if the measure or CDS artifact included only a DRC)</li>
-      <li>A value set OID representing the expected activity</li>
-      <li>Any concept or code from within the expected value set</li>
-    </ol>
-  </li>
-</ol>
+This result will only return medication administration instances that indicate that none of the activities in the value set were performed.
 
-<p>The reason the profile indicates the .code as qicore-notDoneValueSet is to allow a clinician to indicate “I did none of these” with the respective statusReason or doNotPerformReason. Implementer feedback suggests that clinicians prefer the “none of these” approach rather than a requirement to select a single element from a list.  However, there are clinical situations in which a clinician will indicate a reason for not performing a specific activity that represents one of the members of a value set bound to a specific data element in a measure or a CDS.</p>
+However, if measure intent allows for clinical situations in which a specific activity is documented as not performed, while other activities from the same value set are performed, then the standard negation profile query can be used:
 
-<p>Examples of such a scenario:</p>
+```cql
+["MedicationAdministrationNotDone": "Antithrombotic Therapy"]
+```
+
+<p>Some examples of such a scenario include:</p>
 <ol>
 <li>A measure numerator criterion includes an order for angiotensin-converting enzyme inhibitors (ACEI). The clinician indicates not ordering enalapril due to the patient’s intolerance (drowsiness) and, instead, orders another ACEI in the same value set, lisinopril. The order for lisinopril would fulfill criteria for the numerator regardless of meeting criteria for MedicationNotRequested.  However, if the clinician did not order another medication from the value set (e.g., lisinopril), the presence of a doNotPerformReason for the value set member enalapril fulfills the criteria for MedicationNotRequested and the patient would be excluded from the measure even though numerator criteria were not met.</li>
 <li>A measure criterion for anticoagulation uses a value set containing warfarin or direct-oral-anticoagulant (DOAC).  Studies may support preference of DOAC due to long-term outcomes, but the clinician may select a reason for not ordering DOAC due to its expense. That reason for the single item (DOAC) meets criteria for the expression and fail to recognize lack of compliance with any anticoagulation.</li>
@@ -402,7 +484,6 @@ Each of the negation profiles provides an example illustrating both types of neg
 </ol>
 
 <p>Artifact developers should consider these facts when evaluating data retrieved as it pertains to each measure's intent and value set development. Implementers should consider these facts to consider providing data capture opportunities that limit practitioner burden.</p>
-
 
 ### Terminology Bindings
 
