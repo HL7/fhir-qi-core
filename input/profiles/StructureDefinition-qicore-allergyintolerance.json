@@ -1,177 +1,177 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-allergyintolerance",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance",
-  "version" : "6.0.0",
-  "name" : "QICoreAllergyIntolerance",
-  "title" : "QICore AllergyIntolerance",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2018-08-22",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-allergyintolerance",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance",
+  "version": "6.0.0",
+  "name": "QICoreAllergyIntolerance",
+  "title": "QICore AllergyIntolerance",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-      "name" : "Clinical Quality Information WG",
-      "telecom" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "system" : "url",
-          "value" : "http://www.hl7.org/Special/committees/cqi"
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
       ]
     }
   ],
-  "description" : "Profile of AllergyIntolerance for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
+  "description": "Profile of AllergyIntolerance for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "coding" : [
+      "coding": [
         {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
       ]
     }
   ],
-  "fhirVersion" : "4.0.1",
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "AllergyIntolerance",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "AllergyIntolerance",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-allergyintolerance",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
       {
-        "id" : "AllergyIntolerance",
-        "path" : "AllergyIntolerance",
-        "definition" : "The QI-Core AllergyIntolerance Profile is based upon the US Core AllergyIntolerance Profile which is based upon the core FHIR AllergyIntolerance Resource and created to meet the 2015 Edition Common Clinical Data Set 'Medical allergies' requirements.",
-        "mustSupport" : false
+        "id": "AllergyIntolerance",
+        "path": "AllergyIntolerance",
+        "definition": "The QI-Core AllergyIntolerance Profile is based upon the US Core AllergyIntolerance Profile which is based upon the core FHIR AllergyIntolerance Resource and created to meet the 2015 Edition Common Clinical Data Set \u0027Medical allergies\u0027 requirements.",
+        "mustSupport": false
       },
       {
-        "id" : "AllergyIntolerance.extension:resolutionAge",
-        "path" : "AllergyIntolerance.extension",
-        "sliceName" : "resolutionAge",
-        "definition" : "The estimated patient age at which the allergy or intolerance resolved. Should be specified only if the status is resolved.",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
+        "id": "AllergyIntolerance.extension:resolutionAge",
+        "path": "AllergyIntolerance.extension",
+        "sliceName": "resolutionAge",
+        "definition": "The estimated patient age at which the allergy or intolerance resolved. Should be specified only if the status is resolved.",
+        "min": 0,
+        "max": "1",
+        "type": [
           {
-            "code" : "Extension",
-            "profile" : [
+            "code": "Extension",
+            "profile": [
               "http://hl7.org/fhir/StructureDefinition/allergyintolerance-resolutionAge"
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "AllergyIntolerance.type",
-        "extension" : [
+        "id": "AllergyIntolerance.type",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "AllergyIntolerance.type",
-        "short" : "(QI-Core) allergy | intolerance - Underlying mechanism (if known)"
+        "path": "AllergyIntolerance.type",
+        "short": "(QI-Core) allergy | intolerance - Underlying mechanism (if known)"
       },
       {
-        "id" : "AllergyIntolerance.category",
-        "extension" : [
+        "id": "AllergyIntolerance.category",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "AllergyIntolerance.category",
-        "short" : "(QI-Core) food | medication | environment | biologic"
+        "path": "AllergyIntolerance.category",
+        "short": "(QI-Core) food | medication | environment | biologic"
       },
       {
-        "id" : "AllergyIntolerance.criticality",
-        "extension" : [
+        "id": "AllergyIntolerance.criticality",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "AllergyIntolerance.criticality",
-        "short" : "(QI-Core) low | high | unable-to-assess"
+        "path": "AllergyIntolerance.criticality",
+        "short": "(QI-Core) low | high | unable-to-assess"
       },
       {
-        "id" : "AllergyIntolerance.patient",
-        "extension" : [
+        "id": "AllergyIntolerance.patient",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "AllergyIntolerance.patient",
-        "short" : "(QI-Core) Who the sensitivity is for",
-        "min" : 1,
-        "max" : "1",
-        "type" : [
+        "path": "AllergyIntolerance.patient",
+        "short": "(QI-Core)(USCDI) Who the sensitivity is for",
+        "min": 1,
+        "max": "1",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
         ]
       },
       {
-        "id" : "AllergyIntolerance.onset[x]",
-        "path" : "AllergyIntolerance.onset[x]",
-        "type" : [
+        "id": "AllergyIntolerance.onset[x]",
+        "path": "AllergyIntolerance.onset[x]",
+        "type": [
           {
-            "code" : "dateTime"
+            "code": "dateTime"
           },
           {
-            "code" : "Age"
+            "code": "Age"
           },
           {
-            "code" : "Period"
+            "code": "Period"
           },
           {
-            "code" : "Range"
+            "code": "Range"
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "AllergyIntolerance.recordedDate",
-        "extension" : [
+        "id": "AllergyIntolerance.recordedDate",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "AllergyIntolerance.recordedDate",
-        "short" : "(QI-Core) Date first version of the resource instance was recorded",
-        "type" : [
+        "path": "AllergyIntolerance.recordedDate",
+        "short": "(QI-Core) Date first version of the resource instance was recorded",
+        "type": [
           {
-            "code" : "dateTime"
+            "code": "dateTime"
           }
         ]
       },
       {
-        "id" : "AllergyIntolerance.reaction",
-        "extension" : [
+        "id": "AllergyIntolerance.reaction",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "AllergyIntolerance.reaction",
-        "short" : "(QI-Core) Adverse Reaction Events linked to exposure to substance"
+        "path": "AllergyIntolerance.reaction",
+        "short": "(QI-Core)(USCDI) Adverse Reaction Events linked to exposure to substance"
       },
       {
-        "id" : "AllergyIntolerance.reaction.severity",
-        "extension" : [
+        "id": "AllergyIntolerance.reaction.severity",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "AllergyIntolerance.reaction.severity",
-        "short" : "(QI-Core) mild | moderate | severe (of event as a whole)"
+        "path": "AllergyIntolerance.reaction.severity",
+        "short": "(QI-Core) mild | moderate | severe (of event as a whole)"
       }
     ]
   }

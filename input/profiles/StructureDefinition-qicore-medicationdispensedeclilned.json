@@ -83,7 +83,7 @@
           }
         ],
         "path" : "MedicationDispense.status",
-        "short" : "(QI-Core) preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown",
+        "short" : "(QI-Core)(USCDI) preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown",
         "type" : [
           {
             "code" : "code"
@@ -127,7 +127,7 @@
           }
         ],
         "path" : "MedicationDispense.medication[x]",
-        "short" : "(QI-Core) What medication was supplied",
+        "short" : "(QI-Core)(USCDI) What medication was supplied",
         "binding" : {
           "strength" : "extensible",
           "description" : "The set of RxNorm codes to represent medications",
@@ -165,7 +165,7 @@
           }
         ],
         "path" : "MedicationDispense.subject",
-        "short" : "(QI-Core) Who the dispense is for",
+        "short" : "(QI-Core)(USCDI) Who the dispense is for",
         "type" : [
           {
             "code" : "Reference",
@@ -200,7 +200,7 @@
           }
         ],
         "path" : "MedicationDispense.dosageInstruction.text",
-        "short" : "(QI-Core) Free text dosage instructions e.g. SIG"
+        "short" : "(QI-Core)(USCDI) Free text dosage instructions e.g. SIG"
       },
       {
         "id" : "MedicationDispense.dosageInstruction.timing",
@@ -231,7 +231,7 @@
           }
         ],
         "path" : "MedicationDispense.dosageInstruction.doseAndRate",
-        "short" : "(QI-Core) Amount of medication administered"
+        "short" : "(QI-Core)(USCDI) Amount of medication administered"
       },
       {
         "id" : "MedicationDispense.dosageInstruction.doseAndRate.type",
@@ -242,7 +242,7 @@
           }
         ],
         "path" : "MedicationDispense.dosageInstruction.doseAndRate.type",
-        "short" : "(QI-Core) The kind of dose or rate specified",
+        "short" : "(QI-Core)(USCDI) The kind of dose or rate specified",
         "min" : 1,
         "max" : "1",
         "binding" : {
@@ -260,7 +260,7 @@
           }
         ],
         "path" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
-        "short" : "(QI-Core) Amount of medication per dose"
+        "short" : "(QI-Core)(USCDI) Amount of medication per dose"
       }
     ]
   }

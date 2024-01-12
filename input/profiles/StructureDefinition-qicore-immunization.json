@@ -2,7 +2,7 @@
   "resourceType": "StructureDefinition",
   "id": "qicore-immunization",
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
-  "version": "5.0.0",
+  "version" : "6.0.0",
   "name": "QICoreImmunization",
   "title": "QICore Immunization",
   "status": "active",
@@ -72,15 +72,15 @@
         "mustSupport": false
       },
       {
-        "id" : "Immunization.status",
-        "extension" : [
+        "id": "Immunization.status",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "Immunization.status",
-        "short" : "(QI-Core) completed | entered-in-error",
+        "path": "Immunization.status",
+        "short": "(QI-Core)(USCDI) completed | entered-in-error",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-immunization-status"
@@ -88,16 +88,16 @@
       },
       {
         "id": "Immunization.statusReason",
-        "extension" : [
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
         "path": "Immunization.statusReason",
         "min": 0,
         "max": "1",
-        "short" : "(QI-Core) Reason not done",
+        "short": "(QI-Core)(USCDI) Reason not done",
         "binding": {
           "strength": "preferred",
           "valueSet": "http://hl7.org/fhir/ValueSet/immunization-status-reason"
@@ -105,14 +105,14 @@
       },
       {
         "id": "Immunization.patient",
-        "extension" : [
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
         "path": "Immunization.patient",
-        "short" : "(QI-Core) Who was immunized",
+        "short": "(QI-Core)(USCDI) Who was immunized",
         "type": [
           {
             "code": "Reference",
@@ -124,18 +124,17 @@
       },
       {
         "id": "Immunization.recorded",
-        "extension" : [
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
         "path": "Immunization.recorded",
-        "short" : "(QI-Core) When the immunization was first captured in the subject's record",
+        "short": "(QI-Core) When the immunization was first captured in the subject\u0027s record",
         "min": 0,
         "max": "1"
       }
- 
     ]
   }
 }
