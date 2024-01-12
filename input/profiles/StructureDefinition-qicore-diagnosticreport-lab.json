@@ -1,57 +1,57 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-diagnosticreport-lab",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab",
-  "version" : "6.0.0",
-  "name" : "QICoreDiagnosticReportLab",
-  "title" : "QICore DiagnosticReport Profile for Laboratory Results Reporting",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2023-08-01",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-diagnosticreport-lab",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab",
+  "version": "6.0.0",
+  "name": "QICoreDiagnosticReportLab",
+  "title": "QICore DiagnosticReport Profile for Laboratory Results Reporting",
+  "status": "active",
+  "experimental": false,
+  "date": "2023-08-01",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-      "name" : "Clinical Quality Information WG",
-      "telecom" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "system" : "url",
-          "value" : "http://www.hl7.org/Special/committees/cqi"
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
       ]
     }
   ],
-  "description" : "Profile of DiagnosticReport for laboratory results for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
+  "description": "Profile of DiagnosticReport for laboratory results for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "coding" : [
+      "coding": [
         {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
       ]
     }
   ],
-  "fhirVersion" : "4.0.1",
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "DiagnosticReport",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "DiagnosticReport",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-diagnosticreport-lab",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
       {
-        "id" : "DiagnosticReport.basedOn",
-        "extension" : [
+        "id": "DiagnosticReport.basedOn",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "DiagnosticReport.basedOn",
-        "type" : [
+        "path": "DiagnosticReport.basedOn",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrecommendation",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",
@@ -60,150 +60,150 @@
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "DiagnosticReport.category",
-        "extension" : [
+        "id": "DiagnosticReport.category",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "DiagnosticReport.category",
-        "short" : "(QI-Core) Service category",
-        "slicing" : {
-          "discriminator" : [
+        "path": "DiagnosticReport.category",
+        "short": "(QI-Core)(USCDI) Service category",
+        "slicing": {
+          "discriminator": [
             {
-              "type" : "pattern",
-              "path" : "$this"
+              "type": "pattern",
+              "path": "$this"
             }
           ],
-          "rules" : "open"
+          "rules": "open"
         },
-        "type" : [
+        "type": [
           {
-            "code" : "CodeableConcept"
+            "code": "CodeableConcept"
           }
         ],
-        "isModifier" : false,
-        "isSummary" : true,
-        "binding" : {
-          "extension" : [
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString" : "DiagnosticServiceSection"
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "DiagnosticServiceSection"
             }
           ],
-          "strength" : "preferred",
-          "description" : "Codes for diagnostic service sections.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+          "strength": "preferred",
+          "description": "Codes for diagnostic service sections.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
         }
       },
       {
-        "id" : "DiagnosticReport.category:LaboratorySlice",
-        "extension" : [
+        "id": "DiagnosticReport.category:LaboratorySlice",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "DiagnosticReport.category",
-        "short" : "(QI-Core) Service category",
-        "sliceName" : "LaboratorySlice",
-        "type" : [
+        "path": "DiagnosticReport.category",
+        "short": "(QI-Core)(USCDI) Service category",
+        "sliceName": "LaboratorySlice",
+        "type": [
           {
-            "code" : "CodeableConcept"
+            "code": "CodeableConcept"
           }
         ],
-        "patternCodeableConcept" : {
-          "coding" : [
+        "patternCodeableConcept": {
+          "coding": [
             {
-              "system" : "http://terminology.hl7.org/CodeSystem/v2-0074",
-              "code" : "LAB"
+              "system": "http://terminology.hl7.org/CodeSystem/v2-0074",
+              "code": "LAB"
             }
           ]
         },
-        "isModifier" : false,
-        "isSummary" : true,
-        "binding" : {
-          "extension" : [
+        "isModifier": false,
+        "isSummary": true,
+        "binding": {
+          "extension": [
             {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString" : "DiagnosticServiceSection"
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "DiagnosticServiceSection"
             }
           ],
-          "strength" : "preferred",
-          "description" : "Codes for diagnostic service sections.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
+          "strength": "preferred",
+          "description": "Codes for diagnostic service sections.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/diagnostic-service-sections"
         }
       },
       {
-        "id" : "DiagnosticReport.subject",
-        "extension" : [
+        "id": "DiagnosticReport.subject",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "DiagnosticReport.subject",
-        "short" : "(QI-Core) The subject of the report - usually, but not always, the patient",
-        "type" : [
+        "path": "DiagnosticReport.subject",
+        "short": "(QI-Core)(USCDI) The subject of the report - usually, but not always, the patient",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
         ]
       },
       {
-        "id" : "DiagnosticReport.effective[x]",
-        "extension" : [
+        "id": "DiagnosticReport.effective[x]",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "DiagnosticReport.effective[x]",
-        "short" : "(QI-Core) Diagnostically relevant time (typically the time of specimen collection)",
-        "type" : [
+        "path": "DiagnosticReport.effective[x]",
+        "short": "(QI-Core)(USCDI) Diagnostically relevant time (typically the time of specimen collection)",
+        "type": [
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "dateTime"
+            "code": "dateTime"
           },
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "Period"
+            "code": "Period"
           }
         ],
-        "isModifier" : false,
-        "isSummary" : true
+        "isModifier": false,
+        "isSummary": true
       },
       {
-        "id" : "DiagnosticReport.performer",
-        "extension" : [
+        "id": "DiagnosticReport.performer",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "DiagnosticReport.performer",
-        "short" : "(QI-Core) Responsible Diagnostic Service",
-        "type" : [
+        "path": "DiagnosticReport.performer",
+        "short": "(QI-Core)(USCDI) Responsible Diagnostic Service",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
@@ -212,19 +212,19 @@
         ]
       },
       {
-        "id" : "DiagnosticReport.result",
-        "extension" : [
+        "id": "DiagnosticReport.result",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "DiagnosticReport.result",
-        "short" : "(QI-Core) Observations",
-        "type" : [
+        "path": "DiagnosticReport.result",
+        "short": "(QI-Core)(USCDI) Observations",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab"
             ]
           }

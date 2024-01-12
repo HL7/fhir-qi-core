@@ -1,127 +1,152 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-patient",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-  "version" : "6.0.0",
-  "name" : "QICorePatient",
-  "title" : "QICore Patient",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2018-08-22",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [{
-    "name" : "Clinical Quality Information WG",
-    "telecom" : [{
-      "system" : "url",
-      "value" : "http://www.hl7.org/Special/committees/cqi"
-    }]
-  }],
-  "description" : "Profile of Patient for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [{
-    "coding" : [{
-      "system" : "urn:iso:std:iso:3166",
-      "code" : "US"
-    }]
-  }],
-  "fhirVersion" : "4.0.1",
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "Patient",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-patient",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+  "version": "6.0.0",
+  "name": "QICorePatient",
+  "title": "QICore Patient",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-      "id" : "Patient.telecom",
-      "extension" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
-      ],
-      "path" : "Patient.telecom",
-      "short" : "(QI-Core) A contact detail for the individual"
-    },
+      ]
+    }
+  ],
+  "description": "Profile of Patient for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "id" : "Patient.telecom.extension:telecom-preferred",
-      "path" : "Patient.telecom.extension",
-      "sliceName" : "telecom-preferred",
-      "min" : 0,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/iso21090-preferred"]
-      }],
-      "mustSupport" : false,
-      "mapping" : [{
-        "identity" : "qidam",
-        "map" : "Not in QIDAM, but CDS could need this for notifications in population health contexts, for example."
-      }]
-    },
-    {
-      "id" : "Patient.birthDate",
-      "extension" : [
+      "coding": [
         {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
-      ],
-      "path" : "Patient.birthDate",
-      "short" : "(QI-Core) The date of birth for the individual"
-    },
-    {
-      "id" : "Patient.deceased[x]",
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
-        }
-      ],
-      "path" : "Patient.deceased[x]",
-      "short" : "(QI-Core) Indicates if the individual is deceased or not",
-      "comment" : "The \"Cause of death\" for a patient is typically captured as an Observation."
-    },
-    {
-      "id" : "Patient.address",
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
-        }
-      ],
-      "path" : "Patient.address",
-      "short" : "(QI-Core) An address for the individual"
-    },
-    {
-      "id" : "Patient.address.extension:address-preferred",
-      "path" : "Patient.address.extension",
-      "sliceName" : "address-preferred",
-      "comment" : "Make general extension.",
-      "min" : 0,
-      "max" : "1",
-      "type" : [{
-        "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/StructureDefinition/iso21090-preferred"]
-      }],
-      "mustSupport" : false,
-      "mapping" : [{
-        "identity" : "qidam",
-        "map" : "Not in QIDAM, but CDS could need this for notifications in population health contexts, for example."
-      }]
-    },
-    {
-      "id" : "Patient.link",
-      "path" : "Patient.link",
-      "mustSupport" : false
-    },
-    {
-      "id" : "Patient.link.other",
-      "path" : "Patient.link.other",
-      "type" : [{
-        "code" : "Reference",
-        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
-      }],
-      "mustSupport" : false
-    }]
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Patient",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-patient",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Patient.telecom",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Patient.telecom",
+        "short": "(QI-Core)(USCDI) A contact detail for the individual"
+      },
+      {
+        "id": "Patient.telecom.extension:telecom-preferred",
+        "path": "Patient.telecom.extension",
+        "sliceName": "telecom-preferred",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "mapping": [
+          {
+            "identity": "qidam",
+            "map": "Not in QIDAM, but CDS could need this for notifications in population health contexts, for example."
+          }
+        ]
+      },
+      {
+        "id": "Patient.birthDate",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Patient.birthDate",
+        "short": "(QI-Core)(USCDI) The date of birth for the individual"
+      },
+      {
+        "id": "Patient.deceased[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Patient.deceased[x]",
+        "short": "(QI-Core)(USCDI) Indicates if the individual is deceased or not",
+        "comment": "The \"Cause of death\" for a patient is typically captured as an Observation."
+      },
+      {
+        "id": "Patient.address",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Patient.address",
+        "short": "(QI-Core)(USCDI) An address for the individual"
+      },
+      {
+        "id": "Patient.address.extension:address-preferred",
+        "path": "Patient.address.extension",
+        "sliceName": "address-preferred",
+        "comment": "Make general extension.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "mapping": [
+          {
+            "identity": "qidam",
+            "map": "Not in QIDAM, but CDS could need this for notifications in population health contexts, for example."
+          }
+        ]
+      },
+      {
+        "id": "Patient.link",
+        "path": "Patient.link",
+        "mustSupport": false
+      },
+      {
+        "id": "Patient.link.other",
+        "path": "Patient.link.other",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport": false
+      }
+    ]
   }
 }

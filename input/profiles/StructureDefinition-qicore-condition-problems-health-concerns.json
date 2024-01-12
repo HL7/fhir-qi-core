@@ -1,164 +1,164 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-condition-problems-health-concerns",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
-  "version" : "6.0.0",
-  "name" : "QICoreConditionProblemsHealthConcerns",
-  "title" : "QICore Condition Problems Health Concerns",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2022-04-20",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-condition-problems-health-concerns",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+  "version": "6.0.0",
+  "name": "QICoreConditionProblemsHealthConcerns",
+  "title": "QICore Condition Problems Health Concerns",
+  "status": "active",
+  "experimental": false,
+  "date": "2022-04-20",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-      "name" : "Clinical Quality Information WG",
-      "telecom" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "system" : "url",
-          "value" : "http://www.hl7.org/Special/committees/cqi"
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
       ]
     }
   ],
-  "description" : "Profile of Condition for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
+  "description": "Profile of Condition for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "coding" : [
+      "coding": [
         {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
       ]
     }
   ],
-  "fhirVersion" : "4.0.1",
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "Condition",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Condition",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-condition-problems-health-concerns",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
       {
-        "id" : "Condition",
-        "path" : "Condition",
-        "definition" : "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.",
-        "mustSupport" : false
+        "id": "Condition",
+        "path": "Condition",
+        "definition": "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.",
+        "mustSupport": false
       },
       {
-        "id" : "Condition.subject",
-        "extension" : [
+        "id": "Condition.subject",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "Condition.subject",
-        "type" : [
+        "path": "Condition.subject",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
         ],
-        "short" : "(QI-Core) Who has the condition?"
+        "short": "(QI-Core)(USCDI) Who has the condition?"
       },
       {
-        "id" : "Condition.onset[x]",
-        "extension" : [
+        "id": "Condition.onset[x]",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "Condition.onset[x]",
-        "short" : "(QI-Core) Estimated or actual date, date-time, or age",
-        "type" : [
+        "path": "Condition.onset[x]",
+        "short": "(QI-Core)(USCDI) Estimated or actual date, date-time, or age",
+        "type": [
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "dateTime"
+            "code": "dateTime"
           },
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "Age"
+            "code": "Age"
           },
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "Period"
+            "code": "Period"
           },
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "Range"
+            "code": "Range"
           }
         ]
       },
       {
-        "id" : "Condition.abatement[x]",
-        "extension" : [
+        "id": "Condition.abatement[x]",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "Condition.abatement[x]",
-        "short" : "(QI-Core) When in resolution/remission",
-        "type" : [
+        "path": "Condition.abatement[x]",
+        "short": "(QI-Core)(USCDI) When in resolution/remission",
+        "type": [
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "dateTime"
+            "code": "dateTime"
           },
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "Age"
+            "code": "Age"
           },
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "Period"
+            "code": "Period"
           },
           {
-            "extension" : [
+            "extension": [
               {
-                "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                "valueBoolean" : true
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
               }
             ],
-            "code" : "Range"
+            "code": "Range"
           }
         ]
       }

@@ -1,246 +1,246 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-medicationdispense",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense",
-  "version" : "6.0.0",
-  "name" : "QICoreMedicationDispense",
-  "title" : "QICore MedicationDispense",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2018-08-22",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-medicationdispense",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense",
+  "version": "6.0.0",
+  "name": "QICoreMedicationDispense",
+  "title": "QICore MedicationDispense",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-      "name" : "Clinical Quality Information WG",
-      "telecom" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "system" : "url",
-          "value" : "http://www.hl7.org/Special/committees/cqi"
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
       ]
     }
   ],
-  "description" : "Profile of MedicationDispense for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
+  "description": "Profile of MedicationDispense for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "coding" : [
+      "coding": [
         {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
       ]
     }
   ],
-  "fhirVersion" : "4.0.1",
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "MedicationDispense",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense",
-  "derivation" : "constraint",
-   "differential" : {
-    "element" : [
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "MedicationDispense",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationdispense",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
       {
-        "id" : "MedicationDispense.status",
-        "extension" : [
+        "id": "MedicationDispense.status",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.status",
-        "short" : "(QI-Core) preparation​ | in-progress​ | cancelled​ | on-hold​ | completed​ | entered-in-error​ | stopped​ | unknown",
+        "path": "MedicationDispense.status",
+        "short": "(QI-Core)(USCDI) preparation​ | in-progress​ | cancelled​ | on-hold​ | completed​ | entered-in-error​ | stopped​ | unknown",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medicationdispense-status"
         }
       },
       {
-        "id" : "MedicationDispense.medication[x]",
-        "extension" : [
+        "id": "MedicationDispense.medication[x]",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.medication[x]",
-        "short" : "(QI-Core) What medication was supplied",
-        "type" : [
+        "path": "MedicationDispense.medication[x]",
+        "short": "(QI-Core)(USCDI) What medication was supplied",
+        "type": [
           {
-            "code" : "CodeableConcept"
+            "code": "CodeableConcept"
           },
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"
             ]
           }
         ],
-        "binding" : {
-          "strength" : "extensible",
-          "description" : "The set of RxNorm codes to represent medications",
-          "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
+        "binding": {
+          "strength": "extensible",
+          "description": "The set of RxNorm codes to represent medications",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
         }
       },
       {
-        "id" : "MedicationDispense.subject",
-        "extension" : [
+        "id": "MedicationDispense.subject",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.subject",
-        "short" : "(QI-Core) Who the dispense is for",
-        "type" : [
+        "path": "MedicationDispense.subject",
+        "short": "(QI-Core)(USCDI) Who the dispense is for",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
         ]
       },
       {
-        "id" : "MedicationDispense.authorizingPrescription",
-        "extension" : [
+        "id": "MedicationDispense.authorizingPrescription",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.authorizingPrescription",
-        "short" : "(QI-Core) Medication order that authorizes the dispense",
-        "type" : [
+        "path": "MedicationDispense.authorizingPrescription",
+        "short": "(QI-Core)(USCDI) Medication order that authorizes the dispense",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
             ]
           }
         ]
       },
       {
-        "id" : "MedicationDispense.type",
-        "extension" : [
+        "id": "MedicationDispense.type",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.type",
-        "short" : "(QI-Core) Trial fill, partial fill, emergency fill, etc.",
-        "binding" : {
-          "strength" : "extensible",
-          "valueSet" : "http://terminology.hl7.org/ValueSet/v3-ActPharmacySupplyType"
+        "path": "MedicationDispense.type",
+        "short": "(QI-Core)(USCDI) Trial fill, partial fill, emergency fill, etc.",
+        "binding": {
+          "strength": "extensible",
+          "valueSet": "http://terminology.hl7.org/ValueSet/v3-ActPharmacySupplyType"
         }
       },
       {
-        "id" : "MedicationDispense.quantity",
-        "extension" : [
+        "id": "MedicationDispense.quantity",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.quantity",
-        "short" : "(QI-Core) Amount dispensed"
+        "path": "MedicationDispense.quantity",
+        "short": "(QI-Core)(USCDI) Amount dispensed"
       },
       {
-        "id" : "MedicationDispense.daysSupply",
-        "extension" : [
+        "id": "MedicationDispense.daysSupply",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.daysSupply",
-        "short" : "(QI-Core) Amount of medication expressed as a timing amount"
+        "path": "MedicationDispense.daysSupply",
+        "short": "(QI-Core) Amount of medication expressed as a timing amount"
       },
       {
-        "id" : "MedicationDispense.whenPrepared",
-        "extension" : [
+        "id": "MedicationDispense.whenPrepared",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.whenPrepared",
-        "short" : "(QI-Core) When product was packaged and reviewed",
-        "comment" : "When used as part of a cumulative medication duration calculation, the whenPrepared element is used if whenHandedOver is not available to determine a starting point for the period covered by the dispense.",
-        "min" : 0,
-        "max" : "1"
+        "path": "MedicationDispense.whenPrepared",
+        "short": "(QI-Core) When product was packaged and reviewed",
+        "comment": "When used as part of a cumulative medication duration calculation, the whenPrepared element is used if whenHandedOver is not available to determine a starting point for the period covered by the dispense.",
+        "min": 0,
+        "max": "1"
       },
       {
-        "id" : "MedicationDispense.whenHandedOver",
-        "extension" : [
+        "id": "MedicationDispense.whenHandedOver",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.whenHandedOver",
-        "short" : "(QI-Core) When product was given out or mailed"
+        "path": "MedicationDispense.whenHandedOver",
+        "short": "(QI-Core)(USCDI) When product was given out or mailed"
       },
       {
-        "id" : "MedicationDispense.dosageInstruction",
-        "extension" : [
+        "id": "MedicationDispense.dosageInstruction",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.dosageInstruction",
-        "short" : "(QI-Core) How the medication is to be used by the patient or administered by the caregiver"
+        "path": "MedicationDispense.dosageInstruction",
+        "short": "(QI-Core)(USCDI) How the medication is to be used by the patient or administered by the caregiver"
       },
       {
-        "id" : "MedicationDispense.dosageInstruction.text",
-        "extension" : [
+        "id": "MedicationDispense.dosageInstruction.text",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.dosageInstruction.text",
-        "short" : "(QI-Core) Free text dosage instructions e.g. SIG"
+        "path": "MedicationDispense.dosageInstruction.text",
+        "short": "(QI-Core)(USCDI) Free text dosage instructions e.g. SIG"
       },
       {
-        "id" : "MedicationDispense.dosageInstruction.timing",
-        "extension" : [
+        "id": "MedicationDispense.dosageInstruction.timing",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.dosageInstruction.timing",
-        "short" : "(QI-Core) When medication should be administered"
+        "path": "MedicationDispense.dosageInstruction.timing",
+        "short": "(QI-Core)(USCDI) When medication should be administered"
       },
       {
-        "id" : "MedicationDispense.dosageInstruction.doseAndRate",
-        "extension" : [
+        "id": "MedicationDispense.dosageInstruction.doseAndRate",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.dosageInstruction.doseAndRate",
-        "short" : "(QI-Core) Amount of medication administered"
+        "path": "MedicationDispense.dosageInstruction.doseAndRate",
+        "short": "(QI-Core)(USCDI) Amount of medication administered"
       },
       {
-        "id" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
-        "extension" : [
+        "id": "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "path" : "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
-        "short" : "(QI-Core) Amount of medication per dose",
-        "type" : [
+        "path": "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
+        "short": "(QI-Core)(USCDI) Amount of medication per dose",
+        "type": [
           {
-            "code" : "Quantity"
+            "code": "Quantity"
           },
           {
-            "code" : "Range"
+            "code": "Range"
           }
         ]
       }
