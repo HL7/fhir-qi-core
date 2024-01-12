@@ -27,6 +27,7 @@ This guide is divided into pages which are listed at the top of each page in the
 
 * **[Home](index.html)**: The home page provides summary and background information
 * **[Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
+* **[QI-Core Negation](negation.html)**: The negations page describes QI-Core Negation
 * **[Patterns](patterns.html)**: The patterns page describes patterns of usage for QI-Core applications
 * **[Model Info](modelinfo.html)**: The model info page provides the QI-Core model information to support implementation
 * **[Extensions](extensions.html)**: The extensions page lists all the extensions defined as part of QI-Core
@@ -250,128 +251,22 @@ status NIOSH; 11341-5 for History of Occupation, 87510-4 Date of Retirement, etc
 ### Negation in QI-Core
 {: #negation-in-qi-core}
 
-QI-Core defines the following profiles specifically for representing negation rationale:
 
+QI-Core’s concept of negation follows the informative publication established by HL7.[^1] QI-Core constrains these concepts in the following way:
 
-|QI-Core Positive Profile|QI-Core Negation Profile|Base Resource|
-|---|---|---|
-|[QICore Communication](StructureDefinition-qicore-communication.html)|[QICore Communication Not Done](StructureDefinition-qicore-communicationnotdone.html)|[Communication]({{site.data.fhir.path}}communication.html)|
-|[QICore DeviceRequest](StructureDefinition-qicore-devicerequest.html)|[QICore Device Not Requested](StructureDefinition-qicore-devicenotrequested.html)|[DeviceRequest]({{site.data.fhir.path}}devicerequest.html)|
-|[QICore Immunization](StructureDefinition-qicore-immunization.html)|[QICore Immunization Not Done](StructureDefinition-qicore-immunizationnotdone.html)|[Immunization]({{site.data.fhir.path}}immunization.html)|
-|[QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html)|[QICore MedicationAdministration Not Done](StructureDefinition-qicore-medicationadministrationnotdone.html)|[MedicationAdministration]({{site.data.fhir.path}}medicationadministration.html)|
-|[QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html)|[QICore MedicationDispense Declined](StructureDefinition-qicore-medicationdispensedeclined.html)|[MedicationDispense]({{site.data.fhir.path}}medicationdispense.html)|
-|[QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)|[QICore Medication Not Requested](StructureDefinition-qicore-medicationnotrequested.html)|[MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
-|[QICore Simple Observation](StructureDefinition-qicore-simple-observation.html)|[QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html)|[Observation]({{site.data.fhir.path}}observation.html)|
-|[QICore Procedure](StructureDefinition-qicore-procedure.html)|[QICore Procedure Not Done](StructureDefinition-qicore-procedurenotdone.html)|[Procedure]({{site.data.fhir.path}}procedure.html)|
-|[QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html)|[QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html)|[ServiceRequest]({{site.data.fhir.path}}servicerequest.html)|
-|[QICore Task](StructureDefinition-qicore-task.html)|[QICore Task Rejected](StructureDefinition-qicore-taskrejected.html)|[Task]({{site.data.fhir.path}}task.html)|
-{: .list}
+[^1]: For further information about representing negatives in HL7 standards, see: HL7 Cross Paradigm Specification: Representing Negatives, Release I. April 2022. Available at: <http://www.hl7.org/implement/standards/product_brief.cfm?product_id=592>. Retrieved 31 December 2023.
 
-The [QICore ObservationCancelled](StructureDefinition-qicore-observationcancelled.html) profile **SHOULD** be used for all specific observation profile content including:
+1.  Absence of data
 
-- [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)
-- [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)
-- [US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html)
-- [US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html)
-- [US Core Body Temperature Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html)
-- [US Core Body Weight Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html)
-- [US Core Head Circumference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html)
-- [US Core Heart Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html)
-- [US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html)
-- [US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html)
-- [US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html)
-- [US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html)
-- [US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html)
-- [US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html)
-- [US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
-- [US Core Observation Pregnancy Status Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html)
-- [QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
-- [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
-- [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
-- [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html)
+    The measure or CDS artifact uses CQL to determine that an expected record artifact does not exist
 
-Please note: some US Core hyperlinks are currently inaccessible as a result of US Core combining SDOH with Screening Assessment (previously Observation Survey)
+2.  Documented absence of data with a valid reason
 
-Two commonly used patterns for negation in quality measurement and decision support are:
+    The measure or CDS artifact uses a specifically designed QI-Core profile to indicate that an activity intentionally did not occur for a valid reason.
 
-* Absence of evidence for a particular event
-* Documentation of an event not occurring, together with a reason
-
-For the purposes of quality measurement, when looking for documentation that a particular event did not occur, it must
-be documented with a reason in order to meet the intent. If a reason is not part of the intent, then the absence of
-evidence pattern should be used, rather than documentation of an event not occurring.
-
-In particular, QI-Core defines several profiles that support explicit documentation of the
-fact that an activity or event did _not_ occur. For these cases, the profiles define at least the
-following information:
-
-* Explicit indication that the action/event did not occur (such as `doNotPerform` or `notDone`)
-* What activity/event did not occur (typically in terms of a value set or list of codes)
-* The reason the activity/event did not occur (Preferably represented using one of an established set of [Negation Reason Codes](ValueSet-qicore-negation-reason.html))
-* When the fact that the activity/event did not occur was recorded
-
-Note that although these aspects are all present within each negation profile defined by QI-Core, they are represented differently in different resources. As a result, each negation profile uses a combination of constraints and extensions to provide consistent representation of negated actions or events within QI-Core.
-
-The following examples differentiate methods to indicate (a) presence of evidence of an action, (b) absence of evidence
-of an action, and (c) negation rationale for not performing an action. In each case, the "action" is an administration
-of medication included within a value set for "Antithrombotic Therapy".
-
-#### Presence
-{: #presence}
-
-Evidence that "Antithrombotic Therapy" (defined by a medication-specific value set) was administered:
-
-    define "Antithrombotic Administered":
-      ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
-        where AntithromboticTherapy.status = 'completed'
-          and AntithromboticTherapy.category ~ QICoreCommon."Inpatient"
-
-
-#### Absence
-{: #absence}
-
-No evidence that "Antithrombotic Therapy" medication was administered:
-
-    define "No Antithrombotic Therapy":
-      not exists (
-        ["MedicationAdministration": "Antithrombotic Therapy"] AntithromboticTherapy
-          where AntithromboticTherapy.status = 'completed'
-            and AntithromboticTherapy.category ~ QICoreCommon."Inpatient"
-      )
-#### Negation Rationale
-{: #negation-rationale}
-
-Evidence that "Antithrombotic Therapy" medication administration did not occur for an acceptable medical reason as
-defined by a particular value set (i.e., negation rationale):
-
-    define "Antithrombotic Not Administered":
-      ["MedicationAdministrationNotDone": "Antithrombotic Therapy"] NotAdministered
-        where NotAdministered.statusReason in "Medical Reason"
-
-In this example for negation rationale, the logic looks for a member of the value set "Medical Reason" as the rationale
-for not administering any of the anticoagulant and antiplatelet medications specified in the "Antithrombotic Therapy"
-value set.
-
-> **NOTE:** The above example uses profile-informed authoring (i.e. the QICore model) to retrieve MedicationAdministration resources with a status of `not-done`. Because the MedicationAdministrationNotDone profile fixes the value of the `status` element to `not-done`, expressions do not need to test the value of the status element. In other words, all resources retrieved using the `MedicationAdministrationNotDone` profile are guaranteed to have a status value of `not-done`.
-
-To report Antithrombotic Therapy Not Administered, implementing systems reference the canonical URL of the "Antithrombotic
-Therapy" value set using the [notDoneValueSet](StructureDefinition-qicore-notDoneValueSet.html) extension to indicate
-providers did not administer any of the medications in the "Antithrombotic Therapy" value set. By referencing the value
-set canonical URL to negate the entire value set rather than reporting a specific member code from the value set, clinicians are
-not forced to arbitrarily select a specific medication from the "Antithrombotic Therapy" value set that they
-did not administer in order to negate. 
-
-Similarly, to report "ProcedureNotDone": "Cardiac Surgery" with a reason, the canonical URL of "Cardiac Surgery" value set
-is referenced by using the value set extension to indicate providers did not perform any of the cardiac surgery
-specified in the "Cardiac Surgery" value set.
-
-Note that the negation profiles can be used to make two different types of negative statements:
-
-1. Documentation that a specific activity was not performed for a given reason (e.g. [MedicationRequest example negative a specific code](MedicationRequest-negation-example-code.html))
-2. Documentation that none of the activities in a given value set were performed for a given reason (e.g. [MedicationRequest example negating a value set](MedicationRequest-negation-example.html))
-
-Each of the negation profiles provides an example illustrating both types of negative statements.
-
+When there is a need to document evidence that an expected activity was not done due to patient intent and/or specific criteria, 
+systems should use one of the ten QI-Core specific *negation* *rationale* profiles that align with existing profiles representing the expected actions. 
+<a href="negation.html"><b>QI-Core Negation</b></a> provides detailed descriptions and guidance.
 
 ### Guidance for the use of Negation Profiles
 
