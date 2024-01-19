@@ -268,36 +268,6 @@ When there is a need to document evidence that an expected activity was not done
 systems should use one of the ten QI-Core specific *negation* *rationale* profiles that align with existing profiles representing the expected actions. 
 <a href="negation.html"><b>QI-Core Negation</b></a> provides detailed descriptions and guidance.
 
-### Guidance for the use of Negation Profiles
-
-<p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set to indicate that the reason applies to all value set members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all value set members were selected.</p>
-
-<p>This would be the most common use case. A less frequent need is to indicate that they did not do ONE of the members of the value set. Stakeholders should understand that either a reason for not acting on a value set or a single member from that value set meet criteria for the notDone expression.</p>
-
-<p>Response to a query for a reason will result in fulfilling the criteria that meet the not-performed extension as long as two criteria have been met:</p>
-
-<ol>
-  <li>Presence of a concept (code) from the statusReason value set</li>
-  <li>Presence of the code representing what has not occurred which may be identified as:
-    <ol>
-      <li>A direct reference code (DRC) indicating the expected activity (if the measure or CDS artifact included only a DRC)</li>
-      <li>A value set OID representing the expected activity</li>
-      <li>Any concept or code from within the expected value set</li>
-    </ol>
-  </li>
-</ol>
-
-<p>The reason the profile indicates the .code as qicore-notDoneValueSet is to allow a clinician to indicate “I did none of these” with the respective statusReason or doNotPerformReason. Implementer feedback suggests that clinicians prefer the “none of these” approach rather than a requirement to select a single element from a list.  However, there are clinical situations in which a clinician will indicate a reason for not performing a specific activity that represents one of the members of a value set bound to a specific data element in a measure or a CDS.</p>
-
-<p>Examples of such a scenario:</p>
-<ol>
-<li>A measure numerator criterion includes an order for angiotensin-converting enzyme inhibitors (ACEI). The clinician indicates not ordering enalapril due to the patient’s intolerance (drowsiness) and, instead, orders another ACEI in the same value set, lisinopril. The order for lisinopril would fulfill criteria for the numerator regardless of meeting criteria for MedicationNotRequested.  However, if the clinician did not order another medication from the value set (e.g., lisinopril), the presence of a doNotPerformReason for the value set member enalapril fulfills the criteria for MedicationNotRequested and the patient would be excluded from the measure even though numerator criteria were not met.</li>
-<li>A measure criterion for anticoagulation uses a value set containing warfarin or direct-oral-anticoagulant (DOAC).  Studies may support preference of DOAC due to long-term outcomes, but the clinician may select a reason for not ordering DOAC due to its expense. That reason for the single item (DOAC) meets criteria for the expression and fail to recognize lack of compliance with any anticoagulation.</li>
-<li>A measure evaluating lipid management uses a statin value set containing atorvastatin. The clinician may provide a reason for not ordering atorvastatin, such as myopathy. That reason meets criteria for the expression and fails to recognize lack of compliance with any lipid therapy, but the patient might be able to tolerate ezetimibe/simvastatin.</li>
-</ol>
-
-<p>Artifact developers should consider these facts when evaluating data retrieved as it pertains to each measure's intent and value set development. Implementers should consider these facts to consider providing data capture opportunities that limit practitioner burden.</p>
-
 
 ### Terminology Bindings
 
