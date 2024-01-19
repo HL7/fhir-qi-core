@@ -160,6 +160,60 @@
             ]
           }
         ]
+      },
+      {
+        "id": "Procedure.basedOn",
+        "path": "Procedure.basedOn",
+        "short": "(QI-Core)(USCDI) A request for this procedure",
+        "definition": "A reference to a resource that contains details of the request for this procedure.",
+        "alias": [
+          "fulfills"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Procedure.basedOn",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"
+            ]
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "xpath": "@value|f:*|h:div",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "workflow",
+            "map": "Event.basedOn"
+          },
+          {
+            "identity": "rim",
+            "map": ".outboundRelationship[typeCode\u003dFLFS].target[classCode\u003d(various e.g. PROC, OBS, PCPR, ACT,  moodCode\u003dRQO].code"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ]
       }
     ]
   }

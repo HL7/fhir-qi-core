@@ -184,43 +184,21 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 QI-Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
 
-In addition to the requirements defined in the US Core base, QI-Core further describes and constrains the "MustSupport"
-functionality.
+QI-Core flags elements that the quality improvement community has identified as significant to express the full intent of measures 
+and CDS artifacts or those that are used in established measures or CDS support services. Implementers are only required to support 
+these additional elements when they are used in the measures or CDS artifacts implemented on or otherwise supported by the system. 
+Since not all artifacts use each of these additional elements, QI-Core does not use the “MustSupport” flag to indicate these elements. 
+Instead, “(QI-Core)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table, 
+and the computable QI-Core Key Element Extension is added to each element definition. This approach is inspired by the way that US Core 
+communicates USCDI requirements and allows IGs that extend QI-Core, such as those representing data requirements for specific measures or 
+supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use.
 
-Certain elements in the QI-Core profiles have a "MustSupport" flag. In the QI-Core quality profiles, the MustSupport
-flag is used to indicate whether the element must be supported in QI implementations. More specifically, labeling an
-element as MustSupport means that quality improvement implementations SHALL understand and process the element.
+Quality improvement artifacts communicate the elements they reference using the DataRequirement structure in FHIR. This structure allows 
+the base resource type and profile to be specified, as well as a mustSupport element that indicates which elements of the resource and 
+profile are reference by the logic. Implementers can use this information directly from the effective data requirements to determine 
+which elements must be provided in order to achieve a successful evaluation of the artifact. In addition, repositories and publishers may 
+make use of this information to define artifact-specific profiles using the effective data requirements provided by the artifact.
 
-In addition, only elements where MustSupport is true can be used in quality measure criteria or decision support
-condition and triggering logic. This is because if the logic references an element, the conclusion is not valid unless
-the exchanging system supports the elements being referenced by the logic.
-
-Although support is not guaranteed, references to elements where MustSupport is false (or does not appear) in the
-QI-Core profile would be useful and should be provided. All elements in the QI-Core profiles, including those that are
-not MustSupport, can be used in CDS actions (i.e. right-hand side or consequents of CDS rules). For example, vaccination
-protocol in ImmunizationRecommendation is not a MustSupport element, so it cannot be used in a quality measure or as a
-criteria for triggering a CDS action. However, it can be filled in as part of the recommendation of a CDS application.
-
-Although the element may be returned in a resource when the resource is retrieved from an EHR, no logical processing
-involving that data element can be expected. Note that the MustSupport flag does not imply that the element will always
-have a value, if the lower cardinality is zero. The only assurance associated with MustSupport is that the quality
-improvement application will try to retrieve the data and process it if the data allows.
-
-Specific applications can modify the profiles and set MustSupport flags to true if they will process additional
-elements, but setting a MustSupport flag from true to false is noncompliant.
-
-A number of  QI-Core profiles inherit directly from US Core profiles, if any, or other FHIR resources (i.e. US Core Implantable Device Profile, US Core Pediatric BMI for Age, US Core Smoking Status etc.) and the underlying Reference elements can address the US Core or FHIR profiles for the items referenced. For any other references to base FHIR resources or those not formally defined in a QI-Core Profile, the referenced resource SHALL be a QI-Core Profile if a QI-Core Profile exists for the resource type. For example, US Core Smoking Status references US Core Patient profile, the reference to Patient SHALL be a valid QI-Core Patient.
-
-In summary, MustSupport elements represent the minimal set of data elements that must be supported in quality
-applications, defined as follows:
-
--  Data elements whenever that data is available,
--  Quality artifact authors **SHOULD** reference only elements that are marked must support, especially in the left-hand side of artifacts (measure criteria, decision support inclusion/exclusion criteria, etc.). However, additional expectations for the data requirements of artifacts **MAY** be communicated via the dataRequirements elements of knowledge artifacts, and
--  Quality improvement artifact applications **SHALL** recognize and process all MustSupport elements in QI-Core.
-
-Throughout the QI-Core profiles elements that are marked as required, meaning they have a minimum cardinality of 1, will also
-be marked as MustSupport. In the case of complex elements if the top-level element is marked as MustSupport then any required
-sub-elements will be marked as MustSupport as well.
 ### Modifying Attributes
 
 Within FHIR resources, some elements are considered [Modifying Elements]({{site.data.fhir.path}}conformance-rules.html#isModifier),

@@ -452,6 +452,16 @@
       {
         "id": "Observation.derivedFrom",
         "path": "Observation.derivedFrom",
+        "short": "(QI-Core)(USCDI) US Core Profiles or other resource the observation is made from",
+        "definition": "US Core Observations, DocumentReference, QuestionnaireResponse or other resource from which this observation value is derived.",
+        "comment": "All the reference choices that are listed in this element can represent clinical observations and other measurements that may be the source for a derived value.  The most common reference will be another Observation.  For a discussion on the ways Observations can assembled in groups together, see [Notes](http://hl7.org/fhir/R4/observation.html#obsgrouping) below.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Observation.derivedFrom",
+          "min": 0,
+          "max": "*"
+        },
         "type": [
           {
             "code": "Reference",
@@ -465,7 +475,35 @@
             ]
           }
         ],
-        "mustSupport": false
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "xpath": "@value|f:*|h:div",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "v2",
+            "map": "Relationships established by OBX-4 usage"
+          },
+          {
+            "identity": "rim",
+            "map": ".targetObservation"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ]
       }
     ]
   }
