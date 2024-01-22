@@ -319,41 +319,14 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Condition",
-              "http://hl7.org/fhir/StructureDefinition/Observation"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation"
             ]
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
           }
         ],
         "isModifier": false,
         "isSummary": false,
-        "mapping": [
-          {
-            "identity": "workflow",
-            "map": "Request.reasonReference"
-          },
-          {
-            "identity": "script10.6",
-            "map": "no mapping"
-          },
-          {
-            "identity": "w5",
-            "map": "FiveWs.why[x]"
-          },
-          {
-            "identity": "rim",
-            "map": "reason.observation[code\u003dASSERTION].value"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
