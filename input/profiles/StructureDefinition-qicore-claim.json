@@ -5,7 +5,7 @@
     "status" : "extensions"
   },
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claim",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreClaim",
   "title": "QICore Claim",
   "status" : "active",
@@ -35,23 +35,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Claim",
@@ -66,7 +49,14 @@
       },
       {
         "id" : "Claim.patient",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.patient",
+        "short" : "(QI-Core) The recipient of the products and services",
         "type" : [
           {
             "code" : "Reference",
@@ -74,22 +64,40 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Claim.billablePeriod",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.billablePeriod",
-        "mustSupport" : true
+        "short" : "(QI-Core) Relevant time frame for the claim"
       },
       {
         "id" : "Claim.created",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.created",
-        "mustSupport" : true
+        "short" :"(QI-Core) Resource creation date"
       },
       {
         "id" : "Claim.provider",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.provider",
+        "short" : "(QI-Core) Party responsible for the claim",
         "type" : [
           {
             "code" : "Reference",
@@ -99,12 +107,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Claim.prescription",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.prescription",
+        "short" : "(QI-Core) Prescription authorizing services and products",
         "type" : [
           {
             "code" : "Reference",
@@ -114,8 +128,7 @@
               "http://hl7.org/fhir/StructureDefinition/VisionPrescription"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Claim.payee",
@@ -187,17 +200,30 @@
       },
       {
         "id" : "Claim.diagnosis.sequence",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.diagnosis.sequence",
+        "short" : "(QI-Core) Diagnosis instance identifier",
         "type" : [
           {
             "code" : "positiveInt"
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Claim.diagnosis.diagnosis[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.diagnosis.diagnosis[x]",
+        "short" : "(QI-Core) Nature of illness or problem",
         "type" : [
           {
             "code" : "CodeableConcept"
@@ -209,7 +235,6 @@
             ]
           }
         ],
-        "mustSupport" : true,
         "binding" : {
           "extension" : [
             {
@@ -224,13 +249,19 @@
       },
       {
         "id" : "Claim.diagnosis.onAdmission",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.diagnosis.onAdmission",
+        "short" : "(QI-Core) Present on admission",
         "type" : [
           {
             "code" : "CodeableConcept"
           }
         ],
-        "mustSupport" : true,
         "binding" : {
           "strength" : "required",
           "description" : "Present on admission.",
@@ -239,19 +270,32 @@
       },
       {
         "id" : "Claim.procedure.sequence",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.procedure.sequence",
+        "short": "(QI-Core) Procedure instance identifier",
         "type" : [
           {
             "code" : "positiveInt"
           }
         ],
-        "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : false
       },
       {
         "id" : "Claim.procedure.procedure[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.procedure.procedure[x]",
+        "short": "(QI-Core) Specific clinical procedure",
         "type" : [
           {
             "code" : "CodeableConcept"
@@ -263,7 +307,6 @@
             ]
           }
         ],
-        "mustSupport" : true,
         "binding" : {
           "extension" : [
             {
@@ -278,7 +321,14 @@
       },
       {
         "id" : "Claim.item.encounter",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim.item.encounter",
+        "short" : "(QI-Core) Encounters related to this billed item",
         "type" : [
           {
             "code" : "Reference",
@@ -286,8 +336,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       }
     ]
   }

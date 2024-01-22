@@ -3,7 +3,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-bodystructure",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-bodystructure",
-  "version" : "5.0.0-ballot",
+  "version" : "6.0.0",
   "name" : "QICoreBodyStructure",
   "title" : "QICore BodyStructure",
   "status" : "active",
@@ -33,28 +33,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "openehr",
-      "uri" : "http://openehr.org",
-      "name" : "Open EHR Archetype Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "BodyStructure",
@@ -69,17 +47,29 @@
       },
       {
         "id" : "BodyStructure.active",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "BodyStructure.active",
+        "short" : "(QI-Core) Whether this record is in active use",
         "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
+        "max" : "1"
       },
       {
         "id" : "BodyStructure.location",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "BodyStructure.location",
+        "short" : "(QI-Core) Body site",
         "min" : 1,
         "max" : "1",
-        "mustSupport" : true,
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://hl7.org/fhir/ValueSet/body-site"
@@ -87,8 +77,14 @@
       },
       {
         "id" : "BodyStructure.locationQualifier",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "BodyStructure.locationQualifier",
-        "mustSupport" : true,
+        "short" : "(QI-Core) Body site modifier",
         "binding" : {
           "strength" : "preferred",
           "description" : "Concepts modifying the anatomic location",
@@ -97,7 +93,14 @@
       },
       {
         "id" : "BodyStructure.patient",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "BodyStructure.patient",
+        "short" : "(QI-Core) Who this is about",
         "type" : [
           {
             "code" : "Reference",
@@ -105,8 +108,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       }
     ]
   }

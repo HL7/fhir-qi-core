@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-adverseevent",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-adverseevent",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreAdverseEvent",
   "title" : "QICore AdverseEvent",
   "status" : "active",
@@ -32,18 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "AdverseEvent",
@@ -52,26 +40,39 @@
   "differential" : {
     "element" : [
       {
-        "id" : "AdverseEvent",
-        "path" : "AdverseEvent",
-        "mustSupport" : false
-      },
-      {
         "id" : "AdverseEvent.actuality",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AdverseEvent.actuality",
-        "mustSupport" : true
+        "short" : "(QI-Core) actual | potential"
       },
       {
         "id" : "AdverseEvent.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AdverseEvent.category",
-        "mustSupport" : true
+        "short" : "(QI-Core) product-problem | product-quality | product-use-error | wrong-dose | incorrect-prescribing-information | wrong-technique | wrong-route-of-administration | wrong-rate | wrong-duration | wrong-time | expired-drug | medical-device-use-error | problem-different-manufacturer | unsafe-physical-environment"
       },
       {
         "id" : "AdverseEvent.event",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AdverseEvent.event",
+        "short" : "(QI-Core) Type of the event itself in relation to the subject",
         "min" : 1,
         "max" : "1",
-        "mustSupport" : true,
         "binding" : {
           "strength" : "preferred",
           "description" : "Detailed type of event.",
@@ -80,7 +81,14 @@
       },
       {
         "id" : "AdverseEvent.subject",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AdverseEvent.subject",
+        "short" : "(QI-Core) Subject impacted by event",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -93,12 +101,18 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "AdverseEvent.encounter",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AdverseEvent.encounter",
+        "short" : "(QI-Core) Encounter created as part of",
         "type" : [
           {
             "code" : "Reference",
@@ -106,8 +120,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "AdverseEvent.date",
@@ -116,7 +129,14 @@
       },
       {
         "id" : "AdverseEvent.resultingCondition",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AdverseEvent.resultingCondition",
+        "short" : "(QI-Core) Effect on the subject due to this event",
         "type" : [
           {
             "code" : "Reference",
@@ -125,8 +145,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "AdverseEvent.location",
@@ -180,7 +199,14 @@
       },
       {
         "id" : "AdverseEvent.suspectEntity.instance",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AdverseEvent.suspectEntity.instance",
+        "short" : "(QI-Core) Refers to the specific entity that caused the adverse event",
         "type" : [
           {
             "code" : "Reference",
@@ -195,8 +221,7 @@
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "AdverseEvent.suspectEntity.causality",

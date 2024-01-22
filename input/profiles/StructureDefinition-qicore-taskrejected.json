@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-taskrejected",
    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreTaskRejected",
   "title" : "QICore Task Rejected",
   "status" : "active",
@@ -32,28 +32,6 @@
     }
   ],
   "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    }
-  ],
   "kind" : "resource",
   "abstract" : false,
   "type" : "Task",
@@ -78,7 +56,7 @@
       {
         "id" : "Task.status",
         "path" : "Task.status",
-        "short" : "The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action",
+        "short" : "(QI-Core) The potential performer who claimed ownership of the task has decided not to execute it prior to performing any action",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -86,8 +64,7 @@
             "code" : "code"
           }
         ],
-        "fixedCode" : "rejected",
-        "mustSupport" : true
+        "fixedCode" : "rejected"
       },
       {
         "id" : "Task.statusReason",
@@ -103,6 +80,7 @@
       {
         "id" : "Task.code",
         "path" : "Task.code",
+        "short" : "(QI-Core) Task Type",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -113,7 +91,6 @@
         "condition" : [
           "tnd-1"
         ],
-        "mustSupport" : true,
         "binding" : {
           "strength" : "preferred",
           "description" : "Codes to identify what the task involves. These will typically be specific to a particular workflow.",
@@ -124,6 +101,7 @@
         "id" : "Task.code.extension:notDoneValueSet",
         "path" : "Task.code.extension",
         "sliceName" : "notDoneValueSet",
+        "short" : "(QI-Core) Url of a value set of activities not requested or performed",
         "min" : 0,
         "max" : "1",
         "type" : [
@@ -136,8 +114,7 @@
         ],
         "condition" : [
           "tnd-1"
-        ],
-        "mustSupport" : true
+        ]
       },
       {
         "id" : "Task.focus",
@@ -174,11 +151,16 @@
       },
       {
         "id" : "Task.executionPeriod",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Task.executionPeriod",
-        "short" : "The timing the task was rejected and the reason.",
+        "short" : "(QI-Core) The timing the task was rejected and the reason.",
         "min" : 1,
-        "max" : "1",
-        "mustSupport" : true
+        "max" : "1"
       }
     ]
   }

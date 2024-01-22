@@ -1,124 +1,119 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-procedure",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
-  "version" : "5.0.0",
-  "name" : "QICoreProcedure",
-  "title" : "QICore Procedure",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2018-08-22",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-procedure",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
+  "version": "6.0.0",
+  "name": "QICoreProcedure",
+  "title": "QICore Procedure",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-      "name" : "Clinical Quality Information WG",
-      "telecom" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "system" : "url",
-          "value" : "http://www.hl7.org/Special/committees/cqi"
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
       ]
     }
   ],
-  "description" : "Profile of Procedure for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
+  "description": "Profile of Procedure for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "coding" : [
+      "coding": [
         {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
       ]
     }
   ],
-  "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    }
-  ],
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "Procedure",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Procedure",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
       {
-        "id" : "Procedure",
-        "path" : "Procedure",
-        "mustSupport" : false
-      },
-      {
-        "id" : "Procedure.extension:recorded",
-        "path" : "Procedure.extension",
-        "sliceName" : "recorded",
-        "short" : "When the procedure was first captured in the subject's record",
-        "definition" : "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
+        "id": "Procedure.extension:recorded",
+        "extension": [
           {
-            "code" : "Extension",
-            "profile" : [
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Procedure.extension",
+        "sliceName": "recorded",
+        "short": "(QI-Core) When the procedure was first captured in the subject\u0027s record",
+        "definition": "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded"
             ]
           }
+        ]
+      },
+      {
+        "id": "Procedure.implicitRules",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
         ],
-        "mustSupport" : true
+        "path": "Procedure.implicitRules",
+        "short": "(QI-Core) A set of rules under which this content was created"
       },
       {
-        "id" : "Procedure.implicitRules",
-        "path" : "Procedure.implicitRules",
-        "mustSupport" : true
-      },
-      {
-        "id" : "Procedure.status",
-        "path" : "Procedure.status",
-        "short" : "preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
-        "mustSupport" : true,
+        "id": "Procedure.status",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Procedure.status",
+        "short": "(QI-Core)(USCDI) preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status"
         }
       },
       {
-        "id" : "Procedure.subject",
-        "path" : "Procedure.subject",
-        "type" : [
+        "id": "Procedure.subject",
+        "extension": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Procedure.subject",
+        "short": "(QI-Core)(USCDI) Who the procedure was performed on",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
-     {
-        "id" : "Procedure.performer.actor",
-        "path" : "Procedure.performer.actor",
-        "type" : [
+      {
+        "id": "Procedure.performer.actor",
+        "path": "Procedure.performer.actor",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
@@ -126,33 +121,99 @@
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "Procedure.reasonCode",
-        "path" : "Procedure.reasonCode",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "A code that identifies the reason a procedure is required.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/procedure-reason"
+        "id": "Procedure.reasonCode",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Procedure.reasonCode",
+        "short": "(QI-Core) Coded reason procedure performed",
+        "binding": {
+          "strength": "preferred",
+          "description": "A code that identifies the reason a procedure is required.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/procedure-reason"
         }
       },
       {
-        "id" : "Procedure.reasonReference",
-        "path" : "Procedure.reasonReference",
-        "type" : [
+        "id": "Procedure.reasonReference",
+        "extension": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Procedure.reasonReference",
+        "short": "(QI-Core) The justification that the procedure was performed",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
             ]
           }
+        ]
+      },
+      {
+        "id": "Procedure.basedOn",
+        "path": "Procedure.basedOn",
+        "short": "(QI-Core)(USCDI) A request for this procedure",
+        "definition": "A reference to a resource that contains details of the request for this procedure.",
+        "alias": [
+          "fulfills"
         ],
-        "mustSupport" : true
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Procedure.basedOn",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careplan",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-servicerequest"
+            ]
+          }
+        ],
+        "constraint": [
+          {
+            "key": "ele-1",
+            "severity": "error",
+            "human": "All FHIR elements must have a @value or children",
+            "expression": "hasValue() or (children().count() \u003e id.count())",
+            "xpath": "@value|f:*|h:div",
+            "source": "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "mapping": [
+          {
+            "identity": "workflow",
+            "map": "Event.basedOn"
+          },
+          {
+            "identity": "rim",
+            "map": ".outboundRelationship[typeCode\u003dFLFS].target[classCode\u003d(various e.g. PROC, OBS, PCPR, ACT,  moodCode\u003dRQO].code"
+          }
+        ],
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ]
       }
     ]
   }

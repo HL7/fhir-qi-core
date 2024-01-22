@@ -2,9 +2,9 @@
   "resourceType": "StructureDefinition",
   "id": "qicore-careplan",
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "name": "QICoreCarePlan",
-  "title" : "QICore CarePlan",
+  "title": "QICore CarePlan",
   "status": "active",
   "experimental": false,
   "date": "2019-07-28",
@@ -20,7 +20,7 @@
       ]
     }
   ],
-  "description": "The QI-Core CarePlan is based upon the US Core CarePlan Profile which is based upon the core FHIR CarePlan Resource and created to meet the 2015 Edition Common Clinical Data Set 'Assessment and Plan of Treatment requirements. Defines constraints and extensions on the CarePlan resource for the minimal set of data to query and retrieve a patient's Care Plan.",
+  "description": "The QI-Core CarePlan is based upon the US Core CarePlan Profile which is based upon the core FHIR CarePlan Resource and created to meet the 2015 Edition Common Clinical Data Set \u0027Assessment and Plan of Treatment requirements. Defines constraints and extensions on the CarePlan resource for the minimal set of data to query and retrieve a patient\u0027s Care Plan.",
   "jurisdiction": [
     {
       "coding": [
@@ -32,33 +32,6 @@
     }
   ],
   "fhirVersion": "4.0.1",
-  "mapping": [
-    {
-      "identity": "argonaut-dq-dstu2",
-      "uri": "http://unknown.org/Argonaut-DQ-DSTU2",
-      "name": "Argonaut-DQ-DSTU2"
-    },
-    {
-      "identity": "workflow",
-      "uri": "http://hl7.org/fhir/workflow",
-      "name": "Workflow Pattern"
-    },
-    {
-      "identity": "rim",
-      "uri": "http://hl7.org/v3",
-      "name": "RIM Mapping"
-    },
-    {
-      "identity": "w5",
-      "uri": "http://hl7.org/fhir/fivews",
-      "name": "FiveWs Pattern Mapping"
-    },
-    {
-      "identity": "v2",
-      "uri": "http://hl7.org/v2",
-      "name": "HL7 v2 Mapping"
-    }
-  ],
   "kind": "resource",
   "abstract": false,
   "type": "CarePlan",
@@ -68,6 +41,12 @@
     "element": [
       {
         "id": "CarePlan.category",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
         "path": "CarePlan.category",
         "slicing": {
           "discriminator": [
@@ -78,7 +57,7 @@
           ],
           "rules": "open"
         },
-        "short": "Type of plan",
+        "short": "(QI-Core)(USCDI) Type of plan",
         "definition": "Type of plan.",
         "comment": "There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.",
         "requirements": "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.",
@@ -94,7 +73,6 @@
             "code": "CodeableConcept"
           }
         ],
-        "mustSupport": true,
         "isModifier": false,
         "isSummary": true,
         "binding": {
@@ -111,9 +89,15 @@
       },
       {
         "id": "CarePlan.category:AssessPlan",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
         "path": "CarePlan.category",
         "sliceName": "AssessPlan",
-        "short": "Type of plan",
+        "short": "(QI-Core)(USCDI) Type of plan",
         "definition": "Type of plan.",
         "comment": "There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.",
         "requirements": "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.",
@@ -137,7 +121,6 @@
             }
           ]
         },
-        "mustSupport": true,
         "isModifier": false,
         "isSummary": true,
         "binding": {
@@ -154,7 +137,14 @@
       },
       {
         "id": "CarePlan.subject",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
         "path": "CarePlan.subject",
+        "short": "(QI-Core)(USCDI) Who the care plan is for.",
         "definition": "Who care plan is for.",
         "requirements": "Identifies the patient or group whose intended care is described by the plan.",
         "min": 1,
@@ -166,8 +156,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport": true
+        ]
       }
     ]
   }

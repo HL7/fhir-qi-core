@@ -5,9 +5,9 @@
 The patterns described here have been developed through usage of QI-Core profiles in the development of
 CQL-based quality measures and decision support. CMS program measures can be accessed at [HealthIT.gov](https://ecqi.healthit.gov/). Multiple repositories of draft FHIR-based measures have been developed and are indexed in the [eCQM Content Index](https://github.com/cqframework/ecqm-content) repository.
 
-> NOTE: The examples in this section follow recommended best-practices as of the time of publication. However, these practices are constantly being revised based on implementer and community feedback. For a complete discussion of authoring patterns, see the [Authoring Patterns](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns---QICore-v5.0.0) topic in the CQL Formatting and Usage Wiki.
+> NOTE: The examples in this section follow recommended best-practices as of the time of publication. However, these practices are constantly being revised based on implementer and community feedback. For a complete discussion of authoring patterns, see the [Authoring Patterns](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns) topic in the CQL Formatting and Usage Wiki.
 
->NOTE: Patterns page for 4.1.1 has been superseded by [patterns wiki for 4.1.1](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns---QICore-v4.1.1)
+
 
 ### FHIR and CQL
 
@@ -18,7 +18,7 @@ To use CQL with FHIR, [model information](https://cql.hl7.org/07-physicalreprese
 However, this implementation guide includes a [QICore ModelInfo](Library-QICore-ModelInfo.html) library that provides model information for the profiles and extensions defined in QI-Core. To use this model, include a [using declaration](https://cql.hl7.org/02-authorsguide.html#data-models) as shown in the example below:
 
 ```cql
-using QICore version '5.0.0'
+using QICore version '6.0.0'
 ```
 
 Although not required by CQL, current best-practice is to include the version of the QICore model. For more information about how this library is constructed, refer to the [ModelInfo](modelinfo.html) topic.

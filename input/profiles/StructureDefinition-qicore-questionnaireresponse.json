@@ -1,12 +1,12 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-questionnaireresponse",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse",
-  "version" : "6.0.0-ballot",
-  "name" : "QICoreQuestionnaireResponse",
-  "title" : "QICore QuestionnaireResponse",
-  "status" : "active",
-  "date" : "2023-08-01",
+  "resourceType": "StructureDefinition",
+  "id": "qicore-questionnaireresponse",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse",
+  "version": "6.0.0",
+  "name": "QICoreQuestionnaireResponse",
+  "title": "QICore QuestionnaireResponse",
+  "status": "active",
+  "date": "2023-08-01",
   "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
   "contact": [
     {
@@ -19,65 +19,61 @@
       ]
     }
   ],
-  "description" : "The QI-Core QuestionnaireResponse Profile is based upon the US Core QuestionnaireResponse Profile and sets minimum expectations for the QuestionnaireResponse resource to record, search, and fetch retrieve captures the responses to form/survey and defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
+  "description": "The QI-Core QuestionnaireResponse Profile is based upon the US Core QuestionnaireResponse Profile and sets minimum expectations for the QuestionnaireResponse resource to record, search, and fetch retrieve captures the responses to form/survey and defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "coding" : [
+      "coding": [
         {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
       ]
     }
   ],
-  "copyright" : "Used by permission of HL7 International, all rights reserved Creative Commons License",
-  "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "workflow",
-      "uri" : "http://hl7.org/fhir/workflow",
-      "name" : "Workflow Pattern"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    }
-  ],
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "QuestionnaireResponse",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-questionnaireresponse",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "copyright": "Used by permission of HL7 International, all rights reserved Creative Commons License",
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "QuestionnaireResponse",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-questionnaireresponse",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
       {
-        "id" : "QuestionnaireResponse.subject",
-        "path" : "QuestionnaireResponse.subject",
-        "comment" : "-",
-        "min" : 1,
-        "type" : [
+        "id": "QuestionnaireResponse.subject",
+        "extension": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "QuestionnaireResponse.subject",
+        "short": "(QI-Core)(USCDI) The subject of the questions",
+        "comment": "-",
+        "min": 1,
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
-        "id" : "QuestionnaireResponse.author",
-        "path" : "QuestionnaireResponse.author",
-        "type" : [
+        "id": "QuestionnaireResponse.author",
+        "extension": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "QuestionnaireResponse.author",
+        "short": "(QI-Core)(USCDI) Person who received and recorded the answers",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
@@ -86,141 +82,158 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
             ],
-            "_targetProfile" : [
+            "_targetProfile": [
               {
-                "extension" : [
+                "extension": [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
+                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                    "valueBoolean": true
                   }
                 ]
               },
               {
-                "extension" : [
+                "extension": [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
+                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                    "valueBoolean": true
                   }
                 ]
               },
               {
-                "extension" : [
+                "extension": [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
+                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                    "valueBoolean": true
                   }
                 ]
               },
               {
-                "extension" : [
+                "extension": [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
+                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                    "valueBoolean": true
                   }
                 ]
               },
               {
-                "extension" : [
+                "extension": [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : false
+                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                    "valueBoolean": false
                   }
                 ]
               },
               {
-                "extension" : [
+                "extension": [
                   {
-                    "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                    "valueBoolean" : true
+                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                    "valueBoolean": true
                   }
                 ]
               }
             ]
           }
-        ],
-        "mustSupport" : true
+        ]
       },
       {
-        "id" : "QuestionnaireResponse.item",
-        "path" : "QuestionnaireResponse.item",
-        "mustSupport" : true
-      },
-      {
-        "id" : "QuestionnaireResponse.item.linkId",
-        "path" : "QuestionnaireResponse.item.linkId",
-        "mustSupport" : true
-      },
-      {
-        "id" : "QuestionnaireResponse.item.answer.value[x]",
-        "path" : "QuestionnaireResponse.item.answer.value[x]",
-        "min" : 0,
-        "max" : "1",
-        "type" : [          
+        "id": "QuestionnaireResponse.item",
+        "extension": [
           {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "Coding"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "string"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "decimal"
-          },                    
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "date"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "dateTime"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "integer"
-          },
-          {
-            "extension" : [
-              {
-                "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
-                "valueBoolean" : true
-              }
-            ],
-            "code" : "Quantity"
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
         ],
-        "mustSupport" : true
+        "path": "QuestionnaireResponse.item",
+        "short": "(QI-Core)(USCDI) Groups and questions"
+      },
+      {
+        "id": "QuestionnaireResponse.item.linkId",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "QuestionnaireResponse.item.linkId",
+        "short": "(QI-Core)(USCDI) Pointer to specific item from Questionnaire"
+      },
+      {
+        "id": "QuestionnaireResponse.item.answer.value[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "QuestionnaireResponse.item.answer.value[x]",
+        "short": "(QI-Core)(USCDI) Single-valued answer to the question",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Coding"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "decimal"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "date"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "dateTime"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "integer"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Quantity"
+          }
+        ]
       }
     ]
   }

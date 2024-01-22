@@ -184,43 +184,21 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 QI-Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
 
-In addition to the requirements defined in the US Core base, QI-Core further describes and constrains the "MustSupport"
-functionality.
+QI-Core flags elements that the quality improvement community has identified as significant to express the full intent of measures 
+and CDS artifacts or those that are used in established measures or CDS support services. Implementers are only required to support 
+these additional elements when they are used in the measures or CDS artifacts implemented on or otherwise supported by the system. 
+Since not all artifacts use each of these additional elements, QI-Core does not use the “MustSupport” flag to indicate these elements. 
+Instead, “(QI-Core)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table, 
+and the computable [QI-Core Key Element Extension](StructureDefinition-qicore-keyelement.html) is added to each element definition. This approach 
+is inspired by the way that [US Core communicates USCDI requirements](https://hl7.org/fhir/us/core/must-support.html#uscdi-requirements) and allows IGs that extend QI-Core, such as those representing data 
+requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use.
 
-Certain elements in the QI-Core profiles have a "MustSupport" flag. In the QI-Core quality profiles, the MustSupport
-flag is used to indicate whether the element must be supported in QI implementations. More specifically, labeling an
-element as MustSupport means that quality improvement implementations SHALL understand and process the element.
+Quality improvement artifacts communicate the elements they reference using the DataRequirement structure in FHIR. This structure allows 
+the base resource type and profile to be specified, as well as a mustSupport element that indicates which elements of the resource and 
+profile are reference by the logic. Implementers can use this information directly from the effective data requirements to determine 
+which elements must be provided in order to achieve a successful evaluation of the artifact. In addition, repositories and publishers may 
+make use of this information to define artifact-specific profiles using the effective data requirements provided by the artifact.
 
-In addition, only elements where MustSupport is true can be used in quality measure criteria or decision support
-condition and triggering logic. This is because if the logic references an element, the conclusion is not valid unless
-the exchanging system supports the elements being referenced by the logic.
-
-Although support is not guaranteed, references to elements where MustSupport is false (or does not appear) in the
-QI-Core profile would be useful and should be provided. All elements in the QI-Core profiles, including those that are
-not MustSupport, can be used in CDS actions (i.e. right-hand side or consequents of CDS rules). For example, vaccination
-protocol in ImmunizationRecommendation is not a MustSupport element, so it cannot be used in a quality measure or as a
-criteria for triggering a CDS action. However, it can be filled in as part of the recommendation of a CDS application.
-
-Although the element may be returned in a resource when the resource is retrieved from an EHR, no logical processing
-involving that data element can be expected. Note that the MustSupport flag does not imply that the element will always
-have a value, if the lower cardinality is zero. The only assurance associated with MustSupport is that the quality
-improvement application will try to retrieve the data and process it if the data allows.
-
-Specific applications can modify the profiles and set MustSupport flags to true if they will process additional
-elements, but setting a MustSupport flag from true to false is noncompliant.
-
-A number of  QI-Core profiles inherit directly from US Core profiles, if any, or other FHIR resources (i.e. US Core Implantable Device Profile, US Core Pediatric BMI for Age, US Core Smoking Status etc.) and the underlying Reference elements can address the US Core or FHIR profiles for the items referenced. For any other references to base FHIR resources or those not formally defined in a QI-Core Profile, the referenced resource SHALL be a QI-Core Profile if a QI-Core Profile exists for the resource type. For example, US Core Smoking Status references US Core Patient profile, the reference to Patient SHALL be a valid QI-Core Patient.
-
-In summary, MustSupport elements represent the minimal set of data elements that must be supported in quality
-applications, defined as follows:
-
--  Data elements whenever that data is available,
--  Quality artifact authors **SHOULD** reference only elements that are marked must support, especially in the left-hand side of artifacts (measure criteria, decision support inclusion/exclusion criteria, etc.). However, additional expectations for the data requirements of artifacts **MAY** be communicated via the dataRequirements elements of knowledge artifacts, and
--  Quality improvement artifact applications **SHALL** recognize and process all MustSupport elements in QI-Core.
-
-Throughout the QI-Core profiles elements that are marked as required, meaning they have a minimum cardinality of 1, will also
-be marked as MustSupport. In the case of complex elements if the top-level element is marked as MustSupport then any required
-sub-elements will be marked as MustSupport as well.
 ### Modifying Attributes
 
 Within FHIR resources, some elements are considered [Modifying Elements]({{site.data.fhir.path}}conformance-rules.html#isModifier),
@@ -267,36 +245,6 @@ QI-Core’s concept of negation follows the informative publication established 
 When there is a need to document evidence that an expected activity was not done due to patient intent and/or specific criteria, 
 systems should use one of the ten QI-Core specific *negation* *rationale* profiles that align with existing profiles representing the expected actions. 
 <a href="negation.html"><b>QI-Core Negation</b></a> provides detailed descriptions and guidance.
-
-### Guidance for the use of Negation Profiles
-
-<p>Quality Measure and Clinical Decision Support authors and implementers should be cautious to prevent a reason for not performing a single item from a value set to indicate that the reason applies to all value set members.  This may become more problematic as automated data extraction progresses and directly impacts EHR implementation.  Clinicians require a rapid way to document that none of the members of the negation set could be selected.  Caution is required to prevent a single member selection from being interpreted as if all value set members were selected.</p>
-
-<p>This would be the most common use case. A less frequent need is to indicate that they did not do ONE of the members of the value set. Stakeholders should understand that either a reason for not acting on a value set or a single member from that value set meet criteria for the notDone expression.</p>
-
-<p>Response to a query for a reason will result in fulfilling the criteria that meet the not-performed extension as long as two criteria have been met:</p>
-
-<ol>
-  <li>Presence of a concept (code) from the statusReason value set</li>
-  <li>Presence of the code representing what has not occurred which may be identified as:
-    <ol>
-      <li>A direct reference code (DRC) indicating the expected activity (if the measure or CDS artifact included only a DRC)</li>
-      <li>A value set OID representing the expected activity</li>
-      <li>Any concept or code from within the expected value set</li>
-    </ol>
-  </li>
-</ol>
-
-<p>The reason the profile indicates the .code as qicore-notDoneValueSet is to allow a clinician to indicate “I did none of these” with the respective statusReason or doNotPerformReason. Implementer feedback suggests that clinicians prefer the “none of these” approach rather than a requirement to select a single element from a list.  However, there are clinical situations in which a clinician will indicate a reason for not performing a specific activity that represents one of the members of a value set bound to a specific data element in a measure or a CDS.</p>
-
-<p>Examples of such a scenario:</p>
-<ol>
-<li>A measure numerator criterion includes an order for angiotensin-converting enzyme inhibitors (ACEI). The clinician indicates not ordering enalapril due to the patient’s intolerance (drowsiness) and, instead, orders another ACEI in the same value set, lisinopril. The order for lisinopril would fulfill criteria for the numerator regardless of meeting criteria for MedicationNotRequested.  However, if the clinician did not order another medication from the value set (e.g., lisinopril), the presence of a doNotPerformReason for the value set member enalapril fulfills the criteria for MedicationNotRequested and the patient would be excluded from the measure even though numerator criteria were not met.</li>
-<li>A measure criterion for anticoagulation uses a value set containing warfarin or direct-oral-anticoagulant (DOAC).  Studies may support preference of DOAC due to long-term outcomes, but the clinician may select a reason for not ordering DOAC due to its expense. That reason for the single item (DOAC) meets criteria for the expression and fail to recognize lack of compliance with any anticoagulation.</li>
-<li>A measure evaluating lipid management uses a statin value set containing atorvastatin. The clinician may provide a reason for not ordering atorvastatin, such as myopathy. That reason meets criteria for the expression and fails to recognize lack of compliance with any lipid therapy, but the patient might be able to tolerate ezetimibe/simvastatin.</li>
-</ol>
-
-<p>Artifact developers should consider these facts when evaluating data retrieved as it pertains to each measure's intent and value set development. Implementers should consider these facts to consider providing data capture opportunities that limit practitioner burden.</p>
 
 
 ### Terminology Bindings

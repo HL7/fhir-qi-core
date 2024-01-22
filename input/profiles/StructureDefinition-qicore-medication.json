@@ -1,132 +1,89 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-medication",
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication",
-  "version" : "5.0.0",
-  "name" : "QICoreMedication",
-  "title" : "QICore Medication",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2018-08-22",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-medication",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication",
+  "version": "6.0.0",
+  "name": "QICoreMedication",
+  "title": "QICore Medication",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-      "name" : "Clinical Quality Information WG",
-      "telecom" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "system" : "url",
-          "value" : "http://www.hl7.org/Special/committees/cqi"
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
       ]
     }
   ],
-  "description" : "Profile of Medication for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [
+  "description": "Profile of Medication for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "coding" : [
+      "coding": [
         {
-          "system" : "urn:iso:std:iso:3166",
-          "code" : "US"
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
       ]
     }
   ],
-  "fhirVersion" : "4.0.1",
-  "mapping" : [
-    {
-      "identity" : "qidam",
-      "uri" : "http://hl7.org/qidam",
-      "name" : "Mapping to Quality Improvement Domain Analysis Model"
-    },
-    {
-      "identity" : "script10.6",
-      "uri" : "http://ncpdp.org/SCRIPT10_6",
-      "name" : "Mapping to NCPDP SCRIPT 10.6"
-    },
-    {
-      "identity" : "rim",
-      "uri" : "http://hl7.org/v3",
-      "name" : "RIM Mapping"
-    },
-    {
-      "identity" : "w5",
-      "uri" : "http://hl7.org/fhir/fivews",
-      "name" : "FiveWs Pattern Mapping"
-    },
-    {
-      "identity" : "v2",
-      "uri" : "http://hl7.org/v2",
-      "name" : "HL7 v2 Mapping"
-    }
-  ],
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "Medication",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Medication",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
       {
-        "id" : "Medication",
-        "path" : "Medication",
-        "mustSupport" : false
-      },
-      {
-        "id" : "Medication.code",
-        "path" : "Medication.code",
-        "min" : 1,
-        "max" : "1",
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "extensible",
-          "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
-        }
-      },
-      {
-        "id" : "Medication.manufacturer",
-        "path" : "Medication.manufacturer",
-        "type" : [
+        "id": "Medication.manufacturer",
+        "path": "Medication.manufacturer",
+        "type": [
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "Medication.ingredient.item[x]",
-        "path" : "Medication.ingredient.item[x]",
-        "type" : [
+        "id": "Medication.ingredient.item[x]",
+        "path": "Medication.ingredient.item[x]",
+        "type": [
           {
-            "code" : "CodeableConcept"
+            "code": "CodeableConcept"
           },
           {
-            "code" : "Reference",
-            "targetProfile" : [
+            "code": "Reference",
+            "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-substance",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"
             ]
           }
         ],
-        "mustSupport" : false
+        "mustSupport": false
       },
       {
-        "id" : "Medication.ingredient.isActive",
-        "path" : "Medication.ingredient.isActive",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
+        "id": "Medication.ingredient.isActive",
+        "path": "Medication.ingredient.isActive",
+        "min": 0,
+        "max": "1",
+        "type": [
           {
-            "code" : "boolean"
+            "code": "boolean"
           }
         ],
-        "mustSupport" : false,
-        "mapping" : [
+        "mustSupport": false,
+        "mapping": [
           {
-            "identity" : "qidam",
-            "map" : "Not in QIDAM, but added because it was determined to be important for drug-allergy checking. For example, if the patient is allergic to Depakote\n(a trade name, and includes blue dye as an inactive ingredient), then when patient is prescribed warfarin, it shoots out a drug-allergy alert because warfarin also contains blue dye.  Providers hate this. We recently overcame this problem by having the drug-allergy alert interaction settings only check for allergies to active ingredients."
+            "identity": "qidam",
+            "map": "Not in QIDAM, but added because it was determined to be important for drug-allergy checking. For example, if the patient is allergic to Depakote\n(a trade name, and includes blue dye as an inactive ingredient), then when patient is prescribed warfarin, it shoots out a drug-allergy alert because warfarin also contains blue dye.  Providers hate this. We recently overcame this problem by having the drug-allergy alert interaction settings only check for allergies to active ingredients."
           }
         ]
       }

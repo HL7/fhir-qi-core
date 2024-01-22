@@ -2,7 +2,7 @@
   "resourceType" : "StructureDefinition",
   "id" : "qicore-deviceusestatement",
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceusestatement",
-  "version" : "5.0.0",
+  "version" : "6.0.0",
   "name" : "QICoreDeviceUseStatement",
   "title": "QICore DeviceUseStatement",
   "status" : "active",
@@ -24,81 +24,88 @@
     }]
   }],
   "fhirVersion" : "4.0.1",
-  "mapping" : [{
-    "identity" : "v2",
-    "uri" : "http://hl7.org/v2",
-    "name" : "HL7 v2 Mapping"
-  },
-  {
-    "identity" : "workflow",
-    "uri" : "http://hl7.org/fhir/workflow",
-    "name" : "Workflow Pattern"
-  },
-  {
-    "identity" : "quick",
-    "uri" : "http://siframework.org/cqf",
-    "name" : "Quality Improvement and Clinical Knowledge (QUICK)"
-  },
-  {
-    "identity" : "w5",
-    "uri" : "http://hl7.org/fhir/fivews",
-    "name" : "FiveWs Pattern Mapping"
-  },
-  {
-    "identity" : "rim",
-    "uri" : "http://hl7.org/v3",
-    "name" : "RIM Mapping"
-  }],
   "kind" : "resource",
   "abstract" : false,
   "type" : "DeviceUseStatement",
   "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/DeviceUseStatement",
   "derivation" : "constraint",
   "differential" : {
-    "element" : [{
-      "id" : "DeviceUseStatement",
-      "path" : "DeviceUseStatement",
-      "mustSupport" : false
-    },
+    "element" : [
     {
       "id" : "DeviceUseStatement.status",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "DeviceUseStatement.status",
-      "mustSupport" : true
+      "short" : "(QI-Core) active | completed | entered-in-error +"
     },
     {
       "id" : "DeviceUseStatement.subject",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "DeviceUseStatement.subject",
+      "short" : "(QI-Core) Patient using device",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "DeviceUseStatement.timing[x]",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "DeviceUseStatement.timing[x]",
-      "mustSupport" : true
+      "short" : "(QI-Core) How often the device was used"
     },
     {
       "id" : "DeviceUseStatement.recordedOn",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "DeviceUseStatement.recordedOn",
-      "mustSupport" : true
+      "short" : "(QI-Core) When statement was recorded"
     },
     {
       "id" : "DeviceUseStatement.device",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "DeviceUseStatement.device",
+      "short" : "(QI-Core) Reference to device used",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
         "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"]
-      }],
-      "mustSupport" : true
+      }]
     },
     {
       "id" : "DeviceUseStatement.bodySite",
+      "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
       "path" : "DeviceUseStatement.bodySite",
+      "short" : "(QI-Core) Target body site",
       "requirements" : "Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension http://hl7.org/fhir/StructureDefinition/bodySite.",
-      "mustSupport" : true,
       "binding" : {
         "strength" : "preferred",
         "description" : "Codes describing anatomical locations. May include laterality.",
