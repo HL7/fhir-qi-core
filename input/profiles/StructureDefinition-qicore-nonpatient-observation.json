@@ -1,0 +1,478 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "qicore-nonpatient-observation",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation",
+  "version": "6.0.0",
+  "name": "QICoreNonPatientObservation",
+  "title": "QICore NonPatient Observation",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
+    {
+      "name": "Clinical Quality Information WG",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description": "Profile of NonPatient Observation for decision support/quality metrics evaluating resource use and availability rather than focusing on patients. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Observation",
+  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Observation",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Observation.implicitRules",
+        "path": "Observation.implicitRules",
+        "short": "A set of rules under which this content was created",
+        "definition": "A reference to a set of rules that were followed when the resource was constructed, and which must be understood when processing the content. Often, this is a reference to an implementation guide that defines the special rules along with other profiles etc.",
+        "comment": "Asserting this rule set restricts the content to be only understood by a limited set of trading partners. This inherently limits the usefulness of the data in the long term. However, the existing health eco-system is highly fractured, and not yet ready to define, collect, and exchange data in a generally computable sense. Wherever possible, implementers and/or specification writers should avoid using this element. Often, when used, the URL is a reference to an implementation guide that defines these special rules as part of it\u0027s narrative along with other profiles, value sets, etc.",
+        "isModifier": true,
+        "isModifierReason": "This element is labeled as a modifier because the implicit rules may provide additional knowledge about the resource that modifies it\u0027s meaning or interpretation",
+        "isSummary": true
+      },
+      {
+        "id": "Observation.modifierExtension",
+        "path": "Observation.modifierExtension",
+        "short": "Extensions that cannot be ignored",
+        "definition": "May be used to represent additional information that is not part of the basic definition of the resource and that modifies the understanding of the element that contains it and/or the understanding of the containing element\u0027s descendants. Usually modifier elements provide negation or qualification. To make the use of extensions safe and manageable, there is a strict set of governance applied to the definition and use of extensions. Though any implementer is allowed to define an extension, there is a set of requirements that SHALL be met as part of the definition of the extension. Applications processing a resource are required to check for modifier extensions.\n\nModifier extensions SHALL NOT change the meaning of any elements on Resource or DomainResource (including cannot change the meaning of modifierExtension itself).",
+        "comment": "There can be no stigma associated with the use of extensions by any application, project, or standard - regardless of the institution or jurisdiction that uses or defines the extensions.  The use of extensions is what allows the FHIR specification to retain a core level of simplicity for everyone.",
+        "requirements": "Modifier extensions allow for extensions that *cannot* be safely ignored to be clearly distinguished from the vast majority of extensions which can be safely ignored.  This promotes interoperability by eliminating the need for implementers to prohibit the presence of extensions. For further information, see the [definition of modifier extensions](http://hl7.org/fhir/R4/extensibility.html#modifierExtension).",
+        "alias": [
+          "extensions",
+          "user content"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "DomainResource.modifierExtension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension"
+          }
+        ],
+        "isModifier": true,
+        "isModifierReason": "Modifier extensions are expected to modify the meaning or interpretation of the resource that contains them",
+        "isSummary": false
+      },
+      {
+        "id": "Observation.status",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.status",
+        "short": "(QI-Core) registered | prliminary | final | amended | corrected | entered-in-error | unknown",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
+        }
+      },
+      {
+        "id": "Observation.category",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.category",
+        "short": "(QI-Core) Classification of type of observation",
+        "min": 1,
+        "max": "*"
+      },
+      {
+        "id": "Observation.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.code",
+        "short": "(QI-Core) Type of observation (code / type)",
+        "binding": {
+          "strength": "preferred",
+          "description": "This value set specifies the type of observation",
+          "valueSet": "http://hl7.org/fhir/ValueSet/observation-codes"
+        }
+      },
+      {
+        "id": "Observation.subject",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.subject",
+        "short": "(QI-Core) The device/location/implantable device the observation is about",
+        "definition": "The device/location/implantable device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.",
+        "comment": "One would expect this element to be a cardinality of 1..1.",
+        "min": 1,
+        "max": "1",
+        "base": {
+          "path": "Observation.subject",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-implantable-device"
+
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Observation.effective[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.effective[x]",
+        "short": "(QI-Core) Clinically relevant time/time-period for observation",
+        "definition": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
+        "comment": "At least a date should be present unless this observation is a historical report.  For recording imprecise or \"fuzzy\" times (For example, a blood glucose measurement taken \"after breakfast\") use the [Timing](http://hl7.org/fhir/R4/datatypes.html#timing) datatype which allow the measurement to be tied to regular life events.",
+        "requirements": "Knowing when an observation was deemed true is important to its relevance as well as determining trends.",
+        "alias": [
+          "Occurrence"
+        ],
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Observation.effective[x]",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "dateTime"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Period"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Timing"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "instant"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "Observation.performer",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.performer",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ],
+        "short": "(QI-Core) Who is responsible for the observation"
+      },
+      {
+        "id": "Observation.value[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.value[x]",
+        "slicing": {
+          "discriminator": [
+            {
+              "type": "type",
+              "path": "$this"
+            }
+          ],
+          "ordered": false,
+          "rules": "open"
+        },
+        "short": "(QI-Core) Actual result",
+        "definition": "The information determined as a result of making the observation, if the information has a simple value.",
+        "comment": "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](http://hl7.org/fhir/R4/observation.html#notes) below.",
+        "requirements": "An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations.",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Observation.value[x]",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Quantity"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "CodeableConcept"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "string"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "boolean"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "integer"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Range"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Ratio"
+          },
+          {
+            "code": "SampledData"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "time"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "dateTime"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Period"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": true
+      },
+      {
+        "id": "Observation.value[x].valueCodeableConcept",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.value[x]",
+        "sliceName": "valueCodeableConcept",
+        "short": "(QI-Core) actual | potential",
+        "base": {
+          "path": "Observation.value[x]",
+          "min": 0,
+          "max": "1"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "isModifier": false,
+        "binding": {
+          "strength": "preferred",
+          "description": "SNOMED CT for coded results",
+          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes"
+        }
+      },
+      {
+        "id": "Observation.interpretation",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Observation.interpretation",
+        "short": "(QI-Core) High, low, normal, etc.",
+        "definition": "A categorical assessment of an observation value.  For example, high, low, normal.",
+        "comment": "Historically used for laboratory results (known as \u0027abnormal flag\u0027 ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
+        "requirements": "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",
+        "alias": [
+          "Abnormal Flag"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Observation.interpretation",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "isModifier": false,
+        "isSummary": false,
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString": "ObservationInterpretation"
+            }
+          ],
+          "strength": "extensible",
+          "description": "Codes identifying interpretations of observations.",
+          "valueSet": "http://hl7.org/fhir/ValueSet/observation-interpretation"
+        }
+      },
+      {
+        "id": "Observation.derivedFrom",
+        "path": "Observation.derivedFrom",
+        "short": "(QI-Core) QI Core Profiles or other resource the observation is made from",
+        "definition": "Observations, DocumentReference, QuestionnaireResponse or other resource from which this observation value is derived.",
+        "comment": "All the reference choices that are listed in this element can represent clinical observations and other measurements that may be the source for a derived value.  The most common reference will be another Observation.  For a discussion on the ways Observations can assembled in groups together, see [Notes](http://hl7.org/fhir/R4/observation.html#obsgrouping) below.",
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Observation.derivedFrom",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference",
+              "http://hl7.org/fhir/StructureDefinition/Media",
+              "http://hl7.org/fhir/StructureDefinition/MolecularSequence"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ]
+      }
+    ]
+  }
+}
