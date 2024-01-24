@@ -140,6 +140,11 @@
 * [Negation Example with valueset](Observation-negation-example.html)
 * [Negation Example with code](Observation-negation-with-code-example.html)
 
+**QICoreNonPatientObservation**
+* [Hemodialysis Machine Availability](Observation-example-nonpatient-hemodialysis-machine.html)
+* [Hospital Bed Availability](Observation-example-nonpatient-hospital-bed.html)
+* [Mechanical Ventilator Availability](Observation-example-nonpatient-mechanical-ventilator.html)
+
 **QICoreLaboratoryResultObservation**
 * [Glucose Lab Result Observation](Observation-laboratory-result-observation-example-blood-glucose.html)
 

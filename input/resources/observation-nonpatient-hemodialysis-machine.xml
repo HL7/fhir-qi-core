@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Observation xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example-nonpatient-hemodialysis-machine"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation"/>
+  </meta>
+  <status value="final"/>
+  <category>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="49062001"/>
+      <display value="Device (physical object)"/>
+    </coding>
+  </category>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="36965003"/>
+      <display value="Hemodialysis machine, device (physical object)"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Device/example"/>
+    <display value="Hemodialysis machine"/>
+  </subject>
+  <valueCodeableConcept>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="735333005"/>
+      <display value="Equipment observable"/>
+    </coding>
+  </valueCodeableConcept>
+</Observation>
