@@ -60,7 +60,7 @@ The negation profiles in QI-Core can be used to make two different types of nega
 1.  Documentation that a specific activity was not performed for a given reason
 2.  Documentation that none of the activities in a given value set were performed for a given reason
 
-#### Documenting no members of an entire value set was performed for a given reason.
+#### Documenting one member of a value set was not performed for a given reason.
 
 In the following example the measure numerator criterion allows for documentation that specifies a single antithrombotic medication using a CodeableConcept drawn from the list of possible expected medications (in the values set) was not administered. In the example the Profiled MedicationAdministration resource documents that the clinician specifically did not administer ticagrelor 90 MG Oral Tablet because drug treatment is not indicated. The evidence of a reason for not administering this single member of the value set “Antithrombotic Therapy for Ischemic Stroke” fulfills criteria for the numerator.
 
@@ -134,7 +134,7 @@ See the <a href="MedicationAdministration-negation-with-code-example.html">Medic
 }
 ```
 
-#### Documenting no members of an entire value set was performed for a given reason..
+#### Documenting no members of an entire value set were performed for a given reason.
 
 This is applicable when a measure criterion can be satisfied when none of the medications in a value set is administered for a specified reason. This can occur when the no treatment of the type included in the value set is appropriate. The approach provided allows systems to document using one profiled data instance that none of the activities in a particular value set were performed, rather than requiring documentation of multiple individual activities from the value set.
 
