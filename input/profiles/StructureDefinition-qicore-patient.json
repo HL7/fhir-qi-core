@@ -168,35 +168,8 @@
             ]
           }
         ],
-        "condition": [
-          "ele-1"
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() !\u003d value.exists()",
-            "xpath": "exists(f:extension)!\u003dexists(f:*[starts-with(local-name(.), \u0027value\u0027)])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
         "mustSupport": false,
         "isModifier": false,
-        "mapping": [
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "Patient.extension"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -225,35 +198,8 @@
             ]
           }
         ],
-        "condition": [
-          "ele-1"
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() !\u003d value.exists()",
-            "xpath": "exists(f:extension)!\u003dexists(f:*[starts-with(local-name(.), \u0027value\u0027)])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
         "mustSupport": false,
         "isModifier": false,
-        "mapping": [
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "Patient.extension"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -280,27 +226,6 @@
             "profile": [
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation"
             ]
-          }
-        ],
-        "condition": [
-          "ele-1"
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() !\u003d value.exists()",
-            "xpath": "exists(f:extension)!\u003dexists(f:*[starts-with(local-name(.), \u0027value\u0027)])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
           }
         ],
         "mustSupport": false,
@@ -331,27 +256,6 @@
             "profile": [
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex"
             ]
-          }
-        ],
-        "condition": [
-          "ele-1"
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() !\u003d value.exists()",
-            "xpath": "exists(f:extension)!\u003dexists(f:*[starts-with(local-name(.), \u0027value\u0027)])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
           }
         ],
         "mustSupport": false,
@@ -385,27 +289,6 @@
             ]
           }
         ],
-        "condition": [
-          "ele-1"
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          },
-          {
-            "key": "ext-1",
-            "severity": "error",
-            "human": "Must have either extensions or value[x], not both",
-            "expression": "extension.exists() !\u003d value.exists()",
-            "xpath": "exists(f:extension)!\u003dexists(f:*[starts-with(local-name(.), \u0027value\u0027)])",
-            "source": "http://hl7.org/fhir/StructureDefinition/Extension"
-          }
-        ],
         "mustSupport": false,
         "isModifier": false,
         "extension": [
@@ -434,16 +317,6 @@
             "code": "code"
           }
         ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "isModifier": true,
         "isModifierReason": "This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old name etc.for a current/permanent one",
         "isSummary": true,
@@ -458,20 +331,6 @@
           "description": "The use of a human name.",
           "valueSet": "http://hl7.org/fhir/ValueSet/name-use|4.0.1"
         },
-        "mapping": [
-          {
-            "identity": "v2",
-            "map": "XPN.7, but often indicated by which field contains the name"
-          },
-          {
-            "identity": "rim",
-            "map": "unique(./use)"
-          },
-          {
-            "identity": "servd",
-            "map": "./NamePurpose"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -497,33 +356,9 @@
           }
         ],
         "orderMeaning": "Suffixes appear in the correct order for presenting the name",
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport": false,
         "isModifier": false,
         "isSummary": true,
-        "mapping": [
-          {
-            "identity": "v2",
-            "map": "XPN/4"
-          },
-          {
-            "identity": "rim",
-            "map": "./part[partType \u003d SFX]"
-          },
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "NA"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -549,37 +384,9 @@
             "code": "Period"
           }
         ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport": false,
         "isModifier": false,
         "isSummary": true,
-        "mapping": [
-          {
-            "identity": "v2",
-            "map": "XPN.13 + XPN.14"
-          },
-          {
-            "identity": "rim",
-            "map": "./usablePeriod[type\u003d\"IVL\u003cTS\u003e\"]"
-          },
-          {
-            "identity": "servd",
-            "map": "./StartDate and ./EndDate"
-          },
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "NA"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -612,16 +419,6 @@
             "valueCode": "home"
           }
         ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "isModifier": true,
         "isModifierReason": "This is labeled as \"Is Modifier\" because applications should not mistake a temporary or old address etc.for a current/permanent one",
         "isSummary": true,
@@ -636,20 +433,6 @@
           "description": "The use of an address.",
           "valueSet": "http://hl7.org/fhir/ValueSet/address-use|4.0.1"
         },
-        "mapping": [
-          {
-            "identity": "v2",
-            "map": "XAD.7"
-          },
-          {
-            "identity": "rim",
-            "map": "unique(./use)"
-          },
-          {
-            "identity": "servd",
-            "map": "./AddressPurpose"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -684,36 +467,8 @@
             }
           }
         ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "isModifier": false,
         "isSummary": true,
-        "mapping": [
-          {
-            "identity": "v2",
-            "map": "XAD.12 / XAD.13 + XAD.14"
-          },
-          {
-            "identity": "rim",
-            "map": "./usablePeriod[type\u003d\"IVL\u003cTS\u003e\"]"
-          },
-          {
-            "identity": "servd",
-            "map": "./StartDate and ./EndDate"
-          },
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "NA"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -740,33 +495,9 @@
             "code": "BackboneElement"
           }
         ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport": false,
         "isModifier": false,
         "isSummary": false,
-        "mapping": [
-          {
-            "identity": "rim",
-            "map": "LanguageCommunication"
-          },
-          {
-            "identity": "cda",
-            "map": "patient.languageCommunication"
-          },
-          {
-            "identity": "argonaut-dq-dstu2",
-            "map": "Patient.communication"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
