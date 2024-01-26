@@ -468,36 +468,16 @@
             "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy",
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference",
-              "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
               "http://hl7.org/fhir/StructureDefinition/Media",
               "http://hl7.org/fhir/StructureDefinition/MolecularSequence"
             ]
           }
         ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() \u003e id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport": false,
         "isModifier": false,
         "isSummary": true,
-        "mapping": [
-          {
-            "identity": "v2",
-            "map": "Relationships established by OBX-4 usage"
-          },
-          {
-            "identity": "rim",
-            "map": ".targetObservation"
-          }
-        ],
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
