@@ -1994,7 +1994,7 @@ to retrieve information about enteral intake is Observation (i.e., QI-Core Obser
 The following guidance may help measure developers trying to express retrieval of enteral intake data using SimpleObservation:  
 
     * SimpleObservation.code = with binding to a direct reference code or value set indicating observation of enteral intake
-    * SimpleObservation.component.value with binding to a direct reference code or value set indicating the nutritional product of interest to the measure intent.  
+    * SimpleObservation.value with binding to a direct reference code or value set indicating the nutritional product of interest to the measure intent.  
 
 
 

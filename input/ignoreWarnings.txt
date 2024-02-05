@@ -1,33 +1,14 @@
 == Suppressed Messages ==
 
-# The following issue is related to the publisher and discussed in the following zulip chat (https://chat.fhir.org/#narrow/stream/179252-IG-creation/topic/'could.20not.20reference'.20error.20with.20modifier.20extension)
-ERROR: ?pkp-1?: The reference http://hl7.org/fhir/5.0/StructureDefinition/extension-DeviceRequest.doNotPerform could not be resolved
-
 # Profiles not based on US Core and variance requests have been approved: https://jira.hl7.org/browse/FHIR-34125 & https://jira.hl7.org/browse/FHIR-41615
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
-# The following warnings in the examples are being generated due to no code within the codeable concept but referencing a valueset instead, consistent with the negation pattern
-WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20220701)
-WARNING: MedicationDispense/negation-example: MedicationDispense.medication.ofType(CodeableConcept): No code provided, and a code should be provided from the value set 'Medication Clinical Drug' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4|20170601)
-WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|6.1.0)
-WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|6.1.0)
-
-
 # The following examples are using valid codes in the SOPT codesystems but THO doesn't define the codes.
 A definition for CodeSystem 'https://nahdo.org/sopt' could not be found, so the code cannot be validated
-WARNING: Encounter/encounter-ed-example: Encounter.type[0]: Unable to check whether the code is in the value set http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type|6.1.0
-WARNING: Encounter/example: Encounter.type[0]: Unable to check whether the code is in the value set http://hl7.org/fhir/us/core/ValueSet/us-core-encounter-type|6.1.0
-
-# The slices in the examples are present in the SimpleObservation.value[x] profile element as valueQuantity
-INFORMATION: Observation/example: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0-ballot
-INFORMATION: Observation/example-gestation: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0-ballot
 
 # The following messages are being generated from the inherited/base resource snapshot
-WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[22].binding: The valueSet reference http://www.rsna.org/RadLex_Playbook.aspx on element ImagingStudy.procedureCode could not be resolved
-WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[53].binding: The valueSet reference http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1 on element ImagingStudy.series.instance.sopClass could not be resolved
-WARNING: StructureDefinition/qicore-allergyintolerance: StructureDefinition.snapshot.element[0].constraint[7]: 1: The left side is inherently a collection, and so the expression 'verificationStatus.coding.code = 'refuted'' may fail or return false if there is more than one item in the content being evaluated
 WARNING: StructureDefinition/qicore-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
 INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[28].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[32].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
@@ -55,5 +36,35 @@ Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-ty
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationrequest-category|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/diet|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v2-0360|2.7|0360
-Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/task-status|4.0.1
+Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
+
+
+# The following warnings in the examples are being generated due to no code within the codeable concept but referencing a valueset instead, consistent with the negation pattern
+WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20220701)
+WARNING: MedicationDispense/negation-example: MedicationDispense.medication.ofType(CodeableConcept): No code provided, and a code should be provided from the value set 'Medication Clinical Drug' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4|20170601)
+WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|6.1.0-snapshot1)
+WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|6.1.0-snapshot1)
+
+# The slices in the examples are present in the SimpleObservation.value[x] profile elements as valueQuantity 
+INFORMATION: Observation/example: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-gestation: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# The slices in the examples are present in the SimpleObservation.value[x] profile elements as valuedateTime
+INFORMATION: Observation/example-delivery-date-estimate: Observation.value.ofType(dateTime): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-obstetric-delivery: Observation.value.ofType(dateTime): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# The slices in the examples are present in the SimpleObservation.value[x] profile elements as valueInteger
+INFORMATION: Observation/example-births: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-parity: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-pregnancies: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-preterm-births: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# The validator is trying to resolve an "example.org" artifact which by convention does not exist
+A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
+A definition for CodeSystem 'http://example.org/messagetypes' could not be found, so the code cannot be validated
+A definition for CodeSystem 'http://example.org/local' could not be found, so the code cannot be validated
+A definition for CodeSystem 'http://example.org/MedDispSubType' could not be found, so the code cannot be validated
+A definition for CodeSystem 'http://example.org/diet-type-codes' could not be found, so the code cannot be validated
+A definition for CodeSystem 'http://example.org/devices/clinical-codes' could not be found, so the code cannot be validated
+A definition for CodeSystem 'http://example.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated 
