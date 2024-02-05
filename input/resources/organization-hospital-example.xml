@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Organization xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="example1"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"/>
+  </meta>
+  <identifier>
+    <use value="temp"/>
+    <system value="http://hl7.org/fhir/sid/us-npi"/>
+    <value value="1285243618"/>
+  </identifier>
+  <active value="true"/>
+  <type>
+    <coding>
+      <system value="http://terminology.hl7.org/CodeSystem/organization-type"/>
+      <code value="prov"/>
+      <display value="Healthcare Provider"/>
+    </coding>
+  </type>
+<!--    Hospital itself    -->
+  <name value="HENDRICKS COUNTY HOSPITAL"/>
+  <telecom>
+    <system value="phone"/>
+    <value value="(+1) 712-456-7777"/>
+  </telecom>
+  <telecom>
+    <system value="fax"/>
+    <value value="(+1) 712-456-6622"/>
+  </telecom>
+  <telecom>
+    <system value="email"/>
+    <value value="staff@countyhospital.org"/>
+  </telecom>
+  <address>
+    <line value="3300 Washtenaw Avenue, Suite 227"/>
+    <city value="Avon"/>
+    <state value="IN"/>
+    <postalCode value="46123"/>
+    <country value="USA"/>
+  </address>
+</Organization>
