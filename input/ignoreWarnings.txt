@@ -8,8 +8,10 @@ WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/Structur
 # The following examples are using valid codes in the SOPT codesystem but THO doesn't define the codes.
 A definition for CodeSystem 'https://nahdo.org/sopt' could not be found, so the code cannot be validated
 
-# The following examples are using valid codes in the ICD-10 codesystem but no codes are represented in THO
+# The following examples are using valid codes in the ICD-10/Occupational Data for Health (ODH) codesystems but no codes are represented in THO
 INFORMATION: Claim/example: Claim.diagnosis[0].diagnosis.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/icd10ae' could not be found, so the code cannot be validated
+INFORMATION: Observation/example-odh: Observation.value.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODHH' could not be found, so the code cannot be validated
+INFORMATION: Observation/example-odh: Observation.value.ofType(CodeableConcept).coding[0]: A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODHH' could not be found, so the code cannot be validated
 
 # The following messages are being generated from the inherited/base resource snapshot
 WARNING: StructureDefinition/qicore-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
@@ -30,6 +32,7 @@ Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/processpriority|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/payeetype|1.0.0
 Reference to draft CodeSystem http://hl7.org/fhir/event-status|4.0.1
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/communication-category|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/communication-not-done-reason|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/goal-category|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/location-physical-type|2.0.0
@@ -65,9 +68,4 @@ INFORMATION: Observation/example-preterm-births: Observation.value.ofType(intege
 
 # The validator is trying to resolve an "example.org" artifact which by convention does not exist
 A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
-A definition for CodeSystem 'http://example.org/messagetypes' could not be found, so the code cannot be validated
-A definition for CodeSystem 'http://example.org/local' could not be found, so the code cannot be validated
-A definition for CodeSystem 'http://example.org/MedDispSubType' could not be found, so the code cannot be validated
-A definition for CodeSystem 'http://example.org/diet-type-codes' could not be found, so the code cannot be validated
-A definition for CodeSystem 'http://example.org/devices/clinical-codes' could not be found, so the code cannot be validated
-A definition for CodeSystem 'http://example.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated 
+INFORMATION: Flag/example: Flag.code.coding[0].system: A definition for CodeSystem 'http://example.org/local' could not be found, so the code cannot be validated
