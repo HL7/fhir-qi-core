@@ -82,6 +82,7 @@ This page lists the change history for each version of QI-Core.
 1. QDM to QI-Core Mapping section 9.22.1 - Modify based on FHIR-42158 resolution ([FHIR-42987](https://jira.hl7.org/browse/FHIR-42987))
 1. Relax cardinality for specific elements to stay with US Core cardinality assignments ([FHIR-43010](https://jira.hl7.org/browse/FHIR-43010))
 1. Correct QDM Substance mapping to Observation ([FHIR-44605](https://jira.hl7.org/browse/FHIR-44605))
+1. Correct mapping for prinicpal procedure ([FHIR-44835](https://jira.hl7.org/browse/FHIR-44835))
 
 
 
@@ -281,14 +282,12 @@ This page lists the change history for each version of QI-Core.
 ### STU4.1 Release with 1 Technical Errata for FHIR R4 (v4.1.1) 
 
 
-[STU4 v4.1.1](http://hl7.org/fhir/us/qicore/STU4.1.1)
 * [FHIR-35873](https://jira.hl7.org/browse/FHIR-35873): Corrected version-independent links to USCore throughout
 * [FHIR-35802](https://jira.hl7.org/browse/FHIR-35802): Corrected negation examples and added guidance for usage of valueset-based negation
 
 ### STU4.1 Release for FHIR R4 (v4.1.0) 
 
 
-[STU4 v4.1.0](http://hl7.org/fhir/us/qicore/STU4.1)
 1. Broken Link for QUICK AdverseEvent actuality value set binding ([FHIR-23934](https://jira.hl7.org/browse/FHIR-23934))
 1. Immunization.occurrence should remove the String choice ([FHIR-26407](https://jira.hl7.org/browse/FHIR-26407))
 1. MedicationNotDispensed ([FHIR-26409](https://jira.hl7.org/browse/FHIR-26409))
@@ -404,7 +403,6 @@ This page lists the change history for each version of QI-Core.
 ### STU4 Release for FHIR R4 (v4.0.0) 
 
 
-[STU4 v4.0.0](http://hl7.org/fhir/us/qicore/STU4)
 * Created negation profiles
 * Added patterns pages and CQL examples
 * Corrections throughout
@@ -414,7 +412,6 @@ This page lists the change history for each version of QI-Core.
 ### STU4 Ballot for FHIR R4 (v3.3.0) 
 
 
-[STU 4 Ballot (v3.3.0)](http://hl7.org/fhir/us/qicore/2019Sep)
 * Updated profiles to be based on FHIR R4 and US Core STU 3
 * #22645 Added profiles on Immunization and Evaluation
 * #15012 Added a profile on NutritionOrder
@@ -426,14 +423,12 @@ This page lists the change history for each version of QI-Core.
 ### STU3.2 Release for FHIR STU3 (v3.2.0) 
 
 
-[STU3 v3.2.0](http://hl7.org/fhir/us/qicore/STU32)
 * Updated profiles to be based on US Core 2.0.0
 * Derived Encounter and PractitionerRole profiles from US Core profiles
 
 ### STU3 Release for FHIR STU3 (v3.1.0) 
 
 
-[STU3 v3.1.0](http://hl7.org/fhir/us/qicore/STU3)
 * Added profile for PractitionerRole and removed Practitioner.role extension
 * Added profile for Task
 * Established pattern for representing QDM Principal Diagnosis in Encounters
@@ -442,7 +437,6 @@ This page lists the change history for each version of QI-Core.
 ### STU3 Ballot for FHIR STU3 (v2.1.0) 
 
 
-[STU3 v2.1.0](http://hl7.org/fhir/us/qicore/2018Jan)
 * Incorporates ballot reconciliation from all comments from the September 2016 ballot which have been applied to FHIR 3.0 and US Core Release 1.0.1
 * Includes mapping to QDM Version 5.3 Annotated available at: https://ecqi.healthit.gov/qdm
 * Includes an updated Mapping table from the QI-Core metadata to QDM 5.3
@@ -451,7 +445,6 @@ This page lists the change history for each version of QI-Core.
 ### STU2 Release for FHIR STU3 (v2.0.0) 
 
 
-[STU2 v2.0.0](http://hl7.org/fhir/us/qicore/STU2)
 * Updated to FHIR STU3 (3.0.1)
 * Changed from Universal Realm to US Realm
 * Derived from US Core profiles where possible
@@ -462,7 +455,6 @@ This page lists the change history for each version of QI-Core.
 ### STU2 Ballot for FHIR STU3 Ballot (v1.6.0) 
 
 
-[STU2 v1.6.0](http://hl7.org/fhir/us/qicore/2016Sep)
 * Moved out of main FHIR publication package to its own home
 * Updated QI-Core profiles for changes to underlying specification
 * Added an additional profile on Condition
@@ -470,18 +462,12 @@ This page lists the change history for each version of QI-Core.
 
 ### STU1 Release for FHIR DSTU2 (v1.0.2) 
 
-[STU1 v1.0.2](http://hl7.org/fhir/DSTU2/qicore/qicore.html)
-
 DSTU 1 (Permanent home)
 
 ### DSTU1 Preview for FHIR STU1 (v1.0.0) 
 
-[STU1 v1.0.0](http://hl7.org/fhir/2015Sep/qicore/qicore.html)
-
 DSTU1 Preview
 
 ### DSTU1 Ballot for FHIR STU1 (v0.5.0) 
-
-[STU1 v0.5.0](http://hl7.org/fhir/2015May/qicore.html)
 
 DSTU1 Ballot
