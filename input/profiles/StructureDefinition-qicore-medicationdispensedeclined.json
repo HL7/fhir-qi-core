@@ -132,7 +132,13 @@
           "strength" : "extensible",
           "description" : "The set of RxNorm codes to represent medications",
           "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
-        }
+        },
+        "type": [
+          {
+            "code" : "Reference",
+            "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
+          }
+        ]
       },
       {
         "id" : "MedicationDispense.medication[x].extension:notDoneValueSet",
@@ -146,15 +152,8 @@
         "sliceName" : "notDoneValueSet",
         "short" : "(QI-Core) Url of a value set of activities not requested or performed",
         "min" : 0,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
-            ]
-          }
-        ]
+        "max" : "1"
+        
       },
       {
         "id" : "MedicationDispense.subject",

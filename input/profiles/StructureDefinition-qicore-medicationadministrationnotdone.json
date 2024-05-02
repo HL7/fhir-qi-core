@@ -131,9 +131,10 @@
           ],
           "path" : "MedicationAdministration.medication[x]",
           "short" : "(QI-Core) What was administered",
-          "type" : [
+          "type": [
             {
-              "code" : "CodeableConcept"
+              "code" : "Reference",
+              "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
             }
           ],
           "condition" : [
