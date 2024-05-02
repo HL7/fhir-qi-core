@@ -57,8 +57,9 @@ Each of the QI-Core negation rationale profiles define at least the following in
 
 The negation profiles in QI-Core can be used to make two different types of negative statements:
 
-1.  Documentation that a specific activity was not performed for a given reason
-2.  Documentation that none of the activities in a given value set were performed for a given reason
+
+1.	 Documentation that a particular activity/event should not or did not occur
+2.	 Documentation that a class of activities/events should not or did not occur (typically represented with a value set)
 
 #### Documenting one member of a value set was not performed for a given reason.
 
@@ -214,4 +215,4 @@ See the <a href="MedicationAdministration-negation-example.html">MedicationAdmin
 
 ### Negation in CQL
 
-For quality measurement and reporting, measure expression may only need to determine the existence or absence of an activity or event to determine if criteria have been met. If the reason for absence is not relevant to the measure evaluation, the absence of evidence pattern should be used as described in the [Using CQL section of the Quality Measure IG](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#negation-in-fhir).
+For quality measurement and reporting, measure expression may only need to determine the existence or absence of an activity or event to determine if criteria have been met. If the reason for absence is not relevant to the measure evaluation, the absence of evidence pattern should be used as described on the Patterns page of the Using CQL with FHIR [IGPatterns page](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#negation-in-fhir) of the Using CQL with FHIR IG.
