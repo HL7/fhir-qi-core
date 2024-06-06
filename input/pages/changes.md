@@ -4,6 +4,10 @@
 
 This page lists the change history for each version of QI-Core.
 
+### STU7-ballot (7.0.0)
+
+1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html))
+
 ### STU6 Release (6.0.0)
 
 1. QICore Simple Observation Profile - removed additional subjects ([FHIR-41755](https://jira.hl7.org/browse/FHIR-41755))

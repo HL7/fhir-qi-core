@@ -94,6 +94,15 @@
         "short": "(QI-Core)(USCDI) Reported rather than primary record",
         "type": [
           {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "boolean"
+          },
+          {
             "code": "Reference",
             "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
@@ -136,7 +145,8 @@
               }
             ]
           }
-        ]
+        ],
+        "mustSupport": true
       },
       {
         "id": "MedicationRequest.subject",
