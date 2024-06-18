@@ -6,6 +6,7 @@ This page lists the change history for each version of QI-Core.
 
 ### STU7-ballot (7.0.0)
 
+1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html))
 1. limit subject reference in AdverseEvent to patient([FHIR-45693](https://jira.hl7.org/browse/FHIR-45693)) Applied ([here](StructureDefinition-qicore-adverseevent.html))
 
 ### STU6 Release (6.0.0)
