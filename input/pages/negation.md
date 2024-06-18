@@ -40,7 +40,7 @@ The <a href="StructureDefinition-qicore-observationcancelled.html">QICore Observ
 -   [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
 -   [US Core Average Blood Pressure Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
 -   [US Core Care Experience Preference Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
--   [US Core Treatment Intervention Preference Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Treatment Intervention Preference Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-treatment-intervention-preference))
 -   [QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
 -   [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
 -   [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
