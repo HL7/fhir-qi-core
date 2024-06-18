@@ -37,6 +37,10 @@ The <a href="StructureDefinition-qicore-observationcancelled.html">QICore Observ
 -   [US Core Observation Sexual Orientation Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-sexual-orientation)
 -   [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancyintent)
 -   [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Average Blood Pressure Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Care Experience Preference Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Treatment Intervention Preference Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
 -   [QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
 -   [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
 -   [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
@@ -215,4 +219,4 @@ See the <a href="MedicationAdministration-negation-example.html">MedicationAdmin
 
 ### Negation in CQL
 
-For quality measurement and reporting, measure expression may only need to determine the existence or absence of an activity or event to determine if criteria have been met. If the reason for absence is not relevant to the measure evaluation, the absence of evidence pattern should be used as described on the Patterns page of the Using CQL with FHIR [IGPatterns page](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#negation-in-fhir) of the Using CQL with FHIR IG.
+For quality measurement and reporting, measure expression may only need to determine the existence or absence of an activity or event to determine if criteria have been met. If the reason for absence is not relevant to the measure evaluation, the absence of evidence pattern should be used as described on the [Patterns page of the Using CQL with FHIR IG](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#negation-in-fhir).
