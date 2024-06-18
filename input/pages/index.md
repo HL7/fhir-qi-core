@@ -282,7 +282,7 @@ the resources in "Any" references SHALL conform to QI-Core profiles if the base 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
 -  Implementations **SHALL** support all profile types in the QI-Core set (listed in the [profiles](profiles.html) page) for resources they exchange
--  This IG does not define the capability statements as it does not address accessing patient level data directly via API calls; however, server implementations SHALL declare their support of the QI-Core profiles in a FHIR CapabilityStatement.
+-  This IG does not define the capability statements as it does not address accessing patient level data directly via API calls; however, server implementations **SHALL** declare their support of the QI-Core profiles in a FHIR CapabilityStatement.
 -  Conformant servers will at minimum support FHIR's read and search operations
 -  Servers **SHALL** supply the MustSupport data elements whenever that data is available
 -  Quality improvement applications **SHALL** recognize and process all MustSupport elements in QI-Core
