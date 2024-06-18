@@ -11,8 +11,13 @@ Although not required by CQL, current best-practice is to include the version of
 
 
 Complete documentation for this tooling is provided in the CQFramework github repository:
-https://github.com/cqframework/cqf-tooling/blob/23c5f8b12b79cf1036c3d813a2dffe22d44c355b/tooling/src/main/java/org/opencds/cqf/tooling/modelinfo/StructureDefinitionToModelInfo.java#L45
+
+[https://github.com/cqframework/cqf-tooling/blob/23c5f8b12b79cf1036c3d813a2dffe22d44c355b/tooling/src/main/java/org/opencds/cqf/tooling/modelinfo/StructureDefinitionToModelInfo.java#L45](https://github.com/cqframework/cqf-tooling/blob/23c5f8b12b79cf1036c3d813a2dffe22d44c355b/tooling/src/main/java/org/opencds/cqf/tooling/modelinfo/StructureDefinitionToModelInfo.java#L45)
+
 As an example, to generate the ModelInfo file for QICore version 7.0.0, the following arguments are used:
-"-GenerateMIs -ip=C:\Users\UserName\Documents\Src\HL7\FHIR-Spec -rp="4.0.1;US-Core/7.0.0;QI-Core/7.0.0" -mn=QICore -mv=7.0.0 -im=false -ucp=true"
+
+```
+-GenerateMIs -ip=C:\Users\UserName\Documents\Src\HL7\FHIR-Spec -rp="4.0.1;US-Core/7.0.0;QI-Core/7.0.0" -mn=QICore -mv=7.0.0 -im=false -ucp=true
+```
 
 
