@@ -3,7 +3,7 @@
 
 This page lists all the ValueSets, CodeSystems, and ConceptMaps defined as part of the QI-Core Implementation Guide. For
 more information on using codes in resources, see the
-[guidance section]({{site.data.fhir.ver.uscore}}/guidance.html#using-codes-in-us-core-profiles) as well as in the
+[guidance section]({{site.data.fhir.ver.uscore}}/general-requirements.html#using-codes-in-us-core-profiles) as well as in the
 [FHIR specification](http://hl7.org/fhir/terminologies.html).
 
 Further guidance on using Value Set Authority Center (VSAC) Resources with FHIR® Terminology Service
