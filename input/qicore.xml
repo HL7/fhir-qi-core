@@ -5,8 +5,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings">
+    <valueReference value="Parameters/qicore-modelinfosettings"/>
+  </extension>
   <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/us-qicore"/>
-  <version value="6.0.0"/>
+  <version value="7.0.0-ballot"/>
   <name value="QICore"/>
   <title value="QI-Core Implementation Guide"/>
   <status value="active"/>
@@ -647,6 +650,14 @@
       </reference>
       <name value="Hospital Organization example"/>
       <description value="Hendricks County Hospital example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Parameters/qicore-modelinfosettings"/>
+      </reference>
+      <name value="QICore ModelInfo Settings example"/>
+      <description value="QICore ModelInfo Settings Example"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
