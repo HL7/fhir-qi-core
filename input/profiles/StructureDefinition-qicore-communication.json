@@ -2,6 +2,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-communication",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "reasonCode"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Communication"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication",
   "version" : "6.0.0",
   "name" : "QICoreCommunication",
@@ -54,7 +72,7 @@
           }
         ],
         "path" : "Communication.status",
-        "short" : "(QI-Core) preparation | in-progress | on-hold | stopped | completed | entered-in-error | unknown",
+        "short" : "(QI) preparation | in-progress | on-hold | stopped | completed | entered-in-error | unknown",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status"
@@ -69,7 +87,7 @@
           }
         ],
         "path" : "Communication.subject",
-        "short" : "(QI-Core) Focus of message",
+        "short" : "(QI) Focus of message",
         "type" : [
           {
             "code" : "Reference",
@@ -89,7 +107,7 @@
           }
         ],
         "path" : "Communication.topic",
-        "short" :"(QI-Core) Description of the purpose/content",
+        "short" :"(QI) Description of the purpose/content",
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://terminology.hl7.org/ValueSet/communication-topic"
@@ -104,7 +122,7 @@
           }
         ],
         "path" : "Communication.sent",
-        "short" :"(QI-Core) When sent"
+        "short" :"(QI) When sent"
       },
       {
         "id" : "Communication.received",
@@ -115,7 +133,7 @@
           }
         ],
         "path" : "Communication.received",
-        "short" : "(QI-Core) When received"
+        "short" : "(QI) When received"
       },
       {
         "id" : "Communication.recipient",
@@ -126,7 +144,7 @@
           }
         ],
         "path" : "Communication.recipient",
-        "short" : "(QI-Core) Message recipient",
+        "short" : "(QI) Message recipient",
         "type" : [
           {
             "code" : "Reference",
@@ -151,7 +169,7 @@
           }
         ],
         "path" : "Communication.sender",
-        "short" : "(QI-Core) Message sender",
+        "short" : "(QI) Message sender",
         "type" : [
           {
             "code" : "Reference",

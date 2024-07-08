@@ -1,6 +1,20 @@
 {
     "resourceType": "StructureDefinition",
     "id": "qicore-practitioner",
+    "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Practitioner"
+    }
+  ],
     "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
     "version": "6.0.0",
     "name": "QICorePractitioner",
@@ -57,7 +71,7 @@
           ],
           "rules" : "open"
         },
-        "short" : "(QI-Core) An identifier for the person as this agent",
+        "short" : "(QI) An identifier for the person as this agent",
         "comment" : "NPI must be supported as the identifier system in the US, Tax id is allowed, Local id is allowed in addition to another identifier supplied by a jurisdictional authority such as a practitioner's *Drug Enforcement Administration (DEA)* number.",
         "min" : 1
       },
@@ -70,7 +84,7 @@
             }
           ],
         "path" : "Practitioner.identifier.system",
-        "short" : "(QI-Core) The namespace for the identifier value",
+        "short" : "(QI) The namespace for the identifier value",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -88,7 +102,7 @@
             }
           ],
         "path" : "Practitioner.identifier.value",
-        "short" : "(QI-Core) The value that is unique",
+        "short" : "(QI) The value that is unique",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -107,7 +121,7 @@
           ],
         "path" : "Practitioner.identifier",
         "sliceName" : "NPI",
-        "short" : "(QI-Core) An identifier for the person as this agent",
+        "short" : "(QI) An identifier for the person as this agent",
         "patternIdentifier" : {
           "system" : "http://hl7.org/fhir/sid/us-npi"
         },
@@ -126,7 +140,7 @@
                   ],
                 "path": "Practitioner.identifier",
                 "sliceName": "ein",
-                "short": "(QI-Core) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.",
+                "short": "(QI) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.",
                 "min": 0,
                 "max": "1",
                 "type": [
@@ -147,7 +161,7 @@
                     }
                   ],
                 "path": "Practitioner.identifier.use",
-                "short" : "(QI-Core) usual | official | temp | secondary | old (If known)",
+                "short" : "(QI) usual | official | temp | secondary | old (If known)",
                 "min": 1,
                 "max": "1",
                 "type": [
@@ -165,7 +179,7 @@
                     }
                   ],
                 "path": "Practitioner.identifier.value",
-                "short" : "(QI-Core) The value that is unique",
+                "short" : "(QI) The value that is unique",
                 "min": 1,
                 "max": "1",
                 "type": [

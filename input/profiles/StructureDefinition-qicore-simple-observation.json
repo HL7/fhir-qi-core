@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-simple-observation",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"SimpleObservation"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation",
   "version": "6.0.0",
   "name": "QICoreSimpleObservation",
@@ -88,6 +106,17 @@
         "isSummary": false
       },
       {
+        "id" : "Observation.partOf",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Observation.partOf",
+        "short" : "(QI) Part of referenced event"
+      },
+      {
         "id": "Observation.status",
         "extension": [
           {
@@ -96,7 +125,7 @@
           }
         ],
         "path": "Observation.status",
-        "short": "(QI-Core)(USCDI) registered | prliminary | final | amended | corrected | entered-in-error | unknown",
+        "short": "(QI) registered | prliminary | final | amended | corrected | entered-in-error | unknown",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
@@ -111,7 +140,7 @@
           }
         ],
         "path": "Observation.category",
-        "short": "(QI-Core)(USCDI) Classification of type of observation",
+        "short": "(QI) Classification of type of observation",
         "min": 1,
         "max": "*"
       },
@@ -124,7 +153,7 @@
           }
         ],
         "path": "Observation.code",
-        "short": "(QI-Core)(USCDI) Type of observation (code / type)",
+        "short": "(QI) Type of observation (code / type)",
         "binding": {
           "strength": "preferred",
           "description": "This value set specifies the type of observation",
@@ -140,7 +169,7 @@
           }
         ],
         "path": "Observation.subject",
-        "short": "(QI-Core)(USCDI) Who and/or what the observation is about",
+        "short": "(QI) Who and/or what the observation is about",
         "definition": "The patient, or group of patients, location, or device this observation is about and into whose record the observation is placed. If the actual focus of the observation is different from the subject (or a sample of, part, or region of the subject), the `focus` element or the `code` itself specifies the actual focus of the observation.",
         "comment": "One would expect this element to be a cardinality of 1..1. The only circumstance in which the subject can be missing is when the observation is made by a device that does not know the patient. In this case, the observation SHALL be matched to a patient through some context/channel matching technique, and at this point, the observation should be updated.",
         "requirements": "Observations have no value if you don\u0027t know who or what they\u0027re about.",
@@ -171,7 +200,7 @@
           }
         ],
         "path": "Observation.effective[x]",
-        "short": "(QI-Core)(USCDI) Clinically relevant time/time-period for observation",
+        "short": "(QI) Clinically relevant time/time-period for observation",
         "definition": "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
         "comment": "At least a date should be present unless this observation is a historical report.  For recording imprecise or \"fuzzy\" times (For example, a blood glucose measurement taken \"after breakfast\") use the [Timing](http://hl7.org/fhir/R4/datatypes.html#timing) datatype which allow the measurement to be tied to regular life events.",
         "requirements": "Knowing when an observation was deemed true is important to its relevance as well as determining trends.",
@@ -248,7 +277,7 @@
             ]
           }
         ],
-        "short": "(QI-Core)(USCDI) Who is responsible for the observation"
+        "short": "(QI) Who is responsible for the observation"
       },
       {
         "id": "Observation.value[x]",
@@ -269,7 +298,7 @@
           "ordered": false,
           "rules": "open"
         },
-        "short": "(QI-Core)(USCDI) Actual result",
+        "short": "(QI) Actual result",
         "definition": "The information determined as a result of making the observation, if the information has a simple value.",
         "comment": "An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](http://hl7.org/fhir/R4/observation.html#notes) below.",
         "requirements": "An observation exists to have a value, though it might not if it is in error, or if it represents a group of observations.",
@@ -388,7 +417,7 @@
         ],
         "path": "Observation.value[x]",
         "sliceName": "valueCodeableConcept",
-        "short": "(QI-Core) actual | potential",
+        "short": "(QI) actual | potential",
         "base": {
           "path": "Observation.value[x]",
           "min": 0,
@@ -415,7 +444,7 @@
           }
         ],
         "path": "Observation.interpretation",
-        "short": "(QI-Core) High, low, normal, etc.",
+        "short": "(QI) High, low, normal, etc.",
         "definition": "A categorical assessment of an observation value.  For example, high, low, normal.",
         "comment": "Historically used for laboratory results (known as \u0027abnormal flag\u0027 ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
         "requirements": "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",
@@ -451,7 +480,7 @@
       {
         "id": "Observation.derivedFrom",
         "path": "Observation.derivedFrom",
-        "short": "(QI-Core)(USCDI) US Core Profiles or other resource the observation is made from",
+        "short": "(QI) US Core Profiles or other resource the observation is made from",
         "definition": "US Core Observations, DocumentReference, QuestionnaireResponse or other resource from which this observation value is derived.",
         "comment": "All the reference choices that are listed in this element can represent clinical observations and other measurements that may be the source for a derived value.  The most common reference will be another Observation.  For a discussion on the ways Observations can assembled in groups together, see [Notes](http://hl7.org/fhir/R4/observation.html#obsgrouping) below.",
         "min": 0,

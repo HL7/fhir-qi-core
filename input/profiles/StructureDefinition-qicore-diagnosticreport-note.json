@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-diagnosticreport-note",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"DiagnosticReportNote"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
   "version": "6.0.0",
   "name": "QICoreDiagnosticReportNote",
@@ -48,7 +66,7 @@
           }
         ],
         "path": "DiagnosticReport.category",
-        "short": "(QI-Core)(USCDI) Service Category",
+        "short": "(QI) Service Category",
         "slicing": {
           "discriminator": [
             {
@@ -69,7 +87,7 @@
           }
         ],
         "path": "DiagnosticReport.code",
-        "short": "(QI-Core)(USCDI) QI-Core Report Code",
+        "short": "(QI) QI-Core Report Code",
         "definition": "The test, panel, report, or note that was ordered.",
         "comment": "The typical patterns for codes are:  1)  a LOINC code either as a translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists.",
         "alias": [
@@ -104,7 +122,7 @@
           }
         ],
         "path": "DiagnosticReport.subject",
-        "short": "(QI-Core)(USCDI) The subject of the report - usually, but not always, the patient",
+        "short": "(QI) The subject of the report - usually, but not always, the patient",
         "type": [
           {
             "code": "Reference",
@@ -123,7 +141,7 @@
           }
         ],
         "path": "DiagnosticReport.encounter",
-        "short": "(QI-Core)(USCDI) Health care event when test ordered",
+        "short": "(QI) Health care event when test ordered",
         "type": [
           {
             "code": "Reference",
@@ -142,7 +160,7 @@
           }
         ],
         "path": "DiagnosticReport.effective[x]",
-        "short": "(QI-Core)(USCDI) Diagnostically relevant time (typically the time of the procedure)",
+        "short": "(QI) Diagnostically relevant time (typically the time of the procedure)",
         "min": 0,
         "max": "1",
         "base": {
@@ -182,7 +200,7 @@
           }
         ],
         "path": "DiagnosticReport.issued",
-        "short": "(QI-Core)(USCDI) DateTime this version was made"
+        "short": "(QI) DateTime this version was made"
       },
       {
         "id": "DiagnosticReport.performer",
@@ -193,7 +211,7 @@
           }
         ],
         "path": "DiagnosticReport.performer",
-        "short": "(QI-Core)(USCDI) Responsible Diagnostic Service",
+        "short": "(QI) Responsible Diagnostic Service",
         "type": [
           {
             "code": "Reference",
@@ -213,7 +231,7 @@
           }
         ],
         "path": "DiagnosticReport.result",
-        "short": "(QI-Core)(USCDI) Observations",
+        "short": "(QI) Observations",
         "type": [
           {
             "code": "Reference",
@@ -252,7 +270,7 @@
           }
         ],
         "path": "DiagnosticReport.media",
-        "short": "(QI-Core)(USCDI) Key images associated with this report"
+        "short": "(QI) Key images associated with this report"
       }
     ]
   }

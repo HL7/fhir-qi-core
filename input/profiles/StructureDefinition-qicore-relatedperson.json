@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-relatedperson",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "relationship"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"RelatedPerson"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
   "version": "6.0.0",
   "name": "QICoreRelatedPerson",
@@ -48,7 +66,7 @@
           }
         ],
         "path": "RelatedPerson.active",
-        "short": "(QI-Core)(USCDI) Whether this related person\u0027s record is in active use",
+        "short": "(QI) Whether this related person\u0027s record is in active use",
         "min": 1
       },
       {
@@ -60,7 +78,7 @@
           }
         ],
         "path": "RelatedPerson.patient",
-        "short": "(QI-Core)(USCDI) The patient this person is related to",
+        "short": "(QI) The patient this person is related to",
         "type": [
           {
             "code": "Reference",
@@ -79,7 +97,7 @@
           }
         ],
         "path": "RelatedPerson.relationship",
-        "short": "(QI-Core)(USCDI) The nature of the relationship",
+        "short": "(QI) The nature of the relationship",
         "condition": [
           "us-core-14"
         ]
@@ -93,7 +111,7 @@
           }
         ],
         "path": "RelatedPerson.name",
-        "short": "(QI-Core)(USCDI) A name associated with the person",
+        "short": "(QI) A name associated with the person",
         "condition": [
           "us-core-14"
         ]
@@ -107,7 +125,7 @@
           }
         ],
         "path": "RelatedPerson.telecom",
-        "short": "(QI-Core) A contact detail for the person"
+        "short": "(QI) A contact detail for the person"
       },
       {
         "id": "RelatedPerson.address",
@@ -118,7 +136,7 @@
           }
         ],
         "path": "RelatedPerson.address",
-        "short": "(QI-Core) Address where the related person can be contacted or visited"
+        "short": "(QI) Address where the related person can be contacted or visited"
       }
     ]
   }
