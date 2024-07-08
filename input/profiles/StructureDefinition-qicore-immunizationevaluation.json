@@ -91,7 +91,7 @@
         }
       ],
       "path" : "ImmunizationEvaluation.identifier",
-      "short" : "(QI-Core) Business identifier",
+      "short" : "(QI) Business identifier",
       "type" : [{
         "code" : "Identifier"
       }],
@@ -109,7 +109,7 @@
         }
       ],
       "path" : "ImmunizationEvaluation.status",
-      "short" : "(QI-Core) completed | entered-in-error"
+      "short" : "(QI) completed | entered-in-error"
     },
     {
       "id" : "ImmunizationEvaluation.patient",
@@ -120,7 +120,7 @@
         }
       ],
       "path" : "ImmunizationEvaluation.patient",
-      "short" : "(QI-Core) Who this evaluation is for",
+      "short" : "(QI) Who this evaluation is for",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
@@ -135,7 +135,7 @@
         }
       ],
       "path" : "ImmunizationEvaluation.date",
-      "short" : "(QI-Core) Date evaluation was performed",
+      "short" : "(QI) Date evaluation was performed",
       "min" : 1,
       "max" : "1"
     },
@@ -157,7 +157,7 @@
         }
       ],
       "path" : "ImmunizationEvaluation.targetDisease",
-      "short" : "(QI-Core) Evaluation target disease",
+      "short" : "(QI) Evaluation target disease",
       "min" : 1,
       "max" : "1",
       "binding" : {
@@ -180,7 +180,7 @@
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization"]
       }],
-      "short" : "(QI-Core) Immunization being evaluated"
+      "short" : "(QI) Immunization being evaluated"
     },
     {
       "id" : "ImmunizationEvaluation.doseStatus",
@@ -193,7 +193,7 @@
       "path" : "ImmunizationEvaluation.doseStatus",
       "min" : 1,
       "max" : "1",
-      "short" : "(QI-Core) Status of the dose relative to published recommendations",
+      "short" : "(QI) Status of the dose relative to published recommendations",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status"
@@ -208,7 +208,7 @@
         }
       ],
       "path" : "ImmunizationEvaluation.doseStatusReason",
-      "short" : "(QI-Core) Reason for the dose status",
+      "short" : "(QI) Reason for the dose status",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-dose-status"

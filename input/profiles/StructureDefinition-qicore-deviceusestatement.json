@@ -58,7 +58,7 @@
         }
       ],
       "path" : "DeviceUseStatement.status",
-      "short" : "(QI-Core) active | completed | entered-in-error +"
+      "short" : "(QI) active | completed | entered-in-error +"
     },
     {
       "id" : "DeviceUseStatement.subject",
@@ -69,7 +69,7 @@
         }
       ],
       "path" : "DeviceUseStatement.subject",
-      "short" : "(QI-Core) Patient using device",
+      "short" : "(QI) Patient using device",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
@@ -84,7 +84,7 @@
         }
       ],
       "path" : "DeviceUseStatement.timing[x]",
-      "short" : "(QI-Core) How often the device was used"
+      "short" : "(QI) How often the device was used"
     },
     {
       "id" : "DeviceUseStatement.recordedOn",
@@ -95,7 +95,7 @@
         }
       ],
       "path" : "DeviceUseStatement.recordedOn",
-      "short" : "(QI-Core) When statement was recorded"
+      "short" : "(QI) When statement was recorded"
     },
     {
       "id" : "DeviceUseStatement.device",
@@ -106,7 +106,7 @@
         }
       ],
       "path" : "DeviceUseStatement.device",
-      "short" : "(QI-Core) Reference to device used",
+      "short" : "(QI) Reference to device used",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
@@ -122,7 +122,7 @@
         }
       ],
       "path" : "DeviceUseStatement.bodySite",
-      "short" : "(QI-Core) Target body site",
+      "short" : "(QI) Target body site",
       "requirements" : "Knowing where the device is targeted is important for tracking if multiple sites are possible. If more information than just a code is required, use the extension http://hl7.org/fhir/StructureDefinition/bodySite.",
       "binding" : {
         "strength" : "preferred",

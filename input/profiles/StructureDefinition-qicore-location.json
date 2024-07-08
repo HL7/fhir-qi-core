@@ -50,6 +50,18 @@
   "differential" : {
     "element" : [
     {
+        "id" : "Location.type",
+        "extension" : [
+        {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }
+      ],
+        "path" : "Location.type",
+        "short" : "(QI) Category of service or resource available in a location.",
+        "definition" : "Indicates the type of function performed at the location."
+    },
+    {
       "id" : "Location.telecom",
       "extension" : [
         {
@@ -58,7 +70,7 @@
         }
       ],
       "path" : "Location.telecom",
-      "short" : "(QI-Core) Contact details of the location"
+      "short" : "(QI) Contact details of the location"
     },
     {
       "id" : "Location.managingOrganization",
@@ -69,7 +81,7 @@
         }
       ],
       "path" : "Location.managingOrganization",
-      "short" : "(QI-Core) Organization responsible for provisioning and upkeep",
+      "short" : "(QI) Organization responsible for provisioning and upkeep",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"]

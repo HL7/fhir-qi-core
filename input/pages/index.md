@@ -2,7 +2,7 @@
 
 
 {:.stu-note}
-> This STU 6.0 update to the QI-Core profiles updates to US-Core STU v6.1.0. See the version history for a complete listing of changes to this version.
+> This STU 7.0.0-ballot update to the QI-Core profiles aligns with US-Core STU v7.0.0. For a complete list of changes in this version, please refer to the version history.
 
 
 {: #qi-core-implementation-guide}
@@ -26,7 +26,9 @@ Implementation Guide.
 This guide is divided into pages which are listed at the top of each page in the menu bar:
 
 * **[Home](index.html)**: The home page provides summary and background information
-* **[Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
+* **Profiles**
+    * **[QI-Core Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
+    * **[QI Elements](qi-elements.html)**: The QI Elements page provides a complete listing of all the QI Elements in each profile used by QI-Core
 * **[QI-Core Negation](negation.html)**: The negations page describes QI-Core Negation
 * **[Patterns](patterns.html)**: The patterns page describes patterns of usage for QI-Core applications
 * **[Model Info](modelinfo.html)**: The model info page provides the QI-Core model information to support implementation
