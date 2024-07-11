@@ -8,6 +8,21 @@
 <li>performer.actor: Individual who was performing</li>
 </ul>
 
+<b>QI Elements:</b>
+<ul>
+<li>authorizingPrescription: (QI) Medication order that authorizes the dispense</li>
+<li>type: (QI) Trial fill, partial fill, emergency fill, etc.</li>
+<li>quantity: (QI) Amount dispensed</li>
+<li>daysSupply: (QI) Amount of medication expressed as a timing amount</li>
+<li>whenPrepared: (QI) When product was packaged and reviewed</li>
+<li>whenHandedOver: (QI) When product was given out or mailed</li>
+<li>dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver</li>
+<li>dosageInstruction.text: (QI) Free text dosage instructions e.g. SIG</li>
+<li>dosageInstruction.timing: (QI) When medication should be administered</li>
+<li>dosageInstruction.doseAndRate: (QI) Amount of medication administered</li>
+<li>dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose</li>
+</ul>
+
 <b>Primary code path:</b> medication
 <br></br>
 (PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>

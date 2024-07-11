@@ -2,7 +2,19 @@
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
 <b>QI Elements:</b>
 <ul>
-<li>ClaimResponse: Response to a claim predetermination or preauthorization</li>
+<li>status: (QI) active | cancelled | draft | entered-in-error</li>
+<li>type: (QI) More granular claim type</li>
+<li>use: (QI) claim | preauthorization | predetermination</li>
+<li>patient: (QI) The recipient of the products and services</li>
+<li>created: (QI) Response creation date</li>
+<li>insurer: (QI) Party responsible for reimbursement</li>
+<li>requestor: (QI) Party responsible for the claim</li>
+<li>request: (QI) Id of resource triggering adjudication</li>
+<li>item: (QI) Adjudication for claim line items</li>
+<li>item.adjudication: (QI) Adjudication details</li>
+<li>item.adjudication.category: (QI) This code is fixed to 'submitted' to indicate that the adjudication result is on what was submitted.</li>
+<li>item.adjudication.amount: (QI) Monetary amount</li>
+<li>item.detail.detailSequence: (QI) Claim detail instance identifier</li>
 </ul>
 
 <b>Primary code path:</b> type

@@ -9,9 +9,15 @@
 
 <b>QI Elements:</b>
 <ul>
-<li>AllergyIntolerance: Allergy or Intolerance (generally: Risk of adverse reaction to a substance)</li>
-<li>extension: Age that the allergy or intolerance resolved</li>
+<li>clinicalStatus: (QI) active | inactive | resolved</li>
+<li>type: (QI) allergy | intolerance - Underlying mechanism (if known)</li>
+<li>category: (QI) food | medication | environment | biologic</li>
+<li>criticality: (QI) low | high | unable-to-assess</li>
 <li>onset[x]: (QI) When allergy or intolerance was identified</li>
+<li>recordedDate: (QI) Date first version of the resource instance was recorded</li>
+<li>lastOccurrence: (QI) Date(/time) of last known occurrence of a reaction</li>
+<li>reaction: (QI) Adverse Reaction Events linked to exposure to substance</li>
+<li>reaction.severity: (QI) mild | moderate | severe (of event as a whole)</li>
 </ul>
 
 <b>Primary code path:</b> code
