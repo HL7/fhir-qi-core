@@ -11,9 +11,12 @@
 
 <b>QI Elements:</b>
 <ul>
-<li>MedicationRequest: Ordering of medication for patient or group</li>
-<li>extension: 𝗔𝗗𝗗𝗜𝗧𝗜𝗢𝗡𝗔𝗟 𝗨𝗦𝗖𝗗𝗜: US Core Medication Adherence Extension</li>
-<li>medication[x].coding: Code defined by a terminology system</li>
+<li>doNotPerform: (QI) True if medication was not requested</li>
+<li>reported[x]: (QI) Reported rather than primary record</li>
+<li>encounter: (QI) Encounter created as part of encounter/admission/stay</li>
+<li>requester: (QI) Who/What requested the Request</li>
+<li>reasonCode: (QI) Reason or indication for ordering or not ordering the medication</li>
+<li>reasonReference: (QI) US Core Condition or Observation that supports the prescription</li>
 </ul>
 
 <b>Primary code path:</b> medication
