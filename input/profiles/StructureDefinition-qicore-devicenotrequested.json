@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-devicenotrequested",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"DeviceNotRequested"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested",
   "version" : "6.0.0",
   "name" : "QICoreDeviceNotRequested",
@@ -62,7 +80,7 @@
           }
         ],
         "path" : "DeviceRequest.extension",
-        "short": "(QI-Core) Extension",
+        "short": "(QI) Extension",
         "sliceName" : "doNotPerformReason",
         "min" : 1,
         "max" : "1",
@@ -84,7 +102,7 @@
           }
         ],
         "path" : "DeviceRequest.modifierExtension",
-        "short": "(QI-Core) Extension",
+        "short": "(QI) Extension",
         "sliceName" : "doNotPerform",
         "min" : 1,
         "max" : "1",
@@ -108,7 +126,7 @@
           }
         ],
         "path" : "DeviceRequest.modifierExtension.value[x]",
-        "short" : "(QI-Core) Value of extension",
+        "short" : "(QI) Value of extension",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -127,7 +145,7 @@
           }
         ],
         "path" : "DeviceRequest.status",
-        "short" : "(QI-Core) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+        "short" : "(QI) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
       },
       {
         "id" : "DeviceRequest.intent",
@@ -138,7 +156,7 @@
           }
         ],
         "path" : "DeviceRequest.intent",
-        "short" : "(QI-Core) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"
+        "short" : "(QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"
       },
       {
         "id" : "DeviceRequest.code[x]",
@@ -149,7 +167,7 @@
           }
         ],
         "path" : "DeviceRequest.code[x]",
-        "short" : "(QI-Core) Device requested",
+        "short" : "(QI) Device requested",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -175,7 +193,7 @@
         ],
         "path" : "DeviceRequest.code[x].extension",
         "sliceName" : "doNotPerformValueSet",
-        "short" : "(QI-Core) What was not done",
+        "short" : "(QI) What was not done",
         "definition" : "Specifies the value set that characterizes the events or activities that did not occur or were not performed.",
         "requirements" : "Must be able to indicate the value set from which the expected event would be drawn, had it occurred.",
         "min" : 0,
@@ -201,7 +219,7 @@
           }
         ],
         "path" : "DeviceRequest.subject",
-        "short" : "(QI-Core) Focus of request",
+        "short" : "(QI) Focus of request",
         "type" : [
           {
             "code" : "Reference",
@@ -220,7 +238,7 @@
           }
         ],
         "path" : "DeviceRequest.authoredOn",
-        "short" : "(QI-Core) When recorded",
+        "short" : "(QI) When recorded",
         "min" : 1,
         "max" : "1"
       }

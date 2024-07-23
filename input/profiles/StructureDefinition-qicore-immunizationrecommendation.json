@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-immunizationrecommendation",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "recommendation.vaccineCode"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ImmunizationRecommendation"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationrecommendation",
   "version" : "6.0.0",
   "name" : "QICoreImmunizationRecommendation",
@@ -64,7 +82,7 @@
         }
       ],
       "path" : "ImmunizationRecommendation.patient",
-      "short" : "(QI-Core) Who this profile is for",
+      "short" : "(QI) Who this profile is for",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
@@ -88,7 +106,7 @@
         }
       ],
       "path" : "ImmunizationRecommendation.recommendation",
-      "short" : "(QI-Core) Vaccine administration recommendations"
+      "short" : "(QI) Vaccine administration recommendations"
     },
     {
       "id" : "ImmunizationRecommendation.recommendation.vaccineCode",
@@ -99,7 +117,7 @@
         }
       ],
       "path" : "ImmunizationRecommendation.recommendation.vaccineCode",
-      "short" : "(QI-Core) Vaccine or vaccine group recommendation applies to",
+      "short" : "(QI) Vaccine or vaccine group recommendation applies to",
       "binding" : {
         "strength" : "extensible",
         "description" : "CVX Vaccines Administered Vaccine Set",
@@ -115,7 +133,7 @@
         }
       ],
       "path" : "ImmunizationRecommendation.recommendation.doseNumber[x]",
-      "short" : "(QI-Core) Recommended dose number within series"
+      "short" : "(QI) Recommended dose number within series"
     },
     {
       "id" : "ImmunizationRecommendation.recommendation.supportingImmunization",

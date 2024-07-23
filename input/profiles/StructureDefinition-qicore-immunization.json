@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-immunization",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "vaccineCode"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Immunization"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
   "version" : "6.0.0",
   "name": "QICoreImmunization",
@@ -80,7 +98,7 @@
           }
         ],
         "path": "Immunization.status",
-        "short": "(QI-Core)(USCDI) completed | entered-in-error",
+        "short": "(QI) completed | entered-in-error",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-immunization-status"
@@ -97,11 +115,22 @@
         "path": "Immunization.statusReason",
         "min": 0,
         "max": "1",
-        "short": "(QI-Core)(USCDI) Reason not done",
+        "short": "(QI) Reason not done",
         "binding": {
           "strength": "preferred",
           "valueSet": "http://hl7.org/fhir/ValueSet/immunization-status-reason"
         }
+      },
+      {
+        "id" : "Immunization.vaccineCode",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Immunization.vaccineCode",
+        "short" : "(QI) Vaccine Product Type (bind to CVX)"
       },
       {
         "id": "Immunization.patient",
@@ -112,7 +141,7 @@
           }
         ],
         "path": "Immunization.patient",
-        "short": "(QI-Core)(USCDI) Who was immunized",
+        "short": "(QI) Who was immunized",
         "type": [
           {
             "code": "Reference",
@@ -123,6 +152,17 @@
         ]
       },
       {
+        "id" : "Immunization.occurrence[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Immunization.occurrence[x]",
+        "short" : "(QI) Vaccine administration date"
+      },
+      {
         "id": "Immunization.recorded",
         "extension": [
           {
@@ -131,7 +171,7 @@
           }
         ],
         "path": "Immunization.recorded",
-        "short": "(QI-Core) When the immunization was first captured in the subject\u0027s record",
+        "short": "(QI) When the immunization was first captured in the subject\u0027s record",
         "min": 0,
         "max": "1"
       }

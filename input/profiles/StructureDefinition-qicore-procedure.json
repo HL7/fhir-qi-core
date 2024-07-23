@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-procedure",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Procedure"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
   "version": "6.0.0",
   "name": "QICoreProcedure",
@@ -49,7 +67,7 @@
         ],
         "path": "Procedure.extension",
         "sliceName": "recorded",
-        "short": "(QI-Core) When the procedure was first captured in the subject\u0027s record",
+        "short": "(QI) When the procedure was first captured in the subject\u0027s record",
         "definition": "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
         "min": 0,
         "max": "1",
@@ -71,7 +89,7 @@
           }
         ],
         "path": "Procedure.implicitRules",
-        "short": "(QI-Core) A set of rules under which this content was created"
+        "short": "(QI) A set of rules under which this content was created"
       },
       {
         "id": "Procedure.status",
@@ -82,11 +100,23 @@
           }
         ],
         "path": "Procedure.status",
-        "short": "(QI-Core)(USCDI) preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
+        "short": "(QI) preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status"
         }
+      },
+      {
+        "id" : "Procedure.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Procedure.code",
+        "short" : "(QI) Identification of the procedure",
+        "definition" : "The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\")."
       },
       {
         "id": "Procedure.subject",
@@ -97,7 +127,7 @@
           }
         ],
         "path": "Procedure.subject",
-        "short": "(QI-Core)(USCDI) Who the procedure was performed on",
+        "short": "(QI) Who the procedure was performed on",
         "type": [
           {
             "code": "Reference",
@@ -106,6 +136,19 @@
             ]
           }
         ]
+      },
+      {
+        "id" : "Procedure.performed[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Procedure.performed[x]",
+        "short" : "(QI) When the procedure was performed",
+        "definition" : "Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "comment" : "Age is generally used when the patient reports an age at which the procedure was performed. Range is generally used when the patient reports an age range when the procedure was performed, such as sometime between 20-25 years old.  dateTime supports a range of precision due to some procedures being reported as past procedures that might not have millisecond precision while other procedures performed and documented during the encounter might have more precise UTC timestamps with timezone."
       },
       {
         "id": "Procedure.performer.actor",
@@ -132,7 +175,7 @@
           }
         ],
         "path": "Procedure.reasonCode",
-        "short": "(QI-Core) Coded reason procedure performed",
+        "short": "(QI) Coded reason procedure performed",
         "binding": {
           "strength": "preferred",
           "description": "A code that identifies the reason a procedure is required.",
@@ -148,7 +191,7 @@
           }
         ],
         "path": "Procedure.reasonReference",
-        "short": "(QI-Core) The justification that the procedure was performed",
+        "short": "(QI) The justification that the procedure was performed",
         "type": [
           {
             "code": "Reference",
@@ -164,7 +207,7 @@
       {
         "id": "Procedure.basedOn",
         "path": "Procedure.basedOn",
-        "short": "(QI-Core)(USCDI) A request for this procedure",
+        "short": "(QI) A request for this procedure",
         "definition": "A reference to a resource that contains details of the request for this procedure.",
         "alias": [
           "fulfills"

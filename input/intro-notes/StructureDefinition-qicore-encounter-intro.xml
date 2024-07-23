@@ -1,4 +1,51 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+<!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+<b>Must Have:</b>
+<ul>
+<li>identifier.system: The namespace for the identifier value</li>
+<li>identifier.value: The value that is unique</li>
+<li>status: (QI) planned | arrived | triaged | in-progress | onleave | finished | cancelled +</li>
+<li>class: Classification of patient encounter</li>
+<li>type: (QI) Specific type of encounter</li>
+<li>subject: (QI) The patient or group present at the encounter</li>
+<li>location.location: (QI) Location the encounter takes place</li>
+</ul>
+
+<b>QI Elements:</b>
+<ul>
+<li>participant: (QI) List of participants involved in the encounter</li>
+<li>participant.individual: (QI) Persons involved in the encounter other than the patient</li>
+<li>period: (QI) The start and end time of the encounter</li>
+<li>reasonCode: (QI) Coded reason the encounter takes place</li>
+<li>reasonReference: (QI) Reason the encounter takes place (reference)</li>
+<li>hospitalization: (QI) Details about the admission to a healthcare service</li>
+<li>hospitalization.dischargeDisposition: (QI) Category or kind of location after discharge</li>
+<li>location: (QI) List of locations where the patient has been</li>
+<li>location.period: (QI) Time period during which the patient was present at the location</li>
+<li>serviceProvider: (QI) The organization (facility) responsible for this encounter</li>
+</ul>
+
+<b>Primary code path:</b> type
+<br></br>
+(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
+<br></br>
+<br></br>
+
+<br></br>
+<b>NOTE TO BALLOT REVIEWERS:</b>
+<ul>
+<li>US Core 7.0, and thus QI-Core 7.0, has a new approach to USCDI requirements.</li>
+<ul>
+<li>As noted in the US Core 7.0 <a href='https://hl7.org/fhir/us/core/must-support.html#must-support-elements'>Must Support</a> section, US Core 7.0 no longer highlights mandatory (cardinality 1..* or 1..1) and Must Support elements with a (USCDI) indicator as such items must be supported for interoperability.</li>
+<li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
+</ul>
+<li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+</ul>
+<br></br>
+
+
+<!--End Generated Intro (DO NOT REMOVE)-->
 <a name="usage"><b>Usage</b></a>
 <p>The following example illustrates accessing an inpatient encounter:</p>
 
