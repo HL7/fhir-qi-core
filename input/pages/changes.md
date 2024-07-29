@@ -8,6 +8,7 @@ This page lists the change history for each version of QI-Core.
 
 1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html))
 1. limit subject reference in AdverseEvent to patient([FHIR-45693](https://jira.hl7.org/browse/FHIR-45693)) Applied ([here](StructureDefinition-qicore-adverseevent.html))
+1. Update QI-Core Medication and QI-Core MedicationDispense and QI-Core MedicationDispenseDeclined profiles to build from US Core 7.0 Medication and MedicationDispense profiles ([FHIR-45402](https://jira.hl7.org/browse/FHIR-45402)) Applied ([here](StructureDefinition-qicore-medicationdispense.html)) and ([here](StructureDefinition-qicore-medicationdispensedeclined.html))
 
 ### STU6 Release (6.0.0)
 
