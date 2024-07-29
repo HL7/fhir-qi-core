@@ -8,6 +8,7 @@ This page lists the change history for each version of QI-Core.
 
 1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html))
 1. limit subject reference in AdverseEvent to patient([FHIR-45693](https://jira.hl7.org/browse/FHIR-45693)) Applied ([here](StructureDefinition-qicore-adverseevent.html))
+1. Update QICore DiagnosticReport Profile for Laboratory Results Reporting and QI Core DiagnosticReport Profile for Report and Note Exchange to reflect updates in US Core 7.0's respective profile ([FHIR-45697](https://jira.hl7.org/browse/FHIR-45697)) Applied ([here](StructureDefinition-qicore-diagnosticreport-lab.html))
 
 ### STU6 Release (6.0.0)
 
