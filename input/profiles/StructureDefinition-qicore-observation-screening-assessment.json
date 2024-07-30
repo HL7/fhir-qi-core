@@ -250,7 +250,10 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/StructureDefinition/Group",
+              "http://hl7.org/fhir/StructureDefinition/Device",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
             ]
           }
         ],
@@ -459,6 +462,15 @@
                 "valueBoolean": true
               }
             ],
+            "code": "SampledData"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
             "code": "time"
           },
           {
@@ -606,7 +618,11 @@
             "code": "Reference",
             "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-screening-assessment",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-questionnaireresponse",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference",
+              "http://hl7.org/fhir/StructureDefinition/ImagingStudy",
+              "http://hl7.org/fhir/StructureDefinition/Media",
+              "http://hl7.org/fhir/StructureDefinition/MolecularSequence"
             ],
             "_targetProfile": [
               {
