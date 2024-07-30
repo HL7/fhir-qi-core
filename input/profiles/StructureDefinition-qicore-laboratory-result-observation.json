@@ -58,6 +58,17 @@
   "differential" : {
     "element" : [
       {
+        "id": "Observation.meta",
+        "path": "Observation.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Observation.meta.lastUpdated",
+        "path": "Observation.meta.lastUpdated",
+        "short": "When the resource last changed",
+        "mustSupport": true
+      },
+      {
         "id": "Observation.status",
         "extension" : [
           {
@@ -341,6 +352,15 @@
               }
             ],
             "code" : "Ratio"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "SampledData"
           },
           {
             "extension" : [
