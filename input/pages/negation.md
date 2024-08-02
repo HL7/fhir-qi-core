@@ -37,6 +37,10 @@ The <a href="StructureDefinition-qicore-observationcancelled.html">QICore Observ
 -   [US Core Observation Sexual Orientation Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-sexual-orientation)
 -   [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancyintent)
 -   [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Average Blood Pressure Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Care Experience Preference Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-observation-pregnancystatus)
+-   [US Core Treatment Intervention Preference Profile](http://hl7.org/fhir/us/core/StructureDefinition/us-core-treatment-intervention-preference)
 -   [QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
 -   [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html)
 -   [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html)
@@ -57,8 +61,9 @@ Each of the QI-Core negation rationale profiles define at least the following in
 
 The negation profiles in QI-Core can be used to make two different types of negative statements:
 
-1.  Documentation that a specific activity was not performed for a given reason
-2.  Documentation that none of the activities in a given value set were performed for a given reason
+
+1.	 Documentation that a particular activity/event should not or did not occur
+2.	 Documentation that a class of activities/events should not or did not occur (typically represented with a value set)
 
 #### Documenting one member of a value set was not performed for a given reason.
 
@@ -214,4 +219,4 @@ See the <a href="MedicationAdministration-negation-example.html">MedicationAdmin
 
 ### Negation in CQL
 
-For quality measurement and reporting, measure expression may only need to determine the existence or absence of an activity or event to determine if criteria have been met. If the reason for absence is not relevant to the measure evaluation, the absence of evidence pattern should be used as described in the [Using CQL section of the Quality Measure IG](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#negation-in-fhir).
+For quality measurement and reporting, measure expression may only need to determine the existence or absence of an activity or event to determine if criteria have been met. If the reason for absence is not relevant to the measure evaluation, the absence of evidence pattern should be used as described on the [Patterns page of the Using CQL with FHIR IG](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#negation-in-fhir).

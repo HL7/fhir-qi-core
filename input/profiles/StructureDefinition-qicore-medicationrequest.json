@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-medicationrequest",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "medication"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"MedicationRequest"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",
   "version": "6.0.0",
   "name": "QICoreMedicationRequest",
@@ -61,7 +79,20 @@
           }
         ],
         "path": "MedicationRequest.status",
-        "short": "(QI-Core)(USCDI) active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown"
+        "short": "(QI) active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown"
+      },
+      {
+        "id" : "MedicationRequest.intent",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "MedicationRequest.intent",
+        "short" : "(QI) proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option",
+        "definition" : "Whether the request is a proposal, plan, or an original order.",
+        "comment" : "It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.\r\rThis element is labeled as a modifier because the intent alters when and how the resource is actually applicable."
       },
       {
         "id": "MedicationRequest.doNotPerform",
@@ -72,7 +103,7 @@
           }
         ],
         "path": "MedicationRequest.doNotPerform",
-        "short": "(QI-Core) True if medication was not requested",
+        "short": "(QI) True if medication was not requested",
         "min": 0,
         "max": "1",
         "type": [
@@ -91,8 +122,17 @@
           }
         ],
         "path": "MedicationRequest.reported[x]",
-        "short": "(QI-Core)(USCDI) Reported rather than primary record",
+        "short": "(QI) Reported rather than primary record",
         "type": [
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "boolean"
+          },
           {
             "code": "Reference",
             "targetProfile": [
@@ -136,7 +176,21 @@
               }
             ]
           }
-        ]
+        ],
+        "mustSupport": true
+      },
+      {
+        "id" : "MedicationRequest.medication[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "MedicationRequest.medication[x]",
+        "short" : "(QI) Medication to be taken",
+        "definition" : "Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.",
+        "comment" : "If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the Medication resource is recommended.  For example, if you require form or lot number or if the medication is compounded or extemporaneously prepared, then you must reference the Medication resource."
       },
       {
         "id": "MedicationRequest.subject",
@@ -147,7 +201,7 @@
           }
         ],
         "path": "MedicationRequest.subject",
-        "short": "(QI-Core)(USCDI) Who or group medication request is for",
+        "short": "(QI) Who or group medication request is for",
         "type": [
           {
             "code": "Reference",
@@ -166,7 +220,7 @@
           }
         ],
         "path": "MedicationRequest.encounter",
-        "short": "(QI-Core)(USCDI) Encounter created as part of encounter/admission/stay",
+        "short": "(QI) Encounter created as part of encounter/admission/stay",
         "type": [
           {
             "code": "Reference",
@@ -185,7 +239,7 @@
           }
         ],
         "path": "MedicationRequest.authoredOn",
-        "short": "(QI-Core)(USCDI) When request was initially authored",
+        "short": "(QI) When request was initially authored",
         "min": 0,
         "max": "1"
       },
@@ -198,7 +252,7 @@
           }
         ],
         "path": "MedicationRequest.requester",
-        "short": "(QI-Core)(USCDI) Who/What requested the Request",
+        "short": "(QI) Who/What requested the Request",
         "comment": "Should include QICoreDevice but the base profile does excludes device references.",
         "type": [
           {
@@ -246,7 +300,7 @@
           }
         ],
         "path": "MedicationRequest.reasonCode",
-        "short": "(QI-Core)(USCDI) Reason or indication for ordering or not ordering the medication"
+        "short": "(QI) Reason or indication for ordering or not ordering the medication"
       },
       {
         "id": "MedicationRequest.reasonReference",
@@ -257,7 +311,7 @@
           }
         ],
         "path": "MedicationRequest.reasonReference",
-        "short": "(QI-Core)(USCDI) QI-Core Condition or Observation that supports the prescription",
+        "short": "(QI) QI-Core Condition or Observation that supports the prescription",
         "type": [
           {
             "code": "Reference",
@@ -278,7 +332,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction",
-        "short": "(QI-Core)(USCDI) How medication should be taken"
+        "short": "(QI) How medication should be taken"
       },
       {
         "id": "MedicationRequest.dosageInstruction.timing",
@@ -289,7 +343,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.timing",
-        "short": "(QI-Core)(USCDI) When medication should be administered"
+        "short": "(QI) When medication should be administered"
       },
       {
         "id": "MedicationRequest.dosageInstruction.timing.repeat",
@@ -300,7 +354,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.timing.repeat",
-        "short": "(QI-Core) When the event is to occur"
+        "short": "(QI) When the event is to occur"
       },
       {
         "id": "MedicationRequest.dosageInstruction.timing.repeat.bounds[x]",
@@ -311,7 +365,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.timing.repeat.bounds[x]",
-        "short": "(QI-Core) Length/Range of lengths, or (Start and/or end) limits"
+        "short": "(QI) Length/Range of lengths, or (Start and/or end) limits"
       },
       {
         "id": "MedicationRequest.dosageInstruction.timing.repeat.frequency",
@@ -322,7 +376,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.timing.repeat.frequency",
-        "short": "(QI-Core) Event occurs frequency times per period"
+        "short": "(QI) Event occurs frequency times per period"
       },
       {
         "id": "MedicationRequest.dosageInstruction.timing.repeat.frequencyMax",
@@ -333,7 +387,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.timing.repeat.frequencyMax",
-        "short": "(QI-Core) Event occurs frequencyMax times per period"
+        "short": "(QI) Event occurs frequencyMax times per period"
       },
       {
         "id": "MedicationRequest.dosageInstruction.timing.repeat.period",
@@ -344,7 +398,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.timing.repeat.period",
-        "short": "(QI-Core) Event occurs frequency times per period"
+        "short": "(QI) Event occurs frequency times per period"
       },
       {
         "id": "MedicationRequest.dosageInstruction.timing.repeat.periodMax",
@@ -355,7 +409,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.timing.repeat.periodMax",
-        "short": "(QI-Core) Upper limit of period (3-4 hours)"
+        "short": "(QI) Upper limit of period (3-4 hours)"
       },
       {
         "id": "MedicationRequest.dosageInstruction.timing.repeat.periodUnit",
@@ -366,7 +420,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.timing.repeat.periodUnit",
-        "short": "(QI-Core) s | min | h | d | wk | mo | a - unit of time (UCUM)"
+        "short": "(QI) s | min | h | d | wk | mo | a - unit of time (UCUM)"
       },
       {
         "id": "MedicationRequest.dosageInstruction.asNeeded[x]",
@@ -377,7 +431,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.asNeeded[x]",
-        "short": "(QI-Core) Take \"as needed\" (for x)"
+        "short": "(QI) Take \"as needed\" (for x)"
       },
       {
         "id": "MedicationRequest.dosageInstruction.doseAndRate",
@@ -388,7 +442,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.doseAndRate",
-        "short": "(QI-Core)(USCDI) Amount of medication administered"
+        "short": "(QI) Amount of medication administered"
       },
       {
         "id": "MedicationRequest.dosageInstruction.doseAndRate.dose[x]",
@@ -399,7 +453,7 @@
           }
         ],
         "path": "MedicationRequest.dosageInstruction.doseAndRate.dose[x]",
-        "short": "(QI-Core)(USCDI) Amount of medication per dose"
+        "short": "(QI) Amount of medication per dose"
       },
       {
         "id": "MedicationRequest.dispenseRequest",
@@ -410,7 +464,7 @@
           }
         ],
         "path": "MedicationRequest.dispenseRequest",
-        "short": "(QI-Core)(USCDI) Medication supply authorization"
+        "short": "(QI) Medication supply authorization"
       },
       {
         "id": "MedicationRequest.dispenseRequest.initialFill",
@@ -427,7 +481,20 @@
           }
         ],
         "path": "MedicationRequest.dispenseRequest.dispenseInterval",
-        "short": "(QI-Core) Minimum period of time between dispenses"
+        "short": "(QI) Minimum period of time between dispenses"
+      },
+      {
+        "id" : "MedicationRequest.dispenseRequest.validityPeriod",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "MedicationRequest.dispenseRequest.validityPeriod",
+        "short" : "(QI) Time period supply is authorized for",
+        "definition" : "This indicates the validity period of a prescription (stale dating the Prescription).",
+        "comment" : "It reflects the prescribers' perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations."
       },
       {
         "id": "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",
@@ -438,7 +505,7 @@
           }
         ],
         "path": "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",
-        "short": "(QI-Core)(USCDI) Number of refills authorized"
+        "short": "(QI) Number of refills authorized"
       },
       {
         "id": "MedicationRequest.dispenseRequest.quantity",
@@ -449,7 +516,7 @@
           }
         ],
         "path": "MedicationRequest.dispenseRequest.quantity",
-        "short": "(QI-Core)(USCDI) Amount of medication to supply per dispense"
+        "short": "(QI) Amount of medication to supply per dispense"
       },
       {
         "id": "MedicationRequest.dispenseRequest.expectedSupplyDuration",
@@ -460,7 +527,7 @@
           }
         ],
         "path": "MedicationRequest.dispenseRequest.expectedSupplyDuration",
-        "short": "(QI-Core) Number of days supply per dispense"
+        "short": "(QI) Number of days supply per dispense"
       }
     ]
   }

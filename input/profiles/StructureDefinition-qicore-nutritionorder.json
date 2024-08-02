@@ -1,6 +1,20 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-nutritionorder",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"NutritionOrder"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nutritionorder",
   "version" : "6.0.0",
   "name" : "QICoreNutritionOrder",
@@ -48,7 +62,7 @@
         }
       ],
       "path" : "NutritionOrder.patient",
-      "short" : "(QI-Core) The person who requires the diet, formula or nutritional supplement",
+      "short" : "(QI) The person who requires the diet, formula or nutritional supplement",
       "definition" : "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.",
       "requirements" : "The person who requires the diet, formula or nutritional supplement.",
       "type" : [{

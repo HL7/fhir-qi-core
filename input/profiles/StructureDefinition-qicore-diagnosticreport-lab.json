@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-diagnosticreport-lab",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"DiagnosticReportLab"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-lab",
   "version": "6.0.0",
   "name": "QICoreDiagnosticReportLab",
@@ -71,7 +89,7 @@
           }
         ],
         "path": "DiagnosticReport.category",
-        "short": "(QI-Core)(USCDI) Service category",
+        "short": "(QI) Service category",
         "slicing": {
           "discriminator": [
             {
@@ -109,7 +127,7 @@
           }
         ],
         "path": "DiagnosticReport.category",
-        "short": "(QI-Core)(USCDI) Service category",
+        "short": "(QI) Service category",
         "sliceName": "LaboratorySlice",
         "type": [
           {
@@ -147,7 +165,7 @@
           }
         ],
         "path": "DiagnosticReport.subject",
-        "short": "(QI-Core)(USCDI) The subject of the report - usually, but not always, the patient",
+        "short": "(QI) The subject of the report - usually, but not always, the patient",
         "type": [
           {
             "code": "Reference",
@@ -166,7 +184,7 @@
           }
         ],
         "path": "DiagnosticReport.effective[x]",
-        "short": "(QI-Core)(USCDI) Diagnostically relevant time (typically the time of specimen collection)",
+        "short": "(QI) Diagnostically relevant time (typically the time of specimen collection)",
         "type": [
           {
             "extension": [
@@ -199,7 +217,7 @@
           }
         ],
         "path": "DiagnosticReport.performer",
-        "short": "(QI-Core)(USCDI) Responsible Diagnostic Service",
+        "short": "(QI) Responsible Diagnostic Service",
         "type": [
           {
             "code": "Reference",
@@ -220,7 +238,7 @@
           }
         ],
         "path": "DiagnosticReport.result",
-        "short": "(QI-Core)(USCDI) Observations",
+        "short": "(QI) Observations",
         "type": [
           {
             "code": "Reference",

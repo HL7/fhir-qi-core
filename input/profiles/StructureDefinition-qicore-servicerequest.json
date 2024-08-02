@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-servicerequest",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ServiceRequest"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest",
   "version": "6.0.0",
   "name": "QICoreServiceRequest",
@@ -60,7 +78,19 @@
           }
         ],
         "path": "ServiceRequest.status",
-        "short": "(QI-Core)(USCDI) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+        "short": "(QI) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+      },
+      {
+        "id" : "ServiceRequest.intent",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "ServiceRequest.intent",
+        "short" : "(QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option",
+        "definition" : "Whether the request is a proposal, plan, an original order or a reflex order."
       },
       {
         "id": "ServiceRequest.doNotPerform",
@@ -71,7 +101,7 @@
           }
         ],
         "path": "ServiceRequest.doNotPerform",
-        "short": "(QI-Core) True if service/procedure should not be performed",
+        "short": "(QI) True if service/procedure should not be performed",
         "min": 0,
         "max": "1",
         "type": [
@@ -82,6 +112,19 @@
         "fixedBoolean": false
       },
       {
+        "id" : "ServiceRequest.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "ServiceRequest.code",
+        "short" : "(QI) What is being requested/ordered",
+        "definition" : "A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.",
+        "comment" : "Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."
+      },
+      {
         "id": "ServiceRequest.subject",
         "extension": [
           {
@@ -90,7 +133,7 @@
           }
         ],
         "path": "ServiceRequest.subject",
-        "short": "(QI-Core)(USCDI) Individual or Entity the service is ordered for",
+        "short": "(QI) Individual or Entity the service is ordered for",
         "type": [
           {
             "code": "Reference",
@@ -109,7 +152,7 @@
           }
         ],
         "path": "ServiceRequest.occurrence[x]",
-        "short": "(QI-Core)(USCDI) When service should occur",
+        "short": "(QI) When service should occur",
         "type": [
           {
             "extension": [
@@ -149,7 +192,7 @@
           }
         ],
         "path": "ServiceRequest.authoredOn",
-        "short": "(QI-Core)(USCDI) Date request signed",
+        "short": "(QI) Date request signed",
         "min": 0,
         "max": "1"
       },
@@ -230,7 +273,7 @@
           }
         ],
         "path": "ServiceRequest.reasonCode",
-        "short": "(QI-Core)(USCDI) Explanation/Justification for procedure or service"
+        "short": "(QI) Explanation/Justification for procedure or service"
       },
       {
         "id": "ServiceRequest.reasonReference",
@@ -241,7 +284,7 @@
           }
         ],
         "path": "ServiceRequest.reasonReference",
-        "short": "(QI-Core)(USCDI) Explanation/Justification for service or service",
+        "short": "(QI) Explanation/Justification for service or service",
         "definition": "Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in `supportingInfo`.",
         "comment": "This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.conclusionCode`.   When using a reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this service request.  Use  the CodeableConcept text element in `ServiceRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).",
         "min": 0,

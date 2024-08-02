@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-condition-problems-health-concerns",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ConditionProblemsHealthConcerns"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
   "version": "6.0.0",
   "name": "QICoreConditionProblemsHealthConcerns",
@@ -46,6 +64,56 @@
         "mustSupport": false
       },
       {
+        "id" : "Condition.clinicalStatus",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.clinicalStatus",
+        "short" : "(QI) active | recurrence | relapse | inactive | remission | resolved",
+        "definition" : "The clinical status of the condition.",
+        "comment" : "The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."
+      },
+      {
+        "id" : "Condition.verificationStatus",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.verificationStatus",
+        "short" : "(QI) unconfirmed | provisional | differential | confirmed | refuted | entered-in-error",
+        "definition" : "The verification status to support the clinical status of the condition."
+      },
+      {
+        "id" : "Condition.severity",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.severity",
+        "short" : "(QI) Subjective severity of condition",
+        "definition" : "A subjective assessment of the severity of the condition as evaluated by the clinician.",
+        "comment" : "Coding of the severity with a terminology is preferred, where possible."
+      },
+      {
+        "id" : "Condition.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.code",
+        "short" : "(QI) Identification of the condition, problem or diagnosis",
+        "definition" : "Identification of the condition, problem or diagnosis."
+      },
+      {
         "id": "Condition.subject",
         "extension": [
           {
@@ -62,7 +130,7 @@
             ]
           }
         ],
-        "short": "(QI-Core)(USCDI) Who has the condition?"
+        "short": "(QI) Who has the condition?"
       },
       {
         "id": "Condition.onset[x]",
@@ -73,7 +141,7 @@
           }
         ],
         "path": "Condition.onset[x]",
-        "short": "(QI-Core)(USCDI) Estimated or actual date, date-time, or age",
+        "short": "(QI) Estimated or actual date, date-time, or age",
         "type": [
           {
             "extension": [
@@ -122,7 +190,7 @@
           }
         ],
         "path": "Condition.abatement[x]",
-        "short": "(QI-Core)(USCDI) When in resolution/remission",
+        "short": "(QI) When in resolution/remission",
         "type": [
           {
             "extension": [
@@ -161,6 +229,18 @@
             "code": "Range"
           }
         ]
+      },
+      {
+        "id" : "Condition.recordedDate",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.recordedDate",
+        "short" : "(QI) Date record was first recorded",
+        "definition" : "The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date."
       }
     ]
   }
