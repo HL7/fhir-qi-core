@@ -44,6 +44,12 @@
     "element" : [
       {
         "id" : "Claim",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim",
         "mustSupport" : false
       },
@@ -199,6 +205,30 @@
         "mustSupport" : false
       },
       {
+        "id" : "Claim.diagnosis",
+        "extension" : [          {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        },
+          {
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+          "valueString" : "Diagnosis"
+        }],
+        "path" : "Claim.diagnosis",
+        "short" : "Pertinent diagnosis information",
+        "definition" : "Information about diagnoses relevant to the claim items.",
+        "requirements" : "Required for the adjudication by provided context for the services and product listed.",
+        "min" : 0,
+        "max" : "*",
+        "type" : [{
+          "code" : "BackboneElement"
+        }],
+        "mapping" : [{
+          "identity" : "workflow",
+          "map" : "Request.reasonReference"
+        }]
+      },
+      {
         "id" : "Claim.diagnosis.sequence",
         "extension" : [
           {
@@ -248,6 +278,34 @@
         }
       },
       {
+        "id" : "Claim.diagnosis.type",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Claim.diagnosis.type",
+        "short" : "Timing or nature of the diagnosis",
+        "definition" : "When the condition was observed or the relative ranking.",
+        "comment" : "For example: admitting, primary, secondary, discharge.",
+        "requirements" : "Often required to capture a particular diagnosis, for example: primary or discharge.",
+        "min" : 0,
+        "max" : "*",
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "binding" : {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString" : "DiagnosisType"
+          }],
+          "strength" : "example",
+          "description" : "The type of the diagnosis: admitting, principal, discharge.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/ex-diagnosistype"
+        }
+      },
+      {
         "id" : "Claim.diagnosis.onAdmission",
         "extension" : [
           {
@@ -269,6 +327,27 @@
         }
       },
       {
+        "id" : "Claim.procedure",
+        "extension" : [
+          {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        },
+          {
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+          "valueString" : "Procedure"
+        }],
+        "path" : "Claim.procedure",
+        "short" : "Clinical procedures performed",
+        "definition" : "Procedures performed on the patient relevant to the billing items with the claim.",
+        "requirements" : "The specific clinical invention are sometimes required to be provided to justify billing a greater than customary amount for a service.",
+        "min" : 0,
+        "max" : "*",
+        "type" : [{
+          "code" : "BackboneElement"
+        }]
+      },
+      {
         "id" : "Claim.procedure.sequence",
         "extension" : [
           {
@@ -287,6 +366,33 @@
         "isSummary" : false
       },
       {
+        "id" : "Claim.procedure.type",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Claim.procedure.type",
+        "short" : "Category of Procedure",
+        "definition" : "When the condition was observed or the relative ranking.",
+        "comment" : "For example: primary, secondary.",
+        "requirements" : "Often required to capture a particular diagnosis, for example: primary or discharge.",
+        "min" : 0,
+        "max" : "*",
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "binding" : {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString" : "ProcedureType"
+          }],
+          "strength" : "example",
+          "description" : "Example procedure type codes.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/ex-procedure-type"
+        }
+      },      {
         "id" : "Claim.procedure.procedure[x]",
         "extension" : [
           {
