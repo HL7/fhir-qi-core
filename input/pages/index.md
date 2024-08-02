@@ -5,7 +5,14 @@
 > This STU 7.0.0-ballot update to the QI-Core profiles aligns with US-Core STU v7.0.0. For a complete list of changes in this version, please refer to the version history.
 
 
+> **Note to Balloters**
+> 
+> Some QI-Core users have requested addition of a section on each QI-Core profile page indicating those elements identified as essential for expressing data required for measure and clinical decision support artifacts.  
+> 
+> Please provide feedback or suggested edits for the new sections.
+
 {: #qi-core-implementation-guide}
+
 
 ### Summary
 {: #summary}
