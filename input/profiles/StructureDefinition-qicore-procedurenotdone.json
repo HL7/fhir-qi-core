@@ -306,52 +306,6 @@
         ],
         "path": "Procedure.performed[x]",
         "short": "(QI) When the procedure was performed"
-      },
-      {
-        "id": "Procedure.recorder",
-        "path": "Procedure.recorder",
-        "short": "Who recorded the procedure",
-        "definition": "Individual who recorded the record and takes responsibility for its content.",
-        "min": 0,
-        "max": "1",
-        "base": {
-          "path": "Procedure.recorder",
-          "min": 0,
-          "max": "1"
-        },
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/StructureDefinition/Patient",
-              "http://hl7.org/fhir/StructureDefinition/RelatedPerson",
-              "http://hl7.org/fhir/StructureDefinition/Practitioner",
-              "http://hl7.org/fhir/StructureDefinition/PractitionerRole"
-            ]
-          }
-        ],
-        "constraint": [
-          {
-            "key": "ele-1",
-            "severity": "error",
-            "human": "All FHIR elements must have a @value or children",
-            "expression": "hasValue() or (children().count() > id.count())",
-            "xpath": "@value|f:*|h:div",
-            "source": "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": true,
-        "mapping": [
-          {
-            "identity": "w5",
-            "map": "FiveWs.author"
-          },
-          {
-            "identity": "rim",
-            "map": ".participation[typeCode=AUT].role"
-          }
-        ]
       }
     ]
   }
