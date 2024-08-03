@@ -255,7 +255,16 @@
         "short": "(QI) Amount of medication per dose",
         "type": [
           {
-            "code": "Quantity"
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-type-must-support",
+                "valueBoolean": true
+              }
+            ],
+            "code": "Quantity",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/SimpleQuantity"
+            ]
           },
           {
             "code": "Range"
