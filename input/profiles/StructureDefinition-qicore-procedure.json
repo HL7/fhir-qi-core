@@ -1,22 +1,22 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-procedure",
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
       "valueString": "code"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
       "valueBoolean": true
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
       "valueBoolean": true
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
-      "valueString":"Procedure"
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString": "Procedure"
     }
   ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure",
@@ -107,16 +107,40 @@
         }
       },
       {
-        "id" : "Procedure.code",
+        "id": "Procedure.code",
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean": true
           }
         ],
-        "path" : "Procedure.code",
-        "short" : "(QI) Identification of the procedure",
-        "definition" : "The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\")."
+        "path": "Procedure.code",
+        "short": "(QI) Identification of the procedure",
+        "definition": "The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\").",
+        "binding": {
+          "extension": [
+            {
+              "extension": [
+                {
+                  "url": "purpose",
+                  "valueCode": "current"
+                },
+                {
+                  "url": "valueSet",
+                  "valueCanonical": "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"
+                },
+                {
+                  "url": "documentation",
+                  "valueMarkdown": "US Core uses the current additional binding from FHIR R5 for this coded element for more flexibility when exchanging legacy and text-only data."
+                }
+              ],
+              "url": "http://hl7.org/fhir/tools/StructureDefinition/additional-binding"
+            }
+          ],
+          "strength": "preferred",
+          "description": "Codes describing the type of  Procedure",
+          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"
+        }
       },
       {
         "id": "Procedure.subject",
@@ -138,17 +162,17 @@
         ]
       },
       {
-        "id" : "Procedure.performed[x]",
+        "id": "Procedure.performed[x]",
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean": true
           }
         ],
-        "path" : "Procedure.performed[x]",
-        "short" : "(QI) When the procedure was performed",
-        "definition" : "Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
-        "comment" : "Age is generally used when the patient reports an age at which the procedure was performed. Range is generally used when the patient reports an age range when the procedure was performed, such as sometime between 20-25 years old.  dateTime supports a range of precision due to some procedures being reported as past procedures that might not have millisecond precision while other procedures performed and documented during the encounter might have more precise UTC timestamps with timezone."
+        "path": "Procedure.performed[x]",
+        "short": "(QI) When the procedure was performed",
+        "definition": "Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
+        "comment": "Age is generally used when the patient reports an age at which the procedure was performed. Range is generally used when the patient reports an age range when the procedure was performed, such as sometime between 20-25 years old.  dateTime supports a range of precision due to some procedures being reported as past procedures that might not have millisecond precision while other procedures performed and documented during the encounter might have more precise UTC timestamps with timezone."
       },
       {
         "id": "Procedure.performer.actor",
@@ -177,9 +201,8 @@
         "path": "Procedure.reasonCode",
         "short": "(QI) Coded reason procedure performed",
         "binding": {
-          "strength": "preferred",
-          "description": "A code that identifies the reason a procedure is required.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/procedure-reason"
+          "strength": "extensible",
+          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
         }
       },
       {
