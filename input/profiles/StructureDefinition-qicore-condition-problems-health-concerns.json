@@ -114,6 +114,17 @@
         "definition" : "Identification of the condition, problem or diagnosis."
       },
       {
+        "id": "Condition.meta",
+        "path": "Condition.meta",
+        "mustSupport": true
+      },
+      {
+        "id": "Condition.meta.lastUpdated",
+        "path": "Condition.meta.lastUpdated",
+        "short": "When the resource last changed",
+        "mustSupport": true
+      },
+      {
         "id": "Condition.subject",
         "extension": [
           {
@@ -126,7 +137,8 @@
           {
             "code": "Reference",
             "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/StructureDefinition/Group"
             ]
           }
         ],
