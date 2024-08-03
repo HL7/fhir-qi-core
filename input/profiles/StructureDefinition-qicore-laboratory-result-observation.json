@@ -58,6 +58,15 @@
   "differential" : {
     "element" : [
       {
+        "id": "Observation.meta",
+        "path": "Observation.meta"
+      },
+      {
+        "id": "Observation.meta.lastUpdated",
+        "path": "Observation.meta.lastUpdated",
+        "short": "When the resource last changed"
+      },
+      {
         "id": "Observation.status",
         "extension" : [
           {
@@ -209,6 +218,25 @@
         ]
       },
       {
+        "id" : "Observation.encounter",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.encounter",
+        "short" : "(QI) Encounter associated with Observation",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ]
+      },
+      {
         "id" : "Observation.effective[x]",
         "extension" : [
           {
@@ -341,6 +369,15 @@
               }
             ],
             "code" : "Ratio"
+          },
+          {
+            "extension": [
+              {
+                "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+                "valueBoolean": true
+              }
+            ],
+            "code": "SampledData"
           },
           {
             "extension" : [
