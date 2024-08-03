@@ -102,6 +102,9 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |  &mdash;  |[US Core Observation Sexual Orientation]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 |  &mdash;  |[US Core Observation Pregnancy Intent]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 |  &mdash;  |[US Core Observation Pregnancy Status]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Average Blood Pressure]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-average-blood-pressure.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Care Experience Preference]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-care-experience-preference.html) | [Observation]({{site.data.fhir.path}}observation.html) |
+|  &mdash;  |[US Core Treatment Intervention Preference]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-treatment-intervention-preference.html) | [Observation]({{site.data.fhir.path}}observation.html) |
 |**2.1.32 Organization**|
 |&emsp; [ QICore Organization](StructureDefinition-qicore-organization.html)| [US Core Organization]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-organization.html) |&emsp; [ Organization]({{site.data.fhir.path}}organization.html)|
 |**2.1.33 Patient**|

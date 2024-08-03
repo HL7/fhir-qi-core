@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-practitionerrole",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"PractitionerRole"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
   "version" : "6.0.0",
   "name" : "QICorePractitionerRole",
@@ -40,7 +58,7 @@
         }
       ],
       "path" : "PractitionerRole.identifier",
-      "short" : "(QI-Core) Business Identifiers that are specific to a role/location",
+      "short" : "(QI) Business Identifiers that are specific to a role/location",
       "min" : 1,
       "max" : "*"
     },
@@ -53,7 +71,7 @@
         }
       ],
       "path" : "PractitionerRole.identifier.use",
-      "short" : "(QI-Core) usual | official | temp | secondary | old (If known)",
+      "short" : "(QI) usual | official | temp | secondary | old (If known)",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -69,7 +87,7 @@
         }
       ],
       "path" : "PractitionerRole.identifier.system",
-      "short" : "(QI-Core) The namespace for the identifier value",
+      "short" : "(QI) The namespace for the identifier value",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -85,7 +103,7 @@
         }
       ],
       "path" : "PractitionerRole.identifier.value",
-      "short" : "(QI-Core) The value that is unique",
+      "short" : "(QI) The value that is unique",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -101,7 +119,7 @@
         }
       ],
       "path" : "PractitionerRole.active",
-      "short" : "(QI-Core) Whether this practitioner role record is in active use",
+      "short" : "(QI) Whether this practitioner role record is in active use",
       "min" : 1,
       "max" : "1"
     },
@@ -114,7 +132,7 @@
         }
       ],
       "path" : "PractitionerRole.period",
-      "short" : "(QI-Core) The period during which the practitioner is authorized to perform in these role(s)",
+      "short" : "(QI) The period during which the practitioner is authorized to perform in these role(s)",
       "min" : 1,
       "max" : "1"
     },
@@ -127,7 +145,7 @@
         }
       ],
       "path" : "PractitionerRole.practitioner",
-      "short" : "(QI-Core) Practitioner that is able to provide the defined services for the organization",
+      "short" : "(QI) Practitioner that is able to provide the defined services for the organization",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner"]
@@ -142,7 +160,7 @@
         }
       ],
       "path" : "PractitionerRole.organization",
-      "short" : "(QI-Core) Organization where the roles are available",
+      "short" : "(QI) Organization where the roles are available",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"]
@@ -157,7 +175,7 @@
         }
       ],
       "path" : "PractitionerRole.location",
-      "short" : "(QI-Core) The location(s) at which this practitioner provides care",
+      "short" : "(QI) The location(s) at which this practitioner provides care",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
@@ -171,7 +189,7 @@
           }
         ],
         "path" : "PractitionerRole.code",
-        "short" : "(QI-Core) Roles which this practitioner may perform",
+        "short" : "(QI) Roles which this practitioner may perform",
         "binding" : {
           "strength" : "extensible",
           "description" : "Indicates specific responsibility of an individual within the care team, such as Primary physician, Team coordinator, Caregiver, etc.",
@@ -187,7 +205,7 @@
           }
         ],
         "path" : "PractitionerRole.specialty",
-        "short" : "(QI-Core) Specific specialty of the practitioner",
+        "short" : "(QI) Specific specialty of the practitioner",
         "binding" : {
           "strength" : "extensible",
           "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"
@@ -209,7 +227,7 @@
           }
         ],
         "path" : "PractitionerRole.telecom",
-        "short" : "(QI-Core) Contact details that are specific to the role/location/service",
+        "short" : "(QI) Contact details that are specific to the role/location/service",
         "condition" : [
           "pd-1"
         ]
@@ -223,7 +241,7 @@
           }
         ],
         "path" : "PractitionerRole.telecom.system",
-        "short" : "(QI-Core) phone | fax | email | pager | url | sms | other",
+        "short" : "(QI) phone | fax | email | pager | url | sms | other",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -241,7 +259,7 @@
           }
         ],
         "path" : "PractitionerRole.telecom.value",
-        "short" : "(QI-Core) The actual contact point details",
+        "short" : "(QI) The actual contact point details",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -259,7 +277,7 @@
           }
         ],
         "path" : "PractitionerRole.endpoint",
-        "short" : "(QI-Core) Technical endpoints providing access to services operated for the practitioner with this role",
+        "short" : "(QI) Technical endpoints providing access to services operated for the practitioner with this role",
         "condition" : [
           "pd-1"
         ]

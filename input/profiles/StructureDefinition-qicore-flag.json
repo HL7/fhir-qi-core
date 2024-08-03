@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-flag",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Flag"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-flag",
   "version" : "6.0.0",
   "name" : "QICoreFlag",
@@ -40,7 +58,7 @@
         }
       ],
       "path" : "Flag.status",
-      "short" : "(QI-Core) active | inactive | entered-in-error"
+      "short" : "(QI) active | inactive | entered-in-error"
     },
     {
       "id" : "Flag.category",
@@ -51,7 +69,7 @@
         }
       ],
       "path" : "Flag.category",
-      "short" : "(QI-Core) Clinical, administrative, etc.",
+      "short" : "(QI) Clinical, administrative, etc.",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/flag-category"
@@ -66,7 +84,7 @@
         }
       ],
       "path" : "Flag.code",
-      "short" : "(QI-Core) Coded or textual message to display to user",
+      "short" : "(QI) Coded or textual message to display to user",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/flag-code"
@@ -81,7 +99,7 @@
         }
       ],
       "path" : "Flag.subject",
-      "short" : "(QI-Core) Who/What is flag about?",
+      "short" : "(QI) Who/What is flag about?",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
@@ -100,7 +118,7 @@
         }
       ],
       "path" : "Flag.period",
-      "short" : "(QI-Core) Time period when flag is active"
+      "short" : "(QI) Time period when flag is active"
     }]
   }
 }

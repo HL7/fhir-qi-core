@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-careteam",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "category"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"CareTeam"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam",
   "version" : "6.0.0",
   "name": "QICoreCareTeam",
@@ -40,6 +58,10 @@
   "differential": {
       "element": [
           {
+            "id" : "CareTeam",
+            "path" : "CareTeam"
+          },
+          {
               "id": "CareTeam.subject",
               "extension" : [
                 {
@@ -48,7 +70,7 @@
                 }
               ],
               "path": "CareTeam.subject",
-              "short": "(QI-Core)(USCDI) Who the care team is for.",
+              "short": "(QI) Who the care team is for.",
               "type": [
                   {
                       "code": "Reference",
@@ -67,7 +89,7 @@
                 }
               ],
               "path": "CareTeam.participant.member",
-              "short": "(QI-Core)(USCDI) Who is involved",
+              "short": "(QI) Who is involved",
               "type": [
                   {
                       "code": "Reference",

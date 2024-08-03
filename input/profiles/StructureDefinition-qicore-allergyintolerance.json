@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-allergyintolerance",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"AllergyIntolerance"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-allergyintolerance",
   "version": "6.0.0",
   "name": "QICoreAllergyIntolerance",
@@ -63,6 +81,19 @@
         "mustSupport": false
       },
       {
+        "id" : "AllergyIntolerance.clinicalStatus",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "AllergyIntolerance.clinicalStatus",
+        "short" : "(QI) active | inactive | resolved",
+        "definition" : "The clinical status of the allergy or intolerance.",
+        "comment" : "Refer to [discussion](http://hl7.org/fhir/R4/extensibility.html#Special-Case) if clincalStatus is missing data.\nThe data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."
+      },
+      {
         "id": "AllergyIntolerance.type",
         "extension": [
           {
@@ -71,7 +102,7 @@
           }
         ],
         "path": "AllergyIntolerance.type",
-        "short": "(QI-Core) allergy | intolerance - Underlying mechanism (if known)"
+        "short": "(QI) allergy | intolerance - Underlying mechanism (if known)"
       },
       {
         "id": "AllergyIntolerance.category",
@@ -82,7 +113,7 @@
           }
         ],
         "path": "AllergyIntolerance.category",
-        "short": "(QI-Core) food | medication | environment | biologic"
+        "short": "(QI) food | medication | environment | biologic"
       },
       {
         "id": "AllergyIntolerance.criticality",
@@ -93,7 +124,24 @@
           }
         ],
         "path": "AllergyIntolerance.criticality",
-        "short": "(QI-Core) low | high | unable-to-assess"
+        "short": "(QI) low | high | unable-to-assess"
+      },
+      {
+        "id" : "AllergyIntolerance.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "AllergyIntolerance.code",
+        "short" : "(QI) Code that identifies the allergy or intolerance",
+        "definition" : "Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"Latex\"), an allergy or intolerance condition (e.g., \"Latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"No latex allergy\") or a general or categorical negated statement (e.g.,  \"No known allergy\", \"No known drug allergies\").  Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance.",
+        "comment" : "It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNII, and ATC. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.\r\rWhen a substance or product code is specified for the 'code' element, the \"default\" semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the 'type' element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the \"Causative agent\" relationship.\r\rThe 'substanceExposureRisk' extension is available as a structured and more flexible alternative to the 'code' element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make \"no known allergy\" (or \"no risk of adverse reaction\") statements regarding any coded substance/product (including cases when a pre-coordinated \"no allergy to x\" concept for that substance/product does not exist).  If the 'substanceExposureRisk' extension is present, the AllergyIntolerance.code element SHALL be omitted.",
+        "alias" : ["Code"],
+        "type" : [{
+          "code" : "CodeableConcept"
+        }]
       },
       {
         "id": "AllergyIntolerance.patient",
@@ -104,7 +152,7 @@
           }
         ],
         "path": "AllergyIntolerance.patient",
-        "short": "(QI-Core)(USCDI) Who the sensitivity is for",
+        "short": "(QI) Who the sensitivity is for",
         "min": 1,
         "max": "1",
         "type": [
@@ -118,7 +166,14 @@
       },
       {
         "id": "AllergyIntolerance.onset[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
         "path": "AllergyIntolerance.onset[x]",
+        "short" : "(QI) When allergy or intolerance was identified",
         "type": [
           {
             "code": "dateTime"
@@ -144,12 +199,23 @@
           }
         ],
         "path": "AllergyIntolerance.recordedDate",
-        "short": "(QI-Core) Date first version of the resource instance was recorded",
+        "short": "(QI) Date first version of the resource instance was recorded",
         "type": [
           {
             "code": "dateTime"
           }
         ]
+      },
+      {
+        "id" : "AllergyIntolerance.lastOccurrence",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "AllergyIntolerance.lastOccurrence",
+        "short" : "(QI) Date(/time) of last known occurrence of a reaction"
       },
       {
         "id": "AllergyIntolerance.reaction",
@@ -160,7 +226,7 @@
           }
         ],
         "path": "AllergyIntolerance.reaction",
-        "short": "(QI-Core)(USCDI) Adverse Reaction Events linked to exposure to substance"
+        "short": "(QI) Adverse Reaction Events linked to exposure to substance"
       },
       {
         "id": "AllergyIntolerance.reaction.severity",
@@ -171,7 +237,7 @@
           }
         ],
         "path": "AllergyIntolerance.reaction.severity",
-        "short": "(QI-Core) mild | moderate | severe (of event as a whole)"
+        "short": "(QI) mild | moderate | severe (of event as a whole)"
       }
     ]
   }

@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-immunizationnotdone",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "vaccineCode"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ImmunizationNotDone"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone",
   "version" : "6.0.0",
   "name": "QICoreImmunizationNotDone",
@@ -89,7 +107,7 @@
           }
         ],
         "path": "Immunization.status",
-        "short": "(QI-Core)(USCDI) completed | entered-in-error | not-done",
+        "short": "(QI) completed | entered-in-error | not-done",
         "type": [
           {
             "code": "code"
@@ -106,7 +124,7 @@
           }
         ],
         "path": "Immunization.statusReason",
-        "short": "(QI-Core)(USCDI) Reason not done",
+        "short": "(QI) Reason not done",
         "min": 1,
         "max": "1",
         "binding": {
@@ -125,7 +143,7 @@
         ],
         "path": "Immunization.vaccineCode.extension",
         "sliceName": "notDoneValueSet",
-        "short": "(QI-Core) What wasn\u0027t administered",
+        "short": "(QI) What wasn\u0027t administered",
         "min": 0,
         "max": "1",
         "type": [
@@ -149,7 +167,7 @@
           }
         ],
         "path": "Immunization.patient",
-        "short": "(QI-Core)(USCDI) Who was immunized",
+        "short": "(QI) Who was immunized",
         "type": [
           {
             "code": "Reference",
@@ -168,7 +186,7 @@
           }
         ],
         "path": "Immunization.recorded",
-        "short": "(QI-Core) When the immunization was first captured in the subject\u0027s record",
+        "short": "(QI) When the immunization was first captured in the subject\u0027s record",
         "min": 1,
         "max": "1"
       }

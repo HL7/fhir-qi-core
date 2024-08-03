@@ -2,10 +2,17 @@
 
 
 {:.stu-note}
-> This STU 6.0 update to the QI-Core profiles updates to US-Core STU v6.1.0. See the version history for a complete listing of changes to this version.
+> This STU 7.0.0-ballot update to the QI-Core profiles aligns with US-Core STU v7.0.0. For a complete list of changes in this version, please refer to the version history.
 
+
+> **Note to Balloters**
+> 
+> Some QI-Core users have requested addition of a section on each QI-Core profile page indicating those elements identified as essential for expressing data required for measure and clinical decision support artifacts.  
+> 
+> Please provide feedback or suggested edits for the new sections.
 
 {: #qi-core-implementation-guide}
+
 
 ### Summary
 {: #summary}
@@ -26,7 +33,9 @@ Implementation Guide.
 This guide is divided into pages which are listed at the top of each page in the menu bar:
 
 * **[Home](index.html)**: The home page provides summary and background information
-* **[Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
+* **Profiles**
+    * **[QI-Core Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
+    * **[QI Elements](qi-elements.html)**: The QI Elements page provides a complete listing of all the QI Elements in each profile used by QI-Core
 * **[QI-Core Negation](negation.html)**: The negations page describes QI-Core Negation
 * **[Patterns](patterns.html)**: The patterns page describes patterns of usage for QI-Core applications
 * **[Model Info](modelinfo.html)**: The model info page provides the QI-Core model information to support implementation
@@ -190,8 +199,17 @@ these additional elements when they are used in the measures or CDS artifacts im
 Since not all artifacts use each of these additional elements, QI-Core does not use the “MustSupport” flag to indicate these elements. 
 Instead, “(QI-Core)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table, 
 and the computable [QI-Core Key Element Extension](StructureDefinition-qicore-keyelement.html) is added to each element definition. This approach 
-is inspired by the way that [US Core communicates USCDI requirements](https://hl7.org/fhir/us/core/must-support.html#uscdi-requirements) and allows IGs that extend QI-Core, such as those representing data 
-requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use.
+is inspired by the way that [US Core communicates USCDI requirements](https://hl7.org/fhir/us/core/must-support.html#uscdi-requirements) and 
+allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements 
+for those QI-Core-flagged elements that they do not use.
+
+NOTE TO BALLOT REVIEWERS:
+
+* US Core 7.0, and thus QI-Core 7.0, has a new approach to USCDI requirements.
+    * As noted in the US Core 7.0 [Must Support](https://hl7.org/fhir/us/core/must-support.html#must-support-elements) section, US Core 7.0 no longer highlights mandatory (cardinality 1..* or 1..1) and Must Support elements with a (USCDI) indicator as such items must be supported for interoperability.
+    * Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.
+* We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.
+* Further, QI-Core 7.0 does not discuss [USCDI+Quality](https://uscdiplus.healthit.gov/uscdi) because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.
 
 Quality improvement artifacts communicate the elements they reference using the DataRequirement structure in FHIR. This structure allows 
 the base resource type and profile to be specified, as well as a mustSupport element that indicates which elements of the resource and 
@@ -282,7 +300,7 @@ the resources in "Any" references SHALL conform to QI-Core profiles if the base 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
 -  Implementations **SHALL** support all profile types in the QI-Core set (listed in the [profiles](profiles.html) page) for resources they exchange
--  Server implementations **SHALL** declare their support of the QI-Core profiles in a FHIR CapabilityStatement
+-  This IG does not define the capability statements as it does not address accessing patient level data directly via API calls; however, server implementations **SHALL** declare their support of the QI-Core profiles in a FHIR CapabilityStatement.
 -  Conformant servers will at minimum support FHIR's read and search operations
 -  Servers **SHALL** supply the MustSupport data elements whenever that data is available
 -  Quality improvement applications **SHALL** recognize and process all MustSupport elements in QI-Core

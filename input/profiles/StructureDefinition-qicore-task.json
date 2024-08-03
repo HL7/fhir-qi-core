@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-task",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Task"
+    }
+  ],
    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-task",
   "version" : "6.0.0",
   "name" : "QICoreTask",
@@ -51,6 +69,17 @@
         "short" : "(QI-Core) Task Instance Identifier",
         "min" : 1,
         "max" : "*"
+      },
+      {
+        "id" : "Task.basedOn",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Task.basedOn",
+        "short" : "(QI) Request fulfilled by this task"
       },
       {
         "id" : "Task.status",
@@ -115,7 +144,14 @@
       },
       {
         "id" : "Task.executionPeriod",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Task.executionPeriod",
+        "short" : "(QI) Start and end time of execution",
         "min" : 1,
         "max" : "1",
         "mustSupport" : false

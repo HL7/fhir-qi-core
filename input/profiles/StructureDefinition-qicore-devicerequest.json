@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-devicerequest",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"DeviceRequest"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequest",
   "version" : "6.0.0",
   "name" : "QICoreDeviceRequest",
@@ -48,7 +66,7 @@
           }
         ],
         "path" : "DeviceRequest.modifierExtension",
-        "short": "(QI-Core) Extension",
+        "short": "(QI) Extension",
         "sliceName" : "doNotPerform",
         "min" : 0,
         "max" : "1",
@@ -72,7 +90,7 @@
           }
         ],
         "path" : "DeviceRequest.modifierExtension.value[x]",
-        "short" : "(QI-Core) Value of extension",
+        "short" : "(QI) Value of extension",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -91,7 +109,7 @@
           }
         ],
         "path" : "DeviceRequest.identifier",
-        "short" : "(QI-Core) External Request identifier"
+        "short" : "(QI) External Request identifier"
       },
       {
         "id" : "DeviceRequest.status",
@@ -102,7 +120,7 @@
           }
         ],
         "path" : "DeviceRequest.status",
-        "short" : "(QI-Core) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+        "short" : "(QI) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
       },
       {
         "id" : "DeviceRequest.intent",
@@ -113,7 +131,7 @@
           }
         ],
         "path" : "DeviceRequest.intent",
-        "short" : "(QI-Core) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"
+        "short" : "(QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"
       },
       {
         "id" : "DeviceRequest.code[x]",
@@ -124,7 +142,7 @@
           }
         ],
         "path" : "DeviceRequest.code[x]",
-        "short" : "(QI-Core) Device requested",
+        "short" : "(QI) Device requested",
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://hl7.org/fhir/ValueSet/device-kind"
@@ -139,7 +157,7 @@
           }
         ],
         "path" : "DeviceRequest.subject",
-        "short" : "(QI-Core) Focus of request",
+        "short" : "(QI) Focus of request",
         "type" : [
           {
             "code" : "Reference",
@@ -158,7 +176,7 @@
           }
         ],
         "path" : "DeviceRequest.authoredOn",
-        "short" : "(QI-Core) When recorded"
+        "short" : "(QI) When recorded"
       }
     ]
   }
