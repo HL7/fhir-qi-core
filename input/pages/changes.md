@@ -6,6 +6,7 @@ This page lists the change history for each version of QI-Core.
 
 ### STU7-ballot (7.0.0)
 
+1. Update AllergyIntolerance, CarePlan, CareTeam, and Coverage profiles to address US Core 7.0([FHIR-45395](https://jira.hl7.org/browse/FHIR-45395)) Applied ([here](StructureDefinition-qicore-careplan.html)) and ([here](StructureDefinition-qicore-careteam.html))
 1. Update QI-Core Condition Encounter Diagnosis and QI-Core Condition Problems and Health Concerns Profiles to build off of US Core 7.0 ([FHIR-45396](https://jira.hl7.org/browse/FHIR-45396)) Applied ([here](StructureDefinition-qicore-condition-problems-health-concerns.html)) and ([here](StructureDefinition-qicore-condition-encounter-diagnosis.html))
 1. Update QICore DiagnosticReport Profile for Laboratory Results Reporting and QI Core DiagnosticReport Profile for Report and Note Exchange to reflect updates in US Core 7.0's respective profile ([FHIR-45397](https://jira.hl7.org/browse/FHIR-45397)) Applied ([here](StructureDefinition-qicore-diagnosticreport-lab.html))
 1. Update QICore Encounter profile to build off of US Core 7.0 Encounter profile ([FHIR-45398](https://jira.hl7.org/browse/FHIR-45398)) Applied ([here](StructureDefinition-qicore-encounter.html))
