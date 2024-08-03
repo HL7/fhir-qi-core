@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-medicationdispense",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "medication"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"MedicationDispense"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense",
   "version": "6.0.0",
   "name": "QICoreMedicationDispense",
@@ -48,7 +66,7 @@
           }
         ],
         "path": "MedicationDispense.status",
-        "short": "(QI-Core)(USCDI) preparation​ | in-progress​ | cancelled​ | on-hold​ | completed​ | entered-in-error​ | stopped​ | unknown",
+        "short": "(QI) preparation​ | in-progress​ | cancelled​ | on-hold​ | completed​ | entered-in-error​ | stopped​ | unknown",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medicationdispense-status"
@@ -63,7 +81,7 @@
           }
         ],
         "path": "MedicationDispense.medication[x]",
-        "short": "(QI-Core)(USCDI) What medication was supplied",
+        "short": "(QI) What medication was supplied",
         "type": [
           {
             "code": "CodeableConcept"
@@ -90,7 +108,7 @@
           }
         ],
         "path": "MedicationDispense.subject",
-        "short": "(QI-Core)(USCDI) Who the dispense is for",
+        "short": "(QI) Who the dispense is for",
         "type": [
           {
             "code": "Reference",
@@ -109,7 +127,7 @@
           }
         ],
         "path": "MedicationDispense.authorizingPrescription",
-        "short": "(QI-Core)(USCDI) Medication order that authorizes the dispense",
+        "short": "(QI) Medication order that authorizes the dispense",
         "type": [
           {
             "code": "Reference",
@@ -128,7 +146,7 @@
           }
         ],
         "path": "MedicationDispense.type",
-        "short": "(QI-Core)(USCDI) Trial fill, partial fill, emergency fill, etc.",
+        "short": "(QI) Trial fill, partial fill, emergency fill, etc.",
         "binding": {
           "strength": "extensible",
           "valueSet": "http://terminology.hl7.org/ValueSet/v3-ActPharmacySupplyType"
@@ -143,7 +161,7 @@
           }
         ],
         "path": "MedicationDispense.quantity",
-        "short": "(QI-Core)(USCDI) Amount dispensed"
+        "short": "(QI) Amount dispensed"
       },
       {
         "id": "MedicationDispense.daysSupply",
@@ -154,7 +172,7 @@
           }
         ],
         "path": "MedicationDispense.daysSupply",
-        "short": "(QI-Core) Amount of medication expressed as a timing amount"
+        "short": "(QI) Amount of medication expressed as a timing amount"
       },
       {
         "id": "MedicationDispense.whenPrepared",
@@ -165,7 +183,7 @@
           }
         ],
         "path": "MedicationDispense.whenPrepared",
-        "short": "(QI-Core) When product was packaged and reviewed",
+        "short": "(QI) When product was packaged and reviewed",
         "comment": "When used as part of a cumulative medication duration calculation, the whenPrepared element is used if whenHandedOver is not available to determine a starting point for the period covered by the dispense.",
         "min": 0,
         "max": "1"
@@ -179,7 +197,7 @@
           }
         ],
         "path": "MedicationDispense.whenHandedOver",
-        "short": "(QI-Core)(USCDI) When product was given out or mailed"
+        "short": "(QI) When product was given out or mailed"
       },
       {
         "id": "MedicationDispense.dosageInstruction",
@@ -190,7 +208,7 @@
           }
         ],
         "path": "MedicationDispense.dosageInstruction",
-        "short": "(QI-Core)(USCDI) How the medication is to be used by the patient or administered by the caregiver"
+        "short": "(QI) How the medication is to be used by the patient or administered by the caregiver"
       },
       {
         "id": "MedicationDispense.dosageInstruction.text",
@@ -201,7 +219,7 @@
           }
         ],
         "path": "MedicationDispense.dosageInstruction.text",
-        "short": "(QI-Core)(USCDI) Free text dosage instructions e.g. SIG"
+        "short": "(QI) Free text dosage instructions e.g. SIG"
       },
       {
         "id": "MedicationDispense.dosageInstruction.timing",
@@ -212,7 +230,7 @@
           }
         ],
         "path": "MedicationDispense.dosageInstruction.timing",
-        "short": "(QI-Core)(USCDI) When medication should be administered"
+        "short": "(QI) When medication should be administered"
       },
       {
         "id": "MedicationDispense.dosageInstruction.doseAndRate",
@@ -223,7 +241,7 @@
           }
         ],
         "path": "MedicationDispense.dosageInstruction.doseAndRate",
-        "short": "(QI-Core)(USCDI) Amount of medication administered"
+        "short": "(QI) Amount of medication administered"
       },
       {
         "id": "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
@@ -234,7 +252,7 @@
           }
         ],
         "path": "MedicationDispense.dosageInstruction.doseAndRate.dose[x]",
-        "short": "(QI-Core)(USCDI) Amount of medication per dose",
+        "short": "(QI) Amount of medication per dose",
         "type": [
           {
             "code": "Quantity"

@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-observation-lab",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"LaboratoryResultObservation"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation-lab",
   "version" : "6.0.0",
   "name" : "QICoreLaboratoryResultObservation",
@@ -48,7 +66,7 @@
           }
         ],
         "path": "Observation.status",
-        "short": "(QI-Core)(USCDI) registered | prliminary | final | amended | corrected | entered-in-error | unknown",
+        "short": "(QI) registered | prliminary | final | amended | corrected | entered-in-error | unknown",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
@@ -72,7 +90,7 @@
           ],
           "rules" : "open"
         },
-        "short" : "(QI-Core)(USCDI) Classification of  type of observation",
+        "short" : "(QI) Classification of  type of observation",
         "definition" : "A code that classifies the general type of observation being made.",
         "comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
         "requirements" : "Used for filtering what observations are retrieved and displayed.",
@@ -112,7 +130,7 @@
         ],
         "path" : "Observation.category",
         "sliceName" : "us-core",
-        "short" : "(QI-Core)(USCDI) Classification of  type of observation",
+        "short" : "(QI) Classification of  type of observation",
         "definition" : "A code that classifies the general type of observation being made.",
         "comment" : "In addition to the required category valueset, this element allows various categorization schemes based on the owner’s definition of the category and effectively multiple categories can be used at once.  The level of granularity is defined by the category concepts in the value set.",
         "requirements" : "Used for filtering what observations are retrieved and displayed.",
@@ -153,7 +171,7 @@
           }
         ],
         "path" : "Observation.code",
-        "short" : "(QI-Core)(USCDI) Laboratory Test Name",
+        "short" : "(QI) Laboratory Test Name",
         "definition" : "The name of the clinical test or procedure performed on a patient.  A LOINC **SHALL** be used if the concept is present in LOINC.",
         "comment" : "The typical patterns for codes are:  1)  a LOINC code either as a translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists.  When using LOINC , Use either the SHORTNAME or LONG_COMMON_NAME field for the display.",
         "requirements" : "Knowing what kind of observation is being made is essential to understanding the observation.",
@@ -179,7 +197,7 @@
           }
         ],
         "path" : "Observation.subject",
-        "short" : "(QI-Core)(USCDI) Who and/or what the observation is about",
+        "short" : "(QI) Who and/or what the observation is about",
         "min" : 1,
         "type" : [
           {
@@ -199,7 +217,7 @@
           }
         ],
         "path" : "Observation.effective[x]",
-        "short" : "(QI-Core)(USCDI) Clinically relevant time/time-period for observation",
+        "short" : "(QI) Clinically relevant time/time-period for observation",
         "definition" : "The time or time-period the observed value is asserted as being true. For biological subjects - e.g. human patients - this is usually called the \"physiologically relevant time\". This is usually either the time of the procedure or of specimen collection, but very often the source of the date/time is not known, only the date/time itself.",
         "comment" : "At least a date should be present unless this observation is a historical report.  For recording imprecise or \"fuzzy\" times (For example, a blood glucose measurement taken \"after breakfast\") use the [Timing](http://hl7.org/fhir/R4/datatypes.html#timing) datatype which allow the measurement to be tied to regular life events.",
         "requirements" : "Knowing when an observation was deemed true is important to its relevance as well as determining trends.",
@@ -238,7 +256,7 @@
           }
         ],
         "path" : "Observation.issued",
-        "short" : "(QI-Core) Date/Time this version was made available",
+        "short" : "(QI) Date/Time this version was made available",
         "definition" : "The date and time this version of the observation was made available to providers, typically after the results have been reviewed and verified.",
         "comment" : "For Observations that don’t require review and verification, it may be the same as the [`lastUpdated` ](http://hl7.org/fhir/R4/resource-definitions.html#Meta.lastUpdated) time of the resource itself.  For Observations that do require review and verification for certain updates, it might not be the same as the `lastUpdated` time of the resource itself due to a non-clinically significant update that doesn’t require the new version to be reviewed and verified again.",
         "type" : [
@@ -258,7 +276,7 @@
           }
         ],
         "path" : "Observation.value[x]",
-        "short" : "(QI-Core)(USCDI) Result Value",
+        "short" : "(QI) Result Value",
         "definition" : "The Laboratory result value.  If a coded value,  the valueCodeableConcept.code **SHOULD** be selected from [SNOMED CT](http://hl7.org/fhir/ValueSet/uslab-obs-codedresults) if the concept exists. If a numeric value, valueQuantity.code **SHALL** be selected from [UCUM](http://unitsofmeasure.org).  A FHIR [UCUM Codes value set](http://hl7.org/fhir/STU3/valueset-ucum-units.html) that defines all UCUM codes is in the FHIR specification.",
         "type" : [
           {
@@ -362,7 +380,7 @@
           }
         ],
         "path" : "Observation.interpretation",
-        "short" : "(QI-Core) High, low, normal, etc.",
+        "short" : "(QI) High, low, normal, etc.",
         "definition" : "A categorical assessment of an observation value.  For example, high, low, normal.",
         "comment" : "Historically used for laboratory results (known as 'abnormal flag' ),  its use extends to other use cases where coded interpretations  are relevant.  Often reported as one or more simple compact codes this element is often placed adjacent to the result value in reports and flow sheets to signal the meaning/normalcy status of the result.",
         "requirements" : "For some results, particularly numeric results, an interpretation is necessary to fully understand the significance of a result.",

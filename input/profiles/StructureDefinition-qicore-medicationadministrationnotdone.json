@@ -1,6 +1,24 @@
 {
     "resourceType" : "StructureDefinition",
     "id" : "qicore-medicationadministrationnotdone",
+    "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "medication"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"MedicationAdministrationNotDone"
+    }
+  ],
     "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone",
     "version" : "6.0.0",
     "name" : "QICoreMedicationAdministrationNotDone",
@@ -62,7 +80,7 @@
             }
           ],
           "path": "MedicationAdministration.implicitRules",
-          "short" : "(QI-Core) A set of rules under which this content was created"
+          "short" : "(QI) A set of rules under which this content was created"
         },
         {
           "id" : "MedicationAdministration.extension:recorded",
@@ -74,7 +92,7 @@
           ],
           "path" : "MedicationAdministration.extension",
           "sliceName" : "recorded",
-          "short" : "(QI-Core) Extension",
+          "short" : "(QI) Extension",
           "min" : 1,
           "max" : "1",
           "type" : [
@@ -95,7 +113,7 @@
             }
           ],
           "path" : "MedicationAdministration.status",
-          "short" : "(QI-Core) in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown",
+          "short" : "(QI) in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown",
           "type" : [
             {
               "code" : "code"
@@ -112,7 +130,7 @@
             }
           ],
           "path" : "MedicationAdministration.statusReason",
-          "short" : "(QI-Core) Reason administration not performed",
+          "short" : "(QI) Reason administration not performed",
           "min" : 1,
           "max" : "*",
           "binding" : {
@@ -130,7 +148,7 @@
             }
           ],
           "path" : "MedicationAdministration.medication[x]",
-          "short" : "(QI-Core) What was administered",
+          "short" : "(QI) What was administered",
           "type" : [
             {
               "code" : "CodeableConcept"
@@ -155,7 +173,7 @@
           ],
           "path" : "MedicationAdministration.medication[x].extension",
           "sliceName" : "notDoneValueSet",
-          "short" : "(QI-Core) Url of a value set of activities not requested or performed",
+          "short" : "(QI) Url of a value set of activities not requested or performed",
           "min" : 0,
           "max" : "1",
           "type" : [
@@ -179,7 +197,7 @@
             }
           ],
           "path" : "MedicationAdministration.subject",
-          "short" : "(QI-Core) Who received medication",
+          "short" : "(QI) Who received medication",
           "type" : [
             {
               "code" : "Reference",
@@ -198,7 +216,7 @@
             }
           ],
           "path" : "MedicationAdministration.context",
-          "short" : "(QI-Core) Encounter or Episode of Care administered as part of",
+          "short" : "(QI) Encounter or Episode of Care administered as part of",
           "type" : [
             {
               "code" : "Reference",
@@ -218,7 +236,7 @@
             }
           ],
           "path" : "MedicationAdministration.effective[x]",
-          "short" : "(QI-Core) Start and end time of administration"
+          "short" : "(QI) Start and end time of administration"
         },
         {
           "id" : "MedicationAdministration.request",
@@ -229,7 +247,7 @@
             }
           ],
           "path" : "MedicationAdministration.request",
-          "short" : "(QI-Core) Request administration performed against",
+          "short" : "(QI) Request administration performed against",
           "type" : [
             {
               "code" : "Reference",

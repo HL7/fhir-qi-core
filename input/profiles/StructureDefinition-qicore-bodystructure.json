@@ -2,6 +2,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-bodystructure",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "location"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"BodyStructure"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-bodystructure",
   "version" : "6.0.0",
   "name" : "QICoreBodyStructure",
@@ -54,7 +72,7 @@
           }
         ],
         "path" : "BodyStructure.active",
-        "short" : "(QI-Core) Whether this record is in active use",
+        "short" : "(QI) Whether this record is in active use",
         "min" : 1,
         "max" : "1"
       },
@@ -67,7 +85,7 @@
           }
         ],
         "path" : "BodyStructure.location",
-        "short" : "(QI-Core) Body site",
+        "short" : "(QI) Body site",
         "min" : 1,
         "max" : "1",
         "binding" : {
@@ -84,7 +102,7 @@
           }
         ],
         "path" : "BodyStructure.locationQualifier",
-        "short" : "(QI-Core) Body site modifier",
+        "short" : "(QI) Body site modifier",
         "binding" : {
           "strength" : "preferred",
           "description" : "Concepts modifying the anatomic location",
@@ -100,7 +118,7 @@
           }
         ],
         "path" : "BodyStructure.patient",
-        "short" : "(QI-Core) Who this is about",
+        "short" : "(QI) Who this is about",
         "type" : [
           {
             "code" : "Reference",

@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-medicationadministration",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "medication"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"MedicationAdministration"
+    }
+  ],
    "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration",
   "version" : "6.0.0",
   "name" : "QICoreMedicationAdministration",
@@ -48,7 +66,7 @@
           }
         ],
         "path" : "MedicationAdministration.status",
-        "short" : "(QI-Core) in-progress | on-hold | completed | entered-in-error | stopped | unknown",
+        "short" : "(QI) in-progress | on-hold | completed | entered-in-error | stopped | unknown",
         "binding": {
           "strength": "required",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medication-admin-status"
@@ -63,7 +81,7 @@
           }
         ],
         "path" : "MedicationAdministration.medication[x]",
-        "short" : "(QI-Core) What was administered",
+        "short" : "(QI) What was administered",
         "type" : [
           {
             "code" : "CodeableConcept"
@@ -90,7 +108,7 @@
           }
         ],
         "path" : "MedicationAdministration.subject",
-        "short" : "(QI-Core) Who received medication",
+        "short" : "(QI) Who received medication",
         "type" : [
           {
             "code" : "Reference",
@@ -109,7 +127,7 @@
           }
         ],
         "path" : "MedicationAdministration.context",
-        "short" : "(QI-Core) Encounter or Episode of Care administered as part of",
+        "short" : "(QI) Encounter or Episode of Care administered as part of",
         "type" : [
           {
             "code" : "Reference",
@@ -129,7 +147,7 @@
           }
         ],
         "path" : "MedicationAdministration.effective[x]",
-        "short" : "(QI-Core) Start and end time of administration"
+        "short" : "(QI) Start and end time of administration"
       },
       {
         "id" : "MedicationAdministration.request",
@@ -140,7 +158,7 @@
           }
         ],
         "path" : "MedicationAdministration.request",
-        "short" : "(QI-Core) Request administration performed against",
+        "short" : "(QI) Request administration performed against",
         "type" : [
           {
             "code" : "Reference",
@@ -152,7 +170,15 @@
       },
       {
         "id" : "MedicationAdministration.dosage",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "MedicationAdministration.dosage",
+        "short" : "(QI) Details of how medication was taken",
+        "definition" : "Describes the medication dosage information details e.g. dose, rate, site, route, etc.",
         "mustSupport" : false
       },
       {
@@ -164,7 +190,7 @@
           }
         ],
         "path" : "MedicationAdministration.dosage.route",
-        "short" : "(QI-Core) Path of substance into body",
+        "short" : "(QI) Path of substance into body",
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://hl7.org/fhir/ValueSet/route-codes"
@@ -179,7 +205,7 @@
           }
         ],
         "path" : "MedicationAdministration.dosage.dose",
-        "short" : "(QI-Core) Amount of medication per dose"
+        "short" : "(QI) Amount of medication per dose"
       }
     ]
   }

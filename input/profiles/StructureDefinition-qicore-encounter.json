@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-encounter",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "type"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Encounter"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter",
   "version" : "6.0.0",
   "name": "QICoreEncounter",
@@ -40,6 +58,30 @@
   "differential": {
     "element": [
       {
+        "id" : "Encounter.status",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Encounter.status",
+        "short" : "(QI) planned | arrived | triaged | in-progress | onleave | finished | cancelled +",
+        "definition" : "planned | arrived | triaged | in-progress | onleave | finished | cancelled +."
+      },
+      {
+        "id" : "Encounter.type",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Encounter.type",
+        "short" : "(QI) Specific type of encounter",
+        "definition" : "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."
+      },
+      {
         "id": "Encounter.subject",
         "extension": [
           {
@@ -48,7 +90,7 @@
           }
         ],
         "path": "Encounter.subject",
-        "short": "(QI-Core)(USCDI) The patient or group present at the encounter",
+        "short": "(QI) The patient or group present at the encounter",
         "type": [
           {
             "code": "Reference",
@@ -67,7 +109,7 @@
           }
         ],
         "path": "Encounter.participant",
-        "short": "(QI-Core)(USCDI) List of participants involved in the encounter"
+        "short": "(QI) List of participants involved in the encounter"
       },
       {
         "id": "Encounter.participant.individual",
@@ -78,7 +120,7 @@
           }
         ],
         "path": "Encounter.participant.individual",
-        "short": "(QI-Core)(USCDI) Persons involved in the encounter other than the patient",
+        "short": "(QI) Persons involved in the encounter other than the patient",
         "comment": "Should include QICore-RelatedPerson as a possible participant, but USCore-Encounter only allows USCore-Practitioner.",
         "type": [
           {
@@ -118,6 +160,30 @@
         ]
       },
       {
+        "id" : "Encounter.period",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Encounter.period",
+        "short" : "(QI) The start and end time of the encounter",
+        "definition" : "The start and end time of the encounter."
+      },
+      {
+        "id" : "Encounter.reasonCode",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Encounter.reasonCode",
+        "short" : "(QI) Coded reason the encounter takes place",
+        "definition" : "Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis."
+      },
+      {
         "id": "Encounter.reasonReference",
         "extension": [
           {
@@ -126,7 +192,7 @@
           }
         ],
         "path": "Encounter.reasonReference",
-        "short": "(QI-Core)(USCDI) Reason the encounter takes place (reference)",
+        "short": "(QI) Reason the encounter takes place (reference)",
         "min": 0,
         "max": "*",
         "base": {
@@ -200,7 +266,7 @@
           }
         ],
         "path": "Encounter.hospitalization",
-        "short": "(QI-Core)(USCDI) Details about the admission to a healthcare service"
+        "short": "(QI) Details about the admission to a healthcare service"
       },
       {
         "id": "Encounter.hospitalization.origin",
@@ -237,7 +303,7 @@
           }
         ],
         "path": "Encounter.hospitalization.dischargeDisposition",
-        "short": "(QI-Core)(USCDI) Category or kind of location after discharge",
+        "short": "(QI) Category or kind of location after discharge",
         "definition": "Category or kind of location after discharge.",
         "binding": {
           "strength": "extensible",
@@ -253,7 +319,7 @@
           }
         ],
         "path": "Encounter.location",
-        "short": "(QI-Core)(USCDI) List of locations where the patient has been"
+        "short": "(QI) List of locations where the patient has been"
       },
       {
         "id": "Encounter.location.location",
@@ -264,7 +330,7 @@
           }
         ],
         "path": "Encounter.location.location",
-        "short": "(QI-Core)(USCDI) Location the encounter takes place",
+        "short": "(QI) Location the encounter takes place",
         "type": [
           {
             "code": "Reference",
@@ -283,7 +349,7 @@
           }
         ],
         "path": "Encounter.location.period",
-        "short": "(QI-Core) Time period during which the patient was present at the location"
+        "short": "(QI) Time period during which the patient was present at the location"
       },
       {
         "id": "Encounter.serviceProvider",
@@ -294,7 +360,7 @@
           }
         ],
         "path": "Encounter.serviceProvider",
-        "short": "(QI-Core)(USCDI) The organization (facility) responsible for this encounter",
+        "short": "(QI) The organization (facility) responsible for this encounter",
         "type": [
           {
             "code": "Reference",

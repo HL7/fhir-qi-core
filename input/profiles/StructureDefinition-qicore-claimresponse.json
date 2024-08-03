@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-claimresponse",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "type"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ClaimResponse"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claimresponse",
   "version" : "6.0.0",
   "name" : "QICoreClaimResponse",
@@ -40,7 +58,12 @@
   "derivation" : "constraint",
   "differential" : {
     "element" : [
-    {
+      {
+        "id" : "ClaimResponse",
+        "path" : "ClaimResponse",
+        "mustSupport": false
+      },
+      {
         "id" : "ClaimResponse.status",
         "extension" : [
           {
@@ -49,7 +72,7 @@
           }
         ],
         "path" : "ClaimResponse.status",
-        "short" : "(QI-Core) active | cancelled | draft | entered-in-error",
+        "short" : "(QI) active | cancelled | draft | entered-in-error",
         "definition" : "The status of the resource instance.",
         "comment" : "This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
         "requirements" : "Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'.",
@@ -90,7 +113,7 @@
             }
           ],
           "path" : "ClaimResponse.type",
-          "short" : "(QI-Core) More granular claim type",
+          "short" : "(QI) More granular claim type",
           "definition" : "A finer grained suite of claim type codes which may convey additional information such as Inpatient vs Outpatient and/or a specialty service.",
           "comment" : "This may contain the local bill type codes, for example the US UB-04 bill type code or the CMS bill type.",
           "requirements" : "Some jurisdictions need a finer grained claim type for routing and adjudication.",
@@ -129,7 +152,7 @@
               }
             ],
             "path" : "ClaimResponse.use",
-            "short" : "(QI-Core) claim | preauthorization | predetermination",
+            "short" : "(QI) claim | preauthorization | predetermination",
             "definition" : "A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.",
             "requirements" : "This element is required to understand the nature of the request for adjudication.",
             "min" : 1,
@@ -168,7 +191,7 @@
                 }
               ],
               "path" : "ClaimResponse.patient",
-              "short" : "(QI-Core) The recipient of the products and services",
+              "short" : "(QI) The recipient of the products and services",
               "definition" : "The party to whom the professional services and/or products have been supplied or are being considered and for whom actual for facast reimbursement is sought.",
               "requirements" : "The patient must be supplied to the insurer so that confirmation of coverage and service hstory may be considered as part of the authorization and/or adjudiction.",
               "min" : 1,
@@ -198,7 +221,7 @@
                   }
                 ],
                 "path" : "ClaimResponse.created",
-                "short" : "(QI-Core) Response creation date",
+                "short" : "(QI) Response creation date",
                 "definition" : "The date this resource was created.",
                 "requirements" : "Need to record a timestamp for use by both the recipient and the issuer.",
                 "min" : 1,
@@ -225,7 +248,7 @@
                 }
               ],
               "path" : "ClaimResponse.insurer",
-              "short" : "(QI-Core) Party responsible for reimbursement",
+              "short" : "(QI) Party responsible for reimbursement",
               "definition" : "The party responsible for authorization, adjudication and reimbursement.",
               "requirements" : "To be a valid claim, preauthorization or predetermination there must be a party who is responsible for adjudicating the contents against a policy which provides benefits for the patient.",
               "min" : 1,
@@ -255,7 +278,7 @@
             }
           ],
            "path" : "ClaimResponse.requestor",
-           "short" : "(QI-Core) Party responsible for the claim",
+           "short" : "(QI) Party responsible for the claim",
            "definition" : "The provider which is responsible for the claim, predetermination or preauthorization.",
            "comment" : "Typically this field would be 1..1 where this party is responsible for the claim but not necessarily professionally responsible for the provision of the individual products and services listed below.",
            "min" : 0,
@@ -287,7 +310,7 @@
               }
             ],
              "path" : "ClaimResponse.request",
-             "short" : "(QI-Core) Id of resource triggering adjudication",
+             "short" : "(QI) Id of resource triggering adjudication",
              "definition" : "Original request resource reference.",
              "min" : 0,
              "max" : "1",
@@ -320,7 +343,7 @@
                 }
               ],
               "path" : "ClaimResponse.item",
-              "short" : "(QI-Core) Adjudication for claim line items",
+              "short" : "(QI) Adjudication for claim line items",
               "definition" : "A claim line. Either a simple (a product or service) or a 'group' of details which can also be a simple items or groups of sub-details.",
               "requirements" : "The adjudication for items provided on the claim.",
               "min" : 0,
@@ -351,7 +374,7 @@
                   }
                 ],
                 "path" : "ClaimResponse.item.adjudication",
-                "short" : "(QI-Core) Adjudication details",
+                "short" : "(QI) Adjudication details",
                 "definition" : "If this item is a group then the values here are a summary of the adjudication of the detail items. If this item is a simple product or service then this is the result of the adjudication of this item.",
                 "requirements" : "The adjudication results conveys the insurer's assessment of the item provided in the claim under the terms of the patient's insurance coverage.",
                 "min" : 1,
@@ -378,7 +401,7 @@
                     }
                   ],
                   "path" : "ClaimResponse.item.adjudication.category",
-                  "short" : "(QI-Core) This code is fixed to 'submitted' to indicate that the adjudication result is on what was submitted.",
+                  "short" : "(QI) This code is fixed to 'submitted' to indicate that the adjudication result is on what was submitted.",
                   "definition" : "A code to indicate the information type of this adjudication record. Information types may include the value submitted, maximum values or percentages allowed or payable under the plan, amounts that: the patient is responsible for in aggregate or pertaining to this item; amounts paid by other coverages; and, the benefit payable for this item.",
                   "comment" : "For example codes indicating: Co-Pay, deductible, eligible, benefit, tax, etc.",
                   "requirements" : "Needed to enable understanding of the context of the other information in the adjudication.",
@@ -414,7 +437,7 @@
           }
         ],
         "path" : "ClaimResponse.item.adjudication.amount",
-        "short" : "(QI-Core) Monetary amount",
+        "short" : "(QI) Monetary amount",
         "definition" : "Monetary amount associated with the category.",
         "comment" : "For example: amount submitted, eligible amount, co-payment, and benefit payable.",
         "requirements" : "Most adjuciation categories convey a monetary amount.",
@@ -442,7 +465,7 @@
             }
           ],
           "path" : "ClaimResponse.item.detail.detailSequence",
-          "short" : "(QI-Core) Claim detail instance identifier",
+          "short" : "(QI) Claim detail instance identifier",
           "definition" : "A number to uniquely reference the claim detail entry.",
           "requirements" : "Necessary to provide a mechanism to link the adjudication result to the submitted claim detail.",
           "min" : 1,

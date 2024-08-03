@@ -1,9 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-organization",
-  "text" : {
-    "status" : "extensions"
-  },
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "type"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Organization"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
   "version" : "6.0.0",
   "name" : "QICoreOrganization",
@@ -52,7 +67,7 @@
         ],
         "path" : "Organization.identifier",
         "sliceName" : "ccn",
-        "short": "(QI-Core) CMS Certification Number",
+        "short": "(QI) CMS Certification Number",
         "min" : 0,
         "max" : "1",
         "type" : [
@@ -73,7 +88,7 @@
           }
         ],
         "path" : "Organization.identifier.use",
-        "short" : "(QI-Core) usual | official | temp | secondary | old (If known)",
+        "short" : "(QI) usual | official | temp | secondary | old (If known)",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -91,7 +106,7 @@
           }
         ],
         "path" : "Organization.identifier.value",
-        "short" : "(QI-Core) The value that is unique",
+        "short" : "(QI) The value that is unique",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -110,7 +125,7 @@
         ],
         "path" : "Organization.identifier",
         "sliceName" : "ein",
-        "short" : "(QI-Core) Employer Identification Number",
+        "short" : "(QI) Employer Identification Number",
         "comment" : "There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.",
         "min" : 0,
         "max" : "1",
@@ -132,7 +147,7 @@
           }
         ],
         "path" : "Organization.identifier.use",
-        "short" : "(QI-Core) usual | official | temp | secondary | old (If known)",
+        "short" : "(QI) usual | official | temp | secondary | old (If known)",
         "min" : 1,
         "max" : "1",
         "type" : [
@@ -150,7 +165,7 @@
           }
         ],
         "path" : "Organization.identifier.value",
-        "short" : "(QI-Core) The value that is unique",
+        "short" : "(QI) The value that is unique",
         "min" : 1,
         "max" : "1",
         "type" : [

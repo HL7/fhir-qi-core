@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-communicationnotdone",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "reasonCode"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"CommunicationNotDone"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationnotdone",
   "version" : "6.0.0",
   "name" : "QICoreCommunicationNotDone",
@@ -50,7 +68,7 @@
         }
       ],
       "path" : "Communication.extension",
-      "short": "(QI-Core) Extension",
+      "short": "(QI) Extension",
       "sliceName" : "recorded",
       "min" : 1,
       "max" : "1",
@@ -68,7 +86,7 @@
         }
       ],
       "path" : "Communication.status",
-      "short" : "(QI-Core) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown",
+      "short" : "(QI) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown",
       "min" : 1,
       "max" : "1",
       "type" : [{
@@ -85,7 +103,7 @@
         }
       ],
       "path" : "Communication.statusReason",
-      "short" : "(QI-Core) Reason for current status",
+      "short" : "(QI) Reason for current status",
       "min" : 1,
       "max" : "1",
       "binding" : {
@@ -102,7 +120,7 @@
         }
       ],
       "path" : "Communication.subject",
-      "short" : "(QI-Core) Focus of message",
+      "short" : "(QI) Focus of message",
       "min" : 0,
       "max" : "1",
       "type" : [{
@@ -120,7 +138,7 @@
         }
       ],
      "path" : "Communication.topic",
-     "short" : "(QI-Core) Description of the purpose/content",
+     "short" : "(QI) Description of the purpose/content",
      "min" : 1,
       "max" : "1",
       "binding" : {
@@ -145,7 +163,7 @@
       ],
       "path" : "Communication.topic.extension",
       "sliceName" : "notDoneValueSet",
-      "short" : "(QI-Core) Url of a value set of activities not requested or performed",
+      "short" : "(QI) Url of a value set of activities not requested or performed",
       "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing activities that were not requested, ordered, or performed.",
       "min" : 0,
       "max" : "1",

@@ -1,6 +1,24 @@
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-imagingstudy",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "procedure"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ImagingStudy"
+    }
+  ],
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-imagingstudy",
   "version" : "6.0.0",
   "name" : "QICoreImagingStudy",
@@ -75,7 +93,7 @@
           }
         ],
         "path" : "ImagingStudy.subject",
-        "short" : "(QI-Core) Who or what is the subject of the study",
+        "short" : "(QI) Who or what is the subject of the study",
         "type" : [
           {
             "code" : "Reference",
@@ -124,7 +142,7 @@
           }
         ],
         "path" : "ImagingStudy.started",
-        "short" : "(QI-Core) When the study was started"
+        "short" : "(QI) When the study was started"
       },
       {
         "id" : "ImagingStudy.basedOn",
@@ -135,7 +153,7 @@
           }
         ],
         "path" : "ImagingStudy.basedOn",
-        "short" : "(QI-Core) Request fulfilled",
+        "short" : "(QI) Request fulfilled",
         "type" : [
           {
             "code" : "Reference",
@@ -183,7 +201,7 @@
           }
         ],
         "path" : "ImagingStudy.procedureReference",
-        "short" : "(QI-Core) The performed Procedure reference",
+        "short" : "(QI) The performed Procedure reference",
         "type" : [
           {
             "code" : "Reference",

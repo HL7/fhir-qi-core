@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-condition-encounter-diagnosis",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ConditionEncounterDiagnosis"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
   "version": "6.0.0",
   "name": "QICoreConditionEncounterDiagnosis",
@@ -49,7 +67,7 @@
           }
         ],
         "path": "Condition.subject",
-        "short": "(QI-Core)(USCDI) Who has the condition?",
+        "short": "(QI) Who has the condition?",
         "type": [
           {
             "code": "Reference",
@@ -68,7 +86,7 @@
           }
         ],
         "path": "Condition.encounter",
-        "short": "(QI-Core)(USCDI) Encounter created as part of",
+        "short": "(QI) Encounter created as part of",
         "type": [
           {
             "code": "Reference",
@@ -87,7 +105,7 @@
           }
         ],
         "path": "Condition.onset[x]",
-        "short": "(QI-Core)(USCDI) Estimated or actual date, date-time, or age",
+        "short": "(QI) Estimated or actual date, date-time, or age",
         "type": [
           {
             "extension": [
@@ -136,7 +154,7 @@
           }
         ],
         "path": "Condition.abatement[x]",
-        "short": "(QI-Core)(USCDI) When in resolution/remission",
+        "short": "(QI) When in resolution/remission",
         "type": [
           {
             "extension": [
