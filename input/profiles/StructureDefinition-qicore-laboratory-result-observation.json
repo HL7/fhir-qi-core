@@ -59,14 +59,12 @@
     "element" : [
       {
         "id": "Observation.meta",
-        "path": "Observation.meta",
-        "mustSupport": true
+        "path": "Observation.meta"
       },
       {
         "id": "Observation.meta.lastUpdated",
         "path": "Observation.meta.lastUpdated",
-        "short": "When the resource last changed",
-        "mustSupport": true
+        "short": "When the resource last changed"
       },
       {
         "id": "Observation.status",
@@ -215,6 +213,25 @@
             "code" : "Reference",
             "targetProfile" : [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id" : "Observation.encounter",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.encounter,
+        "short" : "(QI) Encounter associated with Observation",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
             ]
           }
         ]
