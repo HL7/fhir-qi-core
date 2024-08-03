@@ -116,16 +116,6 @@
         "path" : "ServiceRequest.encounter",
         "short" : "Encounter in which the request was created",
         "definition" : "An encounter that provides additional information about the healthcare context in which this request is made.",
-        "alias" : [
-          "context"
-        ],
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "ServiceRequest.encounter",
-          "min" : 0,
-          "max" : "1"
-        },
         "type" : [
           {
             "code" : "Reference",
@@ -134,41 +124,7 @@
             ]
           }
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],  
-        "mustSupport" : true,
-        "isModifier" : false,
-        "isSummary" : true,
-        "mapping" : [
-          {
-            "identity" : "workflow",
-            "map" : "Request.encounter"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.context"
-          },
-          {
-            "identity" : "v2",
-            "map" : "PV1"
-          },
-          {
-            "identity" : "rim",
-            "map" : ".inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]"
-          },
-          {
-            "identity" : "quick",
-            "map" : "ClinicalStatement.encounter"
-          }
-        ]
+        "isModifier" : false
       },
       {
         "id" : "ServiceRequest.code",
@@ -362,7 +318,6 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference",
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"
-
             ],
             "_targetProfile": [
               {
