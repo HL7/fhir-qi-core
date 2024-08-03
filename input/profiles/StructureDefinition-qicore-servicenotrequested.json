@@ -135,6 +135,126 @@
         "fixedBoolean": true
       },
       {
+        "id" : "ServiceRequest.code.extension:notDoneValueSet",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "ServiceRequest.code.extension",
+        "sliceName" : "notDoneValueSet",
+        "short" : "(QI-Core) What was not requested",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing activities that were not requested, ordered, or performed.",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "Element.extension",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+            ]
+          }
+        ],
+        "condition" : [
+          "snr-1"
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          },
+          {
+            "key" : "ext-1",
+            "severity" : "error",
+            "human" : "Must have either extensions or value[x], not both",
+            "expression" : "extension.exists() != value.exists()",
+            "xpath" : "exists(f:extension)!=exists(f:*[starts-with(local-name(.), \"value\")])",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Extension"
+          }
+        ],
+        "isModifier" : false,
+        "isSummary" : false,
+        "mapping" : [
+          {
+            "identity" : "v2",
+            "map" : "CWE."
+          },
+          {
+            "identity" : "rim",
+            "map" : "CD.valueSet/CD.valueSetVersion"
+          }
+        ]
+      },
+      {
+        "id" : "ServiceRequest.encounter",
+        "path" : "ServiceRequest.encounter",
+        "short" : "Encounter in which the request was created",
+        "definition" : "An encounter that provides additional information about the healthcare context in which this request is made.",
+        "alias" : [
+          "context"
+        ],
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "ServiceRequest.encounter",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://build.fhir.org/ig/HL7/fhir-qi-core/StructureDefinition-qicore-encounter.html"
+            ]
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],  
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true,
+        "mapping" : [
+          {
+            "identity" : "workflow",
+            "map" : "Request.encounter"
+          },
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.context"
+          },
+          {
+            "identity" : "v2",
+            "map" : "PV1"
+          },
+          {
+            "identity" : "rim",
+            "map" : ".inboundRelationship(typeCode=COMP].source[classCode<=PCPR, moodCode=EVN]"
+          },
+          {
+            "identity" : "quick",
+            "map" : "ClinicalStatement.encounter"
+          }
+        ]
+      },
+      {
         "id": "ServiceRequest.code.extension:notDoneValueSet",
         "extension": [
           {
@@ -343,7 +463,10 @@
             "code": "Reference",
             "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observation"
             ],
             "_targetProfile": [
               {
