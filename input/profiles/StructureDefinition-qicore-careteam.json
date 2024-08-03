@@ -1,26 +1,26 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-careteam",
-  "extension" : [
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
       "valueString": "category"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
       "valueBoolean": true
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
       "valueBoolean": true
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
-      "valueString":"CareTeam"
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString": "CareTeam"
     }
   ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam",
-  "version" : "6.0.0",
+  "version": "6.0.0",
   "name": "QICoreCareTeam",
   "title": "QICore CareTeam",
   "status": "active",
@@ -28,26 +28,26 @@
   "date": "2023-08-01",
   "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
   "contact": [
-      {
-          "name": "Clinical Quality Information WG",
-          "telecom": [
-              {
-                  "system": "url",
-                  "value": "http://www.hl7.org/Special/committees/cqi"
-              }
-          ]
-      }
+    {
+      "name": "Clinical Quality Information WG",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
   ],
   "description": "Profile of CareTeam for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
   "jurisdiction": [
-      {
-          "coding": [
-              {
-                  "system": "urn:iso:std:iso:3166",
-                  "code": "US"
-              }
-          ]
-      }
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
   ],
   "fhirVersion": "4.0.1",
   "kind": "resource",
@@ -56,52 +56,54 @@
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-careteam",
   "derivation": "constraint",
   "differential": {
-      "element": [
+    "element": [
+      {
+        "id": "CareTeam",
+        "path": "CareTeam"
+      },
+      {
+        "id": "CareTeam.subject",
+        "extension": [
           {
-            "id" : "CareTeam",
-            "path" : "CareTeam"
-          },
-          {
-              "id": "CareTeam.subject",
-              "extension" : [
-                {
-                  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                  "valueBoolean" : true
-                }
-              ],
-              "path": "CareTeam.subject",
-              "short": "(QI) Who the care team is for.",
-              "type": [
-                  {
-                      "code": "Reference",
-                      "targetProfile": [
-                          "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-                      ]
-                  }
-              ]
-          },
-          {
-              "id": "CareTeam.participant.member",
-              "extension" : [
-                {
-                  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                  "valueBoolean" : true
-                }
-              ],
-              "path": "CareTeam.participant.member",
-              "short": "(QI) Who is involved",
-              "type": [
-                  {
-                      "code": "Reference",
-                      "targetProfile": [
-                          "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-                          "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
-                          "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
-                          "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
-                      ]
-                  }
-              ]
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
-      ]
+        ],
+        "path": "CareTeam.subject",
+        "short": "(QI) Who the care team is for.",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "CareTeam.participant.member",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "CareTeam.participant.member",
+        "short": "(QI) Who is involved",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careteam",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
+            ]
+          }
+        ]
+      }
+    ]
   }
 }
