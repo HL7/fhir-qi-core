@@ -19,48 +19,32 @@ INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapsh
 INFORMATION: StructureDefinition/qicore-practitioner: StructureDefinition.snapshot.element[18].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 
 # The following messages are generated from code systems and value sets currently in 'draft' status within the inherited/base resource snapshot.
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/adjudication|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/coverage-class|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/adverse-event-seriousness|1.0.0
-Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/processpriority|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/payeetype|1.0.0
 Reference to draft CodeSystem http://hl7.org/fhir/event-status|4.0.1
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/communication-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/communication-not-done-reason|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/goal-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/location-physical-type|2.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medication-admin-status|4.0.1
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationdispense-status|4.0.1
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationrequest-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/diet|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v2-0360|2.7|0360
+Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/task-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/uv/sdc/CodeSystem/CSPHQ9|3.0.0
-Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|1.0.0
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medication-admin-status|4.0.1
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationdispense-status|4.0.1
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationrequest-category|1.0.0
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v2-0360|2.7|0360 
 
 # The following warnings in the examples are being generated due to no code within the codeable concept but referencing a valueset instead, consistent with the negation pattern
-WARNING: Immunization/negation-example: Immunization.vaccineCode: No code provided, and a code should be provided from the value set 'CVX Vaccines Administered Vaccine Set' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.6|20220701)
-WARNING: MedicationDispense/negation-example: MedicationDispense.medication.ofType(CodeableConcept): No code provided, and a code should be provided from the value set 'Medication Clinical Drug' (http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4|20170601)
-WARNING: Procedure/negation-example: Procedure.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|6.1.0)
-WARNING: ServiceRequest/negation-example: ServiceRequest.code: No code provided, and a code should be provided from the value set 'US Core Procedure Codes' (http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code|6.1.0)
+
 
 # The slices in the examples are present in the SimpleObservation.value[x] profile elements as valueQuantity 
-INFORMATION: Observation/example: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-gestation: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-gestation: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # The slices in the examples are present in the SimpleObservation.value[x] profile elements as valuedateTime
-INFORMATION: Observation/example-delivery-date-estimate: Observation.value.ofType(dateTime): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-obstetric-delivery: Observation.value.ofType(dateTime): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-delivery-date-estimate: Observation.value.ofType(dateTime): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-obstetric-delivery: Observation.value.ofType(dateTime): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # The slices in the examples are present in the SimpleObservation.value[x] profile elements as valueInteger
-INFORMATION: Observation/example-births: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-parity: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-pregnancies: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-preterm-births: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|6.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-births: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-parity: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-pregnancies: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
+INFORMATION: Observation/example-preterm-births: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # The validator is trying to resolve an "example.org" artifact which by convention does not exist
 A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
