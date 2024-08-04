@@ -1,3 +1,5 @@
+<div class="new-content" markdown="1">
+
 ### [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html) ###
 **QI Elements:**
 * actuality: (QI) actual \| potential
@@ -1302,3 +1304,4 @@
 <br>
 <br>
 
+</div>
