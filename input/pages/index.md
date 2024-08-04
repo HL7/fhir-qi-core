@@ -5,13 +5,12 @@
 > This STU 7.0.0-ballot update to the QI-Core profiles aligns with US-Core STU v7.0.0. For a complete list of changes in this version, please refer to the version history.
 
 <div class="note-to-balloters" markdown="1">
-> **Note to Balloters**
 > 
 > Some QI-Core users have requested addition of a section on each QI-Core profile page indicating those elements identified as essential for expressing data required for measure and clinical decision support artifacts.  
 > 
 > Please provide feedback or suggested edits for the new sections.
 
-NOTE TO BALLOT REVIEWERS:
+> NOTE TO REVIEWERS:
 
 * US Core 7.0, and thus QI-Core 7.0, has a new approach to USCDI requirements.
     * As noted in the US Core 7.0 [Must Support](https://hl7.org/fhir/us/core/must-support.html#must-support-elements) section, US Core 7.0 no longer highlights mandatory (cardinality 1..* or 1..1) and Must Support elements with a (USCDI) indicator as such items must be supported for interoperability.
@@ -19,6 +18,10 @@ NOTE TO BALLOT REVIEWERS:
 * We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.
 * Further, QI-Core 7.0 does not discuss [USCDI+Quality](https://uscdiplus.healthit.gov/uscdi) because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.
 
+</div>
+
+<div class="new-content" markdown="1">
+{{ site.data.new_items.list[0].desc }}
 </div>
 
 {: #qi-core-implementation-guide}
@@ -43,9 +46,13 @@ Implementation Guide.
 This guide is divided into pages which are listed at the top of each page in the menu bar:
 
 * **[Home](index.html)**: The home page provides summary and background information
+
+<div class="new-content" markdown="1">
 * **Profiles**
     * **[QI-Core Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
     * **[QI Elements](qi-elements.html)**: The QI Elements page provides a complete listing of all the QI Elements in each profile used by QI-Core
+</div>
+
 * **[QI-Core Negation](negation.html)**: The negations page describes QI-Core Negation
 * **[Patterns](patterns.html)**: The patterns page describes patterns of usage for QI-Core applications
 * **[Model Info](modelinfo.html)**: The model info page provides the QI-Core model information to support implementation
@@ -89,6 +96,8 @@ This initiative began in 2013 with the creation of the [Quality Improvement Doma
 
 ### Relevance of QI-Core Profiles to Authors
 
+<div class="new-content" markdown="1">
+
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
 quality measures (CQM) and CDS, thus providing a common foundation for reusability. QI-Core
 derives content from US Core profiles and extensions to the extent possible. The CQI Workgroup expects that QI-Core will continue to grow in concert with
@@ -99,7 +108,7 @@ specific quality applications can be added through FHIR's extension mechanism. T
 identifies a common need, and the additional content has been validated.
 
 QI-Core profile authoring provides a relatively facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
-
+</div>
 
 ### Scope
 
@@ -143,7 +152,11 @@ the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.
 considerations relate to any FHIR implementation, including authentication, authorization, access control
 consistent with patient consent, transaction logging, and following best practices. QI-Core security conformance rules are as follows:
 
+<div class="new-content" markdown="1">
+
 -  Systems **SHOULD** refer to BCP195 to ensure transmissions are taking place over a secure network connection.
+</div>
+
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
 -  Systems **SHOULD** use either IHE's ATNA standard for audit logging or an equivalent using the AuditEvent resource.
 
@@ -198,6 +211,8 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 ### MustSupport Flag
 
+<div class="new-content" markdown="1">
+
 QI-Core inherits Must Support references from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected; QI-Core does not add any Must Support elements.
 
 QI-Core flags elements that the quality improvement community has identified as significant to express the full intent of measures 
@@ -216,6 +231,7 @@ the base resource type and profile to be specified, as well as a MustSupport ele
 profile are reference by the logic. Implementers can use this information directly from the effective data requirements to determine 
 which elements must be provided to achieve a successful evaluation of the artifact. In addition, repositories and publishers may 
 make use of this information to define artifact-specific profiles using the effective data requirements provided by the artifact.
+</div>
 
 ### Modifying Attributes
 
@@ -300,7 +316,11 @@ the resources in "Any" references SHALL conform to QI-Core profiles if the base 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
 -  Implementations **SHALL** support all profile types in the QI-Core set (listed in the [profiles](profiles.html) page) for resources they exchange
+
+<div class="new-content" markdown="1">
 -  This IG does not define the capability statements as it does not address accessing patient level data directly via API calls; however, server implementations **SHALL** declare their support of the QI-Core profiles in a FHIR CapabilityStatement.
+</div>
+
 -  Conformant servers will at minimum support FHIR's read and search operations
 -  Servers **SHALL** supply the MustSupport data elements whenever that data is available
 -  Quality improvement applications **SHALL** recognize and process all MustSupport elements in QI-Core
