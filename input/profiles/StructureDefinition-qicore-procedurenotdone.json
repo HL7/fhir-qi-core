@@ -63,7 +63,7 @@
         "key" : "pnd-1",
         "severity" : "error",
         "human" : "to indicate what procedure was not performed, either at least one coding in the code or a notDoneValueSet extension shall be provided",
-        "expression" : "code.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor code.coding.exists()"
+        "expression" : "code.extension('http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet').exists() xor code.coding.exists()"
       }],
       "mustSupport" : false
     },
@@ -198,7 +198,7 @@
       "max" : "1",
       "type" : [{
         "code" : "Extension",
-        "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"]
+        "profile" : ["http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"]
       }],
       "condition" : ["pnd-1"]
     },

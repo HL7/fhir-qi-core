@@ -65,7 +65,7 @@
             "key": "mnr-1",
             "severity": "error",
             "human": "To indicate what medication was not requested, either at least one coding in the medication or a notDoneValueSet extension shall be provided",
-            "expression": "medication.extension(\u0027http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet\u0027).exists() xor medication.coding.exists()",
+            "expression": "medication.extension(\u0027http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet\u0027).exists() xor medication.coding.exists()",
             "xpath": "exists(f:extension)"
           }
         ],
@@ -205,7 +205,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+              "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
             ]
           }
         ],
