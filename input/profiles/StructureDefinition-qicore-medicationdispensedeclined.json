@@ -65,7 +65,7 @@
             "key" : "mnd-1",
             "severity" : "error",
             "human" : "To indicate what medication was not dispensed, either at least one coding in the medication or a notDoneValueSet extension shall be provided",
-            "expression" : "medication.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor medication.coding.exists()",
+            "expression" : "medication.extension('http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet').exists() xor medication.coding.exists()",
             "xpath" : "exists(f:extension)"
           }
         ]
@@ -188,7 +188,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+              "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
             ]
           }
         ]

@@ -55,7 +55,7 @@
         "key" : "cnd-1",
         "severity" : "error",
         "human" : "to indicate what communication was not carried out, either at least one coding in the topic or a notDoneValueSet extension shall be provided",
-        "expression" : "topic.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor topic.coding.exists()"
+        "expression" : "topic.extension('http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet').exists() xor topic.coding.exists()"
       }],
       "mustSupport" : false
     },
@@ -171,7 +171,7 @@
         {
           "code" : "Extension",
           "profile" : [
-            "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+            "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
           ]
         }
       ]
