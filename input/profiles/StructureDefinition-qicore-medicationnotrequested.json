@@ -183,18 +183,16 @@
         "type": [
           {
             "code": "CodeableConcept"
+          },
+          {
+            "code" : "Reference",
+            "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
           }
         ],
         "binding": {
           "strength": "preferred",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
-        },
-        "type": [
-          {
-            "code" : "Reference",
-            "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
-          }
-        ]
+        }
       },
       {
         "id": "MedicationRequest.medication[x].extension:notDoneValueSet",
