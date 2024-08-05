@@ -151,7 +151,8 @@
           "short" : "(QI) What was administered",
           "type" : [
             {
-              "code" : "CodeableConcept"
+              "code" : "Reference",
+              "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
             }
           ],
           "condition" : [
@@ -248,12 +249,13 @@
           ],
           "path" : "MedicationAdministration.request",
           "short" : "(QI) Request administration performed against",
-          "type" : [
+          "type": [
+            {
+              "code": "CodeableConcept"
+            },
             {
               "code" : "Reference",
-              "targetProfile" : [
-                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
-              ]
+              "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
             }
           ]
         }
