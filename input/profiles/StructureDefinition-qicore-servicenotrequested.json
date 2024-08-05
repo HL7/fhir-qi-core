@@ -71,28 +71,6 @@
               "mustSupport": false
           },
           {
-              "id": "ServiceRequest.extension:reasonRefused",
-              "extension": [
-                  {
-                      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                      "valueBoolean": true
-                  }
-              ],
-              "path": "ServiceRequest.extension",
-              "sliceName": "reasonRefused",
-              "short": "(QI) Extension",
-              "min": 1,
-              "max": "1",
-              "type": [
-                  {
-                      "code": "Extension",
-                      "profile": [
-                          "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason"
-                      ]
-                  }
-              ]
-          },
-          {
               "id": "ServiceRequest.status",
               "extension": [
                   {
@@ -119,8 +97,16 @@
               "id": "ServiceRequest.doNotPerform",
               "extension": [
                   {
-                      "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                      "valueBoolean": true
+            "url": "http://hl7.org/fhir/StructureDefinition/cqf-doNotPerformReason",
+            "valueCodeableConcept": {
+              "coding": [
+                {
+                  "system": "http://snomed.info/sct",
+                  "code": "416406003",
+                  "display": "Procedure discontinued (situation)"
+                }
+              ]
+            }
                   }
               ],
               "path": "ServiceRequest.doNotPerform",
@@ -144,8 +130,7 @@
               ],
               "path": "ServiceRequest.code.extension",
               "sliceName": "notDoneValueSet",
-              "short": "(QI-Core) What was not requested",
-              "definition": "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing activities that were not requested, ordered, or performed.",
+        "short": "(QI) What was not requested",
               "min": 0,
               "max": "1",
               "base": {
@@ -292,6 +277,21 @@
                   }
               ],
               "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/tools/StructureDefinition/additional-binding",
+              "extension": [
+                {
+                  "url": "purpose",
+                  "valueCode": "current"
+                },
+                {
+                  "url": "valueSet",
+                  "valueCanonical": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
+                }
+              ]
+            }
+          ],
                   "strength": "extensible",
                   "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
               }

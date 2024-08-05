@@ -77,7 +77,7 @@
         ]
       },
       {
-        "id" : "Observation.extension:notDoneReason",
+        "id" : "Observation.extension:FHIRevent-statusReason",
         "extension" : [
           {
             "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -85,16 +85,20 @@
           }
         ],
         "path" : "Observation.extension",
-        "sliceName" : "notDoneReason",
-        "short" : "(QI) Extension",
+        "sliceName" : "event-statusReason",
+        "short" : "(QI) Event Status Reason",
         "min" : 1,
         "max" : "1",
         "type" : [
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneReason"
+              "https://hl7.org/fhir/extensions/StructureDefinition-event-statusReason"
             ]
+          },
+          "binding" : {
+            "strength" : "extensible",
+            "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
           }
         ]
       },

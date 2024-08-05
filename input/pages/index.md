@@ -193,8 +193,7 @@ preferred in the US Core base profile, but in general, the QI-Core profiles use 
 that QI-Core is currently a US Realm specification. To support applications outside the US Realm, additional binding
 analysis and effort would be required.
 
-QI-Core's extensions have also been reviewed by HL7 Work Groups and other initiatives to validate that QI-Core
-extensions will not create future conflicts. Other initiatives that the QI-Core effort is aligning with include the
+This IG contains only one QI-Core-specific extension "QI-Core Key Element Extension" to enable entry of (QI) references to specific profile elements. Otherwise, this IG uses only FHIR or US Core extensions. Other initiatives that the QI-Core effort is aligning with include the
 [Clinical Information Modeling Initiative (CIMI)](https://confluence.hl7.org/display/CIMI/Mission%2C+Charter%2C+Work+Products%2C+HL7+Working+Group+Relationships) and [Graphite Health](https://www.graphitehealth.io/).
 
 In addition, the QI-Core effort *continues* to update the mapping from QDM to QI-Core such that a CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
