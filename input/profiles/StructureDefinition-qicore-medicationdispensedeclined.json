@@ -134,7 +134,13 @@
           "strength" : "extensible",
           "description" : "The reason the event did not occur or was not performed",
           "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
-        }
+        },
+        "type": [
+          {
+            "code" : "Reference",
+            "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
+          }
+        ]
       },
       {
         "id" : "MedicationDispense.medication[x]",
