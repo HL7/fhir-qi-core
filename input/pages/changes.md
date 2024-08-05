@@ -18,6 +18,7 @@ This page lists the change history for each version of QI-Core.
 1. limit subject reference in AdverseEvent to patient([FHIR-45693](https://jira.hl7.org/browse/FHIR-45693)) Applied ([here](StructureDefinition-qicore-adverseevent.html))
 1. Update QI-Core Claim to include key elements for present on admission and principal diagnosis([FHIR-45959](https://jira.hl7.org/browse/FHIR-45959)) Applied ([here](StructureDefinition-qicore-claim.html))
 1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html))
+1. Update QDM to QI-Core Mapping Tables to reference changes in QI-Core 7.0 ([FHIR-45597](https://jira.hl7.org/browse/FHIR-45597)) Applied ([here](qdm-to-qicore.html))
 
 
 ### STU6 Release (6.0.0)

@@ -43,31 +43,37 @@ QI-Core addresses these changes as follows:
 
 1) Observations
 
-QI-Core STU 7 includes 21 profiles based on the FHIR Observation resource, some including specific QI-Core constraints added to US Core profiles, others used as specified by US Core. The following list should help determine which QI-Core observation profile to use with each QDM datatype. The subsequent mapping tables provide more detail about how to address these new profiles when converting measures from QDM to QI-Core.  
+QI-Core STU 6 includes 7 observation-related profiles that provide QI-Core-specific constraints with reference to the respective US Core profile. These six observations include:
+a)	[QICore Simple Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation.html) – used to capture any “simple” type of observation that is not classified as vital signs, laboratory, imaging, or other more specific observation types; generally used with QDM “Assessment, Performed”
+b)	[QICore ObservationCancelled](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled) – used to reference indication that any given observation did not occur for a specific reason; US Core does not include such a profile to address the QDM concept of negation rationale (See section 3.0 QI-Core Negation for a comprehensive description)
+c)	[QICore Observation Clinical Result](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-clinical-result.html) – generally used with QDM “Diagnostic Study, Performed”; based on US Core 7.0.0 Observation Clinical Result, includes non-laboratory clinical test results
+d)	[QICore Laboratory Result Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-lab.html) – generally used with QDM “Laboratory Test, Performed”
+e)	[QICore Observation Screening Assessment](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-screening-assessment.html) – generally used with QDM “Assessment, Performed” when referencing panels of multi-question surveys or evaluation tools
+f)	[QICore NonPatient Observation](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation) – developed to enable structural measures evaluating available resources for which a patient is not the measure subject; this profile is an approved variance from US Core only for use in structural measures. 
+http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html
 
-a) [QICore Simple Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation.html) – used to capture any “simple” type of observation that is not classified as vital signs, laboratory, imaging, or other more specific observation types; generally used with QDM “Assessment, Performed”
-b) [QICore Observation Clinical Result](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-clinical-result.html) – generally used with QDM “Diagnostic Study, Performed”; based on US Core 6.1.0 Observation Clinical Result, includes non-laboratory clinical test results and incorporates the previous Observation Imaging Result and Observation Clinical Test Result
-c) [QICore Laboratory Result Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-lab.html) – generally used with QDM “Laboratory Test, Performed”
-d) [QICore Observation Screening Assessment](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-screening-assessment.html) – generally used with QDM “Assessment, Performed”
-e) [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html) – generally used with QDM “Assessment, Performed”
-f) [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancyintent.html) – generally used with QDM “Assessment, Performed”
-g) [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-pregnancystatus.html) - generally used with QDM “Assessment, Performed”
-h) [US Core Observation Sexual Orientation Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-sexual-orientation.html) – generally used with QDM “Assessment, Performed”
-i) [US Core Smoking Status Observation Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-smokingstatus.html) – generally used with QDM “Assessment, Performed”
-j) [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-head-occipital-frontal-circumference-percentile.html) – generally used with QDM “Physical Exam, Performed”
-k) [US Core Blood Pressure Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-blood-pressure.html) – generally used with QDM “Physical Exam, Performed”
-l) [US Core BMI Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-bmi.html) – generally used with QDM “Physical Exam, Performed”
-m) [US Core Body Height Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-height.html) – generally used with QDM “Physical Exam, Performed”
-n) [US Core Body Temperature Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-temperature.html) – generally used with QDM “Physical Exam, Performed”
-o) [US Core Body Weight Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-body-weight.html) – generally used with QDM “Physical Exam, Performed”
-p) [US Core Head Circumference Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-head-circumference.html) – generally used with QDM “Physical Exam, Performed”
-q) [US Core Heart Rate Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-heart-rate.html) – generally used with QDM “Physical Exam, Performed”
-r) [US Core Pediatric BMI for Age Observation Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-bmi-for-age.html) – generally used with QDM “Physical Exam, Performed”
-s) [US Core Pediatric Weight for Height Observation Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-pediatric-weight-for-height.html) – generally used with QDM “Physical Exam, Performed”
-t) [US Core Pulse Oximetry Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-pulse-oximetry.html) – generally used with QDM “Physical Exam, Performed”
-u) [US Core Respiratory Rate Profile](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-respiratory-rate.html) – generally used with QDM “Physical Exam, Performed”
-2) MedicationDispense –[ QI-Core STU6 Medication Dispense](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationdispense.html) adds constraints to the new [US Core STU6 Medication Dispense](http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-medicationdispense.html) rather than the base [FHIR R4 MedicationDispense](https://hl7.org/fhir/r4/medicationdispense.html).
 
+QI-Core STU 7.0.0 also incorporates 20 observation-related profiles directly from US Core. The subsequent mapping tables provide more detail about how to address these new profiles when converting measures from QDM to QI-Core:
+
+a) [US Core Average Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition/us-core-observation-pregnancystatus) – generally used with QDM “Physical Exam, Performed”
+b.)	[US Core Care Experience Preference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition/us-core-observation-pregnancystatus) – generally used with QDM “Assessment, Performed” 
+c.)	[US Core Observation Occupation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html) –generally used with QDM “Assessment, Performed”
+d.)	[US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html) – generally used with QDM “Assessment, Performed”
+e.)	[US Core Observation Pregnancy Status Profile ]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancystatus.html) - generally used with QDM “Assessment, Performed”
+f.)	[US Core Observation Sexual Orientation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-sexual-orientation.html) – generally used with QDM “Assessment, Performed”
+g.)	[US Core Smoking Status Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-smokingstatus.html) – generally used with QDM “Assessment, Performed”
+h.)	[US Core Treatment Intervention Preference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition/us-core-treatment-intervention-preference) – Generally used with QDM “Assessment, Performed” 
+i.)	[US Core Pediatric BMI for Age Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-bmi-for-age.html) – generally used with QDM “Physical Exam, Performed”
+j.)	[US Core Pediatric Weight for Height Observation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-pediatric-weight-for-height.html) – generally used with QDM “Physical Exam, Performed”
+k.)	[US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html) – generally used with QDM “Physical Exam, Performed”
+l.)	[US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html) – generally used with QDM “Physical Exam, Performed”
+m.)	[US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html) – generally used with QDM “Physical Exam, Performed”
+n.)	[US Core Body Temperature Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-temperature.html) – generally used with QDM “Physical Exam, Performed”
+o.)	[US Core Body Weight Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-weight.html) – generally used with QDM “Physical Exam, Performed”
+p.)	[US Core Head Circumference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-head-circumference.html) – generally used with QDM “Physical Exam, Performed”
+q.)	[US Core Heart Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-heart-rate.html) – generally used with QDM “Physical Exam, Performed”
+r.)	[US Core Pulse Oximetry Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-pulse-oximetry.html) – generally used with QDM “Physical Exam, Performed”
+s.)	[US Core Respiratory Rate Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-respiratory-rate.html) – generally used with QDM “Physical Exam, Performed”
 
 ### Adverse Event
 
@@ -806,7 +812,7 @@ _present on admission_ flag for each diagnosis. Therefore, the [Claim.diagnosis.
 [Claim.diagnosis.diagnosis\[x\]](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis[x]) defines which diagnoses are _present on admission_. The [Claim.procedure.sequence](StructureDefinition-qicore-claim-definitions.html#Claim.procedure.sequence) = 1
 plus [Claim.procedure.procedure\[x\]](StructureDefinition-qicore-claim-definitions.html#Claim.procedure.procedure[x]) defines a _principal procedure_.
 
-For this reason, QI-Core STU7 no longer includes Encounter.diagnosis in the Key Element Table of
+For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key Element Table of
 the profile. This QI-Core version aligns with the US Core 7.0.0 using [Encounter.reasonCode](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) and
 [Encounter.reasonReference](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference)
 for diagnoses or procedures managed during an encounter. Note the [Encounter.reasonCode](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode)
@@ -1651,7 +1657,7 @@ include vital signs (blood pressure, pulse, respiration) as well as
 other clinical measures (such as expiratory flow rate and size of lesion).
 Physical exam includes psychiatric examinations.
 
-US Core STU7 added twelve observation profiles that address specific elements of physical examinations. The following table lists each profile and the respective data element codes referenced in each of those profiles.
+US Core STU7 contains twelve observation profiles that address specific elements of physical examinations. The following table lists each profile and the respective data element codes referenced in each of those profiles.
 
 
 | **Profile**         | **Data element codes**                                                                                                                       |
@@ -1998,7 +2004,7 @@ diet for the infant; however, such an expression could not reference
 clinical intake and output records to determine if anything other
 than human breast milk was administered to the infant. 
 Summarizing discussion among HL7 workgroups in late 2023, the QI-Core resource best suited
-to retrieve information about enteral intake is Observation (i.e., QI-Core Observation in versions STU4.1.1 and STU5.0, and SimpleObservation in STU7.0). 
+to retrieve information about enteral intake is Observation (i.e., QI-Core Observation in versions STU4.1.1 and STU5.0, and SimpleObservation in STU 6.0 & STU7.0). 
 The following guidance may help measure developers trying to express retrieval of enteral intake data using SimpleObservation:  
 
     * SimpleObservation.code = with binding to a direct reference code or value set indicating observation of enteral intake
