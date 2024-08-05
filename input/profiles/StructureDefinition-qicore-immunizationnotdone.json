@@ -92,7 +92,7 @@
             "key": "ind-1",
             "severity": "error",
             "human": "To indicate what immunization was not done, either at least one coding in the vaccineCode element or a notDoneValueSet extension shall be provided",
-            "expression": "vaccineCode.extension(\u0027http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet\u0027).exists() xor vaccineCode.coding.exists()",
+            "expression": "vaccineCode.extension(\u0027http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet\u0027).exists() xor vaccineCode.coding.exists()",
             "xpath": "exists(f:extension)"
           }
         ],
@@ -154,7 +154,7 @@
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+              "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
             ]
           }
         ],
