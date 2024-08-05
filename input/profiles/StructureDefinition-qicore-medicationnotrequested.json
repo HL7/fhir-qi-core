@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-medicationnotrequested",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "medication"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"MedicationNotRequested"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested",
   "version": "6.0.0",
   "name": "QICoreMedicationNotRequested",
@@ -62,7 +80,20 @@
           }
         ],
         "path": "MedicationRequest.status",
-        "short": "(QI-Core)(USCDI) active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown"
+        "short": "(QI) active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown"
+      },
+      {
+        "id" : "MedicationRequest.intent",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "MedicationRequest.intent",
+        "short" : "(QI) proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option",
+        "definition" : "Whether the request is a proposal, plan, or an original order.",
+        "comment" : "It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.\r\rThis element is labeled as a modifier because the intent alters when and how the resource is actually applicable."
       },
       {
         "id": "MedicationRequest.doNotPerform",
@@ -73,7 +104,7 @@
           }
         ],
         "path": "MedicationRequest.doNotPerform",
-        "short": "(QI-Core) True if medication was not requested",
+        "short": "(QI) True if medication was not requested",
         "min": 1,
         "max": "1",
         "type": [
@@ -92,7 +123,7 @@
           }
         ],
         "path": "MedicationRequest.reported[x]",
-        "short": "(QI-Core)(USCDI) Reported rather than primary record",
+        "short": "(QI) Reported rather than primary record",
         "type": [
           {
             "code": "Reference",
@@ -148,7 +179,7 @@
           }
         ],
         "path": "MedicationRequest.medication[x]",
-        "short": "(QI-Core)(USCDI) Medication to be taken",
+        "short": "(QI) Medication to be taken",
         "type": [
           {
             "code": "CodeableConcept"
@@ -163,7 +194,7 @@
         "id": "MedicationRequest.medication[x].extension:notDoneValueSet",
         "path": "MedicationRequest.medication[x].extension",
         "sliceName": "notDoneValueSet",
-        "short": "(QI-Core) What was not requested",
+        "short": "(QI) What was not requested",
         "min": 0,
         "max": "1",
         "type": [
@@ -195,7 +226,7 @@
           }
         ],
         "path": "MedicationRequest.subject",
-        "short": "(QI-Core)(USCDI) Who or group medication request is for",
+        "short": "(QI) Who or group medication request is for",
         "type": [
           {
             "code": "Reference",
@@ -214,7 +245,7 @@
           }
         ],
         "path": "MedicationRequest.encounter",
-        "short": "(QI-Core)(USCDI) Encounter created as part of encounter/admission/stay",
+        "short": "(QI) Encounter created as part of encounter/admission/stay",
         "type": [
           {
             "code": "Reference",
@@ -233,7 +264,7 @@
           }
         ],
         "path": "MedicationRequest.authoredOn",
-        "short": "(QI-Core)(USCDI) When request was initially authored",
+        "short": "(QI) When request was initially authored",
         "min": 1,
         "max": "1"
       },
@@ -246,7 +277,7 @@
           }
         ],
         "path": "MedicationRequest.requester",
-        "short": "(QI-Core)(USCDI) Who/What requested the Request",
+        "short": "(QI) Who/What requested the Request",
         "type": [
           {
             "code": "Reference",
@@ -293,7 +324,7 @@
           }
         ],
         "path": "MedicationRequest.reasonCode",
-        "short": "(QI-Core)(USCDI) Reason or indication for ordering or not ordering the medication",
+        "short": "(QI) Reason or indication for ordering or not ordering the medication",
         "min": 1,
         "max": "1",
         "binding": {
@@ -305,7 +336,7 @@
       {
         "id": "MedicationRequest.reasonReference",
         "path": "MedicationRequest.reasonReference",
-        "short": "(QI-Core)(USCDI) US Core Condition or Observation that supports the prescription",
+        "short": "(QI) US Core Condition or Observation that supports the prescription",
         "definition": "Condition or observation that supports why the medication was ordered.",
         "comment": "This is a reference to a condition or observation that is the reason for the medication order.  If only a code exists, use reasonCode.",
         "min": 0,

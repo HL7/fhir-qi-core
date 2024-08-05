@@ -5,6 +5,24 @@
     "status" : "extensions"
   },
   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-claim",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "type"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"Claim"
+    }
+  ],
   "version" : "6.0.0",
   "name" : "QICoreClaim",
   "title": "QICore Claim",
@@ -44,6 +62,12 @@
     "element" : [
       {
         "id" : "Claim",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Claim",
         "mustSupport" : false
       },
@@ -56,7 +80,7 @@
           }
         ],
         "path" : "Claim.patient",
-        "short" : "(QI-Core) The recipient of the products and services",
+        "short" : "(QI) The recipient of the products and services",
         "type" : [
           {
             "code" : "Reference",
@@ -75,7 +99,7 @@
           }
         ],
         "path" : "Claim.billablePeriod",
-        "short" : "(QI-Core) Relevant time frame for the claim"
+        "short" : "(QI) Relevant time frame for the claim"
       },
       {
         "id" : "Claim.created",
@@ -86,7 +110,7 @@
           }
         ],
         "path" : "Claim.created",
-        "short" :"(QI-Core) Resource creation date"
+        "short" :"(QI) Resource creation date"
       },
       {
         "id" : "Claim.provider",
@@ -97,7 +121,7 @@
           }
         ],
         "path" : "Claim.provider",
-        "short" : "(QI-Core) Party responsible for the claim",
+        "short" : "(QI) Party responsible for the claim",
         "type" : [
           {
             "code" : "Reference",
@@ -118,7 +142,7 @@
           }
         ],
         "path" : "Claim.prescription",
-        "short" : "(QI-Core) Prescription authorizing services and products",
+        "short" : "(QI) Prescription authorizing services and products",
         "type" : [
           {
             "code" : "Reference",
@@ -199,6 +223,30 @@
         "mustSupport" : false
       },
       {
+        "id" : "Claim.diagnosis",
+        "extension" : [          {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        },
+          {
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+          "valueString" : "Diagnosis"
+        }],
+        "path" : "Claim.diagnosis",
+        "short" : "(QI) Pertinent diagnosis information",
+        "definition" : "Information about diagnoses relevant to the claim items.",
+        "requirements" : "Required for the adjudication by provided context for the services and product listed.",
+        "min" : 0,
+        "max" : "*",
+        "type" : [{
+          "code" : "BackboneElement"
+        }],
+        "mapping" : [{
+          "identity" : "workflow",
+          "map" : "Request.reasonReference"
+        }]
+      },
+      {
         "id" : "Claim.diagnosis.sequence",
         "extension" : [
           {
@@ -207,7 +255,7 @@
           }
         ],
         "path" : "Claim.diagnosis.sequence",
-        "short" : "(QI-Core) Diagnosis instance identifier",
+        "short" : "(QI) Diagnosis instance identifier",
         "type" : [
           {
             "code" : "positiveInt"
@@ -223,7 +271,7 @@
           }
         ],
         "path" : "Claim.diagnosis.diagnosis[x]",
-        "short" : "(QI-Core) Nature of illness or problem",
+        "short" : "(QI) Nature of illness or problem",
         "type" : [
           {
             "code" : "CodeableConcept"
@@ -248,6 +296,34 @@
         }
       },
       {
+        "id" : "Claim.diagnosis.type",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Claim.diagnosis.type",
+        "short" : "(QI) Timing or nature of the diagnosis",
+        "definition" : "When the condition was observed or the relative ranking.",
+        "comment" : "For example: admitting, primary, secondary, discharge.",
+        "requirements" : "Often required to capture a particular diagnosis, for example: primary or discharge.",
+        "min" : 0,
+        "max" : "*",
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "binding" : {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString" : "DiagnosisType"
+          }],
+          "strength" : "example",
+          "description" : "The type of the diagnosis: admitting, principal, discharge.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/ex-diagnosistype"
+        }
+      },
+      {
         "id" : "Claim.diagnosis.onAdmission",
         "extension" : [
           {
@@ -256,7 +332,7 @@
           }
         ],
         "path" : "Claim.diagnosis.onAdmission",
-        "short" : "(QI-Core) Present on admission",
+        "short" : "(QI) Present on admission",
         "type" : [
           {
             "code" : "CodeableConcept"
@@ -269,6 +345,27 @@
         }
       },
       {
+        "id" : "Claim.procedure",
+        "extension" : [
+          {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        },
+          {
+          "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-explicit-type-name",
+          "valueString" : "Procedure"
+        }],
+        "path" : "Claim.procedure",
+        "short" : "(QI) Clinical procedures performed",
+        "definition" : "Procedures performed on the patient relevant to the billing items with the claim.",
+        "requirements" : "The specific clinical invention are sometimes required to be provided to justify billing a greater than customary amount for a service.",
+        "min" : 0,
+        "max" : "*",
+        "type" : [{
+          "code" : "BackboneElement"
+        }]
+      },
+      {
         "id" : "Claim.procedure.sequence",
         "extension" : [
           {
@@ -277,7 +374,7 @@
           }
         ],
         "path" : "Claim.procedure.sequence",
-        "short": "(QI-Core) Procedure instance identifier",
+        "short": "(QI) Procedure instance identifier",
         "type" : [
           {
             "code" : "positiveInt"
@@ -287,6 +384,33 @@
         "isSummary" : false
       },
       {
+        "id" : "Claim.procedure.type",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Claim.procedure.type",
+        "short" : "(QI) Category of Procedure",
+        "definition" : "When the condition was observed or the relative ranking.",
+        "comment" : "For example: primary, secondary.",
+        "requirements" : "Often required to capture a particular diagnosis, for example: primary or discharge.",
+        "min" : 0,
+        "max" : "*",
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "binding" : {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString" : "ProcedureType"
+          }],
+          "strength" : "example",
+          "description" : "Example procedure type codes.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/ex-procedure-type"
+        }
+      },      {
         "id" : "Claim.procedure.procedure[x]",
         "extension" : [
           {
@@ -295,7 +419,7 @@
           }
         ],
         "path" : "Claim.procedure.procedure[x]",
-        "short": "(QI-Core) Specific clinical procedure",
+        "short": "(QI) Specific clinical procedure",
         "type" : [
           {
             "code" : "CodeableConcept"
@@ -328,7 +452,7 @@
           }
         ],
         "path" : "Claim.item.encounter",
-        "short" : "(QI-Core) Encounters related to this billed item",
+        "short" : "(QI) Encounters related to this billed item",
         "type" : [
           {
             "code" : "Reference",

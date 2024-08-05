@@ -1,6 +1,24 @@
 {
   "resourceType": "StructureDefinition",
   "id": "qicore-procedurenotdone",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ProcedureNotDone"
+    }
+  ],
   "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone",
   "version": "6.0.0",
   "name": "QICoreProcedureNotDone",
@@ -38,192 +56,200 @@
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure",
   "derivation": "constraint",
   "differential": {
-    "element": [
-      {
-        "id": "Procedure",
-        "path": "Procedure",
-        "constraint": [
-          {
-            "key": "pnd-1",
-            "severity": "error",
-            "human": "to indicate what procedure was not performed, either at least one coding in the code or a notDoneValueSet extension shall be provided",
-            "expression": "code.extension(\u0027http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet\u0027).exists() xor code.coding.exists()"
-          }
-        ],
-        "mustSupport": false
+    "element" : [{
+      "id" : "Procedure",
+      "path" : "Procedure",
+      "constraint" : [{
+        "key" : "pnd-1",
+        "severity" : "error",
+        "human" : "to indicate what procedure was not performed, either at least one coding in the code or a notDoneValueSet extension shall be provided",
+        "expression" : "code.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor code.coding.exists()"
+      }],
+      "mustSupport" : false
+    },
+    {
+      "id" : "Procedure.extension:recorded",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.extension",
+      "sliceName" : "recorded",
+      "short" : "(QI) When the procedure was first captured in the subject's record",
+      "definition" : "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded"]
+      }]
+    },
+    {
+      "id" : "Procedure.basedOn",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.basedOn",
+      "short" : "(QI) A request for this procedure",
+      "definition" : "A reference to a resource that contains details of the request for this procedure.",
+      "alias" : ["fulfills"],
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "Procedure.basedOn",
+        "min" : 0,
+        "max" : "*"
       },
-      {
-        "id": "Procedure.extension:recorded",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Procedure.extension",
-        "sliceName": "recorded",
-        "short": "(QI-Core) When the procedure was first captured in the subject\u0027s record",
-        "definition": "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Procedure.basedOn",
-        "path": "Procedure.basedOn",
-        "short": "(QI-Core)(USCDI) A request for this procedure",
-        "definition": "A reference to a resource that contains details of the request for this procedure.",
-        "alias": [
-          "fulfills"
-        ],
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "Procedure.basedOn",
-          "min": 0,
-          "max": "*"
-        },
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
-            ]
-          }
-        ],
-        "mustSupport": false,
-        "isModifier": false,
-        "isSummary": true,
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ]
-      },
-      {
-        "id": "Procedure.status",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Procedure.status",
-        "short": "(QI-Core)(USCDI) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "not-done"
-      },
-      {
-        "id": "Procedure.statusReason",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Procedure.statusReason",
-        "short": "(QI-Core) Reason for the current status",
-        "min": 1,
-        "max": "1",
-        "binding": {
-          "strength": "extensible",
-          "description": "The reason the procedure was not done",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
-        }
-      },
-      {
-        "id": "Procedure.code",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Procedure.code",
-        "short": "(QI-Core)(USCDI) Identification of the procedure",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "condition": [
-          "pnd-1"
-        ]
-      },
-      {
-        "id": "Procedure.code.extension:notDoneValueSet",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Procedure.code.extension",
-        "sliceName": "notDoneValueSet",
-        "short": "(QI-Core) What was not performed",
-        "definition": "Specifies the value set that characterizes the events or activities that did not occur or were not performed.",
-        "requirements": "Must be able to indicate the value set from which the expected event would be drawn, had it occurred.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
-            ]
-          }
-        ],
-        "condition": [
-          "pnd-1"
-        ]
-      },
-      {
-        "id": "Procedure.subject",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Procedure.subject",
-        "short": "(QI-Core)(USCDI) Who the procedure was performed on",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Procedure.performed[x]",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Procedure.performed[x]",
-        "short": "(QI-Core)(USCDI) When the procedure was performed"
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"]
+      }],
+      "mustSupport" : false,
+      "isModifier" : false,
+      "isSummary" : true
+    },
+    {
+      "id" : "Procedure.status",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.status",
+      "short" : "(QI) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "code"
+      }],
+      "fixedCode" : "not-done",
+      "binding" : {
+        "strength" : "required",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/event-status"
       }
-    ]
+    },
+    {
+      "id" : "Procedure.statusReason",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.statusReason",
+      "short" : "(QI) Reason for the current status",
+      "min" : 1,
+      "max" : "1",
+      "binding" : {
+        "strength" : "extensible",
+        "description" : "The reason the procedure was not done",
+        "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
+      }
+    },
+    {
+      "id" : "Procedure.code",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.code",
+      "short" : "(QI) Identification of the procedure",
+      "min" : 1,
+      "max" : "1",
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "condition" : ["pnd-1"],
+      "binding" : {
+        "extension" : [{
+          "extension" : [{
+            "url" : "purpose",
+            "valueCode" : "current"
+          },
+          {
+            "url" : "valueSet",
+            "valueCanonical" : "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"
+          },
+          {
+            "url" : "documentation",
+            "valueMarkdown" : "US Core uses the current additional binding from FHIR R5 for this coded element for more flexibility when exchanging legacy and text-only data."
+          }],
+          "url" : "http://hl7.org/fhir/tools/StructureDefinition/additional-binding"
+        }],
+        "strength" : "preferred",
+        "description" : "Codes describing the type of  Procedure",
+        "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"
+      }
+    },
+    {
+      "id" : "Procedure.code.extension:notDoneValueSet",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.code.extension",
+      "sliceName" : "notDoneValueSet",
+      "short" : "(QI) What was not performed",
+      "definition" : "Specifies the value set that characterizes the events or activities that did not occur or were not performed.",
+      "requirements" : "Must be able to indicate the value set from which the expected event would be drawn, had it occurred.",
+      "min" : 0,
+      "max" : "1",
+      "type" : [{
+        "code" : "Extension",
+        "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"]
+      }],
+      "condition" : ["pnd-1"]
+    },
+    {
+      "id" : "Procedure.subject",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.subject",
+      "short" : "(QI) Who the procedure was performed on",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
+      }]
+    },
+    {
+      "id" : "Procedure.performed[x]",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.performed[x]",
+      "short" : "(QI) When the procedure was performed"
+    },
+    {
+      "id" : "Procedure.reasonCode",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.reasonCode",
+      "short" : "(QI) Coded reason procedure performed",
+      "binding" : {
+        "strength" : "extensible",
+        "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
+      }
+    },
+    {
+      "id" : "Procedure.reasonReference",
+      "extension" : [{
+        "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+        "valueBoolean" : true
+      }],
+      "path" : "Procedure.reasonReference",
+      "short" : "(QI) The justification that the procedure was performed",
+      "type" : [{
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+        "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
+        "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"]
+      }]
+    }
+   ]
   }
 }

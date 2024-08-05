@@ -1,4 +1,43 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+<!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+<b>Must Have:</b>
+<ul>
+<li>status: registered | partial | preliminary | final +</li>
+<li>category: (QI) Service category</li>
+<li>category: (QI) Service category</li>
+<li>code: US Core Laboratory Report Order Code</li>
+<li>subject: (QI) The subject of the report - usually, but not always, the patient</li>
+</ul>
+
+<b>QI Elements:</b>
+<ul>
+<li>basedOn: What was requested</li>
+<li>effective[x]: (QI) Diagnostically relevant time (typically the time of specimen collection)</li>
+<li>performer: (QI) Responsible Diagnostic Service</li>
+<li>result: (QI) Observations</li>
+</ul>
+
+<b>Primary code path:</b> code
+<br></br>
+(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
+<br></br>
+<br></br>
+
+<br></br>
+<b>NOTE TO BALLOT REVIEWERS:</b>
+<ul>
+<li>US Core 7.0, and thus QI-Core 7.0, has a new approach to USCDI requirements.</li>
+<ul>
+<li>As noted in the US Core 7.0 <a href='https://hl7.org/fhir/us/core/must-support.html#must-support-elements'>Must Support</a> section, US Core 7.0 no longer highlights mandatory (cardinality 1..* or 1..1) and Must Support elements with a (USCDI) indicator as such items must be supported for interoperability.</li>
+<li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
+</ul>
+<li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+</ul>
+<br></br>
+
+
+<!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
   <p>
   <tr>

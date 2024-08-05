@@ -6,8 +6,19 @@ This page lists the change history for each version of QI-Core.
 
 ### STU7-ballot (7.0.0)
 
-1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html))
+1. Update AllergyIntolerance, CarePlan, CareTeam, and Coverage profiles to address US Core 7.0([FHIR-45395](https://jira.hl7.org/browse/FHIR-45395)) Applied ([here](StructureDefinition-qicore-careplan.html)) and ([here](StructureDefinition-qicore-careteam.html))
+1. Update QI-Core Condition Encounter Diagnosis and QI-Core Condition Problems and Health Concerns Profiles to build off of US Core 7.0 ([FHIR-45396](https://jira.hl7.org/browse/FHIR-45396)) Applied ([here](StructureDefinition-qicore-condition-problems-health-concerns.html)) and ([here](StructureDefinition-qicore-condition-encounter-diagnosis.html))
+1. Update QICore DiagnosticReport Profile for Laboratory Results Reporting and QI Core DiagnosticReport Profile for Report and Note Exchange to reflect updates in US Core 7.0's respective profile ([FHIR-45397](https://jira.hl7.org/browse/FHIR-45397)) Applied ([here](StructureDefinition-qicore-diagnosticreport-lab.html))
+1. Update QICore Encounter profile to build off of US Core 7.0 Encounter profile ([FHIR-45398](https://jira.hl7.org/browse/FHIR-45398)) Applied ([here](StructureDefinition-qicore-encounter.html))
+1. Update QI-Core Immunization, QI-Core ImmunizationNotDone profiles to build from US 7.0 Core Immunization Profile ([FHIR-45400](https://jira.hl7.org/browse/FHIR-45400)) Applied ([here](StructureDefinition-qicore-immunizationnotdone.html))
+1. Update QI-Core Medication and QI-Core MedicationDispense and QI-Core MedicationDispenseDeclined profiles to build from US Core 7.0 Medication and MedicationDispense profiles ([FHIR-45402](https://jira.hl7.org/browse/FHIR-45402)) Applied ([here](StructureDefinition-qicore-medicationdispense.html)) and ([here](StructureDefinition-qicore-medicationdispensedeclined.html))
+1. Update QI-Core ObservationClinicalResult and QI-Core LaboratoryResultObservation Profile to reflect changes in US Core 7.0 ([FHIR-45416](https://jira.hl7.org/browse/FHIR-45416)) Applied ([here](StructureDefinition-qicore-observation-clinical-result.html)) and ([here](StructureDefinition-qicore-observation-lab.html))
+1. Update QI-Core ObservationScreeningAssessment to reflect changes in US Core 7.0([FHIR-45417](https://jira.hl7.org/browse/FHIR-45417)) Applied ([here](StructureDefinition-qicore-observation-screening-assessment.html))
+1. Update QI-Core Related Person to reflect changes in US Core 7.0([FHIR-45427](https://jira.hl7.org/browse/FHIR-45427)) Applied ([here](StructureDefinition-qicore-relatedperson.html))
 1. limit subject reference in AdverseEvent to patient([FHIR-45693](https://jira.hl7.org/browse/FHIR-45693)) Applied ([here](StructureDefinition-qicore-adverseevent.html))
+1. Update QI-Core Claim to include key elements for present on admission and principal diagnosis([FHIR-45959](https://jira.hl7.org/browse/FHIR-45959)) Applied ([here](StructureDefinition-qicore-claim.html))
+1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html))
+
 
 ### STU6 Release (6.0.0)
 
@@ -284,13 +295,13 @@ This page lists the change history for each version of QI-Core.
 
 
 
-### STU4.1 Release with 1 Technical Errata for FHIR R4 (v4.1.1) 
+### STU4.1 Release with 1 Technical Errata for FHIR R4 (v4.1.1)
 
 
 * [FHIR-35873](https://jira.hl7.org/browse/FHIR-35873): Corrected version-independent links to USCore throughout
 * [FHIR-35802](https://jira.hl7.org/browse/FHIR-35802): Corrected negation examples and added guidance for usage of valueset-based negation
 
-### STU4.1 Release for FHIR R4 (v4.1.0) 
+### STU4.1 Release for FHIR R4 (v4.1.0)
 
 
 1. Broken Link for QUICK AdverseEvent actuality value set binding ([FHIR-23934](https://jira.hl7.org/browse/FHIR-23934))
@@ -354,7 +365,7 @@ This page lists the change history for each version of QI-Core.
 1. Add Must Support for ServiceRequest.intent, MedicationRequest.intent, NutritionOrder.intent, NutritionOrder.status ([FHIR-33027](https://jira.hl7.org/browse/FHIR-33027))
 1. Update identifiers throughout ([FHIR-33085](https://jira.hl7.org/browse/FHIR-33085))
 1. Remove Authoring section ([FHIR-33260](https://jira.hl7.org/browse/FHIR-33260))
-  
+
 
 
 #### The following tickets listed below were incorporated from the **US Core errata (3.1.1)**:
@@ -405,7 +416,7 @@ This page lists the change history for each version of QI-Core.
 * Fix Link to LOINC LP29708-2 ([FHIR-25213](https://jira.hl7.org/browse/FHIR-25213))
 * Corrected guidance for conveying Patient-Reported medications ([FHIR-25035](https://jira.hl7.org/browse/FHIR-25035))
 
-### STU4 Release for FHIR R4 (v4.0.0) 
+### STU4 Release for FHIR R4 (v4.0.0)
 
 
 * Created negation profiles
@@ -414,7 +425,7 @@ This page lists the change history for each version of QI-Core.
 * Updated QDM-to-QI-Core mapping
 * Added negation reason value set and bindings
 
-### STU4 Ballot for FHIR R4 (v3.3.0) 
+### STU4 Ballot for FHIR R4 (v3.3.0)
 
 
 * Updated profiles to be based on FHIR R4 and US Core STU 3
@@ -425,13 +436,13 @@ This page lists the change history for each version of QI-Core.
 * #22646 Relaxed Must Support requirement on some fields of Immunization and ImmunizationRecommendation profiles
 * #14991 Added an example of using body position with an Observation
 
-### STU3.2 Release for FHIR STU3 (v3.2.0) 
+### STU3.2 Release for FHIR STU3 (v3.2.0)
 
 
 * Updated profiles to be based on US Core 2.0.0
 * Derived Encounter and PractitionerRole profiles from US Core profiles
 
-### STU3 Release for FHIR STU3 (v3.1.0) 
+### STU3 Release for FHIR STU3 (v3.1.0)
 
 
 * Added profile for PractitionerRole and removed Practitioner.role extension
@@ -439,7 +450,7 @@ This page lists the change history for each version of QI-Core.
 * Established pattern for representing QDM Principal Diagnosis in Encounters
 * Relaxed conformance requirements from all profiles to profiles that are relevant to a particular use case
 
-### STU3 Ballot for FHIR STU3 (v2.1.0) 
+### STU3 Ballot for FHIR STU3 (v2.1.0)
 
 
 * Incorporates ballot reconciliation from all comments from the September 2016 ballot which have been applied to FHIR 3.0 and US Core Release 1.0.1
@@ -447,7 +458,7 @@ This page lists the change history for each version of QI-Core.
 * Includes an updated Mapping table from the QI-Core metadata to QDM 5.3
 * Includes a direct mapping from QDM version 5.3 to QI Core
 
-### STU2 Release for FHIR STU3 (v2.0.0) 
+### STU2 Release for FHIR STU3 (v2.0.0)
 
 
 * Updated to FHIR STU3 (3.0.1)
@@ -457,7 +468,7 @@ This page lists the change history for each version of QI-Core.
 * Changed AdverseEvent profile to use the base resource
 * Numerous typographical and technical errors corrected
 
-### STU2 Ballot for FHIR STU3 Ballot (v1.6.0) 
+### STU2 Ballot for FHIR STU3 Ballot (v1.6.0)
 
 
 * Moved out of main FHIR publication package to its own home
@@ -465,14 +476,14 @@ This page lists the change history for each version of QI-Core.
 * Added an additional profile on Condition
 * The QUICK logical model is included
 
-### STU1 Release for FHIR DSTU2 (v1.0.2) 
+### STU1 Release for FHIR DSTU2 (v1.0.2)
 
 DSTU 1 (Permanent home)
 
-### DSTU1 Preview for FHIR STU1 (v1.0.0) 
+### DSTU1 Preview for FHIR STU1 (v1.0.0)
 
 DSTU1 Preview
 
-### DSTU1 Ballot for FHIR STU1 (v0.5.0) 
+### DSTU1 Ballot for FHIR STU1 (v0.5.0)
 
 DSTU1 Ballot

@@ -1,10 +1,6 @@
 {
   "resourceType": "ValueSet",
   "id": "qicore-negation-reason",
-  "text": {
-    "status": "generated",
-    "div": "<div xmlns=\"http://www.w3.org/1999/xhtml\"><h2>Negation Reason Codes</h2><div><p>This value set defines the set of codes that can be used to indicate the reason an action was not taken</p>\n</div><ul><li>Import all the codes that are contained in http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.56, http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.58, http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1009</li></ul></div>"
-  },
   "url": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason",
   "version": "4.0.0",
   "name": "NegationReasonCodes",
@@ -25,13 +21,13 @@
       ]
     }
   ],
-  "purpose": "This value set was defined to support identifying any of the possible negation reason codes as part of QICore profiles. The value set is composed of the codes from [Medical Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.56), [Patient Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.58), and [System Reason](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1009) as defined and available in the Value Set Authority Center.",
+  "purpose": "This value set was defined to support identifying any of the possible negation reason codes as part of QICore profiles. The value set is composed of the codes from [Medical Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1007), [Patient Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1008), and [System Reason](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1009) as defined and available in the Value Set Authority Center. The value set exists to support measure developers need to reference medical, patient, and system reasons for processes not performed and it is a grouping of VSAC value sets.  Therefore, retain binding to the QI-Core value set in the profiles that use the extension.  It only exists to support bindings to capture a reason for negative.",
   "compose": {
     "include": [
       {
         "valueSet": [
-          "http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.56",
-          "http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1021.58",
+          "http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1007",
+          "http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1008",
           "http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1009"
         ]
       }

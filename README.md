@@ -2,7 +2,7 @@
 # Quality Improvement Core Profiles (QI-Core)
 This repository contains the source for the QI-Core implementation guide, which defines a set of FHIR profiles and extensions for use in clinical quality measurement and decision support. The implementation guide is the result of a harmonization of data requirements between the Quality Data Model (QDM) and the virtual Medical Record (vMR).
 
-The implementation guide is based on [FHIR version 4.0.1 (R4 release)](http://hl7.org/fhir/R4/index.html) and depends on the [US Core implementation guide (STU 6)](http://hl7.org/fhir/us/core/).
+The implementation guide is based on [FHIR version 4.0.1 (R4 release)](http://hl7.org/fhir/R4/index.html) and depends on the [US Core implementation guide (STU 7)](http://hl7.org/fhir/us/core/).
 
 Commits to this repository will automatically trigger a new build of the IG, which will then be published to the following location:
 

@@ -5,8 +5,11 @@
   <extension url="http://hl7.org/fhir/StructureDefinition/structuredefinition-wg">
     <valueCode value="cqi"/>
   </extension>
+  <extension url="http://hl7.org/fhir/StructureDefinition/cqf-modelInfoSettings">
+    <valueReference value="Parameters/qicore-modelinfosettings"/>
+  </extension>
   <url value="http://hl7.org/fhir/us/qicore/ImplementationGuide/us-qicore"/>
-  <version value="6.0.0"/>
+  <version value="7.0.0-ballot"/>
   <name value="QICore"/>
   <title value="QI-Core Implementation Guide"/>
   <status value="active"/>
@@ -32,17 +35,17 @@
   <dependsOn id="uscore">
     <uri value="http://hl7.org/fhir/us/core/ImplementationGuide/hl7.fhir.us.core"/>
     <packageId value="hl7.fhir.us.core"/>
-    <version value="6.1.0"/>
+    <version value="7.0.0"/>
   </dependsOn>
   <dependsOn id="dicom">
     <uri value="http://fhir.org/packages/fhir.dicom/ImplementationGuide/fhir.dicom"/>
     <packageId value="fhir.dicom"/>
-    <version value="2024.1.20240120"/>
+    <version value="2024.2.20240331"/>
   </dependsOn>
   <dependsOn id="terminology">
     <uri value="http://terminology.hl7.org/ImplementationGuide/hl7.terminology"/>
     <packageId value="hl7.terminology"/>
-    <version value="5.4.0"/>
+    <version value="6.0.2"/>
   </dependsOn>
   <global>
     <type value="Patient"/>
@@ -651,6 +654,14 @@
     </resource>
     <resource>
       <reference>
+        <reference value="Parameters/qicore-modelinfosettings"/>
+      </reference>
+      <name value="QICore ModelInfo Settings example"/>
+      <description value="QICore ModelInfo Settings Example"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
         <reference value="Patient/example"/>
       </reference>
       <name value="Patient example"/>
@@ -853,10 +864,10 @@
     <generation value="markdown"/>
   </page>
   <page>
-        <nameUrl value="negation.html"/>
-        <title value="QI-Core Negation"/>
-        <generation value="markdown"/>
-      </page>
+    <nameUrl value="negation.html"/>
+    <title value="QI-Core Negation"/>
+    <generation value="markdown"/>
+  </page>
   <page>
     <nameUrl value="patterns.html"/>
     <title value="QI-Core Patterns"/>
@@ -893,15 +904,21 @@
     <generation value="markdown"/>
   </page>
   <page>
+    <nameUrl value="qi-elements.html"/>
+    <title value="QI Key Elements"/>
+    <generation value="markdown"/>
+  </page>
+  <page>
     <nameUrl value="changes.html"/>
     <title value="Changes"/>
     <generation value="markdown"/>
   </page>
 </page>
+  
 
 <parameter>
   <code value="releaselabel"/>
-  <value value="STU6"/>
+  <value value="STU7-ballot"/>
 </parameter>
 <parameter>
   <code value="copyrightyear"/>
