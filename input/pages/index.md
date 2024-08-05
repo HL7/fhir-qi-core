@@ -4,15 +4,35 @@
 {:.stu-note}
 > This STU 7.0.0-ballot update to the QI-Core profiles aligns with US-Core STU v7.0.0. For a complete list of changes in this version, please refer to the version history.
 
+<div class="note-to-balloters" markdown="1">
+> 
+> Some QI-Core users have requested addition of a section on each QI-Core profile page indicating those elements identified as essential for expressing data required for measure and clinical decision support artifacts.  
+> 
+> Please provide feedback or suggested edits for the new sections.
+
+> NOTE TO REVIEWERS:
+
+* US Core 7.0, and thus QI-Core 7.0, has a new approach to USCDI requirements.
+    * As noted in the US Core 7.0 [Must Support](https://hl7.org/fhir/us/core/must-support.html#must-support-elements) section, US Core 7.0 no longer highlights mandatory (cardinality 1..* or 1..1) and Must Support elements with a (USCDI) indicator as such items must be supported for interoperability.
+    * Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.
+* We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.
+* Further, QI-Core 7.0 does not discuss [USCDI+Quality](https://uscdiplus.healthit.gov/uscdi) because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.
+
+</div>
+
+<div class="new-content" markdown="1">
+{{ site.data.new_items.list[0].desc }}
+</div>
 
 {: #qi-core-implementation-guide}
+
 
 ### Summary
 {: #summary}
 
 The QI-Core Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create
 interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the
-[US Core]({{site.data.fhir.ver.uscore}}) profiles to provide a common foundation for building, sharing, and evaluating
+Core profiles to provide a common foundation for building, sharing, and evaluating
 knowledge artifacts across quality improvement efforts in the US Realm.
 
 As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring workgroup,
@@ -26,9 +46,13 @@ Implementation Guide.
 This guide is divided into pages which are listed at the top of each page in the menu bar:
 
 * **[Home](index.html)**: The home page provides summary and background information
+
+<div class="new-content" markdown="1">
 * **Profiles**
     * **[QI-Core Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
     * **[QI Elements](qi-elements.html)**: The QI Elements page provides a complete listing of all the QI Elements in each profile used by QI-Core
+</div>
+
 * **[QI-Core Negation](negation.html)**: The negations page describes QI-Core Negation
 * **[Patterns](patterns.html)**: The patterns page describes patterns of usage for QI-Core applications
 * **[Model Info](modelinfo.html)**: The model info page provides the QI-Core model information to support implementation
@@ -67,25 +91,24 @@ clinical best practices have been followed. It therefore makes intuitive sense t
 for both types of applications.
 
 
-This initiative began in 2013 with the creation of the [Quality Improvement Domain Analysis Model (QIDAM)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378), which drew on the vMR and QDM as sources of requirements. The goal was to align on a unified logical model, Quality Information and Clinical Knowledge (QUICK), consisting of objects, attributes, and relationships such that the QUICK model could reference specific Quality Improvement Core (QI-Core) profiles aligned with specific versions of FHIR. The first QUICK model representations included a logical view derived from the corresponding FHIR profiles for the respective version of FHIR upon which QI-Core profiles are based. Recognizing the broader community focus on FHIR, QUICK logical view was aligned, structurally and semantically, as closely as possible to FHIR. While this alignment creates a common model for quality and interoperability that more easily leverages future FHIR-related efforts including Clinical Document Architecture (CDA) on FHIR. However, we recognize that defining a different conceptual/logical model for quality improvement capability splits the focus of the community. The QI-Core profiles represent the most appropriate place for the mindshare and consensus development of the exchange semantics for quality improvement use cases. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles, and a Must Support view indicating all Must Support elements for each respective QI-Core profile.
+This initiative began in 2013 with the creation of the [Quality Improvement Domain Analysis Model (QIDAM)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378), which drew on the vMR and QDM as sources of requirements. The result, Quality Improvement Core (QI-Core) profiles consist of objects, attributes, and relationships as a common model for quality and interoperability that leverages US Core and other FHIR-related efforts and Clinical Document Architecture (CDA) on FHIR. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles including US Core defined Must Support elements and Key Element Table specifying elements spcifically significanty for each respective QI-Core profile.
 
 
 ### Relevance of QI-Core Profiles to Authors
 
+<div class="new-content" markdown="1">
+
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
 quality measures (CQM) and CDS, thus providing a common foundation for reusability. QI-Core
-derives content from US Core profiles and extensions to the extent possible. The expectation is that QI-Core will continue to grow in concert with
-US Core by incorporating needed extensions with broad applicability. Further extensions and
-coordinated profiles may be required in specific domains beyond QI-Core, e.g., radiology-specific profiles. The CQI and CDS Work Groups
+derives content from US Core profiles and extensions to the extent possible. The CQI Workgroup expects that QI-Core will continue to grow in concert with
+US Core by incorporating needed extensions with broad applicability. To the extent possible, CQM and CDS authors should incorporate published domain-specific profiles to express content as much as possible rather than duplicating such concepts in QI-Core (e.g., minimum Common Oncology Data Elements (mCode)). The CQI and CDS Work Groups
 coordinate with HL7 Work Groups that manage specific FHIR resources to align definitions and value sets including
-concepts required for CDS and retrospective CQM use cases. When additional classes and attributes are needed for
-specific quality applications, they can be added through FHIR's extension mechanism. These extensions, however, would
-not automatically result in shareable artifacts without additional coordinating agreements between interested parties.
-It is expected that QI-Core will evolve to include some of the extensional content when the community
-identifies a common need and the additional content has been validated.
+concepts required for CDS and retrospective CQM use cases. Additional classes and attributes needed for
+specific quality applications can be added through FHIR's extension mechanism. This QI-Core STU 7.0 uses FHIR extensions promoted from the previous Clinical Quality Framework (CQF) extensions to improve shareablility. QI-Core will evolve to include more of the extensional content when the community
+identifies a common need, and the additional content has been validated.
 
-QI-Core profile authoring will provide a more facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
-
+QI-Core profile authoring provides a relatively facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
+</div>
 
 ### Scope
 
@@ -99,11 +122,11 @@ decision support. The profiles in this implementation guide will be used to meet
 This IG is focused on representation of clinical data and is limited in breadth to the profiles currently included in
 QI-Core. Not all FHIR resources are profiled, especially those that do not have clinical value in the context of quality
 improvement, or do not map to QIDAM. Additional extensions may be added to the current set of profiles, and additional
-profiles may be added at a later time. In particular, QI-Core represents a subset of the semantics covered in QIDAM,
+profiles may be added later. QI-Core represents a subset of the semantics covered in QIDAM,
 vMR, and QDM. The parts of the latter specifications that are not in the QI-Core profiles could be handled with
 additional profiles, if the DSTU period reveals the need for such additions. Keeping the QI-Core profiles in
 line with FHIR and FHIR's "80%" rule is one way to make sure that the quality artifacts produced from QI-Core
-are computable, based on commonly-collected clinical data. The current set of profiles will evolve to reflect changes to
+are computable, based on commonly collected clinical data. The current set of profiles will evolve to reflect changes to
 the underlying FHIR resources.
 
 The following topics are explicitly out of scope for this implementation guide:
@@ -118,7 +141,7 @@ Some of the above topics are under active investigation and will be topics of fu
 the FHIR [Clinical Reasoning]({{site.data.fhir.path}}clinicalreasoning-module.html) module provides resources and
 guidance representing and evaluating quality improvement artifacts within FHIR.
 
-Changes in QI-Core STU 6.0 scope include a simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 6.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
+Consistent with changes in QI-Core STU 6.0, this STU 7.0 includes simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 7.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
 
 
 ### Privacy, Security, and Consent
@@ -129,7 +152,11 @@ the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.
 considerations relate to any FHIR implementation, including authentication, authorization, access control
 consistent with patient consent, transaction logging, and following best practices. QI-Core security conformance rules are as follows:
 
+<div class="new-content" markdown="1">
+
 -  Systems **SHOULD** refer to BCP195 to ensure transmissions are taking place over a secure network connection.
+</div>
+
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
 -  Systems **SHOULD** use either IHE's ATNA standard for audit logging or an equivalent using the AuditEvent resource.
 
@@ -184,22 +211,27 @@ definitions of extensions and mappings to QDM as an aid for current users of QDM
 
 ### MustSupport Flag
 
-QI-Core derives from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected.
+<div class="new-content" markdown="1">
+
+QI-Core inherits Must Support references from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected; QI-Core does not add any Must Support elements.
 
 QI-Core flags elements that the quality improvement community has identified as significant to express the full intent of measures 
 and CDS artifacts or those that are used in established measures or CDS support services. Implementers are only required to support 
 these additional elements when they are used in the measures or CDS artifacts implemented on or otherwise supported by the system. 
 Since not all artifacts use each of these additional elements, QI-Core does not use the “MustSupport” flag to indicate these elements. 
-Instead, “(QI-Core)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table, 
+Instead, “(QI)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table, 
 and the computable [QI-Core Key Element Extension](StructureDefinition-qicore-keyelement.html) is added to each element definition. This approach 
-is inspired by the way that [US Core communicates USCDI requirements](https://hl7.org/fhir/us/core/must-support.html#uscdi-requirements) and allows IGs that extend QI-Core, such as those representing data 
-requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use.
+allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use.
+is inspired by the way that [US Core communicates USCDI requirements](https://hl7.org/fhir/us/core/must-support.html#uscdi-requirements) and 
+allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements 
+for those QI-Core-flagged elements that they do not use.
 
 Quality improvement artifacts communicate the elements they reference using the DataRequirement structure in FHIR. This structure allows 
-the base resource type and profile to be specified, as well as a mustSupport element that indicates which elements of the resource and 
+the base resource type and profile to be specified, as well as a MustSupport element that indicates which elements of the resource and 
 profile are reference by the logic. Implementers can use this information directly from the effective data requirements to determine 
-which elements must be provided in order to achieve a successful evaluation of the artifact. In addition, repositories and publishers may 
+which elements must be provided to achieve a successful evaluation of the artifact. In addition, repositories and publishers may 
 make use of this information to define artifact-specific profiles using the effective data requirements provided by the artifact.
+</div>
 
 ### Modifying Attributes
 
@@ -209,7 +241,7 @@ Examples of modifying elements include status (in many resources), negations (e.
 and certainty qualifications (e.g. Observation.reliability). Decision support and
 quality implementations MUST always check the values of modifying elements. For example, in processing an Immunization
 resource, the application must inspect the "wasNotGiven" element to determine whether the immunization was given or was
-not given to the patient. For this reason, modifying elements SHALL be treated as MustSupport, even if not declared.
+not given to the patient. For this reason, applications that make use of resources must make sure they handle modifier elements appropriately.
 
 
 
@@ -254,7 +286,7 @@ systems should use one of the ten QI-Core specific *negation* *rationale* profil
 Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data
 owners to translate local data into the required vocabulary. As a US Realm product, QI-Core requires value sets and
 vocabularies referenced in the ONC Common Clinical Data Set (CCDS) and the US Core Data for Interoperability. Because
-QI-Core is expected to be applied outside the US Realm, and also in clinical settings where local terminologies exist,
+QI-Core is expected to be applied outside the US Realm, and in clinical settings where local terminologies exist,
 US Realm bindings could be  accompanied by alternative codes as translation codes in the QI-Core profiles. In the case
 that the US Core Data for Interoperability adopts QI-Core and CQL, policy should be created to mandate the
 preferred bindings given in the standard.
@@ -268,7 +300,7 @@ but within any given artifact, instances will typically use a restricted value s
 ### Resource References and "Any"
 
 FHIR resources frequently contain references (pointers) to other FHIR resources. For example, Encounter.patient is a
-reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resourcegs. For example,
+reference to a Patient resource. In QI-Core, most references are constrained to QICore-profiled resources. For example,
 QICore-Encounter.patient must point to a Patient resource that conforms to the QICore-Patient profile. Consequently, any
 extensions or bindings expected to exist in QICore-Patient are also present in the resource pointed to by
 Encounter.patient. References to QI-Core extensions accessed through references are guaranteed to be valid. References to resources that do not currently have
@@ -284,7 +316,11 @@ the resources in "Any" references SHALL conform to QI-Core profiles if the base 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
 -  Implementations **SHALL** support all profile types in the QI-Core set (listed in the [profiles](profiles.html) page) for resources they exchange
+
+<div class="new-content" markdown="1">
 -  This IG does not define the capability statements as it does not address accessing patient level data directly via API calls; however, server implementations **SHALL** declare their support of the QI-Core profiles in a FHIR CapabilityStatement.
+</div>
+
 -  Conformant servers will at minimum support FHIR's read and search operations
 -  Servers **SHALL** supply the MustSupport data elements whenever that data is available
 -  Quality improvement applications **SHALL** recognize and process all MustSupport elements in QI-Core
@@ -310,6 +346,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 |Jason Walonoski|The MITRE Corporation|Contributor|
 |Jen Seeman|ICF|Editor|
 |Juliet Rubini|ICF|Contributor|
+|Karl Naden|The MITRE Corporation|Contributor|
 |Linda Michaelsen|Optum|Contributor|
 |Mark Kramer|The MITRE Corporation|Originator|
 |Jason Mathews|The MITRE Corporation|Originator|

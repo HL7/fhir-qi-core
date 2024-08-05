@@ -112,6 +112,21 @@
         "fixedBoolean": false
       },
       {
+        "id" : "ServiceRequest.encounter",
+        "path" : "ServiceRequest.encounter",
+        "short" : "Encounter in which the request was created",
+        "definition" : "An encounter that provides additional information about the healthcare context in which this request is made.",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "isModifier" : false
+      },
+      {
         "id" : "ServiceRequest.code",
         "extension": [
           {
@@ -299,7 +314,10 @@
             "code": "Reference",
             "targetProfile": [
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns"
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
+              "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation"
             ],
             "_targetProfile": [
               {
