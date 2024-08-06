@@ -148,7 +148,7 @@ See the <a href="MedicationAdministration-negation-with-code-example.html">Medic
 
 This is applicable when a measure criterion can be satisfied when none of the medications in a value set is administered for a specified reason. This can occur when the no treatment of the type included in the value set is appropriate. The approach provided allows systems to document using one profiled data instance that none of the activities in a particular value set were performed, rather than requiring documentation of multiple individual activities from the value set.
 
-The following example documents that providers did not prescribe any of the medications in the “Antithrombotic Therapy for Ischemic Stroke” value set using the <a href="StructureDefinition-qicore-notDoneValueSet.html">notDoneValueSet</a> extension fulfills criteria for the numerator:
+The following example documents that providers did not prescribe any of the medications in the “Antithrombotic Therapy for Ischemic Stroke” value set using the <a href="http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet">notDoneValueSet</a> extension fulfills criteria for the numerator:
 
 **NOTE:** Implementing systems must ensure that this approach does not result in conflicting data. For example, the above example indicating no administration of a medication in the Antithrombotic Therapy value set should not be used if there are administrations of individual medications in the same value set. In other words, it is a contradiction to say “a provider administered a specific medication” at the same time as “a provider did not administer any of the medications in this value set” if that value set includes the medication that was administered in the specific case.
 
@@ -195,7 +195,7 @@ See the <a href="MedicationAdministration-negation-example.html">MedicationAdmin
 
 "extension" : [{
 
-"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet",
+"url" : "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet",
 
 "valueCanonical" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.62"
 
