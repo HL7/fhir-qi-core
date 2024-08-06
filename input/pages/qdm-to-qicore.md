@@ -43,7 +43,7 @@ QI-Core addresses these changes as follows:
 
 1) Observations
 
-QI-Core STU 6 includes 7 observation-related profiles that provide QI-Core-specific constraints with reference to the respective US Core profile. These six observations include:
+QI-Core STU 7 includes 7 observation-related profiles that provide QI-Core-specific constraints with reference to the respective US Core profile. These six observations include:
 a)	[QICore Simple Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation.html) – used to capture any “simple” type of observation that is not classified as vital signs, laboratory, imaging, or other more specific observation types; generally used with QDM “Assessment, Performed”
 b)	[QICore ObservationCancelled](http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled) – used to reference indication that any given observation did not occur for a specific reason; US Core does not include such a profile to address the QDM concept of negation rationale (See section 3.0 QI-Core Negation for a comprehensive description)
 c)	[QICore Observation Clinical Result](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-clinical-result.html) – generally used with QDM “Diagnostic Study, Performed”; based on US Core 7.0.0 Observation Clinical Result, includes non-laboratory clinical test results
