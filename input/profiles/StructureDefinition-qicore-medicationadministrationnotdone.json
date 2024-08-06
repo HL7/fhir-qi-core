@@ -65,7 +65,7 @@
               "key" : "mna-1",
               "severity" : "error",
               "human" : "To indicate what medication was not administered, either at least one coding in the medication or a notDoneValueSet extension shall be provided",
-              "expression" : "medication.extension('http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet').exists() xor medication.coding.exists()",
+              "expression" : "medication.extension('http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet').exists() xor medication.coding.exists()",
               "xpath" : "exists(f:extension)"
             }
           ],
@@ -149,14 +149,13 @@
           ],
           "path" : "MedicationAdministration.medication[x]",
           "short" : "(QI) What was administered",
-          "type" : [
-            {
-              "code" : "CodeableConcept"
-            }
-          ],
-          "condition" : [
-            "mna-1"
-          ],
+          "type" : [{
+                "code" : "CodeableConcept"
+           },
+         {
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
+           }],
           "binding" : {
             "strength" : "preferred",
             "description" : "The set of RxNorm codes to represent medications",
@@ -180,7 +179,7 @@
             {
               "code" : "Extension",
               "profile" : [
-                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-notDoneValueSet"
+                "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
               ]
             }
           ],
@@ -248,12 +247,10 @@
           ],
           "path" : "MedicationAdministration.request",
           "short" : "(QI) Request administration performed against",
-          "type" : [
+          "type": [
             {
               "code" : "Reference",
-              "targetProfile" : [
-                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"
-              ]
+              "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"]
             }
           ]
         }
