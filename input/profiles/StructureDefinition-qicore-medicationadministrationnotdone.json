@@ -149,15 +149,13 @@
           ],
           "path" : "MedicationAdministration.medication[x]",
           "short" : "(QI) What was administered",
-          "type" : [
-            {
-              "code" : "Reference",
-              "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
-            }
-          ],
-          "condition" : [
-            "mna-1"
-          ],
+          "type" : [{
+                "code" : "CodeableConcept"
+           },
+         {
+        "code" : "Reference",
+        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
+           }],
           "binding" : {
             "strength" : "preferred",
             "description" : "The set of RxNorm codes to represent medications",
