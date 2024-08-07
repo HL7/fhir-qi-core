@@ -94,33 +94,6 @@
         "definition": "Whether the request is a proposal, plan, an original order or a reflex order."
       },
       {
-        "id": "ServiceRequest.doNotPerform",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason",
-            "valueCodeableConcept": {
-              "coding": [
-                {
-                  "system": "http://snomed.info/sct",
-                  "code": "416406003",
-                  "display": "Procedure discontinued (situation)"
-                }
-              ]
-            }
-          }
-        ],
-        "path": "ServiceRequest.doNotPerform",
-        "short": "(QI) True if service/procedure should not be performed",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "boolean"
-          }
-        ],
-        "fixedBoolean": true
-      },
-      {
         "id": "ServiceRequest.code.extension:notDoneValueSet",
         "extension": [
           {
