@@ -76,6 +76,8 @@ In the following example the measure numerator criterion allows for documentatio
 
 See the <a href="MedicationAdministration-negation-with-code-example.html">MedicationAdministration</a> example using a specific code) for a complete example.
 
+<div class="new-content" markdown="1">
+
 ```json
 {
 
@@ -144,6 +146,8 @@ See the <a href="MedicationAdministration-negation-with-code-example.html">Medic
 }
 ```
 
+</div>
+
 #### Documenting no members of an entire value set were performed for a given reason.
 
 This is applicable when a measure criterion can be satisfied when none of the medications in a value set is administered for a specified reason. This can occur when the no treatment of the type included in the value set is appropriate. The approach provided allows systems to document using one profiled data instance that none of the activities in a particular value set were performed, rather than requiring documentation of multiple individual activities from the value set.
@@ -153,6 +157,8 @@ The following example documents that providers did not prescribe any of the medi
 **NOTE:** Implementing systems must ensure that this approach does not result in conflicting data. For example, the above example indicating no administration of a medication in the Antithrombotic Therapy value set should not be used if there are administrations of individual medications in the same value set. In other words, it is a contradiction to say “a provider administered a specific medication” at the same time as “a provider did not administer any of the medications in this value set” if that value set includes the medication that was administered in the specific case.
 
 See the <a href="MedicationAdministration-negation-example.html">MedicationAdministration example using a value set</a> for a complete example.
+
+<div class="new-content" markdown="1">
 
 ```json
 {
@@ -221,6 +227,8 @@ See the <a href="MedicationAdministration-negation-example.html">MedicationAdmin
 
 }
 ```
+
+</div>
 
 ### Negation in CQL
 
