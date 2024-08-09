@@ -58,6 +58,28 @@
   "differential": {
     "element": [
       {
+        "id" : "MedicationDispense.extension:recorded",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "MedicationDispense.extension",
+        "sliceName" : "recorded",
+        "short" : "(QI) Extension",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/5.0/StructureDefinition/extension-MedicationDispense.recorded"
+            ]
+          }
+        ]
+      },
+      {
         "id": "MedicationDispense.status",
         "extension": [
           {
