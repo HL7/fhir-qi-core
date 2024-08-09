@@ -72,22 +72,36 @@
         "mustSupport" : false
       },
       {
+        "id" : "DeviceRequest.modifierExtension:doNotPerform",
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }],
+        "path" : "DeviceRequest.modifierExtension",
+        "sliceName" : "doNotPerform",
+        "short" : "(QI) Extension",
+        "min" : 1,
+        "max" : "1",
+        "type" : [{
+          "code" : "Extension",
+          "profile" : ["http://hl7.org/fhir/5.0/StructureDefinition/extension-DeviceRequest.doNotPerform"]
+        }],
+        "isModifier" : true,
+        "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"
+      },
+      {
         "id" : "DeviceRequest.modifierExtension:doNotPerform.value[x]",
-        "extension" : [
-          {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
-          }
-        ],
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }],
         "path" : "DeviceRequest.modifierExtension.value[x]",
         "short" : "(QI) Value of extension",
         "min" : 1,
         "max" : "1",
-        "type" : [
-          {
-            "code" : "boolean"
-          }
-        ],
+        "type" : [{
+          "code" : "boolean"
+        }],
         "fixedBoolean" : true
       },
       {
