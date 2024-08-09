@@ -183,7 +183,12 @@ Assessment, Order uses the ServiceRequest resource. The codes for ordering speci
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html) and reference the code element specified in the respective observation profile:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.extension.code:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -239,7 +244,12 @@ single observable entity that is part of such a collection of questions.
 ##### Negation Rationale for Assessment, Performed
 Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html) and reference the code element specified in the respective observation profile:
 * [Observation.status](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.status) - Fixed as "cancelled"
-* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [Observation.extension:event-StatusReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:event-statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [Observation.issued](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.issued) - When this was made available
 * [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific Observation that was not performed
 
@@ -277,7 +287,12 @@ Assessment, Recommended uses the ServiceRequest resource. The codes for recommen
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html) and reference the code element specified in the respective observation profile:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -431,7 +446,7 @@ Encounter**
 | medium                  | [Communication.medium](StructureDefinition-qicore-communication-definitions.html#Communication.medium)  |  How communication occurs (e.g., physical presence, online written, email, handwritten, etc.). This element is not present in the QI-Core profile Key Elements Table.  |
 | sentDatetime            | [Communication.sent](StructureDefinition-qicore-communication-definitions.html#Communication.sent)    |     When sent     |
 | receivedDatetime        | [Communication.received](StructureDefinition-qicore-communication-definitions.html#Communication.received)  | When received  |
-| authorDatetime          | [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) | Use of this QDM attribute is restricted to the QDM negation rationale use case. It does not apply to a communication with any status other than “not-done”. See Negation Rationale for Communication, Performed. |
+| authorDatetime          | [Communication.extension:event-recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:event-recorded) | Use of this QDM attribute is restricted to the QDM negation rationale use case. It does not apply to a communication with any status other than “not-done”. See Negation Rationale for Communication, Performed. |
 | relatedTo               | [Communication.basedOn](StructureDefinition-qicore-communication-definitions.html#Communication.basedOn)  | An order, proposal or plan fulfilled in whole or in part by this Communication. No current measures require this attribute. Therefore, this element is not present in the QI-Core profile Key Elements Table  |
 |                         | [Communication.inResponseTo](StructureDefinition-qicore-communication-definitions.html#Communication.inResponseTo) | Response to a communication   |
 | sender                  | [Communication.sender](StructureDefinition-qicore-communication-definitions.html#Communication.sender)  |  Message sender  |
@@ -444,7 +459,12 @@ Encounter**
 Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html), which contains:
 * [Communication.status](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.status) - Fixed Value: "not-done"
 * [Communication.statusReason](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
-* [Communication.extension:recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:recorded) - dateTime when this was made available
+
+<div class="new-content" markdown="1">
+
+* [Communication.extension:event-recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:event-recorded) - dateTime when this was made available
+</div>
+
 * [Communication.topic.extension:notDoneValueSet](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.topic.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific Communication that was not performed
 
 
@@ -544,7 +564,12 @@ Procedure, Performed, i.e., placement of or adjustment to a device.
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -572,7 +597,12 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html), which contains:
 * [DeviceRequest.modifierExtension:doNotPerform](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.modifierExtension:doNotPerform) - Fixed value: "true"
 * [DeviceRequest.status](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.status) - Fixed value: "completed"
-* [DeviceRequest.extension:doNotPerformReason](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerformReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [DeviceRequest.reasonCode](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [DeviceRequest.authoredOn](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.authoredOn) - dateTime when this was made available
 * [DeviceRequest.code\[x\].extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code%5Bx%5D.extension:doNotPerformValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific DeviceRequest that was not performed
 
@@ -600,7 +630,12 @@ Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.htm
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -626,7 +661,12 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 Use [QICoreDeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html), which contains:
 * [DeviceRequest.modifierExtension:doNotPerform](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.modifierExtension:doNotPerform) - Fixed value: "true"
 * [DeviceRequest.status](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.status) - Fixed value: "completed"
-* [DeviceRequest.extension:doNotPerformReason](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.extension:doNotPerformReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [DeviceRequest.reasonCode](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [DeviceRequest.authoredOn](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.authoredOn) - dateTime when this was made available
 * [DeviceRequest.code\[x\].extension:doNotPerformValueSet](StructureDefinition-qicore-devicenotrequested-definitions.html#DeviceRequest.code%5Bx%5D.extension:doNotPerformValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific DeviceRequest that was not performed
 
@@ -668,7 +708,12 @@ QI-Core has added specific constraints on the US Core STU7 profile that address 
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html) and reference the code element specified in the respective observation profile:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -708,7 +753,12 @@ Individual studies may use [QI-Core DiagnosticReport Profile for Report and Note
 
 Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html) and reference the code element specified in the respective observation profile:
 * [Observation.status](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.status) - Fixed value: "cancelled"
-* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [Observation.extension:event-StatusReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:event-statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [Observation.issued](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.issued) - dateTime when this was made available
 * [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific Observation that was not performed
 
@@ -737,7 +787,11 @@ Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html) and reference the code element specified in the respective observation profile:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -853,7 +907,11 @@ procedures, context-dependent categories, and events; [Encounter.reasonReference
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -911,7 +969,11 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html), which contains:
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -1269,7 +1331,11 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -1296,7 +1362,12 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -1338,7 +1409,11 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -1378,7 +1453,12 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html) and reference the code element specified in the respective observation profile:
 
 * [Observation.status](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.status) - Fixed value: "cancelled"
-* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [Observation.extension:event-StatusReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:event-statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [Observation.issued](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.issued) - When this was made available
 * [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific Observation that was not performed
 
@@ -1405,7 +1485,11 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -1729,7 +1813,11 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -1767,7 +1855,12 @@ QDM “Physical Exam, Performed” should reference the specific US Core vital s
 Use [QICoreObservationCancelled](StructureDefinition-qicore-observationcancelled.html) and reference the code element specified in the respective observation profile:
 
 * [Observation.status](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.status) - Fixed value: "cancelled"
-* [Observation.extension:notDoneReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:notDoneReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [Observation.extension:event-StatusReason](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.extension:event-statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [Observation.issued](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.issued) - When this was made available
 * [Observation.code.extension:notDoneValueSet](StructureDefinition-qicore-observationcancelled-definitions.html#Observation.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific Observation that was not performed
 
@@ -1798,7 +1891,12 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -1957,7 +2055,12 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
@@ -1984,7 +2087,12 @@ Use [QICoreServiceNotRequested](StructureDefinition-qicore-servicenotrequested.h
 
 * [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
 * [ServiceRequest.status](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.status) - Fixed value: "completed"
-* [ServiceRequest.extension:reasonRefused](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.extension:reasonRefused) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+
+<div class="new-content" markdown="1">
+
+* [ServiceRequest.reasonCode](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
+</div>
+
 * [ServiceRequest.authoredOn](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
 * [ServiceRequest.code.extension:notDoneValueSet](StructureDefinition-qicore-servicenotrequested-definitions.html#ServiceRequest.code.extension:notDoneValueSet) - Use [cqf-notDoneValueSet](http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet) to indicate the specific ServiceRequest that was not performed
 
