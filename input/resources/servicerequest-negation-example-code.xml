@@ -1,15 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="negation-example-code"/>
-  <extension url="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-doNotPerformReason">
-    <valueCodeableConcept>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="416406003"/>
-        <display value="Procedure discontinued (situation)"/>
-      </coding>
-    </valueCodeableConcept>
-  </extension>
   <status value="completed"/>
   <intent value="order"/>
   <category>
@@ -36,4 +27,11 @@
   </encounter>
   <occurrenceDateTime value="2013-04-05"/>
   <authoredOn value="2013-04-04"/>
+  <reasonCode>
+      <coding>
+        <system value="http://snomed.info/sct"/>
+        <code value="416406003"/>
+        <display value="Procedure discontinued (situation)"/>
+      </coding>
+  </reasonCode>
 </ServiceRequest>

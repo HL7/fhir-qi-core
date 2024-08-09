@@ -58,27 +58,24 @@
   "differential": {
     "element": [
       {
-        "id": "Procedure.extension:recorded",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Procedure.extension",
-        "sliceName": "recorded",
-        "short": "(QI) When the procedure was first captured in the subject\u0027s record",
-        "definition": "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-recorded"
-            ]
-          }
-        ]
+        "id" : "Procedure.extension:recorded",
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }],
+        "path" : "Procedure.extension",
+        "sliceName" : "recorded",
+        "short" : "(QI) When the procedure was first captured in the subject's record",
+        "definition" : "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
+        "min" : 1,
+        "max" : "1",
+        "type" : [{
+          "code" : "Extension",
+              "profile": [
+                "http://hl7.org/fhir/5.0/StructureDefinition/extension-Procedure.recorded"
+              ]
+            }
+          ]
       },
       {
         "id": "Procedure.implicitRules",
