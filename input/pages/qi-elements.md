@@ -105,15 +105,20 @@
 
 ### [QICore Claim](StructureDefinition-qicore-claim.html) ###
 **QI Elements:**
+* Claim: Claim, Pre-determination or Pre-authorization
 * patient: (QI) The recipient of the products and services
 * billablePeriod: (QI) Relevant time frame for the claim
 * created: (QI) Resource creation date
 * provider: (QI) Party responsible for the claim
 * prescription: (QI) Prescription authorizing services and products
+* diagnosis: (QI) Pertinent diagnosis information
 * diagnosis.sequence: (QI) Diagnosis instance identifier
 * diagnosis.diagnosis[x]: (QI) Nature of illness or problem
+* diagnosis.type: (QI) Timing or nature of the diagnosis
 * diagnosis.onAdmission: (QI) Present on admission
+* procedure: (QI) Clinical procedures performed
 * procedure.sequence: (QI) Procedure instance identifier
+* procedure.type: (QI) Category of Procedure
 * procedure.procedure[x]: (QI) Specific clinical procedure
 * item.encounter: (QI) Encounters related to this billed item
 
@@ -155,7 +160,7 @@
 
 ### [QICore Communication Not Done](StructureDefinition-qicore-communicationnotdone.html) ###
 **QI Elements:**
-* recorded: (QI) Extension
+* event-recorded: (QI) Captures the recorded date of the communication
 * status: (QI) preparation \| in-progress \| not-done \| on-hold \| stopped \| completed \| entered-in-error \| unknown
 * statusReason: (QI) Reason for current status
 * subject: (QI) Focus of message
@@ -290,7 +295,6 @@
 
 ### [QICore Device Not Requested](StructureDefinition-qicore-devicenotrequested.html) ###
 **QI Elements:**
-* doNotPerformReason: (QI) Extension
 * modifierExtension: (QI) Extension
 * modifierExtension.value[x]: (QI) Value of extension
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
@@ -299,6 +303,7 @@
 * doNotPerformValueSet: (QI) What was not done
 * subject: (QI) Focus of request
 * authoredOn: (QI) When recorded
+* reasonCode: (QI) Explanation/Justification for procedure or service
 
 **Primary code path:** code
 <br>
@@ -537,7 +542,7 @@
 
 **QI Elements:**
 * notDoneValueSet: (QI) What wasn't administered
-* recorded: (QI) When the immunization was first captured in the subject's record
+* recorded: (QI) Documented date Immunization did not occur.
 
 **Primary code path:** vaccineCode
 <br>
@@ -619,6 +624,7 @@
 
 
 **QI Elements:**
+* encounter: (QI) Encounter associated with Observation
 * effective[x]: (QI) Clinically relevant time/time-period for observation
 * issued: (QI) Date/Time this version was made available
 * value[x]: (QI) Result Value
@@ -698,7 +704,7 @@
 ### [QICore MedicationAdministration Not Done](StructureDefinition-qicore-medicationadministrationnotdone.html) ###
 **QI Elements:**
 * implicitRules: (QI) A set of rules under which this content was created
-* recorded: (QI) Extension
+* recorded: (QI) Recorded
 * status: (QI) in-progress \| not-done \| on-hold \| completed \| entered-in-error \| stopped \| unknown
 * statusReason: (QI) Reason administration not performed
 * medication[x]: (QI) What was administered
@@ -720,6 +726,7 @@
 
 ### [QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html) ###
 **QI Elements:**
+* recorded: (QI) Recorded
 * status: (QI) in-progress \| on-hold \| completed \| entered-in-error \| stopped \| unknown
 * medication[x]: (QI) What was administered
 * subject: (QI) Who received medication
@@ -777,6 +784,7 @@
 
 
 **QI Elements:**
+* recorded: (QI) Extension
 * authorizingPrescription: (QI) Medication order that authorizes the dispense
 * type: (QI) Trial fill, partial fill, emergency fill, etc.
 * quantity: (QI) Amount dispensed
@@ -902,7 +910,7 @@
 
 ### [QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html) ###
 **QI Elements:**
-* notDoneReason: (QI) Extension
+* event-statusReason: (QI) Event Status Reason
 * status: (QI) registered \| preliminary \| final \| amended +
 * category: (QI) Classification of type of observation
 * code: (QI) Type of observation (code / type)
@@ -1099,6 +1107,8 @@
 * statusReason: (QI) Reason for the current status
 * notDoneValueSet: (QI) What was not performed
 * performed[x]: (QI) When the procedure was performed
+* reasonCode: (QI) Coded reason procedure performed
+* reasonReference: (QI) The justification that the procedure was performed
 
 **Primary code path:** code
 <br>
@@ -1163,6 +1173,7 @@
 **QI Elements:**
 * relationship: (QI) The nature of the relationship
 * name: (QI) A name associated with the person
+* telecom: (QI) A contact detail for the person
 
 **Primary code path:** relationship
 <br>
@@ -1184,8 +1195,6 @@
 
 
 **QI Elements:**
-* reasonRefused: (QI) Extension
-* doNotPerform: (QI) True if service/procedure should not be performed
 * notDoneValueSet: (QI) What was not requested
 * occurrence[x]: (QI) When service should occur
 * reasonCode: (QI) Explanation/Justification for procedure or service
