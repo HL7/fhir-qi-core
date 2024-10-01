@@ -58,7 +58,7 @@
         }
       ],
       "path" : "CommunicationRequest.status",
-      "short" : "(QI-Core) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
+      "short" : "(QI) draft | active | on-hold | revoked | completed | entered-in-error | unknown"
     },
     {
       "id" : "CommunicationRequest.category",
@@ -69,7 +69,7 @@
         }
       ],
       "path" : "CommunicationRequest.category",
-      "short" : "(QI-Core) Message category",
+      "short" : "(QI) Message category",
       "binding" : {
         "strength" : "preferred",
         "valueSet" : "http://hl7.org/fhir/ValueSet/communication-category"
@@ -84,7 +84,7 @@
         }
       ],
       "path" : "CommunicationRequest.doNotPerform",
-      "short" : "(QI-Core) True if request is prohibiting action"
+      "short" : "(QI) True if request is prohibiting action"
     },
     {
       "id" : "CommunicationRequest.subject",
@@ -95,7 +95,7 @@
         }
       ],
       "path" : "CommunicationRequest.subject",
-      "short" : "(QI-Core) Focus of message",
+      "short" : "(QI) Focus of message",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
@@ -110,7 +110,7 @@
         }
       ],
       "path" : "CommunicationRequest.encounter",
-      "short" : "(QI-Core) Encounter created as part of",
+      "short" : "(QI) Encounter created as part of",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"]
@@ -125,7 +125,7 @@
         }
       ],
       "path" : "CommunicationRequest.recipient",
-      "short" : "(QI-Core) Message recipient",
+      "short" : "(QI) Message recipient",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
@@ -135,7 +135,7 @@
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
         "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson",
         "http://hl7.org/fhir/StructureDefinition/Group",
-        "http://hl7.org/fhir/StructureDefinition/CareTeam"]
+        "http://hl7.org/fhir/StructureDefinition/QICoreCareTeam"]
       }]
     },
     {
@@ -147,7 +147,7 @@
         }
       ],
       "path" : "CommunicationRequest.sender",
-      "short" : "(QI-Core) Message sender",
+      "short" : "(QI) Message sender",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device",
