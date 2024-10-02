@@ -47,6 +47,7 @@ This page lists the change history for each version of QI-Core.
 1. Add list of QI-Core-flagged elements to the narrative ([FHIR-46030](https://jira.hl7.org/browse/FHIR-46030)) Applied in each profile ([here](profiles.html))
 1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html)) 
 1. Update medication[x] content across not done for reason medication actions to assure consistency ([FHIR-46291](https://jira.hl7.org/browse/FHIR-46291)) Applied ([here](StructureDefinition-qicore-medicationnotrequested.html)) and ([here](StructureDefinition-qicore-medicationadministrationnotdone.html)) and ([here](StructureDefinition-qicore-medicationdispensedeclined.html)) 
+1. Added reasonCode and doNotPerform to DeviceRequest negation examples ([FHIR-46291](https://jira.hl7.org/browse/FHIR-46669)) Applied ([here](DeviceRequest-negation-example.html)) and ([here](DeviceRequest-negation-with-code-example.html))  
 
 ### STU6 Release (6.0.0)
 
