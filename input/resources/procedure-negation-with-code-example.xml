@@ -26,15 +26,11 @@
   <encounter>
     <reference value="Encounter/example"/>
   </encounter>
-  <performedDateTime>
-    <extension url="http://hl7.org/fhir/StructureDefinition/data-absent-reason">
-      <valueCode value="not-performed"/>
-    </extension>
-  </performedDateTime>
-  <performer>
-    <actor>
-      <reference value="Practitioner/example"/>
-      <display value="Dr Cecil Surgeon"/>
-    </actor>
-  </performer>
+  <reasonCode>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="182890002"/>
+      <display value="Patient requests alternative treatment" />
+    </coding>
+  </reasonCode>
 </Procedure>
