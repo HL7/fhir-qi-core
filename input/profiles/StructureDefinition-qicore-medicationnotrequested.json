@@ -71,6 +71,26 @@
         ],
         "mustSupport": false
       },
+	 {
+			"id" : "MedicationRequest.medicationAdherence",
+			"extension" : [
+			  {
+				"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				"valueBoolean" : true
+			  }
+			],
+			"path" : "MedicationRequest.extension",
+			"sliceName" : "medicationAdherence",
+			"short" : "URL: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication-adherence",
+			"min" : 0,
+			"max" : "*",
+			"type" : [
+			  {
+				"code" : "Extension"
+			  }
+			],
+			"mustSupport" : false
+		  },      
       {
         "id": "MedicationRequest.status",
         "extension": [
