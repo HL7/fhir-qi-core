@@ -4,6 +4,10 @@
 
 This page lists the change history for each version of QI-Core.
 
+### STU7 Publication (7.0.0)
+
+
+
 ### STU7-ballot (7.0.0)
 
 1. Should have a CapablityStatement to describe the capabilities of a deployed and configured solution that follows this IG. - 2018-Jan QI-Core #29 ([FHIR-14994](https://jira.hl7.org/browse/FHIR-14994)) Applied ([here](index.html#summary-of-conformance-requirements))
