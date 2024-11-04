@@ -80,17 +80,20 @@
 			],
 			"path" : "MedicationRequest.extension",
 			"sliceName" : "medicationAdherence",
-			"short" : "URL: http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication-adherence",
+			"short" : "Reported adherence to prescribed medication instructions.",
 			"min" : 0,
 			"max" : "*",
 			"type" : [
-			  {
-				"code" : "Extension"
+				{
+				"code" : "Extension",
+				"profile" : [
+				  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication-adherence"
+				]
 			  }
-			],
+			],			
 			"mustSupport" : false
-		  },      
-		  {
+	  },      
+	  {
         "id": "MedicationRequest.status",
         "extension": [
           {
