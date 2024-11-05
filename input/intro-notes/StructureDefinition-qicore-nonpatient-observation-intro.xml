@@ -1,21 +1,16 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
-<b>Must Have:</b>
+<b>QI Elements:</b>
 <ul>
 <li>status: (QI) registered | prliminary | final | amended | corrected | entered-in-error | unknown</li>
 <li>category: (QI) Classification of type of observation</li>
-<li>category: (QI) Classification of type of observation</li>
-<li>code: (QI) Laboratory Test Name</li>
-<li>subject: (QI) Who and/or what the observation is about</li>
-</ul>
-
-<b>QI Elements:</b>
-<ul>
-<li>encounter: (QI) Encounter associated with Observation</li>
+<li>code: (QI) Type of observation (code / type)</li>
+<li>subject: (QI) The device/location/implantable device the observation is about</li>
 <li>effective[x]: (QI) Clinically relevant time/time-period for observation</li>
-<li>issued: (QI) Date/Time this version was made available</li>
-<li>value[x]: (QI) Result Value</li>
+<li>performer: (QI) Who is responsible for the observation</li>
+<li>value[x]: (QI) Actual result</li>
+<li>value[x]: (QI) actual | potential</li>
 <li>interpretation: (QI) High, low, normal, etc.</li>
+<li>derivedFrom: (QI) QI Core Profiles or other resource the observation is made from</li>
 </ul>
 
 <b>Primary code path:</b> code
@@ -39,23 +34,3 @@
 
 
 <!--End Generated Intro (DO NOT REMOVE)-->
-  <a name="usage"><b>Usage</b></a>
-  <p>
-  <tr>
-      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-  </tr>
-  </p>
-  <a name="examples"> </a>
-<h3>Examples</h3>
-  <p>
-  <table>
-    <tbody>
-      <tr>
-          <td><a href="Observation-laboratory-result-observation-example-blood-glucose.html">Glucose Laboratory Result Observation Example</a></td>
-      </tr>
-    </tbody>
-  </table>
-  </p>
-
-
-</div>
