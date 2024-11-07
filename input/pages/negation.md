@@ -53,26 +53,33 @@ The <a href="StructureDefinition-qicore-observationcancelled.html">QICore Observ
 
 Each of the QI-Core negation rationale profiles define at least the following information:
 
--   What activity/event did not occur (typically in terms of a value set or list of codes)
--   Explicit indication that the action/event did not occur (such as doNotPerform or a status of notDone)
+-   What activity/event did not occur (typically in terms of a value set or list of codes, or as a reference to a request)
+-   Explicit indication that the action/event did not or should not occur (such as doNotPerform or a status of notDone)
 -   Date, and optionally, a time a clinician indicated a reason for avoiding the activity/event
 -   The reason the activity/event did not occur (Preferably represented using one of an established set of [Negation Reason Codes](ValueSet-qicore-negation-reason.html))
 
 **NOTE:** Although these aspects are all present within each negation profile defined by QI-Core, they are represented differently in the various FHIR resources. As a result, each negation profile uses a combination of constraints and extensions to ensure complete representation of negated actions or events within QI-Core.
 
 ### Using QI-Core Negation Profiles
+
+#### Kinds of Negation Statements
+
+The QICore negation profiles support three general classes of negation statements:
+
+1. Documentation that an activity was not performed for a reason (i.e. a notDone event)
+2. Documentation that an activity should not be performed for a reason (i.e. a doNotPerform request)
+3. Documentation that a request was not performed for a reason (i.e. a taskRejected)
  
- **Extent of Negation**
+#### Extent of Negation
 
 The negation profiles in QI-Core can be used to make two different types of negative statements:
-
 
 1.	 Documentation that a particular activity/event should not or did not occur
 2.	 Documentation that a class of activities/events should not or did not occur (typically represented with a value set)
 
-#### Documenting one member of a value set was not performed for a given reason.
+##### Documenting one member of a value set was not performed for a given reason.
 
-In the following example the measure numerator criterion allows for documentation that specifies a single antithrombotic medication using a CodeableConcept drawn from the list of possible expected medications (in the values set) was not administered. In the example the Profiled MedicationAdministration resource documents that the clinician specifically did not administer ticagrelor 90 MG Oral Tablet because drug treatment is not indicated. The evidence of a reason for not administering this single member of the value set “Antithrombotic Therapy for Ischemic Stroke” fulfills criteria for the numerator.
+In the following example the measure numerator criterion allows for documentation that specifies a single antithrombotic medication using a CodeableConcept drawn from the list of possible expected medications (in the values set) was not administered. In the example the profiled MedicationAdministration resource documents that the clinician specifically did not administer ticagrelor 90 MG Oral Tablet because drug treatment is not indicated. The evidence of a reason for not administering this single member of the value set “Antithrombotic Therapy for Ischemic Stroke” fulfills criteria for the numerator.
 
 See the <a href="MedicationAdministration-negation-with-code-example.html">MedicationAdministration</a> example using a specific code) for a complete example.
 
@@ -80,75 +87,43 @@ See the <a href="MedicationAdministration-negation-with-code-example.html">Medic
 
 ```json
 {
-
-"resourceType" : "MedicationAdministration",
-
-"id" : "negation-with-code-example",
-
-"meta" : {
-
-"profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"]
-
-},
-
-"extension" : [{
-
-"url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-MedicationAdministration.recorded",
-
-"valueDateTime" : "2015-01-15"
-
-}],
-
-"status" : "not-done",
-
-"statusReason" : [{
-
-"coding" : [{
-
-"system" : "http://snomed.info/sct",
-
-"code" : "183966005",
-
-"display" : "Drug treatment not indicated (situation)"
-
-}]
-
-}],
-
-"medicationCodeableConcept" : {
-
-"coding" : [{
-
-"system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
-
-"code" : "1116635",
-
-"display" : "ticagrelor 90 MG Oral Tablet"
-
-}]
-
-},
-
-"subject" : ...,
-
-"context" : ...,
-
-"supportingInformation" : ...,
-
-"effectivePeriod" : ...,
-
-"request" : ...,
-
-"note" : ...,
-
-"dosage" : ...
-
+    "resourceType" : "MedicationAdministration",
+    "id" : "negation-with-code-example",
+    "meta" : {
+        "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"]
+    },
+    "extension" : [{
+        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-MedicationAdministration.recorded",
+        "valueDateTime" : "2015-01-15"
+    }],
+    "status" : "not-done",
+    "statusReason" : [{
+        "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "183966005",
+            "display" : "Drug treatment not indicated (situation)"
+        }]
+    }],
+    "medicationCodeableConcept" : {
+        "coding" : [{
+            "system" : "http://www.nlm.nih.gov/research/umls/rxnorm",
+            "code" : "1116635",
+            "display" : "ticagrelor 90 MG Oral Tablet"
+        }]
+    },
+    "subject" : ...,
+    "context" : ...,
+    "supportingInformation" : ...,
+    "effectivePeriod" : ...,
+    "request" : ...,
+    "note" : ...,
+    "dosage" : ...
 }
 ```
 
 </div>
 
-#### Documenting no members of an entire value set were performed for a given reason.
+##### Documenting no members of an entire value set were performed for a given reason.
 
 This is applicable when a measure criterion can be satisfied when none of the medications in a value set is administered for a specified reason. This can occur when the no treatment of the type included in the value set is appropriate. The approach provided allows systems to document using one profiled data instance that none of the activities in a particular value set were performed, rather than requiring documentation of multiple individual activities from the value set.
 
@@ -162,73 +137,82 @@ See the <a href="MedicationAdministration-negation-example.html">MedicationAdmin
 
 ```json
 {
-
-"resourceType" : "MedicationAdministration",
-
-"id" : "negation-example",
-
-"meta" : {
-
-"profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"]
-
-},
-
-"extension" : [{
-
-"url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-MedicationAdministration.recorded",
-
-"valueDateTime" : "2015-01-15"
-
-}],
-
-"status" : "not-done",
-
-"statusReason" : [{
-
-"coding" : [{
-
-"system" : "http://snomed.info/sct",
-
-"code" : "183966005",
-
-"display" : "Drug treatment not indicated (situation)"
-
-}]
-
-}],
-
-"medicationCodeableConcept" : {
-
-"extension" : [{
-
-"url" : "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet",
-
-"valueCanonical" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.62"
-
-}],
-
-"text" : "Not Done Value Set: Antithrombotic Therapy for Ischemic Stroke"
-
-},
-
-"subject" : ...,
-
-"context" : ...,
-
-"supportingInformation" : ...,
-
-"effectivePeriod" : ...,
-
-"request" : ...,
-
-"note" : ...,
-
-"dosage" : ...
-
+    "resourceType" : "MedicationAdministration",
+    "id" : "negation-example",
+    "meta" : {
+        "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"]
+    },
+    "extension" : [{
+        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-MedicationAdministration.recorded",
+        "valueDateTime" : "2015-01-15"
+    }],
+    "status" : "not-done",
+    "statusReason" : [{
+        "coding" : [{
+            "system" : "http://snomed.info/sct",
+            "code" : "183966005",
+            "display" : "Drug treatment not indicated (situation)"
+        }]
+    }],
+    "medicationCodeableConcept" : {
+        "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet",
+            "valueCanonical" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1110.62"
+        }],
+        "text" : "Not Done Value Set: Antithrombotic Therapy for Ischemic Stroke"
+    },
+    "subject" : ...,
+    "context" : ...,
+    "supportingInformation" : ...,
+    "effectivePeriod" : ...,
+    "request" : ...,
+    "note" : ...,
+    "dosage" : ...
 }
 ```
 
 </div>
+
+#### Do Not Perform Requests
+
+To indicate that an activity should not be performed, use the "Do Not Perform" profiles:
+
+* [DeviceNotRequested](StructureDefinition-qicore-devicenotrequested.html)
+* [MedicationNotRequested](StructureDefinition-qicore-medicationnotrequested.html)
+* [ServiceNotRequested](StructureDefinition-qicore-servicenotrequested.html)
+
+##### Request not to perform a specific activity
+
+See the [Service Not Requested With Code Example](ServiceRequest-negation-example-code.html) for a complete example.
+
+##### Request not to perform any of a class of activities
+
+See the [Service Not Requested Example](ServiceRequest-negation-example.html) for a complete example.
+
+#### Rejected Requests
+
+To indicate that a request to perform an activity was rejected, use the task pattern:
+
+1. A request resource indicating the activity to be performed (or not performed)
+2. A TaskRejected with the request resource as `focus`, indicating the request to perform the activity was rejected
+
+As with not done events and orders not to perform, the extent of negation for a rejected request can be a single activity, or any of a class of activities:
+
+##### Rejecting a proposal to perform a specific activity
+
+To indicate that a request to perform a specific activity was rejected:
+
+See the [Service Requested With Code](ServiceRequest-proposal-example-code.html) for a complete example.
+
+See the [Task Rejected With Code Example](Task-rejected-with-code-example.html) for a complete example.
+
+##### Rejecting a proposal to perform any of a class of activities
+
+To indicate that a request to perform any of a class of activities was rejected:
+
+See the [Service Requested Example](ServiceRequest-proposal-example.html) for a complete example.
+
+See the [Task Rejected Example](Task-rejected-example.html) for a complete example.
 
 ### Negation in CQL
 

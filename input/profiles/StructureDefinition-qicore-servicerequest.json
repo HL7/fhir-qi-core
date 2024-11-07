@@ -62,7 +62,13 @@
         "path": "ServiceRequest",
         "constraint": [
           {
-            "key": "dom-7",
+            "key": "srq-1",
+            "severity": "error",
+            "human": "To indicate what service is being proposed, either at least one coding in the code or a valueSet extension shall be provided",
+            "expression": "code.extension('http://hl7.org/fhir/StructureDefinition/cqf-valueSet').exists() xor code.coding.exists()"
+          },
+          {
+            "key": "srq-2",
             "severity": "error",
             "human": "if doNotPerform is present, it SHALL be false",
             "expression": "doNotPerform.empty() or doNotPerform\u003dfalse"
@@ -123,6 +129,33 @@
         "short" : "(QI) What is being requested/ordered",
         "definition" : "A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.",
         "comment" : "Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."
+      },
+      {
+        "id": "ServiceRequest.code.extension:valueSet",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "ServiceRequest.code.extension",
+        "sliceName": "valueSet",
+        "short": "(QI) What is being requested/ordered",
+        "min": 0,
+        "max": "1",
+        "base": {
+          "path": "Element.extension",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/cqf-valueSet"
+            ]
+          }
+        ]
       },
       {
         "id": "ServiceRequest.subject",
