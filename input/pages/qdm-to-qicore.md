@@ -206,7 +206,6 @@ single observable entity that is part of such a collection of questions.
 
 *	[QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
 *	[QICore Observation Screening Assessment Profile](StructureDefinition-qicore-observation-screening-assessment.html)
-*	[US Core Average Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-average-blood-pressure.html)
 *	[US Core Care Experience Preference Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-care-experience-preference.html)
 *	[US Core Observation Occupation Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-occupation.html)
 *	[US Core Observation Pregnancy Intent Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-observation-pregnancyintent.html)
@@ -1773,6 +1772,7 @@ US Core STU7 contains twelve observation profiles that address specific elements
 | ----------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | [US Core Vital Signs Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-vital-signs.html)    | Vital Signs (panel) – **Fixed Value:** 85353-1                                    |
 |  [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-head-occipital-frontal-circumference-percentile.html)                       | Head Occipital-Frontal Circumference Percentile - **Fixed Value:** 8289-1 |
+| [US Core Average Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-average-blood-pressure.html)      |  •Blood Pressure - **Fixed Value:** 96607-7<br>•Systolic average blood pressure - **Fixed Value:** 96608-5<br>•diastolic average blood pressure - **Fixed Value:** 96609-3<br>|
 | [US Core Blood Pressure Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-blood-pressure.html)      |   •Blood Pressure Systolic and Diastolic – **Fixed Value:** 85354-9<br>•Systolic Blood Pressure – **Fixed Value:** 8480-6<br>•Diastolic Blood Pressure – **Fixed Value:** 8462-4<br>•valueQuantity - **Fixed Value:** mm[Hg]<br> |
 |[US Core BMI Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-bmi.html) |•ValueQuantity.system - **Fixed Value:** http://unitsofmeasure.org<br> •ValueQuantity.code - Coded responses from the common UCUM units for vital signs value set - **Fixed Value:** kg/m2<br>|
 |[US Core Body Height Profile]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-body-height.html)  |•Body Height – **Fixed Value:** 8302-2<br>•ValueQuantity.system - **Fixed Value:** http://unitsofmeasure.org<br>•ValueQuantity.code - - Coded responses from the common UCUM units for vital signs value set - **Binding:** [BodyLengthUnits](http://hl7.org/fhir/R4/valueset-ucum-bodylength.html) ([required](http://hl7.org/fhir/R4/terminologies.html#required))|
