@@ -8,7 +8,7 @@ This page lists the change history for each version of QI-Core.
 ### STU7 Publication (7.0.0)
 
 1. Added reasonCode and doNotPerform to DeviceRequest negation examples ([FHIR-46669](https://jira.hl7.org/browse/FHIR-46669)) Applied ([here](DeviceRequest-negation-example.html)) and ([here](DeviceRequest-negation-with-code-example.html))  
-
+1. Add hyperlink to Using CQL with FHIR IG ([FHIR-47411](https://jira.hl7.org/browse/FHIR-47411)) Applied ([here](modelinfo.html))
 
 ### STU7-ballot (7.0.0)
 
