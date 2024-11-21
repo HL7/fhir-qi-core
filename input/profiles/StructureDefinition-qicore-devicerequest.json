@@ -135,19 +135,63 @@
       },
       {
         "id" : "DeviceRequest.code[x]",
-        "extension" : [
-          {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
-          }
-        ],
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }],
         "path" : "DeviceRequest.code[x]",
         "short" : "(QI) Device requested",
+        "definition" : "The details of the device to be used.",
+        "min" : 1,
+        "max" : "1",
+        "base" : {
+          "path" : "DeviceRequest.code[x]",
+          "min" : 1,
+          "max" : "1"
+        },
+        "type" : [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"]
+        },
+        {
+          "code" : "CodeableConcept"
+        }],
+        "constraint" : [{
+          "key" : "ele-1",
+          "severity" : "error",
+          "human" : "All FHIR elements must have a @value or children",
+          "expression" : "hasValue() or (children().count() > id.count())",
+          "xpath" : "@value|f:*|h:div",
+          "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+        }],
+        "isModifier" : false,
+        "isSummary" : true,
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://hl7.org/fhir/ValueSet/device-kind"
-        }
+        },
+        "mapping" : [{
+          "identity" : "workflow",
+          "map" : "Request.code"
+        },
+        {
+          "identity" : "w5",
+          "map" : "FiveWs.what[x]"
+        },
+        {
+          "identity" : "v2",
+          "map" : "Varies by domain"
+        },
+        {
+          "identity" : "rim",
+          "map" : ".code"
+        },
+        {
+          "identity" : "quick",
+          "map" : "DeviceUse.device"
+        }]
       },
+
       {
         "id" : "DeviceRequest.subject",
         "extension" : [
