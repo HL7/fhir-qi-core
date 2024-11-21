@@ -4,6 +4,12 @@
 
 This page lists the change history for each version of QI-Core.
 
+
+### STU7 Publication (7.0.0)
+
+1. Added reasonCode and doNotPerform to DeviceRequest negation examples ([FHIR-46669](https://jira.hl7.org/browse/FHIR-46669)) Applied ([here](DeviceRequest-negation-example.html)) and ([here](DeviceRequest-negation-with-code-example.html))  
+
+
 ### STU7-ballot (7.0.0)
 
 1. Should have a CapablityStatement to describe the capabilities of a deployed and configured solution that follows this IG. - 2018-Jan QI-Core #29 ([FHIR-14994](https://jira.hl7.org/browse/FHIR-14994)) Applied ([here](index.html#summary-of-conformance-requirements))
@@ -52,6 +58,7 @@ This page lists the change history for each version of QI-Core.
 1. QICoreTask description text change ([FHIR-46659](https://jira.hl7.org/browse/FHIR-46659)) Applied ([here](StructureDefinition-qicore-task.html))
 1. Update to QI Core Profile Headings w/Current Version ([FHIR-47398](https://jira.hl7.org/browse/FHIR-47398)) Applied ([here](profiles.html))
 1. Correct duplicate content error from MustSupport Flag section ([FHIR-47407](https://jira.hl7.org/browse/FHIR-47407)) Applied ([here](index.html#mustsupport-flag)) 
+1. Removed performer items, added reasonCode to procedure negation examples ([FHIR-46670](https://jira.hl7.org/browse/FHIR-46670)) Applied ([here](Procedure-negation-with-code-example.html)) and ([here](Procedure-negation-example.html))
 
 ### STU6 Release (6.0.0)
 

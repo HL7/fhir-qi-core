@@ -58,6 +58,17 @@
   "differential": {
     "element": [
       {
+        "id": "Procedure.implicitRules",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Procedure.implicitRules",
+        "short": "(QI) A set of rules under which this content was created"
+      },
+      {
         "id" : "Procedure.extension:recorded",
         "extension" : [{
           "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -78,15 +89,38 @@
           ]
       },
       {
-        "id": "Procedure.implicitRules",
+        "id": "Procedure.basedOn",
+        "path": "Procedure.basedOn",
+        "short": "(QI) A request for this procedure",
+        "definition": "A reference to a resource that contains details of the request for this procedure.",
+        "alias": [
+          "fulfills"
+        ],
+        "min": 0,
+        "max": "*",
+        "base": {
+          "path": "Procedure.basedOn",
+          "min": 0,
+          "max": "*"
+        },
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan",
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "isModifier": false,
+        "isSummary": true,
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean": true
           }
-        ],
-        "path": "Procedure.implicitRules",
-        "short": "(QI) A set of rules under which this content was created"
+        ]
       },
       {
         "id": "Procedure.status",
@@ -221,40 +255,6 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-diagnosticreport-note",
               "http://hl7.org/fhir/us/core/StructureDefinition/us-core-documentreference"
             ]
-          }
-        ]
-      },
-      {
-        "id": "Procedure.basedOn",
-        "path": "Procedure.basedOn",
-        "short": "(QI) A request for this procedure",
-        "definition": "A reference to a resource that contains details of the request for this procedure.",
-        "alias": [
-          "fulfills"
-        ],
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "Procedure.basedOn",
-          "min": 0,
-          "max": "*"
-        },
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-careplan",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
-            ]
-          }
-        ],
-        "mustSupport": false,
-        "isModifier": false,
-        "isSummary": true,
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
           }
         ]
       }

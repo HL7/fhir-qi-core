@@ -223,9 +223,6 @@ Since not all artifacts use each of these additional elements, QI-Core does not 
 Instead, “(QI)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table, 
 and the computable [QI-Core Key Element Extension](StructureDefinition-qicore-keyelement.html) is added to each element definition. This approach 
 allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use.
-is inspired by the way that [US Core communicates USCDI requirements](https://hl7.org/fhir/us/core/must-support.html#uscdi-requirements) and 
-allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements 
-for those QI-Core-flagged elements that they do not use.
 
 Quality improvement artifacts communicate the elements they reference using the DataRequirement structure in FHIR. This structure allows 
 the base resource type and profile to be specified, as well as a MustSupport element that indicates which elements of the resource and 

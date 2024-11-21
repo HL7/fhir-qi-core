@@ -54,114 +54,6 @@
   "differential": {
     "element": [
       {
-        "id": "Patient.telecom",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Patient.telecom",
-        "short": "(QI) A contact detail for the individual"
-      },
-      {
-        "id": "Patient.telecom.extension:telecom-preferred",
-        "path": "Patient.telecom.extension",
-        "sliceName": "telecom-preferred",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
-            ]
-          }
-        ],
-        "mustSupport": false,
-        "mapping": [
-          {
-            "identity": "qidam",
-            "map": "Not in QIDAM, but CDS could need this for notifications in population health contexts, for example."
-          }
-        ]
-      },
-      {
-        "id": "Patient.birthDate",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Patient.birthDate",
-        "short": "(QI) The date of birth for the individual"
-      },
-      {
-        "id": "Patient.deceased[x]",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Patient.deceased[x]",
-        "short": "(QI) Indicates if the individual is deceased or not",
-        "comment": "The \"Cause of death\" for a patient is typically captured as an Observation."
-      },
-      {
-        "id": "Patient.address",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Patient.address",
-        "short": "(QI) An address for the individual"
-      },
-      {
-        "id": "Patient.address.extension:address-preferred",
-        "path": "Patient.address.extension",
-        "sliceName": "address-preferred",
-        "comment": "Make general extension.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
-            ]
-          }
-        ],
-        "mustSupport": false,
-        "mapping": [
-          {
-            "identity": "qidam",
-            "map": "Not in QIDAM, but CDS could need this for notifications in population health contexts, for example."
-          }
-        ]
-      },
-      {
-        "id": "Patient.link",
-        "path": "Patient.link",
-        "mustSupport": false
-      },
-      {
-        "id": "Patient.link.other",
-        "path": "Patient.link.other",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-            ]
-          }
-        ],
-        "mustSupport": false
-      },
-      {
         "id": "Patient.extension:race",
         "path": "Patient.extension",
         "sliceName": "race",
@@ -313,6 +205,10 @@
         ]
       },
       {
+        "id": "Patient.name",
+        "path": "Patient.name"
+      },
+      {
         "id": "Patient.name.use",
         "path": "Patient.name.use",
         "short": "(QI) usual | official | temp | nickname | anonymous | old | maiden",
@@ -405,6 +301,96 @@
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean": true
+          }
+        ]
+      },
+      {
+        "id": "Patient.telecom",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Patient.telecom",
+        "short": "(QI) A contact detail for the individual"
+      },
+      {
+        "id": "Patient.telecom.extension:telecom-preferred",
+        "path": "Patient.telecom.extension",
+        "sliceName": "telecom-preferred",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "mapping": [
+          {
+            "identity": "qidam",
+            "map": "Not in QIDAM, but CDS could need this for notifications in population health contexts, for example."
+          }
+        ]
+      },
+      {
+        "id": "Patient.birthDate",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Patient.birthDate",
+        "short": "(QI) The date of birth for the individual"
+      },
+      {
+        "id": "Patient.deceased[x]",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Patient.deceased[x]",
+        "short": "(QI) Indicates if the individual is deceased or not",
+        "comment": "The \"Cause of death\" for a patient is typically captured as an Observation."
+      },
+      {
+        "id": "Patient.address",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Patient.address",
+        "short": "(QI) An address for the individual"
+      },
+      {
+        "id": "Patient.address.extension:address-preferred",
+        "path": "Patient.address.extension",
+        "sliceName": "address-preferred",
+        "comment": "Make general extension.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/iso21090-preferred"
+            ]
+          }
+        ],
+        "mustSupport": false,
+        "mapping": [
+          {
+            "identity": "qidam",
+            "map": "Not in QIDAM, but CDS could need this for notifications in population health contexts, for example."
           }
         ]
       },
@@ -518,6 +504,24 @@
             "valueBoolean": true
           }
         ]
+      },
+      {
+        "id": "Patient.link",
+        "path": "Patient.link",
+        "mustSupport": false
+      },
+      {
+        "id": "Patient.link.other",
+        "path": "Patient.link.other",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport": false
       }
     ]
   }
