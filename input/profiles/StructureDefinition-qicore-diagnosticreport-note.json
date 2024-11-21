@@ -57,6 +57,55 @@
   "derivation": "constraint",
   "differential": {
     "element": [
+     {
+        "id" : "DiagnosticReport.status",
+        "path" : "DiagnosticReport.status",
+        "short" : "(QI)registered | partial | preliminary | final +",
+        "definition" : "The status of the diagnostic report.",
+        "requirements" : "Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.",
+        "min" : 1,
+        "max" : "1",
+        "base" : {
+          "path" : "DiagnosticReport.status",
+          "min" : 1,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "code" : "code"
+          }
+        ],
+        "condition" : [
+          "us-core-8",
+          "us-core-9"
+        ],
+        "mustSupport" : true,
+        "isModifier" : true,
+        "isModifierReason" : "This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid",
+        "isSummary" : true,
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-report-status"
+        },
+        "mapping" : [
+          {
+            "identity" : "workflow",
+            "map" : "Event.status"
+          },
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.status"
+          },
+          {
+            "identity" : "v2",
+            "map" : "OBR-25 (not 1:1 mapping)"
+          },
+          {
+            "identity" : "rim",
+            "map" : "statusCode  Note: final and amended are distinguished by whether observation is the subject of a ControlAct event of type \"revise\""
+          }
+        ]
+	 },
       {
         "id": "DiagnosticReport.category",
         "extension": [
@@ -251,7 +300,7 @@
           }
         ],
         "path": "DiagnosticReport.imagingStudy",
-        "short": "(QI-Core) Reference to full details of imaging associated with the diagnostic report",
+        "short": "(QI) Reference to full details of imaging associated with the diagnostic report",
         "type": [
           {
             "code": "Reference",

@@ -112,21 +112,6 @@
         "fixedBoolean": false
       },
       {
-        "id" : "ServiceRequest.encounter",
-        "path" : "ServiceRequest.encounter",
-        "short" : "Encounter in which the request was created",
-        "definition" : "An encounter that provides additional information about the healthcare context in which this request is made.",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
-        "isModifier" : false
-      },
-      {
         "id" : "ServiceRequest.code",
         "extension": [
           {
@@ -157,6 +142,21 @@
             ]
           }
         ]
+      },
+      {
+        "id" : "ServiceRequest.encounter",
+        "path" : "ServiceRequest.encounter",
+        "short" : "Encounter in which the request was created",
+        "definition" : "An encounter that provides additional information about the healthcare context in which this request is made.",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "isModifier" : false
       },
       {
         "id": "ServiceRequest.occurrence[x]",
