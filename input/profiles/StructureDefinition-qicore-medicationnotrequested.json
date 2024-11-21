@@ -71,6 +71,29 @@
         ],
         "mustSupport": false
       },
+	 {
+			"id" : "MedicationRequest.medicationAdherence",
+			"extension" : [
+			  {
+				"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+				"valueBoolean" : true
+			  }
+			],
+			"path" : "MedicationRequest.extension",
+			"sliceName" : "medicationAdherence",
+			"short" : "Reported adherence to prescribed medication instructions.",
+			"min" : 0,
+			"max" : "*",
+			"type" : [
+				{
+				"code" : "Extension",
+				"profile" : [
+				  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication-adherence"
+				]
+			  }
+			],			
+			"mustSupport" : false
+	  },      
       {
         "id": "MedicationRequest.status",
         "extension": [
