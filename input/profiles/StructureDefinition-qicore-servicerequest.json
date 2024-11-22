@@ -64,14 +64,8 @@
           {
             "key": "srq-1",
             "severity": "error",
-            "human": "To indicate what service is being proposed, either at least one coding in the code or a valueSet extension shall be provided",
-            "expression": "code.extension('http://hl7.org/fhir/StructureDefinition/cqf-valueSet').exists() xor code.coding.exists()"
-          },
-          {
-            "key": "srq-2",
-            "severity": "error",
-            "human": "if doNotPerform is present, it SHALL be false",
-            "expression": "doNotPerform.empty() or doNotPerform\u003dfalse"
+            "human": "To indicate what service, either at least one coding in the code or a codeOptions extension shall be provided",
+            "expression": "code.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor code.coding.exists()"
           }
         ]
       },
@@ -95,8 +89,7 @@
           }
         ],
         "path" : "ServiceRequest.intent",
-        "short" : "(QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option",
-        "definition" : "Whether the request is a proposal, plan, an original order or a reflex order."
+        "short" : "(QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option"
       },
       {
         "id": "ServiceRequest.doNotPerform",
@@ -114,8 +107,7 @@
           {
             "code": "boolean"
           }
-        ],
-        "fixedBoolean": false
+        ]
       },
       {
         "id" : "ServiceRequest.code",
@@ -127,11 +119,12 @@
         ],
         "path" : "ServiceRequest.code",
         "short" : "(QI) What is being requested/ordered",
-        "definition" : "A code that identifies a particular service (i.e., procedure, diagnostic investigation, or panel of investigations) that have been requested.",
-        "comment" : "Many laboratory and radiology procedure codes embed the specimen/organ system in the test order name, for example,  serum or serum/plasma glucose, or a chest x-ray. The specimen might not be recorded separately from the test code."
+        "condition": [
+          "srq-1"
+        ]
       },
       {
-        "id": "ServiceRequest.code.extension:valueSet",
+        "id": "ServiceRequest.code.extension:codeOptions",
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -139,22 +132,21 @@
           }
         ],
         "path": "ServiceRequest.code.extension",
-        "sliceName": "valueSet",
-        "short": "(QI) What is being requested/ordered",
+        "sliceName": "codeOptions",
+        "short" : "(QI) Url of a value set of candidate services",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the service.",
         "min": 0,
         "max": "1",
-        "base": {
-          "path": "Element.extension",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Extension",
             "profile": [
-              "http://hl7.org/fhir/StructureDefinition/cqf-valueSet"
+              "http://hl7.org/fhir/StructureDefinition/codeOptions"
             ]
           }
+        ],
+        "condition": [
+          "srq-1"
         ]
       },
       {
@@ -179,8 +171,6 @@
       {
         "id" : "ServiceRequest.encounter",
         "path" : "ServiceRequest.encounter",
-        "short" : "Encounter in which the request was created",
-        "definition" : "An encounter that provides additional information about the healthcare context in which this request is made.",
         "type" : [
           {
             "code" : "Reference",
@@ -188,8 +178,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
             ]
           }
-        ],
-        "isModifier" : false
+        ]
       },
       {
         "id": "ServiceRequest.occurrence[x]",
@@ -333,15 +322,8 @@
         ],
         "path": "ServiceRequest.reasonReference",
         "short": "(QI) Explanation/Justification for service or service",
-        "definition": "Indicates another resource that provides a justification for why this service is being requested.   May relate to the resources referred to in `supportingInfo`.",
-        "comment": "This element represents why the referral is being made and may be used to decide how the service will be performed, or even if it will be performed at all.    To be as specific as possible,  a reference to  *Observation* or *Condition* should be used if available.  Otherwise when referencing  *DiagnosticReport*  it should contain a finding  in `DiagnosticReport.conclusion` and/or `DiagnosticReport.conclusionCode`.   When using a reference to *DocumentReference*, the target document should contain clear findings language providing the relevant reason for this service request.  Use  the CodeableConcept text element in `ServiceRequest.reasonCode` if the data is free (uncoded) text as shown in the [CT Scan example](servicerequest-example-di.html).",
         "min": 0,
         "max": "*",
-        "base": {
-          "path": "ServiceRequest.reasonReference",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Reference",
@@ -371,9 +353,7 @@
               }
             ]
           }
-        ],
-        "isModifier": false,
-        "isSummary": true
+        ]
       }
     ]
   }

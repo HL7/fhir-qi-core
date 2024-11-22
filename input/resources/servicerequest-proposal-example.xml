@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-  <id value="negation-example"/>
+  <id value="proposal-example"/>
   <meta>
-    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-serviceprohibited"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequested"/>
   </meta>
-  <status value="completed"/>
-  <intent value="order"/>
+  <status value="active"/>
+  <intent value="proposal"/>
   <category>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -14,12 +14,11 @@
     </coding>
   </category>
   <priority value="urgent"/>
-  <doNotPerform value="true"/>
   <code>
-    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeOptions">
       <valueCanonical value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.117.1.7.1.214"/>
     </extension>
-    <text value="Not Done Value Set: Intermittent pneumatic compression devices (IPC)"/>
+    <text value="Value Set: Intermittent pneumatic compression devices (IPC)"/>
   </code>
   <subject>
     <reference value="Patient/example"/>
@@ -29,18 +28,4 @@
   </encounter>
   <occurrenceDateTime value="2013-04-05"/>
   <authoredOn value="2013-04-04"/>
-  <reasonCode>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="416406003"/>
-        <display value="Procedure discontinued (situation)"/>
-      </coding>
-  </reasonCode>
-  <bodySite>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="66754008"/>
-        <display value="Appendix structure"/>
-      </coding>
-  </bodySite>
 </ServiceRequest>

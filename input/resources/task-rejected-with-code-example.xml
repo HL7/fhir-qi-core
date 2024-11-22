@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-  <id value="negation-example"/>
+  <id value="rejected-with-code-example"/>
   <meta>
     <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"/>
   </meta>
@@ -18,13 +18,14 @@
   </statusReason>
   <intent value="proposal"/>
   <code>
-    <extension url="http://hl7.org/fhir/StructureDefinition/codeOptions">
-      <valueCanonical value="http://cts.nlm.nih.gov/fhir/2.16.840.1.113762.1.4.1096.11"/>
-    </extension>
-    <text value="Interventions Related to Medication Management, Medication Reconciliation"/>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/task-code"/>
+      <code value="fulfill"/>
+      <display value="Fulfill the focal request"/>
+    </coding>
   </code>
   <focus>
-    <reference value="Procedure/example"/>
+    <reference value="ServiceRequest/proposal-example-code"/>
   </focus>
   <for>
     <reference value="Patient/example"/>

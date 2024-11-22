@@ -38,7 +38,7 @@
         ]
       }
     ],
-    "description" : "Negation profile of MedicationAdministration for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+    "description" : "Negation profile of MedicationAdministration for decision support/quality metrics. Indicates that a medication was not administered for a reason.",
     "jurisdiction" : [
       {
         "coding" : [
@@ -53,34 +53,14 @@
     "kind" : "resource",
     "abstract" : false,
     "type" : "MedicationAdministration",
-    "baseDefinition" : "http://hl7.org/fhir/StructureDefinition/MedicationAdministration",
+    "baseDefinition" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration",
     "derivation" : "constraint",
     "differential" : {
       "element" : [
         {
           "id" : "MedicationAdministration",
           "path" : "MedicationAdministration",
-          "constraint" : [
-            {
-              "key" : "mna-1",
-              "severity" : "error",
-              "human" : "To indicate what medication was not administered, either at least one coding in the medication or a notDoneValueSet extension shall be provided",
-              "expression" : "medication.extension('http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet').exists() xor medication.coding.exists()",
-              "xpath" : "exists(f:extension)"
-            }
-          ],
           "mustSupport" : false
-        },
-        {
-          "id": "MedicationAdministration.implicitRules",
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-              "valueBoolean" : true
-            }
-          ],
-          "path": "MedicationAdministration.implicitRules",
-          "short" : "(QI) A set of rules under which this content was created"
         },
         {
           "id" : "MedicationAdministration.extension:recorded",
@@ -113,7 +93,7 @@
             }
           ],
           "path" : "MedicationAdministration.status",
-          "short" : "(QI) in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown",
+          "short" : "(QI) not-done",
           "type" : [
             {
               "code" : "code"
@@ -132,127 +112,12 @@
           "path" : "MedicationAdministration.statusReason",
           "short" : "(QI) Reason administration not performed",
           "min" : 1,
-          "max" : "*",
+          "max" : "1",
           "binding" : {
             "strength" : "extensible",
             "description" : "The reason the event did not occur or was not performed",
             "valueSet" : "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
           }
-        },
-        {
-          "id" : "MedicationAdministration.medication[x]",
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-              "valueBoolean" : true
-            }
-          ],
-          "path" : "MedicationAdministration.medication[x]",
-          "short" : "(QI) What was administered",
-          "type" : [{
-                "code" : "CodeableConcept"
-           },
-         {
-        "code" : "Reference",
-        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
-           }],
-          "binding" : {
-            "strength" : "preferred",
-            "description" : "The set of RxNorm codes to represent medications",
-            "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
-          }
-        },
-        {
-          "id" : "MedicationAdministration.medication[x].extension:notDoneValueSet",
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-              "valueBoolean" : true
-            }
-          ],
-          "path" : "MedicationAdministration.medication[x].extension",
-          "sliceName" : "notDoneValueSet",
-          "short" : "(QI) Url of a value set of activities not requested or performed",
-          "min" : 0,
-          "max" : "1",
-          "type" : [
-            {
-              "code" : "Extension",
-              "profile" : [
-                "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
-              ]
-            }
-          ],
-          "condition" : [
-            "mna-1"
-          ]
-        },
-        {
-          "id" : "MedicationAdministration.subject",
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-              "valueBoolean" : true
-            }
-          ],
-          "path" : "MedicationAdministration.subject",
-          "short" : "(QI) Who received medication",
-          "type" : [
-            {
-              "code" : "Reference",
-              "targetProfile" : [
-                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-              ]
-            }
-          ]
-        },
-        {
-          "id" : "MedicationAdministration.context",
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-              "valueBoolean" : true
-            }
-          ],
-          "path" : "MedicationAdministration.context",
-          "short" : "(QI) Encounter or Episode of Care administered as part of",
-          "type" : [
-            {
-              "code" : "Reference",
-              "targetProfile" : [
-                "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter",
-                "http://hl7.org/fhir/StructureDefinition/EpisodeOfCare"
-              ]
-            }
-          ]
-        },
-        {
-          "id" : "MedicationAdministration.effective[x]",
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-              "valueBoolean" : true
-            }
-          ],
-          "path" : "MedicationAdministration.effective[x]",
-          "short" : "(QI) Start and end time of administration"
-        },
-        {
-          "id" : "MedicationAdministration.request",
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-              "valueBoolean" : true
-            }
-          ],
-          "path" : "MedicationAdministration.request",
-          "short" : "(QI) Request administration performed against",
-          "type": [
-            {
-              "code" : "Reference",
-              "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest"]
-            }
-          ]
         }
       ]
     }

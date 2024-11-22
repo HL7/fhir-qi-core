@@ -1,15 +1,15 @@
 {
   "resourceType": "ValueSet",
-  "id": "qicore-non-negative-medicationdispense-status",
-  "url": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medicationdispense-status",
+  "id": "qicore-positive-medicationdispense-status",
+  "url": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-medicationdispense-status",
   "version": "4.0.0",
-  "name": "NonNegativeMedicationDispenseStatus",
-  "title": "Non-Negative MedicationDispense Status",
+  "name": "PositiveMedicationDispenseStatus",
+  "title": "Positive MedicationDispense Status",
   "status": "active",
   "experimental": false,
   "date": "2018-12-05T00:00:00+00:00",
   "publisher": "Health Level Seven, Inc. - CQI WG",
-  "description": "This value set defines the set of codes that indicate a non-negated medication dispense status (i.e. codes that are not `declined`)",
+  "description": "This value set defines the set of codes that indicate a positive medication dispense status (i.e. codes that indicate at least some medication was dispensed)",
   "jurisdiction": [
     {
       "coding": [
@@ -21,7 +21,7 @@
       ]
     }
   ],
-  "purpose": "This value set was defined to support the set of medication dispense statuses in FHIR that do not explicitly indicate a negative status (i.e. all the codes from the http://terminology.hl7.org/CodeSystem/medicationdispense-status code system that are not `declined`).",
+  "purpose": "This value set was defined to support the set of medication dispense statuses in FHIR that do indicate a positive status (i.e. all the codes from the http://terminology.hl7.org/CodeSystem/medicationdispense-status code system that indicate at least some medication was dispensed).",
   "compose": {
     "include": [
       {
@@ -36,10 +36,6 @@
             "display": "In Progress"
           },
           {
-            "code": "cancelled",
-            "display": "Cancelled"
-          },
-          {
             "code": "on-hold",
             "display": "On Hold"
           },
@@ -48,16 +44,8 @@
             "display": "Completed"
           },
           {
-            "code": "entered-in-error",
-            "display": "Entered in Error"
-          },
-          {
             "code": "stopped",
             "display": "Stopped"
-          },
-          {
-            "code": "unknown",
-            "display": "Unknown"
           }
         ]
       }

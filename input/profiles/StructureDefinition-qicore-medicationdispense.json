@@ -58,6 +58,19 @@
   "differential": {
     "element": [
       {
+        "id": "MedicationDispense",
+        "path": "MedicationDispense",
+        "constraint" : [
+          {
+            "key" : "mdp-1",
+            "severity" : "error",
+            "human" : "To indicate what medication, either a reference to a Medication, or at least one coding in the medication or a codeOptions extension shall be provided",
+            "expression" : "medication.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor medication.coding.exists()",
+            "xpath" : "exists(f:extension)"
+          }
+        ]
+      },
+      {
         "id" : "MedicationDispense.extension:recorded",
         "extension" : [
           {
@@ -67,8 +80,8 @@
         ],
         "path" : "MedicationDispense.extension",
         "sliceName" : "recorded",
-        "short" : "(QI) Extension",
-        "min" : 1,
+        "short" : "(QI) When recorded",
+        "min" : 0,
         "max" : "1",
         "type" : [
           {
@@ -88,11 +101,7 @@
           }
         ],
         "path": "MedicationDispense.status",
-        "short": "(QI) preparation​ | in-progress​ | cancelled​ | on-hold​ | completed​ | entered-in-error​ | stopped​ | unknown",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medicationdispense-status"
-        }
+        "short": "(QI) preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown"
       },
       {
         "id": "MedicationDispense.medication[x]",
@@ -120,6 +129,29 @@
           "description": "The set of RxNorm codes to represent medications",
           "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
         }
+      },
+      {
+        "id" : "MedicationDispense.medication[x].extension:codeOptions",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "MedicationDispense.medication[x].extension",
+        "sliceName" : "codeOptions",
+        "short" : "(QI) Url of a value set of candidate medications",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the medication.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/codeOptions"
+            ]
+          }
+        ]
       },
       {
         "id": "MedicationDispense.subject",

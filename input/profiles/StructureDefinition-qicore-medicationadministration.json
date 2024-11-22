@@ -58,6 +58,20 @@
    "differential" : {
     "element" : [
       {
+        "id": "MedicationAdministration",
+        "path": "MedicationAdministration",
+        "constraint" : [
+          {
+            "key" : "mad-1",
+            "severity" : "error",
+            "human" : "To indicate what medication, either a reference to a Medication or at least one coding in the medication or a codeOptions extension shall be provided",
+            "expression" : "(medication is Reference).not() implies medication.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor medication.coding.exists()",
+            "xpath" : "exists(f:extension)"
+          }
+        ],
+        "mustSupport": false
+      },
+      {
         "id" : "MedicationAdministration.extension:recorded",
         "extension" : [
           {
@@ -68,7 +82,7 @@
         "path" : "MedicationAdministration.extension",
         "sliceName" : "recorded",
         "short" : "(QI) Recorded",
-        "min" : 1,
+        "min" : 0,
         "max" : "1",
         "type" : [
           {
@@ -88,11 +102,7 @@
           }
         ],
         "path" : "MedicationAdministration.status",
-        "short" : "(QI) in-progress | on-hold | completed | entered-in-error | stopped | unknown",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-medication-admin-status"
-        }
+        "short" : "(QI) in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown"
       },
       {
         "id" : "MedicationAdministration.medication[x]",
@@ -115,6 +125,9 @@
             ]
           }
         ],
+        "condition" : [
+          "mad-1"
+        ],
         "binding" : {
           "strength" : "preferred",
           "description" : "The set of RxNorm codes to represent medications",
@@ -122,6 +135,32 @@
         }
       },
       {
+        "id" : "MedicationAdministration.medication[x].extension:codeOptions",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "MedicationAdministration.medication[x].extension",
+        "sliceName" : "codeOptions",
+        "short" : "(QI) Url of a value set of candidate medications",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the medication.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/codeOptions"
+            ]
+          }
+        ],
+        "condition" : [
+          "mad-1"
+        ]
+      },
+    {
         "id" : "MedicationAdministration.subject",
         "extension" : [
           {

@@ -1,6 +1,6 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "qicore-immunizationnotdone",
+  "id": "qicore-immunizationdone",
   "extension" : [
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
@@ -16,13 +16,13 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
-      "valueString":"ImmunizationNotDone"
+      "valueString":"ImmunizationDone"
     }
   ],
-  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationdone",
   "version" : "6.0.0",
-  "name": "QICoreImmunizationNotDone",
-  "title": "QICore Immunization Not Done",
+  "name": "QICoreImmunizationDone",
+  "title": "QICore Immunization Done",
   "status": "active",
   "experimental": false,
   "date": "2018-08-22",
@@ -38,7 +38,7 @@
       ]
     }
   ],
-  "description": "Negation profile of Communication for decision support/quality metrics. Indicates that the communication was not performed for a reason.",
+  "description": "Positive profile of Immunization for decision support/quality metrics. Indicates that the immunization is being or was performed (as opposed to the not done profile).",
   "jurisdiction": [
     {
       "coding": [
@@ -58,8 +58,8 @@
   "differential": {
     "element": [
       {
-        "id": "Immunization",
-        "path": "Immunization",
+        "id": "Immunization.id",
+        "path": "Immunization.id",
         "mustSupport": false
       },
       {
@@ -71,44 +71,8 @@
           }
         ],
         "path": "Immunization.status",
-        "short": "(QI) not-done",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "not-done"
-      },
-      {
-        "id": "Immunization.statusReason",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Immunization.statusReason",
-        "short": "(QI) Reason not done",
-        "min": 1,
-        "max": "1",
-        "binding": {
-          "strength": "extensible",
-          "description": "The reason the service was not requested",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
-        }
-      },
-      {
-        "id": "Immunization.recorded",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Immunization.recorded",
-        "short": "(QI) Documented date Immunization did not occur.",
-        "min": 1,
-        "max": "1"
+        "short": "(QI) completed",
+        "fixedCode": "completed"
       }
     ]
   }

@@ -1,20 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
-  <id value="negation-example-code"/>
+  <id value="proposal-example-code"/>
   <meta>
-    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-serviceprohibited"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequested"/>
   </meta>
-  <status value="completed"/>
-  <intent value="order"/>
-  <category>
-    <coding>
-      <system value="http://snomed.info/sct"/>
-      <code value="387713003"/>
-      <display value="Surgical Procedure"/>
-    </coding>
-  </category>
+  <status value="active"/>
+  <intent value="proposal"/>
   <priority value="urgent"/>
-  <doNotPerform value="true"/>
   <code>
     <coding>
       <system value="http://snomed.info/sct"/>
@@ -30,11 +22,4 @@
   </encounter>
   <occurrenceDateTime value="2013-04-05"/>
   <authoredOn value="2013-04-04"/>
-  <reasonCode>
-      <coding>
-        <system value="http://snomed.info/sct"/>
-        <code value="416406003"/>
-        <display value="Procedure discontinued (situation)"/>
-      </coding>
-  </reasonCode>
 </ServiceRequest>

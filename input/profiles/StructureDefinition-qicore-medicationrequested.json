@@ -1,10 +1,10 @@
 {
   "resourceType": "StructureDefinition",
-  "id": "qicore-immunizationnotdone",
+  "id": "qicore-medicationrequested",
   "extension" : [
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
-      "valueString": "vaccineCode"
+      "valueString": "medication"
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
@@ -16,13 +16,13 @@
     },
     {
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
-      "valueString":"ImmunizationNotDone"
+      "valueString":"MedicationRequested"
     }
   ],
-  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone",
-  "version" : "6.0.0",
-  "name": "QICoreImmunizationNotDone",
-  "title": "QICore Immunization Not Done",
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequested",
+  "version": "6.0.0",
+  "name": "QICoreMedicationRequested",
+  "title": "QICore MedicationRequested",
   "status": "active",
   "experimental": false,
   "date": "2018-08-22",
@@ -38,7 +38,7 @@
       ]
     }
   ],
-  "description": "Negation profile of Communication for decision support/quality metrics. Indicates that the communication was not performed for a reason.",
+  "description": "Positive profile of MedicationRequest for decision support/quality metrics. Indicates that a medication was proposed, planned, or ordered.",
   "jurisdiction": [
     {
       "coding": [
@@ -52,63 +52,48 @@
   "fhirVersion": "4.0.1",
   "kind": "resource",
   "abstract": false,
-  "type": "Immunization",
-  "baseDefinition": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
+  "type": "MedicationRequest",
+  "baseDefinition": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationrequest",
   "derivation": "constraint",
   "differential": {
     "element": [
       {
-        "id": "Immunization",
-        "path": "Immunization",
-        "mustSupport": false
+        "id": "MedicationRequest",
+        "path": "MedicationRequest"
       },
       {
-        "id": "Immunization.status",
+        "id": "MedicationRequest.status",
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean": true
           }
         ],
-        "path": "Immunization.status",
-        "short": "(QI) not-done",
-        "type": [
-          {
-            "code": "code"
-          }
-        ],
-        "fixedCode": "not-done"
-      },
-      {
-        "id": "Immunization.statusReason",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Immunization.statusReason",
-        "short": "(QI) Reason not done",
-        "min": 1,
-        "max": "1",
+        "path": "MedicationRequest.status",
+        "short": "(QI) active | on-hold | cancelled | completed | stopped | draft",
         "binding": {
-          "strength": "extensible",
-          "description": "The reason the service was not requested",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-medicationrequest-status"
         }
       },
       {
-        "id": "Immunization.recorded",
+        "id": "MedicationRequest.doNotPerform",
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
             "valueBoolean": true
           }
         ],
-        "path": "Immunization.recorded",
-        "short": "(QI) Documented date Immunization did not occur.",
-        "min": 1,
-        "max": "1"
+        "path": "MedicationRequest.doNotPerform",
+        "short": "(QI) True if medication was not requested",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "boolean"
+          }
+        ],
+        "fixedBoolean": false
       }
     ]
   }
