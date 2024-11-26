@@ -272,10 +272,10 @@ QI-Core’s concept of negation follows the informative publication established 
 
 2.  Documented absence of data with a valid reason
 
-    The measure or CDS artifact uses a specifically designed QI-Core profile to indicate that an activity intentionally did not occur for a valid reason.
+    The measure or CDS artifact uses specifically designed QI-Core profiles to indicate that an activity intentionally did not occur for a valid reason.
 
 When there is a need to document evidence that an expected activity was not done due to patient intent and/or specific criteria, 
-systems should use one of the ten QI-Core specific *negation* *rationale* profiles that align with existing profiles representing the expected actions. 
+systems should use one of the ten QI-Core specific *negation* *rationale* patterns that align with existing profiles representing the expected actions. 
 <a href="negation.html"><b>QI-Core Negation</b></a> provides detailed descriptions and guidance.
 
 

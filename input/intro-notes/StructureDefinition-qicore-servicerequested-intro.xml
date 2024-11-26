@@ -58,15 +58,15 @@
 <p>To create an expression indicating the existence of a service request, use the profile <a href="StructureDefinition-qicore-servicerequested.html">QICoreServiceRequested</a>; to specifically request information that a ServiceRequest intentionally did
 not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-serviceprohibited.html">QICoreServiceProhibited</a>.</p>
 
-<p>The following example illustrates the use of the ServiceRequest profile:</p>
+<p>The following example illustrates the use of the ServiceRequested profile:</p>
 
 <pre>
 <code>define "Intermittent Pneumatic Compression Devices Ordered":
-  ["ServiceRequest": "Application of intermittent pneumatic compression devices (IPC)"] DeviceOrdered
-    where DeviceOrdered.status in { 'active', 'completed', 'on-hold' }
-      and DeviceOrdered.intent = 'order'
-      and DeviceOrdered.doNotPerform is not true</code>
+  ["ServiceRequested": "Application of intermittent pneumatic compression devices (IPC)"] DeviceOrdered
+    where DeviceOrdered.intent = 'order'</code>
 </pre>
+
+<p>Note that the doNotPerform and statuses indicating positive intent are implied by the use of the ServiceRequested profile.</p>
 
 <p>
 <tr>
@@ -79,10 +79,13 @@ not occur for a medical, patient or system reason, use the profile <a href="Stru
 <table>
   <tbody>
     <tr>
-        <td><a href="ServiceRequest-example.html">Request for Appendectomy Example</a></td>
+        <td><a href="ServiceRequest-requested-example.html">Request for Appendectomy Example</a></td>
     </tr>
     <tr>
-        <td><a href="ServiceRequest-myringotomy-example.html">Request for Myringotomy Procedure Example</a></td>
+        <td><a href="ServiceRequest-proposal-example-code.html">Request for Graduated compression elastic hosiery (specific code)</a></td>
+    </tr>
+    <tr>
+        <td><a href="ServiceRequest-proposal-example.html">Request for Intermittent pneumatic compression devices (value set)</a></td>
     </tr>
   </tbody>
 </table>

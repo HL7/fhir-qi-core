@@ -1,17 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
-<b>QI Elements:</b>
+<b>Must Have:</b>
 <ul>
-<li>status: (QI) preparation | in-progress | on-hold | stopped | completed | entered-in-error | unknown</li>
-<li>subject: (QI) Focus of message</li>
-<li>topic: (QI) Description of the purpose/content</li>
-<li>sent: (QI) When sent</li>
-<li>received: (QI) When received</li>
-<li>recipient: (QI) Message recipient</li>
-<li>sender: (QI) Message sender</li>
+<li>status: (QI) completed | entered-in-error</li>
+<li>vaccineCode: (QI) Vaccine Product Type (bind to CVX)</li>
+<li>patient: (QI) Who was immunized</li>
+<li>occurrence[x]: (QI) Vaccine administration date</li>
 </ul>
 
-<b>Primary code path:</b> reasonCode
+<b>QI Elements:</b>
+<ul>
+<li>statusReason: (QI) Reason not done</li>
+<li>recorded: (QI) When the immunization was first captured in the subject's record</li>
+</ul>
+
+<b>Primary code path:</b> vaccineCode
 <br></br>
 (PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
 <br></br>
@@ -33,35 +36,32 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+
+  <p>The Immunization profile defines the conformance expectations for an Immunization event, regardless of whether it is a positive or negative statement. The ImmunizationDone and ImmunizationNotDone profiles represent the positive and
+    negative statements for an immunization event. </p>
+
+<p>The following example illustrates the use of the Immunization profile:</p>
+<pre><code>define "Polio Immunizations":
+  ["ImmunizationDone": "Inactivated Polio Vaccine (IPV)"]</code></pre>
+
+  <p>Note that statuses indicating positive intent are implied by the use of the ImmunizationDone profile.</p>
+
   <p>
-<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
+  <a name="examples"> </a>
+  <h3>Examples</h3>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+          <td><a href="Immunization-done-example.html">Example of Influenza immunization shot</a></td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
 
-<p>The Communication profile defines the conformance expectations for a Communication event, regardless of
-whether it is a positive or negative statement. To ensure instances retrieved meet
-  positive intent, applications should check the status as illustrated in this example:</p>
 
-<pre>
-<code>define Communication:
-  [Communication] C
-    where C.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
-</code>
-</pre>
-
-<p>The CommunicationDone and CommunicationNotDone profiles represent the positive and
-  negative statements for a communication event.</p>
-
-<p>To create an expression indicating existence of a communication, use the profile <a href="StructureDefinition-qicore-communicationdone.html">QICoreCommunicationDone</a>; to specifically request information that a communication intentionally did not occur for
-a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-communicationnotdone.html">QICoreCommunicationNotDone</a>.</p>
-
-<a name="examples"> </a>
-<h3>Examples</h3>
-<p>
-<table>
-  <tbody>
-    <tr>
-        <td><a href="Communication-example.html">Written Alert Example</a></td>
-    </tr>
-  </tbody>
-</table>
-</p>
 </div>

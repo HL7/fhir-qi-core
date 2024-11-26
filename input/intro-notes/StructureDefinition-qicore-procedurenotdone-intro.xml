@@ -41,10 +41,12 @@
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
 
-  <p>The Procedure and ProcedureNotDone profiles represent the positive and
-    negative statements for a procedure. 
-  </p>
+  <p>The Procedure profile defines the conformance expectations for a Procedure, 
+  regardless of whether it is a positive or negative statement. The ProcedureDone and ProcedureNotDone 
+  profiles represent the positive and negative statements for a procedure.</p>
 
+	<p>To create an expression indicating existence of a procedure, use the profile <a href="StructureDefinition-qicore-proceduredone.html">QICoreProcedureDone</a>; to specifically request information that a procedure intentionally did not occur for
+	a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-procedurenotdone.html">QICoreProcedureNotDone</a>.</p>
 
 <p>The following example illustrates the use of the ProcedureNotDone profile:</p>
 <pre>
@@ -75,6 +77,6 @@
   </p>
 
 
-  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI-Core</a> topic.</p>
+  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
 </div>

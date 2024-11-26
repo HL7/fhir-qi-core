@@ -47,9 +47,11 @@
   </tr>
   </p>
 
-  <p>The MedicationRequest and MedicationNotRequested profiles represent the positive and
-    negative statements for a medication order. 
-  </p>
+  <p>The MedicationRequest profile defines the conformance expectations for a MedicationRequest, 
+  regardless of whether it is a positive or negative statement. The MedicationRequested and MedicationNotRequested 
+  profiles represent the positive and negative statements for a medication order.</p>
+
+  <p>To create an expression indicating the existence of a medication request, use the profile <a href="StructureDefinition-qicore-medicationrequested.html">QICoreMedicationRequested</a>; to specifically request information that a MedicationRequest intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationprohibited.html">QICoreMedicationProhibited</a>.</p>
 
   <a name="examples"> </a>
   <h3>Examples</h3>
@@ -70,13 +72,12 @@
   </p>
 
   <pre><code>define "Reason for Not Ordering Antithrombotic":
-  ["MedicationNotRequested": "Antithrombotic Therapy"] NoAntithromboticDischarge
+  ["MedicationProhibited": "Antithrombotic Therapy"] NoAntithromboticDischarge
     where (NoAntithromboticDischarge.reasonCode in "Medical Reason"
       or NoAntithromboticDischarge.reasonCode in "Patient Refusal")
       and (NoAntithromboticDischarge.isCommunity() or NoAntithromboticDischarge.isDischarge())
-      and NoAntithromboticDischarge.status in { 'active', 'completed' }
       and NoAntithromboticDischarge.intent = 'order'</code></pre>
 
-  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI-Core</a> topic.</p>
+  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
 </div>

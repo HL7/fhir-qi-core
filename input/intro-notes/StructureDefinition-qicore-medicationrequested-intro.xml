@@ -69,12 +69,12 @@
 <p>The following example illustrates the use of the MedicationRequest profile:</p>
 <pre>
 <code>define "Antithrombotic Therapy at Discharge":
-  ["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
+  ["MedicationRequested": medication in "Antithrombotic Therapy"] Antithrombotic
     where (Antithrombotic.isCommunity() or Antithrombotic.isDischarge())
-      and Antithrombotic.status in { 'active', 'completed' }
-      and Antithrombotic.intent = 'order'
-      and Antithrombotic.doNotPerform is not true</code>
+      and Antithrombotic.intent = 'order'</code>
 </pre>
+
+<p>Note that the doNotPerform and statuses indicating positive intent are implied by the use of the MedicationRequested profile.</p>
 
   <p>
   <tr>
@@ -87,20 +87,8 @@
   <table>
     <tbody>
       <tr>
-          <td><a href="MedicationRequest-example.html">Penicillin MedicationRequest Example</a></td>
-        </tr>
-        <tr>
-      	<td><a href="MedicationRequest-cmd-example.html">Cumulative Medication Duration Example</a></td>
+        <td><a href="MedicationRequest-requested-example.html">Penicillin MedicationRequest Example</a></td>
       </tr>
-      <tr>
-      <td><a href="MedicationRequest-patient-reported-example.html">Patient Reported MedicationRequest Example</a></td>
-    </tr>
-    <tr>
-    <td><a href="MedicationRequest-patient-requester-example.html">Patient Requested MedicationRequest Example</a></td>
-  </tr>
-  <tr>
-  <td><a href="MedicationRequest-practitioner-ordered-example.html">Practitioner Ordered MedicationRequest Example</a></td>
-</tr>
     </tbody>
   </table>
   </p>

@@ -57,9 +57,10 @@ did not occur for a medical, patient or system reason, use the profile <a href="
 <p>The following example illustrates the use of the MedicationDispense profile</p>
 <pre>
 <code>define "Dementia Medication Dispensed":
-  ["MedicationDispense": "Dementia Medications"] MedicationDispense
-    where MedicationDispense.status in { 'active', 'completed', 'on-hold' }</code>
+  ["MedicationDispenseDone": "Dementia Medications"]</code>
 </pre>
+
+<p>Note that the statuses indicating positive intent are implied by the use of the MedicationDispenseDone profile.
 
 <p>
 <tr>
@@ -72,10 +73,7 @@ did not occur for a medical, patient or system reason, use the profile <a href="
 <table>
   <tbody>
     <tr>
-        <td><a href="MedicationDispense-example.html">Penicillin MedicationDispense Example</a></td>
-    </tr>
-    <tr>
-        <td><a href="MedicationDispense-cmd-example.html">MedicationDispense Cumulative Duration Example</a></td>
+        <td><a href="MedicationDispense-done-example.html">Penicillin MedicationDispense Example</a></td>
     </tr>
   </tbody>
 </table>
