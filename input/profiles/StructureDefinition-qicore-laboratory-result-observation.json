@@ -409,6 +409,45 @@
         ]
       },
       {
+        "id" : "Observation.referenceRange",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Observation.referenceRange",
+        "short" : "(QI) Result reference range",
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "Observation.referenceRange",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "BackboneElement"
+          }
+        ],
+        "condition" : [
+          "us-core-22"
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "mapping" : [
+          {
+            "identity" : "v2",
+            "map" : "OBX.7"
+          },
+          {
+            "identity" : "rim",
+            "map" : "outboundRelationship[typeCode=REFV]/target[classCode=OBS, moodCode=EVN]"
+          }
+        ]
+      },      
+	  {
         "id" : "Observation.interpretation",
         "extension" : [
           {

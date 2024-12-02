@@ -58,7 +58,84 @@
   "derivation": "constraint",
   "differential": {
     "element": [
-      {
+	  {
+		"id" : "Condition.code",
+        "path" : "Condition.code",
+        "short" : "(QI) Identification of the condition, problem or diagnosis",
+        "alias" : [
+          "Type"
+        ],
+        "min" : 1,
+        "max" : "1",
+        "base" : {
+          "path" : "Condition.code",
+          "min" : 1,
+          "max" : "1"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : true,
+		"binding" : {
+          "extension" : [
+            {
+              "extension" : [
+                {
+                  "url" : "purpose",
+                  "valueCode" : "current"
+                },
+                {
+                  "url" : "valueSet",
+                  "valueCanonical" : "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
+                },
+                {
+                  "url" : "documentation",
+                  "valueMarkdown" : "US Core uses the current additional binding from FHIR R5 for this coded element for more flexibility when exchanging legacy and text-only data."
+                }
+              ],
+              "url" : "http://hl7.org/fhir/tools/StructureDefinition/additional-binding"
+            }
+          ],
+          "strength" : "preferred",
+          "description" : "Valueset to describe the actual problem experienced by the patient",
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"	  
+		 },
+        "mapping" : [
+          {
+            "identity" : "workflow",
+            "map" : "Event.code"
+          },
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.what[x]"
+          },
+          {
+            "identity" : "sct-concept",
+            "map" : "code 246090004 |Associated finding| (< 404684003 |Clinical finding| MINUS\n<< 420134006 |Propensity to adverse reactions| MINUS \n<< 473010000 |Hypersensitivity condition| MINUS \n<< 79899007 |Drug interaction| MINUS\n<< 69449002 |Drug action| MINUS \n<< 441742003 |Evaluation finding| MINUS \n<< 307824009 |Administrative status| MINUS \n<< 385356007 |Tumor stage finding|) \nOR < 413350009 |Finding with explicit context|\nOR < 272379006 |Event|"
+          },
+          {
+            "identity" : "v2",
+            "map" : "PRB-3"
+          },
+          {
+            "identity" : "rim",
+            "map" : ".value"
+          },
+          {
+            "identity" : "sct-attr",
+            "map" : "246090004"
+          },
+          {
+            "identity" : "argonaut-dq-dstu2",
+            "map" : "Condition.code"
+          }
+        ]
+        },       
+		{
         "id": "Condition.subject",
         "extension": [
           {
