@@ -1,6 +1,9 @@
 <div class="new-content" markdown="1">
+"Must Have", "QI Elements" and "primary code path" are defined in the [QI-Core Must Support section](index.html#mustsupport-flag).
 
 ### [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html) ###
+
+
 **QI Elements:**
 * actuality: (QI) actual \| potential
 * category: (QI) product-problem \| product-quality \| product-use-error \| wrong-dose \| incorrect-prescribing-information \| wrong-technique \| wrong-route-of-administration \| wrong-rate \| wrong-duration \| wrong-time \| expired-drug \| medical-device-use-error \| problem-different-manufacturer \| unsafe-physical-environment
@@ -22,6 +25,8 @@
 <br>
 
 ### [QICore AllergyIntolerance](StructureDefinition-qicore-allergyintolerance.html) ###
+
+
 **Must Have:**
 * code: (QI) Code that identifies the allergy or intolerance
 * patient: (QI) Who the sensitivity is for
@@ -50,6 +55,8 @@
 <br>
 
 ### [QICore BodyStructure](StructureDefinition-qicore-bodystructure.html) ###
+
+
 **QI Elements:**
 * active: (QI) Whether this record is in active use
 * location: (QI) Body site
@@ -67,13 +74,15 @@
 <br>
 
 ### [QICore CarePlan](StructureDefinition-qicore-careplan.html) ###
+
+
 **Must Have:**
 * text.status: generated \| additional
 * text.div: Limited xhtml content
 * status: draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
 * intent: proposal \| plan \| order \| option
 * category: (QI) Type of plan
-* category: (QI) Type of plan
+* category(AssessPlan): (QI) Type of plan
 * subject: (QI) Who the care plan is for.
 
 **Primary code path:** category
@@ -87,6 +96,8 @@
 <br>
 
 ### [QICore CareTeam](StructureDefinition-qicore-careteam.html) ###
+
+
 **Must Have:**
 * subject: (QI) Who the care team is for.
 * participant: Members of the team
@@ -104,6 +115,8 @@
 <br>
 
 ### [QICore Claim](StructureDefinition-qicore-claim.html) ###
+
+
 **QI Elements:**
 * Claim: Claim, Pre-determination or Pre-authorization
 * patient: (QI) The recipient of the products and services
@@ -133,6 +146,8 @@
 <br>
 
 ### [QICore ClaimResponse](StructureDefinition-qicore-claimresponse.html) ###
+
+
 **QI Elements:**
 * status: (QI) active \| cancelled \| draft \| entered-in-error
 * type: (QI) More granular claim type
@@ -159,13 +174,15 @@
 <br>
 
 ### [QICore Communication Not Done](StructureDefinition-qicore-communicationnotdone.html) ###
+
+
 **QI Elements:**
-* event-recorded: (QI) Captures the recorded date of the communication
+* extension(event-recorded): (QI) Captures the recorded date of the communication
 * status: (QI) preparation \| in-progress \| not-done \| on-hold \| stopped \| completed \| entered-in-error \| unknown
 * statusReason: (QI) Reason for current status
 * subject: (QI) Focus of message
 * topic: (QI) Description of the purpose/content
-* notDoneValueSet: (QI) Url of a value set of activities not requested or performed
+* topic.extension(notDoneValueSet): (QI) Url of a value set of activities not requested or performed
 
 **Primary code path:** reasonCode
 <br>
@@ -178,6 +195,8 @@
 <br>
 
 ### [QICore Communication](StructureDefinition-qicore-communication.html) ###
+
+
 **QI Elements:**
 * status: (QI) preparation \| in-progress \| on-hold \| stopped \| completed \| entered-in-error \| unknown
 * subject: (QI) Focus of message
@@ -198,14 +217,16 @@
 <br>
 
 ### [QICore CommunicationRequest](StructureDefinition-qicore-communicationrequest.html) ###
+
+
 **QI Elements:**
-* status:  draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
-* category:  Message category
-* doNotPerform:  True if request is prohibiting action
-* subject:  Focus of message
-* encounter:  Encounter created as part of
-* recipient:  Message recipient
-* sender:  Message sender
+* status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
+* category: (QI) Message category
+* doNotPerform: (QI) True if request is prohibiting action
+* subject: (QI) Focus of message
+* encounter: (QI) Encounter created as part of
+* recipient: (QI) Message recipient
+* sender: (QI) Message sender
 
 **Primary code path:** category
 <br>
@@ -218,9 +239,11 @@
 <br>
 
 ### [QICore Condition Encounter Diagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html) ###
+
+
 **Must Have:**
 * category: category codes
-* category: encounter-diagnosis
+* category(us-core): encounter-diagnosis
 * code: Identification of the condition, problem or diagnosis
 * subject: (QI) Who has the condition?
 
@@ -241,9 +264,11 @@
 <br>
 
 ### [QICore Condition Problems Health Concerns](StructureDefinition-qicore-condition-problems-health-concerns.html) ###
+
+
 **Must Have:**
 * category: category codes
-* category: problem-list-item \| health-concern
+* category(us-core): problem-list-item \| health-concern
 * code: (QI) Identification of the condition, problem or diagnosis
 * subject: (QI) Who has the condition?
 
@@ -267,6 +292,8 @@
 <br>
 
 ### [QICore Coverage](StructureDefinition-qicore-coverage.html) ###
+
+
 **Must Have:**
 * identifier.type: Member Number identifier type
 * status: active \| cancelled \| draft \| entered-in-error
@@ -279,7 +306,7 @@
 
 **QI Elements:**
 * type: (QI) Coverage category such as medical or accident
-* policyHolder:  Owner of the policy
+* policyHolder: (QI) Owner of the policy
 * subscriberId: (QI) ID assigned to the subscriber
 * period: (QI) Coverage start and end dates
 
@@ -294,13 +321,15 @@
 <br>
 
 ### [QICore Device Not Requested](StructureDefinition-qicore-devicenotrequested.html) ###
+
+
 **QI Elements:**
-* modifierExtension: (QI) Extension
+* modifierExtension(doNotPerform): (QI) Extension
 * modifierExtension.value[x]: (QI) Value of extension
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
 * intent: (QI) proposal \| plan \| directive \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * code[x]: (QI) Device requested
-* doNotPerformValueSet: (QI) What was not done
+* code[x].extension(doNotPerformValueSet): (QI) What was not done
 * subject: (QI) Focus of request
 * authoredOn: (QI) When recorded
 * reasonCode: (QI) Explanation/Justification for procedure or service
@@ -316,6 +345,8 @@
 <br>
 
 ### [QICore Device](StructureDefinition-qicore-device.html) ###
+
+
 **QI Elements:**
 * patient: (QI) Patient to whom Device is affixed
 
@@ -330,8 +361,10 @@
 <br>
 
 ### [QICore DeviceRequest](StructureDefinition-qicore-devicerequest.html) ###
+
+
 **QI Elements:**
-* modifierExtension: (QI) Extension
+* modifierExtension(doNotPerform): (QI) Extension
 * modifierExtension.value[x]: (QI) Value of extension
 * identifier: (QI) External Request identifier
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
@@ -351,6 +384,8 @@
 <br>
 
 ### [QICore DeviceUseStatement](StructureDefinition-qicore-deviceusestatement.html) ###
+
+
 **QI Elements:**
 * status: (QI) active \| completed \| entered-in-error +
 * subject: (QI) Patient using device
@@ -370,11 +405,13 @@
 <br>
 
 ### [QICore DiagnosticReport Profile for Laboratory Results Reporting](StructureDefinition-qicore-diagnosticreport-lab.html) ###
+
+
 **Must Have:**
-* status: registered \| partial \| preliminary \| final +
+* status: (QI)registered \| partial \| preliminary \| final +
 * category: (QI) Service category
-* category: (QI) Service category
-* code: US Core Laboratory Report Order Code
+* category(LaboratorySlice): (QI) Service category
+* code: (QI) US Core Laboratory Report Order Code
 * subject: (QI) The subject of the report - usually, but not always, the patient
 
 
@@ -395,8 +432,10 @@
 <br>
 
 ### [QICore DiagnosticReport Profile for Report and Note Exchange](StructureDefinition-qicore-diagnosticreport-note.html) ###
+
+
 **Must Have:**
-* status: registered \| partial \| preliminary \| final +
+* status: (QI)registered \| partial \| preliminary \| final +
 * category: (QI) Service Category
 * code: (QI) QI-Core Report Code
 * subject: (QI) The subject of the report - usually, but not always, the patient
@@ -409,7 +448,7 @@
 * issued: (QI) DateTime this version was made
 * performer: (QI) Responsible Diagnostic Service
 * result: (QI) Observations
-* imagingStudy:  Reference to full details of imaging associated with the diagnostic report
+* imagingStudy: (QI) Reference to full details of imaging associated with the diagnostic report
 * media: (QI) Key images associated with this report
 
 **Primary code path:** code
@@ -423,6 +462,8 @@
 <br>
 
 ### [QICore Encounter](StructureDefinition-qicore-encounter.html) ###
+
+
 **Must Have:**
 * identifier.system: The namespace for the identifier value
 * identifier.value: The value that is unique
@@ -456,6 +497,8 @@
 <br>
 
 ### [QICore FamilyMemberHistory](StructureDefinition-qicore-familymemberhistory.html) ###
+
+
 **QI Elements:**
 * patient: (QI) Patient history is about
 * date: (QI) When history was recorded or last updated
@@ -475,6 +518,8 @@
 <br>
 
 ### [QICore Flag](StructureDefinition-qicore-flag.html) ###
+
+
 **QI Elements:**
 * status: (QI) active \| inactive \| entered-in-error
 * category: (QI) Clinical, administrative, etc.
@@ -493,6 +538,8 @@
 <br>
 
 ### [QICore Goal](StructureDefinition-qicore-goal.html) ###
+
+
 **Must Have:**
 * lifecycleStatus: proposed \| planned \| accepted \| active \| on-hold \| completed \| cancelled \| entered-in-error \| rejected
 * description: Code or text describing goal
@@ -514,6 +561,8 @@
 <br>
 
 ### [QICore ImagingStudy](StructureDefinition-qicore-imagingstudy.html) ###
+
+
 **QI Elements:**
 * subject: (QI) Who or what is the subject of the study
 * encounter: Encounter with which this imaging study is associated
@@ -521,7 +570,7 @@
 * basedOn: (QI) Request fulfilled
 * procedureReference: (QI) The performed Procedure reference
 
-**Primary code path:** procedure
+**Primary code path:** procedureCode
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
@@ -532,6 +581,8 @@
 <br>
 
 ### [QICore Immunization Not Done](StructureDefinition-qicore-immunizationnotdone.html) ###
+
+
 **Must Have:**
 * status: (QI) completed \| entered-in-error \| not-done
 * statusReason: (QI) Reason not done
@@ -541,7 +592,7 @@
 
 
 **QI Elements:**
-* notDoneValueSet: (QI) What wasn't administered
+* vaccineCode.extension(notDoneValueSet): (QI) What wasn't administered
 * recorded: (QI) Documented date Immunization did not occur.
 
 **Primary code path:** vaccineCode
@@ -555,6 +606,8 @@
 <br>
 
 ### [QICore Immunization](StructureDefinition-qicore-immunization.html) ###
+
+
 **Must Have:**
 * status: (QI) completed \| entered-in-error
 * vaccineCode: (QI) Vaccine Product Type (bind to CVX)
@@ -577,6 +630,8 @@
 <br>
 
 ### [QICore ImmunizationEvaluation](StructureDefinition-qicore-immunizationevaluation.html) ###
+
+
 **QI Elements:**
 * identifier: (QI) Business identifier
 * status: (QI) completed \| entered-in-error
@@ -598,6 +653,8 @@
 <br>
 
 ### [QICore ImmunizationRecommendation](StructureDefinition-qicore-immunizationrecommendation.html) ###
+
+
 **QI Elements:**
 * patient: (QI) Who this profile is for
 * recommendation: (QI) Vaccine administration recommendations
@@ -615,10 +672,12 @@
 <br>
 
 ### [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html) ###
+
+
 **Must Have:**
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| entered-in-error \| unknown
 * category: (QI) Classification of type of observation
-* category: (QI) Classification of type of observation
+* category(us-core): (QI) Classification of type of observation
 * code: (QI) Laboratory Test Name
 * subject: (QI) Who and/or what the observation is about
 
@@ -641,6 +700,8 @@
 <br>
 
 ### [QICore Location](StructureDefinition-qicore-location.html) ###
+
+
 **Must Have:**
 * name: Name by which a facility or location is known.
 
@@ -661,6 +722,8 @@
 <br>
 
 ### [QICore Medication Not Requested](StructureDefinition-qicore-medicationnotrequested.html) ###
+
+
 **Must Have:**
 * status: (QI) active \| on-hold \| cancelled \| completed \| entered-in-error \| stopped \| draft \| unknown
 * intent: (QI) proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
@@ -670,6 +733,7 @@
 
 
 **QI Elements:**
+* extension(medicationAdherence): Reported adherence to prescribed medication instructions.
 * doNotPerform: (QI) True if medication was not requested
 * reported[x]: (QI) Reported rather than primary record
 * encounter: (QI) Encounter created as part of encounter/admission/stay
@@ -688,6 +752,8 @@
 <br>
 
 ### [QICore Medication](StructureDefinition-qicore-medication.html) ###
+
+
 **Must Have:**
 * code: Codes that identify this medication
 
@@ -702,13 +768,15 @@
 <br>
 
 ### [QICore MedicationAdministration Not Done](StructureDefinition-qicore-medicationadministrationnotdone.html) ###
+
+
 **QI Elements:**
 * implicitRules: (QI) A set of rules under which this content was created
-* recorded: (QI) Recorded
+* extension(recorded): (QI) Recorded
 * status: (QI) in-progress \| not-done \| on-hold \| completed \| entered-in-error \| stopped \| unknown
 * statusReason: (QI) Reason administration not performed
 * medication[x]: (QI) What was administered
-* notDoneValueSet: (QI) Url of a value set of activities not requested or performed
+* medication[x].extension(notDoneValueSet): (QI) Url of a value set of activities not requested or performed
 * subject: (QI) Who received medication
 * context: (QI) Encounter or Episode of Care administered as part of
 * effective[x]: (QI) Start and end time of administration
@@ -725,8 +793,10 @@
 <br>
 
 ### [QICore MedicationAdministration](StructureDefinition-qicore-medicationadministration.html) ###
+
+
 **QI Elements:**
-* recorded: (QI) Recorded
+* extension(recorded): (QI) Recorded
 * status: (QI) in-progress \| on-hold \| completed \| entered-in-error \| stopped \| unknown
 * medication[x]: (QI) What was administered
 * subject: (QI) Who received medication
@@ -748,6 +818,8 @@
 <br>
 
 ### [QICore MedicationDispense Declined](StructureDefinition-qicore-medicationdispensedeclined.html) ###
+
+
 **Must Have:**
 * status: (QI) preparation \| in-progress \| cancelled \| on-hold \| completed \| entered-in-error \| stopped \| declined \| unknown
 * medication[x]: (QI) What medication was supplied
@@ -756,9 +828,9 @@
 
 
 **QI Elements:**
-* recorded: (QI) Extension
+* extension(recorded): (QI) Extension
 * statusReason[x]: (QI) Why a dispense was not performed
-* notDoneValueSet: (QI) Url of a value set of activities not requested or performed
+* medication[x].extension(notDoneValueSet): (QI) Url of a value set of activities not requested or performed
 * dosageInstruction.text: (QI) Free text dosage instructions e.g. SIG
 * dosageInstruction.timing: (QI) When medication should be administered
 * dosageInstruction.doseAndRate: (QI) Amount of medication administered
@@ -776,6 +848,8 @@
 <br>
 
 ### [QICore MedicationDispense](StructureDefinition-qicore-medicationdispense.html) ###
+
+
 **Must Have:**
 * status: (QI) preparation​ \| in-progress​ \| cancelled​ \| on-hold​ \| completed​ \| entered-in-error​ \| stopped​ \| unknown
 * medication[x]: (QI) What medication was supplied
@@ -784,7 +858,7 @@
 
 
 **QI Elements:**
-* recorded: (QI) Extension
+* extension(recorded): (QI) Extension
 * authorizingPrescription: (QI) Medication order that authorizes the dispense
 * type: (QI) Trial fill, partial fill, emergency fill, etc.
 * quantity: (QI) Amount dispensed
@@ -808,6 +882,8 @@
 <br>
 
 ### [QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html) ###
+
+
 **Must Have:**
 * status: (QI) active \| on-hold \| cancelled \| completed \| entered-in-error \| stopped \| draft \| unknown
 * intent: (QI) proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
@@ -816,6 +892,7 @@
 
 
 **QI Elements:**
+* extension(medicationAdherence): Reported adherence to prescribed medication instructions.
 * doNotPerform: (QI) True if medication was not requested
 * reported[x]: (QI) Reported rather than primary record
 * encounter: (QI) Encounter created as part of encounter/admission/stay
@@ -853,6 +930,8 @@
 <br>
 
 ### [QICore MedicationStatement](StructureDefinition-qicore-medicationstatement.html) ###
+
+
 **QI Elements:**
 * status: (QI) active \| completed \| entered-in-error \| intended \| stopped \| on-hold \| unknown \| not-taken
 * medication[x]: (QI) What medication was taken
@@ -877,6 +956,8 @@
 <br>
 
 ### [QICore NonPatient Observation](StructureDefinition-qicore-nonpatient-observation.html) ###
+
+
 **QI Elements:**
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| entered-in-error \| unknown
 * category: (QI) Classification of type of observation
@@ -885,7 +966,7 @@
 * effective[x]: (QI) Clinically relevant time/time-period for observation
 * performer: (QI) Who is responsible for the observation
 * value[x]: (QI) Actual result
-* value[x]: (QI) actual \| potential
+* value[x](valueCodeableConcept): (QI) actual \| potential
 * interpretation: (QI) High, low, normal, etc.
 * derivedFrom: (QI) QI Core Profiles or other resource the observation is made from
 
@@ -900,6 +981,8 @@
 <br>
 
 ### [QICore NutritionOrder](StructureDefinition-qicore-nutritionorder.html) ###
+
+
 **QI Elements:**
 * patient: (QI) The person who requires the diet, formula or nutritional supplement
 
@@ -909,17 +992,19 @@
 <br>
 
 ### [QICore Observation Cancelled](StructureDefinition-qicore-observationcancelled.html) ###
+
+
 **QI Elements:**
-* event-statusReason: (QI) Event Status Reason
+* extension(event-statusReason): (QI) Event Status Reason
 * status: (QI) registered \| preliminary \| final \| amended +
 * category: (QI) Classification of type of observation
 * code: (QI) Type of observation (code / type)
-* notDoneValueSet: (QI) What was not done
+* code.extension(notDoneValueSet): (QI) What was not done
 * subject: (QI) Who and/or what the observation is about
 * effective[x]: (QI) Clinically relevant time/time-period for observation
 * issued: (QI) Date/Time this version was made available
 * value[x]: (QI) Actual result
-* value[x]: (QI) Actual result
+* value[x](valueCodeableConcept): (QI) Actual result
 * interpretation: (QI) High, low, normal, etc.
 
 **Primary code path:** code
@@ -933,6 +1018,8 @@
 <br>
 
 ### [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) ###
+
+
 **Must Have:**
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| entered-in-error \| unknown
 * category: (QI) Classification of type of observation
@@ -941,7 +1028,7 @@
 
 
 **QI Elements:**
-* category: (QI) Classification of type of observation
+* category(us-core): (QI) Classification of type of observation
 * effective[x]: (QI) Clinically relevant time/time-period for observation
 * value[x]: (QI) Result Value
 * dataAbsentReason: (QI) Why the result is missing
@@ -957,16 +1044,18 @@
 <br>
 
 ### [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html) ###
+
+
 **Must Have:**
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| entered-in-error \| unknown
 * category: (QI) Classification of type of observation
-* category: (QI) Classification of type of observation
+* category(survey): (QI) Classification of type of observation
 * code: (QI) Type of observation (code / type)
 * subject: (QI) Who and/or what the observation is about
 
 
 **QI Elements:**
-* category: (QI) Classification of type of observation
+* category(screening-assessment): (QI) Classification of type of observation
 * effective[x]: (QI) Clinically relevant time/time-period for observation
 * performer: (QI) Who is responsible for the observation
 * value[x]: (QI) Actual result
@@ -986,16 +1075,18 @@
 <br>
 
 ### [QICore Organization](StructureDefinition-qicore-organization.html) ###
+
+
 **Must Have:**
 * active: Whether the organization's record is still in active use
 * name: Name used for the organization
 
 
 **QI Elements:**
-* identifier: (QI) CMS Certification Number
+* identifier(ccn): (QI) CMS Certification Number
 * identifier.use: (QI) usual \| official \| temp \| secondary \| old (If known)
 * identifier.value: (QI) The value that is unique
-* identifier: (QI) Employer Identification Number
+* identifier(ein): (QI) Employer Identification Number
 * identifier.use: (QI) usual \| official \| temp \| secondary \| old (If known)
 * identifier.value: (QI) The value that is unique
 
@@ -1010,6 +1101,8 @@
 <br>
 
 ### [QICore Patient](StructureDefinition-qicore-patient.html) ###
+
+
 **Must Have:**
 * identifier: An identifier for this patient
 * identifier.system: The namespace for the identifier value
@@ -1022,11 +1115,11 @@
 
 
 **QI Elements:**
-* race: (QI) US Core Race Extension
-* ethnicity: (QI) US Core ethnicity Extension
-* tribalAffiliation: (QI) Tribal Affiliation Extension
-* sex: (QI) Sex Extension
-* genderIdentity: (QI) The individual's gender identity
+* extension(race): (QI) US Core Race Extension
+* extension(ethnicity): (QI) US Core ethnicity Extension
+* extension(tribalAffiliation): (QI) Tribal Affiliation Extension
+* extension(sex): (QI) Sex Extension
+* extension(genderIdentity): (QI) The individual's gender identity
 * name.use: (QI) usual \| official \| temp \| nickname \| anonymous \| old \| maiden
 * name.suffix: (QI) Parts that come after the name
 * name.period: (QI) Time period when name was/is in use
@@ -1044,6 +1137,8 @@
 <br>
 
 ### [QICore Practitioner](StructureDefinition-qicore-practitioner.html) ###
+
+
 **Must Have:**
 * identifier: (QI) An identifier for the person as this agent
 * identifier.system: (QI) The namespace for the identifier value
@@ -1053,8 +1148,8 @@
 
 
 **QI Elements:**
-* identifier: (QI) An identifier for the person as this agent
-* identifier: (QI) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.
+* identifier(NPI): (QI) An identifier for the person as this agent
+* identifier(ein): (QI) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.
 * identifier.use: (QI) usual \| official \| temp \| secondary \| old (If known)
 * identifier.value: (QI) The value that is unique
 
@@ -1064,6 +1159,8 @@
 <br>
 
 ### [QICore PractitionerRole](StructureDefinition-qicore-practitionerrole.html) ###
+
+
 **Must Have:**
 * telecom.system: (QI) phone \| fax \| email \| pager \| url \| sms \| other
 * telecom.value: (QI) The actual contact point details
@@ -1095,6 +1192,8 @@
 <br>
 
 ### [QICore Procedure Not Done](StructureDefinition-qicore-procedurenotdone.html) ###
+
+
 **Must Have:**
 * status: (QI) preparation \| in-progress \| not-done \| on-hold \| stopped \| completed \| entered-in-error \| unknown
 * code: (QI) Identification of the procedure
@@ -1102,10 +1201,10 @@
 
 
 **QI Elements:**
-* recorded: (QI) When the procedure was first captured in the subject's record
+* extension(recorded): (QI) When the procedure was first captured in the subject's record
 * basedOn: (QI) A request for this procedure
 * statusReason: (QI) Reason for the current status
-* notDoneValueSet: (QI) What was not performed
+* code.extension(notDoneValueSet): (QI) What was not performed
 * performed[x]: (QI) When the procedure was performed
 * reasonCode: (QI) Coded reason procedure performed
 * reasonReference: (QI) The justification that the procedure was performed
@@ -1121,6 +1220,8 @@
 <br>
 
 ### [QICore Procedure](StructureDefinition-qicore-procedure.html) ###
+
+
 **Must Have:**
 * status: (QI) preparation \| in-progress \| ​on-hold​ \| stopped​ \| completed \| entered-in-error​ \| unknown​
 * code: (QI) Identification of the procedure
@@ -1129,7 +1230,7 @@
 
 **QI Elements:**
 * implicitRules: (QI) A set of rules under which this content was created
-* recorded: (QI) When the procedure was first captured in the subject's record
+* extension(recorded): (QI) When the procedure was first captured in the subject's record
 * basedOn: (QI) A request for this procedure
 * performed[x]: (QI) When the procedure was performed
 * reasonCode: (QI) Coded reason procedure performed
@@ -1146,6 +1247,8 @@
 <br>
 
 ### [QICore QuestionnaireResponse](StructureDefinition-qicore-questionnaireresponse.html) ###
+
+
 **Must Have:**
 * questionnaire: Form being answered
 * status: in-progress \| completed \| amended \| entered-in-error \| stopped
@@ -1165,6 +1268,8 @@
 <br>
 
 ### [QICore RelatedPerson](StructureDefinition-qicore-relatedperson.html) ###
+
+
 **Must Have:**
 * active: (QI) Whether this related person's record is in active use
 * patient: (QI) The patient this person is related to
@@ -1186,6 +1291,8 @@
 <br>
 
 ### [QICore Service Not Requested](StructureDefinition-qicore-servicenotrequested.html) ###
+
+
 **Must Have:**
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
 * intent: (QI) proposal \| plan \| directive \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
@@ -1195,7 +1302,7 @@
 
 
 **QI Elements:**
-* notDoneValueSet: (QI) What was not requested
+* code.extension(notDoneValueSet): (QI) What was not requested
 * occurrence[x]: (QI) When service should occur
 * reasonCode: (QI) Explanation/Justification for procedure or service
 * reasonReference: (QI) Explanation/Justification for service or service
@@ -1211,6 +1318,8 @@
 <br>
 
 ### [QICore ServiceRequest](StructureDefinition-qicore-servicerequest.html) ###
+
+
 **Must Have:**
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
 * intent: (QI) proposal \| plan \| directive \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
@@ -1236,6 +1345,8 @@
 <br>
 
 ### [QICore Simple Observation](StructureDefinition-qicore-simple-observation.html) ###
+
+
 **Must Have:**
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| entered-in-error \| unknown
 * category: (QI) Classification of type of observation
@@ -1248,7 +1359,7 @@
 * effective[x]: (QI) Clinically relevant time/time-period for observation
 * performer: (QI) Who is responsible for the observation
 * value[x]: (QI) Actual result
-* value[x]: (QI) actual \| potential
+* value[x](valueCodeableConcept): (QI) actual \| potential
 * interpretation: (QI) High, low, normal, etc.
 * derivedFrom: (QI) US Core Profiles or other resource the observation is made from
 
@@ -1263,6 +1374,8 @@
 <br>
 
 ### [QICore Substance](StructureDefinition-qicore-substance.html) ###
+
+
 **QI Elements:**
 * code: (QI) If this describes a specific package/container of the substance
 * instance.quantity: (QI) Amount of substance in the package
@@ -1280,6 +1393,8 @@
 <br>
 
 ### [QICore Task Rejected](StructureDefinition-qicore-taskrejected.html) ###
+
+
 **QI Elements:**
 * executionPeriod: (QI) The timing the task was rejected and the reason.
 
@@ -1294,13 +1409,15 @@
 <br>
 
 ### [QICore Task](StructureDefinition-qicore-task.html) ###
+
+
 **QI Elements:**
-* identifier:  Task Instance Identifier
+* identifier: (QI) Task Instance Identifier
 * basedOn: (QI) Request fulfilled by this task
-* status:  draft​ \| requested​ \| received​ \| accepted​ \| ready​ \| cancelled​ \| in-progress​ \| on-hold​ \| failed​ \| completed \| entered-in-error
-* intent:  unknown \| proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance
-* priority:  routine \| urgent \| asap \| stat
-* code:  Task Type
+* status: (QI) draft​ \| requested​ \| received​ \| accepted​ \| ready​ \| cancelled​ \| in-progress​ \| on-hold​ \| failed​ \| completed \| entered-in-error
+* intent: (QI) unknown \| proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance
+* priority: (QI) routine \| urgent \| asap \| stat
+* code: (QI) Task Type
 * executionPeriod: (QI) Start and end time of execution
 
 **Primary code path:** code
@@ -1313,4 +1430,3 @@
 <br>
 <br>
 
-</div>

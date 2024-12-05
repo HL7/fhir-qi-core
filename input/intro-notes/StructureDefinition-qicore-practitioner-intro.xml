@@ -1,5 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
 <li>identifier: (QI) An identifier for the person as this agent</li>
@@ -11,8 +13,8 @@
 
 <b>QI Elements:</b>
 <ul>
-<li>identifier: (QI) An identifier for the person as this agent</li>
-<li>identifier: (QI) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.</li>
+<li>identifier(NPI): (QI) An identifier for the person as this agent</li>
+<li>identifier(ein): (QI) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.</li>
 <li>identifier.use: (QI) usual | official | temp | secondary | old (If known)</li>
 <li>identifier.value: (QI) The value that is unique</li>
 </ul>

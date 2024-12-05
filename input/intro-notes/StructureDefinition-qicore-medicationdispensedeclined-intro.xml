@@ -1,5 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
 <li>status: (QI) preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown</li>
@@ -10,9 +12,9 @@
 
 <b>QI Elements:</b>
 <ul>
-<li>recorded: (QI) Extension</li>
+<li>extension(recorded): (QI) Extension</li>
 <li>statusReason[x]: (QI) Why a dispense was not performed</li>
-<li>notDoneValueSet: (QI) Url of a value set of activities not requested or performed</li>
+<li>medication[x].extension(notDoneValueSet): (QI) Url of a value set of activities not requested or performed</li>
 <li>dosageInstruction.text: (QI) Free text dosage instructions e.g. SIG</li>
 <li>dosageInstruction.timing: (QI) When medication should be administered</li>
 <li>dosageInstruction.doseAndRate: (QI) Amount of medication administered</li>
