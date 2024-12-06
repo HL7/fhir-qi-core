@@ -1,4 +1,3 @@
-
 {
   "resourceType" : "StructureDefinition",
   "id" : "qicore-communication",
@@ -61,6 +60,14 @@
       {
         "id" : "Communication",
         "path" : "Communication",
+        "constraint": [
+          {
+            "key": "com-1",
+            "severity": "error",
+            "human": "to indicate what communication, either at least one coding in the topic or a codeOptions extension shall be provided",
+            "expression": "topic.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor topic.coding.exists()"
+          }
+        ],
         "mustSupport" : false
       },
       {
@@ -72,11 +79,7 @@
           }
         ],
         "path" : "Communication.status",
-        "short" : "(QI) preparation | in-progress | on-hold | stopped | completed | entered-in-error | unknown",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status"
-        }
+        "short" : "(QI) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"
       },
       {
         "id" : "Communication.subject",
@@ -108,10 +111,39 @@
         ],
         "path" : "Communication.topic",
         "short" :"(QI) Description of the purpose/content",
+        "condition" : [
+          "com-1"
+        ],
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://terminology.hl7.org/ValueSet/communication-topic"
         }
+      },
+      {
+        "id": "Communication.topic.extension:codeOptions",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Communication.topic.extension",
+        "sliceName": "codeOptions",
+        "short": "(QI) Url of a value set of candidate topics",
+        "definition": "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the purpose or content of the communication.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/codeOptions"
+            ]
+          }
+        ],
+        "condition" : [
+          "com-1"
+        ]
       },
       {
         "id" : "Communication.sent",

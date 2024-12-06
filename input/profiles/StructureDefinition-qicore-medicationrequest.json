@@ -63,10 +63,11 @@
         "short": "Ordering of medication for patient or group",
         "constraint": [
           {
-            "key": "dom-7",
+            "key": "mrq-1",
             "severity": "error",
-            "human": "if doNotPerform is present, it SHALL be false",
-            "expression": "doNotPerform.empty() or doNotPerform\u003dfalse"
+            "human": "To indicate what medication, either a reference to a Medication, or either at least one coding in the medication or a codeOperations extension shall be provided",
+            "expression": "(medication is Reference).not() implies medication.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor medication.coding.exists()",
+            "xpath": "exists(f:extension)"
           }
         ]
       },
@@ -113,9 +114,7 @@
           }
         ],
         "path" : "MedicationRequest.intent",
-        "short" : "(QI) proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option",
-        "definition" : "Whether the request is a proposal, plan, or an original order.",
-        "comment" : "It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.\r\rThis element is labeled as a modifier because the intent alters when and how the resource is actually applicable."
+        "short" : "(QI) proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option"
       },
       {
         "id": "MedicationRequest.doNotPerform",
@@ -126,15 +125,14 @@
           }
         ],
         "path": "MedicationRequest.doNotPerform",
-        "short": "(QI) True if medication was not requested",
+        "short": "(QI) True if the order is not to provide the medication",
         "min": 0,
         "max": "1",
         "type": [
           {
             "code": "boolean"
           }
-        ],
-        "fixedBoolean": false
+        ]
       },
       {
         "id": "MedicationRequest.reported[x]",
@@ -212,8 +210,33 @@
         ],
         "path" : "MedicationRequest.medication[x]",
         "short" : "(QI) Medication to be taken",
-        "definition" : "Identifies the medication being requested. This is a link to a resource that represents the medication which may be the details of the medication or simply an attribute carrying a code that identifies the medication from a known list of medications.",
-        "comment" : "If only a code is specified, then it needs to be a code for a specific product. If more information is required, then the use of the Medication resource is recommended.  For example, if you require form or lot number or if the medication is compounded or extemporaneously prepared, then you must reference the Medication resource."
+        "condition": [
+          "mrq-1"
+        ],
+        "binding": {
+          "strength": "preferred",
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
+        }
+      },
+      {
+        "id": "MedicationRequest.medication[x].extension:codeOptions",
+        "path": "MedicationRequest.medication[x].extension",
+        "sliceName": "codeOptions",
+        "short" : "(QI) Url of a value set of candidate medications",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the medication.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/codeOptions"
+            ]
+          }
+        ],
+        "condition": [
+          "mrq-1"
+        ]
       },
       {
         "id": "MedicationRequest.subject",
@@ -276,7 +299,7 @@
         ],
         "path": "MedicationRequest.requester",
         "short": "(QI) Who/What requested the Request",
-        "comment": "Should include QICoreDevice but the base profile does excludes device references.",
+        "comment": "Should include QICoreDevice but the base profile excludes device references.",
         "type": [
           {
             "code": "Reference",
@@ -515,9 +538,7 @@
           }
         ],
         "path" : "MedicationRequest.dispenseRequest.validityPeriod",
-        "short" : "(QI) Time period supply is authorized for",
-        "definition" : "This indicates the validity period of a prescription (stale dating the Prescription).",
-        "comment" : "It reflects the prescribers' perspective for the validity of the prescription. Dispenses must not be made against the prescription outside of this period. The lower-bound of the Dispensing Window signifies the earliest date that the prescription can be filled for the first time. If an upper-bound is not specified then the Prescription is open-ended or will default to a stale-date based on regulations."
+        "short" : "(QI) Time period supply is authorized for"
       },
       {
         "id": "MedicationRequest.dispenseRequest.numberOfRepeatsAllowed",

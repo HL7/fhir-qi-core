@@ -33,7 +33,7 @@
   </tr>
   </p>
 
-  <p>The Task and TaskRejected profiles represent the positive and
+  <p>The Task profile defines the conformance expectations for a Task, regardless of whether it is a positive or negative statement. The TaskDone and TaskRejected profiles represent the positive and
     negative statements for a task.</p>
 
   <a name="examples"> </a>
@@ -42,15 +42,21 @@
   <table>
     <tbody>
       <tr>
-          <td><a href="Task-negation-example.html">Task rejected using a value set</a></td><td>Medication reconciliation not done due to patient declination; indicates that none of the tasks in the given not done value set were performed.</td>
-        </tr>
-        <tr>
-          <td><a href="Task-negation-with-code-example.html">Task rejected using a code</a></td><td>Medication reconciliation not done due to patient declination; indicates that the specific task, by code, was not done.</td>
+        <td><a href="Task-negation-example.html">Task rejected using a value set</a></td><td>Medication reconciliation not done due to patient declination; indicates that none of the tasks in the given not done value set were performed.</td>
+      </tr>
+      <tr>
+        <td><a href="Task-negation-with-code-example.html">Task rejected using a code</a></td><td>Medication reconciliation not done due to patient declination; indicates that the specific task, by code, was not done.</td>
+      </tr>
+      <tr>
+        <td><a href="Task-rejected-with-code-example.html">Fulfillment task rejecting a request</a></td><td>Indicates the request for Graduated compression elastic hosiery (specific code) was rejected.</td>
+      </tr>
+      <tr>
+        <td><a href="Task-rejected-example.html">Fulfillment task rejecting a request</a></td><td>Indicates the request for Intermittent pneumatic compression devices (value set) was rejected.</td>
       </tr>
     </tbody>
   </table>
   </p>
 
-  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI-Core</a> topic.</p>
+  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
 </div>

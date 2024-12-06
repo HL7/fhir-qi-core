@@ -42,6 +42,13 @@
   </tr>
 </p>
 
+<p>The MedicationAdministration profile defines the conformance expectations for a MedicationAdministration event, 
+regardless of whether it is a positive or negative statement. The MedicationAdministrationDone and MedicationAdministrationNotDone 
+profiles represent the positive and negative statements for a MedicationAdministration event.</p>
+
+<p>To create an expression indicating existence of a MedicationAdministration, use the profile <a href="StructureDefinition-qicore-medicationadministrationdone.html">QICoreMedicationAdministrationDone</a>; to specifically request information that a MedicationAdministration intentionally
+did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationadministrationnotdone.html">QICoreMedicationAdministrationNotDone</a>.</p>
+
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
@@ -65,6 +72,6 @@
     where VTEMedication.category ~ QICoreCommon."Inpatient"
       and (VTEMedication.reasonCode in "Medical Reason" or VTEMedication.reasonCode in "Patient Refusal")</code></pre>
 
-  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI-Core</a> topic.</p>
+  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
 </div>

@@ -38,7 +38,7 @@
       ]
     }
   ],
-  "description": "Profile of CommunicationNotDone for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "description": "Negation profile of Communication for decision support/quality metrics. Indicates that the communication was not performed for a reason.",
   "jurisdiction": [
     {
       "coding": [
@@ -53,21 +53,13 @@
   "kind": "resource",
   "abstract": false,
   "type": "Communication",
-  "baseDefinition": "http://hl7.org/fhir/StructureDefinition/Communication",
+  "baseDefinition": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication",
   "derivation": "constraint",
   "differential": {
     "element": [
       {
         "id": "Communication",
         "path": "Communication",
-        "constraint": [
-          {
-            "key": "cnd-1",
-            "severity": "error",
-            "human": "to indicate what communication was not carried out, either at least one coding in the topic or a notDoneValueSet extension shall be provided",
-            "expression": "topic.extension('http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet').exists() xor topic.coding.exists()"
-          }
-        ],
         "mustSupport": false
       },
       {
@@ -101,7 +93,7 @@
           }
         ],
         "path": "Communication.status",
-        "short": "(QI) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown",
+        "short": "(QI) not-done",
         "min": 1,
         "max": "1",
         "type": [
@@ -127,75 +119,6 @@
           "strength": "extensible",
           "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
         }
-      },
-      {
-        "id": "Communication.subject",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Communication.subject",
-        "short": "(QI) Focus of message",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/StructureDefinition/Group"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "Communication.topic",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Communication.topic",
-        "short": "(QI) Description of the purpose/content",
-        "min": 1,
-        "max": "1",
-        "binding": {
-          "extension": [
-            {
-              "url": "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString": "CommunicationTopic"
-            }
-          ],
-          "strength": "preferred",
-          "description": "Codes describing the purpose or content of the communication.",
-          "valueSet": "http://hl7.org/fhir/ValueSet/communication-topic"
-        }
-      },
-      {
-        "id": "Communication.topic.extension:notDoneValueSet",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Communication.topic.extension",
-        "sliceName": "notDoneValueSet",
-        "short": "(QI) Url of a value set of activities not requested or performed",
-        "definition": "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing activities that were not requested, ordered, or performed.",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
-            ]
-          }
-        ]
       }
     ]
   }

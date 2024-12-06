@@ -50,33 +50,6 @@
     }
   ],
   "fhirVersion": "4.0.1",
-  "mapping": [
-    {
-      "identity": "workflow",
-      "uri": "http://hl7.org/fhir/workflow",
-      "name": "Workflow Pattern"
-    },
-    {
-      "identity": "v2",
-      "uri": "http://hl7.org/v2",
-      "name": "HL7 v2 Mapping"
-    },
-    {
-      "identity": "rim",
-      "uri": "http://hl7.org/v3",
-      "name": "RIM Mapping"
-    },
-    {
-      "identity": "w5",
-      "uri": "http://hl7.org/fhir/fivews",
-      "name": "FiveWs Pattern Mapping"
-    },
-    {
-      "identity": "cda",
-      "uri": "http://hl7.org/v3/cda",
-      "name": "CDA (R2)"
-    }
-  ],
   "kind": "resource",
   "abstract": false,
   "type": "Immunization",
@@ -87,6 +60,15 @@
       {
         "id": "Immunization.id",
         "path": "Immunization.id",
+        "constraint": [
+          {
+            "key": "imm-1",
+            "severity": "error",
+            "human": "To indicate what vaccine, either at least one coding in the vaccineCode element or a codeOptions extension shall be provided",
+            "expression": "vaccineCode.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor vaccineCode.coding.exists()",
+            "xpath": "exists(f:extension)"
+          }
+        ],
         "mustSupport": false
       },
       {
@@ -98,11 +80,7 @@
           }
         ],
         "path": "Immunization.status",
-        "short": "(QI) completed | entered-in-error",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-immunization-status"
-        }
+        "short": "(QI) completed | not-done | entered-in-error"
       },
       {
         "id": "Immunization.statusReason",
@@ -115,7 +93,7 @@
         "path": "Immunization.statusReason",
         "min": 0,
         "max": "1",
-        "short": "(QI) Reason not done",
+        "short": "(QI) Reason for status",
         "binding": {
           "strength": "preferred",
           "valueSet": "http://hl7.org/fhir/ValueSet/immunization-status-reason"
@@ -130,7 +108,36 @@
           }
         ],
         "path" : "Immunization.vaccineCode",
-        "short" : "(QI) Vaccine Product Type (bind to CVX)"
+        "short" : "(QI) Vaccine Product Type (bind to CVX)",
+        "condition": [
+          "imm-1"
+        ]
+      },
+      {
+        "id": "Immunization.vaccineCode.extension:codeOptions",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Immunization.vaccineCode.extension",
+        "sliceName": "codeOptions",
+        "short" : "(QI) Url of a value set of candidate vaccines",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the vaccine.",
+        "min": 0,
+        "max": "1",
+        "type": [
+          {
+            "code": "Extension",
+            "profile": [
+              "http://hl7.org/fhir/StructureDefinition/codeOptions"
+            ]
+          }
+        ],
+        "condition": [
+          "imm-1"
+        ]
       },
       {
         "id": "Immunization.patient",
@@ -171,7 +178,7 @@
           }
         ],
         "path": "Immunization.recorded",
-        "short": "(QI) When the immunization was first captured in the subject\u0027s record",
+        "short": "(QI) When the immunization was first captured in the subject's record",
         "min": 0,
         "max": "1"
       }

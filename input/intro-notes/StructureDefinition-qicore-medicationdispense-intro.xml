@@ -46,8 +46,13 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-<p>To create an expression specifically requesting information that a MedicationDispense intentionally
-did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationdispensedeclined.html">QICore-medicationnotdispensed</a>.</p>
+
+<p>The MedicationDispense profile defines the conformance expectations for a MedicationDispense event, 
+regardless of whether it is a positive or negative statement. The MedicationDispenseDone and MedicationDispenseDeclined 
+profiles represent the positive and negative statements for a MedicationDispense event.</p>
+
+<p>To create an expression indicating existence of a MedicationDispense event, use the profile <a href="StructureDefinition-qicore-medicationdispensedone.html">QICoreMedicationDispenseDone</a>; to specifically request information that a MedicationDispense intentionally
+did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationdispensedeclined.html">QICoreMedicationDispenseDeclined</a>.</p>
 
 <p>The following example illustrates the use of the MedicationDispense profile</p>
 <pre>

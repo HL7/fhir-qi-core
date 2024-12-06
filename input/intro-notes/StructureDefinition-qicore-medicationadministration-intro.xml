@@ -36,10 +36,15 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-<p>To create an expression specifically requesting information that a MedicationAdministration intentionally
-did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationadministrationnotdone.html">QICore MedicationAdministration Not Done</a>.</p>
 
-<p>The following example illustrates the accessing MedicationAdministration data:</p>
+<p>The MedicationAdministration profile defines the conformance expectations for a MedicationAdministration event, 
+regardless of whether it is a positive or negative statement. The MedicationAdministrationDone and MedicationAdministrationNotDone 
+profiles represent the positive and negative statements for a MedicationAdministration event.</p>
+
+<p>To create an expression indicating existence of a MedicationAdministration, use the profile <a href="StructureDefinition-qicore-medicationadministrationdone.html">QICoreMedicationAdministrationDone</a>; to specifically request information that a MedicationAdministration intentionally
+did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationadministrationnotdone.html">QICoreMedicationAdministrationNotDone</a>.</p>
+
+<p>The following example illustrates accessing MedicationAdministration data:</p>
 
 <pre><code>define "Low Dose Unfractionated Heparin Administration":
   ["MedicationAdministration": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
