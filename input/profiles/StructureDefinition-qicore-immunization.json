@@ -58,11 +58,11 @@
   "differential": {
     "element": [
       {
-        "id": "Immunization.id",
-        "path": "Immunization.id",
+        "id": "Immunization",
+        "path": "Immunization",
         "constraint": [
           {
-            "key": "imm-1",
+            "key": "qim-1",
             "severity": "error",
             "human": "To indicate what vaccine, either at least one coding in the vaccineCode element or a codeOptions extension shall be provided",
             "expression": "vaccineCode.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor vaccineCode.coding.exists()",
@@ -110,7 +110,7 @@
         "path" : "Immunization.vaccineCode",
         "short" : "(QI) Vaccine Product Type (bind to CVX)",
         "condition": [
-          "imm-1"
+          "qim-1"
         ]
       },
       {
@@ -136,7 +136,7 @@
           }
         ],
         "condition": [
-          "imm-1"
+          "qim-1"
         ]
       },
       {

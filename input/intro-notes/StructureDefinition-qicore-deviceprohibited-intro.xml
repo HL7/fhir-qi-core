@@ -35,11 +35,6 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-  <p>
-  <tr>
-      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-  </tr>
-  </p>
 
   <p>The DeviceRequest profile defines the conformance expectations for a DeviceRequest, regardless of whether it is a positive or negative statement. The DeviceRequested and DeviceProhibited profiles derive from DeviceRequest and represent the positive and
     negative statements for a device request. </p>
@@ -47,13 +42,21 @@
   <p>The following example illustrates accessing DeviceProhibited data:</p>
   <pre>
   <code>define "Venous Foot Pumps Prohibited":
-[DeviceProhibited: "Venous Foot Pumps (VFP)"] DeviceProhibited
-  where (DeviceProhibited.doNotPerformReason in "Medical Reason"
-    or DeviceProhibited.doNotPerformReason in "Patient Refusal"
-  )</code>
+  [DeviceProhibited: "Venous Foot Pumps (VFP)"] DeviceProhibited
+    where (DeviceProhibited.doNotPerformReason in "Medical Reason"
+      or DeviceProhibited.doNotPerformReason in "Patient Refusal"
+    )</code>
   </pre>
 
   <p>Note that the doNotPerform element indicating the request is a prohibition is implied by the use of the DeviceProhibited profile.</p>
+
+  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
+
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
 
   <a name="examples"> </a>
   <h3>Examples</h3>
@@ -61,7 +64,7 @@
   <table>
     <tbody>
       <tr>
-          <td><a href="DeviceRequest-negation-example.html">Negation Example with valueset</a></td><td>Device not indicated; indicates that none of the devices in the given "not done value set" were requested.</td>
+          <td><a href="DeviceRequest-negation-example.html">Negation Example with valueset</a></td><td>Device not indicated; indicates that none of the devices in the given `codeOptions` value set were requested.</td>
       </tr>
       <tr>
           <td><a href="DeviceRequest-negation-with-code-example.html">Negation Example with code</a></td><td>Device not indicated; indicates that a specific device, by code, was not requested.</td>
@@ -69,7 +72,5 @@
     </tbody>
   </table>
   </p>
-
-  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
 </div>

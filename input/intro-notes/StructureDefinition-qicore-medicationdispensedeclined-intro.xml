@@ -42,11 +42,6 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-  <p>
-  <tr>
-      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-  </tr>
-  </p>
 
 <p>The MedicationDispense profile defines the conformance expectations for a MedicationDispense event, 
 regardless of whether it is a positive or negative statement. The MedicationDispenseDone and MedicationDispenseDeclined 
@@ -65,13 +60,18 @@ did not occur for a medical, patient or system reason, use the profile <a href="
 
 <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
   <table>
     <tbody>
       <tr>
-          <td><a href="MedicationDispense-negation-example.html">Negation Example with valueset</a></td><td>Opthalmic Antihistamines not indicated; indicates that none of the drugs in the given not done value set were dispensed.</td>
+          <td><a href="MedicationDispense-negation-example.html">Negation Example with valueset</a></td><td>Opthalmic Antihistamines not indicated; indicates that none of the drugs in the given `codeOptions` value set were dispensed.</td>
         </tr>
         <tr>
           <td><a href="MedicationDispense-negation-with-code-example.html">Negation Example with code</a></td><td>Alcaftadine 2.5 MG/ML Opthalmic Solution not indicated; indicates that the specific drug was not dispensed.</td>

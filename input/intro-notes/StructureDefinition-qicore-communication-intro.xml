@@ -34,8 +34,6 @@
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
 
-<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
-
 <p>The Communication profile defines the conformance expectations for a Communication event, regardless of
 whether it is a positive or negative statement. To ensure instances retrieved meet
   positive intent, applications should check the status as illustrated in this example:</p>
@@ -47,11 +45,13 @@ whether it is a positive or negative statement. To ensure instances retrieved me
 </code>
 </pre>
 
-<p>The CommunicationDone and CommunicationNotDone profiles represent the positive and
+<p>Alternatively, applications may make use of the positive and negative profiles to address status. The CommunicationDone and CommunicationNotDone profiles represent the positive and
   negative statements for a communication event.</p>
 
 <p>To create an expression indicating existence of a communication, use the profile <a href="StructureDefinition-qicore-communicationdone.html">QICoreCommunicationDone</a>; to specifically request information that a communication intentionally did not occur for
 a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-communicationnotdone.html">QICoreCommunicationNotDone</a>.</p>
+
+<p>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</p>
 
 <a name="examples"> </a>
 <h3>Examples</h3>

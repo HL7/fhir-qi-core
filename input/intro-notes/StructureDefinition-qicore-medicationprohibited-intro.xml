@@ -41,11 +41,6 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-  <p>
-  <tr>
-      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-  </tr>
-  </p>
 
   <p>The MedicationRequest profile defines the conformance expectations for a MedicationRequest, 
   regardless of whether it is a positive or negative statement. The MedicationRequested and MedicationNotRequested 
@@ -53,23 +48,7 @@
 
   <p>To create an expression indicating the existence of a medication request, use the profile <a href="StructureDefinition-qicore-medicationrequested.html">QICoreMedicationRequested</a>; to specifically request information that a MedicationRequest intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationprohibited.html">QICoreMedicationProhibited</a>.</p>
 
-  <a name="examples"> </a>
-  <h3>Examples</h3>
-  <p>
-  <table>
-    <tbody>
-      <tr>
-          <td><a href="MedicationRequest-negation-example.html">Negation Example using Valueset</a></td><td>Medication not indicated; indicates that none of the medications in the given not done value set were requested.</td>
-        </tr>
-        <tr>
-          <td><a href="MedicationRequest-negation-example-code.html">Negation Example using code</a></td><td>Medication not indicated; indicates that the medication specified by code was not requested.</td>
-      </tr>
-    </tbody>
-  </table>
-  </p>
-
-  <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
-  </p>
+  <p>The following expression retrieves instances meet measure intent for exclusion:</p>
 
   <pre><code>define "Reason for Not Ordering Antithrombotic":
   ["MedicationProhibited": "Antithrombotic Therapy"] NoAntithromboticDischarge
@@ -79,5 +58,25 @@
       and NoAntithromboticDischarge.intent = 'order'</code></pre>
 
   <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
+
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
+  <a name="examples"> </a>
+  <h3>Examples</h3>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+          <td><a href="MedicationRequest-negation-example.html">Negation Example using Valueset</a></td><td>Medication not indicated; indicates that none of the medications in the given `codeOptions` value set were requested.</td>
+        </tr>
+        <tr>
+          <td><a href="MedicationRequest-negation-example-code.html">Negation Example using code</a></td><td>Medication not indicated; indicates that the medication specified by code was not requested.</td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
 
 </div>

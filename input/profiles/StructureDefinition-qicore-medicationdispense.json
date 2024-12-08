@@ -65,7 +65,7 @@
             "key" : "mdp-1",
             "severity" : "error",
             "human" : "To indicate what medication, either a reference to a Medication, or at least one coding in the medication or a codeOptions extension shall be provided",
-            "expression" : "medication.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor medication.coding.exists()",
+            "expression" : "(medication is Reference).not() implies medication.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor medication.coding.exists()",
             "xpath" : "exists(f:extension)"
           }
         ]

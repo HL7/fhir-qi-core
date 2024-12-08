@@ -27,22 +27,32 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+
+  <p>The Task profile defines the conformance expectations for a Task, regardless of whether it is a positive or negative statement. The TaskDone and TaskRejected profiles represent the positive and
+    negative statements for a task.</p>
+
+  <p>The following example retrieves requests for `Aspirin` that have been rejected for a reason:</p>
+
+  <pre><code>define "Aspirin Rejected for Reason":
+    [MedicationRequested: Aspirin] MR
+      with [TaskRejected: Fulfill] T
+        such that T.focus.references(MR)
+          and T.statusReason in "Negation Reason Codes"</code></pre>
+
+  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
-
-  <p>The Task profile defines the conformance expectations for a Task, regardless of whether it is a positive or negative statement. The TaskDone and TaskRejected profiles represent the positive and
-    negative statements for a task.</p>
-
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
   <table>
     <tbody>
       <tr>
-        <td><a href="Task-negation-example.html">Task rejected using a value set</a></td><td>Medication reconciliation not done due to patient declination; indicates that none of the tasks in the given not done value set were performed.</td>
+        <td><a href="Task-negation-example.html">Task rejected using a value set</a></td><td>Medication reconciliation not done due to patient declination; indicates that none of the tasks in the given `codeOptions` value set were performed.</td>
       </tr>
       <tr>
         <td><a href="Task-negation-with-code-example.html">Task rejected using a code</a></td><td>Medication reconciliation not done due to patient declination; indicates that the specific task, by code, was not done.</td>
@@ -56,7 +66,5 @@
     </tbody>
   </table>
   </p>
-
-  <p>For a more complete discussion of representation of negation within QICore and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
 </div>

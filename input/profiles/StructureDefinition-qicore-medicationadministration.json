@@ -62,7 +62,7 @@
         "path": "MedicationAdministration",
         "constraint" : [
           {
-            "key" : "mad-1",
+            "key" : "qma-1",
             "severity" : "error",
             "human" : "To indicate what medication, either a reference to a Medication or at least one coding in the medication or a codeOptions extension shall be provided",
             "expression" : "(medication is Reference).not() implies medication.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor medication.coding.exists()",
@@ -126,7 +126,7 @@
           }
         ],
         "condition" : [
-          "mad-1"
+          "qma-1"
         ],
         "binding" : {
           "strength" : "preferred",
@@ -157,7 +157,7 @@
           }
         ],
         "condition" : [
-          "mad-1"
+          "qma-1"
         ]
       },
     {

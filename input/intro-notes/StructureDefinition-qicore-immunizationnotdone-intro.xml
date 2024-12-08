@@ -37,34 +37,11 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-  <p>
-  <tr>
-      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-  </tr>
-  </p>
 
   <p>The Immunization profile defines the conformance expectations for an Immunization event, regardless of whether it is a positive or negative statement. The ImmunizationDone and ImmunizationNotDone profiles represent the positive and
     negative statements for an immunization event. </p>
 
-  <a name="examples"> </a>
-  <h3>Examples</h3>
-  <p>
-  <table>
-    <tbody>
-      <tr>
-        <td><a href="Immunization-negation-example.html">Negation Example using a valueset reference</a></td>
-        <td>Immunization not performed due to patient declination for religious reasons; indicates that none of the vaccines in the given "not done value set" were administered.</td>
-      </tr>
-      <tr>
-        <td><a href="Immunization-negation-example-code.html">Negation Example using a single coded concept</a></td>
-        <td>Immunization not performed due to patient declination for religious reasons; indicates that a specific vaccine, by code, was not administered.</td>
-      </tr>
-    </tbody>
-  </table>
-  </p>
-
-  <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
-  </p>
+  <p>The following example illustrates retrieving instances that meet measure intent for exclusion:</p>
 
   <pre><code>define "Reason for No Polio Immunization":
   ["ImmunizationNotDone": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
@@ -73,4 +50,26 @@
 
   <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+  </p>
+
+  <a name="examples"> </a>
+  <h3>Examples</h3>
+  <p>
+  <table>
+    <tbody>
+      <tr>
+        <td><a href="Immunization-negation-example.html">Negation Example using a valueset reference</a></td>
+        <td>Immunization not performed due to patient declination for religious reasons; indicates that none of the vaccines in the given `codeOptions` value set were administered.</td>
+      </tr>
+      <tr>
+        <td><a href="Immunization-negation-example-code.html">Negation Example using a single coded concept</a></td>
+        <td>Immunization not performed due to patient declination for religious reasons; indicates that a specific vaccine, by code, was not administered.</td>
+      </tr>
+    </tbody>
+  </table>
+  </p>
 </div>

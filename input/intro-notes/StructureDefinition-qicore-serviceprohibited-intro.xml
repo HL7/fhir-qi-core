@@ -58,6 +58,15 @@
 <p>To create an expression indicating the existence of a service request, use the profile <a href="StructureDefinition-qicore-servicerequested.html">QICoreServiceRequested</a>; to specifically request information that a ServiceRequest intentionally did
 not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-serviceprohibited.html">QICoreServiceProhibited</a>.</p>
 
+<p>The following expression retrieves instances that meet measure intent for exclusion:
+</p>
+
+<pre><code>define "Intermittent Pneumatic Compression Devices Not Ordered":
+  ["ServiceProhibited": "Application of intermittent pneumatic compression devices (IPC)"] DeviceProhibited
+    where (DeviceProhibited.reasonRefused in "Medical Reason"
+      or DeviceProhibited.reasonRefused in "Patient Refusal")</code></pre>
+
+<p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
 <p>
 <tr>
@@ -70,7 +79,7 @@ not occur for a medical, patient or system reason, use the profile <a href="Stru
 <table>
   <tbody>
     <tr>
-        <td><a href="ServiceRequest-negation-example.html">Negation Example with valueset</a></td><td>Service discontinued; indicates that none of the services in the given not done value set were requested.</td>
+        <td><a href="ServiceRequest-negation-example.html">Negation Example with valueset</a></td><td>Service discontinued; indicates that none of the services in the given `codeOptions` value set were requested.</td>
       </tr>
       <tr>
         <td><a href="ServiceRequest-negation-example-code.html">Negation Example with code</a></td><td>Service discontinued; indicates that the given service, by code, was not requested.</td>
@@ -78,16 +87,4 @@ not occur for a medical, patient or system reason, use the profile <a href="Stru
   </tbody>
 </table>
 </p>
-
-<p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
-</p>
-
-<pre><code>define "Intermittent Pneumatic Compression Devices Not Ordered":
-  ["ServiceProhibited": "Application of intermittent pneumatic compression devices (IPC)"] DeviceProhibited
-    where (DeviceProhibited.reasonRefused in "Medical Reason"
-      or DeviceProhibited.reasonRefused in "Patient Refusal")</code></pre>
-
-<p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
-
-
 </div>

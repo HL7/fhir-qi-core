@@ -65,7 +65,7 @@
             "key": "com-1",
             "severity": "error",
             "human": "to indicate what communication, either at least one coding in the topic or a codeOptions extension shall be provided",
-            "expression": "topic.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor topic.coding.exists()"
+            "expression": "topic.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor (topic.coding.exists() or topic.text.exists())"
           }
         ],
         "mustSupport" : false

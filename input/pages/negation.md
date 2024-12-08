@@ -4,7 +4,7 @@
 
 ###  QI Core Negation Profile Index
 
-For common workflow activities, QI-Core defines a general profiles that establishes expectations for exchange in general, as well as two derived profiles, a positive and negative profiles to define constraints for making positive and negative statements about activities:
+For common workflow activities, QI-Core defines general profiles that establish expectations for exchange in general, as well as two derived profiles, a positive and negative profile to define constraints for making positive and negative statements about activities:
 
 | **QI-Core General Profile**                                                                 | **QI-Core Positive Profile**                                                                                | **QI-Core Negation Profile**                                                                                | **Base Resource**                                                                |
 |---------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|-------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
@@ -146,9 +146,92 @@ To indicate that an activity should not be performed, use the "Prohibited" profi
 
 ##### Request not to perform a specific activity
 
+The following example illustrates a request not to apply Graduated compression elastic hosiery:
+
+```json
+{
+  "resourceType" : "ServiceRequest",
+  "id" : "negation-example-code",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-serviceprohibited"]
+  },
+  "status" : "completed",
+  "intent" : "order",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "387713003",
+      "display" : "Surgical Procedure"
+    }]
+  }],
+  "priority" : "urgent",
+  "doNotPerform" : true,
+  "code" : {
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "348681001",
+      "display" : "Graduated compression elastic hosiery (physical object)"
+    }]
+  },
+  "subject" : ...,
+  "encounter" : ...,
+  "occurrenceDateTime" : "2013-04-05",
+  "authoredOn" : "2013-04-04",
+  "reasonCode" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "416406003",
+      "display" : "Procedure discontinued (situation)"
+    }]
+  }]
+}
+```
+
 See the [Service Prohibited With Code Example](ServiceRequest-negation-example-code.html) for a complete example.
 
 ##### Request not to perform any of a class of activities
+
+The following example illustrates a request not to apply any of a class of devices, indicated by the Intermittent pneumatic compression devices values set:
+
+```json
+{
+  "resourceType" : "ServiceRequest",
+  "id" : "negation-example",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-serviceprohibited"]
+  },
+  "status" : "completed",
+  "intent" : "order",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "387713003",
+      "display" : "Surgical Procedure"
+    }]
+  }],
+  "priority" : "urgent",
+  "doNotPerform" : true,
+  "code" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/codeOptions",
+      "valueCanonical" : "http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.117.1.7.1.214"
+    }],
+    "text" : "Value Set: Intermittent pneumatic compression devices (IPC)"
+  },
+  "subject" : ...,
+  "encounter" : ...,
+  "occurrenceDateTime" : "2013-04-05",
+  "authoredOn" : "2013-04-04",
+  "reasonCode" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "416406003",
+      "display" : "Procedure discontinued (situation)"
+    }]
+  }],
+  "bodySite" : ...
+}
+```
 
 See the [Service Prohibited Example](ServiceRequest-negation-example.html) for a complete example.
 
@@ -165,6 +248,65 @@ As with not done events and orders not to perform, the extent of negation for a 
 
 To indicate that a request to perform a specific activity was rejected:
 
+First, the request to perform a specific activity as a ServiceRequest:
+
+```json
+{
+  "resourceType" : "ServiceRequest",
+  "id" : "proposal-example-code",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequested"]
+  },
+  "status" : "active",
+  "intent" : "proposal",
+  "priority" : "urgent",
+  "code" : {
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "348681001",
+      "display" : "Graduated compression elastic hosiery (physical object)"
+    }]
+  },
+  "subject" : ...,
+  "encounter" : ...,
+  "occurrenceDateTime" : "2013-04-05",
+  "authoredOn" : "2013-04-04"
+}
+```
+
+Second, a fulfillment task with a status of `rejected` and the `focus` referencing the proposal:
+
+```json
+{
+  "resourceType" : "Task",
+  "id" : "rejected-with-code-example",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"]
+  },
+  "status" : "rejected",
+  "statusReason" : {
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "275936005",
+      "display" : "Patient noncompliance - general (situation)"
+    }]
+  },
+  "intent" : "proposal",
+  "code" : {
+    "coding" : [{
+      "system" : "http://hl7.org/fhir/CodeSystem/task-code",
+      "code" : "fulfill",
+      "display" : "Fulfill the focal request"
+    }]
+  },
+  "focus" : {
+    "reference" : "ServiceRequest/proposal-example-code"
+  },
+  "for" : ...,
+  "executionPeriod" : ...
+}
+```
+
 See the [Service Requested With Code](ServiceRequest-proposal-example-code.html) for a complete example.
 
 See the [Task Rejected With Code Example](Task-rejected-with-code-example.html) for a complete example.
@@ -173,10 +315,76 @@ See the [Task Rejected With Code Example](Task-rejected-with-code-example.html) 
 
 To indicate that a request to perform any of a class of activities was rejected:
 
+Similar to the specific activity case, first a request to perform any of a class of activities:
+
+```json
+{
+  "resourceType" : "ServiceRequest",
+  "id" : "proposal-example",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequested"]
+  },
+  "status" : "active",
+  "intent" : "proposal",
+  "category" : [{
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "387713003",
+      "display" : "Surgical Procedure"
+    }]
+  }],
+  "priority" : "urgent",
+  "code" : {
+    "extension" : [{
+      "url" : "http://hl7.org/fhir/StructureDefinition/codeOptions",
+      "valueCanonical" : "http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.117.1.7.1.214"
+    }],
+    "text" : "Value Set: Intermittent pneumatic compression devices (IPC)"
+  },
+  "subject" : ...,
+  "encounter" : ...,
+  "occurrenceDateTime" : "2013-04-05",
+  "authoredOn" : "2013-04-04"
+}
+```
+
+Followed by a fulfillment task with a status of `rejected` and the `focus` referencing the proposal:
+
+```json
+{
+  "resourceType" : "Task",
+  "id" : "rejected-example",
+  "meta" : {
+    "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"]
+  },
+  "status" : "rejected",
+  "statusReason" : {
+    "coding" : [{
+      "system" : "http://snomed.info/sct",
+      "code" : "275936005",
+      "display" : "Patient noncompliance - general (situation)"
+    }]
+  },
+  "intent" : "proposal",
+  "code" : {
+    "coding" : [{
+      "system" : "http://hl7.org/fhir/CodeSystem/task-code",
+      "code" : "fulfill",
+      "display" : "Fulfill the focal request"
+    }]
+  },
+  "focus" : {
+    "reference" : "ServiceRequest/proposal-example"
+  },
+  "for" : ...,
+  "executionPeriod" : ...
+}
+```
+
 See the [Service Requested Example](ServiceRequest-proposal-example.html) for a complete example.
 
 See the [Task Rejected Example](Task-rejected-example.html) for a complete example.
 
 ### Negation in CQL
 
-For quality measurement and reporting, measure expression may only need to determine the existence or absence of an activity or event to determine if criteria have been met. If the reason for absence is not relevant to the measure evaluation, the absence of evidence pattern should be used as described on the [Patterns page of the Using CQL with FHIR IG](https://hl7.org/fhir/us/cqfmeasures/using-cql.html#negation-in-fhir).
+For quality measurement and reporting, measure expression may only need to determine the existence or absence of an activity or event to determine if criteria have been met. If the reason for absence is not relevant to the measure evaluation, the absence of evidence pattern should be used as described on the [Patterns page of the Using CQL with FHIR IG]({{site.data.fhir.ver.cql}}/patterns.html#negation-in-fhir).

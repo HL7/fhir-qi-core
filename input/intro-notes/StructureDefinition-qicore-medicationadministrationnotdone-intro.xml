@@ -36,11 +36,6 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-  <p>
-  <tr>
-      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-  </tr>
-</p>
 
 <p>The MedicationAdministration profile defines the conformance expectations for a MedicationAdministration event, 
 regardless of whether it is a positive or negative statement. The MedicationAdministrationDone and MedicationAdministrationNotDone 
@@ -49,6 +44,20 @@ profiles represent the positive and negative statements for a MedicationAdminist
 <p>To create an expression indicating existence of a MedicationAdministration, use the profile <a href="StructureDefinition-qicore-medicationadministrationdone.html">QICoreMedicationAdministrationDone</a>; to specifically request information that a MedicationAdministration intentionally
 did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationadministrationnotdone.html">QICoreMedicationAdministrationNotDone</a>.</p>
 
+  <p>The following example illustrates an expression to retrieve instances that meet measure intent for exclusion:</p>
+
+  <pre><code>define "Low Dose Unfractionated Heparin for VTE Prophylaxis Not Administered":
+  ["MedicationAdministrationNotDone": "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.category ~ QICoreCommon."Inpatient"
+      and (VTEMedication.reasonCode in "Medical Reason" or VTEMedication.reasonCode in "Patient Refusal")</code></pre>
+
+  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
+
+  <p>
+  <tr>
+      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+  </tr>
+</p>
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
@@ -63,15 +72,5 @@ did not occur for a medical, patient or system reason, use the profile <a href="
     </tbody>
   </table>
   </p>
-
-  <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
-  </p>
-
-  <pre><code>define "Low Dose Unfractionated Heparin for VTE Prophylaxis Not Administered":
-  ["MedicationAdministrationNotDone": "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
-    where VTEMedication.category ~ QICoreCommon."Inpatient"
-      and (VTEMedication.reasonCode in "Medical Reason" or VTEMedication.reasonCode in "Patient Refusal")</code></pre>
-
-  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
 
 </div>
