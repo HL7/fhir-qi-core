@@ -444,56 +444,6 @@
         }
       },
       {
-        "id" : "Claim.status",
-        "path" : "Claim.status",
-        "short" : "active",
-        "definition" : "The status of the resource instance.",
-        "comment" : "This element is labeled as a modifier because the status contains codes that mark the resource as not currently valid.",
-        "requirements" : "Need to track the status of the resource as 'draft' resources may undergo further edits while 'active' resources are immutable and may only have their status changed to 'cancelled'.",
-        "min" : 1,
-        "max" : "1",
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueString" : "ClaimStatus"
-          }],
-          "strength" : "required",
-          "description" : "A code specifying the state of the resource instance.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/fm-status|4.0.1"
-        }
-      },
-      {
-        "id" : "Claim.use",
-        "path" : "Claim.use",
-        "short" : "claim | preauthorization | predetermination",
-        "requirements" : "This element is required to understand the nature of the request for adjudication.",
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueString" : "Use"
-          }],
-          "strength" : "required",
-          "description" : "The purpose of the Claim: predetermination, preauthorization, claim.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/claim-use|4.0.1"
-        }
-      },
-      {
-        "id" : "Claim.type",
-        "path" : "Claim.type",
-        "short" : "Category or discipline",
-        "comment" : "The majority of jurisdictions use: oral, pharmacy, vision, professional and institutional, or variants on those terms, as the general styles of claims. The valueset is extensible to accommodate other jurisdictional requirements.",
-        "requirements" : "Claim type determine the general sets of business rules applied for information requirements and adjudication.",
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueString" : "ClaimType"
-          }],
-          "strength" : "extensible",
-          "description" : "The type or discipline-style of the claim.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/claim-type"
-        }
-      },
-      {
         "id" : "Claim.item.encounter",
         "extension" : [
           {
