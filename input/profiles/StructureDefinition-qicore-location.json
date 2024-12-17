@@ -49,6 +49,14 @@
   "derivation" : "constraint",
   "differential" : {
     "element" : [
+      { 
+          "id" : "Location.status",
+          "path" : "Location.status",
+          "short" : "active",
+          "definition" : "The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.",
+          "min" : 0,
+          "max" : "1"
+      },
     {
         "id" : "Location.type",
         "extension" : [
