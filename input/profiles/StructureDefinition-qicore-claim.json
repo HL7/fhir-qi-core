@@ -444,34 +444,16 @@
         }
       },
       {
-          "id" : "Claim.insurance.coverage",
-          "path" : "Claim.insurance.coverage",
-          "short" : "Insurance information",
-          "definition" : "Reference to the insurance card level information contained in the Coverage resource. The coverage issuing insurer will use these details to locate the patient's actual coverage within the insurer's information system.",
-          "requirements" : "Required to allow the adjudicator to locate the correct policy and history within their information system.",
-          "min" : 1,
-          "max" : "1",
-          "base" : {
-            "path" : "Claim.insurance.coverage",
-            "min" : 1,
-            "max" : "1"
-          },
-          "type" : [{
-            "code" : "Reference",
-            "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage"]
-          }],
-          "constraint" : [{
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }],
-          "isModifier" : false,
-          "isSummary" : true
-        
-      },
+        "id" : "Claim.insurance.coverage",
+        "path" : "Claim.insurance.coverage",
+        "short" : "Insurance information",
+        "min" : 1,
+        "max" : "1",
+        "type" : [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage"]
+        }]
+     },
       {
         "id" : "Claim.item.encounter",
         "extension" : [
