@@ -144,7 +144,14 @@
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://hl7.org/fhir/ValueSet/device-kind"
-        }
+        },
+        "type" : [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"]
+        },
+        {
+          "code" : "CodeableConcept"
+        }]
       },
       {
         "id" : "DeviceRequest.code[x].extension:codeOptions",
