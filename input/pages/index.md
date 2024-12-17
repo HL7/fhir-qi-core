@@ -154,7 +154,7 @@ consistent with patient consent, transaction logging, and following best practic
 
 <div class="new-content" markdown="1">
 
--  Systems **SHOULD** refer to BCP195 to ensure transmissions are taking place over a secure network connection.
+-  Systems **SHOULD** refer to [BCP195](https://www.rfc-editor.org/info/bcp195) to ensure transmissions are taking place over a secure network connection.
 </div>
 
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
