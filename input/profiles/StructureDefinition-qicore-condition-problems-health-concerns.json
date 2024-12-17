@@ -68,6 +68,31 @@
         "path": "Condition.meta",
         "mustSupport": true
       },
+	  {
+        "id" : "Condition.extension:assertedDate",
+        "path" : "Condition.extension",
+        "sliceName" : "assertedDate",
+        "short" : "(QI) Date the condition was first asserted",
+        "definition" : "The date on which the existence of the Condition was first asserted or acknowledged.",
+        "comment" : "The assertedDate is in the context of the recording practitioner and might not be the same as the recordedDate.",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "DomainResource.extension",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate"
+            ]
+          }
+        ],        
+		"mustSupport" : true,
+        "isModifier" : false
+      },      
       {
         "id": "Condition.meta.lastUpdated",
         "path": "Condition.meta.lastUpdated",
