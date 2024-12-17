@@ -1,0 +1,79 @@
+{
+  "resourceType": "StructureDefinition",
+  "id": "qicore-immunizationdone",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "vaccineCode"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"ImmunizationDone"
+    }
+  ],
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationdone",
+  "version" : "6.0.0",
+  "name": "QICoreImmunizationDone",
+  "title": "QICore Immunization Done",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
+    {
+      "name": "Clinical Quality Information WG",
+      "telecom": [
+        {
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description": "Positive profile of Immunization for decision support/quality metrics. Indicates that the immunization is being or was performed (as opposed to the not done profile).",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Immunization",
+  "baseDefinition": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Immunization.id",
+        "path": "Immunization.id",
+        "mustSupport": false
+      },
+      {
+        "id": "Immunization.status",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Immunization.status",
+        "short": "(QI) completed",
+        "fixedCode": "completed"
+      }
+    ]
+  }
+}

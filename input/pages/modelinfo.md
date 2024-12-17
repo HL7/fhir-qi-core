@@ -2,7 +2,7 @@
 
 {: #modelinfo}
 
-To support implementations using Clinical Quality Language (CQL) and QI-Core, [model information](https://cql.hl7.org/07-physicalrepresentation.html#data-model-references) for this IG is provided in conformance with Using ModelInfo in the Using CQL with FHIR IG.  
+To support implementations using Clinical Quality Language (CQL) and QI-Core, model information for this IG is provided in conformance with [Using ModelInfo](https://hl7.org/fhir/uv/cql/using-modelinfo.html) in the Using CQL with FHIR IG.  
 This implementation guide includes a QICore Model Definition [(QICore ModelInfo Library)](Library-QICore-ModelInfo.html) library that provides model information for the profiles and extensions defined in QI-Core. To use the QICore model, include a using declaration as shown in the example below:
 ```cql
 using QICore version '7.0.0'

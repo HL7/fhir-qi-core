@@ -158,7 +158,15 @@
         <reference value="Communication/example"/>
       </reference>
       <name value="Communication example"/>
-      <description value="Example of a notification sent to a patient about an abnormal test result"/>
+      <description value="Example of a notification sent to a patient about an abnormal test result (using the General Communication profile)"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Communication/done-example"/>
+      </reference>
+      <name value="CommunicationDone example"/>
+      <description value="Example of a notification sent to a patient about an abnormal test result (using the Positive Communication profile)"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -166,7 +174,7 @@
         <reference value="Communication/negation-example"/>
       </reference>
       <name value="Communication negation example"/>
-      <description value="Example of a notification that failed to be sent to a patient and reason why"/>
+      <description value="Example of a notification that was not sent to a patient and reason why"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationnotdone"/>
     </resource>
     <resource>
@@ -174,7 +182,7 @@
         <reference value="CommunicationRequest/example"/>
       </reference>
       <name value="CommunicationRequest example"/>
-      <description value="Example of a record of request to provide additional information for a claim"/>
+      <description value="Example of a request to provide additional information for a claim"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -228,25 +236,33 @@
       <reference>
         <reference value="DeviceRequest/example"/>
       </reference>
-      <name value="DeviceRequest example"/>
-      <description value="Request to employ a medical device"/>
+      <name value="DeviceRequest general example"/>
+      <description value="Request to employ a medical device (using the General Profile)"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequest"/>
     </resource>
     <resource>
       <reference>
         <reference value="DeviceRequest/negation-example"/>
       </reference>
-      <name value="DeviceRequest negation example"/>
-      <description value="Example of a request to employ a medical device that was not performed"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested"/>
+      <name value="DeviceRequest negation with value set example"/>
+      <description value="Example of a request not to employ any of a class of medical devices"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceprohibited"/>
     </resource>
     <resource>
       <reference>
         <reference value="DeviceRequest/negation-with-code-example"/>
       </reference>
       <name value="DeviceRequest negation with code example"/>
-      <description value="Example of a request to employ a medical device that was not performed"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicenotrequested"/>
+      <description value="Example of a request not to employ a specific medical device"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-deviceprohibited"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="DeviceRequest/requested-example"/>
+      </reference>
+      <name value="DeviceRequest positive example"/>
+      <description value="Example of a request to employ a medical device (using the Positive Profile)"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequested"/>
     </resource>
     <resource>
       <reference>
@@ -316,15 +332,23 @@
       <reference>
         <reference value="Immunization/example"/>
       </reference>
-      <name value="Immunization example"/>
-      <description value="Immunization example"/>
-      <exampleBoolean value="true"/>
+      <name value="Immunization general example"/>
+      <description value="Immunization example (using the General Profile)"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Immunization/done-example"/>
+      </reference>
+      <name value="Immunization positive example"/>
+      <description value="Immunization example (using the Positive Profile)"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationdone"/>
     </resource>
     <resource>
       <reference>
         <reference value="Immunization/negation-example"/>
       </reference>
-      <name value="Immunization negation example"/>
+      <name value="Immunization negation with value set example"/>
       <description value="Example of immunization that was refused/failed to be administered using value set"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunizationnotdone"/>
     </resource>
@@ -372,9 +396,17 @@
       <reference>
         <reference value="MedicationAdministration/example"/>
       </reference>
-      <name value="MedicationAdministration example"/>
-      <description value="Intravenous example of MedicationAdministration"/>
-      <exampleBoolean value="true"/>
+      <name value="MedicationAdministration general example"/>
+      <description value="Intravenous example of MedicationAdministration (using the General Profile)"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministration"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationAdministration/done-example"/>
+      </reference>
+      <name value="MedicationAdministration positive example"/>
+      <description value="Intravenous example of MedicationAdministration (using the Positive Profile)"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationdone"/>
     </resource>
     <resource>
       <reference>
@@ -388,7 +420,7 @@
       <reference>
         <reference value="MedicationAdministration/negation-example"/>
       </reference>
-      <name value="MedicationAdministration negation example"/>
+      <name value="MedicationAdministration negation with value set example"/>
       <description value="Example of medication not administered using a value set to indicate what was not administered"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"/>
     </resource>
@@ -404,9 +436,17 @@
       <reference>
         <reference value="MedicationDispense/example"/>
       </reference>
-      <name value="MedicationDispense example"/>
-      <description value="Penicillin MedicationDispense Example"/>
-      <exampleBoolean value="true"/>
+      <name value="MedicationDispense general example"/>
+      <description value="Penicillin MedicationDispense Example (using the General Profile)"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispense"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationDispense/done-example"/>
+      </reference>
+      <name value="MedicationDispense positive example"/>
+      <description value="Penicillin MedicationDispense Example (using the Positive Profile)"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedone"/>
     </resource>
     <resource>
       <reference>
@@ -420,7 +460,7 @@
       <reference>
         <reference value="MedicationDispense/negation-example"/>
       </reference>
-      <name value="MedicationDispense negation example"/>
+      <name value="MedicationDispense negation with value set example"/>
       <description value="Example of medication not dispensed using a value set to indicate the reason"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationdispensedeclined"/>
     </resource>
@@ -444,8 +484,16 @@
       <reference>
         <reference value="MedicationRequest/example"/>
       </reference>
-      <name value="MedicationRequest example"/>
-      <description value="Penicillin MedicationRequest Example"/>
+      <name value="MedicationRequest general example"/>
+      <description value="Penicillin MedicationRequest Example (using the General Profile)"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="MedicationRequest/requested-example"/>
+      </reference>
+      <name value="MedicationRequest positive example"/>
+      <description value="Penicillin MedicationRequest Example (using the Positive Profile)"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -476,17 +524,17 @@
       <reference>
         <reference value="MedicationRequest/negation-example"/>
       </reference>
-      <name value="MedicationNotRequested using value set example"/>
-      <description value="Example of medication not requested using a value set to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested"/>
+      <name value="MedicationProhibited using value set example"/>
+      <description value="Example of request not to provide a medication using a value set"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationprohibited"/>
     </resource>
     <resource>
       <reference>
         <reference value="MedicationRequest/negation-example-code"/>
       </reference>
-      <name value="MedicationNotRequested using code example"/>
-      <description value="Example of medication not requested using a code to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested"/>
+      <name value="MedicationProhibited using code example"/>
+      <description value="Example of request not to provide a medication using a code"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationprohibited"/>
     </resource>
     <resource>
       <reference>
@@ -583,22 +631,6 @@
       <name value="Number of pregnancies obeservation example"/>
       <description value="Example number of pregnancies Observation"/>
       <exampleBoolean value="true"/>
-    </resource>
-     <resource>
-      <reference>
-        <reference value="Observation/negation-example"/>
-      </reference>
-      <name value="ObservationCancelled with value set example"/>
-      <description value="Example of observation not done using a value set to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled"/>
-    </resource>
-    <resource>
-      <reference>
-        <reference value="Observation/negation-with-code-example"/>
-      </reference>
-      <name value="ObservationCancelled with code example"/>
-      <description value="Example of observation not done using a code to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled"/>
     </resource>
     <resource>
       <reference>
@@ -716,8 +748,16 @@
       <reference>
         <reference value="Procedure/example"/>
       </reference>
-      <name value="Procedure example"/>
-      <description value="Appendectomy Procedure example"/>
+      <name value="Procedure general example"/>
+      <description value="Appendectomy Procedure example (using the General Profile)"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Procedure/done-example"/>
+      </reference>
+      <name value="Procedure positive example"/>
+      <description value="Appendectomy Procedure example (using the Positive Profile)"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -725,7 +765,7 @@
         <reference value="Procedure/negation-example"/>
       </reference>
       <name value="ProcedureNotDone with value set example"/>
-      <description value="Example of procedure not done using a value set to indicate the reason"/>
+      <description value="Example of procedure not done using a value set"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone"/>
     </resource>
     <resource>
@@ -733,7 +773,7 @@
         <reference value="Procedure/negation-with-code-example"/>
       </reference>
       <name value="ProcedureNotDone with code example"/>
-      <description value="Example of procedure not done using a code to indicate the reason"/>
+      <description value="Example of procedure not done using a code"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedurenotdone"/>
     </resource>
     <resource>
@@ -748,8 +788,24 @@
       <reference>
         <reference value="ServiceRequest/example"/>
       </reference>
-      <name value="ServiceRequest example"/>
-      <description value="Request for Appendectomy ServiceRequest example"/>
+      <name value="ServiceRequest general example"/>
+      <description value="Request for Appendectomy ServiceRequest example (using the General Profile)"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/proposal-example"/>
+      </reference>
+      <name value="ServiceRequest positive example with a value set"/>
+      <description value="Request for Intermittent pneumatic compression devices using a value set example (using the Positive Profile)"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="ServiceRequest/proposal-example-code"/>
+      </reference>
+      <name value="ServiceRequest positive example with a code"/>
+      <description value="Request for Graduated compression elastic hosiery using a code example (using the Positive Profile)"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -764,17 +820,17 @@
       <reference>
         <reference value="ServiceRequest/negation-example"/>
       </reference>
-      <name value="ServiceNotRequested with value set example"/>
-      <description value="Example of service not requested using a value set to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested"/>
+      <name value="ServiceProhibited with value set example"/>
+      <description value="Example of request not to provide a service using a value set"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-serviceprohibited"/>
     </resource>
     <resource>
       <reference>
         <reference value="ServiceRequest/negation-example-code"/>
       </reference>
-      <name value="ServiceNotRequested with code example"/>
-      <description value="Example of service not requested using a code to indicate the reason"/>
-      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicenotrequested"/>
+      <name value="ServiceProhibited with code example"/>
+      <description value="Example of request not to provide a service using a code"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-serviceprohibited"/>
     </resource>
     <resource>
       <reference>
@@ -812,8 +868,16 @@
       <reference>
         <reference value="Task/example"/>
       </reference>
-      <name value="Task example"/>
-      <description value="Task example"/>
+      <name value="Task general example"/>
+      <description value="Task example (using the General Profile)"/>
+      <exampleBoolean value="true"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Task/done-example"/>
+      </reference>
+      <name value="Task positive example"/>
+      <description value="Task example (using the Positive Profile)"/>
       <exampleBoolean value="true"/>
     </resource>
     <resource>
@@ -821,7 +885,7 @@
         <reference value="Task/negation-example"/>
       </reference>
       <name value="TaskRejected with value set example"/>
-      <description value="Example of task not done using a value set to indicate the reason"/>
+      <description value="Example of task not done using a value set"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"/>
     </resource>
     <resource>
@@ -829,7 +893,23 @@
         <reference value="Task/negation-with-code-example"/>
       </reference>
       <name value="TaskRejected with code example"/>
-      <description value="Example of task not done using a code to indicate the reason"/>
+      <description value="Example of task not done using a code"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Task/rejected-example"/>
+      </reference>
+      <name value="TaskRejected example rejecting a proposal using a value set"/>
+      <description value="Example of a task rejecting a proposal that identifies the requested activity with a value set"/>
+      <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"/>
+    </resource>
+    <resource>
+      <reference>
+        <reference value="Task/rejected-with-code-example"/>
+      </reference>
+      <name value="TaskRejected example rejecting a proposal using a code"/>
+      <description value="Example of a task rejecting a proposal that identifies the requested activity with a code"/>
       <exampleCanonical value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"/>
     </resource>
     <resource>
@@ -967,6 +1047,10 @@
 <parameter>
   <code value="generate"/>
   <value value="JSON"/>
+</parameter>
+<parameter>
+  <code value="special-url"/>
+  <value value="http://hl7.org/fhir/StructureDefinition/codeOptions"/>
 </parameter>
 </definition>
 </ImplementationGuide>

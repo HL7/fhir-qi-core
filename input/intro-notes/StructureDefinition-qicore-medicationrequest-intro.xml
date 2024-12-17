@@ -59,7 +59,12 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-  <p>To create an expression specifically requesting information that a MedicationRequest intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationnotrequested.html">QICore-Medicationnotrequested</a>.</p>
+
+  <p>The MedicationRequest profile defines the conformance expectations for a MedicationRequest, 
+  regardless of whether it is a positive or negative statement. The MedicationRequested and MedicationNotRequested 
+  profiles represent the positive and negative statements for a medication order.</p>
+
+<p>To create an expression indicating the existence of a medication request, use the profile <a href="StructureDefinition-qicore-medicationrequested.html">QICoreMedicationRequested</a>; to specifically request information that a MedicationRequest intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationprohibited.html">QICoreMedicationProhibited</a>.</p>
 
 <p>The following example illustrates the use of the MedicationRequest profile:</p>
 <pre>
@@ -67,7 +72,8 @@
   ["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
     where (Antithrombotic.isCommunity() or Antithrombotic.isDischarge())
       and Antithrombotic.status in { 'active', 'completed' }
-      and Antithrombotic.intent = 'order'</code>
+      and Antithrombotic.intent = 'order'
+      and Antithrombotic.doNotPerform is not true</code>
 </pre>
 
   <p>

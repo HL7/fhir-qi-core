@@ -51,15 +51,21 @@
 </p>
 
 <a name="usage"><b>Usage</b></a>
-<p>To create an expression specifically requesting information that a ServiceRequest intentionally did
-not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-servicenotrequested.html">QICore-Servicenotrequested</a>.</p>
+
+<p>The ServiceRequest profile defines the conformance expectations for a ServiceRequest, regardless of whether it is a positive or negative statement. The ServiceRequested and ServiceNotRequested profiles represent the positive and
+  negative statements for a service request. </p>
+
+<p>To create an expression indicating the existence of a service request, use the profile <a href="StructureDefinition-qicore-servicerequested.html">QICoreServiceRequested</a>; to specifically request information that a ServiceRequest intentionally did
+not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-serviceprohibited.html">QICoreServiceProhibited</a>.</p>
 
 <p>The following example illustrates the use of the ServiceRequest profile:</p>
 
 <pre>
 <code>define "Intermittent Pneumatic Compression Devices Ordered":
   ["ServiceRequest": "Application of intermittent pneumatic compression devices (IPC)"] DeviceOrdered
-    where DeviceOrdered.status in { 'active', 'completed', 'on-hold' }</code>
+    where DeviceOrdered.status in { 'active', 'completed', 'on-hold' }
+      and DeviceOrdered.intent = 'order'
+      and DeviceOrdered.doNotPerform is not true</code>
 </pre>
 
 <p>

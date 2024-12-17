@@ -12,7 +12,7 @@
 <b>QI Elements:</b>
 <ul>
 <li>notDoneValueSet: (QI) What wasn't administered</li>
-<li>recorded: (QI) When the immunization was first captured in the subject's record</li>
+<li>recorded: (QI) Documented date Immunization did not occur.</li>
 </ul>
 
 <b>Primary code path:</b> vaccineCode
@@ -37,14 +37,24 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+
+  <p>The Immunization profile defines the conformance expectations for an Immunization event, regardless of whether it is a positive or negative statement. The ImmunizationDone and ImmunizationNotDone profiles represent the positive and
+    negative statements for an immunization event. </p>
+
+  <p>The following example illustrates retrieving instances that meet measure intent for exclusion:</p>
+
+  <pre><code>define "Reason for No Polio Immunization":
+  ["ImmunizationNotDone": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
+    where PolioVaccination.statusReason in "Medical Reason"
+      or PolioVaccination.statusReason in "Patient Refusal"</code></pre>
+
+  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
-
-  <p>The Immunization and ImmunizationNotDone profiles represent the positive and
-    negative statements for an immunization event. </p>
 
   <a name="examples"> </a>
   <h3>Examples</h3>
@@ -53,7 +63,7 @@
     <tbody>
       <tr>
         <td><a href="Immunization-negation-example.html">Negation Example using a valueset reference</a></td>
-        <td>Immunization not performed due to patient declination for religious reasons; indicates that none of the vaccines in the given "not done value set" were administered.</td>
+        <td>Immunization not performed due to patient declination for religious reasons; indicates that none of the vaccines in the given `codeOptions` value set were administered.</td>
       </tr>
       <tr>
         <td><a href="Immunization-negation-example-code.html">Negation Example using a single coded concept</a></td>
@@ -62,15 +72,4 @@
     </tbody>
   </table>
   </p>
-
-  <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
-  </p>
-
-  <pre><code>define "Reason for No Polio Immunization":
-  ["ImmunizationNotDone": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
-    where PolioVaccination.statusReason in "Medical Reason"
-      or PolioVaccination.statusReason in "Patient Refusal"</code></pre>
-
-  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI-Core</a> topic.</p>
-
 </div>
