@@ -77,21 +77,39 @@
         "short" : "active",
         "definition" : "The status of the resource instance.",
         "min" : 1,
-        "max" : "1"
+        "max" : "1",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ]
       },
       {
         "id" : "Claim.type",
         "path" : "Claim.type",
         "short" : "category | discipline",
         "min" : 1,
-        "max" : "1"
+        "max" : "1",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ]
       },
       {
         "id" : "Claim.use",
         "path" : "Claim.use",
         "short" : "claim | preauthorization | predetermination",
         "min" : 1,
-        "max" : "1"
+        "max" : "1",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ]
       },
       {
         "id" : "Claim.patient",
