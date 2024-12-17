@@ -58,6 +58,20 @@
   "differential" : {
     "element" : [
       {
+        "id" : "DeviceRequest",
+        "path" : "DeviceRequest",
+        "constraint" : [
+          {
+            "key" : "drq-1",
+            "severity" : "error",
+            "human" : "to indicate what device, either at least one coding in the code or a codeOptions extension shall be provided",
+            "expression" : "(code is Reference).not() implies code.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor code.coding.exists()",
+            "xpath" : "exists(f:extension)"
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
         "id" : "DeviceRequest.modifierExtension:doNotPerform",
         "extension" : [
           {
@@ -79,26 +93,7 @@
           }
         ],
         "isModifier" : true,
-        "isModifierReason" : "Modifier extensions are expected to modify the meaning or interpretation of the element that contains them"
-      },
-      {
-        "id" : "DeviceRequest.modifierExtension:doNotPerform.value[x]",
-        "extension" : [
-          {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
-          }
-        ],
-        "path" : "DeviceRequest.modifierExtension.value[x]",
-        "short" : "(QI) Value of extension",
-        "min" : 1,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "boolean"
-          }
-        ],
-        "fixedBoolean" : false
+        "isModifierReason" : "The do not perform element changes the meaning of the request from a positive to a negative statement"
       },
       {
         "id" : "DeviceRequest.identifier",
@@ -143,10 +138,39 @@
         ],
         "path" : "DeviceRequest.code[x]",
         "short" : "(QI) Device requested",
+        "condition" : [
+          "drq-1"
+        ],
         "binding" : {
           "strength" : "preferred",
           "valueSet" : "http://hl7.org/fhir/ValueSet/device-kind"
         }
+      },
+      {
+        "id" : "DeviceRequest.code[x].extension:codeOptions",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "DeviceRequest.code[x].extension",
+        "sliceName" : "codeOptions",
+        "short" : "(QI) Url of a value set of candidate devices",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the device.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/codeOptions"
+            ]
+          }
+        ],
+        "condition" : [
+          "drq-1"
+        ]
       },
       {
         "id" : "DeviceRequest.subject",

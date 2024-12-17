@@ -222,10 +222,7 @@ these additional elements when they are used in the measures or CDS artifacts im
 Since not all artifacts use each of these additional elements, QI-Core does not use the “MustSupport” flag to indicate these elements. 
 Instead, “(QI)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table, 
 and the computable [QI-Core Key Element Extension](StructureDefinition-qicore-keyelement.html) is added to each element definition. This approach 
-allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use.
-is inspired by the way that [US Core communicates USCDI requirements](https://hl7.org/fhir/us/core/must-support.html#uscdi-requirements) and 
-allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements 
-for those QI-Core-flagged elements that they do not use.
+allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use. This is inspired by the way that [US Core communicates USCDI requirements]({{site.data.fhir.ver.uscore}}/must-support.html#uscdi-requirements).
 
 Quality improvement artifacts communicate the elements they reference using the DataRequirement structure in FHIR. This structure allows 
 the base resource type and profile to be specified, as well as a MustSupport element that indicates which elements of the resource and 
@@ -275,10 +272,10 @@ QI-Core’s concept of negation follows the informative publication established 
 
 2.  Documented absence of data with a valid reason
 
-    The measure or CDS artifact uses a specifically designed QI-Core profile to indicate that an activity intentionally did not occur for a valid reason.
+    The measure or CDS artifact uses specifically designed QI-Core profiles to indicate that an activity intentionally did not occur for a valid reason.
 
 When there is a need to document evidence that an expected activity was not done due to patient intent and/or specific criteria, 
-systems should use one of the ten QI-Core specific *negation* *rationale* profiles that align with existing profiles representing the expected actions. 
+systems should use one of the ten QI-Core specific *negation* *rationale* patterns that align with existing profiles representing the expected actions. 
 <a href="negation.html"><b>QI-Core Negation</b></a> provides detailed descriptions and guidance.
 
 

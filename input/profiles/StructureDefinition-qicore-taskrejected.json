@@ -60,15 +60,6 @@
       {
         "id" : "Task",
         "path" : "Task",
-        "constraint" : [
-          {
-            "key" : "tnd-1",
-            "severity" : "error",
-            "human" : "to indicate what task was not performed, either at least one coding in the code or a notDoneValueSet extension shall be provided",
-            "expression" : "code.extension('http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet').exists() xor  code.coding.exists()",
-            "xpath" : "exists(f:extension)"
-          }
-        ],
         "mustSupport" : false
       },
       {
@@ -96,75 +87,10 @@
         }
       },
       {
-        "id" : "Task.code",
-        "path" : "Task.code",
-        "short" : "(QI) Task Type",
-        "min" : 1,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "CodeableConcept"
-          }
-        ],
-        "condition" : [
-          "tnd-1"
-        ],
-        "binding" : {
-          "strength" : "preferred",
-          "description" : "Codes to identify what the task involves. These will typically be specific to a particular workflow.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/task-code"
-        }
-      },
-      {
-        "id" : "Task.code.extension:notDoneValueSet",
-        "path" : "Task.code.extension",
-        "sliceName" : "notDoneValueSet",
-        "short" : "(QI) Url of a value set of activities not requested or performed",
-        "min" : 0,
-        "max" : "1",
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
-            ]
-          }
-        ],
-        "condition" : [
-          "tnd-1"
-        ]
-      },
-      {
         "id" : "Task.focus",
         "path" : "Task.focus",
         "min" : 1,
         "max" : "1",
-        "mustSupport" : false
-      },
-      {
-        "id" : "Task.for",
-        "path" : "Task.for",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-            ]
-          }
-        ],
-        "mustSupport" : false
-      },
-      {
-        "id" : "Task.encounter",
-        "path" : "Task.encounter",
-        "type" : [
-          {
-            "code" : "Reference",
-            "targetProfile" : [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ],
         "mustSupport" : false
       },
       {
@@ -176,7 +102,7 @@
           }
         ],
         "path" : "Task.executionPeriod",
-        "short" : "(QI) The timing the task was rejected and the reason.",
+        "short" : "(QI) The timing the task was rejected.",
         "min" : 1,
         "max" : "1"
       }

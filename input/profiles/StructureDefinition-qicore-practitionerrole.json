@@ -167,20 +167,6 @@
       }]
     },
     {
-      "id" : "PractitionerRole.location",
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
-        }
-      ],
-      "path" : "PractitionerRole.location",
-      "short" : "(QI) The location(s) at which this practitioner provides care",
-      "type" : [{
-        "code" : "Reference",
-        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
-      }]
-    },{
         "id" : "PractitionerRole.code",
         "extension" : [
           {
@@ -211,7 +197,22 @@
           "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.114222.4.11.1066"
         }
       },
-       {
+      {
+        "id" : "PractitionerRole.location",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "PractitionerRole.location",
+        "short" : "(QI) The location(s) at which this practitioner provides care",
+        "type" : [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
+        }]
+      },
+      {
         "id" : "PractitionerRole.healthcareService",
         "path" : "PractitionerRole.healthcareService",
         "condition" : [

@@ -42,19 +42,22 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-  <p>
-<tr>
-    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-</tr>
+
+<p>This example represents a situation where the subject is currently experiencing, or is at risk of, a reaction to the identified substance.</p>
 
 <pre>
 <code>define "Statin Allergy Intolerance":
   ["AllergyIntolerance": "Statin Allergen"] StatinAllergyIntolerance
     where (StatinAllergyIntolerance.clinicalStatus is null or StatinAllergyIntolerance.clinicalStatus ~ Global."allergy-active")
 </code>
-<p>This example represents a situation where the subject is currently experiencing, or is at risk of, a reaction to the identified substance.</p>
 </pre>
+
+<p>
+<tr>
+  <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>
 </p>
+
 <a name="examples"> </a>
 <h3>Examples</h3>
 <p>
