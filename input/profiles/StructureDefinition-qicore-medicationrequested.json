@@ -62,6 +62,78 @@
         "path": "MedicationRequest"
       },
       {
+        "id" : "MedicationRequest.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "MedicationRequest.category",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "pattern",
+              "path" : "$this"
+            }
+          ],
+          "rules" : "open"
+        },
+        "short" : "Type of medication usage",
+        "definition" : "Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).",
+        "comment" : "The category can be used to include where the medication is expected to be consumed or other types of requests.",
+        "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "MedicationRequest.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "constraint" : [
+          {
+            "key" : "ele-1",
+            "severity" : "error",
+            "human" : "All FHIR elements must have a @value or children",
+            "expression" : "hasValue() or (children().count() > id.count())",
+            "xpath" : "@value|f:*|h:div",
+            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
+          }
+        ],
+        "mustSupport" : true,
+        "isModifier" : false,
+        "isSummary" : false,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "MedicationRequestCategory"
+            }
+          ],
+          "strength" : "example",
+          "description" : "A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/medicationrequest-category"
+        },
+        "mapping" : [
+          {
+            "identity" : "script10.6",
+            "map" : "Message/Body/NewRx/MedicationPrescribed/Directions\r\ror \r\rMessage/Body/NewRx/MedicationPrescribed/StructuredSIG"
+          },
+          {
+            "identity" : "w5",
+            "map" : "FiveWs.class"
+          },
+          {
+            "identity" : "rim",
+            "map" : ".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value"
+          }
+        ]
+      },
+      {
         "id": "MedicationRequest.status",
         "extension": [
           {
