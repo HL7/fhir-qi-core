@@ -63,59 +63,7 @@
         "definition": "The QI-Core AllergyIntolerance Profile is based upon the US Core AllergyIntolerance Profile which is based upon the core FHIR AllergyIntolerance Resource and created to meet the 2015 Edition Common Clinical Data Set \u0027Medical allergies\u0027 requirements.",
         "mustSupport": false
       },
-      {
-        "id" : "AllergyIntolerance.verificationStatus",
-        "extension" : [
-          {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
-          }
-        ],
-        "path" : "AllergyIntolerance.verificationStatus",
-        "short" : "unconfirmed | confirmed | refuted | entered-in-error",
-        "definition" : "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).",
-        "comment" : "The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "AllergyIntolerance.verificationStatus",
-          "min" : 0,
-          "max" : "1"
-        },
-        "type" : [{
-          "code" : "CodeableConcept"
-        }],
-        "condition" : ["ait-1",
-        "ait-2"],
-        "constraint" : [{
-          "key" : "ele-1",
-          "severity" : "error",
-          "human" : "All FHIR elements must have a @value or children",
-          "expression" : "hasValue() or (children().count() > id.count())",
-          "xpath" : "@value|f:*|h:div",
-          "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-        }],
-        "mustSupport" : true,
-        "isModifier" : true,
-        "isModifierReason" : "This element is labeled as a modifier because the status contains the codes refuted and entered-in-error that mark the AllergyIntolerance as not currently valid.",
-        "isSummary" : true,
-        "binding" : {
-          "strength" : "required",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/allergyintolerance-verification"
-        },
-        "mapping" : [{
-          "identity" : "w5",
-          "map" : "FiveWs.status"
-        },
-        {
-          "identity" : "rim",
-          "map" : "Observation ACT .inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"verificationStatus\", moodCode=EVN].value"
-        },
-        {
-          "identity" : "argonaut-dq-dstu2",
-          "map" : "AllergyIntolerance.status"
-        }]
-      },
+      
       {
         "id": "AllergyIntolerance.extension:resolutionAge",
         "path": "AllergyIntolerance.extension",
@@ -145,6 +93,51 @@
         "short" : "(QI) active | inactive | resolved",
         "definition" : "The clinical status of the allergy or intolerance.",
         "comment" : "Refer to [discussion](http://hl7.org/fhir/R4/extensibility.html#Special-Case) if clincalStatus is missing data.\nThe data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."
+      },
+      {
+        "id" : "AllergyIntolerance.verificationStatus",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "AllergyIntolerance.verificationStatus",
+        "short" : "unconfirmed | confirmed | refuted | entered-in-error",
+        "definition" : "Assertion about certainty associated with the propensity, or potential risk, of a reaction to the identified substance (including pharmaceutical product).",
+        "comment" : "The data type is CodeableConcept because verificationStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity.",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "AllergyIntolerance.verificationStatus",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "condition" : ["ait-1",
+        "ait-2"],
+        "mustSupport" : true,
+        "isModifier" : true,
+        "isModifierReason" : "This element is labeled as a modifier because the status contains the codes refuted and entered-in-error that mark the AllergyIntolerance as not currently valid.",
+        "isSummary" : true,
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/allergyintolerance-verification"
+        },
+        "mapping" : [{
+          "identity" : "w5",
+          "map" : "FiveWs.status"
+        },
+        {
+          "identity" : "rim",
+          "map" : "Observation ACT .inboundRelationship[typeCode=COMP].source[classCode=OBS, code=\"verificationStatus\", moodCode=EVN].value"
+        },
+        {
+          "identity" : "argonaut-dq-dstu2",
+          "map" : "AllergyIntolerance.status"
+        }]
       },
       {
         "id": "AllergyIntolerance.type",

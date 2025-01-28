@@ -62,6 +62,21 @@
         "path": "MedicationRequest"
       },
       {
+        "id": "MedicationRequest.status",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "MedicationRequest.status",
+        "short": "(QI) active | on-hold | cancelled | completed | stopped | draft",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-medicationrequest-status"
+        }
+      },
+      {
         "id" : "MedicationRequest.category",
         "extension" : [
           {
@@ -94,16 +109,6 @@
             "code" : "CodeableConcept"
           }
         ],
-        "constraint" : [
-          {
-            "key" : "ele-1",
-            "severity" : "error",
-            "human" : "All FHIR elements must have a @value or children",
-            "expression" : "hasValue() or (children().count() > id.count())",
-            "xpath" : "@value|f:*|h:div",
-            "source" : "http://hl7.org/fhir/StructureDefinition/Element"
-          }
-        ],
         "mustSupport" : true,
         "isModifier" : false,
         "isSummary" : false,
@@ -132,21 +137,6 @@
             "map" : ".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value"
           }
         ]
-      },
-      {
-        "id": "MedicationRequest.status",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.status",
-        "short": "(QI) active | on-hold | cancelled | completed | stopped | draft",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-medicationrequest-status"
-        }
       },
       {
         "id": "MedicationRequest.doNotPerform",
