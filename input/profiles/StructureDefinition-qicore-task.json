@@ -161,6 +161,15 @@
       {
         "id" : "Task.focus",
         "path" : "Task.focus",
+        "short" : "(QI) What task is acting on",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "https://hl7.org/fhir/R4/resource.html"
+            ]
+          }
+        ],
         "min" : 0,
         "max" : "1",
         "mustSupport" : false
@@ -168,6 +177,7 @@
       {
         "id" : "Task.for",
         "path" : "Task.for",
+        "short" : "(QI) Beneficiary of the Task",
         "type" : [
           {
             "code" : "Reference",
