@@ -74,9 +74,7 @@
           }],
           "rules" : "open"
         },
-        "short" : "category codes",
-        "definition" : "A category assigned to the condition.",
-        "comment" : "The categorization is often highly contextual and may appear poorly differentiated or not very useful in other contexts.",
+        "short" : "(QI) category codes",
         "min" : 1,
         "max" : "*",
         "base" : {
@@ -88,8 +86,6 @@
           "code" : "CodeableConcept"
         }],
         "mustSupport" : true,
-        "isModifier" : false,
-        "isSummary" : false,
         "binding" : {
           "extension" : [{
             "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
@@ -98,27 +94,7 @@
           "strength" : "extensible",
           "description" : "A category assigned to the condition.",
           "valueSet" : "http://hl7.org/fhir/ValueSet/condition-category"
-        },
-        "mapping" : [{
-          "identity" : "w5",
-          "map" : "FiveWs.class"
-        },
-        {
-          "identity" : "sct-concept",
-          "map" : "< 404684003 |Clinical finding|"
-        },
-        {
-          "identity" : "v2",
-          "map" : "'problem' if from PRB-3. 'diagnosis' if from DG1 segment in PV1 message"
-        },
-        {
-          "identity" : "rim",
-          "map" : ".code"
-        },
-        {
-          "identity" : "argonaut-dq-dstu2",
-          "map" : "Condition.category"
-        }]
+        }
       },
       {
         "id": "Condition.subject",
