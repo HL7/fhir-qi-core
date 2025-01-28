@@ -94,6 +94,41 @@
           }
         ],
         "fixedBoolean": false
+      },
+      {
+        "id": "ServiceRequest.reasonCode",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "ServiceRequest.reasonCode",
+        "short": "(QI) Explanation/Justification for procedure or service",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ],
+        "binding": {
+          "extension": [
+            {
+              "url": "http://hl7.org/fhir/tools/StructureDefinition/additional-binding",
+              "extension": [
+                {
+                  "url": "purpose",
+                  "valueCode": "current"
+                },
+                {
+                  "url": "valueSet",
+                  "valueCanonical": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
+                }
+              ]
+            }
+          ],
+          "strength": "extensible",
+          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
+        }
       }
     ]
   }
