@@ -91,9 +91,7 @@
         }],
         "rules" : "open"
       },
-      "short" : "Type of medication usage",
-      "definition" : "Indicates the type of medication request (for example, where the medication is expected to be consumed or administered (i.e. inpatient or outpatient)).",
-      "comment" : "The category can be used to include where the medication is expected to be consumed or other types of requests.",
+      "short" : "(QI) Type of medication usage",
       "min" : 0,
       "max" : "*",
       "base" : {
@@ -105,8 +103,6 @@
         "code" : "CodeableConcept"
       }],
       "mustSupport" : true,
-      "isModifier" : false,
-      "isSummary" : false,
       "binding" : {
         "extension" : [{
           "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
@@ -115,19 +111,7 @@
         "strength" : "example",
         "description" : "A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment.",
         "valueSet" : "http://hl7.org/fhir/ValueSet/medicationrequest-category"
-      },
-      "mapping" : [{
-        "identity" : "script10.6",
-        "map" : "Message/Body/NewRx/MedicationPrescribed/Directions\r\ror \r\rMessage/Body/NewRx/MedicationPrescribed/StructuredSIG"
-      },
-      {
-        "identity" : "w5",
-        "map" : "FiveWs.class"
-      },
-      {
-        "identity" : "rim",
-        "map" : ".inboundRelationship[typeCode=COMP].source[classCode=OBS, moodCode=EVN, code=\"type of medication usage\"].value"
-      }]
+      }
     }]
   }
 }
