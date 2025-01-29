@@ -152,10 +152,6 @@ the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.
 considerations relate to any FHIR implementation, including authentication, authorization, access control
 consistent with patient consent, transaction logging, and following best practices. QI-Core security conformance rules are as follows:
 
-<div class="new-content" markdown="1">
-
--  Systems **SHOULD** refer to [BCP195](https://www.rfc-editor.org/info/bcp195) to ensure transmissions are taking place over a secure network connection.
-</div>
 
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
 -  Systems **SHOULD** use either IHE's ATNA standard for audit logging or an equivalent using the AuditEvent resource.
