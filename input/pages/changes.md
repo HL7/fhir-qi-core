@@ -23,7 +23,7 @@ This page lists the change history for each version of QI-Core.
 1. Link to Terminology "guidance section" doesn't work as intended ([FHIR-44808](https://jira.hl7.org/browse/FHIR-44808)) Applied ([here](terminology.html))
 1. Add reference to 3 new US Core observation profiles in QI-Core ([FHIR-45359](https://jira.hl7.org/browse/FHIR-45359)) Applied ([here](profiles.html))
 1. Update QI-Core references to USCDI consistent with US Core 7.0 approach ([FHIR-45360](https://jira.hl7.org/browse/FHIR-45360)) Applied in each profile ([here](profiles.html))
-1. Update qiqore-notDoneValueSet Extension ([FHIR-45368](https://jira.hl7.org/browse/FHIR-45368)) Applied ([here](extensions.html))
+1. Update qicore-notDoneValueSet Extension ([FHIR-45368](https://jira.hl7.org/browse/FHIR-45368)) Applied ([here](extensions.html))
 1. Update QI-Core to use extensions pack ([FHIR-45369](https://jira.hl7.org/browse/FHIR-45369)) Applied ([here](extensions.html))
 1. Update AllergyIntolerance, CarePlan, CareTeam, and Coverage profiles to address US Core 7.0 ([FHIR-45395](https://jira.hl7.org/browse/FHIR-45395)) Applied ([here](StructureDefinition-qicore-careplan.html)) and ([here](StructureDefinition-qicore-careteam.html))
 1. Update QI-Core Condition Encounter Diagnosis and QI-Core Condition Problems and Health Concerns Profiles to build off of US Core 7.0 ([FHIR-45396](https://jira.hl7.org/browse/FHIR-45396)) Applied ([here](StructureDefinition-qicore-condition-problems-health-concerns.html)) and ([here](StructureDefinition-qicore-condition-encounter-diagnosis.html))
