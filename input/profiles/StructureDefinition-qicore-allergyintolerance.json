@@ -63,6 +63,7 @@
         "definition": "The QI-Core AllergyIntolerance Profile is based upon the US Core AllergyIntolerance Profile which is based upon the core FHIR AllergyIntolerance Resource and created to meet the 2015 Edition Common Clinical Data Set \u0027Medical allergies\u0027 requirements.",
         "mustSupport": false
       },
+      
       {
         "id": "AllergyIntolerance.extension:resolutionAge",
         "path": "AllergyIntolerance.extension",
@@ -92,6 +93,32 @@
         "short" : "(QI) active | inactive | resolved",
         "definition" : "The clinical status of the allergy or intolerance.",
         "comment" : "Refer to [discussion](http://hl7.org/fhir/R4/extensibility.html#Special-Case) if clincalStatus is missing data.\nThe data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."
+      },
+      {
+        "id" : "AllergyIntolerance.verificationStatus",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "AllergyIntolerance.verificationStatus",
+        "short" : "(QI) unconfirmed | confirmed | refuted | entered-in-error",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "AllergyIntolerance.verificationStatus",
+          "min" : 0,
+          "max" : "1"
+        },
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "mustSupport" : true,
+        "binding" : {
+          "strength" : "required",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/allergyintolerance-verification"
+        }
       },
       {
         "id": "AllergyIntolerance.type",

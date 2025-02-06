@@ -160,14 +160,36 @@
       },
       {
         "id" : "Task.focus",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
         "path" : "Task.focus",
+        "short" : "(QI) What task is acting on",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/StructureDefinition/Resource"
+            ]
+          }
+        ],
         "min" : 0,
         "max" : "1",
         "mustSupport" : false
       },
       {
         "id" : "Task.for",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
         "path" : "Task.for",
+        "short" : "(QI) Beneficiary of the Task",
         "type" : [
           {
             "code" : "Reference",
