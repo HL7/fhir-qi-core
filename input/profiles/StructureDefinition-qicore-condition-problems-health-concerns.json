@@ -100,6 +100,44 @@
         "definition" : "The verification status to support the clinical status of the condition."
       },
       {
+        "id" : "Condition.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Condition.category",
+        "slicing" : {
+          "discriminator" : [{
+            "type" : "pattern",
+            "path" : "$this"
+          }],
+          "rules" : "open"
+        },
+        "short" : "(QI) category codes",
+         "min" : 1,
+        "max" : "*",
+        "base" : {
+          "path" : "Condition.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "mustSupport" : true,
+        "binding" : {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString" : "ConditionCategory"
+          }],
+          "strength" : "extensible",
+          "description" : "A category assigned to the condition.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/condition-category"
+        }
+      },
+      {
         "id" : "Condition.severity",
         "extension": [
           {
