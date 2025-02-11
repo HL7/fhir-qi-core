@@ -1,100 +1,137 @@
 {
-  "resourceType" : "StructureDefinition",
-  "id" : "qicore-location",
-  "extension" : [
+  "resourceType": "StructureDefinition",
+  "id": "qicore-location",
+  "extension": [
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
       "valueString": "type"
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
       "valueBoolean": true
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
       "valueBoolean": true
     },
     {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
-      "valueString":"Location"
+      "url": "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString": "Location"
     }
   ],
-  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location",
-  "version" : "6.0.0",
-  "name" : "QICoreLocation",
-  "title" : "QICore Location",
-  "status" : "active",
-  "experimental" : false,
-  "date" : "2018-08-22",
-  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact" : [{
-    "name" : "Clinical Quality Information WG",
-    "telecom" : [{
-      "system" : "url",
-      "value" : "http://www.hl7.org/Special/committees/cqi"
-    }]
-  }],
-  "description" : "Profile of Location for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction" : [{
-    "coding" : [{
-      "system" : "urn:iso:std:iso:3166",
-      "code" : "US"
-    }]
-  }],
-  "fhirVersion" : "4.0.1",
-  "kind" : "resource",
-  "abstract" : false,
-  "type" : "Location",
-  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location",
-  "derivation" : "constraint",
-  "differential" : {
-    "element" : [
+  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location",
+  "version": "6.0.0",
+  "name": "QICoreLocation",
+  "title": "QICore Location",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-08-22",
+  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact": [
     {
-        "id" : "Location.type",
-        "extension" : [
+      "name": "Clinical Quality Information WG",
+      "telecom": [
         {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
+          "system": "url",
+          "value": "http://www.hl7.org/Special/committees/cqi"
         }
-      ],
-        "path" : "Location.type",
-        "short" : "(QI) Category of service or resource available in a location.",
-        "definition" : "Indicates the type of function performed at the location."
-    },
+      ]
+    }
+  ],
+  "description": "Profile of Location for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction": [
     {
-      "id" : "Location.telecom",
-      "extension" : [
+      "coding": [
         {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
+          "system": "urn:iso:std:iso:3166",
+          "code": "US"
         }
-      ],
-      "path" : "Location.telecom",
-      "short" : "(QI) Contact details of the location"
-    },
-    {
-      "id" : "Location.managingOrganization",
-      "extension" : [
-        {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
-        }
-      ],
-      "path" : "Location.managingOrganization",
-      "short" : "(QI) Organization responsible for provisioning and upkeep",
-      "type" : [{
-        "code" : "Reference",
-        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"]
-      }]
-    },
-    {
-      "id" : "Location.partOf",
-      "path" : "Location.partOf",
-      "type" : [{
-        "code" : "Reference",
-        "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
-      }],
-      "mustSupport" : false
-    }]
+      ]
+    }
+  ],
+  "fhirVersion": "4.0.1",
+  "kind": "resource",
+  "abstract": false,
+  "type": "Location",
+  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-location",
+  "derivation": "constraint",
+  "differential": {
+    "element": [
+      {
+        "id": "Location.status",
+        "path": "Location.status",
+        "short": "(QI) active | suspended | inactive",
+        "definition": "The status property covers the general availability of the resource, not the current value which may be covered by the operationStatus, or by a schedule/slots if they are configured for the location.",
+        "min": 0,
+        "max": "1",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "active"
+      },
+      {
+        "id": "Location.type",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Location.type",
+        "short": "(QI) Category of service or resource available in a location.",
+        "definition": "Indicates the type of function performed at the location."
+      },
+      {
+        "id": "Location.telecom",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Location.telecom",
+        "short": "(QI) Contact details of the location"
+      },
+      {
+        "id": "Location.managingOrganization",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path": "Location.managingOrganization",
+        "short": "(QI) Organization responsible for provisioning and upkeep",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
+            ]
+          }
+        ]
+      },
+      {
+        "id": "Location.partOf",
+        "path": "Location.partOf",
+        "type": [
+          {
+            "code": "Reference",
+            "targetProfile": [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
+            ]
+          }
+        ],
+        "mustSupport": false
+      }
+    ]
   }
 }
