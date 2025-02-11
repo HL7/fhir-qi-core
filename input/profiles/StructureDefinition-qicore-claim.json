@@ -74,21 +74,27 @@
       {
         "id" : "Claim.status",
         "path" : "Claim.status",
-        "short" : "active",
+        "short" : "(QI) active",
         "definition" : "The status of the resource instance.",
         "min" : 1,
         "max" : "1",
-        "extension" : [
+        "extension": [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
-        ]
+        ],
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "active"
       },
       {
         "id" : "Claim.type",
         "path" : "Claim.type",
-        "short" : "category | discipline",
+        "short" : "(QI) category | discipline",
         "min" : 1,
         "max" : "1",
         "extension" : [
@@ -101,7 +107,7 @@
       {
         "id" : "Claim.use",
         "path" : "Claim.use",
-        "short" : "claim | preauthorization | predetermination",
+        "short" : "(QI) claim | preauthorization | predetermination",
         "min" : 1,
         "max" : "1",
         "extension" : [
