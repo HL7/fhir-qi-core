@@ -1,10 +1,13 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>QI Elements:</b>
 <ul>
-<li>recorded: (QI) Recorded</li>
-<li>status: (QI) in-progress | on-hold | completed | entered-in-error | stopped | unknown</li>
+<li>extension(recorded): (QI) Recorded</li>
+<li>status: (QI) in-progress | not-done | on-hold | completed | entered-in-error | stopped | unknown</li>
 <li>medication[x]: (QI) What was administered</li>
+<li>medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications</li>
 <li>subject: (QI) Who received medication</li>
 <li>context: (QI) Encounter or Episode of Care administered as part of</li>
 <li>effective[x]: (QI) Start and end time of administration</li>

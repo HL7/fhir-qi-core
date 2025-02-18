@@ -1,8 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) preparation​ | in-progress​ | cancelled​ | on-hold​ | completed​ | entered-in-error​ | stopped​ | unknown</li>
+<li>status: (QI) preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown</li>
 <li>medication[x]: (QI) What medication was supplied</li>
 <li>subject: (QI) Who the dispense is for</li>
 <li>performer.actor: Individual who was performing</li>
@@ -10,7 +12,8 @@
 
 <b>QI Elements:</b>
 <ul>
-<li>recorded: (QI) Extension</li>
+<li>extension(recorded): (QI) When recorded</li>
+<li>medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications</li>
 <li>authorizingPrescription: (QI) Medication order that authorizes the dispense</li>
 <li>type: (QI) Trial fill, partial fill, emergency fill, etc.</li>
 <li>quantity: (QI) Amount dispensed</li>

@@ -1,8 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown</li>
+<li>status: (QI) active | on-hold | cancelled | completed | stopped | draft</li>
 <li>intent: (QI) proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option</li>
 <li>medication[x]: (QI) Medication to be taken</li>
 <li>subject: (QI) Who or group medication request is for</li>
@@ -10,6 +12,9 @@
 
 <b>QI Elements:</b>
 <ul>
+<li>extension(medicationAdherence): Reported adherence to prescribed medication instructions.</li>
+<li>category: Type of medication usage</li>
+<li>doNotPerform: (QI) True if medication was not requested</li>
 <li>doNotPerform: (QI) True if medication was not requested</li>
 <li>reported[x]: (QI) Reported rather than primary record</li>
 <li>encounter: (QI) Encounter created as part of encounter/admission/stay</li>

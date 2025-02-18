@@ -1,18 +1,20 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
 "Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
 
-<b>QI Elements:</b>
+<b>Must Have:</b>
 <ul>
-<li>status: (QI) active | completed | entered-in-error +</li>
-<li>subject: (QI) Patient using device</li>
-<li>timing[x]: (QI) How often the device was used</li>
-<li>recordedOn: (QI) When statement was recorded</li>
-<li>device: (QI) Reference to device used</li>
-<li>bodySite: (QI) Target body site</li>
+<li>status: active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown</li>
+<li>intent: proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option</li>
+<li>medication[x]: Medication to be taken</li>
+<li>subject: Who or group medication request is for</li>
 </ul>
 
-<b>Primary code path:</b> device.type
+<b>QI Elements:</b>
+<ul>
+<li>category: Type of medication usage</li>
+</ul>
+
+<b>Primary code path:</b> medication
 <br></br>
 (PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
 <br></br>
@@ -33,21 +35,3 @@
 
 
 <!--End Generated Intro (DO NOT REMOVE)-->
-  <a name="usage"><b>Usage</b></a>
-  <p>
-  <tr>
-      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-  </tr>
-  </p>
-  <a name="examples"> </a>
-  <h3>Examples</h3>
-  <p>
-  <table>
-    <tbody>
-      <tr>
-          <td><a href="DeviceUseStatement-example.html">The provision of a wheelchair to a patient example</a></td>
-      </tr>
-    </tbody>
-  </table>
-  </p>
-</div>

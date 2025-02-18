@@ -1,17 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) completed | entered-in-error | not-done</li>
+<li>status: (QI) not-done</li>
 <li>statusReason: (QI) Reason not done</li>
-<li>vaccineCode: Vaccine Product Type (bind to CVX)</li>
+<li>vaccineCode: (QI) Vaccine Product Type (bind to CVX)</li>
 <li>patient: (QI) Who was immunized</li>
-<li>occurrence[x]: Vaccine administration date</li>
+<li>occurrence[x]: (QI) Vaccine administration date</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>notDoneValueSet: (QI) What wasn't administered</li>
+<li>vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines</li>
+<li>recorded: (QI) Documented date Immunization did not occur.</li>
 <li>recorded: (QI) Documented date Immunization did not occur.</li>
 </ul>
 
