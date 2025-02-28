@@ -17,7 +17,7 @@
 <li>sender: (QI) Message sender</li>
 </ul>
 
-<b>Primary code path:</b> reasonCode
+<b>Primary code path:</b> topic
 <br></br>
 (PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
 <br></br>
@@ -49,12 +49,11 @@ whether it is a positive or negative statement.</p>
 
   <p>This example meets measure intent for exclusion as defined in the following example CQL:</p>
 
-<pre><code>define CommunicationNoteDone:
-  [CommunicationNotDone: "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
-    with "Diabetic Retinopathy Encounter" EncounterDiabeticRetinopathy
-      such that MacularEdemaAbsentNotCommunicated.sent during EncounterDiabeticRetinopathy.period
-        and ( MacularEdemaAbsentNotCommunicated.statusReason in "Medical Reason"
-          or MacularEdemaAbsentNotCommunicated.statusReason in "Patient Reason"
+<pre><code>define "Medication Not Available":
+["CommunicationNotDone": "progress update"] ProgressUpdate
+    where ProgressUpdate.topic = 'progress-update'
+    and ProgressUpdate.status = 'completed'
+    and ProgressUpdate.reasonCode = 'Medication not available from manufacturer (finding)'
         )</code></pre>
 
   <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>

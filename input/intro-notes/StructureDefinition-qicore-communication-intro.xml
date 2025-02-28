@@ -14,7 +14,7 @@
 <li>sender: (QI) Message sender</li>
 </ul>
 
-<b>Primary code path:</b> reasonCode
+<b>Primary code path:</b> topic
 <br></br>
 (PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
 <br></br>
@@ -42,9 +42,11 @@ whether it is a positive or negative statement. To ensure instances retrieved me
   positive intent, applications should check the status as illustrated in this example:</p>
 
 <pre>
-<code>define Communication:
-  [Communication] C
-    where C.status in { 'preparation', 'in-progress', 'on-hold', 'completed' }
+<code>define "Lab results communicated":
+   ["Communication": "report-labs"] LabReport
+       where LabReport.topic = 'report-labs'
+       and LabReport.status = 'completed'
+       and LabReport.reasonCode = 'Serum pregnancy test negative (finding)'
 </code>
 </pre>
 
