@@ -3,6 +3,10 @@
   "id" : "qicore-nutritionorder",
   "extension" : [
     {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "type"
+    },
+    {
       "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
       "valueBoolean": true
     },
@@ -54,13 +58,31 @@
       "mustSupport" : false
     },
     {
+        "id" : "NutritionOrder.OralDiet.type",
+        "extension" : [
+          {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+           }
+         ],    
+        "path" : "NutritionOrder.OralDiet.type",
+        "short" : "(QI) Oral diet components",
+        "min" : 0,
+        "max" : "1",
+        "type" : [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
+        }]
+        
+    },
+    {
       "id" : "NutritionOrder.patient",
       "extension" : [
         {
           "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
           "valueBoolean" : true
         }
-      ],
+      ],    
       "path" : "NutritionOrder.patient",
       "short" : "(QI) The person who requires the diet, formula or nutritional supplement",
       "definition" : "The person (patient) who needs the nutrition order for an oral diet, nutritional supplement and/or enteral or formula feeding.",

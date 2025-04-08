@@ -10,13 +10,43 @@ This version of QI-Core updates mappings from QI-Core to QDM based on US Core ST
 
 In addition to the QI-Core to QDM comparisons presented with each QI-Core resource, this section of the implementation guide presents the mapping directly from QDM concepts. Thus, the IG provides a view of the mappings in both directions (QI-Core to QDM, and QDM to QI-Core). This section is divided into 55 sections, one for each QDM concept, or QDM datatype. Each QDM datatype includes a general description of the concept and a table mapping each of the QDM datatype-related attributes to QI-Core metadata elements. Refer to the [eCQI Resource Center](https://ecqi.healthit.gov/qdm) for the full QDM 5.6 documentation.
 
+
 ### Change from QI-Core STU 6.0 to QI-Core STU 7.0
 
 QI-Core STU 7.0.0 builds upon US Core and new US Core STU7 (7.0.0) profiles include a number of changes that impact expression of requests for information. US Core STU7 also incorporates requirements of [United States Core Data for Interoperability version 4](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi"%20\l%20"uscdi-v4). These include new observation profiles compared to the previous QI-Core STU 6.0.0 version.
 
+The CMS Quality Data Model (QDM) has been used to express electronic
+clinical quality measures (eCQMs) in HQMF since 2012. QDM is a
+conceptual data model that has evolved based on feedback, testing and
+use. The current version (Version 5.6 for eCQM implementation 2024, 2025 and 2026) and QDM's complete history can be found on the [eCQI Resource Center](https://ecqi.healthit.gov/qdm). Most of
+the QDM concepts map directly to US Core R5, FHIR R4 resources or Clinical Quality Framework (CQF) extensions in FHIR Extensions Pack v5.1 and represented in QI-Core.
+
+This version of QI-Core updates mappings from QI-Core to QDM based on
+US Core STU7 (v7.0.0) and FHIR R4 and QDM version 5.6. Reviewers can evaluate the
+comparisons, represented in the *Mappings* table for each QI-Core
+resource. Each *mapping* table shows the QI-Core concept in the
+right-hand column and the corresponding QDM datatype(s) and attributes in
+the left-hand column. The *mapping* tables primarily reference the QI-Core metadata concepts represented in QDM.
+The tables also include some QI-Core concepts identified as beneficial by measure developers and implementers; such elements appear in the respective table’s middle column (under QI-Core) and have no corresponding left-hand column QDM attributes. The effort mapped the intended
+meaning of each QDM datatype and attribute to a QI-Core resource
+metadata element. In some cases, multiple QDM datatypes map to a single
+QI-Core resource. Since QDM is a conceptual data model some of the elements may not have a direct mapping to a QI-Core profile or one of the items in its respective Key Element Table. Content in the QI-Core profile Key Element Table tabs derive from US Core 7.0.0 requirements, or directly from FHIR 4.0.1 in the absence of a respective US Core profile.
+
+In addition to the QI-Core to QDM comparisons presented with each
+QI-Core resource, this section of the implementation guide presents the
+mapping directly from QDM concepts. Thus, the IG provides a view of the
+mappings in both directions (QI-Core to QDM, and QDM to QI-Core). This
+section is divided into 55 sections, one for each QDM concept, or QDM
+datatype. Each QDM datatype includes a general description of the
+concept and a table mapping each of the QDM datatype-related attributes
+to QI-Core metadata elements. Refer to the [eCQI Resource
+Center](https://ecqi.healthit.gov/qdm) for the full QDM 5.6
+documentation.
+
 QI-Core addresses these changes as follows:
 
 1) Observations
+
 
 QI-Core STU7 includes 7 observation-related profiles that provide QI-Core-specific constraints with reference to the respective US Core profile. These observations include:
 
@@ -29,12 +59,12 @@ QI-Core STU7 includes 7 observation-related profiles that provide QI-Core-specif
         <http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html>
   7. [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-head-occipital-frontal-circumference-percentile.html) – generally used with QDM “Physical Exam, Performed” 
 
+
 {:.stu-note}
 > STU Note: Changed from QI-Core Stu 6.0, QI-Core 7.0 no longer includes an ObservationCancelled profile. Review with system implementers and HL7 standards experts indicate that an observation not performed for a reason does not exist since no observations occurred. Therefore, there is no direct mapping for QDM’s “Assessment,Performed” *negationRationale* attribute. Instead, a user can reject a proposal to perform an observation. To express such a rejection in QI-Core, use [QI-Core TaskRejected](StructureDefinition-qicore-taskrejected.html) with [focus](StructureDefinition-qicore-taskrejected-definitions.html#key_Task.focus) = [ServiceRequested](StructureDefinition-qicore-servicerequested.html) where the requested service is the intended observation represented as a code or a value set.  
 >
 
 QI-Core STU 7.0.0 also incorporates 20 observation-related profiles directly from US Core. The subsequent mapping tables provide more detail about how to address these new profiles when converting measures from QDM to QI-Core:
-
 
 |  **QI-Core STU7 Observaton Profile** | **QDM representation**  |
 | --- | --- | 
@@ -396,6 +426,7 @@ Based on changes in US Core STU5, QI-Core now has two methods for expressing con
 
 QDM defines Device as an instrument, apparatus, implement, machine, contrivance, implant, in-vitro reagent, or other similar or related article, including a component part or accessory, intended for use in the diagnosis, cure, mitigation, treatment, or prevention of disease and not dependent on being metabolized to achieve any of its primary intended purposes.
 
+
 FHIR defines the [Device Resource](http://hl7.org/fhir/R4/device.html) as a type of a manufactured item that is used in the provision of healthcare without being substantially changed through that activity. The device may be a medical or non-medical device.
 
 FHIR and US Core further differentiate devices into two “classes”:
@@ -644,7 +675,31 @@ Previous versions of QI-Core have used the [Encounter.diagnosis](http://hl7.org/
 
 Feedback from implementers and standards experts indicated that concepts such as _principal diagnosis_, _principal procedure_, and _present on admission_ are more appropriately retrieved using the [Claim profile](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim.html). Medical record coders review documentation and work with physicians to provide the adjudicated determination of what represents a _principal diagnosis_, a _principal procedure_, and the final _present on admission_ flag for each diagnosis. Therefore, the [Claim.diagnosis.sequence](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.sequence) = 1 plus [Claim.diagnosis.diagnosis\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis%5Bx%5D) defines a _principal diagnosis_. The [Claim.diagnosis.onAdmission](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.onAdmission) plus[Claim.diagnosis.diagnosis\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis%5Bx%5D) defines which diagnoses are _present on admission_. The [Claim.procedure.sequence](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.procedure.sequence) = 1 plus [Claim.procedure.procedure\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.procedure.procedure%5Bx%5D)defines a _principal procedure_.
 
-For this reason, QI-Core STU6 no longer includes Encounter.diagnosis in the Key Element Table of the profile. This QI-Core version aligns with the US Core 6.1.0 using [Encounter.reasonCode](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) and [Encounter.reasonReference](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) for diagnoses or procedures managed during an encounter. Note the [Encounter.reasonCode](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) preferred binding to [Encounter Reason Code value set](http://hl7.org/fhir/R4/valueset-encounter-reason.html) allows use of SNOMED-CT clinical findings, procedures, context-dependent categories, and events; [Encounter.reasonReference](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) allows reference to [QICore ConditionProblemsHeatlhConcerns](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-condition-problems-health-concerns.html), [QICore ConditionEncounterDiagnosis](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-condition-encounter-diagnosis.html), [QICore Procedure](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-procedure.html), [QICore SimpleObservation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation.html), and [QICore ImmunzationRecommendation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-immunizationrecommendation.html).
+Previous versions of QI-Core have used the [Encounter.diagnosis](StructureDefinition-qicore-encounter-definitions.html#Encounter.diagnosis) element to reference to the list of diagnosis/diagnoses and procedures relevant to the encounter.
+The [Encounter.diagnosis.usevalue](http://hl7.org/fhir/R4/valueset-diagnosis-role.html)
+helped to differentiates if the diagnosis or procedure role with respect to the encounter,
+e.g., the admission diagnosis (AD), the discharge diagnosis (DD), the chief complaint (CC),
+a comorbidity diagnosis (CM), a pre-op diagnosis (pre-op), a post-op diagnosis (post-op)
+or a billing diagnosis (billing). Further, _principal diagnosis_ was specified by
+Encounter.diagnosis.use= _billing_, and Encounter.diagnosis.rank=1 with similar modeling for
+principal procedures. Further prior versions of QI-Core identified _present on admission (POA)_
+using Encounter.diagnosis.onAdmission.
+
+Feedback from implementers and standards experts indicated that concepts such as _principal diagnosis_,
+_principal procedure_, and _present on admission_ were more appropriately retrieved using the [Claim profile](StructureDefinition-qicore-claim.html).
+Medical record coders review documentation and work with physicians to provide the adjudicated
+determination of what represents a _principal diagnosis_, a _principal procedure_, and the final
+_present on admission_ flag for each diagnosis. Therefore, the [Claim.diagnosis.sequence](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.sequence) = 1, [Claim.diagnosis.type](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.type) = principal plus
+[Claim.diagnosis.diagnosis\[x\]](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis[x]) defines a _principal diagnosis_. The [Claim.diagnosis.onAdmission](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.onAdmission) plus
+[Claim.diagnosis.diagnosis\[x\]](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis[x]) defines which diagnoses are _present on admission_. The [Claim.procedure.sequence](StructureDefinition-qicore-claim-definitions.html#Claim.procedure.sequence) = 1
+plus [Claim.procedure.procedure\[x\]](StructureDefinition-qicore-claim-definitions.html#Claim.procedure.procedure[x]) defines a _principal procedure_.
+
+For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key Element Table of
+the profile. This QI-Core version aligns with the US Core 7.0.0 using [Encounter.reasonCode](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) and
+[Encounter.reasonReference](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference)
+for diagnoses or procedures managed during an encounter. Note the [Encounter.reasonCode](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode)
+preferred binding to [Encounter Reason Code value set](http://hl7.org/fhir/R4/valueset-encounter-reason.html) allows use of SNOMED-CT clinical findings,
+procedures, context-dependent categories, and events; [Encounter.reasonReference](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) allows reference to [QICore ConditionProblemsHeatlhConcerns](StructureDefinition-qicore-condition-problems-health-concerns.html), [QICore ConditionEncounterDiagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html), [QICore Procedure](StructureDefinition-qicore-procedure.html), [QICore SimpleObservation](StructureDefinition-qicore-simple-observation.html), and [QICore ImmunzationRecommendation](StructureDefinition-qicore-immunizationrecommendation.html).
 
 #### Encounter, Order
 
@@ -676,30 +731,31 @@ Use [QICoreServiceNotRequested](http://hl7.org/fhir/us/qicore/StructureDefinitio
 
 #### Encounter, Performed
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
-| --- | --- | --- |
-| **Encounter, Performed** | [Encounter](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter.html) | &nbsp; |
-| &nbsp; | [Encounter.status](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.status) | Constrain to - arrived, triaged, in-progress, on-leave, finished Note: most retrospective eCQMs will constrain Encounter.status to “finished”. Measures designed to monitor active encounters should consider using “in-progress”. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Encounter, Performed”. |
-| **QDM Attribute** | &nbsp; | &nbsp; |
-| code | [Encounter.type](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.type) | Uses extensible binding to value set: [USCoreEncounterType](http://hl7.org/fhir/us/core/STU6.1/ValueSet-us-core-encounter-type.html) |
-| id  | [Encounter.id](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.id) | &nbsp; |
-| class | [Encounter.class](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.class) | Classification of the encounter (e.g., ambulatory, hospital, virtual) with extensible binding to value set:  [ActEncounterCode](http://terminology.hl7.org/5.0.0/ValueSet-v3-ActEncounterCode.html) |
-| relatedTo | [Encounter.basedOn](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.basedOn) | Prior versions of QI-Core included a Must Support for basedOn to reference the ServiceRequest generating the encounter. However, there has been no use of this element. Therefore, it no longer appears in the Encounter profile Key Element Table. |
-| relevantPeriod | [Encounter.period](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.period) | start and end time of encounter |
-| diagnoses | &nbsp; | &nbsp; |
-| diagnosis (code) | [Encounter.reasonCode](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode)  <br>or   <br>[Encounter.reasonReference](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) | [Encounter.reasonCode](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) has preferred binding to [Encounter Reason Code value set](http://hl7.org/fhir/R4/valueset-encounter-reason.html). [Encounter.reasonReference](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) allows reference to [QICore ConditionProblemsHeatlhConcerns](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-condition-problems-health-concerns.html), [QICore ConditionEncounterDiagnosis](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-condition-encounter-diagnosis.html), [QICore Procedure](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-procedure.html), [QICore SimpleObservation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation.html), and [QICore ImmunzationRecommendation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-immunizationrecommendation.html). |
-| presentOnAdmissionIndicator (code) | [Claim.diagnosis.onAdmission](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.onAdmission)  <br>plus   <br>[Claim.diagnosis.diagnosis\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis%5Bx%5D) defines which diagnoses are _present on admission_. | Indicator of whether the Encounter diagnosis was present at the time of admission. Note: this element uses the value set (required) diagnosis-on-admission (the same value set as used with the claim resource) |
-| rank (Integer) | Different from prior QI-Core versions, QI-Core STU6 defines the following concepts:   <br>\* _principal diagnosis_ is   <br>[Claim.diagnosis.sequence](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.sequence) = 1   <br>plus   <br>[Claim.diagnosis.diagnosis\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis%5Bx%5D)  <br>\* _principal procedure_ is   <br>[Claim.procedure.sequence](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.procedure.sequence) = 1   <br>plus   <br>[Claim.procedure.procedure\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-claim-definitions.html#Claim.procedure.procedure%5Bx%5D) | Note change in QI-Core STU6 |
-| procedures | [Encounter.reasonCode](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode)  <br>or   <br>[Encounter.reasonReference](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) | \[[Encounter.reasonCode](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) has preferred binding to [Encounter Reason Code value set](http://hl7.org/fhir/R4/valueset-encounter-reason.html). [Encounter.reasonReference](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) allows reference to [QICore ConditionProblemsHeatlhConcerns](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-condition-problems-health-concerns.html), [QICore ConditionEncounterDiagnosis](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-condition-encounter-diagnosis.html), [QICore Procedure](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-procedure.html), [QICore SimpleObservation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation.html), and [QICore ImmunzationRecommendation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-immunizationrecommendation.html). |
-| lengthOfStay | [Encounter.length](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.length) | The QDM concept length of stay is expressed using CQL expressions rather than a specific Encounter profile element. Therefore, this element is no longer included in the Encounter profile Key Element Table. |
-| authorDatetime | Not Addressed | This QDM attribute is not addressed in the FHIR resource. And encounter occurs or it does not. |
-| admissionSource | [Encounter.hospitalization.admitSource](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.hospitalization.admitSource) | The QDM concept hospital admission source has not been used in CMS measures to-date. In an effort to streamline QI-Core STU6, this element is no longer included in the Encounter profile Key Element Table. It is available from the Snapshot Table but it is not clear that the information is available in clinical records even though it may be in administrative records. |
-| dischargeDisposition | [Encounter.hospitalization.dischargeDisposition](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.hospitalization.dischargeDisposition) | Category or kind of location to which the patient is discharged. E.g., home, hospice, long-term care, etc. |
-| facilityLocations | &nbsp; | &nbsp; |
-| code | [Encounter.location.location](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.location.location) | The location the encounter takes place. |
-| locationPeriod | [Encounter.location.period](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.location.period) | The time during which the patient is present at a specific location. Measures use the location period to identify the arrival and departure times for a location, distinguishing those times from the Encounter.period which provides a hospital _admissionTime_ and _dischargeTime_. |
-| participant | [Encounter.participant.individual](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.participant.individual) | QDM includes this attribute to designate the individual responsible the patient’s care during this encounter. However, any given encounter may have more than one participant so using this element to specify attribution of care is challenging. Further clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished. Therefore, QI-Core STU 6 has removed this element from the Key Elements Table. It is not used in measures to-date. |
-| &nbsp; | [Encounter.serviceProvider](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-encounter-definitions.html#Encounter.serviceProvider) | Encounter.serviceProvider identifies the organization that is primarily responsible for the Encounter’s services. Since US Core Encounter includes serviceProvider as a USCDI element, QI-Core STU 6 includes Encounter.serviceProvider in the Key Elements Table. Unlike details about a participant, the organization responsible for the encounter should be available. |
+
+| **QDM Context**           | **QI-Core STU7**  | **Comments**  |
+| ------------------------- | ----------------- | ------------- |
+| **Encounter, Performed**  | [Encounter](StructureDefinition-qicore-encounter.html)     |         |
+|                           | [Encounter.status](StructureDefinition-qicore-encounter-definitions.html#Encounter.status)   | Constrain to - arrived, triaged, in-progress, on-leave, finished Note: most retrospective eCQMs will constrain Encounter.status to “finished”. Measures designed to monitor active encounters should consider using “in-progress”. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Encounter, Performed”. |
+| **QDM Attribute**         |                   |               |
+| code                      | [Encounter.type](StructureDefinition-qicore-encounter-definitions.html#Encounter.type)       | Uses extensible binding to value set: [USCoreEncounterType]({{site.data.fhir.ver.uscore}}/ValueSet-us-core-encounter-type.html)  |
+| id                        | [Encounter.id](StructureDefinition-qicore-encounter-definitions.html#Encounter.id)                 |               |
+| class                     | [Encounter.class](StructureDefinition-qicore-encounter-definitions.html#Encounter.class)           | Classification of the encounter (e.g., ambulatory, hospital, virtual) with extensible binding to value set:  [ActEncounterCode](http://terminology.hl7.org/ValueSet/v3-ActEncounterCode)  |
+| relatedTo                 | [Encounter.basedOn](StructureDefinition-qicore-encounter-definitions.html#Encounter.basedOn)       | Prior versions of QI-Core included a Must Support for basedOn to reference the ServiceRequest generating the encounter. However, there has been no use of this element. Therefore, it no longer appears in the Encounter profile Key Element Table.  |
+| relevantPeriod            | [Encounter.period](StructureDefinition-qicore-encounter-definitions.html#Encounter.period)         | start and end time of encounter                                                                                      |
+| diagnoses                 |                 |                                                     |
+| diagnosis (code)          | [Encounter.reasonCode](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) <br> or <br>[Encounter.reasonReference](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference)  | [Encounter.reasonCode](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) has preferred binding to [Encounter Reason Code value set](http://hl7.org/fhir/R4/valueset-encounter-reason.html). [Encounter.reasonReference](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) allows reference to [QICore ConditionProblemsHeatlhConcerns](StructureDefinition-qicore-condition-problems-health-concerns.html), [QICore ConditionEncounterDiagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html), [QICore Procedure](StructureDefinition-qicore-procedure.html), [QICore SimpleObservation](StructureDefinition-qicore-simple-observation.html), and [QICore ImmunzationRecommendation](StructureDefinition-qicore-immunizationrecommendation.html). |
+| presentOnAdmissionIndicator (code) | [Claim.diagnosis.onAdmission](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.onAdmission) <br> plus <br> [Claim.diagnosis.diagnosis\[x\]](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis[x]) defines which diagnoses are _present on admission_. | Indicator of whether the Encounter diagnosis was present at the time of admission. Note: this element uses the value set (required) diagnosis-on-admission (the same value set as used with the claim resource)  |
+| rank (Integer)            | Different from prior QI-Core versions, QI-Core STU7 defines the following concepts: <br> * _principal diagnosis_ is <br> [Claim.diagnosis.sequence](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.sequence) = 1 <br> plus <br> [Claim.diagnosis.diagnosis\[x\]](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.diagnosis[x]) <br> plus <br> [Claim.diagnosis.type](StructureDefinition-qicore-claim-definitions.html#Claim.diagnosis.type) = principal <br> * _principal procedure_ is <br> [Claim.procedure.sequence](StructureDefinition-qicore-claim-definitions.html#Claim.procedure.sequence) = 1 <br> plus <br>  [Claim.procedure.procedure\[x\]](StructureDefinition-qicore-claim-definitions.html#Claim.procedure.procedure[x])   | Note change in QI-Core STU7   |
+| procedures                | [Encounter.reasonCode](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) <br> or <br>[Encounter.reasonReference](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference)   | [[Encounter.reasonCode](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonCode) has preferred binding to [Encounter Reason Code value set](http://hl7.org/fhir/R4/valueset-encounter-reason.html). [Encounter.reasonReference](StructureDefinition-qicore-encounter-definitions.html#Encounter.reasonReference) allows reference to [QICore ConditionProblemsHeatlhConcerns](StructureDefinition-qicore-condition-problems-health-concerns.html), [QICore ConditionEncounterDiagnosis](StructureDefinition-qicore-condition-encounter-diagnosis.html), [QICore Procedure](StructureDefinition-qicore-procedure.html), [QICore SimpleObservation](StructureDefinition-qicore-simple-observation.html), and [QICore ImmunzationRecommendation](StructureDefinition-qicore-immunizationrecommendation.html). |
+| lengthOfStay              | [Encounter.length](StructureDefinition-qicore-encounter-definitions.html#Encounter.length)           |    The QDM concept length of stay is expressed using CQL expressions rather than a specific Encounter profile element. Therefore, this element is no longer included in the Encounter profile Key Element Table.      |
+| authorDatetime            | Not Addressed      |    This QDM attribute is not addressed in the FHIR resource. And encounter occurs or it does not.    |
+| admissionSource           | [Encounter.hospitalization.admitSource](StructureDefinition-qicore-encounter-definitions.html#Encounter.hospitalization.admitSource)  |  The QDM concept hospital admission source has not been used in CMS measures to-date. In an effort to streamline QI-Core STU7, this element is no longer included in the Encounter profile Key Element Table.  It is available from the Snapshot Table but it is not clear that the information is available in clinical records even though it may be in administrative records.   |
+| dischargeDisposition      | [Encounter.hospitalization.dischargeDisposition](StructureDefinition-qicore-encounter-definitions.html#Encounter.hospitalization.dischargeDisposition) | Category or kind of location to which the patient is discharged. E.g., home, hospice, long-term care, etc.   |      
+| facilityLocations         |                     |                          |
+| code                      | [Encounter.location.location](StructureDefinition-qicore-encounter-definitions.html#Encounter.location.location)   |   The location the encounter takes place.    |
+| locationPeriod            | [Encounter.location.period](StructureDefinition-qicore-encounter-definitions.html#Encounter.location.period)       |  The time during which the patient is present at a specific location. Measures use the location period to identify the arrival and departure times for a location, distinguishing those times from the Encounter.period which provides a hospital _admissionTime_ and _dischargeTime_.   |
+| participant               | [Encounter.participant.individual](StructureDefinition-qicore-encounter-definitions.html#Encounter.participant.individual)    |   QDM includes this attribute to designate the individual responsible the patient’s care during this encounter. However, any given encounter may have more than one participant so using this element to specify attribution of care is challenging. Further   clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished. Therefore, QI-Core STU 6 has removed this element from the Key Elements Table. It is not used in measures to-date.    |
+|                           | [Encounter.serviceProvider](StructureDefinition-qicore-encounter-definitions.html#Encounter.serviceProvider)| Encounter.serviceProvider identifies the organization that is primarily responsible for the Encounter’s services. Since US Core Encounter includes serviceProvider as a USCDI element, QI-Core STU 6 includes Encounter.serviceProvider in the Key Elements Table. Unlike details about a participant, the organization responsible for the encounter should be available. |
 {: .grid}
 
 #### Encounter, Recommended
@@ -853,35 +909,36 @@ QDM 5.5 also added a new QDM _datatype Related Person_ to allow reference to an 
 
 #### Patient Characteristics
 
-| **QDM Attribute** | **QI-Core STU7** | **Comments** |
-| --- | --- | --- |
-| **Race** | &nbsp; | See US CoreRaceExtension for details |
-| code | [Patient.extension:race](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#Patient.extension:race) | URL: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-race> |
-| id  | &nbsp; | &nbsp; |
-| &nbsp; | [tribalAffiliation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:tribalAffiliation) | USCDI version 3 added a new concept, [tribalAffiliation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:tribalAffiliation), using US Core Tribal Affiliation Extension   <br>URL: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-tribal-affiliation> |
-| **Ethnicity** | &nbsp; | &nbsp; |
-| code | [Patient.extention:ethnicity](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#Patient.extension:ethnicity) | URL: <http://hl7.org/fhir/us/core/StructureDefinition/us-core-ethnicity> |
-| id  | &nbsp; | &nbsp; |
-| **Sex** | &nbsp; | &nbsp; |
-| code | [Patient.extension:birthsex](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#Patient.extension:birthsex) | When created, QDM’s focus was to address the concept of sex as identified at birth. Hence, this birthsex is the most direct mapping to the intent of QDM. However, USCDI version 3 changes the focus for data capture to [Sex](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.3/expansion) as noted in US Core 6.1.0. USCDI also adds the concept of [genderIdentity](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:genderIdentity) |
-| &nbsp; | [Sex](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:sex) | USCDI version 3 Sex extension <http://hl7.org/fhir/us/core/StructureDefinition/us-core-sex> with binding: [Created specifically to support United States USCDI v3 data element “Sex” (required)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.3/expansion), a data element used for general documentation of sex representation: concepts limited to Male, Female, Patient Sex Unknown, asked-declined. |
-| &nbsp; | [genderIdentity](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:genderIdentity) | USCDI version 3 Individual’s gender identity <http://hl7.org/fhir/us/core/StructureDefinition/us-core-genderIdentity> with binding: [Gender Identity (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1021.32/expansion) |
-| id  | &nbsp; | &nbsp; |
-| **Birthdate** | &nbsp; | &nbsp; |
-| birthDatetime | [Patient.birthdate](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#Patient.birthDate) | Fixed code 21112-8 |
-| id  | &nbsp; | &nbsp; |
-| **Clinical Trial Participant** | &nbsp; | Clinical Trial Participant should be handled as an Observation (i.e., Assessment, Performed) in QDM rather than a Patient Characteristic |
-| **Expired** | &nbsp; | &nbsp; |
-| code | [Patient.deceased\[x\] boolean](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#Patient.deceased%5Bx%5D) | &nbsp; |
-| id  | &nbsp; | &nbsp; |
-| cause | &nbsp; | Expiration cause requires use of Observation |
-| expirationDatetime | [Patient.deceased\[x\] dateTime](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-patient-definitions.html#Patient.deceased%5Bx%5D) | &nbsp; |
-| **Payer** | [Coverage](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-coverage.html) | &nbsp; |
-| code | [Coverage.payor](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-coverage-definitions.html#Coverage.payor) | QI-Core currently maps to policy holder which actually references the person who owns the policy, not the payor. |
-| relevantPeriod | [Coverage.period](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-coverage-definitions.html#Coverage.period) | &nbsp; |
-| id  | [Coverage.id](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-coverage-definitions.html#Coverage.id) | &nbsp; |
-| **Patient Characteristic (generic)** | &nbsp; | &nbsp; |
-| N/A | &nbsp; | Requires definition for modeling a characteristic to QI-Core and FHIR |
+| **QDM Attribute**  | **QI-Core STU7**        | **Comments**    |
+| ------------------------------------ | ------------------------------------------------------------ | --------------------------------------------------- |
+| **Race**      |                                                                                                                    |  See US CoreRaceExtension for details   |
+| code          | [Patient.extension:race](StructureDefinition-qicore-patient-definitions.html#Patient.extension:race)               |  URL: <{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-race.html>        |
+| id            |                                                                                                                    |          |
+|               | [tribalAffiliation](StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:tribalAffiliation) | USCDI version 3 added a new concept, [tribalAffiliation](StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:tribalAffiliation), using US Core Tribal Affiliation Extension <br/> URL: <{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-tribal-affiliation.html> |
+|**Ethnicity**  |                                                                                                                    |          |
+| code          | [Patient.extention:ethnicity](StructureDefinition-qicore-patient-definitions.html#Patient.extension:ethnicity)     | URL: <{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-ethnicity.html> |
+| id            |                                                                                                                    |          |
+| **Sex**       |                                                                                                                    |          |
+| code          | [Patient.extension:birthsex](StructureDefinition-qicore-patient-definitions.html#Patient.extension:birthsex)       | When created, QDM's focus was to address the concept of sex as identified at birth. Hence, this birthsex is the most direct mapping to the intent of QDM.  However, USCDI version 3 changes the focus for data capture to [Sex](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.3/expansion) as noted in US Core 7.0.0. USCDI also adds the concept of [genderIdentity](StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:genderIdentity)   |
+|               | [Sex](StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:sex) |  USCDI version 3 Sex extension <{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-sex.html> with binding: [Created specifically to support United States USCDI v3 data element "Sex" (required)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1240.3/expansion), a data element used for general documentation of sex representation: concepts limited to Male, Female, Patient Sex Unknown, asked-declined.  |
+|               | [genderIdentity](StructureDefinition-qicore-patient-definitions.html#key_Patient.extension:genderIdentity)                               |  USCDI version 3 Individual's gender identity <{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-genderIdentity.html> with binding: [Gender Identity (extensible)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1021.32/expansion)  |
+| id            |                                                                                                                    |          |
+| **Birthdate** |                                                                                                                    |          |
+| birthDatetime | [Patient.birthdate](StructureDefinition-qicore-patient-definitions.html#Patient.birthDate)                         |  Fixed code 21112-8   |
+| id            |                                                                                                                    |          |
+| **Clinical Trial Participant** |    | Clinical Trial Participant should be handled as an Observation (i.e., Assessment, Performed) in QDM rather than a Patient Characteristic |
+| **Expired**        |                                                                                                                    |           |
+| code               | [Patient.deceased\[x\] boolean](StructureDefinition-qicore-patient-definitions.html#Patient.deceased[x])           |           |
+| id                 |                                                                                                                    |           |
+| cause              |                     | Expiration cause requires use of Observation  |
+| expirationDatetime | [Patient.deceased\[x\] dateTime](StructureDefinition-qicore-patient-definitions.html#Patient.deceased[x])          |            |
+| **Payer**          | [Coverage](StructureDefinition-qicore-coverage.html)                                                               |            |
+| code               | [Coverage.payor](StructureDefinition-qicore-coverage-definitions.html#Coverage.payor)    | QI-Core currently maps to policy holder which actually references the person who owns the policy, not the payor. |
+| relevantPeriod     | [Coverage.period](StructureDefinition-qicore-coverage-definitions.html#Coverage.period)                            |             |
+| id                 | [Coverage.id](StructureDefinition-qicore-coverage-definitions.html#Coverage.id)                                    |             |
+| **Patient Characteristic (generic)** |                    |                     |
+| N/A                                  |                    |    Requires definition for modeling a characteristic to QI-Core and FHIR     |
+
 {: .grid}
 
 #### QDM _datatype_ - Related Person
@@ -1098,34 +1155,43 @@ QDM defines Medication as clinical drugs or chemical substances intended for use
 
 #### Medication, Active
 
-This QDM context correlates with a medication on a patient’s active medication list. In QI-Core STU3, Medication, Active was mapped to MedicationStatement. However, consistent with US Core R4 and subsequent versions, medication list should use MedicationRequest and not MedicationStatement. The mapping table provides guidance about how to use MedicationRequest.requester to specify medications ordered directly, those reported by a physician and those reported by the patient for a medication list.
 
-Include all MedicationRequest resources with an intent = “order” representing authorized medication orders directly derived from the system’s orders.
+This QDM context correlates with a medication on a patient’s active medication
+list. In QI-Core STU3, Medication, Active was mapped to MedicationStatement.
+However, consistent with US Core R4 and subsequent versions, medication list should use
+MedicationRequest and not MedicationStatement. The mapping table provides
+guidance about how to use MedicationRequest.requester to specify medications
+ordered directly, those reported by a physician and those reported by the
+patient for a medication list.
 
-The MedicationRequest **SHALL** include all practitioner-reported and “self-reported” medications reported by the Provider, Patient or Related Person.
+Include all MedicationRequest resources with an intent = "order" representing authorized medication orders directly derived from the system’s orders.
 
-- **SHALL** use reported\[x\] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record. It may also indicate the source of the report
-- When recording “self-reported” or “self-prescribed” medications **SHALL** use intent = “plan”
-- When recording “self-prescribed” orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
+The MedicationRequest **SHALL** include all practitioner-reported and "self-reported" medications reported by the Provider, Patient or Related Person.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
-| --- | --- | --- |
-| **Medication, Active** | [MedicationRequest](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest.html) | &nbsp; |
-| &nbsp; | [MedicationRequest.status](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Order”. Constrain to active, completed |
-| &nbsp; | [MedicationRequest.intent](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent) | Required to differentiate an order from a recommendation. The intent value set allows such differentiation using “order” for orders and “plan” for recommendation. Constrain only to “order” (include children: original-order, reflex-order, filler-order, instance-order) |
-| &nbsp; | [MedicationRequest.reported\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reported%5Bx%5D) | When recording “self-reported” or “self-prescribed” medications **SHALL**use reported\[x\] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record; “self-prescribed” medication **SHOULD** indicate the MedicationRequest.requester as the patient or related person. |
-| &nbsp; | [MedicationRequest.category](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category) | Type of medication usage using [Medication Category Codes](http://hl7.org/fhir/R4/valueset-medicationrequest-category.html) |
-| **QDM Attribute** | &nbsp; | &nbsp; |
-| code | [MedicationRequest.medication\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.medication%5Bx%5D) | Medication to be taken an extensible binding to [MedicationClinicalDrug (RxNorm)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion). |
-| id  | [MedicationRequest.id](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.id) | &nbsp; |
-| dosage | [MedicationRequest.dosageInstruction.doseAndRate.dose\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.doseAndRate.dose%5Bx%5D) | Amount of medication per dose |
-| frequency | [MedicationRequest.dosageInstruction.timing](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing) | Amount of medication to be administered. Range, quantity |
-| route | [MedicationRequest.dosageInstruction.route](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.route) | How drug should enter body |
-| &nbsp; | [MedicationRequest.reasonCode](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode) | The reason for ordering or not ordering the medication. This element has not been used to-date in quality measures; it is not included in the QI-Core profile Key Elements Table |
-| relevantDatetime | [MedicationRequest.dosageInstruction.timing](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing)  <br>with   <br>[Timing.event](http://hl7.org/fhir/R4/datatypes-definitions.html#Timing.event) dateTime | Timing – when medication should be administered; Timing.event when the event occurs |
-| relevantPeriod | [MedicationRequest.dosageInstruction.timing](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing)  <br>with   <br>[Timing.repeat.bounds\[x\]](http://hl7.org/fhir/R4/datatypes-definitions.html#Timing.repeat.bounds_x_) Period | Length/Range of lengths, or (Start and/or End) limits |
-| &nbsp; | [MedicationRequest.authoredOn](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn) | When request was originally authored. Not referenced in QDM |
-| recorder | [MedicationRequest.requester](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester) | Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished. |
+* **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record. It may also indicate the source of the report
+* When recording "self-reported" or "self-prescribed" medications **SHALL** use intent = “plan”
+* When recording "self-prescribed" orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
+
+
+| **QDM Context**  | **QI-Core STU7**     | **Comments**          |
+| ----------------------- | ----------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| **Medication, Active**  | [MedicationRequest](StructureDefinition-qicore-medicationrequest.html)              |      |
+|                         | [MedicationRequest.status](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.status)    | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Order”. Constrain to active, completed  |
+|                         | [MedicationRequest.intent](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.intent)    | Required to differentiate an order from a recommendation. The intent value set allows such differentiation using “order” for orders and “plan” for recommendation. Constrain only to “order” (include children: original-order, reflex-order, filler-order, instance-order)    |
+|                         | [MedicationRequest.reported[x]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reported[x])   | When recording "self-reported" or "self-prescribed" medications **SHALL** use reported[x] to indicate the MedicationRequest record was captured as a secondary “reported” record rather than an original primary source-of-truth record; "self-prescribed" medication **SHOULD** indicate the MedicationRequest.requester as the patient or related person.     |
+|                         | [MedicationRequest.category](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.category) | Type of medication usage using [Medication Category Codes](http://hl7.org/fhir/R4/valueset-medicationrequest-category.html) |
+| **QDM Attribute**   |                                |                          |
+| code                | [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.medication[x])  |   Medication to be taken an extensible binding to [MedicationClinicalDrug (RxNorm)](https://vsac.nlm.nih.gov/valueset/2.16.840.1.113762.1.4.1010.4/expansion).   |
+| id                  | [MedicationRequest.id](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.id)   |                          |
+| dosage              | [MedicationRequest.dosageInstruction.doseAndRate.dose\[x\]](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.doseAndRate.dose[x])  | Amount of medication per dose     |
+| frequency           | [MedicationRequest.dosageInstruction.timing](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing) | Amount of medication to be administered. Range, quantity |
+| route               | [MedicationRequest.dosageInstruction.route](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.route)  |   How drug should enter body   |
+|                     | [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.reasonCode)  |   The reason for ordering or not ordering the medication. This element has not been used to-date in quality measures; it is not included in the QI-Core profile Key Elements Table  |
+| relevantDatetime    | [MedicationRequest.dosageInstruction.timing](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing) <br> with <br> [Timing.event](http://hl7.org/fhir/R4/datatypes-definitions.html#Timing.event) dateTime  |    Timing – when medication should be administered; Timing.event when the event occurs    |
+| relevantPeriod      | [MedicationRequest.dosageInstruction.timing](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.dosageInstruction.timing) <br> with <br> [Timing.repeat.bounds\[x\]](http://hl7.org/fhir/R4/datatypes-definitions.html#Timing.repeat.bounds_x_) Period | Length/Range of lengths, or (Start and/or End) limits   |
+|                     | [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.authoredOn)   |  When request was originally authored. Not referenced in QDM  |
+| recorder            | [MedicationRequest.requester](StructureDefinition-qicore-medicationrequest-definitions.html#MedicationRequest.requester)  |  Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that requested the procedure or service. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.  |
+
 {: .grid}
 
 #### Medication, Administered
@@ -1548,31 +1614,75 @@ Use [QICoreServiceNotRequested](http://hl7.org/fhir/us/qicore/StructureDefinitio
 
 #### Substance, Administered; Substance, Order; Substance Recommended
 
-QDM defines Substance as a homogeneous material with a definite composition that includes allergens, biological materials, chemicals, foods, drugs and materials. QDM distinguishes between medications from non-medication substances by separately listing medication datatypes. Substance may or may not have a code or be classified by a code system such as RxNorm. Examples of a substance may include environmental agents (e.g., pollen, dust) and food (e.g., vitamins). Where a measure can use medication terminology (e.g., egg albumin) to represent QDM concept Substance, measure developers should consider expressing intent using the Substance mappings listed in this QDM-to-QI-Core section.
 
-Ideally, use of a substance-related resource should be driven by use cases and examples. Two such use cases currently exist in the quality measure community:
+QDM defines Substance as a homogeneous material with a definite
+composition that includes allergens, biological materials, chemicals,
+foods, drugs and materials. QDM distinguishes between medications from
+non-medication substances by separately listing medication datatypes.
+Substance may or may not have a code or be classified by a code system
+such as RxNorm. Examples of a substance may include environmental agents
+(e.g., pollen, dust) and food (e.g., vitamins). Where a measure can use
+medication terminology (e.g., egg albumin) to represent QDM concept Substance,
+measure developers should consider expressing intent using the Substance mappings listed in this QDM-to-QI-Core section.
 
-- Identifying blood products (a biological product in FHIR resources) ordered or administered within specific time relationships to other data elements – The FHIR Resource, [BiologicallyDerivedProduct](http://hl7.org/fhir/biologicallyderivedproduct.html), possibly using Procedure and ServiceRequest might have promise. However, the resource is still in development. Therefore, until further information is available, rather than expressing the QDM _datatype_ Substance, Administration to address administration of blood transfusion, quality measure and clinical decision support (CDS) authors should consider using the procedure resource with a code representing transfusion.
-- Determining exclusive newborn feeding with human breast milk during the initial stay in the hospital after birth – Currently, FHIR R4 includes a [NutritionOrder](http://hl7.org/fhir/nutritionorder.html) resource to reference a request for a specific diet, or supplements to a diet. However, a resource for documenting administration of nutrition-related substances is still in development. The focus of the FHIR R5 resource NutritionIntake is interoperable messaging between nutrition applications and the EHR (i.e., not EHR to EHR nutrition information sharing). Therefore, for this use case a quality measure or a clinical decision support (CDS) author could reference a NutritionOrder for an exclusive breast milk diet for the infant; however, such an expression could not reference clinical intake and output records to determine if anything other than human breast milk was administered to the infant. Summarizing discussion among HL7 workgroups in late 2023, the QI-Core resource best suited to retrieve information about enteral intake is Observation (i.e., QI-Core Observation in versions STU4.1.1 and STU5.0, and SimpleObservation in STU6.0 and STU7.0). The following guidance may help measure developers trying to express retrieval of enteral intake data using SimpleObservation:
-  - SimpleObservation.code = with binding to a direct reference code or value set indicating observation of enteral intake
-  - SimpleObservation.value with binding to a direct reference code or value set indicating the nutritional product of interest to the measure intent.
+Ideally, use of a substance-related resource should be driven by use
+cases and examples. Two such use cases currently exist in the quality
+measure community:
 
-NOTE – There is no specific QDM datatype to address the  [Nutrition Order](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder.html) QI-Core STU 7 profile. Since no current eCQM uses this profile, determination of key elements is challenging. The following table may help measure developers determine what to use for potential use cases:
+* Identifying blood products (a biological product in FHIR
+resources) ordered or administered within specific time
+relationships to other data elements – The FHIR Resource,
+[BiologicallyDerivedProduct](http://hl7.org/fhir/biologicallyderivedproduct.html),
+possibly using Procedure and ServiceRequest might have promise.
+However, the resource is still in development. Therefore, until
+further information is available, rather than expressing the QDM
+*datatype* Substance, Administration to address administration of
+blood transfusion, quality measure and clinical decision support
+(CDS) authors should consider using the procedure resource with a
+code representing transfusion.
+*  Determining exclusive newborn feeding with human breast milk
+during the initial stay in the hospital after birth
+– Currently, FHIR R4 includes a
+[NutritionOrder](http://hl7.org/fhir/nutritionorder.html) resource
+to reference a request for a specific diet, or supplements to a
+diet. However, a resource for documenting administration of
+nutrition-related substances is still in development.
+The focus of the FHIR R5 resource NutritionIntake is interoperable messaging between
+nutrition applications and the EHR (i.e., not EHR to EHR nutrition information sharing).  Therefore, for
+this use case a quality measure or a clinical decision support (CDS)
+author could reference a NutritionOrder for an exclusive breast milk
+diet for the infant; however, such an expression could not reference
+clinical intake and output records to determine if anything other
+than human breast milk was administered to the infant.
+Summarizing discussion among HL7 workgroups in late 2023, the QI-Core resource best suited
+to retrieve information about enteral intake is Observation (i.e., QI-Core Observation in versions STU4.1.1 and STU5.0, and SimpleObservation in STU 6.0 & STU7.0).
+The following guidance may help measure developers trying to express retrieval of enteral intake data using SimpleObservation:  
 
-| **Nutrition Order** | **QI-Core STU7** | **Comments** |
-| --- | --- | --- |
-| **Substance, Order/Recommended - For Diet Orders** | [NutritionOrder](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder) | Limited to orders for diets or diets with supplements |
-| Substance Order/Recommended Activity | [NutritionOrder.status](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.status) | Determination of which order status is appropriate to retrieve, specifically constrain to active, completed. Profile has required binding to [RequestStatus](http://hl7.org/fhir/R4/valueset-request-status.html). |
-| Substance, Order | [NutritionOrder.intent](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.intent) | Enables differentiation of order versus plan. Required binding to [RequestIntent](http://hl7.org/fhir/R4/valueset-request-intent.html). Constrain to “order” and child concepts |
-| Substance, Recommended | [NutritionOrder.intent](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.intent) | Enables differentiation of order versus plan. Required binding to [RequestIntent](http://hl7.org/fhir/R4/valueset-request-intent.html). Constrain to “plan” |
-| **QDM Attributes** | &nbsp; | &nbsp; |
-| ORAL DIET | [NutritionOrder.oralDiet](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.oralDiet) | Oral Diet Components |
-| code (to represent a diet order) | [NutritionOrder.oralDiet.type](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.oralDiet.type) | Type of oral diet or diet restrictions that describe what can be consumed orally |
-| ENTERAL FORMULA | [NutrientOrder.enteralFormula](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula) | Enteral Formula Components |
-| code (to represent a enteral formula) | [NutrientOrder.eternalFormula.baseFormulaType](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.baseFormulaType) | Type of enteral or infant formula |
-| negationRationale | N/A | &nbsp; |
-| authorDatetime | [NutritionOrder.dateTime](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.dateTime) | Date and time nutrition order was requested |
-| relevantPeriod | [NutritionOrder.enteralFormula.administration.schedule](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule) | Likely not relevant for measure use cases. Not present in QI-Core Key Elements Table. |
+    * SimpleObservation.code = with binding to a direct reference code or value set indicating observation of enteral intake
+    * SimpleObservation.value with binding to a direct reference code or value set indicating the nutritional product of interest to the measure intent.  
+
+
+
+NOTE – There is no specific QDM datatype to address the  [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) QI-Core STU 6 profile.
+Since no current eCQM uses this profile, determination of key elements is challenging. The following table
+may help measure developers determine what to use for potential use cases:
+
+
+| **Nutrition Order**                                    | **QI-Core STU7**                 | **Comments**                                          |
+| -------------------------------------------------- | ---------------------------------------------------------------- | ----------------------------------------------------- |
+| **Substance, Order/Recommended - For Diet Orders** | [NutritionOrder](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder)  | Limited to orders for diets or diets with supplements |
+| Substance Order/Recommended Activity               | [NutritionOrder.status](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.status) | Determination of which order status is appropriate to retrieve, specifically  constrain to active, completed. Profile has required binding to [RequestStatus](http://hl7.org/fhir/R4/valueset-request-status.html).  |
+| Substance, Order                                   | [NutritionOrder.intent](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.intent) | Enables differentiation of order versus plan. Required binding to [RequestIntent](http://hl7.org/fhir/R4/valueset-request-intent.html). Constrain to “order” and child concepts   |
+| Substance, Recommended                             | [NutritionOrder.intent](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.intent) | Enables differentiation of order versus plan. Required binding to [RequestIntent](http://hl7.org/fhir/R4/valueset-request-intent.html). Constrain to “plan” |
+| **QDM Attributes**   |                       |                                                       |
+| ORAL DIET                         | [NutritionOrder.oralDiet](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.oralDiet) |  Oral Diet Components  |
+| code (to represent a diet order)  | [NutritionOrder.oralDiet.type](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.oralDiet.type)  |   Type of oral diet or diet restrictions that describe what can be consumed orally   |
+| ENTERAL FORMULA                   | [NutrientOrder.enteralFormula](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula)  |  Enteral Formula Components  |
+| code (to represent a enteral formula) | [NutrientOrder.eternalFormula.baseFormulaType](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.baseFormulaType)   |    Type of enteral or infant formula    |                                                    
+| negationRationale           | N/A           |                                                       |
+| authorDatetime              | [NutritionOrder.dateTime](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.dateTime)  | Date and time nutrition order was requested  |
+| relevantPeriod              | [NutritionOrder.enteralFormula.administration.schedule](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule)  |  Likely not relevant for measure use cases. Not present in QI-Core Key Elements Table.   |
+
 {: .grid}
 
 ### Symptom
@@ -1581,22 +1691,53 @@ QDM defines Symptom as an indication that a person has a condition or disease. S
 
 Note: Definitions regarding symptom on the FHIR condition resource Boundaries and Relationships (Section 9.2.2: <http://hl7.org/fhir/condition.html>):
 
-* \[The Condition\] resource is not typically used to record information about subjective and objective information that might lead to the recording of a Condition resource. Such signs and symptoms are typically captured using the [Observation](http://hl7.org/fhir/R4/observation.html) resource; although in some cases a persistent symptom, e.g. fever, headache may be captured as a condition before a definitive diagnosis can be discerned by a clinician. By contrast, headache may be captured as an Observation when it contributes to the establishment of a meningitis Condition.
-* Use the [Observation](http://hl7.org/fhir/R4/observation.html) resource when a symptom is resolved without long term management, tracking, or when a symptom contributes to the establishment of a condition.
-* Use Condition when a symptom requires long term management, tracking, or is used as a proxy for a diagnosis or problem that is not yet determined.
 
-Based on the FHIR referenced provided above, the QDM _datatype_ Symptom maps to the FHIR Observation resource.
+QDM defines Symptom as an indication that a person has a condition or
+disease. Some examples include headache, fever, fatigue, nausea,
+vomiting, and pain. Symptoms are subjective manifestations of the
+disease perceived by the patient. As an example to differentiate symptom
+from finding, the patient’s subjective symptom of fever is distinguished
+from the temperature (a finding). For a finding, there is either a
+source of a temperature-measuring device together with a recorder
+of the device (electronically) or an individual (healthcare provider,
+patient, etc.).
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
-| --- | --- | --- |
-| **Symptom** | [Simple Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation.html) | &nbsp; |
-| &nbsp; | [Observation.status](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation-definitions.html#Observation.status) | Constrain status to - preliminary, final, amended, corrected. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Symptom” datatype. |
-| &nbsp; | [Observation.category](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation-definitions.html#Observation.category) | Category helps to narrow the request to the class of observation required to meet measure intent. Each QI-Core or US Core profile has a specific binding to concepts appropriate to the respective profile. Note that QDM does not have an attribute comparable to category, the element may be helpful in expressing a quality measure. |
-| **QDM Attributes** | &nbsp; | &nbsp; |
-| code | [Observation.value\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation-definitions.html#Observation.value%5Bx%5D) | Note specific bindings based on the QI-Core or US Core profile used. |
-| id  | [Observation.id](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation-definitions.html#Observation.id) | &nbsp; |
-| severity | [Observation.interpretation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation-definitions.html#Observation.interpretation) | Explanation of significance of the observation result (e.g., critical, high, low). |
-| prevalencePeriod | [Observation.effective\[x\]](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation-definitions.html#Observation.effective%5Bx%5D) | Time observation occurred if a point in time, or a period. Most likely Symptom will be recorded as a point in time. |
-| recorder | [Observation.performer](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation-definitions.html#Observation.performer) | Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that performed the observation or task. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished. |
+Note: Definitions regarding symptom on the FHIR condition resource
+Boundaries and Relationships (Section 9.2.2:
+<http://hl7.org/fhir/condition.html>):
+
+* \[The Condition\] resource is not typically used to record
+information about subjective and objective information that might
+lead to the recording of a Condition resource. Such signs and
+symptoms are typically captured using
+the [Observation](http://hl7.org/fhir/R4/observation.html) resource;
+although in some cases a persistent symptom, e.g. fever, headache
+may be captured as a condition before a definitive diagnosis can be
+discerned by a clinician. By contrast, headache may be captured as
+an Observation when it contributes to the establishment of a
+meningitis Condition.
+
+* Use the [Observation](http://hl7.org/fhir/R4/observation.html) resource
+when a symptom is resolved without long term management, tracking,
+or when a symptom contributes to the establishment of a condition.
+
+* Use Condition when a symptom requires long term management,
+tracking, or is used as a proxy for a diagnosis or problem that is
+not yet determined.
+
+Based on the FHIR referenced provided above, the QDM *datatype* Symptom
+maps to the FHIR Observation resource.
+
+| **QDM Context**    | **QI-Core STU7**         | **Comments**                                                                     |
+| ------------------ | ---------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| **Symptom**        | [Simple Observation](StructureDefinition-qicore-simple-observation.html)     |                  |
+|                    | [Observation.status](StructureDefinition-qicore-simple-observation-definitions.html#Observation.status)  | Constrain status to - preliminary, final, amended, corrected. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Symptom” datatype.  |
+|                    | [Observation.category](StructureDefinition-qicore-simple-observation-definitions.html#Observation.category)  | Category helps to narrow the request to the class of observation required to meet measure intent. Each QI-Core or US Core profile has a specific binding to concepts appropriate to the respective profile. Note that QDM does not have an attribute comparable to category, the element may be helpful in expressing a quality measure.   |
+| **QDM Attributes** |              |                                                                                  |
+| code               | [Observation.value\[x\]](StructureDefinition-qicore-simple-observation-definitions.html#Observation.value[x])   | Note specific bindings based on the QI-Core or US Core profile used.  |
+| id                 | [Observation.id](StructureDefinition-qicore-simple-observation-definitions.html#Observation.id)     |                                               |
+| severity           | [Observation.interpretation](StructureDefinition-qicore-simple-observation-definitions.html#Observation.interpretation) | Explanation of significance of the observation result (e.g., critical, high, low). |
+| prevalencePeriod   | [Observation.effective\[x\]](StructureDefinition-qicore-simple-observation-definitions.html#Observation.effective[x])   | Time observation occurred if a point in time, or a period. Most likely Symptom will be recorded as a point in time.    |
+| recorder           | [Observation.performer](StructureDefinition-qicore-simple-observation-definitions.html#Observation.performer)    |   Although QDM includes this attribute it has not been used in existing measures and a clear use case has not been established. The original purpose for the QDM _performer_ attribute was to designate the individual/organization responsible for reporting the measure results is the same individual/organization that performed the observation or task. However, clinical software generally tracks the individual user entering data and linking that individual to a clinical role, a specialty, or an organization is not easily accomplished.     |
 {: .grid}
-.
+
