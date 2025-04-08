@@ -16,6 +16,7 @@ This page lists the change history for each version of QI-Core.
 1. QICore Location primary code path  ([FHIR-47880](https://jira.hl7.org/browse/FHIR-47880)) Applied ([here](StructureDefinition-qicore-location.html))
 1. Removed recorded extension from MedicationAdministration and MedicationAdministrationNotDone ([FHIR-48094](https://jira.hl7.org/browse/FHIR-48094)) Applied ([here](StructureDefinition-qicore-medicationadministration.html)) and ([here](StructureDefinition-qicore-medicationadministrationnotdone.html))
 
+
 ### STU7-ballot (7.0.0)
 
 1. Should have a CapablityStatement to describe the capabilities of a deployed and configured solution that follows this IG. - 2018-Jan QI-Core #29 ([FHIR-14994](https://jira.hl7.org/browse/FHIR-14994)) Applied ([here](index.html#summary-of-conformance-requirements))
