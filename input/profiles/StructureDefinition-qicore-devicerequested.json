@@ -1,0 +1,105 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-devicerequested",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"DeviceRequested"
+    }
+  ],
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequested",
+  "version" : "6.0.0",
+  "name" : "QICoreDeviceRequested",
+  "title" : "QICore DeviceRequested",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2019-07-11",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Positive profile of DeviceRequest for decision support/quality metrics. Indicates a proposal, plan, or order for a device.",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "DeviceRequest",
+  "baseDefinition" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-devicerequest",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "DeviceRequest.modifierExtension:doNotPerform",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "DeviceRequest.modifierExtension",
+        "short": "(QI) Extension",
+        "sliceName" : "doNotPerform",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/5.0/StructureDefinition/extension-DeviceRequest.doNotPerform"
+            ]
+          }
+        ],
+        "isModifier" : true,
+        "isModifierReason" : "The do not perform element changes the meaning of the request from a positive to a negative statement"
+      },
+      {
+        "id" : "DeviceRequest.modifierExtension:doNotPerform.value[x]",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "DeviceRequest.modifierExtension.value[x]",
+        "short" : "(QI) Value of extension",
+        "min" : 1,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "boolean"
+          }
+        ],
+        "fixedBoolean" : false
+      }
+    ]
+  }
+}

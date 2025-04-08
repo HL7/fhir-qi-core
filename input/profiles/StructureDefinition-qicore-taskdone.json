@@ -1,0 +1,79 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-taskdone",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "code"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"TaskDone"
+    }
+  ],
+   "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskdone",
+  "version" : "6.0.0",
+  "name" : "QICoreTaskDone",
+  "title" : "QICore Task Done",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Positive profile of Task for decision support/quality metrics. Indicates a task that with a positive status",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Task",
+  "baseDefinition" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-task",
+  "derivation" : "constraint",
+   "differential" : {
+    "element" : [
+      {
+        "id" : "Task.status",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Task.status",
+        "short" : "(QI) draft​ | requested​ | received​ | accepted​ | ready | in-progress​ | on-hold​ | completed",
+        "min" : 1,
+        "max" : "1",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-task-status"
+        }
+      }
+    ]
+  }
+}

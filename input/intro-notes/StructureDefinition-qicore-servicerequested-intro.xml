@@ -1,0 +1,98 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+<!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
+<b>Must Have:</b>
+<ul>
+<li>status: (QI) draft | active | on-hold | completed</li>
+<li>intent: (QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option</li>
+<li>code: (QI) What is being requested/ordered</li>
+<li>subject: (QI) Individual or Entity the service is ordered for</li>
+</ul>
+
+<b>QI Elements:</b>
+<ul>
+<li>doNotPerform: (QI) True if service/procedure should not be performed</li>
+<li>doNotPerform: (QI) True if service/procedure should not be performed</li>
+<li>code.extension(codeOptions): (QI) Url of a value set of candidate services</li>
+<li>occurrence[x]: (QI) When service should occur</li>
+<li>authoredOn: (QI) Date request signed</li>
+<li>reasonCode: (QI) Explanation/Justification for procedure or service</li>
+<li>reasonReference: (QI) Explanation/Justification for service or service</li>
+</ul>
+
+<b>Primary code path:</b> code
+<br></br>
+(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
+<br></br>
+<br></br>
+
+<br></br>
+<b>NOTE TO BALLOT REVIEWERS:</b>
+<ul>
+<li>US Core 7.0, and thus QI-Core 7.0, has a new approach to USCDI requirements.</li>
+<ul>
+<li>As noted in the US Core 7.0 <a href='https://hl7.org/fhir/us/core/must-support.html#must-support-elements'>Must Support</a> section, US Core 7.0 no longer highlights mandatory (cardinality 1..* or 1..1) and Must Support elements with a (USCDI) indicator as such items must be supported for interoperability.</li>
+<li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
+</ul>
+<li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+</ul>
+<br></br>
+
+
+<!--End Generated Intro (DO NOT REMOVE)-->
+<a name="guidance"></a>
+<h3>Guidance</h3>
+<p>
+<tr>
+    <td>Reference Guidance for use of the Service Request profile can be found <a href="{{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-servicerequest.html#mandatory-and-must-support-data-elements">here.</a></td>
+    <ul><li>See the <a href="https://hl7.org/fhir/us/core/sdoh.html">Social Determinants of Health (SDOH)</a> Guidance Page for more information when exchanging Social Determinants of Health (SDOH) Service Requests.</li>
+    <li>The <code class="highlighter-rouge">ServiceRequest.category</code> binding must support at a minimum the <a href="{{site.data.fhir.ver.uscore}}/ValueSet-us-core-servicerequest-category.html">US Core ServiceRequest Category Codes</a>.  However, this valueset can be treated as <a href="http://hl7.org/fhir/R4/terminologies.html#extensible">extensible</a> and other category codes can be used instead.</li>
+    <li>The <code class="highlighter-rouge">ServiceRequest.code</code> valueset is broad to accommodate a wide variety of use cases and should be constrained to a subset for a particular use case or domain. (for example, LOINC for laboratory orders.)</li>
+    <li>The <code class="highlighter-rouge">ServiceRequest.subject</code> is Must Support with Must Support reference to QI-Core Patient</li></ul>
+</tr>
+</p>
+
+<a name="usage"><b>Usage</b></a>
+
+<p>The ServiceRequest profile defines the conformance expectations for a ServiceRequest, regardless of whether it is a positive or negative statement. The ServiceRequested and ServiceNotRequested profiles represent the positive and
+  negative statements for a service request. </p>
+
+<p>To create an expression indicating the existence of a service request, use the profile <a href="StructureDefinition-qicore-servicerequested.html">QICoreServiceRequested</a>; to specifically request information that a ServiceRequest intentionally did
+not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-serviceprohibited.html">QICoreServiceProhibited</a>.</p>
+
+<p>The following example illustrates the use of the ServiceRequested profile:</p>
+
+<pre>
+<code>define "Intermittent Pneumatic Compression Devices Ordered":
+  ["ServiceRequested": "Application of intermittent pneumatic compression devices (IPC)"] DeviceOrdered
+    where DeviceOrdered.intent = 'order'</code>
+</pre>
+
+<p>Note that the doNotPerform and statuses indicating positive intent are implied by the use of the ServiceRequested profile.</p>
+
+<p>
+<tr>
+    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>
+</p>
+<a name="examples"> </a>
+<h3>Examples</h3>
+<p>
+<table>
+  <tbody>
+    <tr>
+        <td><a href="ServiceRequest-requested-example.html">Request for Appendectomy Example</a></td>
+    </tr>
+    <tr>
+        <td><a href="ServiceRequest-proposal-example-code.html">Request for Graduated compression elastic hosiery (specific code)</a></td>
+    </tr>
+    <tr>
+        <td><a href="ServiceRequest-proposal-example.html">Request for Intermittent pneumatic compression devices (value set)</a></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+
+</div>

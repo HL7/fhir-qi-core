@@ -1,17 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​</li>
-<li>code: (QI) Identification of the procedure</li>
+<li>status: (QI) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown</li>
+<li>code: (QI) What procedure</li>
 <li>subject: (QI) Who the procedure was performed on</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
 <li>implicitRules: (QI) A set of rules under which this content was created</li>
-<li>recorded: (QI) When the procedure was first captured in the subject's record</li>
+<li>extension(recorded): (QI) When the procedure was first captured in the subject's record</li>
 <li>basedOn: (QI) A request for this procedure</li>
+<li>code.extension(codeOptions): (QI) Url of a value set of candidate procedures</li>
 <li>performed[x]: (QI) When the procedure was performed</li>
 <li>reasonCode: (QI) Coded reason procedure performed</li>
 <li>reasonReference: (QI) The justification that the procedure was performed</li>
@@ -39,8 +42,13 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
 	<a name="usage"><b>Usage</b></a>
-	<p>To create an expression specifically requesting information that a procedure intentionally did not occur for
-	a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-procedurenotdone.html">QICore-Procedurenotdone</a>.</p>
+
+  <p>The Procedure profile defines the conformance expectations for a Procedure, 
+  regardless of whether it is a positive or negative statement. The ProcedureDone and ProcedureNotDone 
+  profiles represent the positive and negative statements for a procedure.</p>
+
+	<p>To create an expression indicating existence of a procedure, use the profile <a href="StructureDefinition-qicore-proceduredone.html">QICoreProcedureDone</a>; to specifically request information that a procedure intentionally did not occur for
+	a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-procedurenotdone.html">QICoreProcedureNotDone</a>.</p>
 
 <p>The following example illustrates the use of the Procedure profile:</p>
 

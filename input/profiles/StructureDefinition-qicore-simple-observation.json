@@ -107,14 +107,8 @@
       },
       {
         "id" : "Observation.partOf",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
         "path" : "Observation.partOf",
-        "short" : "(QI) Part of referenced event"
+        "short" : "Part of referenced event"
       },
       {
         "id": "Observation.status",
@@ -125,11 +119,7 @@
           }
         ],
         "path": "Observation.status",
-        "short": "(QI) registered | prliminary | final | amended | corrected | entered-in-error | unknown",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-observation-status"
-        }
+        "short": "(QI) registered | prliminary | final | amended | corrected | cancelled | entered-in-error | unknown"
       },
       {
         "id": "Observation.category",

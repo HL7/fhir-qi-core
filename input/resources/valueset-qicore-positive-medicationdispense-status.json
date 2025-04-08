@@ -1,0 +1,54 @@
+{
+  "resourceType": "ValueSet",
+  "id": "qicore-positive-medicationdispense-status",
+  "url": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-medicationdispense-status",
+  "version": "4.0.0",
+  "name": "PositiveMedicationDispenseStatus",
+  "title": "Positive MedicationDispense Status",
+  "status": "active",
+  "experimental": false,
+  "date": "2018-12-05T00:00:00+00:00",
+  "publisher": "Health Level Seven, Inc. - CQI WG",
+  "description": "This value set defines the set of codes that indicate a positive medication dispense status (i.e. codes that indicate at least some medication was dispensed)",
+  "jurisdiction": [
+    {
+      "coding": [
+        {
+          "system": "urn:iso:std:iso:3166",
+          "code": "US",
+          "display": "United States of America"
+        }
+      ]
+    }
+  ],
+  "purpose": "This value set was defined to support the set of medication dispense statuses in FHIR that do indicate a positive status (i.e. all the codes from the http://terminology.hl7.org/CodeSystem/medicationdispense-status code system that indicate at least some medication was dispensed).",
+  "compose": {
+    "include": [
+      {
+        "system": "http://terminology.hl7.org/CodeSystem/medicationdispense-status",
+        "concept": [
+          {
+            "code": "preparation",
+            "display": "Preparation"
+          },
+          {
+            "code": "in-progress",
+            "display": "In Progress"
+          },
+          {
+            "code": "on-hold",
+            "display": "On Hold"
+          },
+          {
+            "code": "completed",
+            "display": "Completed"
+          },
+          {
+            "code": "stopped",
+            "display": "Stopped"
+          }
+        ]
+      }
+    ]
+  }
+}

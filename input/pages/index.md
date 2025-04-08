@@ -152,10 +152,6 @@ the [FHIR Implementer's Safety Check List]({{site.data.fhir.path}}safety.html#7.
 considerations relate to any FHIR implementation, including authentication, authorization, access control
 consistent with patient consent, transaction logging, and following best practices. QI-Core security conformance rules are as follows:
 
-<div class="new-content" markdown="1">
-
--  Systems **SHOULD** refer to BCP195 to ensure transmissions are taking place over a secure network connection.
-</div>
 
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
 -  Systems **SHOULD** use either IHE's ATNA standard for audit logging or an equivalent using the AuditEvent resource.
@@ -193,6 +189,8 @@ preferred in the US Core base profile, but in general, the QI-Core profiles use 
 that QI-Core is currently a US Realm specification. To support applications outside the US Realm, additional binding
 analysis and effort would be required.
 
+QI-Core (Quality Improvement Core) is based on US Core because it helps improve healthcare quality using common standards that make it easier to share and understand health information. QI-Core builds on US Core to ensure that information about healthcare quality can be shared smoothly between different organizations, allowing better tracking and reporting. Many programs that improve quality are linked to government regulations. US Core addresses [United States Core Data for Interoperability](https://www.hl7.org/fhir/us/core/uscdi.html#uscdi). US Core updates with annual versions provide detail about sharing data defined in USCDI. Assistant Secretary for Technology Policy/Office of the National Coordinator for Health IT (ASTP/ONC) also publishes U.S. Core Data for Interoperability Plus [USCDI+](https://uscdiplus.healthit.gov/uscdiplus), to address data needs for specific "domains". These domains include: Maternal Health, Public Health, Quality, Cancer, and Behavioral Health. ASTP published a [USCDI+Quality Draft v1](https://uscdiplus.healthit.gov/uscdiplus?id=uscdi_record&table=x_g_sshh_uscdi_domain&sys_id=7ddf78228745b95098e5edb90cbb3525&view=sp) in August 2024; a final publication is pending at the time of this QI-Core publication. QI-Core supports the data elements proposed in the USCDI+Quality Draft v1 and further guidance should be available at the time of a future publication of USCDI+Quality.
+
 <div class="new-content" markdown="1">
 This IG contains only one QI-Core-specific extension "QI-Core Key Element Extension" to enable entry of (QI) references to specific profile elements. Otherwise, this IG uses only FHIR or US Core extensions. Other initiatives that the QI-Core effort is aligning with include the
 [Clinical Information Modeling Initiative (CIMI)](https://confluence.hl7.org/display/CIMI/Mission%2C+Charter%2C+Work+Products%2C+HL7+Working+Group+Relationships) and [Graphite Health](https://www.graphitehealth.io/).
@@ -222,7 +220,7 @@ these additional elements when they are used in the measures or CDS artifacts im
 Since not all artifacts use each of these additional elements, QI-Core does not use the “MustSupport” flag to indicate these elements. 
 Instead, “(QI)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table, 
 and the computable [QI-Core Key Element Extension](StructureDefinition-qicore-keyelement.html) is added to each element definition. This approach 
-allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use. This is inspired by the way that [US Core communicates USCDI requirements]({{site.data.fhir.ver.uscore}}/must-support.html#uscdi-requirements).
+allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use. This is inspired by the way that [US Core communicates USCDI requirements]({{site.data.fhir.ver.uscore}}/must-support.html#uscdi-requirements). Software should not be expected to test conformance to all of QI-Core. Rather, the systems should be conformant for all data elements required by a specific set of measures or CDS artifacts constructed with QI-Core elements needed to report the specific measure set criteria. QI-Core provides consistency and standardization for measure developers and CDS artifact developers to express the data elements they need to address their intended outcomes.
 
 Quality improvement artifacts communicate the elements they reference using the DataRequirement structure in FHIR. This structure allows 
 the base resource type and profile to be specified, as well as a MustSupport element that indicates which elements of the resource and 
@@ -272,10 +270,10 @@ QI-Core’s concept of negation follows the informative publication established 
 
 2.  Documented absence of data with a valid reason
 
-    The measure or CDS artifact uses a specifically designed QI-Core profile to indicate that an activity intentionally did not occur for a valid reason.
+    The measure or CDS artifact uses specifically designed QI-Core profiles to indicate that an activity intentionally did not occur for a valid reason.
 
 When there is a need to document evidence that an expected activity was not done due to patient intent and/or specific criteria, 
-systems should use one of the ten QI-Core specific *negation* *rationale* profiles that align with existing profiles representing the expected actions. 
+systems should use one of the ten QI-Core specific *negation* *rationale* patterns that align with existing profiles representing the expected actions. 
 <a href="negation.html"><b>QI-Core Negation</b></a> provides detailed descriptions and guidance.
 
 

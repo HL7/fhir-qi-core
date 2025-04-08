@@ -1,0 +1,76 @@
+<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
+<!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
+<b>QI Elements:</b>
+<ul>
+<li>extension(recorded): (QI) Recorded</li>
+<li>status: (QI) in-progress | on-hold | completed | stopped</li>
+<li>status: (QI) in-progress | on-hold | completed | stopped</li>
+<li>medication[x]: (QI) What was administered</li>
+<li>medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications</li>
+<li>subject: (QI) Who received medication</li>
+<li>context: (QI) Encounter or Episode of Care administered as part of</li>
+<li>effective[x]: (QI) Start and end time of administration</li>
+<li>request: (QI) Request administration performed against</li>
+<li>dosage: (QI) Details of how medication was taken</li>
+<li>dosage.route: (QI) Path of substance into body</li>
+<li>dosage.dose: (QI) Amount of medication per dose</li>
+</ul>
+
+<b>Primary code path:</b> medication
+<br></br>
+(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
+<br></br>
+<br></br>
+
+<br></br>
+<b>NOTE TO BALLOT REVIEWERS:</b>
+<ul>
+<li>US Core 7.0, and thus QI-Core 7.0, has a new approach to USCDI requirements.</li>
+<ul>
+<li>As noted in the US Core 7.0 <a href='https://hl7.org/fhir/us/core/must-support.html#must-support-elements'>Must Support</a> section, US Core 7.0 no longer highlights mandatory (cardinality 1..* or 1..1) and Must Support elements with a (USCDI) indicator as such items must be supported for interoperability.</li>
+<li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
+</ul>
+<li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+</ul>
+<br></br>
+
+
+<!--End Generated Intro (DO NOT REMOVE)-->
+  <a name="usage"><b>Usage</b></a>
+
+<p>The MedicationAdministration profile defines the conformance expectations for a MedicationAdministration event, 
+regardless of whether it is a positive or negative statement. The MedicationAdministrationDone and MedicationAdministrationNotDone 
+profiles represent the positive and negative statements for a MedicationAdministration event.</p>
+
+<p>To create an expression indicating existence of a MedicationAdministration, use the profile <a href="StructureDefinition-qicore-medicationadministrationdone.html">QICoreMedicationAdministrationDone</a>; to specifically request information that a MedicationAdministration intentionally
+did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationadministrationnotdone.html">QICoreMedicationAdministrationNotDone</a>.</p>
+
+<p>The following example illustrates the accessing MedicationAdministration data:</p>
+
+<pre><code>define "Low Dose Unfractionated Heparin Administration":
+  ["MedicationAdministrationDone": medication in "Low Dose Unfractionated Heparin for VTE Prophylaxis"] VTEMedication
+    where VTEMedication.category ~ QICoreCommon."Inpatient"</code>
+</pre>
+
+<p>Note that the statuses indicating positive intent are implied by the use of the MedicationAdministrationDone profile.</p>
+
+<p>
+<tr>
+    <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
+</tr>
+</p>
+<a name="examples"> </a>
+<h3>Examples</h3>
+<p>
+<table>
+  <tbody>
+    <tr>
+        <td><a href="MedicationAdministration-done-example.html">Inhalant Example</a></td>
+    </tr>
+  </tbody>
+</table>
+</p>
+</div>

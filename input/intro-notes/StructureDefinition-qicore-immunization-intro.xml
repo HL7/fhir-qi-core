@@ -1,8 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) completed | entered-in-error</li>
+<li>status: (QI) completed | not-done | entered-in-error</li>
 <li>vaccineCode: (QI) Vaccine Product Type (bind to CVX)</li>
 <li>patient: (QI) Who was immunized</li>
 <li>occurrence[x]: (QI) Vaccine administration date</li>
@@ -10,7 +12,8 @@
 
 <b>QI Elements:</b>
 <ul>
-<li>statusReason: (QI) Reason not done</li>
+<li>statusReason: (QI) Reason for status</li>
+<li>vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines</li>
 <li>recorded: (QI) When the immunization was first captured in the subject's record</li>
 </ul>
 
@@ -36,6 +39,9 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+
+  <p>The Immunization profile defines the conformance expectations for an Immunization event, regardless of whether it is a positive or negative statement. The ImmunizationDone and ImmunizationNotDone profiles represent the positive and
+    negative statements for an immunization event. </p>
 
 <p>The following example illustrates the use of the Immunization profile:</p>
 <pre><code>define "Polio Immunizations":

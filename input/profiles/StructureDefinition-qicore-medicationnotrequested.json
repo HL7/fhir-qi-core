@@ -1,386 +1,117 @@
 {
-  "resourceType": "StructureDefinition",
-  "id": "qicore-medicationnotrequested",
-  "extension" : [
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
-      "valueString": "medication"
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
-      "valueBoolean": true
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
-      "valueBoolean": true
-    },
-    {
-      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
-      "valueString":"MedicationNotRequested"
-    }
-  ],
-  "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested",
-  "version": "6.0.0",
-  "name": "QICoreMedicationNotRequested",
-  "title": "QICore Medication Not Requested",
-  "status": "active",
-  "experimental": false,
-  "date": "2018-08-22",
-  "publisher": "http://www.hl7.org/Special/committees/cqi/index.cfm",
-  "contact": [
-    {
-      "name": "Clinical Quality Information WG",
-      "telecom": [
-        {
-          "system": "url",
-          "value": "http://www.hl7.org/Special/committees/cqi"
-        }
-      ]
-    }
-  ],
-  "description": "Negation profile of MedicationRequest for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
-  "jurisdiction": [
-    {
-      "coding": [
-        {
-          "system": "urn:iso:std:iso:3166",
-          "code": "US"
-        }
-      ]
-    }
-  ],
-  "fhirVersion": "4.0.1",
-  "kind": "resource",
-  "abstract": false,
-  "type": "MedicationRequest",
-  "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest",
-  "derivation": "constraint",
-  "differential": {
-    "element": [
-      {
-        "id": "MedicationRequest",
-        "path": "MedicationRequest",
-        "constraint": [
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-medicationnotrequested",
+  "extension" : [{
+    "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+    "valueString" : "medication"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+    "valueBoolean" : true
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+    "valueBoolean" : true
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+    "valueString" : "MedicationNotRequested"
+  },
+  {
+    "url" : "http://hl7.org/fhir/StructureDefinition/structuredefinition-wg",
+    "valueCode" : "cqi"
+  }],
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested",
+  "version" : "7.0.0",
+  "name" : "QICoreMedicationNotRequested",
+  "title" : "QICore Medication Not Requested",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2018-08-22",
+  "publisher" : "HL7 International / Clinical Quality Information",
+  "contact" : [{
+    "name" : "Clinical Quality Information WG",
+    "telecom" : [{
+      "system" : "url",
+      "value" : "http://www.hl7.org/Special/committees/cqi"
+    }]
+  }],
+  "description" : "Negation profile of MedicationRequest for decision support/quality metrics. Defines the core set of elements and extensions for quality rule and measure authors.",
+  "jurisdiction" : [{
+    "coding" : [{
+      "system" : "urn:iso:std:iso:3166",
+      "code" : "US"
+    }]
+  }],
+  "fhirVersion" : "4.0.1",
+  "mapping" : [{
+    "identity" : "workflow",
+    "uri" : "http://hl7.org/fhir/workflow",
+    "name" : "Workflow Pattern"
+  },
+  {
+    "identity" : "script10.6",
+    "uri" : "http://ncpdp.org/SCRIPT10_6",
+    "name" : "Mapping to NCPDP SCRIPT 10.6"
+  },
+  {
+    "identity" : "rim",
+    "uri" : "http://hl7.org/v3",
+    "name" : "RIM Mapping"
+  },
+  {
+    "identity" : "w5",
+    "uri" : "http://hl7.org/fhir/fivews",
+    "name" : "FiveWs Pattern Mapping"
+  },
+  {
+    "identity" : "v2",
+    "uri" : "http://hl7.org/v2",
+    "name" : "HL7 v2 Mapping"
+  }],
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "MedicationRequest",
+  "baseDefinition" : "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medicationrequest",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [{
+      "id" : "MedicationRequest.category",
+      "extension" : [
           {
-            "key": "mnr-1",
-            "severity": "error",
-            "human": "To indicate what medication was not requested, either at least one coding in the medication or a notDoneValueSet extension shall be provided",
-            "expression": "medication.extension(\u0027http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet\u0027).exists() xor medication.coding.exists()",
-            "xpath": "exists(f:extension)"
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
           }
         ],
-        "mustSupport": false
+      "path" : "MedicationRequest.category",
+      "slicing" : {
+        "discriminator" : [{
+          "type" : "pattern",
+          "path" : "$this"
+        }],
+        "rules" : "open"
       },
-	 {
-			"id" : "MedicationRequest.medicationAdherence",
-			"extension" : [
-			  {
-				"url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-				"valueBoolean" : true
-			  }
-			],
-			"path" : "MedicationRequest.extension",
-			"sliceName" : "medicationAdherence",
-			"short" : "Reported adherence to prescribed medication instructions.",
-			"min" : 0,
-			"max" : "*",
-			"type" : [
-				{
-				"code" : "Extension",
-				"profile" : [
-				  "http://hl7.org/fhir/us/core/StructureDefinition/us-core-medication-adherence"
-				]
-			  }
-			],			
-			"mustSupport" : false
-	  },      
-      {
-        "id": "MedicationRequest.status",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.status",
-        "short": "(QI) active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown"
+      "short" : "(QI) Type of medication usage",
+      "min" : 0,
+      "max" : "*",
+      "base" : {
+        "path" : "MedicationRequest.category",
+        "min" : 0,
+        "max" : "*"
       },
-      {
-        "id" : "MedicationRequest.intent",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path" : "MedicationRequest.intent",
-        "short" : "(QI) proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option",
-        "definition" : "Whether the request is a proposal, plan, or an original order.",
-        "comment" : "It is expected that the type of requester will be restricted for different stages of a MedicationRequest.  For example, Proposals can be created by a patient, relatedPerson, Practitioner or Device.  Plans can be created by Practitioners, Patients, RelatedPersons and Devices.  Original orders can be created by a Practitioner only.\r\rAn instance-order is an instantiation of a request or order and may be used to populate Medication Administration Record.\r\rThis element is labeled as a modifier because the intent alters when and how the resource is actually applicable."
-      },
-      {
-        "id": "MedicationRequest.doNotPerform",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.doNotPerform",
-        "short": "(QI) True if medication was not requested",
-        "min": 1,
-        "max": "1",
-        "type": [
-          {
-            "code": "boolean"
-          }
-        ],
-        "fixedBoolean": true
-      },
-      {
-        "id": "MedicationRequest.reported[x]",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.reported[x]",
-        "short": "(QI) Reported rather than primary record",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
-            ],
-            "_targetProfile": [
-              {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                    "valueBoolean": true
-                  }
-                ]
-              },
-              {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                    "valueBoolean": false
-                  }
-                ]
-              },
-              {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                    "valueBoolean": true
-                  }
-                ]
-              },
-              {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                    "valueBoolean": true
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "MedicationRequest.medication[x]",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.medication[x]",
-        "short": "(QI) Medication to be taken",
-        "type": [
-          {
-            "code": "CodeableConcept"
-          },
-          {
-            "code" : "Reference",
-            "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medication"]
-          }
-        ],
-        "binding": {
-          "strength": "preferred",
-          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1010.4"
-        }
-      },
-      {
-        "id": "MedicationRequest.medication[x].extension:notDoneValueSet",
-        "path": "MedicationRequest.medication[x].extension",
-        "sliceName": "notDoneValueSet",
-        "short": "(QI) What was not requested",
-        "min": 0,
-        "max": "1",
-        "type": [
-          {
-            "code": "Extension",
-            "profile": [
-              "http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "MedicationRequest.subject",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.subject",
-        "short": "(QI) Who or group medication request is for",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "MedicationRequest.encounter",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.encounter",
-        "short": "(QI) Encounter created as part of encounter/admission/stay",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
-            ]
-          }
-        ]
-      },
-      {
-        "id": "MedicationRequest.authoredOn",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.authoredOn",
-        "short": "(QI) When request was initially authored",
-        "min": 1,
-        "max": "1"
-      },
-      {
-        "id": "MedicationRequest.requester",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.requester",
-        "short": "(QI) Who/What requested the Request",
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitioner",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
-            ],
-            "_targetProfile": [
-              {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                    "valueBoolean": true
-                  }
-                ]
-              },
-              {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                    "valueBoolean": false
-                  }
-                ]
-              },
-              {
-                "extension": [
-                  {
-                    "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-                    "valueBoolean": false
-                  }
-                ]
-              }
-            ]
-          }
-        ]
-      },
-      {
-        "id": "MedicationRequest.reasonCode",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "MedicationRequest.reasonCode",
-        "short": "(QI) Reason or indication for ordering or not ordering the medication",
-        "min": 1,
-        "max": "1",
-        "binding": {
-          "strength": "extensible",
-          "description": "The reason the medication was not requested",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-negation-reason"
-        }
-      },
-      {
-        "id": "MedicationRequest.reasonReference",
-        "path": "MedicationRequest.reasonReference",
-        "short": "(QI) US Core Condition or Observation that supports the prescription",
-        "definition": "Condition or observation that supports why the medication was ordered.",
-        "comment": "This is a reference to a condition or observation that is the reason for the medication order.  If only a code exists, use reasonCode.",
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "MedicationRequest.reasonReference",
-          "min": 0,
-          "max": "*"
-        },
-        "type": [
-          {
-            "code": "Reference",
-            "targetProfile": [
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-problems-health-concerns",
-              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation"
-            ]
-          }
-        ],
-        "isModifier": false,
-        "isSummary": false,
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ]
+      "type" : [{
+        "code" : "CodeableConcept"
+      }],
+      "mustSupport" : true,
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "MedicationRequestCategory"
+        }],
+        "strength" : "example",
+        "description" : "A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment.",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/medicationrequest-category"
       }
-    ]
+    }]
   }
 }
