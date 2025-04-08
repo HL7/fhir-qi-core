@@ -1,13 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>QI Elements:</b>
 <ul>
-<li>event-recorded: (QI) Captures the recorded date of the communication</li>
-<li>status: (QI) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown</li>
+<li>extension(event-recorded): (QI) Captures the recorded date of the communication</li>
+<li>status: (QI) not-done</li>
+<li>status: (QI) not-done</li>
 <li>statusReason: (QI) Reason for current status</li>
 <li>subject: (QI) Focus of message</li>
 <li>topic: (QI) Description of the purpose/content</li>
-<li>notDoneValueSet: (QI) Url of a value set of activities not requested or performed</li>
+<li>topic.extension(codeOptions): (QI) Url of a value set of candidate topics</li>
+<li>sent: (QI) When sent</li>
+<li>received: (QI) When received</li>
+<li>recipient: (QI) Message recipient</li>
+<li>sender: (QI) Message sender</li>
 </ul>
 
 <b>Primary code path:</b> reasonCode
@@ -32,14 +39,30 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+
+<p>The Communication profile defines the conformance expectations for a Communication event, regardless of
+whether it is a positive or negative statement.</p>
+
+<p>The CommunicationDone and CommunicationNotDone profiles represent the positive and
+  negative statements for a communication event.</p>
+
+
+  <p>This example meets measure intent for exclusion as defined in the following example CQL:</p>
+
+<pre><code>define CommunicationNoteDone:
+  [CommunicationNotDone: "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
+    with "Diabetic Retinopathy Encounter" EncounterDiabeticRetinopathy
+      such that MacularEdemaAbsentNotCommunicated.sent during EncounterDiabeticRetinopathy.period
+        and ( MacularEdemaAbsentNotCommunicated.statusReason in "Medical Reason"
+          or MacularEdemaAbsentNotCommunicated.statusReason in "Patient Reason"
+        )</code></pre>
+
+  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
-  </p>
-
-  <p>The Communication and CommunicationNotDone profiles represent the positive and
-    negative statements for a communication event. 
   </p>
 
   <a name="examples"> </a>
@@ -53,16 +76,5 @@
     </tbody>
   </table>
   </p>
-
-  <p>This example meets measure intent for exclusion as defined in the following example CQL:</p>
-
-<pre><code>[CommunicationNotDone: "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
-  with "Diabetic Retinopathy Encounter" EncounterDiabeticRetinopathy
-    such that MacularEdemaAbsentNotCommunicated.sent during EncounterDiabeticRetinopathy.period
-      and ( MacularEdemaAbsentNotCommunicated.statusReason in "Medical Reason"
-        or MacularEdemaAbsentNotCommunicated.statusReason in "Patient Reason"
-      )</code></pre>
-
-  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI-Core</a> topic.</p>
 
 </div>

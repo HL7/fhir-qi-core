@@ -1,5 +1,7 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
 <li>status: (QI) active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown</li>
@@ -10,7 +12,8 @@
 
 <b>QI Elements:</b>
 <ul>
-<li>doNotPerform: (QI) True if medication was not requested</li>
+<li>extension(medicationAdherence): Reported adherence to prescribed medication instructions.</li>
+<li>doNotPerform: (QI) True if the order is not to provide the medication</li>
 <li>reported[x]: (QI) Reported rather than primary record</li>
 <li>encounter: (QI) Encounter created as part of encounter/admission/stay</li>
 <li>authoredOn: (QI) When request was initially authored</li>
@@ -59,7 +62,12 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
-  <p>To create an expression specifically requesting information that a MedicationRequest intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationnotrequested.html">QICore-Medicationnotrequested</a>.</p>
+
+  <p>The MedicationRequest profile defines the conformance expectations for a MedicationRequest, 
+  regardless of whether it is a positive or negative statement. The MedicationRequested and MedicationNotRequested 
+  profiles represent the positive and negative statements for a medication order.</p>
+
+<p>To create an expression indicating the existence of a medication request, use the profile <a href="StructureDefinition-qicore-medicationrequested.html">QICoreMedicationRequested</a>; to specifically request information that a MedicationRequest intentionally did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationprohibited.html">QICoreMedicationProhibited</a>.</p>
 
 <p>The following example illustrates the use of the MedicationRequest profile:</p>
 <pre>
@@ -67,7 +75,8 @@
   ["MedicationRequest": medication in "Antithrombotic Therapy"] Antithrombotic
     where (Antithrombotic.isCommunity() or Antithrombotic.isDischarge())
       and Antithrombotic.status in { 'active', 'completed' }
-      and Antithrombotic.intent = 'order'</code>
+      and Antithrombotic.intent = 'order'
+      and Antithrombotic.doNotPerform is not true</code>
 </pre>
 
   <p>

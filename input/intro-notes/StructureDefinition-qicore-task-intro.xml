@@ -1,13 +1,14 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>QI Elements:</b>
 <ul>
-<li>identifier:  Task Instance Identifier</li>
 <li>basedOn: (QI) Request fulfilled by this task</li>
-<li>status:  draft​ | requested​ | received​ | accepted​ | ready​ | cancelled​ | in-progress​ | on-hold​ | failed​ | completed | entered-in-error</li>
-<li>intent:  unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance</li>
-<li>priority:  routine | urgent | asap | stat</li>
-<li>code:  Task Type</li>
+<li>status: (QI) draft​ | requested​ | received​ | accepted​ | rejected | ready​ | cancelled​ | in-progress​ | on-hold​ | failed​ | completed | entered-in-error</li>
+<li>intent: (QI) unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance</li>
+<li>priority: (QI) routine | urgent | asap | stat</li>
+<li>code: (QI) Task Type</li>
 <li>executionPeriod: (QI) Start and end time of execution</li>
 </ul>
 
@@ -33,15 +34,15 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+
+  <p>The Task profile defines the conformance expectations for a Task, regardless of whether it is a positive or negative statement. The TaskDone and TaskRejected profiles represent the positive and
+    negative statements for a task.</p>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
-
-  <p>The Task and TaskRejected profiles represent the positive and
-    negative statements for a task.</p>
-
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>

@@ -72,6 +72,52 @@
         "mustSupport" : false
       },
       {
+        "id" : "Claim.status",
+        "path" : "Claim.status",
+        "short" : "(QI) active",
+        "definition" : "The status of the resource instance.",
+        "min" : 1,
+        "max" : "1",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "type": [
+          {
+            "code": "code"
+          }
+        ],
+        "fixedCode": "active"
+      },
+      {
+        "id" : "Claim.type",
+        "path" : "Claim.type",
+        "short" : "(QI) category | discipline",
+        "min" : 1,
+        "max" : "1",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ]
+      },
+      {
+        "id" : "Claim.use",
+        "path" : "Claim.use",
+        "short" : "(QI) claim | preauthorization | predetermination",
+        "min" : 1,
+        "max" : "1",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ]
+      },
+      {
         "id" : "Claim.patient",
         "extension" : [
           {
@@ -443,6 +489,17 @@
           "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10-procedures"
         }
       },
+      {
+        "id" : "Claim.insurance.coverage",
+        "path" : "Claim.insurance.coverage",
+        "short" : "Insurance information",
+        "min" : 1,
+        "max" : "1",
+        "type" : [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage"]
+        }]
+     },
       {
         "id" : "Claim.item.encounter",
         "extension" : [

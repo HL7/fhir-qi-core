@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ServiceRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="proposal-example-code"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequested"/>
+  </meta>
+  <status value="active"/>
+  <intent value="proposal"/>
+  <priority value="urgent"/>
+  <code>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="348681001"/>
+      <display value="Graduated compression elastic hosiery (physical object)"/>
+    </coding>
+  </code>
+  <subject>
+    <reference value="Patient/example"/>
+  </subject>
+  <encounter>
+    <reference value="Encounter/example"/>
+  </encounter>
+  <occurrenceDateTime value="2013-04-05"/>
+  <authoredOn value="2013-04-04"/>
+</ServiceRequest>

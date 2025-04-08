@@ -2,7 +2,7 @@
 <MedicationRequest xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
   <id value="negation-example"/>
   <meta>
-    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationnotrequested"/>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationprohibited"/>
   </meta>
   <status value="completed"/>
   <intent value="order"/>
@@ -14,10 +14,10 @@
   </category>
   <doNotPerform value="true"/>
   <medicationCodeableConcept>
-    <extension url="http://hl7.org/fhir/StructureDefinition/cqf-notDoneValueSet">
+    <extension url="http://hl7.org/fhir/StructureDefinition/codeOptions">
       <valueCanonical value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1045.39"/>
     </extension>
-    <text value="Not Done Value Set: Low Dose Unfractionated Heparin for VTE Prophylaxis"/>
+    <text value="Value Set: Low Dose Unfractionated Heparin for VTE Prophylaxis"/>
   </medicationCodeableConcept>
   <subject>
     <reference value="Patient/example"/>

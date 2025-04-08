@@ -1,8 +1,10 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) preparation | in-progress | cancelled | on-hold | completed | entered-in-error | stopped | declined | unknown</li>
+<li>status: (QI) declined</li>
 <li>medication[x]: (QI) What medication was supplied</li>
 <li>subject: (QI) Who the dispense is for</li>
 <li>performer.actor: Individual who was performing</li>
@@ -10,13 +12,20 @@
 
 <b>QI Elements:</b>
 <ul>
-<li>recorded: (QI) Extension</li>
+<li>extension(recorded): (QI) Extension</li>
+<li>extension(recorded): (QI) Extension</li>
 <li>statusReason[x]: (QI) Why a dispense was not performed</li>
-<li>notDoneValueSet: (QI) Url of a value set of activities not requested or performed</li>
+<li>medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications</li>
+<li>authorizingPrescription: (QI) Medication order that authorizes the dispense</li>
+<li>type: (QI) Trial fill, partial fill, emergency fill, etc.</li>
+<li>quantity: (QI) Amount dispensed</li>
+<li>daysSupply: (QI) Amount of medication expressed as a timing amount</li>
+<li>whenPrepared: (QI) When product was packaged and reviewed</li>
+<li>whenHandedOver: (QI) When product was given out or mailed</li>
+<li>dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver</li>
 <li>dosageInstruction.text: (QI) Free text dosage instructions e.g. SIG</li>
 <li>dosageInstruction.timing: (QI) When medication should be administered</li>
 <li>dosageInstruction.doseAndRate: (QI) Amount of medication administered</li>
-<li>dosageInstruction.doseAndRate.type: (QI) The kind of dose or rate specified</li>
 <li>dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose</li>
 </ul>
 
@@ -42,28 +51,36 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+
+<p>The MedicationDispense profile defines the conformance expectations for a MedicationDispense event, 
+regardless of whether it is a positive or negative statement. The MedicationDispenseDone and MedicationDispenseDeclined 
+profiles represent the positive and negative statements for a MedicationDispense event.</p>
+
+<p>To create an expression indicating existence of a MedicationDispense event, use the profile <a href="StructureDefinition-qicore-medicationdispensedone.html">QICoreMedicationDispenseDone</a>; to specifically request information that a MedicationDispense intentionally
+did not occur for a medical, patient or system reason, use the profile <a href="StructureDefinition-qicore-medicationdispensedeclined.html">QICoreMedicationDispenseDeclined</a>.</p>
+
+<p>The following example illustrates the use of the MedicationDispenseDeclined profile:</p>
+<pre>
+<code>define "Dementia Medication Not Dispensed":
+  ["MedicationDispenseNotDone": "Dementia Medications"] MedicationDispense
+    where MedicationDispense.statusReason in "Medical Reason"
+      or MedicationDispense.statusReason in "Patient Refusal"</code>
+</pre>
+
+<p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
-
-<p>The following example illustrates the use of the MedicationDispenseDeclined profile:</p>
-<pre>
-<code>define "Dementia Medication Not Dispensed":
-    ["MedicationDispenseNotDone": "Dementia Medications"] MedicationDispense
-      where MedicationDispense.statusReason in "Medical Reason"
-        or MedicationDispense.statusReason in "Patient Refusal"</code>
-</pre>
-<p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI-Core</a> topic.</p>
-
   <a name="examples"> </a>
   <h3>Examples</h3>
   <p>
   <table>
     <tbody>
       <tr>
-          <td><a href="MedicationDispense-negation-example.html">Negation Example with valueset</a></td><td>Opthalmic Antihistamines not indicated; indicates that none of the drugs in the given not done value set were dispensed.</td>
+          <td><a href="MedicationDispense-negation-example.html">Negation Example with valueset</a></td><td>Opthalmic Antihistamines not indicated; indicates that none of the drugs in the given `codeOptions` value set were dispensed.</td>
         </tr>
         <tr>
           <td><a href="MedicationDispense-negation-with-code-example.html">Negation Example with code</a></td><td>Alcaftadine 2.5 MG/ML Opthalmic Solution not indicated; indicates that the specific drug was not dispensed.</td>

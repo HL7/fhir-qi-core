@@ -58,17 +58,18 @@
    "differential" : {
     "element" : [
       {
-        "id" : "Task.identifier",
-        "extension" : [
+        "id" : "Task",
+        "path" : "Task",
+        "constraint" : [
           {
-            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean" : true
+            "key" : "tsk-1",
+            "severity" : "error",
+            "human" : "to indicate what, either at least one coding in the code or a codeOptions extension shall be provided",
+            "expression" : "code.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor code.coding.exists()",
+            "xpath" : "exists(f:extension)"
           }
         ],
-        "path" : "Task.identifier",
-        "short" : "(QI) Task Instance Identifier",
-        "min" : 1,
-        "max" : "*"
+        "mustSupport" : false
       },
       {
         "id" : "Task.basedOn",
@@ -90,13 +91,7 @@
           }
         ],
         "path" : "Task.status",
-        "short" : "(QI) draft​ | requested​ | received​ | accepted​ | ready​ | cancelled​ | in-progress​ | on-hold​ | failed​ | completed | entered-in-error",
-        "min" : 1,
-        "max" : "1",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-task-status"
-        }
+        "short" : "(QI) draft​ | requested​ | received​ | accepted​ | rejected | ready​ | cancelled​ | in-progress​ | on-hold​ | failed​ | completed | entered-in-error"
       },
       {
         "id" : "Task.intent",
@@ -107,9 +102,7 @@
           }
         ],
         "path" : "Task.intent",
-        "short" : "(QI) unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance",
-        "min" : 1,
-        "max" : "1"
+        "short" : "(QI) unknown | proposal | plan | order | original-order | reflex-order | filler-order | instance"
       },
       {
         "id" : "Task.priority",
@@ -136,11 +129,89 @@
         "short" : "(QI) Task Type",
         "min" : 1,
         "max" : "1",
+        "condition": [
+          "tsk-1"
+        ],
         "binding" : {
           "strength" : "preferred",
           "description" : "Codes to identify what the task involves. These will typically be specific to a particular workflow",
           "valueSet" : "http://hl7.org/fhir/ValueSet/task-code"
         }
+      },
+      {
+        "id" : "Task.code.extension:codeOptions",
+        "path" : "Task.code.extension",
+        "sliceName" : "codeOptions",
+        "short" : "(QI) Url of a value set of candidate tasks",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the task.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/codeOptions"
+            ]
+          }
+        ],
+        "condition" : [
+          "tsk-1"
+        ]
+      },
+      {
+        "id" : "Task.focus",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Task.focus",
+        "short" : "(QI) What task is acting on",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/StructureDefinition/Resource"
+            ]
+          }
+        ],
+        "min" : 0,
+        "max" : "1",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Task.for",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Task.for",
+        "short" : "(QI) Beneficiary of the Task",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"
+            ]
+          }
+        ],
+        "mustSupport" : false
+      },
+      {
+        "id" : "Task.encounter",
+        "path" : "Task.encounter",
+        "type" : [
+          {
+            "code" : "Reference",
+            "targetProfile" : [
+              "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
+            ]
+          }
+        ],
+        "mustSupport" : false
       },
       {
         "id" : "Task.executionPeriod",

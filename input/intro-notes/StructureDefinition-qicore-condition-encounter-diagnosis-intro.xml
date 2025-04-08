@@ -1,9 +1,11 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
 <li>category: category codes</li>
-<li>category: encounter-diagnosis</li>
+<li>category(us-core): encounter-diagnosis</li>
 <li>code: Identification of the condition, problem or diagnosis</li>
 <li>subject: (QI) Who has the condition?</li>
 </ul>
@@ -37,15 +39,18 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+  
+<pre>
+<code>define "Diabetes Encounter Diagnosis":
+  [ConditionEncounterDiagnosis: Diabetes]</code>
+</pre>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
-<pre>
-<code>[ConditionEncounterDiagnosis: Diabetes] Condition
-  where Condition.getEncounter().status = 'finished'</code>
-</pre>
+
   <a name="examples"> </a>
 <h3>Examples</h3>
   <p>

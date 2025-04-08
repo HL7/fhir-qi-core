@@ -1,17 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) completed | entered-in-error | not-done</li>
+<li>status: (QI) not-done</li>
 <li>statusReason: (QI) Reason not done</li>
-<li>vaccineCode: Vaccine Product Type (bind to CVX)</li>
+<li>vaccineCode: (QI) Vaccine Product Type (bind to CVX)</li>
 <li>patient: (QI) Who was immunized</li>
-<li>occurrence[x]: Vaccine administration date</li>
+<li>occurrence[x]: (QI) Vaccine administration date</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>notDoneValueSet: (QI) What wasn't administered</li>
+<li>vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines</li>
+<li>recorded: (QI) Documented date Immunization did not occur.</li>
 <li>recorded: (QI) Documented date Immunization did not occur.</li>
 </ul>
 
@@ -37,14 +40,24 @@
 
 <!--End Generated Intro (DO NOT REMOVE)-->
   <a name="usage"><b>Usage</b></a>
+
+  <p>The Immunization profile defines the conformance expectations for an Immunization event, regardless of whether it is a positive or negative statement. The ImmunizationDone and ImmunizationNotDone profiles represent the positive and
+    negative statements for an immunization event. </p>
+
+  <p>The following example illustrates retrieving instances that meet measure intent for exclusion:</p>
+
+  <pre><code>define "Reason for No Polio Immunization":
+  ["ImmunizationNotDone": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
+    where PolioVaccination.statusReason in "Medical Reason"
+      or PolioVaccination.statusReason in "Patient Refusal"</code></pre>
+
+  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
+
   <p>
   <tr>
       <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
   </tr>
   </p>
-
-  <p>The Immunization and ImmunizationNotDone profiles represent the positive and
-    negative statements for an immunization event. </p>
 
   <a name="examples"> </a>
   <h3>Examples</h3>
@@ -53,7 +66,7 @@
     <tbody>
       <tr>
         <td><a href="Immunization-negation-example.html">Negation Example using a valueset reference</a></td>
-        <td>Immunization not performed due to patient declination for religious reasons; indicates that none of the vaccines in the given "not done value set" were administered.</td>
+        <td>Immunization not performed due to patient declination for religious reasons; indicates that none of the vaccines in the given `codeOptions` value set were administered.</td>
       </tr>
       <tr>
         <td><a href="Immunization-negation-example-code.html">Negation Example using a single coded concept</a></td>
@@ -62,15 +75,4 @@
     </tbody>
   </table>
   </p>
-
-  <p>Both of these example instances meet measure intent for exclusion as defined in the following example CQL:
-  </p>
-
-  <pre><code>define "Reason for No Polio Immunization":
-  ["ImmunizationNotDone": "Inactivated Polio Vaccine (IPV)"] PolioVaccination
-    where PolioVaccination.statusReason in "Medical Reason"
-      or PolioVaccination.statusReason in "Patient Refusal"</code></pre>
-
-  <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="index.html#negation-in-qi-core">Negation in QI-Core</a> topic.</p>
-
 </div>

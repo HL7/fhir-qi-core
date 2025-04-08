@@ -56,17 +56,21 @@
   "baseDefinition": "http://hl7.org/fhir/us/core/StructureDefinition/us-core-procedure",
   "derivation": "constraint",
   "differential": {
-    "element": [
+    "element": [{
+        "id" : "Procedure",
+        "path" : "Procedure",
+        "constraint" : [{
+          "key" : "prc-1",
+          "severity" : "error",
+          "human" : "to indicate what procedure, either at least one coding in the code or a codeOptions extension shall be provided",
+          "expression" : "code.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor code.coding.exists()"
+        }],
+        "mustSupport" : false
+      },
       {
         "id": "Procedure.implicitRules",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
         "path": "Procedure.implicitRules",
-        "short": "(QI) A set of rules under which this content was created"
+        "short": "A set of rules under which this content was created"
       },
       {
         "id" : "Procedure.extension:recorded",
@@ -77,8 +81,7 @@
         "path" : "Procedure.extension",
         "sliceName" : "recorded",
         "short" : "(QI) When the procedure was first captured in the subject's record",
-        "definition" : "The date the occurrence of the procedure was first captured in the record regardless of Procedure.status (potentially after the occurrence of the event).",
-        "min" : 1,
+        "min" : 0,
         "max" : "1",
         "type" : [{
           "code" : "Extension",
@@ -90,19 +93,16 @@
       },
       {
         "id": "Procedure.basedOn",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
         "path": "Procedure.basedOn",
         "short": "(QI) A request for this procedure",
-        "definition": "A reference to a resource that contains details of the request for this procedure.",
-        "alias": [
-          "fulfills"
-        ],
         "min": 0,
         "max": "*",
-        "base": {
-          "path": "Procedure.basedOn",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Reference",
@@ -112,15 +112,7 @@
             ]
           }
         ],
-        "mustSupport": false,
-        "isModifier": false,
-        "isSummary": true,
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ]
+        "mustSupport": false
       },
       {
         "id": "Procedure.status",
@@ -131,11 +123,7 @@
           }
         ],
         "path": "Procedure.status",
-        "short": "(QI) preparation | in-progress | ​on-hold​ | stopped​ | completed | entered-in-error​ | unknown​",
-        "binding": {
-          "strength": "required",
-          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-non-negative-event-status"
-        }
+        "short": "(QI) preparation | in-progress | not-done | on-hold | stopped | completed | entered-in-error | unknown"
       },
       {
         "id": "Procedure.code",
@@ -146,32 +134,28 @@
           }
         ],
         "path": "Procedure.code",
-        "short": "(QI) Identification of the procedure",
-        "definition": "The specific procedure that is performed. Use text if the exact nature of the procedure cannot be coded (e.g. \"Laparoscopic Appendectomy\").",
-        "binding": {
-          "extension": [
-            {
-              "extension": [
-                {
-                  "url": "purpose",
-                  "valueCode": "current"
-                },
-                {
-                  "url": "valueSet",
-                  "valueCanonical": "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"
-                },
-                {
-                  "url": "documentation",
-                  "valueMarkdown": "US Core uses the current additional binding from FHIR R5 for this coded element for more flexibility when exchanging legacy and text-only data."
-                }
-              ],
-              "url": "http://hl7.org/fhir/tools/StructureDefinition/additional-binding"
-            }
-          ],
-          "strength": "preferred",
-          "description": "Codes describing the type of  Procedure",
-          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-procedure-code"
-        }
+        "short": "(QI) What procedure",
+        "condition": [
+          "prc-1"
+        ]
+      },
+      {
+        "id" : "Procedure.code.extension:codeOptions",
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+        }],
+        "path" : "Procedure.code.extension",
+        "sliceName" : "codeOptions",
+        "short" : "(QI) Url of a value set of candidate procedures",
+        "definition" : "A logical reference (e.g. a reference to ValueSet.url) to a value set/version that identifies a set of possible coded values representing the procedure.",
+        "min" : 0,
+        "max" : "1",
+        "type" : [{
+          "code" : "Extension",
+          "profile" : ["http://hl7.org/fhir/StructureDefinition/codeOptions"]
+        }],
+        "condition" : ["prc-1"]
       },
       {
         "id": "Procedure.subject",
@@ -201,9 +185,7 @@
           }
         ],
         "path": "Procedure.performed[x]",
-        "short": "(QI) When the procedure was performed",
-        "definition": "Estimated or actual date, date-time, period, or age when the procedure was performed.  Allows a period to support complex procedures that span more than one date, and also allows for the length of the procedure to be captured.",
-        "comment": "Age is generally used when the patient reports an age at which the procedure was performed. Range is generally used when the patient reports an age range when the procedure was performed, such as sometime between 20-25 years old.  dateTime supports a range of precision due to some procedures being reported as past procedures that might not have millisecond precision while other procedures performed and documented during the encounter might have more precise UTC timestamps with timezone."
+        "short": "(QI) When the procedure was performed"
       },
       {
         "id": "Procedure.performer.actor",
@@ -230,11 +212,7 @@
           }
         ],
         "path": "Procedure.reasonCode",
-        "short": "(QI) Coded reason procedure performed",
-        "binding": {
-          "strength": "extensible",
-          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
-        }
+        "short": "(QI) Coded reason procedure performed"
       },
       {
         "id": "Procedure.reasonReference",

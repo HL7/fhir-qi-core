@@ -60,82 +60,136 @@
     "element": [
 	  {
 		"id" : "Condition.code",
-        "path" : "Condition.code",
-        "short" : "(QI) Identification of the condition, problem or diagnosis",
-        "alias" : [
-          "Type"
+      "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
         ],
-        "min" : 1,
+        "path" : "Condition.code",
+        "short" : "(QI) Identification of the condition, problem or diagnosis"	  
+		 } ,  
+		{
+
+        "id" : "Condition.extension:assertedDate",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.extension",
+        "sliceName" : "assertedDate",
+        "short" : "(QI) Date the condition was first asserted",
+        "definition" : "The date on which the existence of the Condition was first asserted or acknowledged.",
+        "comment" : "The assertedDate is in the context of the recording practitioner and might not be the same as the recordedDate.",
+        "min" : 0,
         "max" : "1",
         "base" : {
-          "path" : "Condition.code",
-          "min" : 1,
-          "max" : "1"
+          "path" : "DomainResource.extension",
+          "min" : 0,
+          "max" : "*"
         },
         "type" : [
           {
-            "code" : "CodeableConcept"
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate"
+            ]
           }
         ],
         "mustSupport" : true,
-        "isModifier" : false,
-        "isSummary" : true,
-		"binding" : {
-          "extension" : [
-            {
-              "extension" : [
-                {
-                  "url" : "purpose",
-                  "valueCode" : "current"
-                },
-                {
-                  "url" : "valueSet",
-                  "valueCanonical" : "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"
-                },
-                {
-                  "url" : "documentation",
-                  "valueMarkdown" : "US Core uses the current additional binding from FHIR R5 for this coded element for more flexibility when exchanging legacy and text-only data."
-                }
-              ],
-              "url" : "http://hl7.org/fhir/tools/StructureDefinition/additional-binding"
-            }
-          ],
-          "strength" : "preferred",
-          "description" : "Valueset to describe the actual problem experienced by the patient",
-          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-condition-code"	  
-		 },
-        "mapping" : [
+        "isModifier" : false
+      },      
+      {
+        "id" : "Condition.clinicalStatus",
+        "extension": [
           {
-            "identity" : "workflow",
-            "map" : "Event.code"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.what[x]"
-          },
-          {
-            "identity" : "sct-concept",
-            "map" : "code 246090004 |Associated finding| (< 404684003 |Clinical finding| MINUS\n<< 420134006 |Propensity to adverse reactions| MINUS \n<< 473010000 |Hypersensitivity condition| MINUS \n<< 79899007 |Drug interaction| MINUS\n<< 69449002 |Drug action| MINUS \n<< 441742003 |Evaluation finding| MINUS \n<< 307824009 |Administrative status| MINUS \n<< 385356007 |Tumor stage finding|) \nOR < 413350009 |Finding with explicit context|\nOR < 272379006 |Event|"
-          },
-          {
-            "identity" : "v2",
-            "map" : "PRB-3"
-          },
-          {
-            "identity" : "rim",
-            "map" : ".value"
-          },
-          {
-            "identity" : "sct-attr",
-            "map" : "246090004"
-          },
-          {
-            "identity" : "argonaut-dq-dstu2",
-            "map" : "Condition.code"
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
           }
-        ]
-        },       
-		{
+        ],
+        "path" : "Condition.clinicalStatus",
+        "short" : "(QI) active | recurrence | relapse | inactive | remission | resolved",
+        "definition" : "The clinical status of the condition.",
+        "comment" : "The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."
+      },
+      {
+        "id" : "Condition.verificationStatus",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.verificationStatus",
+        "short" : "(QI) unconfirmed | provisional | differential | confirmed | refuted | entered-in-error",
+        "definition" : "The verification status to support the clinical status of the condition."
+      },
+      {
+        "id" : "Condition.severity",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.severity",
+        "short" : "(QI) Subjective severity of condition",
+        "definition" : "A subjective assessment of the severity of the condition as evaluated by the clinician.",
+        "comment" : "Coding of the severity with a terminology is preferred, where possible."
+      },
+      {
+        "id" : "Condition.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.code",
+        "short" : "(QI) Identification of the condition, problem or diagnosis",
+        "definition" : "Identification of the condition, problem or diagnosis."
+      },
+	  {
+        "id" : "Condition.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Condition.category",
+        "slicing" : {
+          "discriminator" : [{
+            "type" : "pattern",
+            "path" : "$this"
+          }],
+          "rules" : "open"
+        },
+        "short" : "(QI) category codes",
+        "min" : 1,
+        "max" : "*",
+        "base" : {
+          "path" : "Condition.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "mustSupport" : true,
+        "binding" : {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString" : "ConditionCategory"
+          }],
+          "strength" : "extensible",
+          "description" : "A category assigned to the condition.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/condition-category"
+        }
+      },
+      {
         "id": "Condition.subject",
         "extension": [
           {
@@ -292,6 +346,18 @@
             "code": "Range"
           }
         ]
+      },
+      {
+        "id" : "Condition.recordedDate",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.recordedDate",
+        "short" : "(QI) Date record was first recorded",
+        "definition" : "The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date."
       }
     ]
   }

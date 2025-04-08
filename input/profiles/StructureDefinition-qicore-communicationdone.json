@@ -1,0 +1,76 @@
+{
+  "resourceType" : "StructureDefinition",
+  "id" : "qicore-communicationdone",
+  "extension" : [
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-primaryCodePath",
+      "valueString": "reasonCode"
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isIncluded",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-isRetrievable",
+      "valueBoolean": true
+    },
+    {
+      "url" : "http://hl7.org/fhir/StructureDefinition/cqf-modelInfo-label",
+      "valueString":"CommunicationDone"
+    }
+  ],
+  "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communicationdone",
+  "version" : "6.0.0",
+  "name" : "QICoreCommunicationDone",
+  "title": "QICore CommunicationDone",
+  "status" : "active",
+  "experimental" : false,
+  "date" : "2023-08-01",
+  "publisher" : "http://www.hl7.org/Special/committees/cqi/index.cfm",
+  "contact" : [
+    {
+      "name" : "Clinical Quality Information WG",
+      "telecom" : [
+        {
+          "system" : "url",
+          "value" : "http://www.hl7.org/Special/committees/cqi"
+        }
+      ]
+    }
+  ],
+  "description" : "Positive profile of Communication for decision support/quality metrics. Indicates that the communication was performed (as opposed to the not done profile).",
+  "jurisdiction" : [
+    {
+      "coding" : [
+        {
+          "system" : "urn:iso:std:iso:3166",
+          "code" : "US"
+        }
+      ]
+    }
+  ],
+  "fhirVersion" : "4.0.1",
+  "kind" : "resource",
+  "abstract" : false,
+  "type" : "Communication",
+  "baseDefinition" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-communication",
+  "derivation" : "constraint",
+  "differential" : {
+    "element" : [
+      {
+        "id" : "Communication",
+        "path" : "Communication",
+        "mustSupport" : false
+      },
+      {
+        "id" : "Communication.status",
+        "path" : "Communication.status",
+        "short" : "(QI) preparation | in-progress | on-hold | stopped | completed",
+        "binding": {
+          "strength": "required",
+          "valueSet": "http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-event-status"
+        }
+      }
+    ]
+  }
+}

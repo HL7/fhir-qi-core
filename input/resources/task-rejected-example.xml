@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Task xmlns="http://hl7.org/fhir" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../../../FHIR-Spec/4.0.0/fhir-all-xsd/fhir-all.xsd">
+  <id value="rejected-example"/>
+  <meta>
+    <profile value="http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-taskrejected"/>
+  </meta>
+  <identifier>
+    <system value="http://www.acme.org/tasks"/>
+    <value value="19009"/>
+  </identifier>
+  <status value="rejected"/>
+  <statusReason>
+    <coding>
+      <system value="http://snomed.info/sct"/>
+      <code value="275936005"/>
+      <display value="Patient noncompliance - general (situation)"/>
+    </coding>
+  </statusReason>
+  <intent value="proposal"/>
+  <code>
+    <coding>
+      <system value="http://hl7.org/fhir/CodeSystem/task-code"/>
+      <code value="fulfill"/>
+      <display value="Fulfill the focal request"/>
+    </coding>
+  </code>
+  <focus>
+    <reference value="ServiceRequest/proposal-example"/>
+  </focus>
+  <for>
+    <reference value="Patient/example"/>
+  </for>
+  <executionPeriod>
+    <start value="2018-06-11"/>
+    <end value="2018-06-11"/>
+  </executionPeriod>
+</Task>
