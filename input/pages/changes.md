@@ -12,6 +12,7 @@ This page lists the change history for each version of QI-Core.
 1. Add hyperlink to Using CQL with FHIR IG ([FHIR-47411](https://jira.hl7.org/browse/FHIR-47411)) Applied ([here](modelinfo.html))
 1. 13.12.1 Resource Profile: QICore wording changes  ([FHIR-47540](https://jira.hl7.org/browse/FHIR-47540)) Applied ([here](StrucutreDefinition-qicore-condition-encounter-diagnosis.html)) 
 1. Some Primary Code Path elements are not in the narrative element lists  ([FHIR-47744](https://jira.hl7.org/browse/FHIR-47744)) Applied ([here](StructureDefinition-qicore-careteam.html)) and ([here](StructureDefinition-qicore-familymemberhistory.html))
+1. Updated NegationReasonCodes in QICore ServiceProhibited ([FHIR-47758](https://jira.hl7.org/browse/FHIR-47758)) Applied ([here](StructureDefinition-qicore-serviceprohibited.html)) and ([here](index.html#terminology-bindings))
 1. QI flag not applied consistently for Claim and ClaimResponse profiles ([FHIR-47821](https://jira.hl7.org/browse/FHIR-47821)) Applied ([here](StructureDefinition-qicore-claim.html))
 1. QICore Location primary code path  ([FHIR-47880](https://jira.hl7.org/browse/FHIR-47880)) Applied ([here](StructureDefinition-qicore-location.html))
 1. Removed recorded extension from MedicationAdministration and MedicationAdministrationNotDone ([FHIR-48094](https://jira.hl7.org/browse/FHIR-48094)) Applied ([here](StructureDefinition-qicore-medicationadministration.html)) and ([here](StructureDefinition-qicore-medicationadministrationnotdone.html))
