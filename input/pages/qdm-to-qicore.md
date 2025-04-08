@@ -25,11 +25,16 @@ QI-Core STU7 includes 7 observation-related profiles that provide QI-Core-specif
   3. [QICore Observation Clinical Result](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-clinical-result.html) – generally used with QDM “Diagnostic Study, Performed”; based on US Core 7.0.0 Observation Clinical Result, includes non-laboratory clinical test results
   4. [QICore Laboratory Result Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-lab.html) – generally used with QDM “Laboratory Test, Performed”
   5. [QICore Observation Screening Assessment](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-screening-assessment.html) – generally used with QDM “Assessment, Performed” when referencing panels of multi-question surveys or evaluation tools
-  6. QICore NonPatient Observation – developed to enable structural measures evaluating available resources for which a patient is not the measure subject; this profile is an approved variance from US Core only for use in [structural measures](https://mmshub.cms.gov/node/203).  
+  6. [QICore NonPatient Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nonpatient-observation.html) – developed to enable structural measures evaluating available resources for which a patient is not the measure subject; this profile is an approved variance from US Core only for use in [structural measures](https://mmshub.cms.gov/node/203).  
         <http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html>
   7. [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-head-occipital-frontal-circumference-percentile.html) – generally used with QDM “Physical Exam, Performed” 
 
+{:.stu-note}
+> STU Note: Changed from QI-Core Stu 6.0, QI-Core 7.0 no longer includes an ObservationCancelled profile. Review with system implementers and HL7 standards experts indicate that an observation not performed for a reason does not exist since no observations occurred. Therefore, there is no direct mapping for QDM’s “Assessment,Performed” *negationRationale* attribute. Instead, a user can reject a proposal to perform an observation. To express such a rejection in QI-Core, use [QI-Core TaskRejected](StructureDefinition-qicore-taskrejected.html) with [focus](StructureDefinition-qicore-taskrejected-definitions.html#key_Task.focus) = [ServiceRequested](StructureDefinition-qicore-servicerequested.html) where the requested service is the intended observation represented as a code or a value set.  
+>
+
 QI-Core STU 7.0.0 also incorporates 20 observation-related profiles directly from US Core. The subsequent mapping tables provide more detail about how to address these new profiles when converting measures from QDM to QI-Core:
+
 
 |  **QI-Core STU7 Observaton Profile** | **QDM representation**  |
 | --- | --- | 
@@ -135,7 +140,7 @@ Assessment, Order uses the ServiceRequest resource. The codes for ordering speci
 
 | **QDM Context** | **QI-Core STU7** | **Comments** |
 | --- | --- | --- |
-| **Assessment, Order** | [ServiceRequest](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-servicerequest.html) | &nbsp; |
+| **Assessment, Order** | [ServiceRequest](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-servicerequest.html) | Note: for the positive use case, an order for an assessment to be performed using [ServiceRequest](StructureDefinition-qicore-servicerequest.html), the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequest-definitions.html#key_ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Assessment, Order” and “Assessment, Recommended” datatypes. |
 | &nbsp; | [ServiceRequest.intent](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.intent) | Required to differentiate an order from a recommendation. The intent value set allows such differentiation using “order” for orders and “plan” for recommendation. Constrain only to “order” (include children: original-order, reflex-order, filler-order, instance-order) |
 | **QDM Attributes** | &nbsp; | &nbsp; |
