@@ -490,6 +490,17 @@
         }
       },
       {
+        "id" : "Claim.insurance.coverage",
+        "path" : "Claim.insurance.coverage",
+        "short" : "Insurance information",
+        "min" : 1,
+        "max" : "1",
+        "type" : [{
+          "code" : "Reference",
+          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage"]
+        }]
+     },
+      {
         "id" : "Claim.item.encounter",
         "extension" : [
           {
