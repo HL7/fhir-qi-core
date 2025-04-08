@@ -105,7 +105,7 @@
 * participant.role: Type of involvement
 * participant.member: (QI) Who is involved
 
-**Primary code path:** category
+**Primary code path:** participant.role 
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
@@ -565,7 +565,7 @@
 * deceased[x]: (QI) Dead? How old/when?
 * condition.code: (QI) Condition suffered by relation
 
-**Primary code path:** type
+**Primary code path:** FamilyMemberHistory.condition.code
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
