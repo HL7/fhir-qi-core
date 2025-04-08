@@ -63,6 +63,7 @@ This page lists the change history for each version of QI-Core.
 1. Update to QI Core Profile Headings w/Current Version ([FHIR-47398](https://jira.hl7.org/browse/FHIR-47398)) Applied ([here](profiles.html))
 1. Correct duplicate content error from MustSupport Flag section ([FHIR-47407](https://jira.hl7.org/browse/FHIR-47407)) Applied ([here](index.html#mustsupport-flag)) 
 1. Removed performer items, added reasonCode to procedure negation examples ([FHIR-46670](https://jira.hl7.org/browse/FHIR-46670)) Applied ([here](Procedure-negation-with-code-example.html)) and ([here](Procedure-negation-example.html))
+1. Add (QI) flag and qicode keyelement extension([FHIR-47746](https://jira.hl7.org/browse/FHIR-47746)) Applied to multiple places
 1. Add (QI) Key Element extensions ([FHIR-47860](https://jira.hl7.org/browse/FHIR-47860)) Applied multiple places
 
 ### STU6 Release (6.0.0)
