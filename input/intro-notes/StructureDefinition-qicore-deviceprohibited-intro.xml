@@ -1,14 +1,19 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>QI Elements:</b>
 <ul>
-<li>modifierExtension: (QI) Extension</li>
+<li>modifierExtension(doNotPerform): (QI) Extension</li>
+<li>modifierExtension(doNotPerform): (QI) Extension</li>
 <li>modifierExtension.value[x]: (QI) Value of extension</li>
+<li>identifier: (QI) External Request identifier</li>
 <li>status: (QI) draft | active | on-hold | revoked | completed | entered-in-error | unknown</li>
 <li>intent: (QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option</li>
 <li>code[x]: (QI) Device requested</li>
-<li>doNotPerformValueSet: (QI) What was not done</li>
+<li>code[x].extension(codeOptions): (QI) Url of a value set of candidate devices</li>
 <li>subject: (QI) Focus of request</li>
+<li>authoredOn: (QI) When recorded</li>
 <li>authoredOn: (QI) When recorded</li>
 <li>reasonCode: (QI) Explanation/Justification for procedure or service</li>
 </ul>

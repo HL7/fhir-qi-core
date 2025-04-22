@@ -11,6 +11,13 @@ This page lists the change history for each version of QI-Core.
 1. QDM-to-QICore Mapping change Average Blood Pressure to PhysicalExam rather than AssessmentPerformed ([FHIR-46662](https://jira.hl7.org/browse/FHIR-46662)) Applied ([here](qdm-to-qicore.html))
 1. Add hyperlink to Using CQL with FHIR IG ([FHIR-47411](https://jira.hl7.org/browse/FHIR-47411)) Applied ([here](modelinfo.html))
 1. 13.12.1 Resource Profile: QICore wording changes  ([FHIR-47540](https://jira.hl7.org/browse/FHIR-47540)) Applied ([here](StrucutreDefinition-qicore-condition-encounter-diagnosis.html)) 
+1. Some Primary Code Path elements are not in the narrative element lists  ([FHIR-47744](https://jira.hl7.org/browse/FHIR-47744)) Applied ([here](StructureDefinition-qicore-careteam.html)) and ([here](StructureDefinition-qicore-familymemberhistory.html))
+1. QICore Communication and Communication Not Done primary code path ([FHIR-47747](https://jira.hl7.org/browse/FHIR-47747)) Applied ([here](StructureDefinition-qicore-communication.html) and [here](StructureDefinition-qicore-communicationdone.html) and [here](StructureDefinition-qicore-communicationnotdone.html))
+1. Updated NegationReasonCodes in QICore ServiceProhibited ([FHIR-47758](https://jira.hl7.org/browse/FHIR-47758)) Applied ([here](StructureDefinition-qicore-serviceprohibited.html)) and ([here](index.html#terminology-bindings))
+1. QI flag not applied consistently for Claim and ClaimResponse profiles ([FHIR-47821](https://jira.hl7.org/browse/FHIR-47821)) Applied ([here](StructureDefinition-qicore-claim.html))
+1. QICore Location primary code path  ([FHIR-47880](https://jira.hl7.org/browse/FHIR-47880)) Applied ([here](StructureDefinition-qicore-location.html))
+1. Removed recorded extension from MedicationAdministration and MedicationAdministrationNotDone ([FHIR-48094](https://jira.hl7.org/browse/FHIR-48094)) Applied ([here](StructureDefinition-qicore-medicationadministration.html)) and ([here](StructureDefinition-qicore-medicationadministrationnotdone.html))
+
 
 ### STU7-ballot (7.0.0)
 
@@ -23,7 +30,7 @@ This page lists the change history for each version of QI-Core.
 1. Link to Terminology "guidance section" doesn't work as intended ([FHIR-44808](https://jira.hl7.org/browse/FHIR-44808)) Applied ([here](terminology.html))
 1. Add reference to 3 new US Core observation profiles in QI-Core ([FHIR-45359](https://jira.hl7.org/browse/FHIR-45359)) Applied ([here](profiles.html))
 1. Update QI-Core references to USCDI consistent with US Core 7.0 approach ([FHIR-45360](https://jira.hl7.org/browse/FHIR-45360)) Applied in each profile ([here](profiles.html))
-1. Update qiqore-notDoneValueSet Extension ([FHIR-45368](https://jira.hl7.org/browse/FHIR-45368)) Applied ([here](extensions.html))
+1. Update qicore-notDoneValueSet Extension ([FHIR-45368](https://jira.hl7.org/browse/FHIR-45368)) Applied ([here](extensions.html))
 1. Update QI-Core to use extensions pack ([FHIR-45369](https://jira.hl7.org/browse/FHIR-45369)) Applied ([here](extensions.html))
 1. Update AllergyIntolerance, CarePlan, CareTeam, and Coverage profiles to address US Core 7.0 ([FHIR-45395](https://jira.hl7.org/browse/FHIR-45395)) Applied ([here](StructureDefinition-qicore-careplan.html)) and ([here](StructureDefinition-qicore-careteam.html))
 1. Update QI-Core Condition Encounter Diagnosis and QI-Core Condition Problems and Health Concerns Profiles to build off of US Core 7.0 ([FHIR-45396](https://jira.hl7.org/browse/FHIR-45396)) Applied ([here](StructureDefinition-qicore-condition-problems-health-concerns.html)) and ([here](StructureDefinition-qicore-condition-encounter-diagnosis.html))
@@ -53,14 +60,16 @@ This page lists the change history for each version of QI-Core.
 1. Update QI-Core Claim to include key elements for present on admission and principal diagnosis ([FHIR-45959](https://jira.hl7.org/browse/FHIR-45959)) Applied ([here](StructureDefinition-qicore-claim.html))
 1. Add (QI) tags to QI-Core profile elements used in test FHIR measures ([FHIR-46015](https://jira.hl7.org/browse/FHIR-46015)) Applied in each profile ([here](profiles.html))
 1. Add list of QI-Core-flagged elements to the narrative ([FHIR-46030](https://jira.hl7.org/browse/FHIR-46030)) Applied in each profile ([here](profiles.html))
-1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html)) 
-1. Update medication[x] content across not done for reason medication actions to assure consistency ([FHIR-46291](https://jira.hl7.org/browse/FHIR-46291)) Applied ([here](StructureDefinition-qicore-medicationnotrequested.html)) and ([here](StructureDefinition-qicore-medicationadministrationnotdone.html)) and ([here](StructureDefinition-qicore-medicationdispensedeclined.html)) 
+1. QICore MedicationRequest prohibits reportedBoolean ([FHIR-46040](https://jira.hl7.org/browse/FHIR-46040)) Applied ([here](StructureDefinition-qicore-medicationrequest.html))
+1. Update medication[x] content across not done for reason medication actions to assure consistency ([FHIR-46291](https://jira.hl7.org/browse/FHIR-46291)) Applied ([here](StructureDefinition-qicore-medicationnotrequested.html)) and ([here](StructureDefinition-qicore-medicationadministrationnotdone.html)) and ([here](StructureDefinition-qicore-medicationdispensedeclined.html))
 1. QICoreCommunicationRequest description text change ([FHIR-46654](https://jira.hl7.org/browse/FHIR-46654)) Applied ([here](StructureDefinition-qicore-task.html))
 1. Remove "ADDITIONAL USCDI" indicator ([FHIR-46657](https://jira.hl7.org/browse/FHIR-46657)) Applied ([here](StructureDefinition-qicore-medicationnotrequested.html)) and ([here](StructureDefinition-qicore-medicationrequest.html))
 1. QICoreTask description text change ([FHIR-46659](https://jira.hl7.org/browse/FHIR-46659)) Applied ([here](StructureDefinition-qicore-task.html))
 1. Update to QI Core Profile Headings w/Current Version ([FHIR-47398](https://jira.hl7.org/browse/FHIR-47398)) Applied ([here](profiles.html))
-1. Correct duplicate content error from MustSupport Flag section ([FHIR-47407](https://jira.hl7.org/browse/FHIR-47407)) Applied ([here](index.html#mustsupport-flag)) 
+1. Correct duplicate content error from MustSupport Flag section ([FHIR-47407](https://jira.hl7.org/browse/FHIR-47407)) Applied ([here](index.html#mustsupport-flag))
 1. Removed performer items, added reasonCode to procedure negation examples ([FHIR-46670](https://jira.hl7.org/browse/FHIR-46670)) Applied ([here](Procedure-negation-with-code-example.html)) and ([here](Procedure-negation-example.html))
+1. Add (QI) flag and qicode keyelement extension([FHIR-47746](https://jira.hl7.org/browse/FHIR-47746)) Applied to multiple places
+1. Add (QI) Key Element extensions ([FHIR-47860](https://jira.hl7.org/browse/FHIR-47860)) Applied multiple places
 
 ### STU6 Release (6.0.0)
 

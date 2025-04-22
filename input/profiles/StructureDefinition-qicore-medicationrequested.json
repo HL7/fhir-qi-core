@@ -77,6 +77,50 @@
         }
       },
       {
+        "id" : "MedicationRequest.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "MedicationRequest.category",
+        "slicing" : {
+          "discriminator" : [
+            {
+              "type" : "pattern",
+              "path" : "$this"
+            }
+          ],
+          "rules" : "open"
+        },
+        "short" : "(QI) Type of medication usage",
+         "min" : 0,
+        "max" : "*",
+        "base" : {
+          "path" : "MedicationRequest.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "CodeableConcept"
+          }
+        ],
+        "mustSupport" : true,
+        "binding" : {
+          "extension" : [
+            {
+              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+              "valueString" : "MedicationRequestCategory"
+            }
+          ],
+          "strength" : "example",
+          "description" : "A coded concept identifying the category of medication request.  For example, where the medication is to be consumed or administered, or the type of medication treatment.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/medicationrequest-category"
+        }
+      },
+      {
         "id": "MedicationRequest.doNotPerform",
         "extension": [
           {

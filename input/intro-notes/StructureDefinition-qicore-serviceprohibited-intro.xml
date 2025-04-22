@@ -1,17 +1,20 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) draft | active | on-hold | revoked | completed | entered-in-error | unknown</li>
+<li>status: (QI) draft | active | on-hold | completed</li>
 <li>intent: (QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option</li>
-<li>code: What is being requested/ordered</li>
+<li>code: (QI) What is being requested/ordered</li>
 <li>subject: (QI) Individual or Entity the service is ordered for</li>
 <li>authoredOn: (QI) Date request signed</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>notDoneValueSet: (QI) What was not requested</li>
+<li>doNotPerform: (QI) True if service/procedure should not be performed</li>
+<li>code.extension(codeOptions): (QI) Url of a value set of candidate services</li>
 <li>occurrence[x]: (QI) When service should occur</li>
 <li>reasonCode: (QI) Explanation/Justification for procedure or service</li>
 <li>reasonReference: (QI) Explanation/Justification for service or service</li>
@@ -21,6 +24,17 @@
 <br></br>
 (PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#retrieve'>CQL Retrieve</a>
 <br></br>
+<br></br>
+<b>Additional bindings used in this profile:</b>
+<br></br>
+QI-Core aligns with US Core to address terminology bindings. The FHIR rules for
+extensible bindings state that all conceptual overlaps, including free text,
+should be mapped to the coded values in the bindings. QI-Core (similar to US Core)
+adopts the <a href='https://hl7.org/fhir/R5/terminologies.html#binding'>additional binding</a> concept from FHIR R5 for more flexibility in exchanging
+legacy and text-only data. The use of additional binding for ServiceRequest.reasonCode
+provides guidance for additional values in addition the those in the value set
+defined by US Core for the element. Thus, ServiceRequest.reasonCode includes an
+additional extensible binding to <a href='https://build.fhir.org/ig/HL7/fhir-qi-core/ValueSet-qicore-negation-reason.html'>NegationReasonCodes</a> to support the use case.
 <br></br>
 
 <br></br>

@@ -68,6 +68,37 @@
         "path": "Condition.meta",
         "mustSupport": true
       },
+	  {
+        "id" : "Condition.extension:assertedDate",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.extension",
+        "sliceName" : "assertedDate",
+        "short" : "(QI) Date the condition was first asserted",
+        "definition" : "The date on which the existence of the Condition was first asserted or acknowledged.",
+        "comment" : "The assertedDate is in the context of the recording practitioner and might not be the same as the recordedDate.",
+        "min" : 0,
+        "max" : "1",
+        "base" : {
+          "path" : "DomainResource.extension",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [
+          {
+            "code" : "Extension",
+            "profile" : [
+              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate"
+            ]
+          }
+        ],        
+		"mustSupport" : true,
+        "isModifier" : false
+      },      
       {
         "id": "Condition.meta.lastUpdated",
         "path": "Condition.meta.lastUpdated",
@@ -98,6 +129,44 @@
         "path" : "Condition.verificationStatus",
         "short" : "(QI) unconfirmed | provisional | differential | confirmed | refuted | entered-in-error",
         "definition" : "The verification status to support the clinical status of the condition."
+      },
+      {
+        "id" : "Condition.category",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "Condition.category",
+        "slicing" : {
+          "discriminator" : [{
+            "type" : "pattern",
+            "path" : "$this"
+          }],
+          "rules" : "open"
+        },
+        "short" : "(QI) category codes",
+         "min" : 1,
+        "max" : "*",
+        "base" : {
+          "path" : "Condition.category",
+          "min" : 0,
+          "max" : "*"
+        },
+        "type" : [{
+          "code" : "CodeableConcept"
+        }],
+        "mustSupport" : true,
+        "binding" : {
+          "extension" : [{
+            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+            "valueString" : "ConditionCategory"
+          }],
+          "strength" : "extensible",
+          "description" : "A category assigned to the condition.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/condition-category"
+        }
       },
       {
         "id" : "Condition.severity",

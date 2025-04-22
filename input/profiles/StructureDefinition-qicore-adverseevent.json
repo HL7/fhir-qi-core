@@ -143,7 +143,14 @@
       },
       {
         "id" : "AdverseEvent.date",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "AdverseEvent.date",
+		"short" : "(QI) When the event occurred",
         "mustSupport" : false
       },
       {
@@ -189,6 +196,42 @@
           }
         ],
         "mustSupport" : false
+      },
+      {
+        "id" : "AdverseEvent.seriousness",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "AdverseEvent.seriousness",
+        "short" : "(QI) Seriousness of the event",
+        "min" : 0,
+        "max" : "1",
+        "binding" : {
+          "strength" : "example",
+          "description" : "Overall seriousness of this event for the patient.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/adverse-event-seriousness"
+        }
+      },
+      {
+        "id" : "AdverseEvent.severity",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path" : "AdverseEvent.severity",
+        "short" : "(QI) mild | moderate | severe",
+        "min" : 0,
+        "max" : "1",
+        "binding" : {
+          "strength" : "required",
+          "description" : "The severity of the adverse event itself, in direct relation to the subject.",
+          "valueSet" : "http://hl7.org/fhir/ValueSet/adverse-event-severity"
+        }
       },
       {
         "id" : "AdverseEvent.recorder",
