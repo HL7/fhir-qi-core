@@ -17,9 +17,9 @@
 <li>sender: (QI) Message sender</li>
 </ul>
 
-<b>Primary code path:</b> reasonCode
+<b>Primary code path:</b> topic
 <br></br>
-(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
+(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#retrieve'>CQL Retrieve</a>
 <br></br>
 <br></br>
 
@@ -32,7 +32,7 @@
 <li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
 </ul>
 <li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
-<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdiplus?id%3Duscdi_record&amp;table%3Dx_g_sshh_uscdi_domain&amp;sys_id%3D7ddf78228745b95098e5edb90cbb3525&amp;view=sp'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
 </ul>
 <br></br>
 
@@ -49,12 +49,11 @@ whether it is a positive or negative statement.</p>
 
   <p>This example meets measure intent for exclusion as defined in the following example CQL:</p>
 
-<pre><code>define CommunicationNoteDone:
-  [CommunicationNotDone: "Macular edema absent (finding)"] MacularEdemaAbsentNotCommunicated
-    with "Diabetic Retinopathy Encounter" EncounterDiabeticRetinopathy
-      such that MacularEdemaAbsentNotCommunicated.sent during EncounterDiabeticRetinopathy.period
-        and ( MacularEdemaAbsentNotCommunicated.statusReason in "Medical Reason"
-          or MacularEdemaAbsentNotCommunicated.statusReason in "Patient Reason"
+<pre><code>define "Medication Not Available":
+["CommunicationNotDone": "progress update"] ProgressUpdate
+    where ProgressUpdate.topic = 'progress-update'
+    and ProgressUpdate.status = 'completed'
+    and ProgressUpdate.reasonCode = 'Medication not available from manufacturer (finding)'
         )</code></pre>
 
   <p>For a more complete discussion of representation of negation within QI-Core and quality improvement artifacts, see the <a href="negation.html">Negation in QI-Core</a> topic.</p>
