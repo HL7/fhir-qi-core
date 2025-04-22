@@ -31,9 +31,9 @@
 {: #summary}
 
 The QI-Core Implementation Guide defines a set of FHIR profiles with extensions and bindings needed to create
-interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend the
-Core profiles to provide a common foundation for building, sharing, and evaluating
-knowledge artifacts across quality improvement efforts in the US Realm.
+interoperable, quality-focused applications. The profiles in this implementation guide derive from and extend 
+the base FHIR resources and US Core profiles to provide a common foundation for building, sharing, 
+and evaluating knowledge artifacts across quality improvement efforts in the US Realm.
 
 As an HL7 FHIR Implementation Guide, changes to this specification are managed by the sponsoring workgroup,
 [Clinical Quality Information](http://www.hl7.org/Special/committees/cqi/index.cfm), and incorporated as part of the

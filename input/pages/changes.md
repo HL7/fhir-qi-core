@@ -19,6 +19,7 @@ This page lists the change history for each version of QI-Core.
 1. Updated QDM-QICore mapping page. ([FHIR-48920](https://jira.hl7.org/browse/FHIR-48920), [FHIR-48697](https://jira.hl7.org/browse/FHIR-48697), [FHIR-47404](https://jira.hl7.org/browse/FHIR-47404), [FHIR-45597](https://jira.hl7.org/browse/FHIR-45597)) Applied [here](qdm-to-qicore.html)
 1. QICore Location primary code path  ([FHIR-47880](https://jira.hl7.org/browse/FHIR-47880)) Applied ([here](StructureDefinition-qicore-location.html))
 1. Removed recorded extension from MedicationAdministration and MedicationAdministrationNotDone ([FHIR-48094](https://jira.hl7.org/browse/FHIR-48094)) Applied ([here](StructureDefinition-qicore-medicationadministration.html)) and ([here](StructureDefinition-qicore-medicationadministrationnotdone.html))
+1. Clarified summary text on index page ([FHIR-47742](https://jira.hl7.org/browse/FHIR-47742)) Applied ([here](index.html))
 
 ### STU7-ballot (7.0.0)
 
