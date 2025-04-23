@@ -30,11 +30,12 @@ QI-Core STU7 includes observation-related profiles that provide QI-Core-specific
 - [QICore Laboratory Result Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-lab.html) – generally used with QDM “Laboratory Test, Performed”
 - [QICore Observation Screening Assessment](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-screening-assessment.html) – generally used with QDM “Assessment, Performed” when referencing panels of multi-question surveys or evaluation tools
 - [QICore NonPatient Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nonpatient-observation.html) – developed to enable structural measures evaluating available resources for which a patient is not the measure subject; this profile is an approved variance from US Core only for use in [structural measures](https://mmshub.cms.gov/node/203). <http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html>
-- [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-head-occipital-frontal-circumference-percentile.html) – generally used with QDM “Physical Exam, Performed” 
+
 
 {:.stu-note}
 >STU Note: Changed from QI-Core Stu 6.0, QI-Core 7.0 no longer includes an ObservationCancelled profile. Review with system implementers and HL7 standards experts indicate that an observation not performed for a reason does not exist since no observations occurred. Therefore, there is no direct mapping for QDM’s “Assessment, Performed” _negationRationale_ attribute. Instead, a user can reject a proposal to perform an observation. To express such a rejection in QI-Core, use [QI-Core TaskRejected](StructureDefinition-qicore-taskrejected.html) with [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) = [ServiceRequested](StructureDefinition-qicore-servicerequested.html) where the requested service is the intended observation represented as a code or a value set.
 > 
+<br>
 
 QI-Core STU 7.0.0 also incorporates observation-related profiles directly from US Core. The subsequent mapping tables provide more detail about how to address these new profiles when converting measures from QDM to QI-Core:
 
@@ -126,7 +127,6 @@ Intolerance is a record of a clinical assessment of a propensity, or a potential
 
 QDM defines Assessment as a resource used to define specific observations that clinicians use to guide treatment of the patient. An assessment can be a single question, or observable entity with an expected response, an organized collection of questions intended to solicit information from patients, providers or other individuals, or a single observable entity that is part of such a collection of questions. In previous versions of QI-Core, QDM Assessment category mapped directly to QICore Observation. US Core STU7 includes a number of specific observation profiles such that there are now six profiles providing greater specificity in defining observations. QI-Core inherits eight of the observation profiles directly from US Core as no additional constraints are necessary:
 
-- ~~[US Core Average Blood Pressure Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-average-blood-pressure.html)~~
 - [US Core Care Experience Preference Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-care-experience-preference.html)
 - [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-observation-occupation.html)
 - [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-observation-pregnancyintent.html)
@@ -181,7 +181,6 @@ QDM defines Assessment as a resource used to define specific observations that c
 
 - [QICore Simple Observation Profile](StructureDefinition-qicore-simple-observation.html)
 - [QICore Observation Screening Assessment Profile](StructureDefinition-qicore-observation-screening-assessment.html)
-- ~~[US Core Average Blood Pressure Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-average-blood-pressure.html)~~
 - [US Core Care Experience Preference Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-care-experience-preference.html)
 - [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-observation-occupation.html)
 - [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-observation-pregnancyintent.html)
@@ -1466,7 +1465,7 @@ QDM “Physical Exam, Performed” should reference the specific US Core vital s
 
 | **QDM Context** | **QI-Core STU7** | **Comments** |
 | --- | --- | --- |
-| **Physical Exam, Performed - General** | [QI-Core Simple Observation](StructureDefinition-qicore-simple-observation.html)  <br>[QI-Core Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) | &nbsp; |
+| **Physical Exam, Performed - General** | [QI-Core Simple Observation](StructureDefinition-qicore-simple-observation.html)  <br>[QI-Core Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) <br>[US Core Average Blood Pressure Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-average-blood-pressure.html)| &nbsp; |
 | &nbsp; | [Observation.status](StructureDefinition-qicore-simple-observation-definitions.html#Observation.status) | Constrain status to - final, amended, corrected. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Physical Exam, Performed” datatype. |
 | &nbsp; | [Observation.category](StructureDefinition-qicore-simple-observation-definitions.html#Observation.category) | Category helps to narrow the request to the class of observation required to meet measure intent. Each QI-Core or US Core profile has a specific binding to concepts appropriate to the respective profile. Note that QDM does not have an attribute comparable to category, the element may be helpful in expressing a quality measure. |
 | **QDM Attributes** | &nbsp; | &nbsp; |
