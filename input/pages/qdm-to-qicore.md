@@ -1691,7 +1691,7 @@ NOTE – There is no specific QDM datatype to address the  [Nutrition Order](Str
 | negationRationale | N/A | &nbsp; |
 | authorDatetime | [NutritionOrder.dateTime](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.dateTime) | Date and time nutrition order was requested |
 | relevantPeriod | [NutritionOrder.enteralFormula.administration.schedule](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.enteralFormula.administration.schedule) | Likely not relevant for measure use cases. Not present in QI-Core Key Elements Table. |
-{: .grid}f
+{: .grid}
 
 
 ### Symptom
