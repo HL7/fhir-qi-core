@@ -96,7 +96,6 @@ The following example documents that providers did not prescribe any of the medi
 
 See the <a href="MedicationAdministration-negation-example.html">MedicationAdministration example using a value set</a> for a complete example.
 
-<div class="new-content" markdown="1">
 
 ```json
 {
@@ -134,7 +133,6 @@ See the <a href="MedicationAdministration-negation-example.html">MedicationAdmin
 }
 ```
 
-</div>
 
 #### Do Not Perform Requests
 
