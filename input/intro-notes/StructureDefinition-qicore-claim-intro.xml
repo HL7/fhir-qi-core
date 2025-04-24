@@ -1,30 +1,25 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
-"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br><br></br>
 
 <b>QI Elements:</b>
 <ul>
-<li>Claim: Claim, Pre-determination or Pre-authorization</li>
-<li>patient: (QI) The recipient of the products and services</li>
-<li>billablePeriod: (QI) Relevant time frame for the claim</li>
-<li>created: (QI) Resource creation date</li>
 <li>provider: (QI) Party responsible for the claim</li>
-<li>prescription: (QI) Prescription authorizing services and products</li>
+<li>patient: (QI) The recipient of the products and services</li>
+<li>type: (QI) category | discipline</li>
+<li>billablePeriod: (QI) Relevant time frame for the claim</li>
+<li>Claim: Claim, Pre-determination or Pre-authorization</li>
+<li>use: (QI) claim | preauthorization | predetermination</li>
 <li>diagnosis: (QI) Pertinent diagnosis information</li>
-<li>diagnosis.sequence: (QI) Diagnosis instance identifier</li>
-<li>diagnosis.diagnosis[x]: (QI) Nature of illness or problem</li>
-<li>diagnosis.type: (QI) Timing or nature of the diagnosis</li>
-<li>diagnosis.onAdmission: (QI) Present on admission</li>
 <li>procedure: (QI) Clinical procedures performed</li>
-<li>procedure.sequence: (QI) Procedure instance identifier</li>
-<li>procedure.type: (QI) Category of Procedure</li>
-<li>procedure.procedure[x]: (QI) Specific clinical procedure</li>
-<li>item.encounter: (QI) Encounters related to this billed item</li>
+<li>created: (QI) Resource creation date</li>
+<li>prescription: (QI) Prescription authorizing services and products</li>
+<li>status: (QI) active</li>
 </ul>
 
 <b>Primary code path:</b> type
 <br></br>
-(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#retrieve'>CQL Retrieve</a>
+(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
 <br></br>
 <br></br>
 
@@ -37,7 +32,7 @@
 <li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
 </ul>
 <li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
-<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdiplus?id%3Duscdi_record&amp;table%3Dx_g_sshh_uscdi_domain&amp;sys_id%3D7ddf78228745b95098e5edb90cbb3525&amp;view=sp'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
 </ul>
 <br></br>
 

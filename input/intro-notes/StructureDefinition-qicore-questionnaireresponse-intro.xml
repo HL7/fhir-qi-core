@@ -1,22 +1,26 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
-"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br><br></br>
 
 <b>Must Have:</b>
 <ul>
-<li>questionnaire: Form being answered</li>
+<li>questionnaire: (QI) Form being answered</li>
 <li>status: in-progress | completed | amended | entered-in-error | stopped</li>
 <li>subject: (QI) The subject of the questions</li>
 <li>authored: Date the answers were gathered</li>
-<li>item.linkId: (QI) Pointer to specific item from Questionnaire</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>author: (QI) Person who received and recorded the answers</li>
 <li>item: (QI) Groups and questions</li>
-<li>item.answer.value[x]: (QI) Single-valued answer to the question</li>
+<li>author: (QI) Person who received and recorded the answers</li>
 </ul>
+
+<b>Primary code path:</b> questionnaire
+<br></br>
+(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
+<br></br>
+<br></br>
 
 <br></br>
 <b>NOTE TO BALLOT REVIEWERS:</b>
@@ -27,7 +31,7 @@
 <li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
 </ul>
 <li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
-<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdiplus?id%3Duscdi_record&amp;table%3Dx_g_sshh_uscdi_domain&amp;sys_id%3D7ddf78228745b95098e5edb90cbb3525&amp;view=sp'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
 </ul>
 <br></br>
 

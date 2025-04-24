@@ -1,21 +1,24 @@
+<div class="new-content" markdown="1">
 "Must Have", "QI Elements" and "primary code path" are defined in the [QI-Core Must Support section](index.html#mustsupport-flag).
 
 ### [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html) ###
 
 
 **QI Elements:**
-* actuality: (QI) actual \| potential
 * category: (QI) product-problem \| product-quality \| product-use-error \| wrong-dose \| incorrect-prescribing-information \| wrong-technique \| wrong-route-of-administration \| wrong-rate \| wrong-duration \| wrong-time \| expired-drug \| medical-device-use-error \| problem-different-manufacturer \| unsafe-physical-environment
-* event: (QI) Type of the event itself in relation to the subject
-* subject: (QI) Subject impacted by event
-* encounter: (QI) Encounter created as part of
-* recordedDate: (QI) When the event was recorded
+* severity: (QI) mild \| moderate \| severe
 * resultingCondition: (QI) Effect on the subject due to this event
-* suspectEntity.instance: (QI) Refers to the specific entity that caused the adverse event
+* event: (QI) Type of the event itself in relation to the subject
+* encounter: (QI) Encounter created as part of
+* date: (QI) When the event occurred
+* seriousness: (QI) Seriousness of the event
+* recordedDate: (QI) When the event was recorded
+* subject: (QI) Subject impacted by event
+* actuality: (QI) actual \| potential
 
 **Primary code path:** event
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -27,26 +30,24 @@
 
 
 **Must Have:**
-* code: (QI) Code that identifies the allergy or intolerance
 * patient: (QI) Who the sensitivity is for
-* reaction.manifestation: Clinical symptoms/signs associated with the Event
+* code: (QI) Code that identifies the allergy or intolerance
 
 
 **QI Elements:**
+* verificationStatus: (QI) unconfirmed \| confirmed \| refuted \| entered-in-error
+* onset[x]: (QI) When allergy or intolerance was identified
 * clinicalStatus: (QI) active \| inactive \| resolved
-* verificationStatus: unconfirmed \| confirmed \| refuted \| entered-in-error
+* criticality: (QI) low \| high \| unable-to-assess
+* recordedDate: (QI) Date first version of the resource instance was recorded
 * type: (QI) allergy \| intolerance - Underlying mechanism (if known)
 * category: (QI) food \| medication \| environment \| biologic
-* criticality: (QI) low \| high \| unable-to-assess
-* onset[x]: (QI) When allergy or intolerance was identified
-* recordedDate: (QI) Date first version of the resource instance was recorded
 * lastOccurrence: (QI) Date(/time) of last known occurrence of a reaction
 * reaction: (QI) Adverse Reaction Events linked to exposure to substance
-* reaction.severity: (QI) mild \| moderate \| severe (of event as a whole)
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -59,13 +60,13 @@
 
 **QI Elements:**
 * active: (QI) Whether this record is in active use
-* location: (QI) Body site
-* locationQualifier: (QI) Body site modifier
 * patient: (QI) Who this is about
+* locationQualifier: (QI) Body site modifier
+* location: (QI) Body site
 
 **Primary code path:** location
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -77,17 +78,15 @@
 
 
 **Must Have:**
-* text.status: generated \| additional
-* text.div: Limited xhtml content
+* subject: (QI) Who the care plan is for.
 * status: draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
+* category(AssessPlan): (QI) Type of plan
 * intent: proposal \| plan \| order \| option
 * category: (QI) Type of plan
-* category(AssessPlan): (QI) Type of plan
-* subject: (QI) Who the care plan is for.
 
 **Primary code path:** category
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -99,14 +98,12 @@
 
 
 **Must Have:**
-* subject: (QI) Who the care team is for.
 * participant: Members of the team
-* participant.role: Type of involvement
-* participant.member: (QI) Who is involved
+* subject: (QI) Who the care team is for.
 
-**Primary code path:** participant.role 
+**Primary code path:** participant.role
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -118,26 +115,21 @@
 
 
 **QI Elements:**
-* Claim: Claim, Pre-determination or Pre-authorization
-* patient: (QI) The recipient of the products and services
-* billablePeriod: (QI) Relevant time frame for the claim
-* created: (QI) Resource creation date
 * provider: (QI) Party responsible for the claim
-* prescription: (QI) Prescription authorizing services and products
+* patient: (QI) The recipient of the products and services
+* type: (QI) category \| discipline
+* billablePeriod: (QI) Relevant time frame for the claim
+* Claim: Claim, Pre-determination or Pre-authorization
+* use: (QI) claim \| preauthorization \| predetermination
 * diagnosis: (QI) Pertinent diagnosis information
-* diagnosis.sequence: (QI) Diagnosis instance identifier
-* diagnosis.diagnosis[x]: (QI) Nature of illness or problem
-* diagnosis.type: (QI) Timing or nature of the diagnosis
-* diagnosis.onAdmission: (QI) Present on admission
 * procedure: (QI) Clinical procedures performed
-* procedure.sequence: (QI) Procedure instance identifier
-* procedure.type: (QI) Category of Procedure
-* procedure.procedure[x]: (QI) Specific clinical procedure
-* item.encounter: (QI) Encounters related to this billed item
+* created: (QI) Resource creation date
+* prescription: (QI) Prescription authorizing services and products
+* status: (QI) active
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -149,23 +141,19 @@
 
 
 **QI Elements:**
-* status: (QI) active \| cancelled \| draft \| entered-in-error
-* type: (QI) More granular claim type
-* use: (QI) claim \| preauthorization \| predetermination
+* request: (QI) Id of resource triggering adjudication
+* requestor: (QI) Party responsible for the claim
 * patient: (QI) The recipient of the products and services
 * created: (QI) Response creation date
-* insurer: (QI) Party responsible for reimbursement
-* requestor: (QI) Party responsible for the claim
-* request: (QI) Id of resource triggering adjudication
+* status: (QI) active \| cancelled \| draft \| entered-in-error
+* use: (QI) claim \| preauthorization \| predetermination
 * item: (QI) Adjudication for claim line items
-* item.adjudication: (QI) Adjudication details
-* item.adjudication.category: (QI) This code is fixed to 'submitted' to indicate that the adjudication result is on what was submitted.
-* item.adjudication.amount: (QI) Monetary amount
-* item.detail.detailSequence: (QI) Claim detail instance identifier
+* type: (QI) More granular claim type
+* insurer: (QI) Party responsible for reimbursement
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -178,20 +166,19 @@
 
 **QI Elements:**
 * extension(event-recorded): (QI) Captures the recorded date of the communication
-* status: (QI) not-done
-* status: (QI) not-done
-* statusReason: (QI) Reason for current status
-* subject: (QI) Focus of message
-* topic: (QI) Description of the purpose/content
 * topic.extension(codeOptions): (QI) Url of a value set of candidate topics
-* sent: (QI) When sent
-* received: (QI) When received
-* recipient: (QI) Message recipient
+* statusReason: (QI) Reason for current status
 * sender: (QI) Message sender
+* sent: (QI) When sent
+* topic: (QI) Description of the purpose/content
+* subject: (QI) Focus of message
+* received: (QI) When received
+* status: (QI) not-done
+* recipient: (QI) Message recipient
 
-**Primary code path:** reasonCode
+**Primary code path:** topic
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -203,16 +190,16 @@
 
 
 **QI Elements:**
-* status: (QI) preparation \| in-progress \| not-done \| on-hold \| stopped \| completed \| entered-in-error \| unknown
-* subject: (QI) Focus of message
-* topic: (QI) Description of the purpose/content
 * topic.extension(codeOptions): (QI) Url of a value set of candidate topics
-* sent: (QI) When sent
-* received: (QI) When received
-* recipient: (QI) Message recipient
 * sender: (QI) Message sender
+* sent: (QI) When sent
+* topic: (QI) Description of the purpose/content
+* subject: (QI) Focus of message
+* received: (QI) When received
+* status: (QI) preparation \| in-progress \| not-done \| on-hold \| stopped \| completed \| entered-in-error \| unknown
+* recipient: (QI) Message recipient
 
-**Primary code path:** reasonCode
+**Primary code path:** topic
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
@@ -226,18 +213,18 @@
 
 
 **QI Elements:**
-* status: (QI) preparation \| in-progress \| on-hold \| stopped \| completed
-* subject: (QI) Focus of message
-* topic: (QI) Description of the purpose/content
 * topic.extension(codeOptions): (QI) Url of a value set of candidate topics
+* status: (QI) preparation \| in-progress \| on-hold \| stopped \| completed
+* sender: (QI) Message sender
 * sent: (QI) When sent
+* topic: (QI) Description of the purpose/content
+* subject: (QI) Focus of message
 * received: (QI) When received
 * recipient: (QI) Message recipient
-* sender: (QI) Message sender
 
-**Primary code path:** reasonCode
+**Primary code path:** topic
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -250,16 +237,16 @@
 
 **QI Elements:**
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
-* category: (QI) Message category
-* doNotPerform: (QI) True if request is prohibiting action
-* subject: (QI) Focus of message
 * encounter: (QI) Encounter created as part of
-* recipient: (QI) Message recipient
+* category: (QI) Message category
 * sender: (QI) Message sender
+* subject: (QI) Focus of message
+* doNotPerform: (QI) True if request is prohibiting action
+* recipient: (QI) Message recipient
 
 **Primary code path:** category
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -271,20 +258,25 @@
 
 
 **Must Have:**
-* category: category codes
+* category: (QI) category codes
 * category(us-core): encounter-diagnosis
-* code: Identification of the condition, problem or diagnosis
+* code: (QI) Identification of the condition, problem or diagnosis
 * subject: (QI) Who has the condition?
 
 
 **QI Elements:**
+* clinicalStatus: (QI) active \| recurrence \| relapse \| inactive \| remission \| resolved
+* extension(assertedDate): (QI) Date the condition was first asserted
 * encounter: (QI) Encounter created as part of
-* onset[x]: (QI) Estimated or actual date, date-time, or age
+* recordedDate: (QI) Date record was first recorded
 * abatement[x]: (QI) When in resolution/remission
+* severity: (QI) Subjective severity of condition
+* onset[x]: (QI) Estimated or actual date, date-time, or age
+* verificationStatus: (QI) unconfirmed \| provisional \| differential \| confirmed \| refuted \| entered-in-error
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -296,23 +288,24 @@
 
 
 **Must Have:**
-* category: category codes
-* category(us-core): problem-list-item \| health-concern
+* category: (QI) category codes
 * code: (QI) Identification of the condition, problem or diagnosis
+* category(us-core): problem-list-item \| health-concern
 * subject: (QI) Who has the condition?
 
 
 **QI Elements:**
 * clinicalStatus: (QI) active \| recurrence \| relapse \| inactive \| remission \| resolved
-* verificationStatus: (QI) unconfirmed \| provisional \| differential \| confirmed \| refuted \| entered-in-error
+* extension(assertedDate): (QI) Date the condition was first asserted
+* recordedDate: (QI) Date record was first recorded
+* abatement[x]: (QI) When in resolution/remission
 * severity: (QI) Subjective severity of condition
 * onset[x]: (QI) Estimated or actual date, date-time, or age
-* abatement[x]: (QI) When in resolution/remission
-* recordedDate: (QI) Date record was first recorded
+* verificationStatus: (QI) unconfirmed \| provisional \| differential \| confirmed \| refuted \| entered-in-error
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -324,24 +317,24 @@
 
 
 **Must Have:**
-* identifier.type: Member Number identifier type
-* status: active \| cancelled \| draft \| entered-in-error
-* beneficiary: (QI) Plan beneficiary
-* relationship: Beneficiary relationship to the subscriber
 * payor: (QI) Issuer of the policy
 * class.value: Group Number
+* identifier.type: Member Number identifier type
 * class.value: Plan Number
+* beneficiary: (QI) Plan beneficiary
+* status: active \| cancelled \| draft \| entered-in-error
+* relationship: Beneficiary relationship to the subscriber
 
 
 **QI Elements:**
-* type: (QI) Coverage category such as medical or accident
-* policyHolder: (QI) Owner of the policy
 * subscriberId: (QI) ID assigned to the subscriber
+* policyHolder: (QI) Owner of the policy
 * period: (QI) Coverage start and end dates
+* type: (QI) Coverage category such as medical or accident
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -353,22 +346,20 @@
 
 
 **QI Elements:**
-* modifierExtension(doNotPerform): (QI) Extension
-* modifierExtension(doNotPerform): (QI) Extension
-* modifierExtension.value[x]: (QI) Value of extension
-* identifier: (QI) External Request identifier
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
+* modifierExtension(doNotPerform): (QI) Extension
+* authoredOn: (QI) When recorded
 * intent: (QI) proposal \| plan \| directive \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * code[x]: (QI) Device requested
 * code[x].extension(codeOptions): (QI) Url of a value set of candidate devices
-* subject: (QI) Focus of request
-* authoredOn: (QI) When recorded
-* authoredOn: (QI) When recorded
 * reasonCode: (QI) Explanation/Justification for procedure or service
+* subject: (QI) Focus of request
+* modifierExtension.value[x]: (QI) Value of extension
+* identifier: (QI) External Request identifier
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -384,7 +375,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -396,14 +387,14 @@
 
 
 **QI Elements:**
-* modifierExtension(doNotPerform): (QI) Extension
-* identifier: (QI) External Request identifier
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
+* modifierExtension(doNotPerform): (QI) Extension
+* authoredOn: (QI) When recorded
 * intent: (QI) proposal \| plan \| directive \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * code[x]: (QI) Device requested
 * code[x].extension(codeOptions): (QI) Url of a value set of candidate devices
 * subject: (QI) Focus of request
-* authoredOn: (QI) When recorded
+* identifier: (QI) External Request identifier
 
 **Primary code path:** code
 <br>
@@ -419,20 +410,19 @@
 
 
 **QI Elements:**
-* modifierExtension(doNotPerform): (QI) Extension
-* modifierExtension(doNotPerform): (QI) Extension
-* modifierExtension.value[x]: (QI) Value of extension
-* identifier: (QI) External Request identifier
 * status: (QI) draft \| active \| on-hold \| revoked \| completed \| entered-in-error \| unknown
+* modifierExtension(doNotPerform): (QI) Extension
+* authoredOn: (QI) When recorded
 * intent: (QI) proposal \| plan \| directive \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * code[x]: (QI) Device requested
 * code[x].extension(codeOptions): (QI) Url of a value set of candidate devices
 * subject: (QI) Focus of request
-* authoredOn: (QI) When recorded
+* modifierExtension.value[x]: (QI) Value of extension
+* identifier: (QI) External Request identifier
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -444,43 +434,16 @@
 
 
 **QI Elements:**
-* status: (QI) active \| completed \| entered-in-error +
 * subject: (QI) Patient using device
-* timing[x]: (QI) How often the device was used
+* bodySite: (QI) Target body site
+* status: (QI) active \| completed \| entered-in-error +
 * recordedOn: (QI) When statement was recorded
 * device: (QI) Reference to device used
-* bodySite: (QI) Target body site
+* timing[x]: (QI) How often the device was used
 
 **Primary code path:** device.type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
-<br>
-
-
-
-<br>
-<br>
-
-### [QICore DiagnosticReport Profile for Laboratory Results Reporting](StructureDefinition-qicore-diagnosticreport-lab.html) ###
-
-
-**Must Have:**
-* status: (QI)registered \| partial \| preliminary \| final +
-* category: (QI) Service category
-* category(LaboratorySlice): (QI) Service category
-* code: (QI) US Core Laboratory Report Order Code
-* subject: (QI) The subject of the report - usually, but not always, the patient
-
-
-**QI Elements:**
-* basedOn: What was requested
-* effective[x]: (QI) Diagnostically relevant time (typically the time of specimen collection)
-* performer: (QI) Responsible Diagnostic Service
-* result: (QI) Observations
-
-**Primary code path:** code
-<br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -492,25 +455,24 @@
 
 
 **Must Have:**
+* subject: (QI) The subject of the report - usually, but not always, the patient
 * status: (QI)registered \| partial \| preliminary \| final +
 * category: (QI) Service Category
 * code: (QI) QI-Core Report Code
-* subject: (QI) The subject of the report - usually, but not always, the patient
-* media.link: Reference to the image source
 
 
 **QI Elements:**
-* encounter: (QI) Health care event when test ordered
 * effective[x]: (QI) Diagnostically relevant time (typically the time of the procedure)
-* issued: (QI) DateTime this version was made
-* performer: (QI) Responsible Diagnostic Service
 * result: (QI) Observations
 * imagingStudy: (QI) Reference to full details of imaging associated with the diagnostic report
+* issued: (QI) DateTime this version was made
 * media: (QI) Key images associated with this report
+* encounter: (QI) Health care event when test ordered
+* performer: (QI) Responsible Diagnostic Service
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -522,30 +484,24 @@
 
 
 **Must Have:**
-* identifier.system: The namespace for the identifier value
-* identifier.value: The value that is unique
 * status: (QI) planned \| arrived \| triaged \| in-progress \| onleave \| finished \| cancelled +
-* class: Classification of patient encounter
-* type: (QI) Specific type of encounter
 * subject: (QI) The patient or group present at the encounter
-* location.location: (QI) Location the encounter takes place
+* class: (QI) Classification of patient encounter
+* type: (QI) Specific type of encounter
 
 
 **QI Elements:**
-* participant: (QI) List of participants involved in the encounter
-* participant.individual: (QI) Persons involved in the encounter other than the patient
-* period: (QI) The start and end time of the encounter
-* reasonCode: (QI) Coded reason the encounter takes place
-* reasonReference: (QI) Reason the encounter takes place (reference)
-* hospitalization: (QI) Details about the admission to a healthcare service
-* hospitalization.dischargeDisposition: (QI) Category or kind of location after discharge
-* location: (QI) List of locations where the patient has been
-* location.period: (QI) Time period during which the patient was present at the location
 * serviceProvider: (QI) The organization (facility) responsible for this encounter
+* participant: (QI) List of participants involved in the encounter
+* hospitalization: (QI) Details about the admission to a healthcare service
+* reasonCode: (QI) Coded reason the encounter takes place
+* period: (QI) The start and end time of the encounter
+* reasonReference: (QI) Reason the encounter takes place (reference)
+* location: (QI) List of locations where the patient has been
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -557,16 +513,15 @@
 
 
 **QI Elements:**
+* relationship: (QI) Relationship to the subject
+* deceased[x]: (QI) Dead? How old/when?
+* age[x]: (QI) (approximate) age
 * patient: (QI) Patient history is about
 * date: (QI) When history was recorded or last updated
-* relationship: (QI) Relationship to the subject
-* age[x]: (QI) (approximate) age
-* deceased[x]: (QI) Dead? How old/when?
-* condition.code: (QI) Condition suffered by relation
 
 **Primary code path:** FamilyMemberHistory.condition.code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -579,14 +534,14 @@
 
 **QI Elements:**
 * status: (QI) active \| inactive \| entered-in-error
-* category: (QI) Clinical, administrative, etc.
 * code: (QI) Coded or textual message to display to user
 * subject: (QI) Who/What is flag about?
 * period: (QI) Time period when flag is active
+* category: (QI) Clinical, administrative, etc.
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -599,8 +554,8 @@
 
 **Must Have:**
 * lifecycleStatus: proposed \| planned \| accepted \| active \| on-hold \| completed \| cancelled \| entered-in-error \| rejected
-* description: Code or text describing goal
 * subject: (QI) Who this goal is intended for
+* description: Code or text describing goal
 
 
 **QI Elements:**
@@ -609,7 +564,7 @@
 
 **Primary code path:** category
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -621,11 +576,11 @@
 
 
 **QI Elements:**
-* subject: (QI) Who or what is the subject of the study
-* encounter: Encounter with which this imaging study is associated
-* started: (QI) When the study was started
-* basedOn: (QI) Request fulfilled
 * procedureReference: (QI) The performed Procedure reference
+* subject: (QI) Who or what is the subject of the study
+* basedOn: (QI) Request fulfilled
+* started: (QI) When the study was started
+* encounter: Encounter with which this imaging study is associated
 
 **Primary code path:** procedureCode
 <br>
@@ -641,20 +596,20 @@
 
 
 **Must Have:**
-* status: (QI) completed
-* vaccineCode: (QI) Vaccine Product Type (bind to CVX)
-* patient: (QI) Who was immunized
 * occurrence[x]: (QI) Vaccine administration date
+* status: (QI) completed
+* patient: (QI) Who was immunized
+* vaccineCode: (QI) Vaccine Product Type (bind to CVX)
 
 
 **QI Elements:**
 * statusReason: (QI) Reason for status
-* vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines
 * recorded: (QI) When the immunization was first captured in the subject's record
+* vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines
 
 **Primary code path:** vaccineCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -666,21 +621,20 @@
 
 
 **Must Have:**
-* status: (QI) not-done
 * statusReason: (QI) Reason not done
-* vaccineCode: (QI) Vaccine Product Type (bind to CVX)
-* patient: (QI) Who was immunized
 * occurrence[x]: (QI) Vaccine administration date
+* patient: (QI) Who was immunized
+* status: (QI) not-done
+* vaccineCode: (QI) Vaccine Product Type (bind to CVX)
 
 
 **QI Elements:**
+* recorded: (QI) Documented date Immunization did not occur.
 * vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines
-* recorded: (QI) Documented date Immunization did not occur.
-* recorded: (QI) Documented date Immunization did not occur.
 
 **Primary code path:** vaccineCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -693,19 +647,19 @@
 
 **Must Have:**
 * status: (QI) completed \| not-done \| entered-in-error
-* vaccineCode: (QI) Vaccine Product Type (bind to CVX)
-* patient: (QI) Who was immunized
 * occurrence[x]: (QI) Vaccine administration date
+* patient: (QI) Who was immunized
+* vaccineCode: (QI) Vaccine Product Type (bind to CVX)
 
 
 **QI Elements:**
 * statusReason: (QI) Reason for status
-* vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines
 * recorded: (QI) When the immunization was first captured in the subject's record
+* vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines
 
 **Primary code path:** vaccineCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -717,18 +671,18 @@
 
 
 **QI Elements:**
+* targetDisease: (QI) Evaluation target disease
+* date: (QI) Date evaluation was performed
+* immunizationEvent: (QI) Immunization being evaluated
+* doseStatusReason: (QI) Reason for the dose status
 * identifier: (QI) Business identifier
 * status: (QI) completed \| entered-in-error
 * patient: (QI) Who this evaluation is for
-* date: (QI) Date evaluation was performed
-* targetDisease: (QI) Evaluation target disease
-* immunizationEvent: (QI) Immunization being evaluated
 * doseStatus: (QI) Status of the dose relative to published recommendations
-* doseStatusReason: (QI) Reason for the dose status
 
 **Primary code path:** targetDisease
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -742,12 +696,10 @@
 **QI Elements:**
 * patient: (QI) Who this profile is for
 * recommendation: (QI) Vaccine administration recommendations
-* recommendation.vaccineCode: (QI) Vaccine or vaccine group recommendation applies to
-* recommendation.doseNumber[x]: (QI) Recommended dose number within series
 
 **Primary code path:** recommendation.vaccineCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -759,23 +711,24 @@
 
 
 **Must Have:**
-* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
-* category: (QI) Classification of type of observation
-* category(us-core): (QI) Classification of type of observation
-* code: (QI) Laboratory Test Name
 * subject: (QI) Who and/or what the observation is about
+* code: (QI) Laboratory Test Name
+* category: (QI) Classification of type of observation
+* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
+* category(us-core): (QI) Classification of type of observation
 
 
 **QI Elements:**
 * encounter: (QI) Encounter associated with Observation
-* effective[x]: (QI) Clinically relevant time/time-period for observation
-* issued: (QI) Date/Time this version was made available
 * value[x]: (QI) Result Value
+* issued: (QI) Date/Time this version was made available
+* referenceRange: (QI) Result reference range
+* effective[x]: (QI) Clinically relevant time/time-period for observation
 * interpretation: (QI) High, low, normal, etc.
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -791,13 +744,14 @@
 
 
 **QI Elements:**
-* type: (QI) Category of service or resource available in a location.
+* status: (QI) active \| suspended \| inactive
 * telecom: (QI) Contact details of the location
 * managingOrganization: (QI) Organization responsible for provisioning and upkeep
+* type: (QI) Category of service or resource available in a location.
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -809,14 +763,14 @@
 
 
 **Must Have:**
+* subject: Who or group medication request is for
 * status: active \| on-hold \| cancelled \| completed \| entered-in-error \| stopped \| draft \| unknown
 * intent: proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * medication[x]: Medication to be taken
-* subject: Who or group medication request is for
 
 
 **QI Elements:**
-* category: Type of medication usage
+* category: (QI) Type of medication usage
 
 **Primary code path:** medication
 <br>
@@ -832,45 +786,27 @@
 
 
 **Must Have:**
+* subject: (QI) Who or group medication request is for
+* authoredOn: (QI) When request was initially authored
 * status: (QI) active \| on-hold \| cancelled \| completed \| stopped \| draft
 * intent: (QI) proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * medication[x]: (QI) Medication to be taken
-* subject: (QI) Who or group medication request is for
-* authoredOn: (QI) When request was initially authored
 
 
 **QI Elements:**
-* extension(medicationAdherence): Reported adherence to prescribed medication instructions.
 * doNotPerform: (QI) True if medication was not requested
-* doNotPerform: (QI) True if medication was not requested
-* reported[x]: (QI) Reported rather than primary record
-* encounter: (QI) Encounter created as part of encounter/admission/stay
 * requester: (QI) Who/What requested the Request
+* extension(medicationAdherence): (QI) Reported adherence to prescribed medication instructions.
 * reasonCode: (QI) Reason or indication for not ordering the medication
-* reasonCode: (QI) Reason or indication for not ordering the medication
+* encounter: (QI) Encounter created as part of encounter/admission/stay
+* dispenseRequest: (QI) Medication supply authorization
 * reasonReference: (QI) QI-Core Condition or Observation that supports the prescription
 * dosageInstruction: (QI) How medication should be taken
-* dosageInstruction.timing: (QI) When medication should be administered
-* dosageInstruction.timing.repeat: (QI) When the event is to occur
-* dosageInstruction.timing.repeat.bounds[x]: (QI) Length/Range of lengths, or (Start and/or end) limits
-* dosageInstruction.timing.repeat.frequency: (QI) Event occurs frequency times per period
-* dosageInstruction.timing.repeat.frequencyMax: (QI) Event occurs frequencyMax times per period
-* dosageInstruction.timing.repeat.period: (QI) Event occurs frequency times per period
-* dosageInstruction.timing.repeat.periodMax: (QI) Upper limit of period (3-4 hours)
-* dosageInstruction.timing.repeat.periodUnit: (QI) s \| min \| h \| d \| wk \| mo \| a - unit of time (UCUM)
-* dosageInstruction.asNeeded[x]: (QI) Take "as needed" (for x)
-* dosageInstruction.doseAndRate: (QI) Amount of medication administered
-* dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose
-* dispenseRequest: (QI) Medication supply authorization
-* dispenseRequest.dispenseInterval: (QI) Minimum period of time between dispenses
-* dispenseRequest.validityPeriod: (QI) Time period supply is authorized for
-* dispenseRequest.numberOfRepeatsAllowed: (QI) Number of refills authorized
-* dispenseRequest.quantity: (QI) Amount of medication to supply per dispense
-* dispenseRequest.expectedSupplyDuration: (QI) Number of days supply per dispense
+* reported[x]: (QI) Reported rather than primary record
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -886,7 +822,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -898,18 +834,14 @@
 
 
 **QI Elements:**
-* extension(recorded): (QI) Recorded
-* status: (QI) in-progress \| on-hold \| completed \| stopped
-* status: (QI) in-progress \| on-hold \| completed \| stopped
 * medication[x]: (QI) What was administered
-* medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
-* subject: (QI) Who received medication
-* context: (QI) Encounter or Episode of Care administered as part of
-* effective[x]: (QI) Start and end time of administration
-* request: (QI) Request administration performed against
 * dosage: (QI) Details of how medication was taken
-* dosage.route: (QI) Path of substance into body
-* dosage.dose: (QI) Amount of medication per dose
+* medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
+* status: (QI) in-progress \| on-hold \| completed \| stopped
+* subject: (QI) Who received medication
+* request: (QI) Request administration performed against
+* effective[x]: (QI) Start and end time of administration
+* context: (QI) Encounter or Episode of Care administered as part of
 
 **Primary code path:** medication
 <br>
@@ -925,24 +857,19 @@
 
 
 **QI Elements:**
-* extension(recorded): (QI) Recorded
-* extension(recorded): (QI) Recorded
-* status: (QI) not-done
-* status: (QI) not-done
-* statusReason: (QI) Reason administration not performed
 * medication[x]: (QI) What was administered
+* dosage: (QI) Details of how medication was taken
+* statusReason: (QI) Reason administration not performed
 * medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
 * subject: (QI) Who received medication
-* context: (QI) Encounter or Episode of Care administered as part of
-* effective[x]: (QI) Start and end time of administration
 * request: (QI) Request administration performed against
-* dosage: (QI) Details of how medication was taken
-* dosage.route: (QI) Path of substance into body
-* dosage.dose: (QI) Amount of medication per dose
+* effective[x]: (QI) Start and end time of administration
+* status: (QI) not-done
+* context: (QI) Encounter or Episode of Care administered as part of
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -954,21 +881,18 @@
 
 
 **QI Elements:**
-* extension(recorded): (QI) Recorded
 * status: (QI) in-progress \| not-done \| on-hold \| completed \| entered-in-error \| stopped \| unknown
 * medication[x]: (QI) What was administered
+* dosage: (QI) Details of how medication was taken
 * medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
 * subject: (QI) Who received medication
-* context: (QI) Encounter or Episode of Care administered as part of
-* effective[x]: (QI) Start and end time of administration
 * request: (QI) Request administration performed against
-* dosage: (QI) Details of how medication was taken
-* dosage.route: (QI) Path of substance into body
-* dosage.dose: (QI) Amount of medication per dose
+* effective[x]: (QI) Start and end time of administration
+* context: (QI) Encounter or Episode of Care administered as part of
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -980,28 +904,22 @@
 
 
 **Must Have:**
-* status: (QI) declined
 * medication[x]: (QI) What medication was supplied
 * subject: (QI) Who the dispense is for
-* performer.actor: Individual who was performing
+* status: (QI) declined
 
 
 **QI Elements:**
 * extension(recorded): (QI) Extension
-* extension(recorded): (QI) Extension
-* statusReason[x]: (QI) Why a dispense was not performed
-* medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
 * authorizingPrescription: (QI) Medication order that authorizes the dispense
-* type: (QI) Trial fill, partial fill, emergency fill, etc.
-* quantity: (QI) Amount dispensed
+* dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver
+* medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
+* statusReason[x]: (QI) Why a dispense was not performed
 * daysSupply: (QI) Amount of medication expressed as a timing amount
 * whenPrepared: (QI) When product was packaged and reviewed
+* quantity: (QI) Amount dispensed
 * whenHandedOver: (QI) When product was given out or mailed
-* dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver
-* dosageInstruction.text: (QI) Free text dosage instructions e.g. SIG
-* dosageInstruction.timing: (QI) When medication should be administered
-* dosageInstruction.doseAndRate: (QI) Amount of medication administered
-* dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose
+* type: (QI) Trial fill, partial fill, emergency fill, etc.
 
 **Primary code path:** medication
 <br>
@@ -1017,30 +935,25 @@
 
 
 **Must Have:**
-* status: (QI) preparation​ \| in-progress​ \| on-hold​ \| completed​ \| stopped​
 * medication[x]: (QI) What medication was supplied
+* status: (QI) preparation​ \| in-progress​ \| on-hold​ \| completed​ \| stopped​
 * subject: (QI) Who the dispense is for
-* performer.actor: Individual who was performing
 
 
 **QI Elements:**
-* extension(recorded): (QI) When recorded
-* medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
 * authorizingPrescription: (QI) Medication order that authorizes the dispense
-* type: (QI) Trial fill, partial fill, emergency fill, etc.
-* quantity: (QI) Amount dispensed
+* extension(recorded): (QI) When recorded
+* dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver
+* medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
 * daysSupply: (QI) Amount of medication expressed as a timing amount
 * whenPrepared: (QI) When product was packaged and reviewed
+* quantity: (QI) Amount dispensed
 * whenHandedOver: (QI) When product was given out or mailed
-* dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver
-* dosageInstruction.text: (QI) Free text dosage instructions e.g. SIG
-* dosageInstruction.timing: (QI) When medication should be administered
-* dosageInstruction.doseAndRate: (QI) Amount of medication administered
-* dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose
+* type: (QI) Trial fill, partial fill, emergency fill, etc.
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1052,30 +965,25 @@
 
 
 **Must Have:**
-* status: (QI) preparation \| in-progress \| cancelled \| on-hold \| completed \| entered-in-error \| stopped \| declined \| unknown
 * medication[x]: (QI) What medication was supplied
 * subject: (QI) Who the dispense is for
-* performer.actor: Individual who was performing
+* status: (QI) preparation \| in-progress \| cancelled \| on-hold \| completed \| entered-in-error \| stopped \| declined \| unknown
 
 
 **QI Elements:**
-* extension(recorded): (QI) When recorded
-* medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
 * authorizingPrescription: (QI) Medication order that authorizes the dispense
-* type: (QI) Trial fill, partial fill, emergency fill, etc.
-* quantity: (QI) Amount dispensed
+* extension(recorded): (QI) When recorded
+* dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver
+* medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications
 * daysSupply: (QI) Amount of medication expressed as a timing amount
 * whenPrepared: (QI) When product was packaged and reviewed
+* quantity: (QI) Amount dispensed
 * whenHandedOver: (QI) When product was given out or mailed
-* dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver
-* dosageInstruction.text: (QI) Free text dosage instructions e.g. SIG
-* dosageInstruction.timing: (QI) When medication should be administered
-* dosageInstruction.doseAndRate: (QI) Amount of medication administered
-* dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose
+* type: (QI) Trial fill, partial fill, emergency fill, etc.
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1087,39 +995,23 @@
 
 
 **Must Have:**
-* status: (QI) active \| on-hold \| cancelled \| completed \| entered-in-error \| stopped \| draft \| unknown
-* intent: (QI) proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
-* medication[x]: (QI) Medication to be taken
 * subject: (QI) Who or group medication request is for
+* intent: (QI) proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
+* status: (QI) active \| on-hold \| cancelled \| completed \| entered-in-error \| stopped \| draft \| unknown
+* medication[x]: (QI) Medication to be taken
 
 
 **QI Elements:**
-* extension(medicationAdherence): Reported adherence to prescribed medication instructions.
-* doNotPerform: (QI) True if the order is not to provide the medication
-* reported[x]: (QI) Reported rather than primary record
-* encounter: (QI) Encounter created as part of encounter/admission/stay
+* reasonCode: (QI) Reason or indication for ordering or not ordering the medication
 * authoredOn: (QI) When request was initially authored
 * requester: (QI) Who/What requested the Request
-* reasonCode: (QI) Reason or indication for ordering or not ordering the medication
+* extension(medicationAdherence): (QI) Reported adherence to prescribed medication instructions.
+* encounter: (QI) Encounter created as part of encounter/admission/stay
+* dispenseRequest: (QI) Medication supply authorization
 * reasonReference: (QI) QI-Core Condition or Observation that supports the prescription
 * dosageInstruction: (QI) How medication should be taken
-* dosageInstruction.timing: (QI) When medication should be administered
-* dosageInstruction.timing.repeat: (QI) When the event is to occur
-* dosageInstruction.timing.repeat.bounds[x]: (QI) Length/Range of lengths, or (Start and/or end) limits
-* dosageInstruction.timing.repeat.frequency: (QI) Event occurs frequency times per period
-* dosageInstruction.timing.repeat.frequencyMax: (QI) Event occurs frequencyMax times per period
-* dosageInstruction.timing.repeat.period: (QI) Event occurs frequency times per period
-* dosageInstruction.timing.repeat.periodMax: (QI) Upper limit of period (3-4 hours)
-* dosageInstruction.timing.repeat.periodUnit: (QI) s \| min \| h \| d \| wk \| mo \| a - unit of time (UCUM)
-* dosageInstruction.asNeeded[x]: (QI) Take "as needed" (for x)
-* dosageInstruction.doseAndRate: (QI) Amount of medication administered
-* dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose
-* dispenseRequest: (QI) Medication supply authorization
-* dispenseRequest.dispenseInterval: (QI) Minimum period of time between dispenses
-* dispenseRequest.validityPeriod: (QI) Time period supply is authorized for
-* dispenseRequest.numberOfRepeatsAllowed: (QI) Number of refills authorized
-* dispenseRequest.quantity: (QI) Amount of medication to supply per dispense
-* dispenseRequest.expectedSupplyDuration: (QI) Number of days supply per dispense
+* doNotPerform: (QI) True if the order is not to provide the medication
+* reported[x]: (QI) Reported rather than primary record
 
 **Primary code path:** medication
 <br>
@@ -1135,45 +1027,28 @@
 
 
 **Must Have:**
+* subject: (QI) Who or group medication request is for
 * status: (QI) active \| on-hold \| cancelled \| completed \| stopped \| draft
 * intent: (QI) proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * medication[x]: (QI) Medication to be taken
-* subject: (QI) Who or group medication request is for
 
 
 **QI Elements:**
-* extension(medicationAdherence): Reported adherence to prescribed medication instructions.
-* category: Type of medication usage
 * doNotPerform: (QI) True if medication was not requested
-* doNotPerform: (QI) True if medication was not requested
-* reported[x]: (QI) Reported rather than primary record
-* encounter: (QI) Encounter created as part of encounter/admission/stay
+* reasonCode: (QI) Reason or indication for ordering or not ordering the medication
+* category: (QI) Type of medication usage
 * authoredOn: (QI) When request was initially authored
 * requester: (QI) Who/What requested the Request
-* reasonCode: (QI) Reason or indication for ordering or not ordering the medication
+* extension(medicationAdherence): (QI) Reported adherence to prescribed medication instructions.
+* encounter: (QI) Encounter created as part of encounter/admission/stay
+* dispenseRequest: (QI) Medication supply authorization
 * reasonReference: (QI) QI-Core Condition or Observation that supports the prescription
 * dosageInstruction: (QI) How medication should be taken
-* dosageInstruction.timing: (QI) When medication should be administered
-* dosageInstruction.timing.repeat: (QI) When the event is to occur
-* dosageInstruction.timing.repeat.bounds[x]: (QI) Length/Range of lengths, or (Start and/or end) limits
-* dosageInstruction.timing.repeat.frequency: (QI) Event occurs frequency times per period
-* dosageInstruction.timing.repeat.frequencyMax: (QI) Event occurs frequencyMax times per period
-* dosageInstruction.timing.repeat.period: (QI) Event occurs frequency times per period
-* dosageInstruction.timing.repeat.periodMax: (QI) Upper limit of period (3-4 hours)
-* dosageInstruction.timing.repeat.periodUnit: (QI) s \| min \| h \| d \| wk \| mo \| a - unit of time (UCUM)
-* dosageInstruction.asNeeded[x]: (QI) Take "as needed" (for x)
-* dosageInstruction.doseAndRate: (QI) Amount of medication administered
-* dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose
-* dispenseRequest: (QI) Medication supply authorization
-* dispenseRequest.dispenseInterval: (QI) Minimum period of time between dispenses
-* dispenseRequest.validityPeriod: (QI) Time period supply is authorized for
-* dispenseRequest.numberOfRepeatsAllowed: (QI) Number of refills authorized
-* dispenseRequest.quantity: (QI) Amount of medication to supply per dispense
-* dispenseRequest.expectedSupplyDuration: (QI) Number of days supply per dispense
+* reported[x]: (QI) Reported rather than primary record
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1185,21 +1060,17 @@
 
 
 **QI Elements:**
-* status: (QI) active \| completed \| entered-in-error \| intended \| stopped \| on-hold \| unknown \| not-taken
-* medication[x]: (QI) What medication was taken
 * subject: (QI) Who is/was taking the medication
-* effective[x]: (QI) The date/time or interval when the medication is/was/will be taken
+* status: (QI) active \| completed \| entered-in-error \| intended \| stopped \| on-hold \| unknown \| not-taken
 * dateAsserted: (QI) When the statement was asserted?
-* informationSource: (QI) Person or organization that provided the information about the taking of this medication
 * derivedFrom: (QI) Additional supporting information
-* dosage.timing: (QI) When medication should be administered
-* dosage.route: (QI) How drug should enter body
-* dosage.doseAndRate: (QI) Amount of medication administered
-* dosage.doseAndRate.dose[x]: (QI) Amount of medication per dose
+* medication[x]: (QI) What medication was taken
+* effective[x]: (QI) The date/time or interval when the medication is/was/will be taken
+* informationSource: (QI) Person or organization that provided the information about the taking of this medication
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1211,20 +1082,20 @@
 
 
 **QI Elements:**
-* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
+* performer: (QI) Who is responsible for the observation
+* derivedFrom: (QI) QI Core Profiles or other resource the observation is made from
 * category: (QI) Classification of type of observation
 * code: (QI) Type of observation (code / type)
 * subject: (QI) The device/location/implantable device the observation is about
-* effective[x]: (QI) Clinically relevant time/time-period for observation
-* performer: (QI) Who is responsible for the observation
 * value[x]: (QI) Actual result
+* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
+* effective[x]: (QI) Clinically relevant time/time-period for observation
 * value[x](valueCodeableConcept): (QI) actual \| potential
 * interpretation: (QI) High, low, normal, etc.
-* derivedFrom: (QI) QI Core Profiles or other resource the observation is made from
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1238,11 +1109,10 @@
 **QI Elements:**
 * patient: (QI) The person who requires the diet, formula or nutritional supplement
 
-**Primary code path:** code
+**Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
-
 
 
 
@@ -1253,21 +1123,21 @@
 
 
 **Must Have:**
-* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
-* category: (QI) Classification of type of observation
 * code: (QI) Clinical Test or Procedure Name
 * subject: (QI) Who and/or what the observation is about
+* category: (QI) Classification of type of observation
+* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
 
 
 **QI Elements:**
-* category(us-core): (QI) Classification of type of observation
-* effective[x]: (QI) Clinically relevant time/time-period for observation
 * value[x]: (QI) Result Value
 * dataAbsentReason: (QI) Why the result is missing
+* category(us-core): (QI) Classification of type of observation
+* effective[x]: (QI) Clinically relevant time/time-period for observation
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1279,26 +1149,26 @@
 
 
 **Must Have:**
-* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
-* category: (QI) Classification of type of observation
 * category(survey): (QI) Classification of type of observation
-* code: (QI) Type of observation (code / type)
 * subject: (QI) Who and/or what the observation is about
+* category: (QI) Classification of type of observation
+* code: (QI) Type of observation (code / type)
+* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
 
 
 **QI Elements:**
-* category(screening-assessment): (QI) Classification of type of observation
-* effective[x]: (QI) Clinically relevant time/time-period for observation
 * performer: (QI) Who is responsible for the observation
-* value[x]: (QI) Actual result
-* dataAbsentReason: (QI) Why the result is missing
-* interpretation: (QI) High, low, normal, etc.
+* category(screening-assessment): (QI) Classification of type of observation
 * hasMember: (QI) Reference to panel or multi-select responses
 * derivedFrom: (QI) Related Observations or QuestionnaireResponses that the observation is made from
+* dataAbsentReason: (QI) Why the result is missing
+* value[x]: (QI) Actual result
+* effective[x]: (QI) Clinically relevant time/time-period for observation
+* interpretation: (QI) High, low, normal, etc.
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1315,16 +1185,15 @@
 
 
 **QI Elements:**
-* identifier(ccn): (QI) CMS Certification Number
 * identifier.use: (QI) usual \| official \| temp \| secondary \| old (If known)
 * identifier.value: (QI) The value that is unique
 * identifier(ein): (QI) Employer Identification Number
-* identifier.use: (QI) usual \| official \| temp \| secondary \| old (If known)
-* identifier.value: (QI) The value that is unique
+* identifier(ccn): (QI) CMS Certification Number
+* type: (QI) Kind of organization
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1336,32 +1205,22 @@
 
 
 **Must Have:**
-* identifier: An identifier for this patient
-* identifier.system: The namespace for the identifier value
-* identifier.value: The value that is unique within the system.
 * name: A name associated with the patient
-* telecom.system: phone \| fax \| email \| pager \| url \| sms \| other
-* telecom.value: The actual contact point details
+* identifier: An identifier for this patient
 * gender: male \| female \| other \| unknown
-* communication.language: The language which can be used to communicate with the patient about his or her health
 
 
 **QI Elements:**
-* extension(race): (QI) US Core Race Extension
-* extension(ethnicity): (QI) US Core ethnicity Extension
-* extension(tribalAffiliation): (QI) Tribal Affiliation Extension
-* extension(sex): (QI) Sex Extension
-* extension(genderIdentity): (QI) The individual's gender identity
-* name.use: (QI) usual \| official \| temp \| nickname \| anonymous \| old \| maiden
-* name.suffix: (QI) Parts that come after the name
-* name.period: (QI) Time period when name was/is in use
-* telecom: (QI) A contact detail for the individual
-* birthDate: (QI) The date of birth for the individual
 * deceased[x]: (QI) Indicates if the individual is deceased or not
+* extension(race): (QI) US Core Race Extension
+* extension(tribalAffiliation): (QI) Tribal Affiliation Extension
+* birthDate: (QI) The date of birth for the individual
+* extension(ethnicity): (QI) US Core ethnicity Extension
 * address: (QI) An address for the individual
-* address.use: (QI) home \| work \| temp \| old \| billing - purpose of this address
-* address.period: (QI) Time period when address was/is in use
 * communication: (QI) A language which may be used to communicate with the patient about his or her health
+* extension(genderIdentity): (QI) The individual's gender identity
+* telecom: (QI) A contact detail for the individual
+* extension(sex): (QI) Sex Extension
 
 
 
@@ -1372,18 +1231,15 @@
 
 
 **Must Have:**
-* identifier: (QI) An identifier for the person as this agent
-* identifier.system: (QI) The namespace for the identifier value
-* identifier.value: (QI) The value that is unique
 * name: The name(s) associated with the practitioner
-* name.family: Family name (often called 'Surname')
+* identifier: (QI) An identifier for the person as this agent
 
 
 **QI Elements:**
-* identifier(NPI): (QI) An identifier for the person as this agent
-* identifier(ein): (QI) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.
 * identifier.use: (QI) usual \| official \| temp \| secondary \| old (If known)
+* identifier(NPI): (QI) An identifier for the person as this agent
 * identifier.value: (QI) The value that is unique
+* identifier(ein): (QI) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.
 
 
 
@@ -1393,29 +1249,23 @@
 ### [QICore PractitionerRole](StructureDefinition-qicore-practitionerrole.html) ###
 
 
-**Must Have:**
-* telecom.system: (QI) phone \| fax \| email \| pager \| url \| sms \| other
-* telecom.value: (QI) The actual contact point details
-
-
 **QI Elements:**
-* identifier: (QI) Business Identifiers that are specific to a role/location
 * identifier.use: (QI) usual \| official \| temp \| secondary \| old (If known)
-* identifier.system: (QI) The namespace for the identifier value
-* identifier.value: (QI) The value that is unique
-* active: (QI) Whether this practitioner role record is in active use
 * period: (QI) The period during which the practitioner is authorized to perform in these role(s)
+* identifier.value: (QI) The value that is unique
 * practitioner: (QI) Practitioner that is able to provide the defined services for the organization
 * organization: (QI) Organization where the roles are available
-* code: (QI) Roles which this practitioner may perform
-* specialty: (QI) Specific specialty of the practitioner
 * location: (QI) The location(s) at which this practitioner provides care
+* code: (QI) Roles which this practitioner may perform
+* identifier: (QI) Business Identifiers that are specific to a role/location
+* active: (QI) Whether this practitioner role record is in active use
 * telecom: (QI) Contact details that are specific to the role/location/service
+* specialty: (QI) Specific specialty of the practitioner
 * endpoint: (QI) Technical endpoints providing access to services operated for the practitioner with this role
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1427,19 +1277,18 @@
 
 
 **Must Have:**
-* status: (QI) preparation \| in-progress \| ​on-hold​ \| stopped​ \| completed
-* code: (QI) What procedure
 * subject: (QI) Who the procedure was performed on
+* code: (QI) What procedure
+* status: (QI) preparation \| in-progress \| ​on-hold​ \| stopped​ \| completed
 
 
 **QI Elements:**
-* implicitRules: (QI) A set of rules under which this content was created
-* extension(recorded): (QI) When the procedure was first captured in the subject's record
-* basedOn: (QI) A request for this procedure
-* code.extension(codeOptions): (QI) Url of a value set of candidate procedures
 * performed[x]: (QI) When the procedure was performed
 * reasonCode: (QI) Coded reason procedure performed
 * reasonReference: (QI) The justification that the procedure was performed
+* basedOn: (QI) A request for this procedure
+* code.extension(codeOptions): (QI) Url of a value set of candidate procedures
+* extension(recorded): (QI) When the procedure was first captured in the subject's record
 
 **Primary code path:** code
 <br>
@@ -1455,25 +1304,23 @@
 
 
 **Must Have:**
-* status: (QI) not-done
-* code: (QI) What procedure
 * subject: (QI) Who the procedure was performed on
+* code: (QI) What procedure
+* status: (QI) not-done
 
 
 **QI Elements:**
-* implicitRules: (QI) A set of rules under which this content was created
-* extension(recorded): (QI) When the procedure was first captured in the subject's record
-* extension(recorded): (QI) When the procedure was first captured in the subject's record
-* basedOn: (QI) A request for this procedure
-* statusReason: (QI) Reason for the current status
-* code.extension(codeOptions): (QI) Url of a value set of candidate procedures
 * performed[x]: (QI) When the procedure was performed
 * reasonCode: (QI) Coded reason procedure performed
 * reasonReference: (QI) The justification that the procedure was performed
+* basedOn: (QI) A request for this procedure
+* code.extension(codeOptions): (QI) Url of a value set of candidate procedures
+* statusReason: (QI) Reason for the current status
+* extension(recorded): (QI) When the procedure was first captured in the subject's record
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1485,23 +1332,22 @@
 
 
 **Must Have:**
-* status: (QI) preparation \| in-progress \| not-done \| on-hold \| stopped \| completed \| entered-in-error \| unknown
-* code: (QI) What procedure
 * subject: (QI) Who the procedure was performed on
+* code: (QI) What procedure
+* status: (QI) preparation \| in-progress \| not-done \| on-hold \| stopped \| completed \| entered-in-error \| unknown
 
 
 **QI Elements:**
-* implicitRules: (QI) A set of rules under which this content was created
-* extension(recorded): (QI) When the procedure was first captured in the subject's record
-* basedOn: (QI) A request for this procedure
-* code.extension(codeOptions): (QI) Url of a value set of candidate procedures
 * performed[x]: (QI) When the procedure was performed
 * reasonCode: (QI) Coded reason procedure performed
 * reasonReference: (QI) The justification that the procedure was performed
+* basedOn: (QI) A request for this procedure
+* code.extension(codeOptions): (QI) Url of a value set of candidate procedures
+* extension(recorded): (QI) When the procedure was first captured in the subject's record
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1513,17 +1359,20 @@
 
 
 **Must Have:**
-* questionnaire: Form being answered
+* questionnaire: (QI) Form being answered
 * status: in-progress \| completed \| amended \| entered-in-error \| stopped
 * subject: (QI) The subject of the questions
 * authored: Date the answers were gathered
-* item.linkId: (QI) Pointer to specific item from Questionnaire
 
 
 **QI Elements:**
-* author: (QI) Person who received and recorded the answers
 * item: (QI) Groups and questions
-* item.answer.value[x]: (QI) Single-valued answer to the question
+* author: (QI) Person who received and recorded the answers
+
+**Primary code path:** questionnaire
+<br>
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+<br>
 
 
 
@@ -1539,13 +1388,13 @@
 
 
 **QI Elements:**
-* relationship: (QI) The nature of the relationship
 * name: (QI) A name associated with the person
 * telecom: (QI) A contact detail for the person
+* relationship: (QI) The nature of the relationship
 
 **Primary code path:** relationship
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1557,25 +1406,23 @@
 
 
 **Must Have:**
-* status: (QI) draft \| active \| on-hold \| completed
 * intent: (QI) proposal \| plan \| directive \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * code: (QI) What is being requested/ordered
 * subject: (QI) Individual or Entity the service is ordered for
 * authoredOn: (QI) Date request signed
+* status: (QI) draft \| active \| on-hold \| completed
 
 
 **QI Elements:**
-* doNotPerform: (QI) True if service/procedure should not be performed
-* doNotPerform: (QI) True if service/procedure should not be performed
 * code.extension(codeOptions): (QI) Url of a value set of candidate services
+* reasonCode: (QI) Explanation/Justification for procedure or service
 * occurrence[x]: (QI) When service should occur
-* reasonCode: (QI) Explanation/Justification for procedure or service
-* reasonCode: (QI) Explanation/Justification for procedure or service
+* doNotPerform: (QI) True if service/procedure should not be performed
 * reasonReference: (QI) Explanation/Justification for service or service
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1594,11 +1441,11 @@
 
 
 **QI Elements:**
-* doNotPerform: (QI) True if service/procedure should not be performed
 * code.extension(codeOptions): (QI) Url of a value set of candidate services
+* reasonCode: (QI) Explanation/Justification for procedure or service
 * occurrence[x]: (QI) When service should occur
 * authoredOn: (QI) Date request signed
-* reasonCode: (QI) Explanation/Justification for procedure or service
+* doNotPerform: (QI) True if service/procedure should not be performed
 * reasonReference: (QI) Explanation/Justification for service or service
 
 **Primary code path:** code
@@ -1615,24 +1462,23 @@
 
 
 **Must Have:**
-* status: (QI) draft \| active \| on-hold \| completed
 * intent: (QI) proposal \| plan \| directive \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
 * code: (QI) What is being requested/ordered
 * subject: (QI) Individual or Entity the service is ordered for
+* status: (QI) draft \| active \| on-hold \| completed
 
 
 **QI Elements:**
-* doNotPerform: (QI) True if service/procedure should not be performed
-* doNotPerform: (QI) True if service/procedure should not be performed
 * code.extension(codeOptions): (QI) Url of a value set of candidate services
+* reasonCode: (QI) Explanation/Justification for procedure or service
 * occurrence[x]: (QI) When service should occur
 * authoredOn: (QI) Date request signed
-* reasonCode: (QI) Explanation/Justification for procedure or service
+* doNotPerform: (QI) True if service/procedure should not be performed
 * reasonReference: (QI) Explanation/Justification for service or service
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1644,24 +1490,23 @@
 
 
 **Must Have:**
-* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
+* subject: (QI) Who and/or what the observation is about
 * category: (QI) Classification of type of observation
 * code: (QI) Type of observation (code / type)
-* subject: (QI) Who and/or what the observation is about
+* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
 
 
 **QI Elements:**
-* partOf: (QI) Part of referenced event
-* effective[x]: (QI) Clinically relevant time/time-period for observation
 * performer: (QI) Who is responsible for the observation
+* derivedFrom: (QI) US Core Profiles or other resource the observation is made from
 * value[x]: (QI) Actual result
+* effective[x]: (QI) Clinically relevant time/time-period for observation
 * value[x](valueCodeableConcept): (QI) actual \| potential
 * interpretation: (QI) High, low, normal, etc.
-* derivedFrom: (QI) US Core Profiles or other resource the observation is made from
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1674,13 +1519,10 @@
 
 **QI Elements:**
 * code: (QI) If this describes a specific package/container of the substance
-* instance.quantity: (QI) Amount of substance in the package
-* ingredient.quantity: (QI) Optional amount (concentration)
-* ingredient.substance[x]: (QI) A component of the substance
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1693,12 +1535,14 @@
 
 **QI Elements:**
 * basedOn: (QI) Request fulfilled by this task
-* status: (QI) draft​ \| requested​ \| received​ \| accepted​ \| ready \| in-progress​ \| on-hold​ \| completed
-* status: (QI) draft​ \| requested​ \| received​ \| accepted​ \| ready \| in-progress​ \| on-hold​ \| completed
-* intent: (QI) unknown \| proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance
-* priority: (QI) routine \| urgent \| asap \| stat
-* code: (QI) Task Type
 * executionPeriod: (QI) Start and end time of execution
+* focus: (QI) What task is acting on
+* intent: (QI) unknown \| proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance
+* code: (QI) Task Type
+* status: (QI) draft​ \| requested​ \| received​ \| accepted​ \| ready \| in-progress​ \| on-hold​ \| completed
+* encounter: (QI) Healthcare event during which this task originated
+* for: (QI) Beneficiary of the Task
+* priority: (QI) routine \| urgent \| asap \| stat
 
 **Primary code path:** code
 <br>
@@ -1714,11 +1558,14 @@
 
 
 **QI Elements:**
-* executionPeriod: (QI) The timing the task was rejected.
+* focus: (QI) What task is acting on
+* statusReason: (QI) Reason for current status
+* for: (QI) Beneficiary of the Task
+* executionPeriod: (QI) The time action first taken meets expectation of the rejected use case.
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 
@@ -1731,15 +1578,18 @@
 
 **QI Elements:**
 * basedOn: (QI) Request fulfilled by this task
-* status: (QI) draft​ \| requested​ \| received​ \| accepted​ \| rejected \| ready​ \| cancelled​ \| in-progress​ \| on-hold​ \| failed​ \| completed \| entered-in-error
-* intent: (QI) unknown \| proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance
-* priority: (QI) routine \| urgent \| asap \| stat
-* code: (QI) Task Type
 * executionPeriod: (QI) Start and end time of execution
+* focus: (QI) What task is acting on
+* intent: (QI) unknown \| proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance
+* status: (QI) draft​ \| requested​ \| received​ \| accepted​ \| rejected \| ready​ \| cancelled​ \| in-progress​ \| on-hold​ \| failed​ \| completed \| entered-in-error
+* code: (QI) Task Type
+* encounter: (QI) Healthcare event during which this task originated
+* for: (QI) Beneficiary of the Task
+* priority: (QI) routine \| urgent \| asap \| stat
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
 <br>
 
 

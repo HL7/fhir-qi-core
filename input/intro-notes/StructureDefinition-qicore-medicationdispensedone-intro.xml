@@ -1,35 +1,30 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
-"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br><br></br>
 
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) preparation​ | in-progress​ | on-hold​ | completed​ | stopped​</li>
 <li>medication[x]: (QI) What medication was supplied</li>
+<li>status: (QI) preparation​ | in-progress​ | on-hold​ | completed​ | stopped​</li>
 <li>subject: (QI) Who the dispense is for</li>
-<li>performer.actor: Individual who was performing</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>extension(recorded): (QI) When recorded</li>
-<li>medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications</li>
 <li>authorizingPrescription: (QI) Medication order that authorizes the dispense</li>
-<li>type: (QI) Trial fill, partial fill, emergency fill, etc.</li>
-<li>quantity: (QI) Amount dispensed</li>
+<li>extension(recorded): (QI) When recorded</li>
+<li>dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver</li>
+<li>medication[x].extension(codeOptions): (QI) Url of a value set of candidate medications</li>
 <li>daysSupply: (QI) Amount of medication expressed as a timing amount</li>
 <li>whenPrepared: (QI) When product was packaged and reviewed</li>
+<li>quantity: (QI) Amount dispensed</li>
 <li>whenHandedOver: (QI) When product was given out or mailed</li>
-<li>dosageInstruction: (QI) How the medication is to be used by the patient or administered by the caregiver</li>
-<li>dosageInstruction.text: (QI) Free text dosage instructions e.g. SIG</li>
-<li>dosageInstruction.timing: (QI) When medication should be administered</li>
-<li>dosageInstruction.doseAndRate: (QI) Amount of medication administered</li>
-<li>dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose</li>
+<li>type: (QI) Trial fill, partial fill, emergency fill, etc.</li>
 </ul>
 
 <b>Primary code path:</b> medication
 <br></br>
-(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#retrieve'>CQL Retrieve</a>
+(PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
 <br></br>
 <br></br>
 
@@ -42,7 +37,7 @@
 <li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
 </ul>
 <li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
-<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdiplus?id%3Duscdi_record&amp;table%3Dx_g_sshh_uscdi_domain&amp;sys_id%3D7ddf78228745b95098e5edb90cbb3525&amp;view=sp'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
 </ul>
 <br></br>
 

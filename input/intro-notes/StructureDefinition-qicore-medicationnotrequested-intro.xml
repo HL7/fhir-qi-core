@@ -1,23 +1,20 @@
-<div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
 "Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br><br></br>
 
 <b>Must Have:</b>
 <ul>
-<li>occurrence[x]: (QI) Vaccine administration date</li>
-<li>status: (QI) completed</li>
-<li>patient: (QI) Who was immunized</li>
-<li>vaccineCode: (QI) Vaccine Product Type (bind to CVX)</li>
+<li>subject: Who or group medication request is for</li>
+<li>status: active | on-hold | cancelled | completed | entered-in-error | stopped | draft | unknown</li>
+<li>intent: proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option</li>
+<li>medication[x]: Medication to be taken</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>statusReason: (QI) Reason for status</li>
-<li>recorded: (QI) When the immunization was first captured in the subject's record</li>
-<li>vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines</li>
+<li>category: (QI) Type of medication usage</li>
 </ul>
 
-<b>Primary code path:</b> vaccineCode
+<b>Primary code path:</b> medication
 <br></br>
 (PCPath) This element is the primary code path for this resource <a href='https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology'>CQL Retrieve</a>
 <br></br>
@@ -38,33 +35,3 @@
 
 
 <!--End Generated Intro (DO NOT REMOVE)-->
-  <a name="usage"><b>Usage</b></a>
-
-  <p>The Immunization profile defines the conformance expectations for an Immunization event, regardless of whether it is a positive or negative statement. The ImmunizationDone and ImmunizationNotDone profiles represent the positive and
-    negative statements for an immunization event. </p>
-
-<p>The following example illustrates the use of the Immunization profile:</p>
-<pre><code>define "Polio Immunizations":
-  ["ImmunizationDone": "Inactivated Polio Vaccine (IPV)"]</code></pre>
-
-  <p>Note that statuses indicating positive intent are implied by the use of the ImmunizationDone profile.</p>
-
-  <p>
-  <tr>
-      <td>See the <a href="patterns.html">patterns</a> page for implementation and usage patterns.</td>
-  </tr>
-  </p>
-  <a name="examples"> </a>
-  <h3>Examples</h3>
-  <p>
-  <table>
-    <tbody>
-      <tr>
-          <td><a href="Immunization-done-example.html">Example of Influenza immunization shot</a></td>
-      </tr>
-    </tbody>
-  </table>
-  </p>
-
-
-</div>

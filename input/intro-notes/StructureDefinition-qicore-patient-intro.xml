@@ -1,36 +1,26 @@
 <div xmlns="http://www.w3.org/1999/xhtml" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://hl7.org/fhir ../../input-cache/schemas/R5/fhir-single.xsd">
 <!--Begin Generated Intro Tag (DO NOT REMOVE)-->
-"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br>
+"Must Have", "QI Elements" and "primary code path" are defined in the <a href="index.html#mustsupport-flag">QI-Core Must Support section</a>.<br></br><br></br>
 
 <b>Must Have:</b>
 <ul>
-<li>identifier: An identifier for this patient</li>
-<li>identifier.system: The namespace for the identifier value</li>
-<li>identifier.value: The value that is unique within the system.</li>
 <li>name: A name associated with the patient</li>
-<li>telecom.system: phone | fax | email | pager | url | sms | other</li>
-<li>telecom.value: The actual contact point details</li>
+<li>identifier: An identifier for this patient</li>
 <li>gender: male | female | other | unknown</li>
-<li>communication.language: The language which can be used to communicate with the patient about his or her health</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>extension(race): (QI) US Core Race Extension</li>
-<li>extension(ethnicity): (QI) US Core ethnicity Extension</li>
-<li>extension(tribalAffiliation): (QI) Tribal Affiliation Extension</li>
-<li>extension(sex): (QI) Sex Extension</li>
-<li>extension(genderIdentity): (QI) The individual's gender identity</li>
-<li>name.use: (QI) usual | official | temp | nickname | anonymous | old | maiden</li>
-<li>name.suffix: (QI) Parts that come after the name</li>
-<li>name.period: (QI) Time period when name was/is in use</li>
-<li>telecom: (QI) A contact detail for the individual</li>
-<li>birthDate: (QI) The date of birth for the individual</li>
 <li>deceased[x]: (QI) Indicates if the individual is deceased or not</li>
+<li>extension(race): (QI) US Core Race Extension</li>
+<li>extension(tribalAffiliation): (QI) Tribal Affiliation Extension</li>
+<li>birthDate: (QI) The date of birth for the individual</li>
+<li>extension(ethnicity): (QI) US Core ethnicity Extension</li>
 <li>address: (QI) An address for the individual</li>
-<li>address.use: (QI) home | work | temp | old | billing - purpose of this address</li>
-<li>address.period: (QI) Time period when address was/is in use</li>
 <li>communication: (QI) A language which may be used to communicate with the patient about his or her health</li>
+<li>extension(genderIdentity): (QI) The individual's gender identity</li>
+<li>telecom: (QI) A contact detail for the individual</li>
+<li>extension(sex): (QI) Sex Extension</li>
 </ul>
 
 <br></br>
@@ -42,7 +32,7 @@
 <li>Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.</li>
 </ul>
 <li>We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.</li>
-<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdiplus?id%3Duscdi_record&amp;table%3Dx_g_sshh_uscdi_domain&amp;sys_id%3D7ddf78228745b95098e5edb90cbb3525&amp;view=sp'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
+<li>Further, QI-Core 7.0 does not discuss <a href='https://uscdiplus.healthit.gov/uscdi'>USCDI+Quality</a> because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.</li>
 </ul>
 <br></br>
 
