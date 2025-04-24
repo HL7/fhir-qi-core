@@ -759,28 +759,6 @@
 <br>
 <br>
 
-### [QICore Medication Not Requested](StructureDefinition-qicore-medicationnotrequested.html) ###
-
-
-**Must Have:**
-* subject: Who or group medication request is for
-* status: active \| on-hold \| cancelled \| completed \| entered-in-error \| stopped \| draft \| unknown
-* intent: proposal \| plan \| order \| original-order \| reflex-order \| filler-order \| instance-order \| option
-* medication[x]: Medication to be taken
-
-
-**QI Elements:**
-* category: (QI) Type of medication usage
-
-**Primary code path:** medication
-<br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
-<br>
-
-
-
-<br>
-<br>
 
 ### [QICore Medication Prohibited](StructureDefinition-qicore-medicationprohibited.html) ###
 
