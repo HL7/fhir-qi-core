@@ -176,7 +176,14 @@
       },
       {
         "id" : "Organization.type",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
         "path" : "Organization.type",
+		"short" : "(QI) Kind of organization",
         "binding" : {
           "strength" : "preferred",
           "description" : "Used to categorize the organization",
