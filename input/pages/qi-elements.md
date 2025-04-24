@@ -18,7 +18,7 @@
 
 **Primary code path:** event
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -47,7 +47,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -66,7 +66,7 @@
 
 **Primary code path:** location
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -86,7 +86,7 @@
 
 **Primary code path:** category
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -103,7 +103,7 @@
 
 **Primary code path:** participant.role
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -129,7 +129,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -153,7 +153,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -178,7 +178,7 @@
 
 **Primary code path:** topic
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -201,7 +201,7 @@
 
 **Primary code path:** topic
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -224,7 +224,7 @@
 
 **Primary code path:** topic
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -246,7 +246,7 @@
 
 **Primary code path:** category
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -276,7 +276,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -305,7 +305,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -334,7 +334,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -359,7 +359,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -375,7 +375,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -398,7 +398,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -422,7 +422,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -443,7 +443,7 @@
 
 **Primary code path:** device.type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -472,7 +472,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -501,7 +501,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -521,7 +521,7 @@
 
 **Primary code path:** FamilyMemberHistory.condition.code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -541,7 +541,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -564,7 +564,7 @@
 
 **Primary code path:** category
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -584,7 +584,7 @@
 
 **Primary code path:** procedureCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -609,7 +609,7 @@
 
 **Primary code path:** vaccineCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -634,7 +634,7 @@
 
 **Primary code path:** vaccineCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -659,7 +659,7 @@
 
 **Primary code path:** vaccineCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -682,7 +682,7 @@
 
 **Primary code path:** targetDisease
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -699,7 +699,7 @@
 
 **Primary code path:** recommendation.vaccineCode
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -728,7 +728,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -751,7 +751,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -774,7 +774,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -806,7 +806,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -822,7 +822,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -845,7 +845,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -869,7 +869,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -892,7 +892,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -923,7 +923,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -953,7 +953,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -983,7 +983,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1015,7 +1015,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1048,7 +1048,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1070,7 +1070,7 @@
 
 **Primary code path:** medication
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1095,7 +1095,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1111,7 +1111,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1137,7 +1137,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1168,7 +1168,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1193,7 +1193,7 @@
 
 **Primary code path:** type
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1265,7 +1265,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1292,7 +1292,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1320,7 +1320,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1347,7 +1347,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1371,7 +1371,7 @@
 
 **Primary code path:** questionnaire
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1394,7 +1394,7 @@
 
 **Primary code path:** relationship
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1422,7 +1422,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1450,7 +1450,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1478,7 +1478,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1506,7 +1506,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1522,7 +1522,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1546,7 +1546,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1565,7 +1565,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
@@ -1589,7 +1589,7 @@
 
 **Primary code path:** code
 <br>
-(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#filtering-with-terminology)
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
 
