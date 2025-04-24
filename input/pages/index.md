@@ -2,27 +2,9 @@
 
 
 {:.stu-note}
-> This STU 7.0.0-ballot update to the QI-Core profiles aligns with US-Core STU v7.0.0. For a complete list of changes in this version, please refer to the version history.
+> This STU 7.0.0 update to the QI-Core profiles aligns with US-Core STU v7.0.0. For a complete list of changes in this version, please refer to the version history.
 
-<div class="note-to-balloters" markdown="1">
->
-> Some QI-Core users have requested addition of a section on each QI-Core profile page indicating those elements identified as essential for expressing data required for measure and clinical decision support artifacts.  
->
-> Please provide feedback or suggested edits for the new sections.
 
-> NOTE TO REVIEWERS:
-
-* US Core 7.0, and thus QI-Core 7.0, has a new approach to USCDI requirements.
-    * As noted in the US Core 7.0 [Must Support](https://hl7.org/fhir/us/core/must-support.html#must-support-elements) section, US Core 7.0 no longer highlights mandatory (cardinality 1..* or 1..1) and Must Support elements with a (USCDI) indicator as such items must be supported for interoperability.
-    * Those USCDI elements that are not mandatory or Must Support now include an indicator (ADDITIONAL USCDI) in US Core. QI-Core 7.0 does not reference USCDI elements; rather, users should access US Core 7.0 to understand its implementation of USCDI version 4.
-* We invite comments about the approach and suggestions for other options that would also avoid unnecessary noise or reading load to the QI-Core profile representation.
-* Further, QI-Core 7.0 does not discuss [USCDI+Quality](https://uscdiplus.healthit.gov/uscdi) because at the time of ballot preparation, no published version of USCDI+Quality is available. We seek reviewer advice regarding how QI-Core might address future USCDI+Quality.
-
-</div>
-
-<div class="new-content" markdown="1">
-{{ site.data.new_items.list[0].desc }}
-</div>
 
 {: #qi-core-implementation-guide}
 
@@ -46,13 +28,9 @@ Implementation Guide.
 This guide is divided into pages which are listed at the top of each page in the menu bar:
 
 * **[Home](index.html)**: The home page provides summary and background information
-
-<div class="new-content" markdown="1">
 * **Profiles**
     * **[QI-Core Profiles](profiles.html)**: The profiles page provides a complete listing of all the profiles defined in or used by QI-Core
     * **[QI Elements](qi-elements.html)**: The QI Elements page provides a complete listing of all the QI Elements in each profile used by QI-Core
-</div>
-
 * **[QI-Core Negation](negation.html)**: The negations page describes QI-Core Negation
 * **[Patterns](patterns.html)**: The patterns page describes patterns of usage for QI-Core applications
 * **[Model Info](modelinfo.html)**: The model info page provides the QI-Core model information to support implementation
@@ -96,8 +74,6 @@ This initiative began in 2013 with the creation of the [Quality Improvement Doma
 
 ### Relevance of QI-Core Profiles to Authors
 
-<div class="new-content" markdown="1">
-
 QI-Core classes and attributes are the most relevant to the broader QI community, lying in the intersection of clinical
 quality measures (CQM) and CDS, thus providing a common foundation for reusability. QI-Core
 derives content from US Core profiles and extensions to the extent possible. The CQI Workgroup expects that QI-Core will continue to grow in concert with
@@ -108,7 +84,7 @@ specific quality applications can be added through FHIR's extension mechanism. T
 identifies a common need, and the additional content has been validated.
 
 QI-Core profile authoring provides a relatively facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
-</div>
+
 
 ### Scope
 
@@ -191,10 +167,8 @@ analysis and effort would be required.
 
 QI-Core (Quality Improvement Core) is based on US Core because it helps improve healthcare quality using common standards that make it easier to share and understand health information. QI-Core builds on US Core to ensure that information about healthcare quality can be shared smoothly between different organizations, allowing better tracking and reporting. Many programs that improve quality are linked to government regulations. US Core addresses [United States Core Data for Interoperability](https://www.hl7.org/fhir/us/core/uscdi.html#uscdi). US Core updates with annual versions provide detail about sharing data defined in USCDI. Assistant Secretary for Technology Policy/Office of the National Coordinator for Health IT (ASTP/ONC) also publishes U.S. Core Data for Interoperability Plus [USCDI+](https://uscdiplus.healthit.gov/uscdiplus), to address data needs for specific "domains". These domains include: Maternal Health, Public Health, Quality, Cancer, and Behavioral Health. ASTP published a [USCDI+Quality Draft v1](https://uscdiplus.healthit.gov/uscdiplus?id=uscdi_record&table=x_g_sshh_uscdi_domain&sys_id=7ddf78228745b95098e5edb90cbb3525&view=sp) in August 2024; a final publication is pending at the time of this QI-Core publication. QI-Core supports the data elements proposed in the USCDI+Quality Draft v1 and further guidance should be available at the time of a future publication of USCDI+Quality.
 
-<div class="new-content" markdown="1">
 This IG contains only one QI-Core-specific extension "QI-Core Key Element Extension" to enable entry of (QI) references to specific profile elements. Otherwise, this IG uses only FHIR or US Core extensions. Other initiatives that the QI-Core effort is aligning with include the
 [Clinical Information Modeling Initiative (CIMI)](https://confluence.hl7.org/display/CIMI/Mission%2C+Charter%2C+Work+Products%2C+HL7+Working+Group+Relationships) and [Graphite Health](https://www.graphitehealth.io/).
-</div>
 
 In addition, the QI-Core effort *continues* to update the mapping from QDM to QI-Core such that a CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
@@ -209,8 +183,6 @@ sources: the Quality Improvement Domain Analysis Model (QIDAM), and the Quality 
 definitions of extensions and mappings to QDM as an aid for current users of QDM.
 
 ### MustSupport Flag
-
-<div class="new-content" markdown="1">
 
 QI-Core inherits Must Support references from US Core and so the [requirements on "MustSupport" defined in US Core]({{site.data.fhir.ver.uscore}}/must-support.html) must be respected; QI-Core does not add any Must Support elements.
 
@@ -227,7 +199,6 @@ the base resource type and profile to be specified, as well as a MustSupport ele
 profile are reference by the logic. Implementers can use this information directly from the effective data requirements to determine
 which elements must be provided to achieve a successful evaluation of the artifact. In addition, repositories and publishers may
 make use of this information to define artifact-specific profiles using the effective data requirements provided by the artifact.
-</div>
 
 ### Modifying Attributes
 
@@ -314,11 +285,7 @@ the resources in "Any" references SHALL conform to QI-Core profiles if the base 
 Conformance to this QI-Core Implementation Guide requires the following (in addition to adherence to core FHIR requirements):
 
 -  Implementations **SHALL** support all profile types in the QI-Core set (listed in the [profiles](profiles.html) page) for resources they exchange
-
-<div class="new-content" markdown="1">
 -  This IG does not define the capability statements as it does not address accessing patient level data directly via API calls; however, server implementations **SHALL** declare their support of the QI-Core profiles in a FHIR CapabilityStatement.
-</div>
-
 -  Conformant servers will at minimum support FHIR's read and search operations
 -  Servers **SHALL** supply the MustSupport data elements whenever that data is available
 -  Quality improvement applications **SHALL** recognize and process all MustSupport elements in QI-Core
