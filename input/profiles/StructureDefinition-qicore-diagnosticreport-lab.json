@@ -207,7 +207,13 @@
         }
       },
 	  {
-		"id" : "DiagnosticReport.code",
+	    "id" : "DiagnosticReport.code",
+             "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
         "path" : "DiagnosticReport.code",
         "short" : "(QI) US Core Laboratory Report Order Code",
         "definition" : "The test, panel or battery that was ordered.",
@@ -235,25 +241,6 @@
           "description" : "LOINC codes",
           "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-laboratory-test-codes"
         },
-        "mapping" : [
-          {
-            "identity" : "workflow",
-            "map" : "Event.code"
-          },
-          {
-            "identity" : "w5",
-            "map" : "FiveWs.what[x]"
-          },
-          {
-            "identity" : "v2",
-            "map" : "OBR-4 (HL7 v2 doesn't provide an easy way to indicate both the ordered test and the performed panel)"
-          },
-          {
-            "identity" : "rim",
-            "map" : "code"
-          }
-        ]
-	  },
       {
         "id": "DiagnosticReport.subject",
         "extension": [
