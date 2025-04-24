@@ -4,42 +4,25 @@
 
 <b>Must Have:</b>
 <ul>
+<li>subject: (QI) Who or group medication request is for</li>
 <li>status: (QI) active | on-hold | cancelled | completed | stopped | draft</li>
 <li>intent: (QI) proposal | plan | order | original-order | reflex-order | filler-order | instance-order | option</li>
 <li>medication[x]: (QI) Medication to be taken</li>
-<li>subject: (QI) Who or group medication request is for</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>extension(medicationAdherence): Reported adherence to prescribed medication instructions.</li>
-<li>category: Type of medication usage</li>
 <li>doNotPerform: (QI) True if medication was not requested</li>
-<li>doNotPerform: (QI) True if medication was not requested</li>
-<li>reported[x]: (QI) Reported rather than primary record</li>
-<li>encounter: (QI) Encounter created as part of encounter/admission/stay</li>
+<li>reasonCode: (QI) Reason or indication for ordering or not ordering the medication</li>
+<li>category: (QI) Type of medication usage</li>
 <li>authoredOn: (QI) When request was initially authored</li>
 <li>requester: (QI) Who/What requested the Request</li>
-<li>reasonCode: (QI) Reason or indication for ordering or not ordering the medication</li>
+<li>extension(medicationAdherence): (QI) Reported adherence to prescribed medication instructions.</li>
+<li>encounter: (QI) Encounter created as part of encounter/admission/stay</li>
+<li>dispenseRequest: (QI) Medication supply authorization</li>
 <li>reasonReference: (QI) QI-Core Condition or Observation that supports the prescription</li>
 <li>dosageInstruction: (QI) How medication should be taken</li>
-<li>dosageInstruction.timing: (QI) When medication should be administered</li>
-<li>dosageInstruction.timing.repeat: (QI) When the event is to occur</li>
-<li>dosageInstruction.timing.repeat.bounds[x]: (QI) Length/Range of lengths, or (Start and/or end) limits</li>
-<li>dosageInstruction.timing.repeat.frequency: (QI) Event occurs frequency times per period</li>
-<li>dosageInstruction.timing.repeat.frequencyMax: (QI) Event occurs frequencyMax times per period</li>
-<li>dosageInstruction.timing.repeat.period: (QI) Event occurs frequency times per period</li>
-<li>dosageInstruction.timing.repeat.periodMax: (QI) Upper limit of period (3-4 hours)</li>
-<li>dosageInstruction.timing.repeat.periodUnit: (QI) s | min | h | d | wk | mo | a - unit of time (UCUM)</li>
-<li>dosageInstruction.asNeeded[x]: (QI) Take "as needed" (for x)</li>
-<li>dosageInstruction.doseAndRate: (QI) Amount of medication administered</li>
-<li>dosageInstruction.doseAndRate.dose[x]: (QI) Amount of medication per dose</li>
-<li>dispenseRequest: (QI) Medication supply authorization</li>
-<li>dispenseRequest.dispenseInterval: (QI) Minimum period of time between dispenses</li>
-<li>dispenseRequest.validityPeriod: (QI) Time period supply is authorized for</li>
-<li>dispenseRequest.numberOfRepeatsAllowed: (QI) Number of refills authorized</li>
-<li>dispenseRequest.quantity: (QI) Amount of medication to supply per dispense</li>
-<li>dispenseRequest.expectedSupplyDuration: (QI) Number of days supply per dispense</li>
+<li>reported[x]: (QI) Reported rather than primary record</li>
 </ul>
 
 <b>Primary code path:</b> medication

@@ -4,20 +4,19 @@
 
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) draft | active | on-hold | completed</li>
 <li>intent: (QI) proposal | plan | directive | order | original-order | reflex-order | filler-order | instance-order | option</li>
 <li>code: (QI) What is being requested/ordered</li>
 <li>subject: (QI) Individual or Entity the service is ordered for</li>
+<li>status: (QI) draft | active | on-hold | completed</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>doNotPerform: (QI) True if service/procedure should not be performed</li>
-<li>doNotPerform: (QI) True if service/procedure should not be performed</li>
 <li>code.extension(codeOptions): (QI) Url of a value set of candidate services</li>
+<li>reasonCode: (QI) Explanation/Justification for procedure or service</li>
 <li>occurrence[x]: (QI) When service should occur</li>
 <li>authoredOn: (QI) Date request signed</li>
-<li>reasonCode: (QI) Explanation/Justification for procedure or service</li>
+<li>doNotPerform: (QI) True if service/procedure should not be performed</li>
 <li>reasonReference: (QI) Explanation/Justification for service or service</li>
 </ul>
 

@@ -4,20 +4,21 @@
 
 <b>Must Have:</b>
 <ul>
-<li>category: category codes</li>
-<li>category(us-core): problem-list-item | health-concern</li>
+<li>category: (QI) category codes</li>
 <li>code: (QI) Identification of the condition, problem or diagnosis</li>
+<li>category(us-core): problem-list-item | health-concern</li>
 <li>subject: (QI) Who has the condition?</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
 <li>clinicalStatus: (QI) active | recurrence | relapse | inactive | remission | resolved</li>
-<li>verificationStatus: (QI) unconfirmed | provisional | differential | confirmed | refuted | entered-in-error</li>
+<li>extension(assertedDate): (QI) Date the condition was first asserted</li>
+<li>recordedDate: (QI) Date record was first recorded</li>
+<li>abatement[x]: (QI) When in resolution/remission</li>
 <li>severity: (QI) Subjective severity of condition</li>
 <li>onset[x]: (QI) Estimated or actual date, date-time, or age</li>
-<li>abatement[x]: (QI) When in resolution/remission</li>
-<li>recordedDate: (QI) Date record was first recorded</li>
+<li>verificationStatus: (QI) unconfirmed | provisional | differential | confirmed | refuted | entered-in-error</li>
 </ul>
 
 <b>Primary code path:</b> code

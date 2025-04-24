@@ -4,17 +4,17 @@
 
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) completed</li>
-<li>vaccineCode: (QI) Vaccine Product Type (bind to CVX)</li>
-<li>patient: (QI) Who was immunized</li>
 <li>occurrence[x]: (QI) Vaccine administration date</li>
+<li>status: (QI) completed</li>
+<li>patient: (QI) Who was immunized</li>
+<li>vaccineCode: (QI) Vaccine Product Type (bind to CVX)</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
 <li>statusReason: (QI) Reason for status</li>
-<li>vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines</li>
 <li>recorded: (QI) When the immunization was first captured in the subject's record</li>
+<li>vaccineCode.extension(codeOptions): (QI) Url of a value set of candidate vaccines</li>
 </ul>
 
 <b>Primary code path:</b> vaccineCode

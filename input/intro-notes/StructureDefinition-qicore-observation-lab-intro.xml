@@ -4,19 +4,20 @@
 
 <b>Must Have:</b>
 <ul>
-<li>status: (QI) registered | prliminary | final | amended | corrected | cancelled | entered-in-error | unknown</li>
-<li>category: (QI) Classification of type of observation</li>
-<li>category(us-core): (QI) Classification of type of observation</li>
-<li>code: (QI) Laboratory Test Name</li>
 <li>subject: (QI) Who and/or what the observation is about</li>
+<li>code: (QI) Laboratory Test Name</li>
+<li>category: (QI) Classification of type of observation</li>
+<li>status: (QI) registered | prliminary | final | amended | corrected | cancelled | entered-in-error | unknown</li>
+<li>category(us-core): (QI) Classification of type of observation</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
 <li>encounter: (QI) Encounter associated with Observation</li>
-<li>effective[x]: (QI) Clinically relevant time/time-period for observation</li>
-<li>issued: (QI) Date/Time this version was made available</li>
 <li>value[x]: (QI) Result Value</li>
+<li>issued: (QI) Date/Time this version was made available</li>
+<li>referenceRange: (QI) Result reference range</li>
+<li>effective[x]: (QI) Clinically relevant time/time-period for observation</li>
 <li>interpretation: (QI) High, low, normal, etc.</li>
 </ul>
 

@@ -4,23 +4,21 @@
 
 <b>Must Have:</b>
 <ul>
-<li>code: (QI) Code that identifies the allergy or intolerance</li>
 <li>patient: (QI) Who the sensitivity is for</li>
-<li>reaction.manifestation: Clinical symptoms/signs associated with the Event</li>
+<li>code: (QI) Code that identifies the allergy or intolerance</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
+<li>verificationStatus: (QI) unconfirmed | confirmed | refuted | entered-in-error</li>
+<li>onset[x]: (QI) When allergy or intolerance was identified</li>
 <li>clinicalStatus: (QI) active | inactive | resolved</li>
-<li>verificationStatus: unconfirmed | confirmed | refuted | entered-in-error</li>
+<li>criticality: (QI) low | high | unable-to-assess</li>
+<li>recordedDate: (QI) Date first version of the resource instance was recorded</li>
 <li>type: (QI) allergy | intolerance - Underlying mechanism (if known)</li>
 <li>category: (QI) food | medication | environment | biologic</li>
-<li>criticality: (QI) low | high | unable-to-assess</li>
-<li>onset[x]: (QI) When allergy or intolerance was identified</li>
-<li>recordedDate: (QI) Date first version of the resource instance was recorded</li>
 <li>lastOccurrence: (QI) Date(/time) of last known occurrence of a reaction</li>
 <li>reaction: (QI) Adverse Reaction Events linked to exposure to substance</li>
-<li>reaction.severity: (QI) mild | moderate | severe (of event as a whole)</li>
 </ul>
 
 <b>Primary code path:</b> code

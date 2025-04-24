@@ -4,27 +4,21 @@
 
 <b>Must Have:</b>
 <ul>
-<li>identifier.system: The namespace for the identifier value</li>
-<li>identifier.value: The value that is unique</li>
 <li>status: (QI) planned | arrived | triaged | in-progress | onleave | finished | cancelled +</li>
-<li>class: Classification of patient encounter</li>
-<li>type: (QI) Specific type of encounter</li>
 <li>subject: (QI) The patient or group present at the encounter</li>
-<li>location.location: (QI) Location the encounter takes place</li>
+<li>class: (QI) Classification of patient encounter</li>
+<li>type: (QI) Specific type of encounter</li>
 </ul>
 
 <b>QI Elements:</b>
 <ul>
-<li>participant: (QI) List of participants involved in the encounter</li>
-<li>participant.individual: (QI) Persons involved in the encounter other than the patient</li>
-<li>period: (QI) The start and end time of the encounter</li>
-<li>reasonCode: (QI) Coded reason the encounter takes place</li>
-<li>reasonReference: (QI) Reason the encounter takes place (reference)</li>
-<li>hospitalization: (QI) Details about the admission to a healthcare service</li>
-<li>hospitalization.dischargeDisposition: (QI) Category or kind of location after discharge</li>
-<li>location: (QI) List of locations where the patient has been</li>
-<li>location.period: (QI) Time period during which the patient was present at the location</li>
 <li>serviceProvider: (QI) The organization (facility) responsible for this encounter</li>
+<li>participant: (QI) List of participants involved in the encounter</li>
+<li>hospitalization: (QI) Details about the admission to a healthcare service</li>
+<li>reasonCode: (QI) Coded reason the encounter takes place</li>
+<li>period: (QI) The start and end time of the encounter</li>
+<li>reasonReference: (QI) Reason the encounter takes place (reference)</li>
+<li>location: (QI) List of locations where the patient has been</li>
 </ul>
 
 <b>Primary code path:</b> type
