@@ -57,10 +57,6 @@ See the <a href="MedicationAdministration-negation-with-code-example.html">Medic
     "meta" : {
         "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"]
     },
-    "extension" : [{
-        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-MedicationAdministration.recorded",
-        "valueDateTime" : "2015-01-15"
-    }],
     "status" : "not-done",
     "statusReason" : [{
         "coding" : [{
@@ -104,10 +100,6 @@ See the <a href="MedicationAdministration-negation-example.html">MedicationAdmin
     "meta" : {
         "profile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-medicationadministrationnotdone"]
     },
-    "extension" : [{
-        "url" : "http://hl7.org/fhir/5.0/StructureDefinition/extension-MedicationAdministration.recorded",
-        "valueDateTime" : "2015-01-15"
-    }],
     "status" : "not-done",
     "statusReason" : [{
         "coding" : [{
