@@ -26,6 +26,9 @@ INFORMATION: StructureDefinition/qicore-practitioner: StructureDefinition.snapsh
 Reference to draft CodeSystem http://hl7.org/fhir/event-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/task-status|4.0.1
+Reference to draft CodeSystem http://hl7.org/fhir/CodeSystem/task-code|4.0.1
+Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
+Reference to draft CodeSystem http://hl7.org/fhir/request-status|4.0.1
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medication-admin-status|4.0.1
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationdispense-status|4.0.1
@@ -61,3 +64,35 @@ INFORMATION: Observation/example-preterm-births: Observation.value.ofType(intege
 # The validator is trying to resolve an "example.org" artifact which by convention does not exist
 A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
 INFORMATION: Flag/example: Flag.code.coding[0].system: A definition for CodeSystem 'http://example.org/local' could not be found, so the code cannot be validated
+
+# The sources of the following warnings are in the base definition profiles in US Core 
+There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.2.0-ballot', found versions: 1.0.0, 4.0.1, 5.1.0, 5.2.0-ballot. Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.2.0-ballot'
+There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.2.0-ballot', found versions: 1.0.0, 4.0.1, 5.1.0, 5.2.0-ballot. Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.2.0-ballot'
+There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/display'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.2.0-ballot', found versions: 1.0.0, 4.0.1, 5.1.0, 5.2.0-ballot. Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/display' to 'http://hl7.org/fhir/StructureDefinition/display|5.2.0-ballot'
+There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.2.0-ballot', found versions: 1.0.0, 4.0.1, 5.1.0, 5.2.0-ballot. Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.2.0-ballot'
+Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx' does not resolve
+Canonical URL 'http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1' does not resolve
+The definition for the element 'ImagingStudy.series.performer.function' binds to the value set 'http://hl7.org/fhir/ValueSet/series-performer-function' which is experimental, but this structure is not labeled as experimental
+The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
+
+# The following warnings are a result of the value set http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-medicationrequest-status being somehow malformed and cannot be expanded
+Binding http://hl7.org/fhir/us/qicore/ValueSet/qicore-positive-medicationrequest-status could not be expanded
+
+# Per a comment in the observation-example-odh.xml file ("The following URL is still being sorted out, lack of clarity around the use of these code systems."), we are suppressing the following: 
+A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated
+
+# Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
+Constraint failed: ext-ab-1: 'Additional Bindings SHOULD have a key to allow a binding to be constrained.'
+
+# Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
+The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
+
+# Temp suppression
+The link 'http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes' for "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes" cannot be resolved
+
+# Occurrences of the following are suppressed. The validator is looking for the valueCodeableConcept slice, but valueInteger is a valid choice element for simple obervation
+This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
+
+# The following are suppressed as they are the result of issues within the associated base definition, outside of this IG.
+The slice 'CLIA' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
+The slice 'NAIC' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true

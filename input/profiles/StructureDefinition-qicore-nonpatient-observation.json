@@ -381,34 +381,7 @@
         "isModifier": false,
         "isSummary": true
       },
-      {
-        "id": "Observation.value[x].valueCodeableConcept",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path": "Observation.value[x]",
-        "sliceName": "valueCodeableConcept",
-        "short": "(QI) actual | potential",
-        "base": {
-          "path": "Observation.value[x]",
-          "min": 0,
-          "max": "1"
-        },
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "isModifier": false,
-        "binding": {
-          "strength": "preferred",
-          "description": "SNOMED CT for coded results",
-          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes"
-        }
-      },
+      
       {
         "id": "Observation.interpretation",
         "extension": [

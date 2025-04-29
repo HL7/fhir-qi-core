@@ -83,7 +83,7 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate"
+              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate|5.2.0-ballot"
             ]
           }
         ],
@@ -115,31 +115,7 @@
         "short" : "(QI) unconfirmed | provisional | differential | confirmed | refuted | entered-in-error",
         "definition" : "The verification status to support the clinical status of the condition."
       },
-      {
-        "id" : "Condition.severity",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path" : "Condition.severity",
-        "short" : "(QI) Subjective severity of condition",
-        "definition" : "A subjective assessment of the severity of the condition as evaluated by the clinician."
-      },
-      {
-        "id" : "Condition.code",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
-        "path" : "Condition.code",
-        "short" : "(QI) Identification of the condition, problem or diagnosis",
-        "definition" : "Identification of the condition, problem or diagnosis."
-      },
-	  {
+ 	  {
         "id" : "Condition.category",
         "extension" : [
           {
@@ -177,6 +153,32 @@
           "valueSet" : "http://hl7.org/fhir/ValueSet/condition-category"
         }
       },
+      {
+        "id" : "Condition.severity",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.severity",
+        "short" : "(QI) Subjective severity of condition",
+        "definition" : "A subjective assessment of the severity of the condition as evaluated by the clinician."
+      },
+
+      {
+        "id" : "Condition.code",
+        "extension": [
+          {
+            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean": true
+          }
+        ],
+        "path" : "Condition.code",
+        "short" : "(QI) Identification of the condition, problem or diagnosis",
+        "definition" : "Identification of the condition, problem or diagnosis."
+      },
+
       {
         "id": "Condition.subject",
         "extension": [

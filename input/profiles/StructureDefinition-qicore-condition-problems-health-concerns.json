@@ -68,7 +68,14 @@
         "path": "Condition.meta",
         "mustSupport": true
       },
-	  {
+	  
+      {
+        "id": "Condition.meta.lastUpdated",
+        "path": "Condition.meta.lastUpdated",
+        "short": "When the resource last changed",
+        "mustSupport": true
+      },
+      {
         "id" : "Condition.extension:assertedDate",
         "extension": [
           {
@@ -92,19 +99,13 @@
           {
             "code" : "Extension",
             "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate"
+              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate|5.2.0-ballot"
             ]
           }
         ],        
 		"mustSupport" : true,
         "isModifier" : false
       },      
-      {
-        "id": "Condition.meta.lastUpdated",
-        "path": "Condition.meta.lastUpdated",
-        "short": "When the resource last changed",
-        "mustSupport": true
-      },
       {
         "id" : "Condition.clinicalStatus",
         "extension": [

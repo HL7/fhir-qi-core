@@ -57,24 +57,7 @@
       }],
       "mustSupport" : false
     },
-    {
-        "id" : "NutritionOrder.OralDiet.type",
-        "extension" : [
-          {
-          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-          "valueBoolean" : true
-           }
-         ],    
-        "path" : "NutritionOrder.OralDiet.type",
-        "short" : "(QI) Oral diet components",
-        "min" : 0,
-        "max" : "1",
-        "type" : [{
-          "code" : "Reference",
-          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
-        }]
-        
-    },
+    
     {
       "id" : "NutritionOrder.patient",
       "extension" : [
@@ -91,6 +74,25 @@
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-patient"]
       }]
+    },
+    {
+        "id" : "NutritionOrder.oralDiet.type",
+        "extension" : [
+          {
+          "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+          "valueBoolean" : true
+           }
+         ],    
+        "path" : "NutritionOrder.oralDiet.type",
+        "short" : "(QI) Oral diet components",
+        "min" : 0,
+        "max" : "1",
+        "type": [
+          {
+            "code": "CodeableConcept"
+          }
+        ]
+        
     }]
   }
 }
