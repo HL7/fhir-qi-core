@@ -62,7 +62,7 @@
         "path" : "DeviceRequest",
         "constraint" : [
           {
-            "key" : "derq-1",
+            "key" : "drq-3",
             "severity" : "error",
             "human" : "to indicate what device, either at least one coding in the code or a codeOptions extension shall be provided",
             "expression" : "(code is Reference).not() implies code.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor code.coding.exists()",
@@ -139,7 +139,7 @@
         "path" : "DeviceRequest.code[x]",
         "short" : "(QI) Device requested",
         "condition" : [
-          "drq-1"
+          "drq-3"
         ],
         "binding" : {
           "strength" : "preferred",
@@ -176,7 +176,7 @@
           }
         ],
         "condition" : [
-          "drq-1"
+          "drq-3"
         ]
       },
       {

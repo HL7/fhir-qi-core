@@ -24,12 +24,11 @@ QI-Core STU7 includes observation-related profiles that provide QI-Core-specific
 
 [comment]: # The tracker FHIR-45597 Indicates the profile US Core Pediatric Head Occipital-frontal Circumference Percentile Profile should be added to the list, below, and also in the table below that list. See https://jira.hl7.org/browse/FHIR-45597 . 
 
-- [QICore Simple Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-simple-observation.html) – used to capture any “simple” type of observation that is not classified as vital signs, laboratory, imaging, or other more specific observation types; generally used with QDM “Assessment, Performed”
-- [QICore ObservationCancelled](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observationcancelled.html) – used to reference indication that any given observation did not occur for a specific reason; US Core does not include such a profile to address the QDM concept of _negation rationale_ (See section [3.0 QI-Core Negation](https://hl7.org/fhir/us/qicore/negation.html) for a comprehensive description)
-- [QICore Observation Clinical Result](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-clinical-result.html) – generally used with QDM “Diagnostic Study, Performed”; based on US Core 7.0.0 Observation Clinical Result, includes non-laboratory clinical test results
-- [QICore Laboratory Result Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-lab.html) – generally used with QDM “Laboratory Test, Performed”
-- [QICore Observation Screening Assessment](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-observation-screening-assessment.html) – generally used with QDM “Assessment, Performed” when referencing panels of multi-question surveys or evaluation tools
-- [QICore NonPatient Observation](http://hl7.org/fhir/us/qicore/StructureDefinition-qicore-nonpatient-observation.html) – developed to enable structural measures evaluating available resources for which a patient is not the measure subject; this profile is an approved variance from US Core only for use in [structural measures](https://mmshub.cms.gov/node/203). <http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html>
+- [QICore Simple Observation](StructureDefinition-qicore-simple-observation.html) – used to capture any “simple” type of observation that is not classified as vital signs, laboratory, imaging, or other more specific observation types; generally used with QDM “Assessment, Performed”
+- [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) – generally used with QDM “Diagnostic Study, Performed”; based on US Core 7.0.0 Observation Clinical Result, includes non-laboratory clinical test results
+- [QICore Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html) – generally used with QDM “Laboratory Test, Performed”
+- [QICore Observation Screening Assessment](StructureDefinition-qicore-observation-screening-assessment.html) – generally used with QDM “Assessment, Performed” when referencing panels of multi-question surveys or evaluation tools
+- [QICore NonPatient Observation](StructureDefinition-qicore-nonpatient-observation.html) – developed to enable structural measures evaluating available resources for which a patient is not the measure subject; this profile is an approved variance from US Core only for use in [structural measures](https://mmshub.cms.gov/node/203). <http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html>
 
 
 {:.stu-note}
@@ -45,24 +44,24 @@ QI-Core STU 7.0.0 also incorporates observation-related profiles directly from U
 | --- | --- | 
 | [US Core Average Blood Pressure Profile](https://fhir/us/core/stu7.0/StructureDefinition-us-core-average-blood-pressure.html) | Physical Exam, Performed |
 | [US Core Care Experience Preference Profile](http://hl7.org/us/core/STU7.0/StructureDefinition-us-core-care-experience-preference.html) | Assessment, Performed |
-| [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-observation-occupation.html) | Assessment, Performed |
-| [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-observation-pregnancyintent.html) | Assessment, Performed |
-| [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-observation-pregnancystatus.html) | Assessment, Performed |
-| [US Core Observation Sexual Orientation Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-observation-sexual-orientation.html) | Assessment, Performed |
-| [US Core Smoking Status Observation Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-smokingstatus.html) | Assessment, Performed |
+| [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-occupation.html) | Assessment, Performed |
+| [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancyintent.html) | Assessment, Performed |
+| [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancystatus.html) | Assessment, Performed |
+| [US Core Observation Sexual Orientation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-sexual-orientation.html) | Assessment, Performed |
+| [US Core Smoking Status Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html) | Assessment, Performed |
 | [US Core Treatment Intervention Preference Profile](https://hl7/fhir/us/core/STU7.0/StructureDefinition-us-core-treatment-intervention-preference.html) | Assessment, Performed |
-| [US Core Pediatric BMI for Age Observation Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-pediatric-bmi-for-age.html) | Physical Exam, Performed &nbsp; |
-| [US Core Pediatric Weight for Height Observation Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-pediatric-weight-for-height.html) | Physical Exam, Performed &nbsp; |
-| [US Core Blood Pressure Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-blood-pressure.html) | Physical Exam, Performed &nbsp; |
-| [US Core BMI Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-bmi.html)| Physical Exam, Performed &nbsp; |
-| [US Core Body Height Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-body-height.html) | Physical Exam, Performed &nbsp; |
-| [US Core Body Temperature Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-body-temperature.html) | Physical Exam, Performed &nbsp; |
-| [US Core Body Weight Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-body-weight.html) | Physical Exam, Performed &nbsp; |
-| [US Core Head Circumference Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-head-circumference.html) | Physical Exam, Performed &nbsp; |
-| [US Core Heart Rate Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-heart-rate.html) | Physical Exam, Performed &nbsp; |
-| [US Core Pulse Oximetry Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-pulse-oximetry.html) | Physical Exam, Performed &nbsp; |
-| [US Core Respiratory Rate Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-us-core-respiratory-rate.html) | Physical Exam, Performed &nbsp; |
-| [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile](http://hl7.org/fhir/us/core/STU7.0/StructureDefinition-head-occipital-frontal-circumference-percentile.html) | Physical Exam, Performed  &nbsp;|
+| [US Core Pediatric BMI for Age Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-bmi-for-age.html) | Physical Exam, Performed &nbsp; |
+| [US Core Pediatric Weight for Height Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-weight-for-height.html) | Physical Exam, Performed &nbsp; |
+| [US Core Blood Pressure Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-blood-pressure.html) | Physical Exam, Performed &nbsp; |
+| [US Core BMI Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-bmi.html)| Physical Exam, Performed &nbsp; |
+| [US Core Body Height Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-body-height.html) | Physical Exam, Performed &nbsp; |
+| [US Core Body Temperature Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-body-temperature.html) | Physical Exam, Performed &nbsp; |
+| [US Core Body Weight Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-body-weight.html) | Physical Exam, Performed &nbsp; |
+| [US Core Head Circumference Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-head-circumference.html) | Physical Exam, Performed &nbsp; |
+| [US Core Heart Rate Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-heart-rate.html) | Physical Exam, Performed &nbsp; |
+| [US Core Pulse Oximetry Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-pulse-oximetry.html) | Physical Exam, Performed &nbsp; |
+| [US Core Respiratory Rate Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-respiratory-rate.html) | Physical Exam, Performed &nbsp; |
+| [US Core Pediatric Head Occipital-frontal Circumference Percentile Profile](http://hl7.org/fhir/us/core/StructureDefinition-head-occipital-frontal-circumference-percentile.html) | Physical Exam, Performed  &nbsp;|
 {: .grid}
 
 
@@ -150,7 +149,7 @@ Assessment, Order uses the ServiceRequest resource. The codes for ordering speci
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Assessment, Order” and “Assessment, Recommended” datatypes. |
 | &nbsp; | [ServiceRequest.intent](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.intent) | Required to differentiate an order from a recommendation. The intent value set allows such differentiation using “order” for orders and “plan” for recommendation. Constrain only to “order” (include children: original-order, reflex-order, filler-order, instance-order) |
 | **QDM Attributes** | &nbsp; | &nbsp; |
-| Code | [ServiceRequest.codeOptions](StructureDefinition-qicore-servicerequested-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) | What is requested, extensible binding to [codeOptions](StructureDefinition-codeOptions.html) |
+| Code | [ServiceRequest.codeOptions](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) | What is requested, extensible binding to [codeOptions](StructureDefinition-codeOptions.html) |
 | id  | [ServiceRequest.id](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.id) | &nbsp; |
 | Reason | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.reasonCode) | Explanation/justification for procedure or service with extensible binding to [US Core Condition Codes](http://hl7.org/fhir/us/core/STU7/ValueSet-us-core-condition-code.html) |
 | Author dateTime | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.authoredOn) | When the request transitioned to being actionable. |
@@ -166,7 +165,7 @@ Assessment, Order uses the ServiceRequest resource. The codes for ordering speci
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-servicerequested-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to order an assessment with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -240,7 +239,7 @@ Assessment, Recommended uses the ServiceRequest resource. The codes for recommen
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Assessment, Order” and “Assessment, Recommended” datatypes. |
 | &nbsp; | [ServiceRequest.intent](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.intent) | Required to differentiate a recommendation from an order. The intent value set allows such differentiation using “order” for orders and “plan” for recommendation. Constrain only to “plan” |
 | **QDM Attributes** | &nbsp; | &nbsp; |
-| code | [ServiceRequest.codeOptions](StructureDefinition-qicore-servicerequested-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) | What is requested, extensible binding to [US Core Procedure Codes](http://hl7.org/fhir/us/core/STU7/ValueSet-us-core-procedure-code.html) |
+| code | [ServiceRequest.codeOptions](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) | What is requested, extensible binding to [US Core Procedure Codes](http://hl7.org/fhir/us/core/STU7/ValueSet-us-core-procedure-code.html) |
 | id  | [ServiceRequest.id](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.id) | &nbsp; |
 | reason | [ServiceRequest.reasonCode](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.reasonCode) | Explanation/justification for procedure or service with extensible binding to [US Core Condition Codes](http://hl7.org/fhir/us/core/STU7/ValueSet-us-core-condition-code.html) |
 | authorDatetime | [ServiceRequest.authoredOn](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.authoredOn) | When the request transitioned to being actionable. |
@@ -256,7 +255,7 @@ Assessment, Recommended uses the ServiceRequest resource. The codes for recommen
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to recommend an assessment with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -454,7 +453,7 @@ QDM originally designed Device, Applied to allow access to documentation of devi
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to order a non-patient use device with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -516,7 +515,7 @@ QDM originally designed Device, Applied to allow access to documentation of devi
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to recommend a non-patient use device with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -588,7 +587,7 @@ QI-Core has added specific constraints on the US Core STU7 profile that address 
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to order a diagnostic study with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -655,7 +654,7 @@ Individual studies may use [QI-Core DiagnosticReport Profile for Report and Note
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to recommend a diagnostic study with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -715,7 +714,7 @@ For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key E
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to order an encounter with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -777,7 +776,7 @@ For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key E
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to recommend an encounter with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -1030,7 +1029,7 @@ To indicate an intervention not performed for a reason Use [QICoreProcedureNotDo
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to order an intervention with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -1061,7 +1060,7 @@ To indicate an intervention not performed for a reason Use [QICoreProcedureNotDo
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to recommend an intervention with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -1102,7 +1101,7 @@ Each laboratory test may be ordered individually or in a panel. Many use panels 
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to order a laboratory test with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -1167,7 +1166,7 @@ Each laboratory test may be ordered individually or in a panel. Many use panels 
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to recommend a laboratory test with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -1452,7 +1451,7 @@ QDM “Physical Exam, Order” should use ServiceRequest with _intent_ = order f
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to order a physical exam with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -1518,7 +1517,7 @@ QDM “Physical Exam, Recommended” should use ServiceRequest with _intent_ = p
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to recommend a physical exam with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -1624,7 +1623,7 @@ To indicate an procedure not performed for a reason Use [QICoreProcedureNotDone]
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to order a procedure with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
@@ -1655,7 +1654,7 @@ To indicate an procedure not performed for a reason Use [QICoreProcedureNotDone]
     - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
-    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
+    - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
 - To indicate rejection of a proposal to recommend a procedure with a reason for the rejection use [Task Rejected](StructureDefinition-qicore-taskrejected.html) and reference the [ServiceRequested](StructureDefinition-qicore-servicerequested.html) as the [focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) of the rejected Task. Example;
     - [Task.status](StructureDefinition-qicore-taskrejected-definitions.html#Task.status) – “rejected”
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)

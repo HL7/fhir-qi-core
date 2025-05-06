@@ -1068,7 +1068,7 @@
 * value[x]: (QI) Actual result
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
 * effective[x]: (QI) Clinically relevant time/time-period for observation
-* value[x](valueCodeableConcept): (QI) actual \| potential
+* value[x]: (valueCodeableConcept) (QI) actual \| potential
 * interpretation: (QI) High, low, normal, etc.
 
 **Primary code path:** code
@@ -1479,7 +1479,7 @@
 * derivedFrom: (QI) US Core Profiles or other resource the observation is made from
 * value[x]: (QI) Actual result
 * effective[x]: (QI) Clinically relevant time/time-period for observation
-* value[x](valueCodeableConcept): (QI) actual \| potential
+* value[x]: (valueCodeableConcept) (QI) actual \| potential
 * interpretation: (QI) High, low, normal, etc.
 
 **Primary code path:** code
