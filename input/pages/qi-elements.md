@@ -1127,7 +1127,7 @@
 
 
 **Must Have:**
-* category(survey): (QI) Classification of type of observation
+* category (survey - extension): (QI) Classification of type of observation
 * subject: (QI) Who and/or what the observation is about
 * category: (QI) Classification of type of observation
 * code: (QI) Type of observation (code / type)
