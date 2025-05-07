@@ -200,6 +200,8 @@ profile are reference by the logic. Implementers can use this information direct
 which elements must be provided to achieve a successful evaluation of the artifact. In addition, repositories and publishers may
 make use of this information to define artifact-specific profiles using the effective data requirements provided by the artifact.
 
+The primary code path provides the default filtering for a CQL expression. See [using-modelinfo section](https://hl7.org/fhir/uv/cql/using-modelinfo.html#modelinfo-settings.html) in Using CQL with FHIR.
+
 ### Modifying Attributes
 
 Within FHIR resources, some elements are considered [Modifying Elements]({{site.data.fhir.path}}conformance-rules.html#isModifier),

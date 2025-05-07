@@ -1,4 +1,4 @@
-<div class="new-content" markdown="1">
+
 "Must Have", "QI Elements" and "primary code path" are defined in the [QI-Core Must Support section](index.html#mustsupport-flag).
 
 ### [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html) ###
