@@ -715,7 +715,7 @@
 * code: (QI) Laboratory Test Name
 * category: (QI) Classification of type of observation
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
-* category(us-core): (QI) Classification of type of observation
+* category(us-core extension): (QI) Classification of type of observation
 
 
 **QI Elements:**
