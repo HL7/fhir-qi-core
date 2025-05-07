@@ -1,4 +1,4 @@
-<div class="new-content" markdown="1">
+
 "Must Have", "QI Elements" and "primary code path" are defined in the [QI-Core Must Support section](index.html#mustsupport-flag).
 
 ### [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html) ###
@@ -451,12 +451,40 @@
 <br>
 <br>
 
+### [QICore DiagnosticReport Profile for Laboratory Results Reporting](StructureDefinition-qicore-diagnosticreport-lab.html) ###
+**Must Have:**
+* status: (QI) registered \| partial \| preliminary \| final +
+* category: (QI) Service category
+* category (LaboratorySlice): (QI) Service category
+* code: (QI) US Core Laboratory Report Order Code
+* subject: (QI) The subject of the report - usually, but not always, the patient
+
+
+**QI Elements:**
+* basedOn: What was requested
+* effective[x]: (QI) Diagnostically relevant time (typically the time of specimen collection)
+* performer: (QI) Responsible Diagnostic Service
+* result: (QI) Observations
+* issued: (QI) DateTime this version was made
+* encounter: (QI) Health care event when test ordered
+* performer: (QI) Responsible Diagnostic Service
+
+**Primary code path:** code
+<br>
+(PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
+<br>
+
+
+
+<br>
+<br>
+
 ### [QICore DiagnosticReport Profile for Report and Note Exchange](StructureDefinition-qicore-diagnosticreport-note.html) ###
 
 
 **Must Have:**
 * subject: (QI) The subject of the report - usually, but not always, the patient
-* status: (QI)registered \| partial \| preliminary \| final +
+* status: (QI) registered \| partial \| preliminary \| final +
 * category: (QI) Service Category
 * code: (QI) QI-Core Report Code
 
@@ -715,7 +743,7 @@
 * code: (QI) Laboratory Test Name
 * category: (QI) Classification of type of observation
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
-* category(us-core): (QI) Classification of type of observation
+* category(us-core extension): (QI) Classification of type of observation
 
 
 **QI Elements:**
@@ -1127,7 +1155,7 @@
 
 
 **Must Have:**
-* category(survey): (QI) Classification of type of observation
+* category (survey - extension): (QI) Classification of type of observation
 * subject: (QI) Who and/or what the observation is about
 * category: (QI) Classification of type of observation
 * code: (QI) Type of observation (code / type)

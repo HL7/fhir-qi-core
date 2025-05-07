@@ -192,13 +192,17 @@ these additional elements when they are used in the measures or CDS artifacts im
 Since not all artifacts use each of these additional elements, QI-Core does not use the “MustSupport” flag to indicate these elements.
 Instead, “(QI)” is prepended to the element’s short description found in the Description & Constraints column of the Key Elements Table,
 and the computable [QI-Core Key Element Extension](StructureDefinition-qicore-keyelement.html) is added to each element definition. This approach
-allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use. This is inspired by the way that [US Core communicates USCDI requirements]({{site.data.fhir.ver.uscore}}/must-support.html#uscdi-requirements). Software should not be expected to test conformance to all of QI-Core. Rather, the systems should be conformant for all data elements required by a specific set of measures or CDS artifacts constructed with QI-Core elements needed to report the specific measure set criteria. QI-Core provides consistency and standardization for measure developers and CDS artifact developers to express the data elements they need to address their intended outcomes.
+allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use. This is inspired by the way that [US Core communicates USCDI requirements]({{site.data.fhir.ver.uscore}}/must-support.html#uscdi-requirements) and allows IGs that extend QI-Core, such as those representing data requirements for specific measures or supporting CDS, to avoid inheriting requirements for those QI-Core-flagged elements that they do not use. Software should not be expected to test conformance to all of QI-Core. Rather, the systems should be conformant for all data elements required by a specific set of measures or CDS artifacts constructed with QI-Core elements needed to report the specific measure set criteria. QI-Core provides consistency and standardization for measure developers and CDS artifact developers to express the data elements they need to address their intended outcomes.
+
+In addition to (QI) Key Element extensions, each QI-Core profile identifies a primary code path. The primary code path provides the default filtering for a CQL expression. See [using-modelinfo section](https://hl7.org/fhir/uv/cql/using-modelinfo.html#modelinfo-settings.html) in Using CQL with FHIR.
 
 Quality improvement artifacts communicate the elements they reference using the DataRequirement structure in FHIR. This structure allows
 the base resource type and profile to be specified, as well as a MustSupport element that indicates which elements of the resource and
 profile are reference by the logic. Implementers can use this information directly from the effective data requirements to determine
 which elements must be provided to achieve a successful evaluation of the artifact. In addition, repositories and publishers may
 make use of this information to define artifact-specific profiles using the effective data requirements provided by the artifact.
+
+The primary code path provides the default filtering for a CQL expression. See [using-modelinfo section](https://hl7.org/fhir/uv/cql/using-modelinfo.html#modelinfo-settings.html) in Using CQL with FHIR.
 
 ### Modifying Attributes
 
