@@ -3,6 +3,12 @@
 # The following errors are being generated because they are inherited from the US core snapshots
 The link 'general-requirements.html#required-bindings-when-slicing-by-valuesets' for "Required Bindings When Slicing by Value Sets" cannot be resolved
 
+# The following errors are being triggered because the validator is flagging the following valid links as invalid.
+ERROR: /scratch/repo/output/changes.html#/html/body/div/div/div/div/div/ol/li/a at Line 237, column 251: The link 'http://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-observationcancelled.html' for "here" cannot be resolved
+ERROR: /scratch/repo/output/changes.html#/html/body/div/div/div/div/div/ol/li/a at Line 247, column 202: The link 'http://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-servicenotrequested.html' for "here" cannot be resolved
+ERROR: /scratch/repo/output/changes.html#/html/body/div/div/div/div/div/ol/li/a at Line 247, column 314: The link 'http://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-servicerequest.html' for "here" cannot be resolved
+ERROR: /scratch/repo/output/qdm-to-qicore.html#/html/body/div/div/div/div/div/ul/li/a at Line 224, column 361: The link 'http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html' for "http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html" cannot be resolved
+ERROR: /scratch/repo/output/qdm-to-qicore.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 3708, column 12: The link 'StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.extension:recorded' for "Not" cannot be resolved (valid targets: 135 targets)
 
 # Profiles not based on US Core and variance requests have been approved: https://jira.hl7.org/browse/FHIR-34125 & https://jira.hl7.org/browse/FHIR-41615
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
