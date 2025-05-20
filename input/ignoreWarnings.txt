@@ -49,13 +49,11 @@ Reference to draft CodeSystem http://hl7.org/fhir/event-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/task-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/CodeSystem/task-code|4.0.1
-Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/request-status|4.0.1
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medication-admin-status|4.0.1
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationdispense-status|4.0.1
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationrequest-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/v2-0360|2.7|0360 
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/coverage-class|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/adverse-event-seriousness|1.0.0
@@ -64,10 +62,10 @@ Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/payeetype|1.
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/adjudication|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/communication-not-done-reason|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/communication-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/goal-category|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/location-physical-type|2.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/diet|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-category|1.0.0
+Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
 
 # The folowing information messages are expected since slices in the examples are present in the SimpleObservation.value[x] profile elements as valueQuantity and not other choice types
 INFORMATION: Observation/example: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
@@ -85,13 +83,8 @@ INFORMATION: Observation/example-preterm-births: Observation.value.ofType(intege
 
 # The validator is trying to resolve an "example.org" artifact which by convention does not exist
 A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
-INFORMATION: Flag/example: Flag.code.coding[0].system: A definition for CodeSystem 'http://example.org/local' could not be found, so the code cannot be validated
 
 # The sources of the following warnings are in the base definition profiles in US Core 
-There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.2.0-ballot', found versions: 1.0.0, 4.0.1, 5.1.0, 5.2.0-ballot. Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.2.0-ballot'
-There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.2.0-ballot', found versions: 1.0.0, 4.0.1, 5.1.0, 5.2.0-ballot. Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode|5.2.0-ballot'
-There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/display'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.2.0-ballot', found versions: 1.0.0, 4.0.1, 5.1.0, 5.2.0-ballot. Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/display' to 'http://hl7.org/fhir/StructureDefinition/display|5.2.0-ballot'
-There are multiple different potential matches for the url 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature'. It might be a good idea to fix to the correct version to reduce the likelihood of a wrong version being selected by an implementation/implementer, or use the [IG Parameter `pin-canonicals`](https://hl7.org/fhir/tools/CodeSystem-ig-parameters.html). Using version '5.2.0-ballot', found versions: 1.0.0, 4.0.1, 5.1.0, 5.2.0-ballot. Suggested fix: change the canonical reference from 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature' to 'http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature|5.2.0-ballot'
 Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx' does not resolve
 Canonical URL 'http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1' does not resolve
 The definition for the element 'ImagingStudy.series.performer.function' binds to the value set 'http://hl7.org/fhir/ValueSet/series-performer-function' which is experimental, but this structure is not labeled as experimental
