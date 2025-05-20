@@ -78,7 +78,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 |**2.1.28 MedicationRequest**|
 |&emsp; [QICore MedicationRequest](StructureDefinition-qicore-medicationrequest.html)| [US Core MedicationRequest]({{site.data.fhir.ver.uscore}}/StructureDefinition-us-core-medicationrequest.html) |&emsp; [ MedicationRequest]({{site.data.fhir.path}}medicationrequest.html)|
 |&emsp; &emsp; [QICore Medication Requested](StructureDefinition-qicore-medicationrequested.html)| &mdash; | &mdash; |
-|&emsp; &emsp; [QICore Medication Prohibied](StructureDefinition-qicore-medicationprohibited.html)| &mdash; | &mdash; |
+|&emsp; &emsp; [QICore Medication Prohibited](StructureDefinition-qicore-medicationprohibited.html)| &mdash; | &mdash; |
 |**2.1.29 MedicationStatement**|
 |&emsp; [QICore MedicationStatement](StructureDefinition-qicore-medicationstatement.html)| &mdash; |&emsp; [ MedicationStatement]({{site.data.fhir.path}}medicationstatement.html)|
 |**2.1.30 NutritionOrder**|
