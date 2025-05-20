@@ -305,7 +305,7 @@ Conformance to this QI-Core Implementation Guide requires the following (in addi
 |---|---|---|
 |Abdullah Rafiqi|ICF|Editor|
 |Anne Smith|NCQA|Contributor|
-|Ben Hamlin|NCQA|Contributor|
+|Ben Hamlin|IPRO|Contributor|
 |Bryn Rhodes|Smile Digital Health|Editor|
 |Chris Moesel|The MITRE Corporation|Contributor|
 |Claude Nanjo|University of Utah|Originator|
