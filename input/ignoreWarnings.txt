@@ -1,8 +1,5 @@
 == Suppressed Messages ==
 
-# The following errors are being generated because they are inherited from the US core snapshots
-The link 'general-requirements.html#required-bindings-when-slicing-by-valuesets' for "Required Bindings When Slicing by Value Sets" cannot be resolved
-
 # The following errors are being triggered because the validator is flagging the following valid links as invalid.
 ERROR: /scratch/repo/output/changes.html#/html/body/div/div/div/div/div/ol/li/a at Line 237, column 251: The link 'http://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-observationcancelled.html' for "here" cannot be resolved
 ERROR: /scratch/repo/output/changes.html#/html/body/div/div/div/div/div/ol/li/a at Line 247, column 202: The link 'http://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-servicenotrequested.html' for "here" cannot be resolved
@@ -12,16 +9,10 @@ ERROR: /scratch/repo/output/qdm-to-qicore.html#/html/body/div/div/div/div/div/ta
 
 # Profiles not based on US Core and variance requests have been approved: https://jira.hl7.org/browse/FHIR-34125 & https://jira.hl7.org/browse/FHIR-41615
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
-WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-observationcancelled').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
-
-# The following examples are using valid codes in the ICD-10/Occupational Data for Health (ODH) codesystems but no codes are represented in THO
-INFORMATION: Claim/example: Claim.diagnosis[0].diagnosis.ofType(CodeableConcept).coding[0]: A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/icd-10-cm' could not be found, so the code cannot be validated
-INFORMATION: Observation/example-odh: Observation.value.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated
 
 # The following messages are being generated from the inherited/base resource snapshot
 WARNING: StructureDefinition/qicore-careplan: StructureDefinition.snapshot.element[9].comment: The markdown contains content that appears to be an embedded HTML tag starting at 'Th'. This will (or SHOULD) be escaped by the presentation layer. The content should be checked to confirm that this is the desired behaviour
-INFORMATION: StructureDefinition/qicore-medicationdispense: StructureDefinition.snapshot.element[29].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[32].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
@@ -103,12 +94,6 @@ Constraint failed: ext-ab-1: 'Additional Bindings SHOULD have a key to allow a b
 # Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
 The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
 
-# Temp suppression
-The link 'http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes' for "http://hl7.org/fhir/us/core/ValueSet/us-core-observation-value-codes" cannot be resolved
-
-# Occurrences of the following are suppressed. The validator is looking for the valueCodeableConcept slice, but valueInteger is a valid choice element for simple obervation
-This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0 (this may not be a problem, but you should check that it's not intended to match a slice)
-
 # The following are suppressed as they are the result of issues within the associated base definition, outside of this IG.
 The slice 'CLIA' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
 The slice 'NAIC' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
@@ -118,7 +103,6 @@ Pinned the version of http://hl7.org/fhir/StructureDefinition/codeOptions to 7.0
 Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/display to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
-Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/ordinalValue to 5.2.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 
 # The following information message is suppressed as it merely suggests a review of values in a ValueSet which may or may not occur in the future
