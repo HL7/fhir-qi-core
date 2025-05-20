@@ -1,12 +1,5 @@
 == Suppressed Messages ==
 
-# The following errors are being triggered because the validator is flagging the following valid links as invalid.
-ERROR: /scratch/repo/output/changes.html#/html/body/div/div/div/div/div/ol/li/a at Line 237, column 251: The link 'http://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-observationcancelled.html' for "here" cannot be resolved
-ERROR: /scratch/repo/output/changes.html#/html/body/div/div/div/div/div/ol/li/a at Line 247, column 202: The link 'http://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-servicenotrequested.html' for "here" cannot be resolved
-ERROR: /scratch/repo/output/changes.html#/html/body/div/div/div/div/div/ol/li/a at Line 247, column 314: The link 'http://hl7.org/fhir/us/qicore/STU6/StructureDefinition-qicore-servicerequest.html' for "here" cannot be resolved
-ERROR: /scratch/repo/output/qdm-to-qicore.html#/html/body/div/div/div/div/div/ul/li/a at Line 224, column 361: The link 'http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html' for "http://hl7.org/fhir/us/core/STU6.1/StructureDefinition-us-core-observation-occupation.html" cannot be resolved
-ERROR: /scratch/repo/output/qdm-to-qicore.html#/html/body/div/div/div/div/div/table/tbody/tr/td/a at Line 3708, column 12: The link 'StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.extension:recorded' for "Not" cannot be resolved (valid targets: 135 targets)
-
 # Profiles not based on US Core and variance requests have been approved: https://jira.hl7.org/browse/FHIR-34125 & https://jira.hl7.org/browse/FHIR-41615
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
@@ -58,20 +51,6 @@ Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/diet|1.0.0
 Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-category|1.0.0
 Reference to draft CodeSystem http://hl7.org/fhir/CodeSystem/medicationrequest-status|4.0.1
 Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
-
-# The folowing information messages are expected since slices in the examples are present in the SimpleObservation.value[x] profile elements as valueQuantity and not other choice types
-INFORMATION: Observation/example: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-gestation: Observation.value.ofType(Quantity): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
-
-# The following information messages are expected since slices in the examples are present in the SimpleObservation.value[x] profile elements as valuedateTime and not other choice types
-INFORMATION: Observation/example-delivery-date-estimate: Observation.value.ofType(dateTime): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-obstetric-delivery: Observation.value.ofType(dateTime): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
-
-# The following information messages are expected since slices in the examples are present in the SimpleObservation.value[x] profile elements as valueInteger and not other choice types
-INFORMATION: Observation/example-births: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-parity: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-pregnancies: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
-INFORMATION: Observation/example-preterm-births: Observation.value.ofType(integer): This element does not match any known slice defined in the profile http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-simple-observation|7.0.0-ballot (this may not be a problem, but you should check that it's not intended to match a slice)
 
 # The validator is trying to resolve an "example.org" artifact which by convention does not exist
 A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
