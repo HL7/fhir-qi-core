@@ -1,10 +1,10 @@
 == Suppressed Messages ==
 
-# 01 - Profiles not based on US Core and variance requests have been approved: https://jira.hl7.org/browse/FHIR-34125 & https://jira.hl7.org/browse/FHIR-41615
+# Profiles not based on US Core and variance requests have been approved: https://jira.hl7.org/browse/FHIR-34125 & https://jira.hl7.org/browse/FHIR-41615
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
-# 02 - The following messages are being generated from the inherited/base resource snapshot
+# The following messages are being generated from the inherited/base resource snapshot
 INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[32].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
@@ -26,7 +26,7 @@ ERROR: /scratch/repo/output/StructureDefinition-qicore-servicerequested-definiti
 ERROR: /scratch/repo/output/StructureDefinition-qicore-servicerequested-definitions.html#/html/body/div/div/div/div/div/div/div/table/tr/td/p/a at Line 497, column 462: The link 'http://hl7.org/fhir/us/core/STU7/servicerequest-example-di.html' for "CT Scan example" cannot be resolved
 ERROR: /scratch/repo/output/StructureDefinition-qicore-servicerequested-definitions.html#/html/body/div/div/div/div/div/div/div/table/tr/td/p/a at Line 501, column 969: The link 'http://hl7.org/fhir/us/core/STU7/servicerequest-example-di.html' for "CT Scan example" cannot be resolved
 
-# 03 - The following messages are generated from code systems and value sets currently in 'draft' status within the inherited/base resource snapshot.
+# The following messages are generated from code systems and value sets currently in 'draft' status within the inherited/base resource snapshot.
 Reference to draft CodeSystem http://hl7.org/fhir/event-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/task-status|4.0.1
@@ -50,47 +50,47 @@ Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-ca
 Reference to draft CodeSystem http://hl7.org/fhir/CodeSystem/medicationrequest-status|4.0.1
 Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
 
-# 04 - The validator is trying to resolve an "example.org" artifact which by convention does not exist
+# The validator is trying to resolve an "example.org" artifact which by convention does not exist
 A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
 
-# 04 - The sources of the following warnings are in the base definition profiles in US Core 
+# The sources of the following warnings are in the base definition profiles in US Core 
 Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx' does not resolve
 Canonical URL 'http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1' does not resolve
 The definition for the element 'ImagingStudy.series.performer.function' binds to the value set 'http://hl7.org/fhir/ValueSet/series-performer-function' which is experimental, but this structure is not labeled as experimental
 The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 
-# 05 - Per a comment in the observation-example-odh.xml file ("The following URL is still being sorted out, lack of clarity around the use of these code systems."), we are suppressing the following: 
+# Per a comment in the observation-example-odh.xml file ("The following URL is still being sorted out, lack of clarity around the use of these code systems."), we are suppressing the following: 
 A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated
 
-# 06 - Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
+# Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
 Constraint failed: ext-ab-1: 'Additional Bindings SHOULD have a key to allow a binding to be constrained.'
 
-# 07 - Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
+# Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
 The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
 
-# 08 - The following are suppressed as they are the result of issues within the associated base definition, outside of this IG.
+# The following are suppressed as they are the result of issues within the associated base definition, outside of this IG.
 The slice 'CLIA' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
 The slice 'NAIC' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
 
-# 09 - The following information messages are suppressed 
+# The following information messages are expected since the canonical references are pinned to multiple versions
 Pinned the version of http://hl7.org/fhir/StructureDefinition/codeOptions to 7.0.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 7.0.0 (hl7.fhir.us.qicore#7.0.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/display to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/ordinalValue to 5.2.0 from choices of 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 
-# 10 - The following information message is suppressed as it merely suggests a review of values in a ValueSet which may or may not occur in the future
+# The following information message is suppressed as it merely suggests a review of values in a ValueSet which may or may not occur in the future
 The resource status 'draft' and the standards status 'trial-use' may not be consistent and should be reviewed
 
-# 11 - Suppressed messages warning about an placeholder example oid by convention
+# The following warnings messages are generated due to using an example oid for an identifier system in the patient examples 
 URL value 'urn:oid:1.2.36.146.595.217.0.1' does not resolve
 
-# 12 - The following information message is suppressed as it refers to an issue in a base resource defined elsewhere
+# The following information message is suppressed as it refers to an issue in a base resource defined elsewhere
 The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
 
-# 13 - The following information messages in Questionnaire Response are suppressed as they refer to elements in the snapshot base resource
+# The following information messages in Questionnaire Response are suppressed as they refer to elements in the snapshot base resource
 The extension http://hl7.org/fhir/StructureDefinition/ordinalValue|5.2.0 is deprecated with the note Replaced by [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]]
 The extension http://hl7.org/fhir/StructureDefinition/regex|5.2.0 is deprecated with the note This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex
 
-# 14 - The iso21090-preferred extension is deprecated, but what is the alternative? Cannot find an appropriate extension or cross-version extension to use here
-INFORMATION: StructureDefinition/qicore-patient: Patient.telecom.extension: The extension http://hl7.org/fhir/StructureDefinition/iso21090-preferred|5.2.0 is deprecated
+# The following information is notifying of a deprecated extension but there is no extension at the moment that can replace it
+INFORMATION: StructureDefinition/qicore-patient: Patient.address.extension: The extension http://hl7.org/fhir/StructureDefinition/iso21090-preferred|5.2.0 is deprecated
