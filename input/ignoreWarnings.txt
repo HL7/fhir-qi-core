@@ -26,7 +26,6 @@ ERROR: /scratch/repo/output/StructureDefinition-qicore-servicerequested-definiti
 ERROR: /scratch/repo/output/StructureDefinition-qicore-servicerequested-definitions.html#/html/body/div/div/div/div/div/div/div/table/tr/td/p/a at Line 497, column 462: The link 'http://hl7.org/fhir/us/core/STU7/servicerequest-example-di.html' for "CT Scan example" cannot be resolved
 ERROR: /scratch/repo/output/StructureDefinition-qicore-servicerequested-definitions.html#/html/body/div/div/div/div/div/div/div/table/tr/td/p/a at Line 501, column 969: The link 'http://hl7.org/fhir/us/core/STU7/servicerequest-example-di.html' for "CT Scan example" cannot be resolved
 
-
 # The following messages are generated from code systems and value sets currently in 'draft' status within the inherited/base resource snapshot.
 Reference to draft CodeSystem http://hl7.org/fhir/event-status|4.0.1
 Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1
@@ -73,7 +72,7 @@ The discriminator type 'pattern' is deprecated in R5+. For future compatibility,
 The slice 'CLIA' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
 The slice 'NAIC' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
 
-# The following information messages are suppressed 
+# The following information messages are expected since the canonical references are pinned to multiple versions
 Pinned the version of http://hl7.org/fhir/StructureDefinition/codeOptions to 7.0.0 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 7.0.0 (hl7.fhir.us.qicore#7.0.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
@@ -83,7 +82,7 @@ Pinned the version of http://hl7.org/fhir/StructureDefinition/ordinalValue to 5.
 # The following information message is suppressed as it merely suggests a review of values in a ValueSet which may or may not occur in the future
 The resource status 'draft' and the standards status 'trial-use' may not be consistent and should be reviewed
 
-# Suppressed messages warning about an placeholder example oid by convention
+# The following warnings messages are generated due to using an example oid for an identifier system in the patient examples 
 URL value 'urn:oid:1.2.36.146.595.217.0.1' does not resolve
 
 # The following information message is suppressed as it refers to an issue in a base resource defined elsewhere
@@ -92,3 +91,6 @@ The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValue
 # The following information messages in Questionnaire Response are suppressed as they refer to elements in the snapshot base resource
 The extension http://hl7.org/fhir/StructureDefinition/ordinalValue|5.2.0 is deprecated with the note Replaced by [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]]
 The extension http://hl7.org/fhir/StructureDefinition/regex|5.2.0 is deprecated with the note This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex
+
+# The following information is notifying of a deprecated extension but there is no extension at the moment that can replace it
+INFORMATION: StructureDefinition/qicore-patient: Patient.telecom.extension: The extension http://hl7.org/fhir/StructureDefinition/iso21090-preferred|5.2.0 is deprecated
