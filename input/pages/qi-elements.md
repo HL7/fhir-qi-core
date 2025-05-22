@@ -1,4 +1,4 @@
-
+<div class="new-content" markdown="1">
 "Must Have", "QI Elements" and "primary code path" are defined in the [QI-Core Must Support section](index.html#mustsupport-flag).
 
 ### [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html) ###
@@ -20,8 +20,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -50,8 +48,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -68,8 +64,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -89,8 +83,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -105,8 +97,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -132,8 +122,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -155,8 +143,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -181,8 +167,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -203,8 +187,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -227,8 +209,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -248,8 +228,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -279,8 +257,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -307,8 +283,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -337,8 +311,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -362,8 +334,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -377,8 +347,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -400,8 +368,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -425,8 +391,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -446,35 +410,30 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
 ### [QICore DiagnosticReport Profile for Laboratory Results Reporting](StructureDefinition-qicore-diagnosticreport-lab.html) ###
+
+
 **Must Have:**
-* status: (QI) registered \| partial \| preliminary \| final +
-* category: (QI) Service category
-* category (LaboratorySlice): (QI) Service category
-* code: (QI) US Core Laboratory Report Order Code
 * subject: (QI) The subject of the report - usually, but not always, the patient
+* status: (QI)registered \| partial \| preliminary \| final +
+* code: (QI) US Core Laboratory Report Order Code
+* category: (QI) Service category
+* category(LaboratorySlice): (QI) Service category
 
 
 **QI Elements:**
-* basedOn: What was requested
 * effective[x]: (QI) Diagnostically relevant time (typically the time of specimen collection)
-* performer: (QI) Responsible Diagnostic Service
 * result: (QI) Observations
-* issued: (QI) DateTime this version was made
-* encounter: (QI) Health care event when test ordered
+* basedOn: (QI) What was requested
 * performer: (QI) Responsible Diagnostic Service
 
 **Primary code path:** code
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -484,7 +443,7 @@
 
 **Must Have:**
 * subject: (QI) The subject of the report - usually, but not always, the patient
-* status: (QI) registered \| partial \| preliminary \| final +
+* status: (QI)registered \| partial \| preliminary \| final +
 * category: (QI) Service Category
 * code: (QI) QI-Core Report Code
 
@@ -502,8 +461,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -532,8 +489,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -552,8 +507,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -571,8 +524,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -595,8 +546,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -614,8 +563,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -640,8 +587,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -664,8 +609,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -690,8 +633,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -713,8 +654,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -730,8 +669,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -743,7 +680,7 @@
 * code: (QI) Laboratory Test Name
 * category: (QI) Classification of type of observation
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
-* category(us-core extension): (QI) Classification of type of observation
+* category(us-core): (QI) Classification of type of observation
 
 
 **QI Elements:**
@@ -758,8 +695,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -782,11 +717,8 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
-
 
 ### [QICore Medication Prohibited](StructureDefinition-qicore-medicationprohibited.html) ###
 
@@ -815,8 +747,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -830,8 +760,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -853,8 +781,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -878,8 +804,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -900,8 +824,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -932,8 +854,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -962,8 +882,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -991,8 +909,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1023,8 +939,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1057,8 +971,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1079,8 +991,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1096,15 +1006,12 @@
 * value[x]: (QI) Actual result
 * status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
 * effective[x]: (QI) Clinically relevant time/time-period for observation
-* value[x]: (valueCodeableConcept) (QI) actual \| potential
 * interpretation: (QI) High, low, normal, etc.
 
 **Primary code path:** code
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1119,8 +1026,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1146,8 +1051,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1155,11 +1058,11 @@
 
 
 **Must Have:**
-* category (survey - extension): (QI) Classification of type of observation
+* category(survey): (QI) Classification of type of observation
 * subject: (QI) Who and/or what the observation is about
+* status: (QI) registered \| preliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
 * category: (QI) Classification of type of observation
 * code: (QI) Type of observation (code / type)
-* status: (QI) registered \| prliminary \| final \| amended \| corrected \| cancelled \| entered-in-error \| unknown
 
 
 **QI Elements:**
@@ -1176,8 +1079,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1201,8 +1102,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1228,8 +1127,6 @@
 * telecom: (QI) A contact detail for the individual
 * extension(sex): (QI) Sex Extension
 
-
-
 <br>
 <br>
 
@@ -1246,8 +1143,7 @@
 * identifier(NPI): (QI) An identifier for the person as this agent
 * identifier.value: (QI) The value that is unique
 * identifier(ein): (QI) There is not a general Tax Identifier Numer (TIN) OID. There is an SSN, a PTIN, and an ITIN, but no TIN generally. So the only slice specified here is EIN, if consumers determine a need for an SSN, submit a comment to that effect.
-
-
+* identifier.system: (QI) The namespace for the identifier value
 
 <br>
 <br>
@@ -1260,12 +1156,13 @@
 * period: (QI) The period during which the practitioner is authorized to perform in these role(s)
 * identifier.value: (QI) The value that is unique
 * practitioner: (QI) Practitioner that is able to provide the defined services for the organization
+* identifier: (QI) Business Identifiers that are specific to a role/location
+* telecom: (QI) Contact details that are specific to the role/location/service
+* identifier.system: (QI) The namespace for the identifier value
 * organization: (QI) Organization where the roles are available
 * location: (QI) The location(s) at which this practitioner provides care
 * code: (QI) Roles which this practitioner may perform
-* identifier: (QI) Business Identifiers that are specific to a role/location
 * active: (QI) Whether this practitioner role record is in active use
-* telecom: (QI) Contact details that are specific to the role/location/service
 * specialty: (QI) Specific specialty of the practitioner
 * endpoint: (QI) Technical endpoints providing access to services operated for the practitioner with this role
 
@@ -1273,8 +1170,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1300,8 +1195,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1329,8 +1222,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1356,8 +1247,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1380,8 +1269,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1402,8 +1289,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1431,8 +1316,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1458,8 +1341,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1487,8 +1368,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1507,15 +1386,12 @@
 * derivedFrom: (QI) US Core Profiles or other resource the observation is made from
 * value[x]: (QI) Actual result
 * effective[x]: (QI) Clinically relevant time/time-period for observation
-* value[x]: (valueCodeableConcept) (QI) actual \| potential
 * interpretation: (QI) High, low, normal, etc.
 
 **Primary code path:** code
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1530,8 +1406,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1555,8 +1429,6 @@
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
 
-
-
 <br>
 <br>
 
@@ -1573,8 +1445,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
@@ -1597,8 +1467,6 @@
 <br>
 (PCPath) This element is the primary code path for this resource [CQL Retrieve](https://cql.hl7.org/02-authorsguide.html#retrieve)
 <br>
-
-
 
 <br>
 <br>
