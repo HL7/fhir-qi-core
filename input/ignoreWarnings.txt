@@ -4,6 +4,9 @@
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
+# The following IG has a dependency on US Core 7.0.0 so the following warning message does not apply
+WARNING: ImplementationGuide/hl7.fhir.us.qicore: ImplementationGuide.dependsOn[0]: The ImplementationGuide uses package hl7.fhir.us.core#7.0.0 released on 2024-05-08, but the most recent appropriate version is 8.0.0. This reference is getting old and the more recent version should be considered
+
 # The following messages are being generated from the inherited/base resource snapshot
 INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[32].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
@@ -54,8 +57,8 @@ Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category
 A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
 
 # The sources of the following warnings are in the base definition profiles in US Core 
-Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx' does not resolve
-Canonical URL 'http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1' does not resolve
+WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[22].binding.valueSet: A definition could not be found for Canonical URL 'http://www.rsna.org/RadLex_Playbook.aspx'
+WARNING: StructureDefinition/qicore-imagingstudy: StructureDefinition.snapshot.element[53].binding.valueSet: A definition could not be found for Canonical URL 'http://dicom.nema.org/medical/dicom/current/output/chtml/part04/sect_B.5.html#table_B.5-1'
 The definition for the element 'ImagingStudy.series.performer.function' binds to the value set 'http://hl7.org/fhir/ValueSet/series-performer-function' which is experimental, but this structure is not labeled as experimental
 The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 
@@ -83,7 +86,8 @@ Pinned the version of http://hl7.org/fhir/StructureDefinition/ordinalValue to 5.
 The resource status 'draft' and the standards status 'trial-use' may not be consistent and should be reviewed
 
 # The following warnings messages are generated due to using an example oid for an identifier system in the patient examples 
-URL value 'urn:oid:1.2.36.146.595.217.0.1' does not resolve
+WARNING: Patient/example: Patient.identifier[0].system: No definition could be found for URL value 'urn:oid:1.2.36.146.595.217.0.1'
+WARNING: Patient/example-2: Patient.identifier[0].system: No definition could be found for URL value 'urn:oid:1.2.36.146.595.217.0.1'
 
 # The following information message is suppressed as it refers to an issue in a base resource defined elsewhere
 The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-maxValueSet|5.2.0 is deprecated
