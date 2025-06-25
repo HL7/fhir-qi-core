@@ -1562,7 +1562,6 @@ _Priority indicates the urgency of the procedure or the encounter referenced. In
 
 As noted in the QDM to QI-Core Mapping for Encounter-Related Diagnoses and Procedures, a specific measure may have interest in evaluating care provided for elective procedures (e.g., hip surgery due to osteoarthritis) while excluding emergency, non-planned procedures (e.g., hip surgery due to acute fracture). The procedure code does not necessarily allow differentiation of the two concepts. A [ServiceRequest.priority](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.priority) does have the ability to differentiate the urgency with which the _request_ (or order) should be fulfilled. However, there is no current usage in existing measures and the ServiceRequest.priority element is not included in the ServiceRequest Key Element Table. There is no element within the FHIR Procedure resource to address the issue. Based on lack of a current use case QI-Core has not added an extension to address Procedure.priority and, as a result, there is no direct mapping from the QDM Procedure priority attribute to QI-Core.
 
-##
 | **QDM Context** | **QI-Core STU7** | **Comments** |
 | --- | --- | --- |
 | **Procedure, Performed** | [ProcedureDone](StructureDefinition-qicore-proceduredone.html) | &nbsp; |
