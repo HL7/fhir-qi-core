@@ -2,7 +2,7 @@
 
 
 {:.stu-note}
-> This STU 7.0.0 update to the QI-Core profiles aligns with US-Core STU v7.0.0. For a complete list of changes in this version, please refer to the version history.
+> This STU 7 update to the QI-Core profiles aligns with US-Core STU v7. For a complete list of changes in this version, please refer to the version history.
 
 
 

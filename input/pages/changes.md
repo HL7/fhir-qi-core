@@ -4,6 +4,16 @@
 
 This page lists the change history for each version of QI-Core.
 
+### STU7 Publication (7.0.1)
+
+#### Corrected Errata in Version 7.0.1 of QI-Core
+
+The changes in this errata to version 7.0.0 of QI-Core have been reviewed by the public through the HL7 errata process. 
+
+The resolution of the community comments has been agreed to and voted on by the members of the HL7 International Clinical Quality work group.
+
+1. The [procedure priority table](qdm-to-qicore.html#procedure-priority) in the qdm-to-qicore page has been corrected.
+
 
 ### STU7 Publication (7.0.0)
 
