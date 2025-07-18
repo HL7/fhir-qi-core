@@ -7,9 +7,6 @@ WARNING: ImplementationGuide/hl7.fhir.us.qicore: ImplementationGuide.dependsOn[4
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
-# The following IG has a dependency on US Core 7.0.0 so the following warning message does not apply
-WARNING: ImplementationGuide/hl7.fhir.us.qicore: ImplementationGuide.dependsOn[0]: The ImplementationGuide uses package hl7.fhir.us.core#7.0.0 released on 2024-05-08, but the most recent appropriate version is 8.0.0. This reference is getting old and the more recent version should be considered
-
 # The following messages are being generated from the inherited/base resource snapshot
 INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[32].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
@@ -18,28 +15,16 @@ INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapsh
 INFORMATION: StructureDefinition/qicore-practitioner: StructureDefinition.snapshot.element[18].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 
 # The following messages are generated from code systems and value sets currently in 'draft' status within the inherited/base resource snapshot.
-Reference to draft CodeSystem http://hl7.org/fhir/event-status|4.0.1
-Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1
-Reference to draft CodeSystem http://hl7.org/fhir/task-status|4.0.1
-Reference to draft CodeSystem http://hl7.org/fhir/CodeSystem/task-code|4.0.1
-Reference to draft CodeSystem http://hl7.org/fhir/request-status|4.0.1
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medication-admin-status|4.0.1
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationdispense-status|4.0.1
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationrequest-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/observation-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/coverage-class|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/adverse-event-seriousness|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/processpriority|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/payeetype|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/adjudication|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/communication-not-done-reason|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/communication-category|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/location-physical-type|2.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/diet|1.0.0
-Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/condition-category|1.0.0
 Reference to draft CodeSystem http://hl7.org/fhir/CodeSystem/medicationrequest-status|4.0.1
-Reference to draft ValueSet http://hl7.org/fhir/ValueSet/servicerequest-category|4.0.1
+Reference to draft CodeSystem http://hl7.org/fhir/CodeSystem/task-code|4.0.1 
+Reference to draft CodeSystem http://hl7.org/fhir/event-status|4.0.1 
+Reference to draft CodeSystem http://hl7.org/fhir/narrative-status|4.0.1 
+Reference to draft CodeSystem http://hl7.org/fhir/request-status|4.0.1 
+Reference to draft CodeSystem http://hl7.org/fhir/task-status|4.0.1 
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/dose-rate-type|1.0.0 
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medication-admin-status|4.0.1 
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationdispense-status|4.0.1 
+Reference to draft CodeSystem http://terminology.hl7.org/CodeSystem/medicationrequest-category|1.0.0
 
 # The validator is trying to resolve an "example.org" artifact which by convention does not exist
 A definition for CodeSystem 'http://example.org/fhir/CodeSystem/ex-visionservice' could not be found, so the code cannot be validated
@@ -53,18 +38,12 @@ The string value contains text that looks like embedded HTML tags. If this conte
 #  The following code system is not discoverable because they are code systems in THO, but THO doesn't define the codes. They have been checked and the identifiers are correct : 
 A definition for CodeSystem 'http://terminology.hl7.org/CodeSystem/PHOccupationalDataForHealthODH' could not be found, so the code cannot be validated
 
-# Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
-Constraint failed: ext-ab-1: 'Additional Bindings SHOULD have a key to allow a binding to be constrained.'
-
-# Suppressed the following warning messages as the source of the issue lies within base profile snapshot definitions external to this IG:
-The discriminator type 'pattern' is deprecated in R5+. For future compatibility, you could consider using type=value with a pattern[x] instead (if this is not an inherited slicing)
-
 # The following are suppressed as they are the result of issues within the associated base definition, outside of this IG.
 The slice 'CLIA' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
 The slice 'NAIC' on path 'Organization.identifier' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
 
 # The following information messages are expected since the canonical references are pinned to multiple versions
-Pinned the version of http://hl7.org/fhir/StructureDefinition/codeOptions to 7.0.1 from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 7.0.1 (hl7.fhir.us.qicore#7.0.1)
+Pinned the version of http://hl7.org/fhir/StructureDefinition/codeOptions to 8.0.0-ballot from choices of 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0), 8.0.0-ballot (hl7.fhir.us.qicore#8.0.0-ballot)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-signature to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/questionnaireresponse-completionMode to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
 Pinned the version of http://hl7.org/fhir/StructureDefinition/display to 5.2.0 from choices of 1.0.0 (hl7.fhir.uv.extensions.r4#1.0.0), 4.0.1 (hl7.fhir.r4.core#4.0.1), 5.1.0 (hl7.fhir.uv.extensions.r4#5.1.0), 5.2.0 (hl7.fhir.uv.extensions.r4#5.2.0)
