@@ -2,19 +2,19 @@
 
 [comment]: # The contents of this page were converted to markdwon from the Word document attached to https://jira.hl7.org/browse/FHIR-48920
 
-This page is part of the Quality Improvement Core Framework (v7.0.0: [STU](https://confluence.hl7.org/display/HL7/HL7+Balloting) 7) based on [FHIR R4](http://hl7.org/fhir/R4/). This is the current published version. For a full list of available versions, see the [Directory of published versions](http://hl7.org/fhir/us/qicore/history.html).
+This page is part of the Quality Improvement Core Framework (v8.0.0: [STU](https://confluence.hl7.org/display/HL7/HL7+Balloting) 8) based on [FHIR R4](http://hl7.org/fhir/R4/). This is the current published version. For a full list of available versions, see the [Directory of published versions](http://hl7.org/fhir/us/qicore/history.html).
 
 ### Introduction
 
-The CMS Quality Data Model (QDM) has been used to express electronic clinical quality measures (eCQMs) in HQMF since 2012. QDM is a conceptual data model that has evolved based on feedback, testing and use. The current version (Version 5.6 for eCQM implementation 2024, 2025 and 2026) and QDM's complete history can be found on the [eCQI Resource Center](https://ecqi.healthit.gov/qdm). Most of the QDM concepts map directly to US Core STU7, FHIR R4 resources or Clinical Quality Framework (CQF) extensions in FHIR Extensions Pack v5.1 and represented in QI-Core.
+The CMS Quality Data Model (QDM) has been used to express electronic clinical quality measures (eCQMs) in HQMF since 2012. QDM is a conceptual data model that has evolved based on feedback, testing and use. The current version (Version 5.6 for eCQM implementation 2024, 2025 and 2026) and QDM's complete history can be found on the [eCQI Resource Center](https://ecqi.healthit.gov/qdm). Most of the QDM concepts map directly to US Core STU8, FHIR R4 resources or Clinical Quality Framework (CQF) extensions in FHIR Extensions Pack v5.1 and represented in QI-Core.
 
-This version of QI-Core updates mappings from QI-Core to QDM based on US Core STU7 (v7.0.0) and FHIR R4 and QDM version 5.6. Reviewers can evaluate the comparisons, represented in the _Mappings_ table for each QI-Core resource. Each _mapping_ table shows the QI-Core concept in the right-hand column and the corresponding QDM datatype(s) and attributes in the left-hand column. The _mapping_ tables primarily reference the QI-Core metadata concepts represented in QDM. The tables also include some QI-Core concepts identified as beneficial by measure developers and implementers; such elements appear in the respective table’s middle column (under QI-Core) and have no corresponding left-hand column QDM attributes. The effort mapped the intended meaning of each QDM datatype and attribute to a QI-Core resource metadata element. In some cases, multiple QDM datatypes map to a single QI-Core resource. Since QDM is a conceptual data model some of the elements may not have a direct mapping to a QI-Core profile or one of the items in its respective Key Element Table. Content in the QI-Core profile Key Element Table tabs derive from US Core 7.0.0 requirements, or directly from FHIR 4.0.1 in the absence of a respective US Core profile.
+This version of QI-Core updates mappings from QI-Core to QDM based on US Core STU8 (v8.0.0) and FHIR R4 and QDM version 5.6. Reviewers can evaluate the comparisons, represented in the _Mappings_ table for each QI-Core resource. Each _mapping_ table shows the QI-Core concept in the right-hand column and the corresponding QDM datatype(s) and attributes in the left-hand column. The _mapping_ tables primarily reference the QI-Core metadata concepts represented in QDM. The tables also include some QI-Core concepts identified as beneficial by measure developers and implementers; such elements appear in the respective table’s middle column (under QI-Core) and have no corresponding left-hand column QDM attributes. The effort mapped the intended meaning of each QDM datatype and attribute to a QI-Core resource metadata element. In some cases, multiple QDM datatypes map to a single QI-Core resource. Since QDM is a conceptual data model some of the elements may not have a direct mapping to a QI-Core profile or one of the items in its respective Key Element Table. Content in the QI-Core profile Key Element Table tabs derive from US Core 8.0.0 requirements, or directly from FHIR 4.0.1 in the absence of a respective US Core profile.
 
 In addition to the QI-Core to QDM comparisons presented with each QI-Core resource, this section of the implementation guide presents the mapping directly from QDM concepts. Thus, the IG provides a view of the mappings in both directions (QI-Core to QDM, and QDM to QI-Core). This section is divided into 55 sections, one for each QDM concept, or QDM datatype. Each QDM datatype includes a general description of the concept and a table mapping each of the QDM datatype-related attributes to QI-Core metadata elements. Refer to the [eCQI Resource Center](https://ecqi.healthit.gov/qdm) for the full QDM 5.6 documentation.
 
 ### Change from QI-Core STU6 to QI-Core STU7
 
-QI-Core builds upon US Core and new US Core STU7 (7.0.0) profiles include a number of changes that impact expression of requests for information. US Core STU7 also incorporates requirements of [United States Core Data for Interoperability version 4](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi#uscdi-v4). These include new observation profiles.
+QI-Core builds upon US Core and new US Core STU8 (8.0.0) profiles include a number of changes that impact expression of requests for information. US Core STU8 also incorporates requirements of [United States Core Data for Interoperability version 5](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi#uscdi-v5). These include new observation profiles.
 
 QI-Core addresses these changes as follows:
 
@@ -42,14 +42,14 @@ QI-Core STU 7.0.0 also incorporates observation-related profiles directly from U
 
 |  **US-Core STU7 Observaton Profile** | **QDM representation**  |
 | --- | --- | 
-| [US Core Average Blood Pressure Profile](https://fhir/us/core/stu7.0/StructureDefinition-us-core-average-blood-pressure.html) | Physical Exam, Performed |
-| [US Core Care Experience Preference Profile](http://hl7.org/us/core/STU7.0/StructureDefinition-us-core-care-experience-preference.html) | Assessment, Performed |
+| [US Core Average Blood Pressure Profile](https://fhir/us/core/StructureDefinition-us-core-average-blood-pressure.html) | Physical Exam, Performed |
+| [US Core Care Experience Preference Profile](http://hl7.org/us/core/StructureDefinition-us-core-care-experience-preference.html) | Assessment, Performed |
 | [US Core Observation Occupation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-occupation.html) | Assessment, Performed |
 | [US Core Observation Pregnancy Intent Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancyintent.html) | Assessment, Performed |
 | [US Core Observation Pregnancy Status Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-pregnancystatus.html) | Assessment, Performed |
 | [US Core Observation Sexual Orientation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-observation-sexual-orientation.html) | Assessment, Performed |
 | [US Core Smoking Status Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-smokingstatus.html) | Assessment, Performed |
-| [US Core Treatment Intervention Preference Profile](https://hl7/fhir/us/core/STU7.0/StructureDefinition-us-core-treatment-intervention-preference.html) | Assessment, Performed |
+| [US Core Treatment Intervention Preference Profile](https://hl7/fhir/us/core/STU8.0/StructureDefinition-us-core-treatment-intervention-preference.html) | Assessment, Performed |
 | [US Core Pediatric BMI for Age Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-bmi-for-age.html) | Physical Exam, Performed &nbsp; |
 | [US Core Pediatric Weight for Height Observation Profile](http://hl7.org/fhir/us/core/StructureDefinition-pediatric-weight-for-height.html) | Physical Exam, Performed &nbsp; |
 | [US Core Blood Pressure Profile](http://hl7.org/fhir/us/core/StructureDefinition-us-core-blood-pressure.html) | Physical Exam, Performed &nbsp; |
@@ -81,7 +81,7 @@ QDM does not include an attribute to address the additional elements available i
 
 QDM version 5.6 (and earlier versions) only address one of these elements, the event. Therefore, QDM AdverseEvent code maps to AdverseEvent.event. Measure developers seeking to retrieve data about the cause of an AdverseEvent may be able to relate the occurrence timing of a potential causative event and the AdverseEvent.event timing. Further detail about the AdverseEvent will require use of FHIR or potentially a subsequent version of QDM after QDM 5.6.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | Adverse Event | [AdverseEvent](StructureDefinition-qicore-adverseevent.html) | &nbsp; |
 | &nbsp; | [AdverseEvent.actuality](StructureDefinition-qicore-adverseevent-definitions.html#key_AdverseEvent.actuality) | Although not specified in QDM, QI-Core provides the ability to differentiate between potential versus actual events |
@@ -103,7 +103,7 @@ Allergy is used to address immune-mediated reactions to a substance such as type
 
 Intolerance is a record of a clinical assessment of a propensity, or a potential risk to an individual, to have a non-immune mediated adverse reaction on future exposure to the specified substance, or class of substance.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | Allergy/Intolerance | [AllergyIntolerance](StructureDefinition-qicore-allergyintolerance.html) | &nbsp; |
 | &nbsp; | [AllergyIntolerance.clinicalStatus](StructureDefinition-qicore-allergyintolerance-definitions.html#key_AllergyIntolerance.clinicalStatus) | Identifies if active, inactive, resolved; while not a QDM attribute, this is an important element for retrieving active allergies or intolerances. |
@@ -143,7 +143,7 @@ QI-Core adds additional constraints to the US Core Observation Screening Assessm
 
 Assessment, Order uses the ServiceRequest resource. The codes for ordering specific observations should reference the code element specified in the respective profiles: QICore Observation Screening Assessment, QICore Simple Observation; US Core Observation Occupation, US Core Observation Pregnancy Intent, US Core Pregnancy Status, US Core Observation Sexual Orientation, or US Core Smoking Status Observation.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Assessment, Order** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an order for an assessment to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Assessment, Order” and “Assessment, Recommended” datatypes. |
@@ -188,7 +188,7 @@ QDM defines Assessment as a resource used to define specific observations that c
 - [US Core Smoking Status Observation Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-smokingstatus.html)
 - [US Core Treatment Intervention Preference Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-treatment-intervention-preference.html)
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Assessment, Performed: General Use Case** | [Observation](StructureDefinition-qicore-simple-observation.html) | &nbsp; |
 | &nbsp; | [Observation.category](StructureDefinition-qicore-simple-observation-definitions.html#Observation.category) | Category helps to narrow the request to the class of observation required to meet measure intent. Each QI-Core or US Core profile has a specific binding to concepts appropriate to the respective profile. Note that QDM does not have an attribute comparable to category, the element may be helpful in expressing a quality measure. |
@@ -233,7 +233,7 @@ Assessment, Recommended uses the ServiceRequest resource. The codes for recommen
 - [US Core Smoking Status Observation Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-smokingstatus.html)
 - [US Core Treatment Intervention Preference Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-treatment-intervention-preference.html)
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Assessment, Recommended** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, recommendation for an Assessment to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Assessment, Order” and “Assessment, Recommended” datatypes. |
@@ -275,7 +275,7 @@ QDM’s “Care Experience” maps to either one of two QI-Core profiles, depend
 
 QDM “Patient Care Experience” maps to [QICore Observation Screening Assessment Profile](StructureDefinition-qicore-observation-screening-assessment.html) or [QICore Simple Observation](StructureDefinition-qicore-simple-observation.html), as applicable, for the information desired:
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Patient Care Experience** | [Observation](StructureDefinition-qicore-simple-observation.html) | &nbsp; |
 | &nbsp; | [Observation.status](StructureDefinition-qicore-simple-observation-definitions.html#Observation.status) | Constrain status to - final, amended, corrected. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Assessment, Performed” datatype. |
@@ -293,7 +293,7 @@ QDM “Patient Care Experience” maps to [QICore Observation Screening Assessme
 
 QDM “Provider Care Experience” maps to [QICore Observation Screening Assessment Profile](StructureDefinition-qicore-observation-screening-assessment.html) or [QICore Simple Observation](StructureDefinition-qicore-simple-observation.html), as applicable, for the information desired:
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Provider Care Experience** | [Observation.code](StructureDefinition-qicore-simple-observation-definitions.html#Observation.code) | Note specific bindings based on the QI-Core or US Core profile used |
 | **QDM Attributes** | &nbsp; | &nbsp; |
@@ -310,7 +310,7 @@ QDM “Provider Care Experience” maps to [QICore Observation Screening Assessm
 
 QDM defines Care Goal as a defined target or measure to be achieved in the process of patient care, that is, an expected outcome. A typical goal is expressed as a change in status expected at a defined future time. That change can be an observation represented by other QDM categories (diagnostic tests, laboratory tests, symptoms, etc.) scheduled for some time in the future and with a particular value. A goal can be found in the plan of care (care plan), the structure used by many stakeholders to define the management actions for the various conditions, problems, or issues identified for the target of the plan. This structure, through which the goals and care-planning actions and processes can be organized, planned, communicated, and checked for completion, is represented in QDM as a Record Artifact in which Care Goal is found.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Care Goal** | [Goal](StructureDefinition-qicore-goal.html) | Describes the intended objective(s) for a patient, group or organization |
 | &nbsp; | [Goal.achievementStatus](StructureDefinition-qicore-goal-definitions.html#Goal.achievementStatus) | QDM does not include an attribute to determine the status of a goal. QI-Core inherits US Core and USCDI requirements to include this element that indicates concepts such as proposed, planned, accepted, active, on-hold, completed, cancelled, rejected, entered in error with a required binding to [value set GoalLifecyleStatus](http://hl7.org/fhir/R4/valueset-goal-status.html). |
@@ -353,7 +353,7 @@ Non-patient specific communication use cases may include:
 
 #### Communication, Performed
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Communication, Performed** | [CommunicationDone](StructureDefinition-qicore-communicationdone.html) | &nbsp; |
 | &nbsp; | [Communication.status](StructureDefinition-qicore-communicationdone-definitions.html#Communication.status) | QDM is a conceptual data model and it does not include a status attribute since it is incorporated in the name of the QDM datatype. QI-Core requires specific detail about status. Use [Positive Event Status](ValueSet-qicore-positive-event-status.html) value set; generally, constrain to completed. |
@@ -389,7 +389,7 @@ QDM defines Condition/Diagnosis/Problem as a practitioner’s identification of 
 
 Based on changes in US Core STU5, QI-Core now has two methods for expressing conditions, [QICore Condition Problems and Health Concerns Profile](StructureDefinition-qicore-condition-problems-health-concerns.html), and [QICore Condition Encounter Diagnosis Profile](StructureDefinition-qicore-condition-encounter-diagnosis.html). Please reference the respective profile pages for explanation of the rationale for using each of these profiles. Briefly, the Condition Problems and Health Concerns Profile meets the US Core Data for Interoperability (USCDI) version 2 ‘Problems’ and ‘Health Concerns’ and SDOH Problems/Health Concerns requirements. The Condition Encounter Diagnosis Profile further meets the USCDI v2 requirement to define Encounter Diagnosis.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Condition - Diagnosis - Problem** | [Condition Problems and Health Concerns](StructureDefinition-qicore-condition-problems-health-concerns.html) | &nbsp; |
 | &nbsp; | [ConditionProblemsHealthConcerns.clinicalStatus](StructureDefinition-qicore-condition-problems-health-concerns-definitions.html#Condition.clinicalStatus) | QDM is a conceptual data model and it does not include a status attribute since it is incorporated in the name of the QDM datatype. QI-Core requires specific detail about status. Clinical status defines active, recurrence, relapse, inactive, remission, resolved with required binding to [ConditionClinicalStatusCodes](http://hl7.org/fhir/R4/valueset-condition-clinical.html) |
@@ -431,7 +431,7 @@ QDM originally designed Device, Applied to allow access to documentation of devi
 
 #### Device, Order – Non-Patient-use Devices
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Device Request** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an order for use of a non-patient-use-device using ServiceRequested, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Device, Order” and “Device, Recommended” datatypes. |
@@ -462,7 +462,7 @@ QDM originally designed Device, Applied to allow access to documentation of devi
 
 #3## Device, Order – Personal Use Devices
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Device Request** | [DeviceRequested](StructureDefinition-qicore-devicerequested.html) | Note: for the positive use case, an order for use of a personal use device using DeviceRequested, the [DeviceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [DeviceRequest.status](StructureDefinition-qicore-devicerequested-definitions.html#DeviceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Device, Order” and “Device, Recommended” datatypes. |
@@ -493,7 +493,7 @@ QDM originally designed Device, Applied to allow access to documentation of devi
 
 #### Device, Recommended – Non-Patient-use Devices
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Device Request** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, recommendation for use of a non-patient-use device using ServiceRequested, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Device, Order” and “Device, Recommended” datatypes. |
@@ -524,7 +524,7 @@ QDM originally designed Device, Applied to allow access to documentation of devi
 
 #### Device, Recommended – Personal Use Devices
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Device Request** | [DeviceRequested](StructureDefinition-qicore-devicerequested.html) | Note: for the positive use case, recommendation for use of a personal use device using DeviceRequested, the [DeviceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [DeviceRequest.status](StructureDefinition-qicore-devicerequested-definitions.html#DeviceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Device, Order” and “Device, Recommended” datatypes. |
@@ -565,7 +565,7 @@ QI-Core has added specific constraints on the US Core STU7 profile that address 
 
 “Diagnostic Study, Order” should reference orders for studies that will generate results for activities that meet criteria for Observation Clinical Result.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Diagnostic Study, Order** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an order for a diagnostic to be performed using ServiceRequested, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Diagnostic Study, Order” and “Diagnostic Study, Recommended” datatypes. |
@@ -632,7 +632,7 @@ Individual studies may use [QI-Core DiagnosticReport Profile for Report and Note
 
 “Diagnostic Study, Recommended” should reference recommendations for studies that will generate results for activities that meet criteria for Observation Clinical Result.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Diagnostic Study, Recommended** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an recommendation for a diagnostic study to be performed using ServiceRequested, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Diagnostic Study, Order” and “Diagnostic Study, Recommended” datatypes. |
@@ -690,7 +690,7 @@ For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key E
 
 #### Encounter, Order
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Encounter, Order** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an order for an encounter to be performed using ServiceRequested, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Encounter, Order” and “Encounter, Recommended” datatypes. |
@@ -723,7 +723,7 @@ For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key E
 
 #### Encounter, Performed
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Encounter, Performed** | [Encounter](StructureDefinition-qicore-encounter.html) | &nbsp; |
 | &nbsp; | [Encounter.status](StructureDefinition-qicore-encounter-definitions.html#Encounter.status) | Constrain to - arrived, triaged, in-progress, on-leave, finished Note: most retrospective eCQMs will constrain Encounter.status to “finished”. Measures designed to monitor active encounters should consider using “in-progress”. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Encounter, Performed”. |
@@ -752,7 +752,7 @@ For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key E
 
 #### Encounter, Recommended
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Encounter, Recommended** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, recommendation for an encounter to be performed using ServiceRequested, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Encounter, Order” and “Encounter, Recommended” datatypes. |
@@ -787,7 +787,7 @@ For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key E
 
 QDM defines Family History as a diagnosis or problem experienced by a family member of the patient. Typically, a family history will not contain very much detail, but the simple identification of a diagnosis or problem in the patient’s family history may be relevant to the care of the patient.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Family History** | [FamilyMemberHistory](StructureDefinition-qicore-familymemberhistory.html) | &nbsp; |
 | &nbsp; | [FamilyMemberHistory.status](StructureDefinition-qicore-familymemberhistory-definitions.html#FamilyMemberHistory.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is required for us of most QI-Core profiles. Constrain to partial, completed |
@@ -806,7 +806,7 @@ QDM defines Immunization as vaccines administered to patients in healthcare sett
 
 #### Immunization, Administered
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Immunization, Administered** | [ImmunizationDone](StructureDefinition-qicore-immunizationdone.html) | &nbsp; |
 | &nbsp; | [Immunization.status](StructureDefinition-qicore-immunizationdone-definitions.html#Immunization.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Immunization, Administered”. Constrain to “completed” |
@@ -837,7 +837,7 @@ To indicate an immunization administered for a reason, use [QICoreImmunizationNo
 
 This QDM context references the QI-Core MedicationRequest profile as there is no other FHIR resource to reference an order for an immunization. The mapping uses the QI-Core MedicationRequest resource with the MedicationRequest.intent = _order_ and MedicationRequest.setting set to the setting most appropriate for the intended meaning of the quality measure or clinical decision support (CDS) expression.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Immunization, Order** | [MedicationRequested](StructureDefinition-qicore-medicationrequested.html) | &nbsp; |
 | &nbsp; | [MedicationRequest.status](StructureDefinition-qicore-medicationrequested-definitions.html#MedicationRequest.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Immunization, Order”. Constrain to active, completed. |
@@ -887,7 +887,7 @@ QDM 5.5 also added a new QDM _datatype Related Person_ to allow reference to an 
 
 #### QDM Entities
 
-| **QDM Entities & Attributes** | **QI-Core STU7** | **Comment** |
+| **QDM Entities & Attributes** | **QI-Core STU8** | **Comment** |
 | --- | --- | --- |
 | **Patient** | [Patient](StructureDefinition-qicore-patient.html) | &nbsp; |
 | identifier | [Patient.identifier.value](StructureDefinition-qicore-patient-definitions.html#Patient.identifier.value) | &nbsp; |
@@ -915,7 +915,7 @@ QDM 5.5 also added a new QDM _datatype Related Person_ to allow reference to an 
 
 #### Patient Characteristics
 
-| **QDM Attribute** | **QI-Core STU7** | **Comments** |
+| **QDM Attribute** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Race** | &nbsp; | See US CoreRaceExtension for details |
 | code | [Patient.extension:race](StructureDefinition-qicore-patient-definitions.html#Patient.extension:race) | URL: <http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-race.html> |
@@ -949,7 +949,7 @@ QDM 5.5 also added a new QDM _datatype Related Person_ to allow reference to an 
 
 #### QDM _datatype_ - Related Person
 
-| **QDM Attribute** | **QI-Core STU7** | **Comments** |
+| **QDM Attribute** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Related Person** | [RelatedPerson](StructureDefinition-qicore-relatedperson.html) | &nbsp; |
 | identifier | [RelatedPerson.identifier](StructureDefinition-qicore-relatedperson-definitions.html#RelatedPerson.identifier) | &nbsp; |
@@ -969,7 +969,7 @@ FHIR references both of these concepts using the _Procedure_ resource, specifica
 
 #### Intervention, Performed
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Intervention, Performed** | [ProcedureDone](StructureDefinition-qicore-proceduredone.html) | &nbsp; |
 | **QDM Attributes** | &nbsp; | &nbsp; |
@@ -1007,7 +1007,7 @@ To indicate an intervention not performed for a reason Use [QICoreProcedureNotDo
 
 #### Intervention, Order
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Intervention, Order** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an order for an Intervention to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Intervention, Order” and “Intervention, Recommended” datatypes. |
@@ -1038,7 +1038,7 @@ To indicate an intervention not performed for a reason Use [QICoreProcedureNotDo
 
 #### Intervention, Recommended
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Intervention, Recommended** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, a recommendation for an intervention to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Intervention, Order” and “Intervention, Recommended” datatypes. |
@@ -1079,7 +1079,7 @@ Each laboratory test may be ordered individually or in a panel. Many use panels 
 
 “Laboratory Test, Order” should reference orders for studies that will generate results for activities that meet criteria for Observation Lab Result.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Laboratory Test, Order** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an order for a laboratory test to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Laboratory Test, Order” and “Laboratory Test, Recommended” datatypes. |
@@ -1110,7 +1110,7 @@ Each laboratory test may be ordered individually or in a panel. Many use panels 
 
 #### Laboratory Test, Performed
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Laboratory Test, Performed** | [Laboratory Result Observation](StructureDefinition-qicore-observation-lab.html) | &nbsp; |
 | **QDM Attribute** | &nbsp; | &nbsp; |
@@ -1144,7 +1144,7 @@ Each laboratory test may be ordered individually or in a panel. Many use panels 
 
 #### Laboratory Test, Recommended
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Laboratory Test, Recommended** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, recommendation for a laboratory test to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, _status_ is implied by the name “Laboratory Test, Order” and “Laboratory Test, Recommended” datatypes. |
@@ -1189,7 +1189,7 @@ The MedicationRequest **SHALL** include all practitioner-reported and "self-repo
 - When recording "self-reported" or "self-prescribed" medications **SHALL** use intent = “plan”
 - When recording "self-prescribed" orders, **SHOULD** use the requester to indicate the Patient or RelatedPerson as the prescriber
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Medication, Active** | [MedicationRequested](StructureDefinition-qicore-medicationrequested.html) | Note: for the positive use case, an order for a physical examination to be performed using MedicationRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [MedicationRequest.status](StructureDefinition-qicore-medicationrequested-definitions.html#MedicationRequest.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Order”. Constrain to active, completed |
@@ -1214,7 +1214,7 @@ The MedicationRequest **SHALL** include all practitioner-reported and "self-repo
 
 This QDM context correlates with a record of a patient consuming or otherwise being administered a medication. It references individual medication administration events and, therefore, may not reference frequency of administration. Note that a separate QDM and US Core profile address Immunization, Administered.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Medication, Administered** | [MedicationAdministrationDone](StructureDefinition-qicore-medicationadministrationdone.html) | &nbsp; |
 | &nbsp; | [MedicationAdministration.status](StructureDefinition-qicore-medicationadministrationdone-definitions.html#MedicationAdministration.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Administered”. Constrain status to “In-progress” or “completed” Note: Measures that look for evidence of potential adverse events might use MedicationAdministration.status = on-hold, or stopped as possible indicators of such events. |
@@ -1262,7 +1262,7 @@ MedicationRequest.intent should always be _order_ even if the medication is pati
 
 This change should also be used to reference the mapping from QDM Medication, Order which can address order or recommended.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Medication, Discharge** | [MedicationRequested](StructureDefinition-qicore-medicationrequested.html) | Note: for the positive use case, an order for a physical examination to be performed using MedicationRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | Medication, Discharge active | [MedicationRequest.status](StructureDefinition-qicore-medicationrequested-definitions.html#MedicationRequest.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Order”. Constrain to active, completed |
@@ -1304,7 +1304,7 @@ This change should also be used to reference the mapping from QDM Medication, Or
 
 This QDM context maps to the QI-Core MedicationDispense resource, indicating information about medications that have been dispensed.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Medication, Dispensed** | [MedicationDispense](StructureDefinition-qicore-medicationdispense.html) | &nbsp; |
 | &nbsp; | [MedicationDispense.status](StructureDefinition-qicore-medicationdispense-definitions.html#MedicationDispense.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Dispensed”. Constrain MedicationDispense.status to completed |
@@ -1344,7 +1344,7 @@ The MedicationDispensed.status is fixed to "declined" which is defined as "The d
 
 This QDM context references the QI-Core MedicationRequest resource with MedicationRequest.intent = _order_ and MedicationRequest.setting as the most appropriate for the intended meaning of the quality measure or clinical decision support (CDS) expression.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Medication, Order** | [MedicationRequested](StructureDefinition-qicore-medicationrequested.html) | Note: for the positive use case, an order for a physical examination to be performed using MedicationRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | Medication, Order active | [MedicationRequest.status](StructureDefinition-qicore-medicationrequested-definitions.html#MedicationRequest.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Medication, Order”. Constrain to active, completed |
@@ -1388,7 +1388,7 @@ This QDM context references the QI-Core MedicationRequest resource with Medicati
 
 QDM defines Participation as a patient’s coverage by a program such as an insurance or medical plan or a payment agreement. Such programs can include patient-centered medical home, disease-specific programs, etc. Definitions modeled similar to the FHIR R4 [Coverage](http://hl7.org/fhir/R4/coverage.html) resource.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Participation** | [Coverage](StructureDefinition-qicore-coverage.html) | &nbsp; |
 | &nbsp; | [Coverage.status](StructureDefinition-qicore-coverage-definitions.html#key_Coverage.status) | While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name ”Participation”. Constrain to “active” |
@@ -1428,7 +1428,7 @@ US Core STU7 contains twelve observation profiles that address specific elements
 
 QDM “Physical Exam, Order” should use ServiceRequest with _intent_ = order for the specific examination requested.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Physical Exam, Order** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an order for a physical examination to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Physical Exam, Order” and “Physical Exam, Recommended” datatypes. |
@@ -1462,7 +1462,7 @@ QDM “Physical Exam, Order” should use ServiceRequest with _intent_ = order f
 
 QDM “Physical Exam, Performed” should reference the specific US Core vital signs profiles directly as appropriate. Some results may also be identified using the QICore Observation Clinical Result profile. The QI-Core Simple Observation profile may be appropriate for other physical examination observations not covered by the Observation Clinical Result profile.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Physical Exam, Performed - General** | [QI-Core Simple Observation](StructureDefinition-qicore-simple-observation.html)  <br>[QI-Core Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) <br>[US Core Average Blood Pressure Profile](http://hl7.org/fhir/us/core/STU7/StructureDefinition-us-core-average-blood-pressure.html)| &nbsp; |
 | &nbsp; | [Observation.status](StructureDefinition-qicore-simple-observation-definitions.html#Observation.status) | Constrain status to - final, amended, corrected. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Physical Exam, Performed” datatype. |
@@ -1494,7 +1494,7 @@ QDM “Physical Exam, Performed” should reference the specific US Core vital s
 
 QDM “Physical Exam, Recommended” should use ServiceRequest with _intent_ = plan for the specific examination recommended.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Physical Exam, Recommended** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, an order for recommendation for a physical examination to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, _status_ is implied by the name “Physical Exam” and “Physical Exam, Recommended” datatypes. |
@@ -1562,7 +1562,7 @@ _Priority indicates the urgency of the procedure or the encounter referenced. In
 
 As noted in the QDM to QI-Core Mapping for Encounter-Related Diagnoses and Procedures, a specific measure may have interest in evaluating care provided for elective procedures (e.g., hip surgery due to osteoarthritis) while excluding emergency, non-planned procedures (e.g., hip surgery due to acute fracture). The procedure code does not necessarily allow differentiation of the two concepts. A [ServiceRequest.priority](StructureDefinition-qicore-servicerequest-definitions.html#ServiceRequest.priority) does have the ability to differentiate the urgency with which the _request_ (or order) should be fulfilled. However, there is no current usage in existing measures and the ServiceRequest.priority element is not included in the ServiceRequest Key Element Table. There is no element within the FHIR Procedure resource to address the issue. Based on lack of a current use case QI-Core has not added an extension to address Procedure.priority and, as a result, there is no direct mapping from the QDM Procedure priority attribute to QI-Core.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Procedure, Performed** | [ProcedureDone](StructureDefinition-qicore-proceduredone.html) | &nbsp; |
 | **QDM Attributes** | &nbsp; | &nbsp; |
@@ -1600,7 +1600,7 @@ To indicate an procedure not performed for a reason Use [QICoreProcedureNotDone]
 
 #### Procedure, Order
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Procedure, Order** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, recommendation for a procedure to be performed using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, _status_ is implied by the name “Procedure, Order” and “Procedure, Recommended” datatypes. |
@@ -1631,7 +1631,7 @@ To indicate an procedure not performed for a reason Use [QICoreProcedureNotDone]
 
 #### Procedure, Recommended
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Procedure, Recommended** | [ServiceRequested](StructureDefinition-qicore-servicerequested.html) | Note: for the positive use case, a recommendation for a procedure using ServiceRequest, the [ServiceRequest.doNotPerform](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.doNotPerform) element should = false or null (absent value) |
 | &nbsp; | [ServiceRequest.status](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.status) | Constrain to active, completed. While QDM does not have an attribute comparable to status, as a conceptual model, _status_ is implied by the name “Procedure, Order” and “Procedure, Recommended” datatypes. |
@@ -1669,13 +1669,13 @@ QDM defines Substance as a homogeneous material with a definite composition that
 Ideally, use of a substance-related resource should be driven by use cases and examples. Two such use cases currently exist in the quality measure community:
 
 - Identifying blood products (a biological product in FHIR resources) ordered or administered within specific time relationships to other data elements – The FHIR Resource,[BiologicallyDerivedProduct](http://hl7.org/fhir/biologicallyderivedproduct.html), possibly using Procedure and ServiceRequest might have promise. However, the resource is still in development. Therefore, until further information is available, rather than expressing the QDM _datatype_ Substance, Administration to address administration of blood transfusion, quality measure and clinical decision support (CDS) authors should consider using the procedure resource with a code representing transfusion.
-- Determining exclusive newborn feeding with human breast milk during the initial stay in the hospital after birth – Currently, FHIR R4 includes a [NutritionOrder](http://hl7.org/fhir/nutritionorder.html) resource to reference a request for a specific diet, or supplements to a diet. However, a resource for documenting administration of nutrition-related substances is still in development. The focus of the FHIR R5 resource NutritionIntake is interoperable messaging between nutrition applications and the EHR (i.e., not EHR to EHR nutrition information sharing). Therefore, for this use case a quality measure or a clinical decision support (CDS) author could reference a NutritionOrder for an exclusive breast milk diet for the infant; however, such an expression could not reference clinical intake and output records to determine if anything other than human breast milk was administered to the infant. Summarizing discussion among HL7 workgroups in late 2023, the QI-Core resource best suited to retrieve information about enteral intake is Observation (i.e., QI-Core Observation in versions STU4.1.1 and STU5.0, and SimpleObservation in STU 6.0 & STU7.0). The following guidance may help measure developers trying to express retrieval of enteral intake data using SimpleObservation:
+- Determining exclusive newborn feeding with human breast milk during the initial stay in the hospital after birth – Currently, FHIR R4 includes a [NutritionOrder](http://hl7.org/fhir/nutritionorder.html) resource to reference a request for a specific diet, or supplements to a diet. However, a resource for documenting administration of nutrition-related substances is still in development. The focus of the FHIR R5 resource NutritionIntake is interoperable messaging between nutrition applications and the EHR (i.e., not EHR to EHR nutrition information sharing). Therefore, for this use case a quality measure or a clinical decision support (CDS) author could reference a NutritionOrder for an exclusive breast milk diet for the infant; however, such an expression could not reference clinical intake and output records to determine if anything other than human breast milk was administered to the infant. Summarizing discussion among HL7 workgroups in late 2023, the QI-Core resource best suited to retrieve information about enteral intake is Observation (i.e., QI-Core Observation in versions STU4.1.1 and STU5.0, and SimpleObservation in STU 6.0, STU7.0 & STU 8.0). The following guidance may help measure developers trying to express retrieval of enteral intake data using SimpleObservation:
   - SimpleObservation.code = with binding to a direct reference code or value set indicating observation of enteral intake
   - SimpleObservation.value with binding to a direct reference code or value set indicating the nutritional product of interest to the measure intent.
 
 NOTE – There is no specific QDM datatype to address the  [Nutrition Order](StructureDefinition-qicore-nutritionorder.html) QI-Core STU 6 profile. Since no current eCQM uses this profile, determination of key elements is challenging. The following table may help measure developers determine what to use for potential use cases:
 
-| **Nutrition Order** | **QI-Core STU7** | **Comments** |
+| **Nutrition Order** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Substance, Order/Recommended - For Diet Orders** | [NutritionOrder](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder) | Limited to orders for diets or diets with supplements |
 | Substance Order/Recommended Activity | [NutritionOrder.status](StructureDefinition-qicore-nutritionorder-definitions.html#NutritionOrder.status) | Determination of which order status is appropriate to retrieve, specifically constrain to active, completed. Profile has required binding to [RequestStatus](http://hl7.org/fhir/R4/valueset-request-status.html). |
@@ -1704,7 +1704,7 @@ Note: Definitions regarding symptom on the FHIR condition resource Boundaries an
 
 Based on the FHIR referenced provided above, the QDM _datatype_ Symptom maps to the FHIR Observation resource.
 
-| **QDM Context** | **QI-Core STU7** | **Comments** |
+| **QDM Context** | **QI-Core STU8** | **Comments** |
 | --- | --- | --- |
 | **Symptom** | [Simple Observation](StructureDefinition-qicore-simple-observation.html) | &nbsp; |
 | &nbsp; | [Observation.status](StructureDefinition-qicore-simple-observation-definitions.html#Observation.status) | Constrain status to - preliminary, final, amended, corrected. While QDM does not have an attribute comparable to status, as a conceptual model, status is implied by the name “Symptom” datatype. |
