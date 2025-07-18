@@ -2,7 +2,15 @@
 
 
 {:.stu-note}
-> This STU 7 update to the QI-Core profiles aligns with US-Core STU v7. For a complete list of changes in this version, please refer to the version history.
+> This STU 8.0.0-ballot update to the QI-Core profiles aligns with US-Core STU v8.0.0. For a complete list of changes in this version, please refer to the version history.
+
+<div class="note-to-balloters" markdown="1">
+
+</div>
+
+<div class="new-content" markdown="1">
+{{ site.data.new_items.list[0].desc }}
+</div>
 
 
 
@@ -80,7 +88,7 @@ derives content from US Core profiles and extensions to the extent possible. The
 US Core by incorporating needed extensions with broad applicability. To the extent possible, CQM and CDS authors should incorporate published domain-specific profiles to express content as much as possible rather than duplicating such concepts in QI-Core (e.g., minimum Common Oncology Data Elements (mCode)). The CQI and CDS Work Groups
 coordinate with HL7 Work Groups that manage specific FHIR resources to align definitions and value sets including
 concepts required for CDS and retrospective CQM use cases. Additional classes and attributes needed for
-specific quality applications can be added through FHIR's extension mechanism. This QI-Core STU 7.0 uses FHIR extensions promoted from the previous Clinical Quality Framework (CQF) extensions to improve shareablility. QI-Core will evolve to include more of the extensional content when the community
+specific quality applications can be added through FHIR's extension mechanism. This QI-Core STU 8.0 uses FHIR extensions promoted from the previous Clinical Quality Framework (CQF) extensions to improve shareablility. QI-Core will evolve to include more of the extensional content when the community
 identifies a common need, and the additional content has been validated.
 
 QI-Core profile authoring provides a relatively facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
@@ -117,7 +125,7 @@ Some of the above topics are under active investigation and will be topics of fu
 the FHIR [Clinical Reasoning]({{site.data.fhir.path}}clinicalreasoning-module.html) module provides resources and
 guidance representing and evaluating quality improvement artifacts within FHIR.
 
-Consistent with changes in QI-Core STU 6.0, this STU 7.0 includes simplification to reduce the number of must support elements and further constraints on US Core content. The approach in previous QI-Core versions listed as [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) all metadata that might be relevant to clinical quality measurement and clinical decision support use cases. QI-Core STU 7.0 advances the concept that measurement and decision support real-world use cases should drive content for the IG. Thus, the profile key element tables are more concise, including only those elements necessary due to the base resource or relevant US Core profile and those elements used by tested and implemented use cases.
+Consistent with the changes introduced in QI-Core STU 6.0, STU 7.0 continued the effort to simplify profiles by reducing the number of Must Support elements and applying tighter constraints on US Core content. Earlier versions of QI-Core included comprehensive lists of [key elements](https://build.fhir.org/ig/FHIR/ig-guidance/readingIgs.html#model-views) that might have been relevant to clinical quality measurement and clinical decision support. STU 7.0 advanced the principle that real-world use cases should guide the inclusion of content in the implementation guide. As a result, the profile key element tables became more focused, including only those elements required by the base FHIR resource, relevant US Core profiles, or those demonstrated in tested and implemented use cases.
 
 
 ### Privacy, Security, and Consent

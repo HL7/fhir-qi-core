@@ -6,7 +6,7 @@ The following table lists the QI-Core profiles that are part of the IG, which US
 <br>
 
 
-|QI-Core (7.0.0) Profile|US Core (7.0.0) Profile|FHIR Resource|
+|QI-Core (8.0.0) Profile|US Core (8.0.0) Profile|FHIR Resource|
 |----|:----:|----:|
 |**2.1.1 AdverseEvent**|
 |&emsp; [QICore AdverseEvent](StructureDefinition-qicore-adverseevent.html)| &mdash; |&emsp; [ AdverseEvent]({{site.data.fhir.path}}adverseevent.html)|
