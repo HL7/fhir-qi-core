@@ -189,13 +189,13 @@
             "code": "CodeableConcept"
           }
         ],
+        "mustSupport" : true,
         "isModifier": false,
         "isSummary": false,
         "binding": {
           "strength": "required",
-          "description": "Note that other codes are permitted, see [Required Bindings When Slicing by Value Sets](http://hl7.org/fhir/us/core/general-requirements.html#required-bindings-when-slicing-by-valuesets)",
-          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-screening-assessment-observation-category"
-        }
+          "valueSet" : "http://hl7.org/fhir/us/core/ValueSet/us-core-screening-assessment-observation-maximum-category"
+       }
       },
       {
         "id": "Observation.code",
@@ -229,7 +229,7 @@
         "isSummary": true,
         "binding": {
           "strength": "preferred",
-          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-survey-codes"
+          "valueSet": "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1267.13"
         }
       },
       {

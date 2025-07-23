@@ -1,18 +1,20 @@
 == Suppressed Messages ==
 
-# The following IG was approved before the latest version of the CQL IG was published
-WARNING: ImplementationGuide/hl7.fhir.us.qicore: ImplementationGuide.dependsOn[4]: The ImplementationGuide uses package hl7.fhir.uv.cql#1.0.0 released on 2024-05-31, but the most recent appropriate version is 2.0.0. This reference is getting old and the more recent version should be considered
-
 # Profiles not based on US Core and variance requests have been approved: https://jira.hl7.org/browse/FHIR-34125 & https://jira.hl7.org/browse/FHIR-41615
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 
 # The following messages are being generated from the inherited/base resource snapshot
+WARNING: StructureDefinition/qicore-condition-problems-health-concerns: StructureDefinition.snapshot: The slice 'screening-assessment' on path 'Condition.category' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
+WARNING: StructureDefinition/qicore-simple-observation: StructureDefinition.snapshot: The slice 'us-core' on path 'Observation.category' is not marked as 'must-support' which is not consistent with the element that defines the slicing, where 'must-support' is true
 INFORMATION: StructureDefinition/qicore-medicationdispensedeclined: StructureDefinition.snapshot.element[32].mapping[0].map: The string value contains text that looks like embedded HTML tags. If this content is rendered to HTML without appropriate post-processing, it may be a security risk
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[10].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[11].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[12].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
 INFORMATION: StructureDefinition/qicore-practitioner: StructureDefinition.snapshot.element[18].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[19].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/qicore-organization: StructureDefinition.snapshot.element[28].pattern.ofType(Identifier): The repeating element has a pattern. The pattern will apply to all the repeats (this has not been clear to all users)
+INFORMATION: StructureDefinition/qicore-simple-observation: StructureDefinition.snapshot.element[14].binding.extension[0]: The extension http://hl7.org/fhir/StructureDefinition/elementdefinition-minValueSet|5.2.0 is deprecated
 
 # The following messages are generated from code systems and value sets currently in 'draft' status within the inherited/base resource snapshot.
 Reference to draft CodeSystem http://hl7.org/fhir/CodeSystem/medicationrequest-status|4.0.1
