@@ -4,6 +4,14 @@
 
 This page lists the change history for each version of QI-Core.
 
+### STU8-ballot (8.0.0)
+
+No change requests have been implemented at this time; the primary focus has been on aligning QI-Core profiles with US Core. As part of this alignment, several changes have been inherited from US Core, including:
+
+1. Removal of the US Core Birth Sex Extension from the Patient profile.
+1. Deprecation and removal of the US Core Gender Identity Extension from the Patient profile.
+1. Redefinition of the US Core Sex Extension, with an updated binding to Federal Administrative Sex.
+
 ### STU7 Publication (7.0.1)
 
 #### Corrected Errata in Version 7.0.1 of QI-Core

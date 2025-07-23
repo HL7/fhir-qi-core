@@ -6,6 +6,10 @@
 
 <div class="note-to-balloters" markdown="1">
 
+The STU 8.0.0-ballot update to the QI-Core profiles incorporates changes necessary to align with US Core STU v8.0.0. Although these updates may not result in visible differences in the current Implementation Guide (IG), they represent essential behind-the-scenes modifications to maintain conformance with the evolving US Core standard. 
+
+The purpose of this ballot is to establish a solid foundation for continued QI-Core development in parallel with US Core, ensuring interoperability and reducing divergence between the two. By synchronizing QI-Core with the latest US Core release, we support implementers in achieving consistency across clinical quality improvement and interoperability use cases, paving the way for future enhancements and broader adoption.
+
 </div>
 
 <div class="new-content" markdown="1">
