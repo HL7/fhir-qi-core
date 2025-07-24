@@ -24,7 +24,7 @@
     </coding>
   </jurisdiction>
   <purpose
-           value="This value set was defined to support identifying any of the possible negation reason codes as part of QICore profiles. The value set is composed of the codes from [Medical Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1007), [Patient Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1008), and [System Reason](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1009) as defined and available in the Value Set Authority Center. This value set was defined to support identifying any of the possible negation reason codes as part of QICore profiles. The value set exists to support measure developers need to reference medical, patient, and system reasons for processes not performed and it is a grouping of VSAC value sets.  Therefore, retain binding to the QI-Core value set in the profiles that use the extension.  It only exists to support bindings to capture a reason for negative."/>
+           value="This value set was defined to support identifying any of the possible negation reason codes as part of QICore profiles. The value set is composed of the codes from [Medical Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1007), [Patient Reason Not Done SCT](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1008), and concepts that are similar to [System Reason](http://cts.nlm.nih.gov/fhir/2.16.840.1.113883.3.526.3.1009) as defined and available in the Value Set Authority Center. This value set was defined to support identifying any of the possible negation reason codes as part of QICore profiles. The value set exists to support measure developers need to reference medical, patient, and system reasons for processes not performed and it is a grouping of VSAC value sets.  Therefore, retain binding to the QI-Core value set in the profiles that use the extension.  It only exists to support bindings to capture a reason for negative."/>
   <compose>
     <include>
       <valueSet
@@ -35,8 +35,55 @@
                 value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1008"/>
       </include>
       <include>
-      <valueSet
-                value="http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1009"/>
+      <system value="http://snomed.info/sct"/>
+        <concept>
+        <code value="107724000"/>
+        <display value="Patient transfer (procedure)"/>
+       </concept>
+       <concept>
+        <code value="182856006"/>
+        <display value="Drug not available - out of stock (finding)"/>
+       </concept>
+       <concept>
+        <code value="182857002"/>
+        <display value="Drug not available-off market (finding)"/>
+       </concept>
+       <concept>
+        <code value="185335007"/>
+        <display value="Appointment canceled by hospital (finding)"/>
+       </concept>
+       <concept>
+        <code value="224194003"/>
+        <display value="Not entitled to benefits (finding)"/>
+       </concept>
+       <concept>
+        <code value="224198000"/>
+        <display value="Loss of benefits (finding)"/>
+       </concept>
+       <concept>
+        <code value="242990004"/>
+        <display value="Drug not available for administration (event)"/>
+       </concept>
+       <concept>
+        <code value="266756008"/>
+        <display value="Medical care unavailable (situation)"/>
+       </concept>
+       <concept>
+        <code value="270459005"/>
+        <display value="Patient on waiting list (finding)"/>
+       </concept>
+       <concept>
+        <code value="309017000"/>
+        <display value="Referred to doctor (finding)"/>
+       </concept>
+       <concept>
+        <code value="419808006"/>
+        <display value="Finding related to health insurance issues (finding)"/>
+       </concept>
+       <concept>
+        <code value="424553001"/>
+        <display value="Uninsured medical expenses (finding)"/>
+       </concept>
     </include>
   </compose>
 </ValueSet>
