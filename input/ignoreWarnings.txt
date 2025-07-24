@@ -1,5 +1,10 @@
 == Suppressed Messages ==
 
+# The following messages are expected since these valueSets had network issues when preparing the VSAC package per this Zulip thread (https://chat.fhir.org/#narrow/channel/179252-IG-creation/topic/Definition.20for.20value.20Sets.20cannot.20be.20found/with/530420239)
+A definition for the value Set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.313' could not be found
+A definition for the value Set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.311' could not be found
+ERROR: ValueSet.where(id = 'qicore-negation-reason'): Unable to expand included value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.3.1007': Unable to find included value set 'http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113883.3.526.2.313'
+
 # Profiles not based on US Core and variance requests have been approved: https://jira.hl7.org/browse/FHIR-34125 & https://jira.hl7.org/browse/FHIR-41615
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device').baseDefinition: US FHIR Usage rules require that all profiles on Device derive from the core US profile. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
 WARNING: StructureDefinition.where(url = 'http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-nonpatient-observation').baseDefinition: US FHIR Usage rules require that all profiles on Observation derive from one of the base US profiles. See https://confluence.hl7.org/display/CGP/US+Core+Variance+Request+Process
