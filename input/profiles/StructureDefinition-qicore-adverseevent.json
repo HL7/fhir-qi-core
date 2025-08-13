@@ -111,8 +111,6 @@
         ],
         "path" : "AdverseEvent.subject",
         "short" : "(QI) Subject impacted by event",
-        "min" : 1,
-        "max" : "1",
         "type" : [
           {
             "code" : "Reference",
@@ -206,14 +204,7 @@
           }
         ],
         "path" : "AdverseEvent.seriousness",
-        "short" : "(QI) Seriousness of the event",
-        "min" : 0,
-        "max" : "1",
-        "binding" : {
-          "strength" : "example",
-          "description" : "Overall seriousness of this event for the patient.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/adverse-event-seriousness"
-        }
+        "short" : "(QI) Seriousness of the event"
       },
       {
         "id" : "AdverseEvent.severity",
@@ -299,8 +290,6 @@
       {
         "id" : "AdverseEvent.suspectEntity.causality",
         "path" : "AdverseEvent.suspectEntity.causality",
-        "min" : 0,
-        "max" : "1",
         "mustSupport" : false
       },
       {
