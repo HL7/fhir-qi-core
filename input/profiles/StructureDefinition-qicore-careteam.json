@@ -90,8 +90,6 @@
 		  ],
         "path" : "CareTeam.participant.role",
         "short" : "(QI) Type of involvement",
-        "min" : 1,
-        "max" : "1",
         "base" : {
           "path" : "CareTeam.participant.role",
           "min" : 0,
@@ -102,14 +100,8 @@
             "code" : "CodeableConcept"
           }
         ],
-        "mustSupport" : true,
         "isModifier" : false,
-        "isSummary" : true,
-        "binding" : {
-          "strength" : "extensible",
-          "description" : "Indicates specific responsibility of an individual within the care team, such as Primary physician, Team coordinator, Caregiver, etc.",
-          "valueSet" : "http://cts.nlm.nih.gov/fhir/ValueSet/2.16.840.1.113762.1.4.1099.30"
-        }
+        "isSummary" : true
       },      {
         "id": "CareTeam.participant.member",
         "extension": [
