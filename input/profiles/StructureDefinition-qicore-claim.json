@@ -68,16 +68,12 @@
             "valueBoolean" : true
           }
         ],
-        "path" : "Claim",
-        "mustSupport" : false
+        "path" : "Claim"
       },
       {
         "id" : "Claim.status",
         "path" : "Claim.status",
         "short" : "(QI) active",
-        "definition" : "The status of the resource instance.",
-        "min" : 1,
-        "max" : "1",
         "extension": [
           {
             "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -95,8 +91,6 @@
         "id" : "Claim.type",
         "path" : "Claim.type",
         "short" : "(QI) category | discipline",
-        "min" : 1,
-        "max" : "1",
         "extension" : [
           {
             "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -108,8 +102,6 @@
         "id" : "Claim.use",
         "path" : "Claim.use",
         "short" : "(QI) claim | preauthorization | predetermination",
-        "min" : 1,
-        "max" : "1",
         "extension" : [
           {
             "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
@@ -202,8 +194,7 @@
       },
       {
         "id" : "Claim.payee",
-        "path" : "Claim.payee",
-        "mustSupport" : false
+        "path" : "Claim.payee"
       },
       {
         "id" : "Claim.payee.party",
@@ -219,8 +210,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-relatedperson"
             ]
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "Claim.referral",
@@ -232,8 +222,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-servicerequest"
             ]
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "Claim.facility",
@@ -245,13 +234,11 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
             ]
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "Claim.careTeam",
-        "path" : "Claim.careTeam",
-        "mustSupport" : false
+        "path" : "Claim.careTeam"
       },
       {
         "id" : "Claim.careTeam.provider",
@@ -265,8 +252,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"
             ]
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "Claim.diagnosis",
@@ -280,13 +266,6 @@
         }],
         "path" : "Claim.diagnosis",
         "short" : "(QI) Pertinent diagnosis information",
-        "definition" : "Information about diagnoses relevant to the claim items.",
-        "requirements" : "Required for the adjudication by provided context for the services and product listed.",
-        "min" : 0,
-        "max" : "*",
-        "type" : [{
-          "code" : "BackboneElement"
-        }],
         "mapping" : [{
           "identity" : "workflow",
           "map" : "Request.reasonReference"
@@ -301,12 +280,7 @@
           }
         ],
         "path" : "Claim.diagnosis.sequence",
-        "short" : "(QI) Diagnosis instance identifier",
-        "type" : [
-          {
-            "code" : "positiveInt"
-          }
-        ]
+        "short" : "(QI) Diagnosis instance identifier"
       },
       {
         "id" : "Claim.diagnosis.diagnosis[x]",
@@ -328,18 +302,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-condition-encounter-diagnosis"
             ]
           }
-        ],
-        "binding" : {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString" : "ICD10"
-            }
-          ],
-          "strength" : "example",
-          "description" : "Example ICD10 Diagnostic codes.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10"
-        }
+        ]
       },
       {
         "id" : "Claim.diagnosis.type",
@@ -350,24 +313,7 @@
           }
         ],
         "path" : "Claim.diagnosis.type",
-        "short" : "(QI) Timing or nature of the diagnosis",
-        "definition" : "When the condition was observed or the relative ranking.",
-        "comment" : "For example: admitting, primary, secondary, discharge.",
-        "requirements" : "Often required to capture a particular diagnosis, for example: primary or discharge.",
-        "min" : 0,
-        "max" : "*",
-        "type" : [{
-          "code" : "CodeableConcept"
-        }],
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-            "valueString" : "DiagnosisType"
-          }],
-          "strength" : "preferred",
-          "description" : "The type of the diagnosis: admitting, principal, discharge.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/ex-diagnosistype"
-        }
+        "short" : "(QI) Timing or nature of the diagnosis"
       },
       {
         "id" : "Claim.diagnosis.onAdmission",
@@ -379,11 +325,6 @@
         ],
         "path" : "Claim.diagnosis.onAdmission",
         "short" : "(QI) Present on admission",
-        "type" : [
-          {
-            "code" : "CodeableConcept"
-          }
-        ],
         "binding" : {
           "strength" : "required",
           "description" : "Present on admission.",
@@ -402,14 +343,7 @@
           "valueString" : "Procedure"
         }],
         "path" : "Claim.procedure",
-        "short" : "(QI) Clinical procedures performed",
-        "definition" : "Procedures performed on the patient relevant to the billing items with the claim.",
-        "requirements" : "The specific clinical invention are sometimes required to be provided to justify billing a greater than customary amount for a service.",
-        "min" : 0,
-        "max" : "*",
-        "type" : [{
-          "code" : "BackboneElement"
-        }]
+        "short" : "(QI) Clinical procedures performed"
       },
       {
         "id" : "Claim.procedure.sequence",
@@ -420,14 +354,7 @@
           }
         ],
         "path" : "Claim.procedure.sequence",
-        "short": "(QI) Procedure instance identifier",
-        "type" : [
-          {
-            "code" : "positiveInt"
-          }
-        ],
-        "isModifier" : false,
-        "isSummary" : false
+        "short": "(QI) Procedure instance identifier"
       },
       {
         "id" : "Claim.procedure.type",
@@ -438,24 +365,7 @@
           }
         ],
         "path" : "Claim.procedure.type",
-        "short" : "(QI) Category of Procedure",
-        "definition" : "When the condition was observed or the relative ranking.",
-        "comment" : "For example: primary, secondary.",
-        "requirements" : "Often required to capture a particular diagnosis, for example: primary or discharge.",
-        "min" : 0,
-        "max" : "*",
-        "type" : [{
-          "code" : "CodeableConcept"
-        }],
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-            "valueString" : "ProcedureType"
-          }],
-          "strength" : "example",
-          "description" : "Example procedure type codes.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/ex-procedure-type"
-        }
+        "short" : "(QI) Category of Procedure"
       },      {
         "id" : "Claim.procedure.procedure[x]",
         "extension" : [
@@ -476,25 +386,11 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-procedure"
             ]
           }
-        ],
-        "binding" : {
-          "extension" : [
-            {
-              "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-              "valueString" : "ICD10_Procedures"
-            }
-          ],
-          "strength" : "example",
-          "description" : "Example ICD10 Procedure codes.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/icd-10-procedures"
-        }
+        ]
       },
       {
         "id" : "Claim.insurance.coverage",
         "path" : "Claim.insurance.coverage",
-        "short" : "Insurance information",
-        "min" : 1,
-        "max" : "1",
         "type" : [{
           "code" : "Reference",
           "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-coverage"]
