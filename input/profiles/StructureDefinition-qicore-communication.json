@@ -67,8 +67,7 @@
             "human": "to indicate what communication, either at least one coding in the topic or a codeOptions extension shall be provided",
             "expression": "topic.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor (topic.coding.exists() or topic.text.exists())"
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "Communication.status",
@@ -113,11 +112,7 @@
         "short" :"(QI) Description of the purpose/content",
         "condition" : [
           "com-1"
-        ],
-        "binding" : {
-          "strength" : "preferred",
-          "valueSet" : "http://terminology.hl7.org/ValueSet/communication-topic|1.0.0"
-        }
+        ]
       },
       {
         "id": "Communication.topic.extension:codeOptions",
