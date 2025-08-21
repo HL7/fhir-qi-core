@@ -72,11 +72,6 @@
         ],
         "path" : "ClaimResponse.status",
         "short" : "(QI) active | cancelled | draft | entered-in-error",
-        "base" : {
-          "path" : "ClaimResponse.status",
-          "min" : 1,
-          "max" : "1"
-        },
         "fixedCode" : "active"
       },
       {
@@ -88,12 +83,7 @@
             }
           ],
           "path" : "ClaimResponse.type",
-          "short" : "(QI) More granular claim type",
-          "base" : {
-            "path" : "ClaimResponse.type",
-            "min" : 1,
-            "max" : "1"
-          }
+          "short" : "(QI) More granular claim type"
         },
         {
             "id" : "ClaimResponse.use",
@@ -106,11 +96,6 @@
             "path" : "ClaimResponse.use",
             "short" : "(QI) claim | preauthorization | predetermination",
             "definition" : "A code to indicate whether the nature of the request is: to request adjudication of products and services previously rendered; or requesting authorization and adjudication for provision in the future; or requesting the non-binding adjudication of the listed products and services which could be provided in the future.",
-            "base" : {
-              "path" : "ClaimResponse.use",
-              "min" : 1,
-              "max" : "1"
-            },
             "fixedCode" : "preauthorization"
           },
           {
@@ -123,11 +108,6 @@
               ],
               "path" : "ClaimResponse.patient",
               "short" : "(QI) The recipient of the products and services",
-              "base" : {
-                "path" : "ClaimResponse.patient",
-                "min" : 1,
-                "max" : "1"
-              },
               "type" : [
                 {
                   "code" : "Reference",
@@ -146,12 +126,7 @@
                   }
                 ],
                 "path" : "ClaimResponse.created",
-                "short" : "(QI) Response creation date",
-                "base" : {
-                  "path" : "ClaimResponse.created",
-                  "min" : 1,
-                  "max" : "1"
-                }
+                "short" : "(QI) Response creation date"
               },
               {
               "id" : "ClaimResponse.insurer",
@@ -163,11 +138,6 @@
               ],
               "path" : "ClaimResponse.insurer",
               "short" : "(QI) Party responsible for reimbursement",
-              "base" : {
-                "path" : "ClaimResponse.insurer",
-                "min" : 1,
-                "max" : "1"
-              },
               "type" : [
                 {
                   "code" : "Reference",
@@ -187,11 +157,6 @@
           ],
            "path" : "ClaimResponse.requestor",
            "short" : "(QI) Party responsible for the claim",
-           "base" : {
-             "path" : "ClaimResponse.requestor",
-             "min" : 0,
-             "max" : "1"
-           },
            "type" : [
              {
                "code" : "Reference",
@@ -213,11 +178,6 @@
             ],
              "path" : "ClaimResponse.request",
              "short" : "(QI) Id of resource triggering adjudication",
-             "base" : {
-               "path" : "ClaimResponse.request",
-               "min" : 0,
-               "max" : "1"
-             },
              "type" : [
                {
                  "code" : "Reference",
@@ -240,12 +200,7 @@
                 }
               ],
               "path" : "ClaimResponse.item",
-              "short" : "(QI) Adjudication for claim line items",
-              "base" : {
-                "path" : "ClaimResponse.item",
-                "min" : 0,
-                "max" : "*"
-              }
+              "short" : "(QI) Adjudication for claim line items"
             },
             {
                 "id" : "ClaimResponse.item.adjudication",
@@ -262,12 +217,7 @@
                 "path" : "ClaimResponse.item.adjudication",
                 "short" : "(QI) Adjudication details",
                 "min" : 1,
-                "max" : "*",
-                "base" : {
-                  "path" : "ClaimResponse.item.adjudication",
-                  "min" : 1,
-                  "max" : "*"
-                }
+                "max" : "*"
               },
               {
                   "id" : "ClaimResponse.item.adjudication.category",
@@ -279,11 +229,6 @@
                   ],
                   "path" : "ClaimResponse.item.adjudication.category",
                   "short" : "(QI) This code is fixed to 'submitted' to indicate that the adjudication result is on what was submitted.",
-                  "base" : {
-                    "path" : "ClaimResponse.item.adjudication.category",
-                    "min" : 1,
-                    "max" : "1"
-                  },
                   "type" : [
                     {
                       "code" : "CodeableConcept"
@@ -307,12 +252,7 @@
           }
         ],
         "path" : "ClaimResponse.item.adjudication.amount",
-        "short" : "(QI) Monetary amount",
-        "base" : {
-          "path" : "ClaimResponse.item.adjudication.amount",
-          "min" : 0,
-          "max" : "1"
-        }
+        "short" : "(QI) Monetary amount"
       },
       {
           "id" : "ClaimResponse.item.detail.detailSequence",
@@ -323,12 +263,7 @@
             }
           ],
           "path" : "ClaimResponse.item.detail.detailSequence",
-          "short" : "(QI) Claim detail instance identifier",
-          "base" : {
-            "path" : "ClaimResponse.item.detail.detailSequence",
-            "min" : 1,
-            "max" : "1"
-          }
+          "short" : "(QI) Claim detail instance identifier"
       }
   ]
 }
