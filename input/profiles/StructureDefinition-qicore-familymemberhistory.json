@@ -84,11 +84,7 @@
         }
       ],
       "path" : "FamilyMemberHistory.relationship",
-      "short" : "(QI) Relationship to the subject",
-      "binding" : {
-        "strength" : "preferred",
-        "valueSet" : "http://terminology.hl7.org/ValueSet/v3-FamilyMember"
-      }
+      "short" : "(QI) Relationship to the subject"
     },
     {
       "id" : "FamilyMemberHistory.age[x]",
@@ -113,11 +109,6 @@
       "short" : "(QI) Dead? How old/when?"
     },
     {
-      "id" : "FamilyMemberHistory.condition",
-      "path" : "FamilyMemberHistory.condition",
-      "mustSupport" : false
-    },
-    {
       "id" : "FamilyMemberHistory.condition.extension:condition-abatement",
       "path" : "FamilyMemberHistory.condition.extension",
       "sliceName" : "condition-abatement",
@@ -126,8 +117,7 @@
       "type" : [{
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/familymemberhistory-abatement|5.2.0-ballot"]
-      }],
-      "mustSupport" : false
+      }]
     },
     {
       "id" : "FamilyMemberHistory.condition.extension:condition-severity",
@@ -139,7 +129,6 @@
         "code" : "Extension",
         "profile" : ["http://hl7.org/fhir/StructureDefinition/familymemberhistory-severity|5.2.0-ballot"]
       }],
-      "mustSupport" : false,
       "binding" : {
         "strength" : "preferred",
         "description" : "Valueset to identify the severity of the problem",
@@ -155,12 +144,7 @@
         }
       ],
       "path" : "FamilyMemberHistory.condition.code",
-      "short" : "(QI) Condition suffered by relation",
-      "binding" : {
-        "strength" : "extensible",
-        "description" : "Identification of the Condition or diagnosis.",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/condition-code"
-      }
+      "short" : "(QI) Condition suffered by relation"
     },
     {
       "id" : "FamilyMemberHistory.condition.onset[x]",
