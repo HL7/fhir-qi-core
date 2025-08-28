@@ -63,30 +63,10 @@
         "short" : "(QI)registered | partial | preliminary | final +",
         "definition" : "The status of the diagnostic report.",
         "requirements" : "Diagnostic services routinely issue provisional/incomplete reports, and sometimes withdraw previously released reports.",
-        "min" : 1,
-        "max" : "1",
-        "base" : {
-          "path" : "DiagnosticReport.status",
-          "min" : 1,
-          "max" : "1"
-        },
-        "type" : [
-          {
-            "code" : "code"
-          }
-        ],
         "condition" : [
           "us-core-8",
           "us-core-9"
         ],
-        "mustSupport" : true,
-        "isModifier" : true,
-        "isModifierReason" : "This element is labeled as a modifier because it is a status element that contains status entered-in-error which means that the resource should not be treated as valid",
-        "isSummary" : true,
-        "binding" : {
-          "strength" : "required",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/diagnostic-report-status"
-        },
         "mapping" : [
           {
             "identity" : "workflow",
@@ -115,17 +95,7 @@
           }
         ],
         "path": "DiagnosticReport.category",
-        "short": "(QI) Service Category",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
-        "min": 1
+        "short": "(QI) Service Category"
       },
       {
         "id": "DiagnosticReport.code",
@@ -137,30 +107,9 @@
         ],
         "path": "DiagnosticReport.code",
         "short": "(QI) QI-Core Report Code",
-        "definition": "The test, panel, report, or note that was ordered.",
-        "comment": "The typical patterns for codes are:  1)  a LOINC code either as a translation from a \"local\" code or as a primary code, or 2)  a local code only if no suitable LOINC exists,  or 3)  both the local and the LOINC translation.   Systems SHALL be capable of sending the local code if one exists.",
         "alias": [
           "Type"
-        ],
-        "min": 1,
-        "max": "1",
-        "base": {
-          "path": "DiagnosticReport.code",
-          "min": 1,
-          "max": "1"
-        },
-        "type": [
-          {
-            "code": "CodeableConcept"
-          }
-        ],
-        "isModifier": false,
-        "isSummary": true,
-        "binding": {
-          "strength": "extensible",
-          "description": "LOINC codes",
-          "valueSet": "http://hl7.org/fhir/us/core/ValueSet/us-core-diagnosticreport-report-and-note-codes"
-        }
+        ]
       },
       {
         "id": "DiagnosticReport.subject",
@@ -210,13 +159,6 @@
         ],
         "path": "DiagnosticReport.effective[x]",
         "short": "(QI) Diagnostically relevant time (typically the time of the procedure)",
-        "min": 0,
-        "max": "1",
-        "base": {
-          "path": "DiagnosticReport.effective[x]",
-          "min": 0,
-          "max": "1"
-        },
         "type": [
           {
             "extension": [
@@ -236,9 +178,7 @@
             ],
             "code": "Period"
           }
-        ],
-        "isModifier": false,
-        "isSummary": true
+        ]
       },
       {
         "id": "DiagnosticReport.issued",
