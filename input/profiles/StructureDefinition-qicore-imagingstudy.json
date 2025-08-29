@@ -112,16 +112,6 @@
           }
         ],
         "path" : "ImagingStudy.encounter",
-        "short" : "Encounter with which this imaging study is associated",
-        "definition" : "The healthcare event (e.g. a patient and healthcare provider interaction) during which this ImagingStudy is made.",
-        "comment" : "This will typically be the encounter the event occurred within, but some events may be initiated prior to or after the official completion of an encounter but still be tied to the context of the encounter (e.g. pre-admission test).",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "ImagingStudy.encounter",
-          "min" : 0,
-          "max" : "1"
-        },
         "type" : [
           {
             "code" : "Reference",
@@ -130,8 +120,7 @@
             ]
           }
         ],
-        "isModifier" : false,
-        "isSummary" : true
+        "isModifier" : false
       },
       {
         "id" : "ImagingStudy.started",
@@ -175,8 +164,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
             ]
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "ImagingStudy.interpreter",
@@ -189,8 +177,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-practitionerrole"
             ]
           }
-        ],
-        "mustSupport" : false
+        ]
       },
       {
         "id" : "ImagingStudy.procedureReference",
@@ -214,16 +201,6 @@
       {
         "id" : "ImagingStudy.location",
         "path" : "ImagingStudy.location",
-        "short" : "Where ImagingStudy occurred",
-        "definition" : "The principal physical location where the ImagingStudy was performed.",
-        "requirements" : "Ties the event to where the records are likely kept and provides context around the event occurrence (e.g. if it occurred inside or outside a dedicated healthcare setting).",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "ImagingStudy.location",
-          "min" : 0,
-          "max" : "1"
-        },
         "type" : [
           {
             "code" : "Reference",
@@ -231,9 +208,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
             ]
           }
-        ],
-        "isModifier" : false,
-        "isSummary" : true
+        ]
       },
       {
        "id" : "ImagingStudy.reasonReference",
@@ -265,15 +240,6 @@
       {
         "id" : "ImagingStudy.series.performer.actor",
         "path" : "ImagingStudy.series.performer.actor",
-        "short" : "Who performed the series",
-        "definition" : "Indicates who or what performed the series.",
-        "min" : 1,
-        "max" : "1",
-        "base" : {
-          "path" : "ImagingStudy.series.performer.actor",
-          "min" : 1,
-          "max" : "1"
-        },
         "type" : [
           {
             "code" : "Reference",
@@ -289,8 +255,7 @@
             ]
           }
         ],
-        "isModifier" : false,
-        "isSummary" : true
+        "isModifier" : false
       }
     ]
   }
