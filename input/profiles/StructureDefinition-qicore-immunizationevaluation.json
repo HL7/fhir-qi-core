@@ -76,7 +76,6 @@
     "element" : [{
       "id" : "ImmunizationEvaluation",
       "path" : "ImmunizationEvaluation",
-      "mustSupport" : false,
       "mapping" : [{
         "identity" : "argonaut-dq-dstu2",
         "map" : "CarePlan"
@@ -145,8 +144,7 @@
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-organization"]
-      }],
-      "mustSupport" : false
+      }]
     },
     {
       "id" : "ImmunizationEvaluation.targetDisease",
@@ -157,13 +155,7 @@
         }
       ],
       "path" : "ImmunizationEvaluation.targetDisease",
-      "short" : "(QI) Evaluation target disease",
-      "min" : 1,
-      "max" : "1",
-      "binding" : {
-        "strength" : "preferred",
-        "valueSet" : "http://hl7.org/fhir/ValueSet/immunization-evaluation-target-disease"
-      }
+      "short" : "(QI) Evaluation target disease"
     },
     {
       "id" : "ImmunizationEvaluation.immunizationEvent",
@@ -174,8 +166,6 @@
         }
       ],
       "path" : "ImmunizationEvaluation.immunizationEvent",
-      "min" : 1,
-      "max" : "1",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-immunization"]
