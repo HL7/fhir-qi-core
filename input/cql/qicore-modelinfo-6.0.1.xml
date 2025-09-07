@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<modelInfo name="QICore" version="6.0.0" url="http://hl7.org/fhir/us/qicore" targetUrl="http://hl7.org/fhir" targetQualifier="qicore" patientClassName="Patient" patientBirthDatePropertyName="birthDate" xmlns="urn:hl7-org:elm-modelinfo:r1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+<modelInfo name="QICore" version="6.0.1" url="http://hl7.org/fhir/us/qicore" targetUrl="http://hl7.org/fhir" targetQualifier="qicore" patientClassName="Patient" patientBirthDatePropertyName="birthDate" xmlns="urn:hl7-org:elm-modelinfo:r1" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
     <requiredModelInfo name="System" version="1.0.0"/>
     <typeInfo xsi:type="ClassInfo" namespace="QICore" name="Address" identifier="http://hl7.org/fhir/StructureDefinition/Address" label="Address" retrievable="false" baseType="QICore.Element">
         <element name="use" elementType="QICore.AddressUse" target="%value.value" description="home | work | temp | old | billing - purpose of this address" definition="The purpose of this address." comment="Applications can assume that an address is current unless it explicitly says that it is temporary or old.">
@@ -410,8 +410,9 @@
         <contextRelationship context="RelatedPerson" relatedKeyElement="member"/>
     </typeInfo>
     <typeInfo xsi:type="ClassInfo" namespace="QICore" name="CareTeam.Participant" retrievable="false" baseType="QICore.BackboneElement">
-        <element name="role" elementType="System.Concept" target="FHIRHelpers.ToConcept(%value)" description="(USCDI) Type of involvement" definition="Indicates specific responsibility of an individual within the care team, such as &quot;Primary care physician&quot;, &quot;Trained social worker counselor&quot;, &quot;Caregiver&quot;, etc." comment="Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly." mustSupport="true">
-            <binding description="Indicates specific responsibility of an individual within the care team, such as Primary physician, Team coordinator, Caregiver, etc." strength="Extensible"/>
+        <element name="role" target="FHIRHelpers.ToConcept(%value)" description="Type of involvement" definition="Indicates specific responsibility of an individual within the care team, such as &quot;Primary care physician&quot;, &quot;Trained social worker counselor&quot;, &quot;Caregiver&quot;, etc." comment="Roles may sometimes be inferred by type of Practitioner.  These are relationships that hold only within the context of the care team.  General relationships should be handled as properties of the Patient resource directly.">
+         <elementTypeSpecifier elementType="System.Concept" xsi:type="ListTypeSpecifier"/>
+         <binding name="CareTeamParticipantRole" description="Indicates specific responsibility of an individual within the care team, such as &quot;Primary physician&quot;, &quot;Team coordinator&quot;, &quot;Caregiver&quot;, etc." strength="Example"/>
         </element>
         <element name="member" elementType="QICore.Reference" description="(QI-Core)(USCDI) Who is involved" definition="The specific person or organization who is participating/expected to participate in the care team." comment="Patient only needs to be listed if they have a role other than &quot;subject of care&quot;.&#10;&#10;Member is optional because some participants may be known only by their role, particularly in draft plans." mustSupport="true"/>
         <element name="onBehalfOf" elementType="QICore.Reference" description="Organization of the practitioner" definition="The organization of the practitioner."/>
@@ -3486,8 +3487,9 @@
             <binding name="MedicationRequestPerformerType" description="Identifies the type of individual that is desired to administer the medication." strength="Example"/>
         </element>
         <element name="recorder" elementType="QICore.Reference" description="Person who entered the request" definition="The person who entered the order on behalf of another individual for example in the case of a verbal or a telephone order."/>
-        <element name="reasonCode" elementType="System.Concept" target="FHIRHelpers.ToConcept(%value)" description="(QI-Core)(USCDI) Reason or indication for ordering or not ordering the medication" definition="The reason or the indication for ordering or not ordering the medication." comment="This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference.">
-            <binding description="The reason the medication was not requested" strength="Extensible"/>
+        <element name="reasonCode" target="FHIRHelpers.ToConcept(%value)" description="Reason or indication for ordering or not ordering the medication" definition="The reason or the indication for ordering or not ordering the medication." comment="This could be a diagnosis code. If a full condition record exists or additional detail is needed, use reasonReference.">
+            <elementTypeSpecifier elementType="System.Concept" xsi:type="ListTypeSpecifier"/>
+            <binding name="MedicationRequestReason" description="A coded concept indicating why the medication was ordered." strength="Example"/>
         </element>
         <element name="reasonReference" description="(QI-Core)(USCDI) US Core Condition or Observation that supports the prescription" definition="Condition or observation that supports why the medication was ordered." comment="This is a reference to a condition or observation that is the reason for the medication order.  If only a code exists, use reasonCode.">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="QICore.Reference"/>
@@ -5409,7 +5411,25 @@
         <element name="performer" description="(QI-Core)(USCDI) Who is responsible for the observation" definition="Who was responsible for asserting the observed value as &quot;true&quot;." mustSupport="true">
             <elementTypeSpecifier xsi:type="ListTypeSpecifier" elementType="QICore.Reference"/>
         </element>
-        <element name="value" elementType="System.Concept" target="FHIRHelpers.ToConcept(%value)" description="(QI-Core)(USCDI) Actual result" definition="The information determined as a result of making the observation, if the information has a simple value." comment="An observation may have; 1)  a single value here, 2)  both a value and a set of related or component values,  or 3)  only a set of related or component values. If a value is present, the datatype for this element should be determined by Observation.code.  A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](http://hl7.org/fhir/R4/observation.html#notes) below." mustSupport="true"/>
+        <element name="value" target="FHIRHelpers.ToValue(%value)" description="(QI-Core)(USCDI) Actual result" definition="The information determined as a result of making the observation, if the information has a simple value." comment="Used when observation has a set of component observations. An observation may have both a value (e.g. an  Apgar score)  and component observations (the observations from which the Apgar score was derived). If a value is present, the datatype for this element should be determined by Observation.code. A CodeableConcept with just a text would be used instead of a string if the field was usually coded, or if the type associated with the Observation.code defines a coded value.  For additional guidance, see the [Notes section](http://hl7.org/fhir/R4/observation.html#notes) below." mustSupport="true">
+            <elementTypeSpecifier xsi:type="ChoiceTypeSpecifier">
+                <choice xsi:type="NamedTypeSpecifier" namespace="System" name="Quantity"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="System" name="Concept"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="System" name="String"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="System" name="Boolean"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="System" name="Integer"/>
+                <choice xsi:type="IntervalTypeSpecifier">
+                    <pointTypeSpecifier xsi:type="NamedTypeSpecifier" namespace="System" name="Quantity"/>
+                </choice>
+                <choice xsi:type="NamedTypeSpecifier" namespace="System" name="Ratio"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="QICore" name="SampledData"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="System" name="Time"/>
+                <choice xsi:type="NamedTypeSpecifier" namespace="System" name="DateTime"/>
+                <choice xsi:type="IntervalTypeSpecifier">
+                    <pointTypeSpecifier xsi:type="NamedTypeSpecifier" namespace="System" name="DateTime"/>
+                </choice>
+            </elementTypeSpecifier>
+        </element>
         <element name="dataAbsentReason" elementType="System.Concept" target="FHIRHelpers.ToConcept(%value)" description="Why the result is missing" definition="Provides a reason why the expected value in the element Observation.value[x] is missing." comment="Null or exceptional values can be represented two ways in FHIR Observations.  One way is to simply include them in the value set and represent the exceptions in the value.  For example, measurement values for a serology test could be  &quot;detected&quot;, &quot;not detected&quot;, &quot;inconclusive&quot;, or  &quot;specimen unsatisfactory&quot;.   &#10;&#10;The alternate way is to use the value element for actual observations and use the explicit dataAbsentReason element to record exceptional values.  For example, the dataAbsentReason code &quot;error&quot; could be used when the measurement was not completed. Note that an observation may only be reported if there are values to report. For example differential cell counts values may be reported only when &gt; 0.  Because of these options, use-case agreements are required to interpret general observations for null or exceptional values.">
             <binding name="ObservationValueAbsentReason" description="Codes specifying why the result (`Observation.value[x]`) is missing." strength="Extensible"/>
         </element>
