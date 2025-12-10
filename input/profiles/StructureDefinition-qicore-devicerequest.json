@@ -137,6 +137,13 @@
           }
         ],
         "path" : "DeviceRequest.code[x]",
+        "slicing": {
+          "discriminator": [{
+            "type": "type",
+            "path": "$this"
+          }],
+          "rules": "open"
+        },
         "short" : "(QI) Device requested",
         "condition" : [
           "drq-3"
@@ -154,7 +161,36 @@
         }]
       },
       {
-        "id" : "DeviceRequest.code[x].extension:codeOptions",
+        "id": "DeviceRequest.code[x]:codeReference",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path": "DeviceRequest.code[x]",
+        "sliceName": "codeReference",
+        "type": [{
+          "code": "Reference",
+          "targetProfile": ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-device"]
+        }]
+      },
+      {
+        "id": "DeviceRequest.code[x]:codeCodeableConcept",
+        "extension" : [
+          {
+            "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
+            "valueBoolean" : true
+          }
+        ],
+        "path": "DeviceRequest.code[x]",
+        "sliceName": "codeCodeableConcept",
+        "type": [{
+          "code": "CodeableConcept"
+        }]
+      },
+      {
+        "id" : "DeviceRequest.code[x]:codeCodeableConcept.extension:codeOptions",
         "extension" : [
           {
             "url" : "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
