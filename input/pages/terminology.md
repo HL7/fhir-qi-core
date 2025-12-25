@@ -20,7 +20,7 @@ These value sets have been defined for this implementation guide.
 		</tr>
 	</thead>
 	<tbody>
-		{% include table-valuesets.xhtml %}
+		{% lang-fragment table-valuesets.xhtml %}
 	</tbody>
 </table>
 
@@ -40,6 +40,6 @@ this implementation guide.
 		</tr>
 	</thead>
 	<tbody>
-		{% include table-codesystems.xhtml %}
+		{% lang-fragment table-codesystems.xhtml %}
 	</tbody>
 </table>
