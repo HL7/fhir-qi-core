@@ -23,10 +23,10 @@ Implementation Guide:
 		</tr>
 	</thead>
 	<tbody>
-		{% include table-profiles.xhtml %}
-		{% include table-extensions.xhtml %}
-		{% include table-codesystems.xhtml %}
-		{% include table-valuesets.xhtml %}
+		{% lang-fragment table-profiles.xhtml %}
+		{% lang-fragment table-extensions.xhtml %}
+		{% lang-fragment table-codesystems.xhtml %}
+		{% lang-fragment table-valuesets.xhtml %}
 	</tbody>
 </table>
 
