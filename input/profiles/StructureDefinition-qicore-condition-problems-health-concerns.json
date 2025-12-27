@@ -58,24 +58,6 @@
   "differential": {
     "element": [
       {
-        "id": "Condition",
-        "path": "Condition",
-        "definition": "A clinical condition, problem, diagnosis, or other event, situation, issue, or clinical concept that has risen to a level of concern.",
-        "mustSupport": false
-      },
-      {
-        "id": "Condition.meta",
-        "path": "Condition.meta",
-        "mustSupport": true
-      },
-	  
-      {
-        "id": "Condition.meta.lastUpdated",
-        "path": "Condition.meta.lastUpdated",
-        "short": "When the resource last changed",
-        "mustSupport": true
-      },
-      {
         "id" : "Condition.extension:assertedDate",
         "extension": [
           {
@@ -86,26 +68,8 @@
         "path" : "Condition.extension",
         "sliceName" : "assertedDate",
         "short" : "(QI) Date the condition was first asserted",
-        "definition" : "The date on which the existence of the Condition was first asserted or acknowledged.",
-        "comment" : "The assertedDate is in the context of the recording practitioner and might not be the same as the recordedDate.",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "DomainResource.extension",
-          "min" : 0,
-          "max" : "*"
-        },
-        "type" : [
-          {
-            "code" : "Extension",
-            "profile" : [
-              "http://hl7.org/fhir/StructureDefinition/condition-assertedDate|5.2.0-ballot"
-            ]
-          }
-        ],        
-		"mustSupport" : true,
-        "isModifier" : false
-      },      
+        "definition" : "The date on which the existence of the Condition was first asserted or acknowledged."
+      },
       {
         "id" : "Condition.clinicalStatus",
         "extension": [
@@ -115,9 +79,7 @@
           }
         ],
         "path" : "Condition.clinicalStatus",
-        "short" : "(QI) active | recurrence | relapse | inactive | remission | resolved",
-        "definition" : "The clinical status of the condition.",
-        "comment" : "The data type is CodeableConcept because clinicalStatus has some clinical judgment involved, such that there might need to be more specificity than the required FHIR value set allows. For example, a SNOMED coding might allow for additional specificity."
+        "short" : "(QI) active | recurrence | relapse | inactive | remission | resolved"
       },
       {
         "id" : "Condition.verificationStatus",
@@ -128,8 +90,7 @@
           }
         ],
         "path" : "Condition.verificationStatus",
-        "short" : "(QI) unconfirmed | provisional | differential | confirmed | refuted | entered-in-error",
-        "definition" : "The verification status to support the clinical status of the condition."
+        "short" : "(QI) unconfirmed | provisional | differential | confirmed | refuted | entered-in-error"
       },
       {
         "id" : "Condition.category",
@@ -147,27 +108,7 @@
           }],
           "rules" : "open"
         },
-        "short" : "(QI) category codes",
-         "min" : 1,
-        "max" : "*",
-        "base" : {
-          "path" : "Condition.category",
-          "min" : 0,
-          "max" : "*"
-        },
-        "type" : [{
-          "code" : "CodeableConcept"
-        }],
-        "mustSupport" : true,
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-            "valueString" : "ConditionCategory"
-          }],
-          "strength" : "extensible",
-          "description" : "A category assigned to the condition.",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/condition-category"
-        }
+        "short" : "(QI) category codes"
       },
       {
         "id" : "Condition.severity",
@@ -178,9 +119,7 @@
           }
         ],
         "path" : "Condition.severity",
-        "short" : "(QI) Subjective severity of condition",
-        "definition" : "A subjective assessment of the severity of the condition as evaluated by the clinician.",
-        "comment" : "Coding of the severity with a terminology is preferred, where possible."
+        "short" : "(QI) Subjective severity of condition"
       },
       {
         "id" : "Condition.code",
@@ -191,8 +130,7 @@
           }
         ],
         "path" : "Condition.code",
-        "short" : "(QI) Identification of the condition, problem or diagnosis",
-        "definition" : "Identification of the condition, problem or diagnosis."
+        "short" : "(QI) Identification of the condition, problem or diagnosis"
       },
       {
         "id": "Condition.subject",
@@ -321,8 +259,7 @@
           }
         ],
         "path" : "Condition.recordedDate",
-        "short" : "(QI) Date record was first recorded",
-        "definition" : "The recordedDate represents when this particular Condition record was created in the system, which is often a system-generated date."
+        "short" : "(QI) Date record was first recorded"
       }
     ]
   }
