@@ -70,19 +70,8 @@
           }
         ],
         "path": "CarePlan.category",
-        "slicing": {
-          "discriminator": [
-            {
-              "type": "value",
-              "path": "$this"
-            }
-          ],
-          "rules": "open"
-        },
         "short": "(QI) Type of plan",
-        "definition": "Type of plan.",
         "comment": "There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.",
-        "requirements": "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.",
         "min": 1,
         "max": "*",
         "base": {
@@ -120,11 +109,7 @@
         "path": "CarePlan.category",
         "sliceName": "AssessPlan",
         "short": "(QI) Type of plan",
-        "definition": "Type of plan.",
         "comment": "There may be multiple axes of categorization and one plan may serve multiple purposes.  In some cases, this may be redundant with references to CarePlan.concern.",
-        "requirements": "Identifies what \"kind\" of plan this is to support differentiation between multiple co-existing plans; e.g. \"Home health\", \"psychiatric\", \"asthma\", \"disease management\", \"wellness plan\", etc.",
-        "min": 1,
-        "max": "1",
         "base": {
           "path": "CarePlan.category",
           "min": 0,
@@ -167,10 +152,6 @@
         ],
         "path": "CarePlan.subject",
         "short": "(QI) Who the care plan is for.",
-        "definition": "Who care plan is for.",
-        "requirements": "Identifies the patient or group whose intended care is described by the plan.",
-        "min": 1,
-        "max": "1",
         "type": [
           {
             "code": "Reference",
