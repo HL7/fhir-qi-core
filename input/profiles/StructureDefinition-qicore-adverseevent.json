@@ -234,6 +234,19 @@
         }
       },
       {
+      "id" : "AdverseEvent.outcome",
+      "path" : "AdverseEvent.outcome",
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AdverseEventOutcome"
+        }],
+        "strength" : "required",
+        "description" : "Type of outcome from the adverse event",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/adverse-event-outcome|4.0.1"
+      }
+    },
+      {
         "id" : "AdverseEvent.recorder",
         "path" : "AdverseEvent.recorder",
         "type" : [
