@@ -4,6 +4,16 @@
 
 This page lists the change history for each version of QI-Core.
 
+### STU7 Publication (7.0.2)
+
+#### Corrected Errata in Version 7.0.2 of QI-Core
+
+The changes in this errata to version 7.0.1 of QI-Core have been reviewed by the public through the HL7 errata process.
+
+The following technical corrections were applied to this version of the specification:
+
+1. Fixed incorrect dependency namespaces in QICore ModelInfo ([FHIR-55500](https://jira.hl7.org/browse/FHIR-55500)) Applied ([here](Library-QICore-ModelInfo.html))
+
 ### STU7 Publication (7.0.1)
 
 #### Corrected Errata in Version 7.0.1 of QI-Core
