@@ -104,9 +104,13 @@ WARNING: DeviceRequest/negation-example: DeviceRequest.reasonCode[0].coding[0]: 
 WARNING: DeviceRequest/negation-with-code-example: DeviceRequest.reasonCode[0].coding[0]: The concept '182890002' has a status of inactive and its use should be reviewed
 WARNING: Immunization/done-example: Immunization.vaccineCode.coding[0].system: A definition for CodeSystem 'urn:oid:1.2.36.1.2001.1005.17' could not be found, so the code cannot be validated
 WARNING: Immunization/example: Immunization.vaccineCode.coding[0].system: A definition for CodeSystem 'urn:oid:1.2.36.1.2001.1005.17' could not be found, so the code cannot be validated
+
+WARNING: Medication/example: Medication.code.coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '11062023' could not be found, so the code cannot be validated. Valid versions: 03022026
 WARNING: Medication/example: Medication.code.coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '11062023' could not be found, so the code cannot be validated. Valid versions: 02032025
 WARNING: MedicationAdministration/negation-with-code-example: MedicationAdministration.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '11062023' could not be found, so the code cannot be validated. Valid versions: 02032025
+WARNING: MedicationAdministration/negation-with-code-example: MedicationAdministration.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '11062023' could not be found, so the code cannot be validated. Valid versions: 03022026
 WARNING: MedicationDispense/negation-with-code-example: MedicationDispense.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '11062023' could not be found, so the code cannot be validated. Valid versions: 02032025
+WARNING: MedicationDispense/negation-with-code-example: MedicationDispense.medication.ofType(CodeableConcept).coding[0].system: A definition for CodeSystem 'http://www.nlm.nih.gov/research/umls/rxnorm' version '11062023' could not be found, so the code cannot be validated. Valid versions: 03022026
 ERROR: Parameters/qicore-modelinfosettings: Parameters: Slice 'Parameters.parameter:modelVersion': a matching slice is required, but not found (from http://hl7.org/fhir/uv/cql/StructureDefinition/cql-modelinfosettings|2.0.0). Note that other slices are allowed in addition to this required slice
 WARNING: Observation/example: Observation.interpretation[0].coding[0]: The concept 'L' is deprecated and its use should be reviewed
 WARNING: Observation/example: Observation.component[0].interpretation[0].coding[0]: The concept 'N' is deprecated and its use should be reviewed
@@ -152,4 +156,5 @@ WARNING: StructureDefinition/qicore-proceduredone: StructureDefinition.snapshot.
 WARNING: StructureDefinition/qicore-procedurenotdone: StructureDefinition.snapshot.element[18].binding.extension[0]: Constraint failed: ext-ab-1: 'Additional Bindings SHOULD have a key to allow a binding to be constrained. (extension.where(url='key').exists())'
 INFORMATION: StructureDefinition/qicore-questionnaireresponse: StructureDefinition.snapshot.element[19].type[0].extension[1]: The extension http://hl7.org/fhir/StructureDefinition/regex|5.2.0 is deprecated with the note: 'This was deprecated in favor of using a constraint on the element using FHIRPath, since constraints allow for the provision of a human readable message associated with the regex'
 INFORMATION: StructureDefinition/qicore-questionnaireresponse: QuestionnaireResponse.item.answer.extension: The extension http://hl7.org/fhir/StructureDefinition/ordinalValue|5.2.0 is deprecated with the note: 'Replaced by [[[http://hl7.org/fhir/StructureDefinition/itemWeight]]]'
+
 
