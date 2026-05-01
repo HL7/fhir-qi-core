@@ -12,6 +12,8 @@ This version of QI-Core updates mappings from QI-Core to QDM based on US Core ST
 
 In addition to the QI-Core to QDM comparisons presented with each QI-Core resource, this section of the implementation guide presents the mapping directly from QDM concepts. Thus, the IG provides a view of the mappings in both directions (QI-Core to QDM, and QDM to QI-Core). This section is divided into 55 sections, one for each QDM concept, or QDM datatype. Each QDM datatype includes a general description of the concept and a table mapping each of the QDM datatype-related attributes to QI-Core metadata elements. Refer to the [eCQI Resource Center](https://ecqi.healthit.gov/qdm) for the full QDM 5.6 documentation.
 
+For the version of interest for QI-Core, measure authors can also consult the [Authoring Patterns](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns) topic in the CQL Formatting and Usage Wiki for additional best practices on authoring patterns.
+
 ### Change from QI-Core STU6 to QI-Core STU7
 
 QI-Core builds upon US Core and new US Core STU8 (8.0.0) profiles include a number of changes that impact expression of requests for information. US Core STU8 also incorporates requirements of [United States Core Data for Interoperability version 5](https://www.healthit.gov/isa/united-states-core-data-interoperability-uscdi#uscdi-v5). These include new observation profiles.
@@ -660,6 +662,8 @@ Individual studies may use [QI-Core DiagnosticReport Profile for Report and Note
     - [Task.statusReason](StructureDefinition-qicore-taskrejected-definitions.html#Task.statusReason) = [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [Task.focus](StructureDefinition-qicore-taskrejected-definitions.html#Task.focus) = [ServiceRequested](StructureDefinition-qicore-servicerequested.html)
     - [Task.executionPeriod](StructureDefinition-qicore-taskrejected-definitions.html#Task.executionPeriod) = timing task was rejected
+
+In FHIR generally, imaging procedures (such as X-Rays, CT-Scans, MRIs, etc.)  involve significant and specialized information and have resources designed specifically to represent that information. Additional guidance can be found in [Authoring Patterns](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns) topic in the CQL Formatting and Usage Wiki by searching “Imaging Procedures” for the relevant version of QI-Core.
 
 ### Encounter
 
@@ -1525,6 +1529,8 @@ QDM “Physical Exam, Recommended” should use ServiceRequest with _intent_ = p
 ### Procedure
 
 QDM defines Procedure as an act whose immediate and primary outcome (post-condition) is the alteration of the physical condition of the subject. A _procedure_ may be a surgery or other type of physical manipulation of a person’s body in whole or in part for purposes of making observations and diagnoses or providing treatment.
+
+Sometimes a Procedure resource might be needed to represent an imaging procedure. Additional guidance can be found in the [Authoring Patterns](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns) topic in the CQL Formatting and Usage Wiki by searching “Imaging Procedures” for the relevant version of QI-Core.
 
 #### Procedure Vs Intervention
 
