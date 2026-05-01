@@ -94,7 +94,7 @@
 * [Example of an IV medication - Alemtuzumab](Medication-example.html)
 
 **QICoreMedicationAdministration**
-* [Inhalant Example](MedicationAdministration-example.html)
+* [Intravenous medication example](MedicationAdministration-example.html)
 * [Cumulative Duration Example](MedicationAdministration-cmd-example.html)
 
 **QICoreMedicationAdministrationNotDone**
