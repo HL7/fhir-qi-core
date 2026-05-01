@@ -24,6 +24,7 @@ This page lists the change history for each version of QI-Core.
 1. Updated Penicillin Example name ([FHIR-52223](https://jira.hl7.org/browse/FHIR-52223)) Applied ([here](examples.html))
 1. Updated Inhalent vs. IV Mismatch ([FHIR-52222](https://jira.hl7.org/browse/FHIR-52222)) Applied ([here](examples.html))
 1. Updated Flag Example: Large Dog Warning Clarification ([FHIR-52220](https://jira.hl7.org/browse/FHIR-52220)) Applied ([here](examples.html))
+1. Updated FamilyMemberHistory Example: Outcome Inconsistent ([FHIR-52218](https://jira.hl7.org/browse/FHIR-52218)) Applied ([here](familymemberhistory-example.html))
 
 ### STU8-ballot (8.0.0)
 
