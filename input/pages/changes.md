@@ -6,14 +6,15 @@ This page lists the change history for each version of QI-Core.
 
 ### STU8 Publication (8.0.0)
 
-1. Removed "non-imaging" from the QDM-to-QICore mapping page (FHIR-52948)[https://jira.hl7.org/browse/FHIR-52948] Applied (here)[qdm-to-qicore.html]
-1. Revisit QDM-to-QICore mapping for an imaging study (FHIR-52947)[https://jira.hl7.org/browse/FHIR-52947] Applied (here)[qdm-to-qicore.html]
-1. Added MustSupport on Reference(QICore Patient) (FHIR-52547)[https://jira.hl7.org/browse/FHIR-52547] Applied (here)[StructureDefinition-qicore-condition-problems-health-concerns.html]
-1. Fixed typo in Background (FHIR-52488)[https://jira.hl7.org/browse/FHIR-52488] Applied (here)[index.html]
-1. Fixed typo in 1.8 Relationship to Other Initiatives (FHIR-52489)[https://jira.hl7.org/browse/FHIR-52489] Applied (here)[index.html]
-1. Updated CarePlan description (FHIR-52432)[https://jira.hl7.org/browse/FHIR-52432] Applied (here)[StructureDefinition-qicore-careplan.html]
-1. Removed TODO in AdverseEvent Profile (FHIR-52428)[https://jira.hl7.org/browse/FHIR-52428] Applied (here)[StructureDefinition-qicore-adverseevent.html]
-1. Fixed CodeSystem to a page label on Terminologies (FHIR-52327)[https://jira.hl7.org/browse/FHIR-52327] Applied (here)[terminology.html]
+1. Removed "non-imaging" from the QDM-to-QICore mapping page ([FHIR-52948](https://jira.hl7.org/browse/FHIR-52948)) Applied ([here](qdm-to-qicore.html))
+1. Revisit QDM-to-QICore mapping for an imaging study ([FHIR-52947](https://jira.hl7.org/browse/FHIR-52947)) Applied ([here](qdm-to-qicore.html))
+1. Added MustSupport on Reference(QICore Patient) ([FHIR-52547](https://jira.hl7.org/browse/FHIR-52547)) Applied ([here](StructureDefinition-qicore-condition-problems-health-concerns.html))
+1. Fixed typo in Background ([FHIR-52488](https://jira.hl7.org/browse/FHIR-52488)) Applied ([here](index.html))
+1. Fixed typo in 1.8 Relationship to Other Initiatives ([FHIR-52489](https://jira.hl7.org/browse/FHIR-52489)) Applied ([here](index.html))
+1. Updated CarePlan description ([FHIR-52432](https://jira.hl7.org/browse/FHIR-52432)) Applied ([here](StructureDefinition-qicore-careplan.html))
+1. Removed TODO in AdverseEvent Profile ([FHIR-52428](https://jira.hl7.org/browse/FHIR-52428)) Applied ([here](StructureDefinition-qicore-adverseevent.html))
+1. Fixed CodeSystem to a page label on Terminologies ([FHIR-52327](https://jira.hl7.org/browse/FHIR-52327)) Applied ([here](terminology.html))
+1. Fixed Negation reference on Home Page ([FHIR-52325](https://jira.hl7.org/browse/FHIR-52325)) Applied ([here](index.html))
 
 ### STU8-ballot (8.0.0)
 
