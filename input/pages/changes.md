@@ -10,7 +10,8 @@ This page lists the change history for each version of QI-Core.
 1. Revisit QDM-to-QICore mapping for an imaging study (FHIR-52947)[https://jira.hl7.org/browse/FHIR-52947] Applied (here)[qdm-to-qicore.html]
 1. Added MustSupport on Reference(QICore Patient) (FHIR-52547)[https://jira.hl7.org/browse/FHIR-52547] Applied (here)[StructureDefinition-qicore-condition-problems-health-concerns.html]
 1. Fixed typo in Background (FHIR-52488)[https://jira.hl7.org/browse/FHIR-52488] Applied (here)[index.html]
-1. Fixed yypo in 1.8 Relationship to Other Initiatives (FHIR-52489)[https://jira.hl7.org/browse/FHIR-52489] Applied (here)[index.html]
+1. Fixed typo in 1.8 Relationship to Other Initiatives (FHIR-52489)[https://jira.hl7.org/browse/FHIR-52489] Applied (here)[index.html]
+1. Updated CarePlan description (FHIR-52432)[https://jira.hl7.org/browse/FHIR-52432] Applied (here)[StructureDefinition-qicore-careplan.html]
 
 ### STU8-ballot (8.0.0)
 
