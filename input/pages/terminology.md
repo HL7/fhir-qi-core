@@ -31,7 +31,7 @@ See the [FHIR terminology section](http://hl7.org/fhir/terminologies-systems.htm
 systems and a list of codes system names used in FHIR. The following additional names (URIs) have been identified for
 this implementation guide.
 
-**Code systems published in this IG**
+### Code systems published in this IG
 
 <table class="list">
 	<thead>
