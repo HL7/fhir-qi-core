@@ -121,7 +121,7 @@
 * [Practitioner Ordered MedicationRequest Example](MedicationRequest-practitioner-ordered-example.html)
 
 **QICoreMedicationStatement**
-* [Penicillin MedicationStatement Example](MedicationStatement-example.html)
+* [Lemtrada MedicationStatement Example](MedicationStatement-example.html)
 
 **QICoreNutritionOrder**
 * [Diabetic diet example](NutritionOrder-example.html)
