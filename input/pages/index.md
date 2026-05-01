@@ -73,13 +73,13 @@ artifacts, the measures and artifacts must refer to data in a standardized way.
 In the US Realm, the common reference model for electronic clinical quality measures (eCQMs) is the
 [Quality Data Model (QDM)](https://ecqi.healthit.gov/qdm). For clinical decision support, a common reference model is
 the [HL7 Virtual Medical Record for Clinical Decision Support (vMR)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=342).
-Decision support and quality measures are closely related, and can be viewed as "two sides of the same coin".
+Decision support and quality measures are closely related and can be viewed as "two sides of the same coin".
 Specifically, decision support provides guidance for clinical best practices, and quality measures assess whether
 clinical best practices have been followed. It therefore makes intuitive sense to use the same common reference model
 for both types of applications.
 
 
-This initiative began in 2013 with the creation of the [Quality Improvement Domain Analysis Model (QIDAM)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378), which drew on the vMR and QDM as sources of requirements. The result, Quality Improvement Core (QI-Core) profiles consist of objects, attributes, and relationships as a common model for quality and interoperability that leverages US Core and other FHIR-related efforts and Clinical Document Architecture (CDA) on FHIR. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles including US Core defined Must Support elements and Key Element Table specifying elements spcifically significanty for each respective QI-Core profile.
+This initiative began in 2013 with the creation of the [Quality Improvement Domain Analysis Model (QIDAM)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378), which drew on the vMR and QDM as sources of requirements. The result, Quality Improvement Core (QI-Core) profiles consist of objects, attributes, and relationships as a common model for quality and interoperability that leverages US Core and other FHIR-related efforts and Clinical Document Architecture (CDA) on FHIR. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles including US Core defined Must Support elements and Key Element Table specifying elements spcifically significant for each respective QI-Core profile.
 
 
 ### Relevance of QI-Core Profiles to Authors
@@ -90,7 +90,7 @@ derives content from US Core profiles and extensions to the extent possible. The
 US Core by incorporating needed extensions with broad applicability. To the extent possible, CQM and CDS authors should incorporate published domain-specific profiles to express content as much as possible rather than duplicating such concepts in QI-Core (e.g., minimum Common Oncology Data Elements (mCode)). The CQI and CDS Work Groups
 coordinate with HL7 Work Groups that manage specific FHIR resources to align definitions and value sets including
 concepts required for CDS and retrospective CQM use cases. Additional classes and attributes needed for
-specific quality applications can be added through FHIR's extension mechanism. This QI-Core STU 8.0 uses FHIR extensions promoted from the previous Clinical Quality Framework (CQF) extensions to improve shareablility. QI-Core will evolve to include more of the extensional content when the community
+specific quality applications can be added through FHIR's extension mechanism. This QI-Core STU 8.0 uses FHIR extensions promoted from the previous Clinical Quality Framework (CQF) extensions to improve shareability. QI-Core will evolve to include more of the extensional content when the community
 identifies a common need, and the additional content has been validated.
 
 QI-Core profile authoring provides a relatively facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
@@ -261,7 +261,7 @@ When there is a need to document evidence that an expected activity was not done
 
 ### Terminology Bindings
 
-Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data
+Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts but also forces data
 owners to translate local data into the required vocabulary. As a US Realm product, QI-Core requires value sets and
 vocabularies referenced in the ONC Common Clinical Data Set (CCDS) and the US Core Data for Interoperability. Because
 QI-Core is expected to be applied outside the US Realm, and in clinical settings where local terminologies exist,

@@ -18,6 +18,7 @@ This page lists the change history for each version of QI-Core.
 1. Removed duplicate sentence ([FHIR-52323](https://jira.hl7.org/browse/FHIR-52323)) Applied ([here](index.html))
 1. Trasncribed QI Key Element Page into table ([FHIR-52308](https://jira.hl7.org/browse/FHIR-52308)) Applied ([here](qi-elements.html))
 1. Clarified Woreding and Terms ([FHIR-52294](https://jira.hl7.org/browse/FHIR-52294)) Applied ([here](index.html) and [here](qdm-to-qicore.html))
+1. Fixed Spelling and Punctuation ([FHIR-52293](https://jira.hl7.org/browse/FHIR-52293)) Apllied ([here](index.html) and [here](qdm-to-qicore.html) and [here](StructureDefinition-qicore-simple-observation.html) and [here](changes.html))
 
 ### STU8-ballot (8.0.0)
 
@@ -189,7 +190,7 @@ The resolution of the community comments has been agreed to and voted on by the 
 1. QDM to QI-Core Mapping section 9.22.1 - Modify based on FHIR-42158 resolution ([FHIR-42987](https://jira.hl7.org/browse/FHIR-42987))
 1. Relax cardinality for specific elements to stay with US Core cardinality assignments ([FHIR-43010](https://jira.hl7.org/browse/FHIR-43010))
 1. Correct QDM Substance mapping to Observation ([FHIR-44605](https://jira.hl7.org/browse/FHIR-44605))
-1. Correct mapping for prinicpal procedure ([FHIR-44835](https://jira.hl7.org/browse/FHIR-44835))
+1. Correct mapping for principal procedure ([FHIR-44835](https://jira.hl7.org/browse/FHIR-44835))
 
 
 
@@ -463,7 +464,7 @@ The resolution of the community comments has been agreed to and voted on by the 
 
 * Add guidance for representing patient name suffix and previous patient name to the US Core Patient Profile ([FHIR-28129](https://jira.hl7.org/browse/FHIR-28129))
 * Correct copy/paste error in Goal Profile ([FHIR-28109](https://jira.hl7.org/browse/FHIR-28109))
-* Correct US Core Provider Speciality (NUCC) ValueSet to hide abstract grouping codes ([FHIR-27975](https://jira.hl7.org/browse/FHIR-27975))
+* Correct US Core Provider Specialty (NUCC) ValueSet to hide abstract grouping codes ([FHIR-27975](https://jira.hl7.org/browse/FHIR-27975))
 * Added example of US Core Direct Extension to Practitioner-2 Example ([FHIR-27947](https://jira.hl7.org/browse/FHIR-27947))
 * Corrected technical errors in pediatric profiles StructureDefinitions ([FHIR-27946](https://jira.hl7.org/browse/FHIR-27946))
 * Corrected errors in DiagnosticReport Cardiology Example ([FHIR-27913](https://jira.hl7.org/browse/FHIR-27913))
