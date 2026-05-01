@@ -4,6 +4,11 @@
 
 This page lists the change history for each version of QI-Core.
 
+### STU8 Publication (8.0.0)
+
+1. Removed "non-imaging" from the QDM-to-QICore mapping page (FHIR-52948)[https://jira.hl7.org/browse/FHIR-52948] Applied (here)[dqm-to-qicore.html]
+1. 
+
 ### STU8-ballot (8.0.0)
 
 No change requests have been implemented at this time; the primary focus has been on aligning QI-Core profiles with US Core. As part of this alignment, several changes have been inherited from US Core, including:

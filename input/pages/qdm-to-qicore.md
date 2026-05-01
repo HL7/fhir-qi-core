@@ -559,7 +559,7 @@ QDM defines Diagnostic Study as any kind of medical test performed as a specific
 
 QI-Core has added specific constraints on the US Core STU7 profile that address such non-laboratory tests. This US Core v7.0.0 profile addresses (USCDI) requirements for Diagnostic Imaging and Clinical Tests Data Classes including all non-laboratory clinical test results (e.g., radiology and other clinical observations generated from procedures). It includes content represented in the previous US Core v5.0.1 and QI-Core STU5 version profiles Clinical Test Result, and Imaging Result:
 
-- • [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) – non-laboratory, non-imaging tests; this profile is sufficiently broad that it should be used instead of the [QI-Core Simple Observation](StructureDefinition-qicore-simple-observation.html) profile for all non-laboratory test results.
+- • [QICore Observation Clinical Result](StructureDefinition-qicore-observation-clinical-result.html) – non-laboratory tests; this profile is sufficiently broad that it should be used instead of the [QI-Core Simple Observation](StructureDefinition-qicore-simple-observation.html) profile for all non-laboratory test results.
 
 #### Diagnostic Study, Order
 
