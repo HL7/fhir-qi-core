@@ -12,6 +12,7 @@ This page lists the change history for each version of QI-Core.
 1. Fixed typo in Background (FHIR-52488)[https://jira.hl7.org/browse/FHIR-52488] Applied (here)[index.html]
 1. Fixed typo in 1.8 Relationship to Other Initiatives (FHIR-52489)[https://jira.hl7.org/browse/FHIR-52489] Applied (here)[index.html]
 1. Updated CarePlan description (FHIR-52432)[https://jira.hl7.org/browse/FHIR-52432] Applied (here)[StructureDefinition-qicore-careplan.html]
+1. Removed TODO in AdverseEvent Profile (FHIR-52428)[https://jira.hl7.org/browse/FHIR-52428] Applied (here)[StructureDefinition-qicore-adverseevent.html]
 
 ### STU8-ballot (8.0.0)
 
