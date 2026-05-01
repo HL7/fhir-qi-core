@@ -15,6 +15,7 @@ This page lists the change history for each version of QI-Core.
 1. Removed TODO in AdverseEvent Profile ([FHIR-52428](https://jira.hl7.org/browse/FHIR-52428)) Applied ([here](StructureDefinition-qicore-adverseevent.html))
 1. Fixed CodeSystem to a page label on Terminologies ([FHIR-52327](https://jira.hl7.org/browse/FHIR-52327)) Applied ([here](terminology.html))
 1. Fixed Negation reference on Home Page ([FHIR-52325](https://jira.hl7.org/browse/FHIR-52325)) Applied ([here](index.html))
+1. Removed duplicate sentence ([FHIR-52323](https://jira.hl7.org/browse/FHIR-52323)) Applied ([here](index.html))
 
 ### STU8-ballot (8.0.0)
 
