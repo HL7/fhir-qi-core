@@ -162,7 +162,7 @@
 * [Referring Practitioner Example](Practitioner-example.html)
 
 **QICorePractitionerRole**
-* [PractitionerRole Example](StructureDefinition-qicore-practitionerrole.html)
+* [PractitionerRole Example](PractitionerRole-example.html)
 
 **QICoreProcedure**
 * [Appendectomy Example](Procedure-example.html)
