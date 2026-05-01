@@ -69,7 +69,7 @@
 * [Father Died of Heart Attack Example](FamilyMemberHistory-example.html)
 
 **QICoreFlag**
-* [Large Dog Warning Example](Flag-example.html)
+* [Flag for Accident Prone Patient Example](Flag-example.html)
 
 **QICoreGoal**
 * [Weight Loss Example](Goal-example.html)
