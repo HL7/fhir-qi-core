@@ -8,6 +8,7 @@ This page lists the change history for each version of QI-Core.
 
 1. Removed "non-imaging" from the QDM-to-QICore mapping page (FHIR-52948)[https://jira.hl7.org/browse/FHIR-52948] Applied (here)[qdm-to-qicore.html]
 1. Revisit QDM-to-QICore mapping for an imaging study (FHIR-52947)[https://jira.hl7.org/browse/FHIR-52947] Applied (here)[qdm-to-qicore.html]
+1. Added MustSupport on Reference(QICore Patient) (FHIR-52547)[https://jira.hl7.org/browse/FHIR-52547] Applied (here)[StructureDefinition-qicore-condition-problems-health-concerns.html]
 1. 
 
 ### STU8-ballot (8.0.0)
