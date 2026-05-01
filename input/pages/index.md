@@ -57,9 +57,7 @@ This guide is divided into pages which are listed at the top of each page in the
 
 This Implementation Guide originated as a US Realm Specification with support from the
 Clinical Quality Framework (CQF) initiative [(that concluded in 2017)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
-which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S.
-Office of the National Coordinator (ONC) to harmonize standards for clinical decision support and electronic clinical
-quality measurement. The [Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework)
+which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the Assistant Secretary for Technology Policy/Office of the National Coordinator for Health IT (ASTP/ONC) to harmonize standards for clinical decision support and electronic clinical quality measurement. The [Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework)
 effort transitioned to HL7's Clinical Quality Information (CQI) and Clinical Decision Support (CDS) Work Groups in 2016.
 The HL7 CQI Work Group maintains this Implementation Guide, co-sponsored by the Clinical Decision Support (CDS) HL7 Work
 Group to inform electronic clinical quality improvement (i.e., measurement and decision support). This Quality
