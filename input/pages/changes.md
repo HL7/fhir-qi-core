@@ -20,6 +20,7 @@ This page lists the change history for each version of QI-Core.
 1. Clarified Woreding and Terms ([FHIR-52294](https://jira.hl7.org/browse/FHIR-52294)) Applied ([here](index.html) and [here](qdm-to-qicore.html))
 1. Fixed Spelling and Punctuation ([FHIR-52293](https://jira.hl7.org/browse/FHIR-52293)) Apllied ([here](index.html) and [here](qdm-to-qicore.html) and [here](StructureDefinition-qicore-simple-observation.html) and [here](changes.html))
 1. Fixed PractitionerRole example link ([FHIR-52225](https://jira.hl7.org/browse/FHIR-52225)) Applied ([here](examples.html))
+1. Changed Patient name to Sarah Patient ([FHIR-52224](https://jira.hl7.org/browse/FHIR-52224)) Applied ([here](examples.html))
 
 ### STU8-ballot (8.0.0)
 
