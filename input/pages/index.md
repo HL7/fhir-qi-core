@@ -140,7 +140,7 @@ consistent with patient consent, transaction logging, and following best practic
 
 
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
--  Systems **SHOULD** use either IHE's ATNA standard for audit logging or an equivalent using the AuditEvent resource.
+-  Systems **SHOULD** use either IHE's Audit Trail and Node Authentication (ATNA) standard for audit logging or an equivalent using the AuditEvent resource.
 
 The server (data provider) is responsible for ensuring that any necessary consent records exist and are
 reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in
