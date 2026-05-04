@@ -59,16 +59,16 @@ define fluent function toInterval(choice Choice<DateTime, Quantity, Interval<Dat
   case
 	  when choice is DateTime then
     	Interval[choice as DateTime, choice as DateTime]
-		when choice is Interval<DateTime> then
-  		choice as Interval<DateTime>
-		when choice is Quantity then
-		  Interval[Patient.birthDate + (choice as Quantity),
-			  Patient.birthDate + (choice as Quantity) + 1 year)
-		when choice is Interval<Quantity> then
-		  Interval[Patient.birthDate + (choice.low as Quantity),
-			  Patient.birthDate + (choice.high as Quantity) + 1 year)
-		else
-			null as Interval<DateTime>
+	  when choice is Interval<DateTime> then
+  	  choice as Interval<DateTime>
+	  when choice is Quantity then
+		Interval[Patient.birthDate + (choice as Quantity),
+			Patient.birthDate + (choice as Quantity) + 1 year)
+	  when choice is Interval<Quantity> then
+		Interval[Patient.birthDate + (choice.low as Quantity),
+			Patient.birthDate + (choice.high as Quantity) + 1 year)
+	  else
+	    null as Interval<DateTime>
 	end
 
 define fluent function abatementInterval(condition Condition):
@@ -85,12 +85,12 @@ define fluent function abatementInterval(condition Condition):
 	else null as Interval<DateTime>
 
 define fluent function prevalenceInterval(condition Condition):
-if condition.clinicalStatus ~ "active"
-  or condition.clinicalStatus ~ "recurrence"
-  or condition.clinicalStatus ~ "relapse" then
-  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition)]
-else
-  Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition))
+    if condition.clinicalStatus ~ "active"
+      or condition.clinicalStatus ~ "recurrence"
+      or condition.clinicalStatus ~ "relapse" then
+      Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition)]
+    else
+      Interval[start of ToInterval(condition.onset), end of ToAbatementInterval(condition))
 
 define fluent function latest(choice Choice<DateTime, Quantity, Interval<DateTime>, Interval<Quantity>> ):
   (choice.toInterval()) period
