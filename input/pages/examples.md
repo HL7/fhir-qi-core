@@ -54,7 +54,7 @@
 * [General DeviceRequest Example](DeviceRequest-example.html)
 
 **QICoreDeviceUseStatement**
-* [The provision of a wheelchair to a patient example](DeviceUseStatement-example.html)
+* [Electrocardiographic monitor and recorder example](DeviceUseStatement-example.html)
 
 **QICoreDiagnosticReportLab**
 * [Blood Panel Example](DiagnosticReport-example.html)

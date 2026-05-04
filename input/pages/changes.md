@@ -34,6 +34,7 @@ This page lists the change history for each version of QI-Core.
 1. qdm-to-qicore mapping incorrectly states fixed status (STU 7) ([FHIR-53323](https://jira.hl7.org/browse/FHIR-53323)) Applied ([here](qdm-to-qicore.html))
 1. Remove "adjudicated" and typo correction ([FHIR-56026](https://jira.hl7.org/browse/FHIR-56026)) Applied ([here](qdm-to-qicore.html#encounter-related-diagnoses-and-procedures))
 1. Condition Example: Suggest More Common Term ([FHIR-52215](https://jira.hl7.org/browse/FHIR-52215)) Applied ([here](conditionproblemshealthconcerns-example.html))
+1. DeviceUseStatement Example:Mismatch with Description ([FHIR-52216](https://jira.hl7.org/browse/FHIR-52216)) Applied ([here](examples.html))
 
 ### STU8-ballot (8.0.0)
 
