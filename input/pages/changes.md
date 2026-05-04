@@ -26,7 +26,9 @@ This page lists the change history for each version of QI-Core.
 1. Updated Flag Example: Large Dog Warning Clarification ([FHIR-52220](https://jira.hl7.org/browse/FHIR-52220)) Applied ([here](examples.html))
 1. Updated FamilyMemberHistory Example: Outcome Inconsistent ([FHIR-52218](https://jira.hl7.org/browse/FHIR-52218)) Applied ([here](familymemberhistory-example.html))
 1. Update description to include imaging results ([FHIR-50135](https://jira.hl7.org/browse/FHIR-50135)) Applied ([here](StructureDefinition-qicore-observation-clinical-result.html))
-1. Incorrect value set used with ImmunizationEvaluation profiles ([FHIR-51`839](https://jira.hl7.org/browse/FHIR-51839)) Applied ([here](StructureDefinition-qicore-immunizationevaluation.html))
+1. Incorrect value set used with ImmunizationEvaluation profiles ([FHIR-5152196839](https://jira.hl7.org/browse/FHIR-51839)) Applied ([here](StructureDefinition-qicore-immunizationevaluation.html))
+1. MustSupport on QICore CareTeam.participant.member.reference ([](https://jira.hl7.org/browse/FHIR-52196)) Applied ([here](StructureDefinition-qicore-careteam.html))
+1. 
 
 ### STU8-ballot (8.0.0)
 
