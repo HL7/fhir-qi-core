@@ -163,8 +163,8 @@ Assessment, Order uses the ServiceRequest resource. The codes for ordering speci
 ##### Negation Rationale for Assessment, Order:
 
 - To indicate an assessment not ordered for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-servicerequested-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -253,8 +253,8 @@ Assessment, Recommended uses the ServiceRequest resource. The codes for recommen
 ##### Negation Rationale for Assessment, Recommended
 
 - To indicate an assessment not recommended for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -379,7 +379,7 @@ Non-patient specific communication use cases may include:
 
 Use [QICoreCommunicationNotDone](StructureDefinition-qicore-communicationnotdone.html), which contains:
 
-- [Communication.status](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.status) - Fixed Value: "not-done"
+- [Communication.status](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.status) - With a value of "not-done" (as implied by the fixed value in the profile)
 - [Communication.statusReason](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
 - [Communication.extension:event-recorded](StructureDefinition-qicore-communicationnotdone-definitions.html#Communication.extension:event-recorded)
 -  - dateTime when this was made available
@@ -451,8 +451,8 @@ QDM originally designed Device, Applied to allow access to documentation of devi
 ##### Negation Rationale for Device, Order
 
 - To indicate a non-patient use device not ordered for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -482,8 +482,8 @@ QDM originally designed Device, Applied to allow access to documentation of devi
 ##### Negation Rationale for Device, Order – Personal Use Devices
 
 - To indicate a patient-use device not ordered for a reason Use [QICoreDeviceProhibited](StructureDefinition-qicore-deviceprohibited.html), which contains:
-    - [DeviceRequest.modifierExtension:doNotPerform](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.modifierExtension:doNotPerform) - Fixed value: "true"
-    - [DeviceRequest.status](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.status) - Fixed value: "completed"
+    - [DeviceRequest.modifierExtension:doNotPerform](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.modifierExtension:doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [DeviceRequest.status](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.status) - With a value of "completed"
     - [DeviceRequest.reasonCode](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
     - [DeviceRequest.authoredOn](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.authoredOn) - dateTime when this was made available
     - [DeviceRequest.code\[x\]](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.code[x]) – Use the [codeOptions](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.code[x].extension:codeOptions) extension to indicate the specific DeviceRequest that was prohibited
@@ -513,8 +513,8 @@ QDM originally designed Device, Applied to allow access to documentation of devi
 ##### Negation Rationale for Device, Recommended
 
 - To indicate a non-patient use device not recommended for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -544,8 +544,8 @@ QDM originally designed Device, Applied to allow access to documentation of devi
 ##### Negation Rationale for Device, Recommended – Personal Use Devices
 
 - To indicate a patient-use device not recommended for a reason Use [QICoreDeviceProhibited](StructureDefinition-qicore-deviceprohibited.html), which contains:
-    - [DeviceRequest.modifierExtension:doNotPerform](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.modifierExtension:doNotPerform) - Fixed value: "true"
-    - [DeviceRequest.status](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.status) - Fixed value: "completed"
+    - [DeviceRequest.modifierExtension:doNotPerform](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.modifierExtension:doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [DeviceRequest.status](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.status) - With a value of "completed"
     - [DeviceRequest.reasonCode](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
     - [DeviceRequest.authoredOn](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.authoredOn) - dateTime when this was made available
     - [DeviceRequest.code\[x\]](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.code[x]) – Use the [codeOptions](StructureDefinition-qicore-deviceprohibited-definitions.html#DeviceRequest.code[x].extension:codeOptions) extension to indicate the specific DeviceRequest that was prohibited
@@ -585,8 +585,8 @@ QI-Core has added specific constraints on the US Core STU7 profile that address 
 ##### Negation Rationale for Diagnostic Study, Order
 
 - To indicate an diagnostic study not ordered for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -652,8 +652,8 @@ Individual studies may use [QI-Core DiagnosticReport Profile for Report and Note
 ##### Negation Rationale for Diagnostic Study, Recommended
 
 - To indicate an diagnostic study not recommended for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -714,8 +714,8 @@ For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key E
 ##### Negation Rationale for Encounter, Order
 
 - To indicate an encounter not ordered for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -776,8 +776,8 @@ For this reason, QI-Core STU7 does not includes Encounter.diagnosis in the Key E
 ##### Negation Rationale for Encounter, Recommended
 
 - To indicate an encounter not recommended for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -831,7 +831,7 @@ QDM defines Immunization as vaccines administered to patients in healthcare sett
 
 To indicate an immunization administered for a reason, use [QICoreImmunizationNotDone](StructureDefinition-qicore-immunizationnotdone.html), which contains:
 
-- [Immunization.status](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.status) - Fixed value: "not-done"
+- [Immunization.status](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.status) - With a value of "not-done" (as implied by the fixed value in the profile)
 - [Immunization.statusReason](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
 - [Immunization.occurrence\[x\]](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.occurrence[x]) - Date vaccine administered or was to be administered
 - [Immunization.recorded](StructureDefinition-qicore-immunizationnotdone-definitions.html#Immunization.recorded) – dateTime (for instances in which _occurrence_ is absent
@@ -863,8 +863,8 @@ This QDM context references the QI-Core MedicationRequest profile as there is no
 ##### Negation Rationale for Immunization, Order
 
 - To indicate an immunization not ordered for a reason, Use [QICoreMedicationProhibited](StructureDefinition-qicore-medicationprohibited.html), which contains:
-    - [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
-    - [MedicationRequest.status](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.status) - Fixed value: "completed"
+    - [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [MedicationRequest.status](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.status) - With a value of "completed"
     - [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
     - [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.authoredOn) - dateTime when this was made available
     - [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.medication[x]) - Use [codeOptions](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.medication[x].extension:codeOptions) extension to indicate the specific medication that was prohibited
@@ -1002,7 +1002,7 @@ FHIR references both of these concepts using the _Procedure_ resource, specifica
 
 To indicate an intervention not performed for a reason Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 
-- [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed value: "not-done"
+- [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - With a value of "not-done" (as implied by the fixed value in the profile)
 - [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
 - [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - dateTime when this was made available
 - [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [codeOptions](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:codeOptions) extension to indicate the specific Procedure that was not performed
@@ -1027,8 +1027,8 @@ To indicate an intervention not performed for a reason Use [QICoreProcedureNotDo
 ##### Negation Rationale for Intervention, Order
 
 - To indicate an intervention not ordered for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1058,8 +1058,8 @@ To indicate an intervention not performed for a reason Use [QICoreProcedureNotDo
 ##### Negation Rationale for Intervention, Recommended
 
 - To indicate an intervention not recommended for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1099,8 +1099,8 @@ Each laboratory test may be ordered individually or in a panel. Many use panels 
 ##### Negation Rationale for Laboratory Test, Order
 
 - To indicate a laboratory test not ordered for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1164,8 +1164,8 @@ Each laboratory test may be ordered individually or in a panel. Many use panels 
 ##### Negation Rationale for Laboratory Test, Recommended
 
 - To indicate a laboratory test not recommended for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1241,7 +1241,7 @@ This QDM context correlates with a record of a patient consuming or otherwise be
 ##### Negation Rationale for Medication, Administered
 
 - To indicate a medication not ordered for a reason Use [QICoreMedicationAdministrationNotDone](StructureDefinition-qicore-medicationadministrationnotdone.html):
-    - [MedicationAdministration.status](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.status) - Fixed value: "not-done"
+    - [MedicationAdministration.status](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.status) - With a value of "not-done" (as implied by the fixed value in the profile)
     - [MedicationAdministration.statusReason](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [MedicationAdministration.effective\[x\]](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.effective[x]) - dateTime when administration did not take place
     - [MedicationAdministration.medication\[x\]](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.medication[x]) with  [codeOptions extension](StructureDefinition-qicore-medicationadministrationnotdone-definitions.html#MedicationAdministration.medication[x].extension:codeOptions) to indicate the specific code or value set not administered
@@ -1291,8 +1291,8 @@ This change should also be used to reference the mapping from QDM Medication, Or
 ##### Negation Rationale for Medication, Discharge
 
 - To indicate a medication not ordered for a reason Use [QICoreMedicationProhibited](StructureDefinition-qicore-medicationprohibited.html) and reference the code element specified in the respective observation profile:
-    - [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
-    - [MedicationRequest.status](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.status) - Fixed value: "active, completed"
+    - [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [MedicationRequest.status](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.status) - With a value of "completed"
     - [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.authoredOn) - dateTime when request was originally authored
     - [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.medication[x]) with  [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1335,7 +1335,7 @@ This QDM context maps to the QI-Core MedicationDispense resource, indicating inf
 
 Use [QICoreMedicationDispenseDeclined](StructureDefinition-qicore-medicationdispensedeclined.html), which contains:
 
-- [MedicationDispense.status](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.status) - Fixed value: "declined"
+- [MedicationDispense.status](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.status) - With a value of "declined" (as implied by the fixed value in the profile)
 - [MedicationDispense.statusReason\[x\]](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.statusReason[x]) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
 - [MedicationDispense.extension:recorded](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.extension:recorded) - dateTime when this was made available
 - [MedicationDispense.medication\[x\]](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.medication[x]) - Use [codeOptions](StructureDefinition-qicore-medicationdispensedeclined-definitions.html#MedicationDispense.medication[x].extension:codeOptions) extension to indicate the specific medication that was not dispensed
@@ -1375,8 +1375,8 @@ This QDM context references the QI-Core MedicationRequest resource with Medicati
 ##### Negation Rationale for Medication, Order
 
 - To indicate a medication not ordered for a reason Use [QICoreMedicationProhibited](StructureDefinition-qicore-medicationprohibited.html) and reference the code element specified in the respective observation profile:
-    - [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.doNotPerform) - Fixed value: "true"
-    - [MedicationRequest.status](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.status) - Fixed value: "active, completed"
+    - [MedicationRequest.doNotPerform](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [MedicationRequest.status](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.status) - With a value of "completed"
     - [MedicationRequest.reasonCode](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [MedicationRequest.authoredOn](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.authoredOn) - dateTime when request was originally authored
     - [MedicationRequest.medication\[x\]](StructureDefinition-qicore-medicationprohibited-definitions.html#MedicationRequest.medication[x]) with  [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1449,8 +1449,8 @@ QDM “Physical Exam, Order” should use ServiceRequest with _intent_ = order f
 ##### Negation Rationale for Physical Exam, Order
 
 - To indicate a physical exam not ordered for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1515,8 +1515,8 @@ QDM “Physical Exam, Recommended” should use ServiceRequest with _intent_ = p
 ##### Negation Rationale for Physical Exam, Recommended
 
 - To indicate a physical exam not recommended for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1597,7 +1597,7 @@ As noted in the QDM to QI-Core Mapping for Encounter-Related Diagnoses and Proce
 
 To indicate an procedure not performed for a reason Use [QICoreProcedureNotDone](StructureDefinition-qicore-procedurenotdone.html), which contains:
 
-- [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - Fixed value: "not-done"
+- [Procedure.status](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.status) - With a value of "not-done" (as implied by the fixed value in the profile)
 - [Procedure.statusReason](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.statusReason) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html)
 - [Procedure.extension:recorded](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.extension:recorded) - dateTime when this was made available
 - [Procedure.code](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code) - Use [codeOptions](StructureDefinition-qicore-procedurenotdone-definitions.html#Procedure.code.extension:codeOptions) extension to indicate the specific Procedure that was not performed
@@ -1622,8 +1622,8 @@ To indicate an procedure not performed for a reason Use [QICoreProcedureNotDone]
 ##### Negation Rationale for Procedure, Order
 
 - To indicate procedure not ordered for a reason Use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
@@ -1653,8 +1653,8 @@ To indicate an procedure not performed for a reason Use [QICoreProcedureNotDone]
 ##### Negation Rationale for Procedure, Recommended
 
 - To indicate a procedure not recommended for a reason use [QICoreServiceProhibited](StructureDefinition-qicore-serviceprohibited.html) and reference the code element specified in the respective observation profile:
-    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - Fixed value: "true"
-    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - Fixed value: "active, completed"
+    - [ServiceRequest.doNotPerform](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.doNotPerform) - With a value of "true" (as implied by the fixed value in the profile)
+    - [ServiceRequest.status](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.status) - With a value of "active" or "completed"
     - [ServiceRequest.reasonCode](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.reasonCode) - Use value set [NegationReasonCodes](ValueSet-qicore-negation-reason.html) (extensible binding)
     - [ServiceRequest.authoredOn](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.authoredOn) - dateTime when this was made available
     - [code](StructureDefinition-qicore-serviceprohibited-definitions.html#ServiceRequest.code.extension:codeOptions) - Use [codeOptions extension](StructureDefinition-codeOptions.html) to indicate the specific code or value set not requested
