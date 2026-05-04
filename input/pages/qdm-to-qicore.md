@@ -42,7 +42,7 @@ QI-Core STU 7.0.0 also incorporates observation-related profiles directly from U
 
 [comment]: # The tracker FHIR-47404 Calls for using a table, below, rather than a itemized list used in earlier versions. See https://jira.hl7.org/browse/FHIR-47404
 
-|  **US-Core STU7 Observaton Profile** | **QDM representation**  |
+|  **US Core STU7 Observaton Profile** | **QDM representation**  |
 | --- | --- | 
 | [US Core Average Blood Pressure Profile](https://fhir/us/core/StructureDefinition-us-core-average-blood-pressure.html) | Physical Exam, Performed |
 | [US Core Care Experience Preference Profile](http://hl7.org/us/core/StructureDefinition-us-core-care-experience-preference.html) | Assessment, Performed |

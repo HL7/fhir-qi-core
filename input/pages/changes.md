@@ -29,6 +29,7 @@ This page lists the change history for each version of QI-Core.
 1. Incorrect value set used with ImmunizationEvaluation profiles ([FHIR-5152196839](https://jira.hl7.org/browse/FHIR-51839)) Applied ([here](StructureDefinition-qicore-immunizationevaluation.html))
 1. MustSupport on QICore CareTeam.participant.member.reference ([](https://jira.hl7.org/browse/FHIR-52196)) Applied ([here](StructureDefinition-qicore-careteam.html))
 1. Fix indenting in the example ([FHIR-52197](https://jira.hl7.org/browse/FHIR-52197)) Applied ([here](patterns.html#choice-types))
+1. Remove hyphen in descriptive text US-Core ([FHIR-52211](https://jira.hl7.org/browse/FHIR-52211)) Applied ([here](qdm-to-qicore.html))
 
 ### STU8-ballot (8.0.0)
 
