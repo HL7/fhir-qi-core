@@ -182,7 +182,66 @@ This IG contains only one QI-Core-specific extension "QI-Core Key Element Extens
 
 In addition, the QI-Core effort *continues* to update the mapping from QDM to QI-Core such that a CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
-### Naming Conventions
+### Data Sources for Quality Improvement Applications
+
+In today’s healthcare environment, patient care is often fragmented across multiple providers and facilities. As a result, individual clinicians may have access to only a partial view of a patient’s care, especially when services are delivered outside the clinician’s EHR system. IGs other than QI-Core might provide necessary information for quality measures.  For example, access to adjudicated claims data from a patient’s health plan can help clinicians understand the full scope of services the patient has received, reducing unnecessary duplication of tests or procedures, supporting more informed clinical decision making and providing necessary information to close care gaps. Or, a primary care physician (PCP) might have person centered goals they want to communicate to a patient’s other providers to ensure everyone understands what is important to the patient. For a more detailed discussion on some of those data sources, see Additional Data Sources.
+
+### Additional Data Sources
+
+Quality measures often require aggregating information from multiple data sources. Some of these sources may provide data formatted according to other Implementation Guides. When such data conforms to a recognized IG, it can serve as a valid input to a quality measure. For example, claims data structured using the CARIN BB profiles can be incorporated into a quality measure to help identify and close gaps in care. Person-Centered goals may be formatted to meet the Person Centered Outcomes IG.  Other IGs that may provide information for a quality measure include but are not limited to:
+- SDOH Clinical Care
+- Occupational Data for Health (ODH)
+- US Behavioral Health Profiles
+- CodeX Radiation Therapy
+- minimal Common Oncology Data Elements (mCODE)
+
+#### CARIN Consumer Directed Payer Data Exchange Implementation Guide (CARIN IG for Blue Button®)
+
+The CARIN Consumer Directed Payer Data Exchange Implementation Guide (CARIN IG for Blue Button®) defines profiles and terminology to support sharing health plan data from a financial (claims-based) perspective. The IG is based on data elements from the Common Payer Consumer Data Set (CPCDS) and includes adjudication details represented using the FHIR ExplanationOfBenefit (EOB) resource.
+
+QICoreClaim is used to represent claim data that is expected to be present in provider systems (i.e. the provider-submitted claims). To refer to payer responses or payer adjudicated claims use Carin BB ExplanationOfBenefit profiles.  Below are things to consider when using CARIN BB profiles:
+
+CARIN BB defines two sets of profiles:
+
+- ExplanationOfBenefit Basis Profiles, which specify only non financial elements.
+- ExplanationOfBenefit Resource Profiles, which include both financial and non financial elements.
+
+If a quality measure does not require financial information, the Basis Profiles SHOULD be used.  To match the US Claims forms, each set of profiles contains separate profiles for inpatient institutional, outpatient institutional and professional non-clinician claims.  See [the Carin BB definition](https://hl7.org/fhir/us/carin-bb/en/artifacts.html) for each type of profile.
+
+Integrating data from multiple systems necessarily involves patient matching and potentially data de-duplication. To address these concerns, implementations should consider general guidance and capabilities provided by the Health Record Exchange implementation guide, such as the $member-match operation.
+
+CARIN BB profiles reference the CARIN BB Patient Profile, which is compliant with the QI Core Patient profile. In addition, certain data elements that might be useful for quality measurement include:
+
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <th style="border: 1px solid black; padding: 6px;"><b>Carin BB</b></th>
+    <th style="border: 1px solid black; padding: 6px;"><b>Comments</b></th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px;">EOB.diagnosis</td>
+    <td style="border: 1px solid black; padding: 6px;">Diagnosis information from the EOB</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px;">EOB.procedure</td>
+    <td style="border: 1px solid black; padding: 6px;">Medical procedures a patient received from UB04 Form Locator 74.</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px;">EOB.item.productOrService</td>
+    <td style="border: 1px solid black; padding: 6px;">Medical procedures a patient received from a healthcare provider.</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px;">EOB.item.modifier</td>
+    <td style="border: 1px solid black; padding: 6px;">Modifier(s) for the procedure represented on this line.</td>
+  </tr>
+</table>
+
+To use Carin BB profiles in a quality measure, add the statement “using C4BB version 'X.X.X' “ to the beginning of the measure CQL.
+
+If you need to see authoring patterns, you can find that information [here](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0) in github.
+
+The modelinfo for Carin BB is in the [Common CQL Artifacts for FHIR IG](https://hl7.org/fhir/us/cql).
+
+### Naming Convention
 
 QI-Core profiles are indicated by the prefix "QICore". For example, the QI-Core profile of Patient is named QICorePatient.
 
