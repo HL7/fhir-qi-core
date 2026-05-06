@@ -1,5 +1,87 @@
 <DiagnosticReport xmlns="http://hl7.org/fhir">
     <id value="example"/>
+    <text>
+        <status value="generated"/>
+        <div xmlns="http://www.w3.org/1999/xhtml">
+            <p> This is an example, representative of what panel results should look like. Not all
+                results are included. </p>
+            <p class="res-header-id">
+                <b>Generated Narrative: DiagnosticReport example</b>
+            </p>
+            <a name="example"> </a>
+            <a name="hcexample"> </a>
+            <h2><span title="Codes:{http://loinc.org 58410-2}">CBC panel - Blood by Automated
+                    count</span> (<span
+                    title="Codes:{http://terminology.hl7.org/CodeSystem/v2-0074 LAB}"
+                    >Laboratory</span>) </h2>
+            <table class="grid">
+                <tr>
+                    <td>Subject</td>
+                    <td>Jim Chalmers</td>
+                </tr>
+                <tr>
+                    <td>Effective Date</td>
+                    <td>2005-07-05</td>
+                </tr>
+                <tr>
+                    <td>Reported</td>
+                    <td>2005-07-06</td>
+                </tr>
+                <tr>
+                    <td>Performer</td>
+                    <td>
+                        <a href="Organization-example.html">Dr. Adam Careful</a>
+                    </td>
+                </tr>
+            </table>
+            <p>
+                <b>Report Details</b>
+            </p>
+            <table class="grid">
+                <tr>
+                    <td>
+                        <b>Code</b>
+                    </td>
+                    <td>
+                        <b>Value</b>
+                    </td>
+                    <td>
+                        <b>Flags</b>
+                    </td>
+                    <td>
+                        <b>When For</b>
+                    </td>
+                    <td>
+                        <b>Reported</b>
+                    </td>
+                </tr>
+                <tr>
+                    <td><a href="Observation-example.html">Hemoglobin [Mass/volume] in
+                                Venous blood</a></td>
+                    <td>7.2 g/dL</td>
+                    <td>Final, Below low normal</td>
+                    <td>2013-04-02 10:30:10+0100 through 2013-04-05 10:30:10+0100</td>
+                    <td>2013-04-03 15:30:10+0100</td>
+                </tr>
+                <tr>
+                    <td><a href="Observation-example-hematocrit.html">Hematocrit [Volume Fraction] of Blood by Automated count</a></td>
+                    <td>30%</td>
+                    <td>Final</td>
+                    <td>2013-04-02 10:30:10+0100 through 2013-04-05 10:30:10+0100</td>
+                    <td>2013-04-03 15:30:10+0100</td>
+                </tr>
+                <tr>
+                    <td><a href="Observation-example-WBC.html">Hemoglobin [Mass/volume] in
+                        Venous blood</a></td>
+                    <td>11 10*9/L</td>
+                    <td>Final</td>
+                    <td>2013-04-02 10:30:10+0100 through 2013-04-05 10:30:10+0100</td>
+                    <td>2013-04-03 15:30:10+0100</td>
+                </tr>
+            </table>
+        </div>
+
+    </text>
     <status value="final"/>
     <category>
         <coding>
@@ -12,8 +94,7 @@
         <coding>
             <system value="http://loinc.org"/>
             <code value="58410-2"/>
-            <display
-                    value="CBC panel - Blood by Automated count"/>
+            <display value="CBC panel - Blood by Automated count"/>
         </coding>
     </code>
     <subject>
@@ -27,5 +108,11 @@
     </performer>
     <result>
         <reference value="Observation/example"/>
+    </result>
+    <result>
+        <reference value="Observation/example-hematocrit"/>
+    </result>
+    <result>
+        <reference value="Observation/example-WBC"/>
     </result>
 </DiagnosticReport>
