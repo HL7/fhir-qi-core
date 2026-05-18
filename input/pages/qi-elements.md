@@ -291,7 +291,7 @@
 
 **Must Have:**
 * payor: (QI) Issuer of the policy
-* class.value: Group Number
+* class.value: Group Identifier
 * identifier.type: Member Number identifier type
 * class.value: Plan Number
 * beneficiary: (QI) Plan beneficiary
@@ -1111,7 +1111,6 @@
 **Must Have:**
 * name: A name associated with the patient
 * identifier: An identifier for this patient
-* gender: male \| female \| other \| unknown
 
 
 **QI Elements:**
@@ -1122,7 +1121,6 @@
 * extension(ethnicity): (QI) US Core ethnicity Extension
 * address: (QI) An address for the individual
 * communication: (QI) A language which may be used to communicate with the patient about his or her health
-* extension(genderIdentity): (QI) The individual's gender identity
 * telecom: (QI) A contact detail for the individual
 * extension(sex): (QI) Sex Extension
 
@@ -1134,7 +1132,9 @@
 
 **Must Have:**
 * name: The name(s) associated with the practitioner
+* identifier.value: (QI) The value that is unique
 * identifier: (QI) An identifier for the person as this agent
+* identifier.system: (QI) The namespace for the identifier value
 
 
 **QI Elements:**
