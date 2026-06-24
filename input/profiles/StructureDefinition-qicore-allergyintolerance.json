@@ -63,7 +63,7 @@
         "definition": "The QI-Core AllergyIntolerance Profile is based upon the US Core AllergyIntolerance Profile which is based upon the core FHIR AllergyIntolerance Resource and created to meet the 2015 Edition Common Clinical Data Set \u0027Medical allergies\u0027 requirements.",
         "mustSupport": false
       },
-      
+
       {
         "id" : "AllergyIntolerance.clinicalStatus",
         "extension": [
@@ -87,21 +87,9 @@
         ],
         "path" : "AllergyIntolerance.verificationStatus",
         "short" : "(QI) unconfirmed | confirmed | refuted | entered-in-error",
-        "min" : 0,
-        "max" : "1",
-        "base" : {
-          "path" : "AllergyIntolerance.verificationStatus",
-          "min" : 0,
-          "max" : "1"
-        },
         "type" : [{
           "code" : "CodeableConcept"
-        }],
-        "mustSupport" : true,
-        "binding" : {
-          "strength" : "required",
-          "valueSet" : "http://hl7.org/fhir/ValueSet/allergyintolerance-verification"
-        }
+        }]
       },
       {
         "id": "AllergyIntolerance.type",
@@ -146,8 +134,6 @@
         ],
         "path" : "AllergyIntolerance.code",
         "short" : "(QI) Code that identifies the allergy or intolerance",
-        "definition" : "Code for an allergy or intolerance statement (either a positive or a negated/excluded statement).  This may be a code for a substance or pharmaceutical product that is considered to be responsible for the adverse reaction risk (e.g., \"Latex\"), an allergy or intolerance condition (e.g., \"Latex allergy\"), or a negated/excluded code for a specific substance or class (e.g., \"No latex allergy\") or a general or categorical negated statement (e.g.,  \"No known allergy\", \"No known drug allergies\").  Note: the substance for a specific reaction may be different from the substance identified as the cause of the risk, but it must be consistent with it. For instance, it may be a more specific substance (e.g. a brand medication) or a composite product that includes the identified substance. It must be clinically safe to only process the 'code' and ignore the 'reaction.substance'.  If a receiving system is unable to confirm that AllergyIntolerance.reaction.substance falls within the semantic scope of AllergyIntolerance.code, then the receiving system should ignore AllergyIntolerance.reaction.substance.",
-        "comment" : "It is strongly recommended that this element be populated using a terminology, where possible. For example, some terminologies used include RxNorm, SNOMED CT, DM+D, NDFRT, ICD-9, IDC-10, UNII, and ATC. Plain text should only be used if there is no appropriate terminology available. Additional details can be specified in the text.\r\rWhen a substance or product code is specified for the 'code' element, the \"default\" semantic context is that this is a positive statement of an allergy or intolerance (depending on the value of the 'type' element, if present) condition to the specified substance/product.  In the corresponding SNOMED CT allergy model, the specified substance/product is the target (destination) of the \"Causative agent\" relationship.\r\rThe 'substanceExposureRisk' extension is available as a structured and more flexible alternative to the 'code' element for making positive or negative allergy or intolerance statements.  This extension provides the capability to make \"no known allergy\" (or \"no risk of adverse reaction\") statements regarding any coded substance/product (including cases when a pre-coordinated \"no allergy to x\" concept for that substance/product does not exist).  If the 'substanceExposureRisk' extension is present, the AllergyIntolerance.code element SHALL be omitted.",
         "alias" : ["Code"],
         "type" : [{
           "code" : "CodeableConcept"
@@ -163,8 +149,6 @@
         ],
         "path": "AllergyIntolerance.patient",
         "short": "(QI) Who the sensitivity is for",
-        "min": 1,
-        "max": "1",
         "type": [
           {
             "code": "Reference",
@@ -197,8 +181,7 @@
           {
             "code": "Range"
           }
-        ],
-        "mustSupport": false
+        ]
       },
       {
         "id": "AllergyIntolerance.recordedDate",
