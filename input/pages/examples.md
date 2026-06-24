@@ -54,7 +54,7 @@
 * [General DeviceRequest Example](DeviceRequest-example.html)
 
 **QICoreDeviceUseStatement**
-* [The provision of a wheelchair to a patient example](DeviceUseStatement-example.html)
+* [Electrocardiographic monitor and recorder example](DeviceUseStatement-example.html)
 
 **QICoreDiagnosticReportLab**
 * [Blood Panel Example](DiagnosticReport-example.html)
@@ -69,7 +69,7 @@
 * [Father Died of Heart Attack Example](FamilyMemberHistory-example.html)
 
 **QICoreFlag**
-* [Large Dog Warning Example](Flag-example.html)
+* [Flag for Accident Prone Patient Example](Flag-example.html)
 
 **QICoreGoal**
 * [Weight Loss Example](Goal-example.html)
@@ -94,7 +94,7 @@
 * [Example of an IV medication - Alemtuzumab](Medication-example.html)
 
 **QICoreMedicationAdministration**
-* [Inhalant Example](MedicationAdministration-example.html)
+* [Intravenous medication example](MedicationAdministration-example.html)
 * [Cumulative Duration Example](MedicationAdministration-cmd-example.html)
 
 **QICoreMedicationAdministrationNotDone**
@@ -121,7 +121,7 @@
 * [Practitioner Ordered MedicationRequest Example](MedicationRequest-practitioner-ordered-example.html)
 
 **QICoreMedicationStatement**
-* [Penicillin MedicationStatement Example](MedicationStatement-example.html)
+* [Lemtrada MedicationStatement Example](MedicationStatement-example.html)
 
 **QICoreNutritionOrder**
 * [Diabetic diet example](NutritionOrder-example.html)
@@ -162,7 +162,7 @@
 * [Referring Practitioner Example](Practitioner-example.html)
 
 **QICorePractitionerRole**
-* [PractitionerRole Example](StructureDefinition-qicore-practitionerrole.html)
+* [PractitionerRole Example](PractitionerRole-example.html)
 
 **QICoreProcedure**
 * [Appendectomy Example](Procedure-example.html)

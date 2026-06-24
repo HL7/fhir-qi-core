@@ -57,9 +57,7 @@ This guide is divided into pages which are listed at the top of each page in the
 
 This Implementation Guide originated as a US Realm Specification with support from the
 Clinical Quality Framework (CQF) initiative [(that concluded in 2017)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/CQF+Home),
-which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the U.S.
-Office of the National Coordinator (ONC) to harmonize standards for clinical decision support and electronic clinical
-quality measurement. The [Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework)
+which was a public-private partnership sponsored by the Centers for Medicare &amp; Medicaid Services (CMS) and the Assistant Secretary for Technology Policy/Office of the National Coordinator for Health IT (ASTP/ONC) to harmonize standards for clinical decision support and electronic clinical quality measurement. The [Clinical Quality Framework](https://confluence.hl7.org/display/CQIWC/Clinical+Quality+Framework)
 effort transitioned to HL7's Clinical Quality Information (CQI) and Clinical Decision Support (CDS) Work Groups in 2016.
 The HL7 CQI Work Group maintains this Implementation Guide, co-sponsored by the Clinical Decision Support (CDS) HL7 Work
 Group to inform electronic clinical quality improvement (i.e., measurement and decision support). This Quality
@@ -75,13 +73,13 @@ artifacts, the measures and artifacts must refer to data in a standardized way.
 In the US Realm, the common reference model for electronic clinical quality measures (eCQMs) is the
 [Quality Data Model (QDM)](https://ecqi.healthit.gov/qdm). For clinical decision support, a common reference model is
 the [HL7 Virtual Medical Record for Clinical Decision Support (vMR)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=342).
-Decision support and quality measures are closely related, and can be viewed as "two sides of the same coin".
+Decision support and quality measures are closely related and can be viewed as "two sides of the same coin".
 Specifically, decision support provides guidance for clinical best practices, and quality measures assess whether
 clinical best practices have been followed. It therefore makes intuitive sense to use the same common reference model
 for both types of applications.
 
 
-This initiative began in 2013 with the creation of the [Quality Improvement Domain Analysis Model (QIDAM)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378), which drew on the vMR and QDM as sources of requirements. The result, Quality Improvement Core (QI-Core) profiles consist of objects, attributes, and relationships as a common model for quality and interoperability that leverages US Core and other FHIR-related efforts and Clinical Document Architecture (CDA) on FHIR. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles including US Core defined Must Support elements and Key Element Table specifying elements spcifically significanty for each respective QI-Core profile.
+This initiative began in 2013 with the creation of the [Quality Improvement Domain Analysis Model (QIDAM)](http://www.hl7.org/implement/standards/product_brief.cfm?product_id=378), which drew on the vMR and QDM as sources of requirements. The result, Quality Improvement Core (QI-Core) profiles consist of objects, attributes, and relationships as a common model for quality and interoperability that leverages US Core and other FHIR-related efforts and Clinical Document Architecture (CDA) on FHIR. The QI-Core versions have evolved with FHIR-specific tooling to include views showing differential from base FHIR resources or US Core profiles including US Core defined Must Support elements and Key Element Table specifying elements spcifically significant for each respective QI-Core profile.
 
 
 ### Relevance of QI-Core Profiles to Authors
@@ -92,7 +90,7 @@ derives content from US Core profiles and extensions to the extent possible. The
 US Core by incorporating needed extensions with broad applicability. To the extent possible, CQM and CDS authors should incorporate published domain-specific profiles to express content as much as possible rather than duplicating such concepts in QI-Core (e.g., minimum Common Oncology Data Elements (mCode)). The CQI and CDS Work Groups
 coordinate with HL7 Work Groups that manage specific FHIR resources to align definitions and value sets including
 concepts required for CDS and retrospective CQM use cases. Additional classes and attributes needed for
-specific quality applications can be added through FHIR's extension mechanism. This QI-Core STU 8.0 uses FHIR extensions promoted from the previous Clinical Quality Framework (CQF) extensions to improve shareablility. QI-Core will evolve to include more of the extensional content when the community
+specific quality applications can be added through FHIR's extension mechanism. This QI-Core STU 8.0 uses FHIR extensions promoted from the previous Clinical Quality Framework (CQF) extensions to improve shareability. QI-Core will evolve to include more of the extensional content when the community
 identifies a common need, and the additional content has been validated.
 
 QI-Core profile authoring provides a relatively facile method for creating CQM and CDS artifacts with CQL that expand to full FHIR representation for implementation through CQL-to-ELM conversion.
@@ -142,7 +140,7 @@ consistent with patient consent, transaction logging, and following best practic
 
 
 -  Systems **SHOULD** use OAuth or an equivalent mechanism to provide necessary authentication (user or system-level).
--  Systems **SHOULD** use either IHE's ATNA standard for audit logging or an equivalent using the AuditEvent resource.
+-  Systems **SHOULD** use either IHE's Audit Trail and Node Authentication (ATNA) standard for audit logging or an equivalent using the AuditEvent resource.
 
 The server (data provider) is responsible for ensuring that any necessary consent records exist and are
 reviewed prior to each exchange of patient-identifiable healthcare information. This verification should be logged in
@@ -165,7 +163,7 @@ approach to provenance.
 QI-Core has been harmonized with other FHIR-based initiatives, particularly, the
 [Data Access Framework (DAF)](https://oncprojectracking.healthit.gov/wiki/display/TechLabSC/DAF+Home).
 [US Core]({{site.data.fhir.ver.uscore}}) is a US Realm Implementation Guide, developed under the DAF initiative, that
-maps ONC Common Clinical Data Set elements to FHIR resources. The data elements in US Core are also in QI-Core, and
+maps ASTP/ONC's United States Core Data for Interoperability (USCDI) elements to FHIR resources. The data elements in US Core are also in QI-Core, and
 whenever possible, profiles defined in QI-Core are derived from the profiles in US Core. As a result, conforming to US
 Core automatically satisfies a significant subset of the conformance requirements of QI-Core. QI-Core conformance
 involves supporting certain additional data elements not required by US Core, because they are needed for quality
@@ -184,7 +182,66 @@ This IG contains only one QI-Core-specific extension "QI-Core Key Element Extens
 
 In addition, the QI-Core effort *continues* to update the mapping from QDM to QI-Core such that a CQL-based artifact written with QDM as the model would be executable against a QI-Core compliant FHIR endpoint.
 
-### Naming Conventions
+### Data Sources for Quality Improvement Applications
+
+In today’s healthcare environment, patient care is often fragmented across multiple providers and facilities. As a result, individual clinicians may have access to only a partial view of a patient’s care, especially when services are delivered outside the clinician’s EHR system. IGs other than QI-Core might provide necessary information for quality measures.  For example, access to adjudicated claims data from a patient’s health plan can help clinicians understand the full scope of services the patient has received, reducing unnecessary duplication of tests or procedures, supporting more informed clinical decision making and providing necessary information to close care gaps. Or, a primary care physician (PCP) might have person centered goals they want to communicate to a patient’s other providers to ensure everyone understands what is important to the patient. For a more detailed discussion on some of those data sources, see Additional Data Sources.
+
+### Additional Data Sources
+
+Quality measures often require aggregating information from multiple data sources. Some of these sources may provide data formatted according to other Implementation Guides. When such data conforms to a recognized IG, it can serve as a valid input to a quality measure. For example, claims data structured using the CARIN BB profiles can be incorporated into a quality measure to help identify and close gaps in care. Person-Centered goals may be formatted to meet the Person Centered Outcomes IG.  Other IGs that may provide information for a quality measure include but are not limited to:
+- SDOH Clinical Care
+- Occupational Data for Health (ODH)
+- US Behavioral Health Profiles
+- CodeX Radiation Therapy
+- minimal Common Oncology Data Elements (mCODE)
+
+#### CARIN Consumer Directed Payer Data Exchange Implementation Guide (CARIN IG for Blue Button®)
+
+The CARIN Consumer Directed Payer Data Exchange Implementation Guide (CARIN IG for Blue Button®) defines profiles and terminology to support sharing health plan data from a financial (claims-based) perspective. The IG is based on data elements from the Common Payer Consumer Data Set (CPCDS) and includes adjudication details represented using the FHIR ExplanationOfBenefit (EOB) resource.
+
+QICoreClaim is used to represent claim data that is expected to be present in provider systems (i.e. the provider-submitted claims). To refer to payer responses or payer adjudicated claims use Carin BB ExplanationOfBenefit profiles.  Below are things to consider when using CARIN BB profiles:
+
+CARIN BB defines two sets of profiles:
+
+- ExplanationOfBenefit Basis Profiles, which specify only non financial elements.
+- ExplanationOfBenefit Resource Profiles, which include both financial and non financial elements.
+
+If a quality measure does not require financial information, the Basis Profiles SHOULD be used.  To match the US Claims forms, each set of profiles contains separate profiles for inpatient institutional, outpatient institutional and professional non-clinician claims.  See [the Carin BB definition](https://hl7.org/fhir/us/carin-bb/en/artifacts.html) for each type of profile.
+
+Integrating data from multiple systems necessarily involves patient matching and potentially data de-duplication. To address these concerns, implementations should consider general guidance and capabilities provided by the Health Record Exchange implementation guide, such as the $member-match operation.
+
+CARIN BB profiles reference the CARIN BB Patient Profile, which is compliant with the QI Core Patient profile. In addition, certain data elements that might be useful for quality measurement include:
+
+<table style="border-collapse: collapse; width: 100%;">
+  <tr>
+    <th style="border: 1px solid black; padding: 6px;"><b>Carin BB</b></th>
+    <th style="border: 1px solid black; padding: 6px;"><b>Comments</b></th>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px;">EOB.diagnosis</td>
+    <td style="border: 1px solid black; padding: 6px;">Diagnosis information from the EOB</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px;">EOB.procedure</td>
+    <td style="border: 1px solid black; padding: 6px;">Medical procedures a patient received from UB04 Form Locator 74.</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px;">EOB.item.productOrService</td>
+    <td style="border: 1px solid black; padding: 6px;">Medical procedures a patient received from a healthcare provider.</td>
+  </tr>
+  <tr>
+    <td style="border: 1px solid black; padding: 6px;">EOB.item.modifier</td>
+    <td style="border: 1px solid black; padding: 6px;">Modifier(s) for the procedure represented on this line.</td>
+  </tr>
+</table>
+
+To use Carin BB profiles in a quality measure, add the statement “using C4BB version 'X.X.X' “ to the beginning of the measure CQL.
+
+If you need to see authoring patterns, you can find that information [here](https://github.com/cqframework/CQL-Formatting-and-Usage-Wiki/wiki/Authoring-Patterns-QICore-v6.0.0) in github.
+
+The modelinfo for Carin BB is in the [Common CQL Artifacts for FHIR IG](https://hl7.org/fhir/us/cql).
+
+### Naming Convention
 
 QI-Core profiles are indicated by the prefix "QICore". For example, the QI-Core profile of Patient is named QICorePatient.
 
@@ -213,8 +270,6 @@ the base resource type and profile to be specified, as well as a MustSupport ele
 profile are reference by the logic. Implementers can use this information directly from the effective data requirements to determine
 which elements must be provided to achieve a successful evaluation of the artifact. In addition, repositories and publishers may
 make use of this information to define artifact-specific profiles using the effective data requirements provided by the artifact.
-
-The primary code path provides the default filtering for a CQL expression. See [using-modelinfo section](https://hl7.org/fhir/uv/cql/using-modelinfo.html#modelinfo-settings.html) in Using CQL with FHIR.
 
 ### Modifying Attributes
 
@@ -259,14 +314,13 @@ QI-Core’s concept of negation follows the informative publication established 
 
     The measure or CDS artifact uses specifically designed QI-Core profiles to indicate that an activity intentionally did not occur for a valid reason.
 
-When there is a need to document evidence that an expected activity was not done due to patient intent and/or specific criteria,
-systems should use one of the ten QI-Core specific *negation* *rationale* patterns that align with existing profiles representing the expected actions.
+When there is a need to document evidence that an expected activity was not done due to patient intent and/or specific criteria, systems should use one of the QI-Core specific (negation rationale)[negation.html] patterns that align with existing profiles representing the expected actions..
 <a href="negation.html"><b>QI-Core Negation</b></a> provides detailed descriptions and guidance.
 
 
 ### Terminology Bindings
 
-Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts, but also forces data
+Uniformity in vocabularies and value sets enhances the interoperability of knowledge artifacts but also forces data
 owners to translate local data into the required vocabulary. As a US Realm product, QI-Core requires value sets and
 vocabularies referenced in the ONC Common Clinical Data Set (CCDS) and the US Core Data for Interoperability. Because
 QI-Core is expected to be applied outside the US Realm, and in clinical settings where local terminologies exist,

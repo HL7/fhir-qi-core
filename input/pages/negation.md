@@ -48,7 +48,7 @@ The negation profiles in QI-Core can be used to make two different types of nega
 
 In the following example the measure numerator criterion allows for documentation that specifies a single antithrombotic medication using a CodeableConcept drawn from the list of possible expected medications (in the values set) was not administered. In the example the profiled MedicationAdministration resource documents that the clinician specifically did not administer ticagrelor 90 MG Oral Tablet because drug treatment is not indicated. The evidence of a reason for not administering this single member of the value set “Antithrombotic Therapy for Ischemic Stroke” fulfills criteria for the numerator.
 
-See the <a href="MedicationAdministration-negation-with-code-example.html">MedicationAdministration</a> example using a specific code) for a complete example.
+See the <a href="MedicationAdministration-negation-with-code-example.html">MedicationAdministration</a> example using a specific code for a complete example.
 
 ```json
 {
