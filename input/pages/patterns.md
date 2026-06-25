@@ -60,7 +60,7 @@ define fluent function toInterval(choice Choice<DateTime, Quantity, Interval<Dat
 	  when choice is DateTime then
     	Interval[choice as DateTime, choice as DateTime]
 	  when choice is Interval<DateTime> then
-  	  choice as Interval<DateTime>
+  	  	choice as Interval<DateTime>
 	  when choice is Quantity then
 		Interval[Patient.birthDate + (choice as Quantity),
 			Patient.birthDate + (choice as Quantity) + 1 year)
