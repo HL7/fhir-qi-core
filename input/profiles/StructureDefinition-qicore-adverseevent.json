@@ -306,6 +306,21 @@
         "mustSupport" : false
       },
       {
+      "id" : "AdverseEvent.suspectEntity.causality.method",
+      "path" : "AdverseEvent.suspectEntity.causality.method",
+      "short" : "ProbabilityScale | Bayesian | Checklist",
+      "definition" : "ProbabilityScale | Bayesian | Checklist.",
+      "binding" : {
+        "extension" : [{
+          "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
+          "valueString" : "AdverseEventCausalityMethod"
+        }],
+        "strength" : "example",
+        "description" : "Method used to assess event causality",
+        "valueSet" : "http://hl7.org/fhir/ValueSet/adverse-event-causality-method|4.0.1"
+      }
+    },
+      {
         "id" : "AdverseEvent.subjectMedicalHistory",
         "path" : "AdverseEvent.subjectMedicalHistory",
         "type" : [
