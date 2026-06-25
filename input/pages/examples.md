@@ -143,6 +143,9 @@
 
 **QICoreLaboratoryResultObservation**
 * [Glucose Lab Result Observation](Observation-laboratory-result-observation-example-blood-glucose.html)
+* [Hemoglobin in Blood](Observation-example.html)
+* [Hematocrit of Blood](Observation-example-hematocrit.html)
+* [Leukocytes in Blood](Observation-example-WBC.html)
 
 **QICoreObservationClinicalResult**
 * [Heart Rate Rhythm Clinical Result Observation](Observation-clinical-result-heart-rate-rhythm.html)
@@ -191,7 +194,4 @@
 **QICoreTaskRejected**
 * [Task rejected using a value set to indicate what was not done](Task-negation-example.html)
 * [Task rejected using a code to indicate what was not done](Task-negation-with-code-example.html)
-
-**Additional Examples**
-* [ODH Example](Observation-example.html)
 
