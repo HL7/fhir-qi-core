@@ -192,6 +192,3 @@
 * [Task rejected using a value set to indicate what was not done](Task-negation-example.html)
 * [Task rejected using a code to indicate what was not done](Task-negation-with-code-example.html)
 
-**Additional Examples**
-* [ODH Example](Observation-example.html)
-
