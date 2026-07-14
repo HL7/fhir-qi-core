@@ -59,8 +59,7 @@
     "element": [
       {
         "id": "Immunization",
-        "path": "Immunization",
-        "mustSupport": false
+        "path": "Immunization"
       },
       {
         "id": "Immunization.status",
@@ -98,39 +97,9 @@
         }
       },
       {
-        "id" : "Immunization.encounter",
-        "path" : "Immunization.encounter",
-        "short" : "Encounter the immunization was part of",
-        "min" : 0,
-        "max" : "1",
-        "type" : [{
-          "code" : "Reference",
-          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"]
-        }]
-      },
-      {
         "id": "Immunization.recorded",
-        "extension": [
-          {
-            "url": "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-keyelement",
-            "valueBoolean": true
-          }
-        ],
         "path": "Immunization.recorded",
-        "short": "(QI) Documented date Immunization did not occur.",
-        "min": 0,
-        "max": "1"
-      },
-      {
-        "id" : "Immunization.location",
-        "path" : "Immunization.location",
-        "short" : "Where the vaccine was administered",
-        "min" : 0,
-        "max" : "1",
-        "type" : [{
-          "code" : "Reference",
-          "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
-        }]
+        "short": "(QI) Documented date Immunization did not occur."
       }
     ]
   }
