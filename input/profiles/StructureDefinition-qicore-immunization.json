@@ -68,8 +68,7 @@
             "expression": "vaccineCode.extension('http://hl7.org/fhir/StructureDefinition/codeOptions').exists() xor vaccineCode.coding.exists()",
             "xpath": "exists(f:extension)"
           }
-        ],
-        "mustSupport": false
+        ]
       },
       {
         "id": "Immunization.status",
@@ -91,8 +90,6 @@
           }
         ],
         "path": "Immunization.statusReason",
-        "min": 0,
-        "max": "1",
         "short": "(QI) Reason for status",
         "binding": {
           "strength": "preferred",
@@ -161,9 +158,6 @@
       {
         "id" : "Immunization.encounter",
         "path" : "Immunization.encounter",
-        "short" : "Encounter the immunization was part of",
-        "min" : 0,
-        "max" : "1",
         "type" : [{
           "code" : "Reference",
           "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"]
@@ -180,7 +174,7 @@
         "path" : "Immunization.occurrence[x]",
         "short" : "(QI) Vaccine administration date"
       },
-      
+
       {
         "id": "Immunization.recorded",
         "extension": [
@@ -194,13 +188,10 @@
         "min": 0,
         "max": "1"
       },
-    
+
       {
       "id" : "Immunization.location",
       "path" : "Immunization.location",
-      "short" : "Where the vaccine was administered",
-      "min" : 0,
-      "max" : "1",
       "type" : [{
         "code" : "Reference",
         "targetProfile" : ["http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"]
