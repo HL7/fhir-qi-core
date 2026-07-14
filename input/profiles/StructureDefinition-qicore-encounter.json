@@ -69,8 +69,7 @@
           }
         ],
         "path" : "Encounter.status",
-        "short" : "(QI) planned | arrived | triaged | in-progress | onleave | finished | cancelled +",
-        "definition" : "planned | arrived | triaged | in-progress | onleave | finished | cancelled +."
+        "short" : "(QI) planned | arrived | triaged | in-progress | onleave | finished | cancelled +"
       },
       {
         "id" : "Encounter.class",
@@ -81,28 +80,7 @@
           }
         ],
         "path" : "Encounter.class",
-        "short" : "(QI) Classification of patient encounter",
-        "definition" : "Concepts representing classification of patient encounter such as ambulatory (outpatient), inpatient, emergency, home health or others due to local variations.",
-        "min" : 1,
-        "max" : "1",
-        "base" : {
-          "path" : "Encounter.class",
-          "min" : 1,
-          "max" : "1"
-        },
-        "type" : [{
-          "code" : "Coding"
-        }],
-        "mustSupport" : true,
-        "binding" : {
-          "extension" : [{
-            "url" : "http://hl7.org/fhir/StructureDefinition/elementdefinition-bindingName",
-            "valueString" : "EncounterClass"
-          }],
-          "strength" : "extensible",
-          "description" : "Classification of the encounter.",
-          "valueSet" : "http://terminology.hl7.org/ValueSet/v3-ActEncounterCode"
-        }
+        "short" : "(QI) Classification of patient encounter"
       },
       {
         "id" : "Encounter.type",
@@ -113,8 +91,7 @@
           }
         ],
         "path" : "Encounter.type",
-        "short" : "(QI) Specific type of encounter",
-        "definition" : "Specific type of encounter (e.g. e-mail consultation, surgical day-care, skilled nursing, rehabilitation)."
+        "short" : "(QI) Specific type of encounter"
       },
       {
         "id": "Encounter.subject",
@@ -203,8 +180,7 @@
           }
         ],
         "path" : "Encounter.period",
-        "short" : "(QI) The start and end time of the encounter",
-        "definition" : "The start and end time of the encounter."
+        "short" : "(QI) The start and end time of the encounter"
       },
       {
         "id" : "Encounter.reasonCode",
@@ -215,8 +191,7 @@
           }
         ],
         "path" : "Encounter.reasonCode",
-        "short" : "(QI) Coded reason the encounter takes place",
-        "definition" : "Reason the encounter takes place, expressed as a code. For admissions, this can be used for a coded admission diagnosis."
+        "short" : "(QI) Coded reason the encounter takes place"
       },
       {
         "id": "Encounter.reasonReference",
@@ -228,13 +203,6 @@
         ],
         "path": "Encounter.reasonReference",
         "short": "(QI) Reason the encounter takes place (reference)",
-        "min": 0,
-        "max": "*",
-        "base": {
-          "path": "Encounter.reasonReference",
-          "min": 0,
-          "max": "*"
-        },
         "type": [
           {
             "code": "Reference",
@@ -288,9 +256,7 @@
               }
             ]
           }
-        ],
-        "isModifier": false,
-        "isSummary": true
+        ]
       },
       {
         "id": "Encounter.hospitalization",
@@ -313,8 +279,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
             ]
           }
-        ],
-        "mustSupport": false
+        ]
       },
       {
         "id": "Encounter.hospitalization.destination",
@@ -326,8 +291,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-location"
             ]
           }
-        ],
-        "mustSupport": false
+        ]
       },
       {
         "id": "Encounter.hospitalization.dischargeDisposition",
@@ -339,7 +303,6 @@
         ],
         "path": "Encounter.hospitalization.dischargeDisposition",
         "short": "(QI) Category or kind of location after discharge",
-        "definition": "Category or kind of location after discharge.",
         "binding": {
           "strength": "extensible",
           "valueSet": "http://terminology.hl7.org/ValueSet/clinical-discharge-disposition"
@@ -415,8 +378,7 @@
               "http://hl7.org/fhir/us/qicore/StructureDefinition/qicore-encounter"
             ]
           }
-        ],
-        "mustSupport": false
+        ]
       }
     ]
   }
